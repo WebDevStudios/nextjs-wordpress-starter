@@ -1,6 +1,6 @@
-# Next.js WordPress Example
+# Next.js WordPress Starter
 
-WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress).
+WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as our starter for Next.js frontend projects.
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
@@ -20,10 +20,10 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
   - [wd_s](#wd_s)
 
 ## Environments
-- [WordPress Backend](https://nextjs.wpengine.com/)
-- [Next.js Frontend](https://nextjs-wordpress-starter.vercel.app)
-- [Backend Hosting](https://my.wpengine.com/installs/nextjs)
-- [Frontend Hosting & Deployments](https://vercel.com/webdevstudios/)
+- [WordPress Backend](https://nextjs.wpengine.com/) (WPE)
+- [Backend Hosting](https://my.wpengine.com/installs/nextjs) (WPE)
+- [Next.js Frontend](https://nextjs-wordpress-starter.vercel.app) (Vercel)
+- [Frontend Hosting & Deployments](https://vercel.com/webdevstudios/) (Vercel)
 
 ## Credentials
 - See 1password "Next.js on WPE"
