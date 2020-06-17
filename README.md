@@ -2,6 +2,8 @@
 
 WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress).
 
+<a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
+
 ## Table of Contents
 - [Environments](#environments)
 - [Credentials](#credentials)
