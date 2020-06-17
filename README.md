@@ -4,7 +4,7 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
 
 ## Environments
 - [WordPress Backend](https://nextjs.wpengine.com/)
-- [Next.js Frontend](https://nextjs-wordpress-example.vercel.app)
+- [Next.js Frontend](nextjs-wordpress-starter.vercel.app)
 - [Backend Hosting](https://my.wpengine.com/installs/nextjs)
 - [Frontend Hosting & Deployments](https://vercel.com/webdevstudios/)
 
@@ -18,7 +18,7 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:WebDevStudios/nextjs-wordpress-example.git
+git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
 ```
 
 2. Install dependencies:
