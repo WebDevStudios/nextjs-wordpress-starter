@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Tags({ tags }) {
   return (
     <div className="max-w-2xl mx-auto">
@@ -12,3 +14,7 @@ export default function Tags({ tags }) {
     </div>
   );
 }
+
+Tags.propTypes = {
+  tags: PropTypes.object,
+};

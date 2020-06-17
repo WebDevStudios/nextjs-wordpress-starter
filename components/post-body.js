@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./post-body.module.css";
 
 export default function PostBody({ content }) {
@@ -10,3 +11,7 @@ export default function PostBody({ content }) {
     </div>
   );
 }
+
+PostBody.propTypes = {
+  content: PropTypes.string,
+};

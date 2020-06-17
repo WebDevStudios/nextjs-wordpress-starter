@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function PostTitle({ children }) {
   return (
     <h1
@@ -6,3 +8,7 @@ export default function PostTitle({ children }) {
     />
   );
 }
+
+PostTitle.propTypes = {
+  children: PropTypes.string,
+};

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Avatar from "@/components/avatar";
 import Date from "@/components/date";
 import CoverImage from "@/components/cover-image";
@@ -41,3 +42,12 @@ export default function HeroPost({
     </section>
   );
 }
+
+HeroPost.propTypes = {
+  title: PropTypes.string,
+  coverImage: PropTypes.object,
+  date: PropTypes.string,
+  excerpt: PropTypes.string,
+  author: PropTypes.object,
+  slug: PropTypes.string,
+};

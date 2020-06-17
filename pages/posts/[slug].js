@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "@/components/container";
@@ -60,6 +61,12 @@ export default function Post({ post, posts, preview }) {
     </Layout>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.object,
+  posts: PropTypes.object,
+  preview: PropTypes.bool,
+};
 
 export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData);

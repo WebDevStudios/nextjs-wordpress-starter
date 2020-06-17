@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Categories({ categories }) {
   return (
     <span className="ml-1">
@@ -14,3 +16,7 @@ export default function Categories({ categories }) {
     </span>
   );
 }
+
+Categories.propTypes = {
+  categories: PropTypes.object,
+};

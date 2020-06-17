@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Avatar from "@/components/avatar";
 import Date from "@/components/date";
 import CoverImage from "./cover-image";
@@ -35,3 +36,12 @@ export default function PostPreview({
     </div>
   );
 }
+
+PostPreview.propTypes = {
+  title: PropTypes.string,
+  coverImage: PropTypes.object,
+  date: PropTypes.string,
+  excerpt: PropTypes.string,
+  author: PropTypes.object,
+  slug: PropTypes.string,
+};

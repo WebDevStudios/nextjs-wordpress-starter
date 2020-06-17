@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Alert from "@/components/alert";
 import Footer from "@/components/footer";
 import Meta from "@/components/meta";
@@ -14,3 +15,8 @@ export default function Layout({ preview, children }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  preview: PropTypes.bool,
+  children: PropTypes.any.isRequired,
+};

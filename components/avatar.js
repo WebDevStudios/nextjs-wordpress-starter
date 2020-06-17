@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Avatar({ author }) {
   const name =
     author.firstName && author.lastName
@@ -15,3 +17,7 @@ export default function Avatar({ author }) {
     </div>
   );
 }
+
+Avatar.propTypes = {
+  author: PropTypes.object,
+};

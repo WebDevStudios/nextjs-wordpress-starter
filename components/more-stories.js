@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import PostPreview from "@/components/post-preview";
 
 export default function MoreStories({ posts }) {
@@ -22,3 +23,7 @@ export default function MoreStories({ posts }) {
     </section>
   );
 }
+
+MoreStories.propTypes = {
+  posts: PropTypes.array,
+};

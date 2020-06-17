@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Head from "next/head";
 import Container from "@/components/container";
 import MoreStories from "@/components/more-stories";
@@ -35,6 +36,11 @@ export default function Index({ allPosts: { edges }, preview }) {
     </>
   );
 }
+
+Index.propTypes = {
+  allPosts: PropTypes.object,
+  preview: PropTypes.bool,
+};
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
