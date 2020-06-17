@@ -2,9 +2,24 @@
 
 WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress).
 
+## Table of Contents
+- [Environments](#environments)
+- [Credentials](#credentials)
+- [Development](#development)
+  - [Workflow](#workflow)
+  - [Deployments](#deployments)
+- [WordPress Plugins](#wordpress-plugins)
+  - [Advanced Custom Fields Pro](#advanced-custom-fields-pro)
+  - [reSmush.it Image Optimizer](#resmushit-image-optimizer)
+  - [WDS SSO](#wds-sso)
+  - [WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication](#wp-graphql-wp-graphiql-and-wp-graphql-jwt-authentication)
+  - [WP Migrate DB Pro](#wp-migrate-db-pro)
+- [WordPress Theme](#wordpress-theme)
+  - [wd_s](#wd_s)
+
 ## Environments
 - [WordPress Backend](https://nextjs.wpengine.com/)
-- [Next.js Frontend](nextjs-wordpress-starter.vercel.app)
+- [Next.js Frontend](https://nextjs-wordpress-starter.vercel.app)
 - [Backend Hosting](https://my.wpengine.com/installs/nextjs)
 - [Frontend Hosting & Deployments](https://vercel.com/webdevstudios/)
 
@@ -41,7 +56,7 @@ yarn start
 ```
 The site will be available at http://localhost:3000
 
-## Development Workflow
+### Workflow
 
 Like any other WDS project...
 
@@ -51,6 +66,40 @@ Like any other WDS project...
 4. After peer review, PR will be merged back into `main`
 5. Repeat ♻️
 
-## Deployments
+### Deployments
 
 Vercel is connected to the WebDevStudios Github account. Deployment previews are available for PRs, and merges into `main` are auto deployed.
+
+## WordPress Plugins
+
+### Advanced Custom Fields Pro
+
+At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+
+### reSmush.it Image Optimizer
+
+Keeps image sizes small by optimizing them on upload.
+
+### WDS SSO
+
+Used as our internal single-sign on service.
+
+### WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication
+
+GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
+
+You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the Next.js Frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
+
+JWT Authentication allows the frontend to talk to the backend.
+
+### WP Migrate DB Pro
+
+Used for moving database and files between environments.
+
+## WordPress Theme
+
+There is no frontend for WordPress, but there is a theme for added functionality, as if it were another plugin. If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.
+
+### wd_s
+
+[wd_s](https://github.com/WebDevStudios/wd_s) houses `/acf-json` and other functions for building ACF Blocks.
