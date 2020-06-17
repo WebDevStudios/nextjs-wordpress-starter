@@ -1,8 +1,9 @@
-import Alert from "@/components/alert";
-import Footer from "@/components/footer";
-import Meta from "@/components/meta";
+import PropTypes from 'prop-types'
+import Alert from '@/components/alert'
+import Footer from '@/components/footer'
+import Meta from '@/components/meta'
 
-export default function Layout({ preview, children }) {
+export default function Layout({preview, children}) {
   return (
     <>
       <Meta />
@@ -12,5 +13,10 @@ export default function Layout({ preview, children }) {
       </div>
       <Footer />
     </>
-  );
+  )
+}
+
+Layout.propTypes = {
+  preview: PropTypes.bool,
+  children: PropTypes.any.isRequired
 }

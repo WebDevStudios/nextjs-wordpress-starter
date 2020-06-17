@@ -1,7 +1,11 @@
-import "@/styles/index.css";
+import PropTypes from 'prop-types'
+import '@/styles/index.css'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function App({Component, pageProps}) {
+  return <Component {...pageProps} />
 }
 
-export default MyApp;
+App.propTypes = {
+  Component: PropTypes.any.isRequired,
+  pageProps: PropTypes.object.isRequired
+}

@@ -1,15 +1,16 @@
-import Avatar from "@/components/avatar";
-import Date from "@/components/date";
-import CoverImage from "@/components/cover-image";
-import PostTitle from "@/components/post-title";
-import Categories from "@/components/categories";
+import PropTypes from 'prop-types'
+import Avatar from '@/components/avatar'
+import Date from '@/components/date'
+import CoverImage from '@/components/cover-image'
+import PostTitle from '@/components/post-title'
+import Categories from '@/components/categories'
 
 export default function PostHeader({
   title,
   coverImage,
   date,
   author,
-  categories,
+  categories
 }) {
   return (
     <>
@@ -30,5 +31,13 @@ export default function PostHeader({
         </div>
       </div>
     </>
-  );
+  )
+}
+
+PostHeader.propTypes = {
+  title: PropTypes.string,
+  coverImage: PropTypes.object,
+  date: PropTypes.string,
+  author: PropTypes.object,
+  categories: PropTypes.object
 }

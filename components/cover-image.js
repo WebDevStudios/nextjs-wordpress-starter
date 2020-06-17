@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import Link from 'next/link'
 
-export default function CoverImage({ title, coverImage, slug }) {
+export default function CoverImage({title, coverImage, slug}) {
   const image = (
     <img
       src={coverImage?.sourceUrl}
       className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
+        'hover:shadow-medium transition-shadow duration-200': slug
       })}
     />
   )
@@ -21,4 +22,10 @@ export default function CoverImage({ title, coverImage, slug }) {
       )}
     </div>
   )
+}
+
+CoverImage.propTypes = {
+  title: PropTypes.string,
+  coverImage: PropTypes.object,
+  slug: PropTypes.string
 }

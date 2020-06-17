@@ -1,8 +1,10 @@
-export default function Avatar({ author }) {
+import PropTypes from 'prop-types'
+
+export default function Avatar({author}) {
   const name =
     author.firstName && author.lastName
       ? `${author.firstName} ${author.lastName}`
-      : author.name;
+      : author.name
 
   return (
     <div className="flex items-center">
@@ -13,5 +15,9 @@ export default function Avatar({ author }) {
       />
       <div className="text-xl font-bold">{name}</div>
     </div>
-  );
+  )
+}
+
+Avatar.propTypes = {
+  author: PropTypes.object
 }

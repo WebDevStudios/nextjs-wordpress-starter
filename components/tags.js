@@ -1,4 +1,6 @@
-export default function Tags({ tags }) {
+import PropTypes from 'prop-types'
+
+export default function Tags({tags}) {
   return (
     <div className="max-w-2xl mx-auto">
       <p className="mt-8 text-lg font-bold">
@@ -10,5 +12,9 @@ export default function Tags({ tags }) {
         ))}
       </p>
     </div>
-  );
+  )
+}
+
+Tags.propTypes = {
+  tags: PropTypes.object
 }
