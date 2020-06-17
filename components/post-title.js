@@ -1,14 +1,14 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 
-export default function PostTitle({ children }) {
+export default function PostTitle({children}) {
   return (
     <h1
       className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"
-      dangerouslySetInnerHTML={{ __html: children }}
+      dangerouslySetInnerHTML={{__html: children}}
     />
-  );
+  )
 }
 
 PostTitle.propTypes = {
-  children: PropTypes.string,
-};
+  children: PropTypes.string
+}

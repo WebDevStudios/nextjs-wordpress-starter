@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import Avatar from "@/components/avatar";
-import Date from "@/components/date";
-import CoverImage from "./cover-image";
-import Link from "next/link";
+import PropTypes from 'prop-types'
+import Avatar from '@/components/avatar'
+import Date from '@/components/date'
+import CoverImage from './cover-image'
+import Link from 'next/link'
 
 export default function PostPreview({
   title,
@@ -10,7 +10,7 @@ export default function PostPreview({
   date,
   excerpt,
   author,
-  slug,
+  slug
 }) {
   return (
     <div>
@@ -21,7 +21,7 @@ export default function PostPreview({
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a
             className="hover:underline"
-            dangerouslySetInnerHTML={{ __html: title }}
+            dangerouslySetInnerHTML={{__html: title}}
           ></a>
         </Link>
       </h3>
@@ -30,11 +30,11 @@ export default function PostPreview({
       </div>
       <div
         className="text-lg leading-relaxed mb-4"
-        dangerouslySetInnerHTML={{ __html: excerpt }}
+        dangerouslySetInnerHTML={{__html: excerpt}}
       />
       <Avatar author={author} />
     </div>
-  );
+  )
 }
 
 PostPreview.propTypes = {
@@ -43,5 +43,5 @@ PostPreview.propTypes = {
   date: PropTypes.string,
   excerpt: PropTypes.string,
   author: PropTypes.object,
-  slug: PropTypes.string,
-};
+  slug: PropTypes.string
+}

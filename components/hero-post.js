@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import Avatar from "@/components/avatar";
-import Date from "@/components/date";
-import CoverImage from "@/components/cover-image";
-import Link from "next/link";
+import PropTypes from 'prop-types'
+import Avatar from '@/components/avatar'
+import Date from '@/components/date'
+import CoverImage from '@/components/cover-image'
+import Link from 'next/link'
 
 export default function HeroPost({
   title,
@@ -10,7 +10,7 @@ export default function HeroPost({
   date,
   excerpt,
   author,
-  slug,
+  slug
 }) {
   return (
     <section>
@@ -23,7 +23,7 @@ export default function HeroPost({
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a
                 className="hover:underline"
-                dangerouslySetInnerHTML={{ __html: title }}
+                dangerouslySetInnerHTML={{__html: title}}
               />
             </Link>
           </h3>
@@ -34,13 +34,13 @@ export default function HeroPost({
         <div>
           <div
             className="text-lg leading-relaxed mb-4"
-            dangerouslySetInnerHTML={{ __html: excerpt }}
+            dangerouslySetInnerHTML={{__html: excerpt}}
           />
           <Avatar author={author} />
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 HeroPost.propTypes = {
@@ -49,5 +49,5 @@ HeroPost.propTypes = {
   date: PropTypes.string,
   excerpt: PropTypes.string,
   author: PropTypes.object,
-  slug: PropTypes.string,
-};
+  slug: PropTypes.string
+}
