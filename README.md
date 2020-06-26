@@ -64,7 +64,7 @@ Create an environment variable:
 cp .env.local.example .env.local
 ```
 
-*Find the environment variable credentials from `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`*
+*The environment variable credentials are in: `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`*
 
 Start the development server:
 
