@@ -76,9 +76,11 @@ The frontend is now available at http://localhost:3000
 
 ## 🔧 WordPress Info (The Backend)
 
-The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins:
+The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins which are managed via Composer.
 
 **Advanced Custom Fields Pro** - ACF handles custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+
+**Custom Post Type UI** - Register custom post types through the WordPress dashboard.
 
 **reSmush.it Image Optimizer** - Keeps image sizes small by optimizing them on upload.
 
@@ -89,6 +91,8 @@ The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs
 **WP GraphiQL** - Use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
 
 **WP GraphQL ACF** - Gives the option to expose ACF fields in GraphQL.
+
+**WP GraphQL Custom Post Type UI** - Expose CPTUI data to GraphQL.
 
 **WP GraphQL Gutenberg** - Expose Block (Gutenberg) data to GraphQL.
 
