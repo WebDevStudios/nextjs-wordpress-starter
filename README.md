@@ -92,7 +92,7 @@ The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs
 
 **WP Migrate DB Pro** - Used for moving database and files between environments.
 
-**There is no frontend for WordPress** - But it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
+**There is no frontend for WordPress** - But it is running [wd_s](https://github.com/WebDevStudios/wd_s) which houses `/acf-json` and other functions for building ACF Blocks.
 
 ---
 
