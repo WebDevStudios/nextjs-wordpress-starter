@@ -106,7 +106,7 @@ There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWS
 
 ### Deployments
 
-[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds deployments.
+[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds and deployments.
 
 ### Git Branches
 
