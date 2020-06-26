@@ -36,7 +36,7 @@ The following frontend technologies are used on this project:
 - [PostCSS](https://postcss.org/)
 - [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
-The WordPress backend is running [WPGraphQL](https://github.com/wp-graphql/wp-graphql). So familiarity with writing [GraphQL](https://graphql.org/) queries is helpful.
+The backend (WordPress) is running [WPGraphQL](https://github.com/wp-graphql/wp-graphql). So familiarity with writing [GraphQL](https://graphql.org/) queries is helpful, but not required.
 
 ---
 
@@ -75,21 +75,21 @@ The frontend will be available at http://localhost:3000
 
 ---
 
-## 🔧 Backend Info (WordPress)
+## 🔧 WordPress Info (The Backend)
 
-The backend is a vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com), with the following plugins installed:
+The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins:
 
-**Advanced Custom Fields Pro** - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+**Advanced Custom Fields Pro** - ACF handles custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
 
 **reSmush.it Image Optimizer** - Keeps image sizes small by optimizing them on upload.
 
-**WDS SSO** - Used as our internal single-sign on service.
+**WDS SSO** - Our internal single-sign on service.
 
-**WP GraphQL** - GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
+**WP GraphQL** - GraphQL is installed and the endpoint is: `https://nextjs.wpengine.com/graphql`
 
-**WP GraphiQL** - You can use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
+**WP GraphiQL** - Use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
 
-**WP GraphQL JWT** - JWT Authentication allows the frontend to talk to the backend via environment variable `.env.local`
+**WP GraphQL JWT** - Allows the frontend to talk to the backend via environment variable `.env.local`
 
 **WP Migrate DB Pro** - Used for moving database and files between environments.
 
@@ -105,6 +105,15 @@ Contributing to this project is a lot like any other WDS project...
 
 There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWSr0Wesl2rrxhwJxHW3JUAMg/view?usp=sharing). Simply import the `.zip` file and you can tinker with the WordPress backend.
 
+### Deployments
+
+[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds deployments:
+
+### Branches
+
+- `main` - auto deploys
+- `Pull Requests` - deployment previews are automatically generated
+
 ### Git Workflow
 
 1. Create a `feature` branch off `main`
@@ -113,13 +122,6 @@ There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWS
 4. Vercel will create a deployment preview. It must pass and deploy successfully
 4. After peer review, PR will be merged back into `main`
 5. Repeat ♻️
-
-### Deployments
-
-[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds deployments
-
-- `main` - auto deploys
-- Deployment previews are available for Pull Requests
 
 ### Credentials
 - WordPress - 1password --> "Next.js on WPE"
