@@ -1,37 +1,50 @@
 # Next.js WordPress Starter
 
-WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as our starter for Next.js frontend projects.
+Our fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
+
+👉 https://nextjs-wordpress-starter.vercel.app
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
 ## Table of Contents
-- [Environments](#environments)
-- [Credentials](#credentials)
-- [Frontend Development (Next.js)](#frontend-development-nextjs)
+  - [Preface](#preface)
+  - [Frontend Development (Next.js)](#frontend-development-nextjs)
+    - [Install Frontend](#install-frontend)
+  - [Backend Info (WordPress)](#backend-info-wordpress)
   - [Workflow](#workflow)
-  - [Deployments](#deployments)
-- [Backend Development (WordPress)](#backend-development-wordpress)
-  - [WordPress Plugins](#wordpress-plugins)
-    - [Advanced Custom Fields Pro](#advanced-custom-fields-pro)
-    - [reSmush.it Image Optimizer](#resmushit-image-optimizer)
-    - [WDS SSO](#wds-sso)
-    - [WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication](#wp-graphql-wp-graphiql-and-wp-graphql-jwt-authentication)
-    - [WP Migrate DB Pro](#wp-migrate-db-pro)
-  - [WordPress Theme](#wordpress-theme)
-    - [wd_s](#wd_s)
+    - [Git Workflow](#git-workflow)
+    - [Deployments](#deployments)
+    - [Git and hosting](#git-and-hosting)
+    - [Credentials](#credentials)
+  - [Contributing](#contributing)
 
-## Environments
-- [WordPress Backend](https://nextjs.wpengine.com/) (WPE)
-- [Backend Hosting](https://my.wpengine.com/installs/nextjs) (WPE)
-- [Next.js Frontend](https://nextjs-wordpress-starter.vercel.app) (Vercel)
-- [Frontend Hosting & Deployments](https://vercel.com/webdevstudios/) (Vercel)
+---
 
-## Credentials
-- See 1password "Next.js on WPE"
-- See 1password "Next.js Environment Variables"
-- To view frontend hosting dashboard, ping Greg
+## Preface
+
+You will need the following installed on your computer:
+
+- [Node 12+](https://nodejs.org/en/)
+- [NPM 6+](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+
+The following frontend technologies are used on this project:
+
+- [TailwindCSS](https://tailwindcss.com/)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [PostCSS](https://postcss.org/)
+- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+The WordPress backend is running [WPGraphQL](https://github.com/wp-graphql/wp-graphql). So familiarity with writing [GraphQL](https://graphql.org/) queries is helpful.
+
+---
 
 ## Frontend Development (Next.js)
+
+The following instructions will standup a local install of the frontend. It queries data from the WordPress backend via GraphQL.
+
+### Install Frontend
 
 1. Clone the repo:
 
@@ -42,26 +55,52 @@ git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
 2. Install dependencies:
 
 ```bash
-yarn install
+yarn
 ```
 
-3. Create environment variable:
+3. Create an environment variable:
 
 ```bash
 cp .env.local.example .env.local
 ```
-4. Paste in the info from 1password into `.env.local`
+4. Find the credentials from `1password --> Next.js Environment Variables` and copy
 
-5. Start the development server:
+5. Paste the credentials into `.env.local`
+
+6. Start the development server:
 
 ```bash
 yarn start
 ```
-The site will be available at http://localhost:3000
+The frontend will be available at http://localhost:3000
 
-### Workflow
+---
 
-Like any other WDS project...
+## Backend Info (WordPress)
+
+A vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com). With the following plugins are installed
+
+**Advanced Custom Fields Pro** - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+
+**reSmush.it Image Optimizer** - Keeps image sizes small by optimizing them on upload.
+
+**WDS SSO** - Used as our internal single-sign on service.
+
+**WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication** - GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
+
+You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the Next.js Frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js) JWT Authentication allows the frontend to talk to the backend.
+
+**WP Migrate DB Pro** - Used for moving database and files between environments.
+
+**There is no frontend for WordPress**, but it is running [wd_s](https://github.com/WebDevStudios/wd_s) which houses `/acf-json` and other functions for building ACF Blocks. If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.
+
+---
+
+## Workflow
+
+Contributing to this project is a lot like any other WDS project...
+
+### Git Workflow
 
 1. Create a `feature` branch off `main`
 2. Open a draft Pull Request on Github
@@ -73,40 +112,17 @@ Like any other WDS project...
 
 Vercel is connected to the WebDevStudios Github account. Deployment previews are available for PRs, and merges into `main` are auto deployed.
 
-## Backend Development (WordPress)
+### Git and hosting
+- Backend Hosting https://my.wpengine.com/installs/nextjs
+- Frontend Hosting https://vercel.com/webdevstudios/
+- Frontend code repo https://github.com/WebDevStudios/nextjs-wordpress-starter
+- Backend code repo N/A
 
-At this time, there is not yet a seperate git repository for the WordPress backend. The backend is hosted at [WP Engine](https://nextjs.wpengine.com).
+### Credentials
+- See 1password "Next.js on WPE"
+- See 1password "Next.js Environment Variables"
+- To view frontend hosting dashboard, ping Greg
 
-### WordPress Plugins
+## Contributing
 
-#### Advanced Custom Fields Pro
-
-At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
-
-#### reSmush.it Image Optimizer
-
-Keeps image sizes small by optimizing them on upload.
-
-#### WDS SSO
-
-Used as our internal single-sign on service.
-
-#### WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication
-
-GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
-
-You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the Next.js Frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
-
-JWT Authentication allows the frontend to talk to the backend.
-
-#### WP Migrate DB Pro
-
-Used for moving database and files between environments.
-
-### WordPress Theme
-
-There is no frontend for WordPress, but there is a theme for added functionality, as if it were another plugin. If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.
-
-#### wd_s
-
-[wd_s](https://github.com/WebDevStudios/wd_s) houses `/acf-json` and other functions for building ACF Blocks.
+Your contributions and support tickets are welcome.
