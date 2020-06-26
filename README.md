@@ -1,8 +1,8 @@
 # Next.js WordPress Starter
 
-Our fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
+WebdevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
 
-👉 https://nextjs-wordpress-starter.vercel.app
+👉  https://nextjs-wordpress-starter.vercel.app
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
@@ -30,6 +30,7 @@ You will need the following installed on your computer:
 
 The following frontend technologies are used on this project:
 
+- [Next.js](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
@@ -42,9 +43,7 @@ The backend (WordPress) is running [WPGraphQL](https://github.com/wp-graphql/wp-
 
 ## 🚀 Getting Started
 
-The following instructions will standup a local install of the frontend. It queries data from the WordPress backend via GraphQL. Authentication happens via environment variable `.env.local`.
-
-### Install Frontend
+The following instructions will standup a local install of the frontend (Next.js). It queries data from the backend (WordPress) via GraphQL. Authentication happens via environment variable `.env.local`.
 
 **Clone the repo:**
 
@@ -58,7 +57,7 @@ git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
 yarn
 ```
 
-**Create an environment variable:**
+**Create an environment variable file:**
 
 ```bash
 cp .env.local.example .env.local
@@ -71,7 +70,7 @@ cp .env.local.example .env.local
 ```bash
 yarn start
 ```
-The frontend will be available at http://localhost:3000
+The frontend is now available at http://localhost:3000
 
 ---
 
