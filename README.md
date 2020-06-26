@@ -79,21 +79,21 @@ The frontend will be available at http://localhost:3000
 
 The backend is a vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com), with the following plugins installed:
 
-`Advanced Custom Fields Pro` - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+**Advanced Custom Fields Pro** - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
 
-`reSmush.it Image Optimizer` - Keeps image sizes small by optimizing them on upload.
+**reSmush.it Image Optimizer** - Keeps image sizes small by optimizing them on upload.
 
-`WDS SSO` - Used as our internal single-sign on service.
+**WDS SSO** - Used as our internal single-sign on service.
 
- `WP GraphQL` - GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
+**WP GraphQL** - GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
 
-`WP GraphiQL` - You can use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
+**WP GraphiQL** - You can use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
 
- `WP GraphQL JWT`: JWT Authentication allows the frontend to talk to the backend via environment variable `.env.local`
+**WP GraphQL JWT** - JWT Authentication allows the frontend to talk to the backend via environment variable `.env.local`
 
-`WP Migrate DB Pro`: Used for moving database and files between environments.
+**WP Migrate DB Pro** - Used for moving database and files between environments.
 
-`There is no frontend for WordPress`: But it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
+**There is no frontend for WordPress** - But it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
 
 ---
 
