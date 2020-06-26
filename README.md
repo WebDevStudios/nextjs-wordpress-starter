@@ -79,19 +79,21 @@ The frontend will be available at http://localhost:3000
 
 The backend is a vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com), with the following plugins installed:
 
-1. `Advanced Custom Fields Pro`: At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+`Advanced Custom Fields Pro` - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
 
-2. `reSmush.it Image Optimizer`: Keeps image sizes small by optimizing them on upload.
+`reSmush.it Image Optimizer` - Keeps image sizes small by optimizing them on upload.
 
-3. `WDS SSO`: Used as our internal single-sign on service.
+`WDS SSO` - Used as our internal single-sign on service.
 
-4. `WP GraphQL, WP GraphiQL, and WP GraphQL JWT Authentication`: GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
+ `WP GraphQL` - GraphQL is installed on the WordPress backend and the endpoint is: `https://nextjs.wpengine.com/graphql`
 
-You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js) JWT Authentication allows the frontend to talk to the backend.
+`WP GraphiQL` - You can use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into the frontend. You can view the current list of GraphQL queries in [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
 
-5. `WP Migrate DB Pro`: Used for moving database and files between environments.
+ `WP GraphQL JWT`: JWT Authentication allows the frontend to talk to the backend via environment variable `.env.local`
 
-6. `There is no frontend for WordPress`: But it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
+`WP Migrate DB Pro`: Used for moving database and files between environments.
+
+`There is no frontend for WordPress`: But it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
 
 ---
 
@@ -99,28 +101,30 @@ You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs
 
 Contributing to this project is a lot like any other WDS project...
 
+### Local by Flywheel
+
+There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWSr0Wesl2rrxhwJxHW3JUAMg/view?usp=sharing). Simply import the `.zip` file and you can tinker with the WordPress backend.
+
 ### Git Workflow
 
 1. Create a `feature` branch off `main`
 2. Open a draft Pull Request on Github
-3. When finished with your work, undraft, and assign to Lead Engineer for peer review
+3. When finished with your work, publish your PR, and assign to Lead Engineer for peer review
+4. Vercel will create a deployment preview. It must pass and deploy successfully
 4. After peer review, PR will be merged back into `main`
 5. Repeat ♻️
 
 ### Deployments
 
-Vercel is connected to the WebDevStudios Github account. Deployment previews are available for PRs, and merges into `main` are auto deployed.
+[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds deployments
 
-### Git and hosting
-- Backend Hosting https://my.wpengine.com/installs/nextjs
-- Frontend Hosting https://vercel.com/webdevstudios/
-- Frontend code repo https://github.com/WebDevStudios/nextjs-wordpress-starter
-- Backend code repo N/A
+- `main` - auto deploys
+- Deployment previews are available for Pull Requests
 
 ### Credentials
-- See 1password "Next.js on WPE"
-- See 1password "Next.js Environment Variables"
-- To view frontend hosting dashboard, ping Greg
+- WordPress - 1password --> "Next.js on WPE"
+- Environment Variable - 1password --> "Next.js Environment Variables"
+- To view hosting dashboards, ping Greg
 
 ## 🙌🏻 Contributing
 
