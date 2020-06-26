@@ -46,28 +46,29 @@ The following instructions will standup a local install of the frontend. It quer
 
 ### Install Frontend
 
-1. Clone the repo:
+Clone the repo:
 
 ```bash
 git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
 ```
 
-2. Install dependencies:
+Install dependencies:
 
 ```bash
 yarn
 ```
 
-3. Create an environment variable:
+Create an environment variable:
 
 ```bash
 cp .env.local.example .env.local
 ```
-4. Find the credentials from `1password --> Next.js Environment Variables` and copy
 
-5. Paste the credentials into `.env.local`
+Find the environment credentials from `1password --> Next.js Environment Variables`
 
-6. Start the development server:
+Copy & Paste the credentials into `.env.local`
+
+Start the development server:
 
 ```bash
 yarn start
