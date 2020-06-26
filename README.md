@@ -68,7 +68,7 @@ cp .env.local.example .env.local
 **Start the development server:**
 
 ```bash
-yarn start
+yarn dev
 ```
 The frontend is now available at http://localhost:3000
 
