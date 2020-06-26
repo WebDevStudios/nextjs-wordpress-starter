@@ -77,7 +77,7 @@ The frontend will be available at http://localhost:3000
 
 ## 🔧 Backend Info (WordPress)
 
-A vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins are installed:
+The backend is a vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com), with the following plugins installed:
 
 1. `Advanced Custom Fields Pro`: At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
 
