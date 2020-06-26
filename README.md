@@ -79,7 +79,7 @@ The frontend will be available at http://localhost:3000
 
 ## Backend Info (WordPress)
 
-A vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com). With the following plugins are installed
+A vanilla WordPress install hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins are installed:
 
 **Advanced Custom Fields Pro** - At WebDevStudios we leverage ACF to handle custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
 
@@ -93,7 +93,7 @@ You can use GrapiQL to build queries in the [WordPress Dashboard](https://nextjs
 
 **WP Migrate DB Pro** - Used for moving database and files between environments.
 
-**There is no frontend for WordPress**, but it is running [wd_s](https://github.com/WebDevStudios/wd_s) which houses `/acf-json` and other functions for building ACF Blocks. If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.
+**There is no frontend for WordPress**, but it is running [wd_s](https://github.com/WebDevStudios/wd_s). wd_s houses `/acf-json` and other functions for building ACF Blocks. *If you try to view the WordPress frontend, you will be redirected back to the WordPress dashboard.*
 
 ---
 
