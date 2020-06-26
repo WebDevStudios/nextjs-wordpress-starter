@@ -42,7 +42,7 @@ The WordPress backend is running [WPGraphQL](https://github.com/wp-graphql/wp-gr
 
 ## Frontend Development (Next.js)
 
-The following instructions will standup a local install of the frontend. It queries data from the WordPress backend via GraphQL.
+The following instructions will standup a local install of the frontend. It queries data from the WordPress backend via GraphQL. Authentication happens via environment variable `.env.local`.
 
 ### Install Frontend
 
@@ -64,9 +64,7 @@ Create an environment variable:
 cp .env.local.example .env.local
 ```
 
-Find the environment credentials from `1password --> Next.js Environment Variables`
-
-Copy & Paste the credentials into `.env.local`
+*Find the environment variable credentials from `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`*
 
 Start the development server:
 
