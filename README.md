@@ -84,11 +84,17 @@ The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs
 
 **WDS SSO** - Our internal single-sign on service.
 
-**WP GraphQL** - GraphQL is installed and the endpoint is: `https://nextjs.wpengine.com/graphql`
+**WP GraphQL** - GraphQL is installed and the endpoint is: `https://nextjs.wpengine.com/graphql`.
 
 **WP GraphiQL** - Use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
 
-**WP GraphQL JWT** - Allows the frontend to talk to the backend via environment variable `.env.local`
+**WP GraphQL ACF** - Gives the option to expose ACF fields in GraphQL.
+
+**WP GraphQL Gutenberg** - Expose Block (Gutenberg) data to GraphQL.
+
+**WP GraphQL JWT** - Allows the frontend to talk to the backend via environment variable `.env.local`.
+
+**WP GraphQL Yoast** - Exposes Yoast SEO settings in GraphQL.
 
 **WP Migrate DB Pro** - Used for moving database and files between environments.
 
