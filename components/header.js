@@ -7,13 +7,13 @@ export default function Header({menu}) {
   const menuItems = menu ? menu.edges[0].node.menuItems.nodes : false
   return (
     <Container>
-      <header className="border-b border-accent-3 pb-10 mb-10 mt-10">
-        <h2 className="text-5xl font-bold tracking-tight md:tracking-tighter leading-tight mb-5">
+      <header className="site-header">
+        <div className="site-header--logo">
           <Link href="/">
-            <a className="hover:underline">Blog</a>
+            <a>Blog</a>
           </Link>
           .
-        </h2>
+        </div>
         {menu && <Navigation menu={menuItems} location="main" />}
       </header>
     </Container>

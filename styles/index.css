@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* Your own custom utilities */
+
 .has-text-align-left {
   @apply text-left;
 }

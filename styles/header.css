@@ -1,0 +1,27 @@
+.site-header {
+  @apply border-b;
+  @apply border-gray-300;
+  @apply pb-10;
+  @apply mb-10;
+  @apply mt-10;
+}
+.site-header--logo {
+  @apply text-5xl font-bold tracking-tight leading-tight mb-5;
+}
+.site-header a:hover,
+.site-header a:focus,
+.site-header a.active {
+  @apply underline;
+}
+.site-header ul {
+  @apply flex flex-row flex-no-wrap;
+}
+.site-header ul ul {
+  display: none;
+}
+.site-header ul > li {
+  @apply text-lg mr-4;
+}
+.site-header ul > li > a {
+  @apply pt-2 pb-2 mr-2;
+}

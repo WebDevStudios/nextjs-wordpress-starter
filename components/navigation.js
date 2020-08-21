@@ -6,36 +6,30 @@ export default function Navigation({menu, location}) {
     <>
       {menu && (
         <nav className={location ? `menu-${location}` : ''}>
-          <ul className="flex flex-row flex-no-wrap">
+          <ul>
             {menu.map((item, index) => {
               const children =
                 item.childItems.nodes.length > 0 ? item.childItems.nodes : ''
               return (
-                <li key={index} className="text-lg mr-4">
+                <li key={index}>
                   <ActiveLink
                     href={convertWPURL(item.url)}
                     activeClassName="active"
                   >
-                    <a
-                      className="pt-2 pb-2 mr-2 leading-12 hover:underline"
-                      target={item.target ? item.target : '_self'}
-                    >
+                    <a target={item.target ? item.target : '_self'}>
                       {item.label}
                     </a>
                   </ActiveLink>
                   {children && (
-                    <ul style={{display: 'none'}} aria-expanded="false">
+                    <ul aria-hidden="true">
                       {children.map((item, index) => {
                         return (
-                          <li key={index} className="text-base">
+                          <li key={index}>
                             <ActiveLink
                               href={convertWPURL(item.url)}
                               activeClassName="active"
                             >
-                              <a
-                                className="pt-2 pb-2 leading-12 hover:underline"
-                                target={item.target ? item.target : '_self'}
-                              >
+                              <a target={item.target ? item.target : '_self'}>
                                 {item.label}
                               </a>
                             </ActiveLink>

@@ -1,0 +1,9 @@
+.site-footer nav ul {
+  @apply pt-10 flex items-center justify-center;
+}
+.site-footer nav ul li {
+  @apply mr-5 ml-5;
+}
+.site-footer nav ul ul {
+  display: none;
+}
