@@ -50,7 +50,6 @@
 .wp-block-image .aligncenter > figcaption,
 .wp-block-image.is-resized > figcaption {
   @apply table-caption;
-
   caption-side: bottom;
 }
 
@@ -90,4 +89,8 @@
 
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
+}
+
+ul li a.active {
+  text-decoration: underline;
 }

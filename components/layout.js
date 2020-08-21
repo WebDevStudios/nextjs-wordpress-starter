@@ -2,8 +2,9 @@ import PropTypes from 'prop-types'
 import Alert from '@/components/alert'
 import Footer from '@/components/footer'
 import Meta from '@/components/meta'
+import {getPrimaryMenu} from '@/lib/api'
 
-export default function Layout({preview, children}) {
+export default function Layout({preview, menu, children}) {
   return (
     <>
       <Meta />
@@ -11,7 +12,7 @@ export default function Layout({preview, children}) {
         <Alert preview={preview} />
         <main>{children}</main>
       </div>
-      <Footer />
+      <Footer menu={menu} />
     </>
   )
 }

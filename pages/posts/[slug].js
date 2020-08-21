@@ -14,7 +14,7 @@ import Head from 'next/head'
 import {CMS_NAME} from '@/lib/constants'
 import Tags from '@/components/tags'
 
-export default function Post({post, posts, preview}) {
+export default function Post({post, posts, preview, primaryMenu}) {
   const router = useRouter()
   const morePosts = posts?.edges
 
@@ -23,9 +23,9 @@ export default function Post({post, posts, preview}) {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} menu={primaryMenu}>
       <Container>
-        <Header />
+        <Header menu={primaryMenu} />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
