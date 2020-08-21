@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import {getPrimaryMenu, getMobileMenu} from '@/lib/api'
 import '@/styles/index.css'
 
-export default function App({Component, pageProps, primaryMenu, mobileMenu}) {
+export default function App({Component, pageProps, menus}) {
   return (
     <Component
       {...pageProps}
-      primaryMenu={primaryMenu}
-      mobileMenu={mobileMenu}
+      primaryMenu={menus.primary}
+      mobileMenu={menus.mobile}
     />
   )
 }
@@ -20,7 +20,7 @@ App.propTypes = {
 }
 
 /**
- * getInitialProps may be depreacted in Next 9.3
+ * NextJS recommends against using getInitialProps
  *
  * @link https://nextjs.org/docs/api-reference/data-fetching/getInitialProps
  * @link https://github.com/vercel/next.js/discussions/11183#discussioncomment-26430
@@ -29,9 +29,13 @@ App.propTypes = {
 App.getInitialProps = async ({Component, ctx}) => {
   const primaryMenu = await getPrimaryMenu()
   const mobileMenu = await getMobileMenu()
+  const menus = {
+    primary: primaryMenu,
+    mobile: mobileMenu
+  }
   let pageProps = {}
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx)
   }
-  return {pageProps, primaryMenu, mobileMenu}
+  return {pageProps, menus}
 }

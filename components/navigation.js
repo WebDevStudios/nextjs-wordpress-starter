@@ -6,7 +6,7 @@ export default function Navigation({menu, location}) {
     <>
       {menu && (
         <nav className={location ? `menu-${location}` : ''}>
-          <ul className="flex flex-row flex-no-wrap mb-8">
+          <ul className="flex flex-row flex-no-wrap">
             {menu.map((item, index) => {
               const children =
                 item.childItems.nodes.length > 0 ? item.childItems.nodes : ''
