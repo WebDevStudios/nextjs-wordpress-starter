@@ -9,6 +9,7 @@ export default function CoverImage({title, coverImage, slug}) {
       className={cn('shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug
       })}
+      alt={title}
     />
   )
   return (
