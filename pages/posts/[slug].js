@@ -11,7 +11,7 @@ import Layout from '@/components/layout'
 import {getAllPostsWithSlug, getPostAndMorePosts} from '@/lib/api'
 import PostTitle from '@/components/post-title'
 import Head from 'next/head'
-import {CMS_NAME} from '@/lib/constants'
+import {CMS_NAME} from '@/lib/config'
 import Tags from '@/components/tags'
 
 export default function Post({post, posts, preview}) {
