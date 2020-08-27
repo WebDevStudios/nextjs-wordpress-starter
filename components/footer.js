@@ -1,5 +1,5 @@
 import Container from './container'
-import {EXAMPLE_PATH} from '@/lib/constants'
+import {EXAMPLE_PATH} from '@/lib/config'
 import Navigation from '@/components/navigation'
 
 export default function Footer({menu}) {
