@@ -6,9 +6,8 @@ WebdevStudios fork of the [official Next.js WordPress Example](https://github.co
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
-## 🗂 Table of Contents
+## 🗂 Table of Contents <!-- omit in toc -->
 
-- [🗂 Table of Contents](#-table-of-contents)
 - [🎓 Preface](#-preface)
 - [🚀 Getting Started](#-getting-started)
 - [🔧 WordPress Info (The Backend)](#-wordpress-info-the-backend)
