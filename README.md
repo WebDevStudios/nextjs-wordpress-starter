@@ -1,22 +1,24 @@
-# Next.js WordPress Starter
+# Next.js WordPress Starter <!-- omit in toc -->
 
 WebdevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
 
-👉  https://nextjs-wordpress-starter.vercel.app
+👉 https://nextjs-wordpress-starter.vercel.app
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
-## Table of Contents
-  - [Preface](#preface)
-  - [Frontend Development (Next.js)](#frontend-development-nextjs)
-    - [Install Frontend](#install-frontend)
-  - [Backend Info (WordPress)](#backend-info-wordpress)
-  - [Workflow](#workflow)
-    - [Git Workflow](#git-workflow)
-    - [Deployments](#deployments)
-    - [Git and hosting](#git-and-hosting)
-    - [Credentials](#credentials)
-  - [Contributing](#contributing)
+## 🗂 Table of Contents
+
+- [🗂 Table of Contents](#-table-of-contents)
+- [🎓 Preface](#-preface)
+- [🚀 Getting Started](#-getting-started)
+- [🔧 WordPress Info (The Backend)](#-wordpress-info-the-backend)
+- [💻 Workflow](#-workflow)
+  - [Local by Flywheel](#local-by-flywheel)
+  - [Deployments](#deployments)
+  - [Git Branches](#git-branches)
+  - [Git Workflow](#git-workflow)
+  - [Credentials](#credentials)
+- [:octocat: Contributing](#octocat-contributing)
 
 ---
 
@@ -63,13 +65,14 @@ yarn
 cp .env.local.example .env.local
 ```
 
-*The environment variable credentials are in: `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`*
+_The environment variable credentials are in: `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`_
 
 **Start the development server:**
 
 ```bash
 yarn dev
 ```
+
 The frontend is now available at http://localhost:3000
 
 ---
@@ -133,10 +136,11 @@ There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWS
 6. Repeat ♻️
 
 ### Credentials
+
 - WordPress - `1password --> "Next.js on WPE"`
 - Environment Variable - `1password --> "Next.js Environment Variables"`
 - To view hosting dashboards, ping Greg
 
-## 🙌🏻 Contributing
+## :octocat: Contributing
 
 Your [contributions](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md) and issues are welcome.
