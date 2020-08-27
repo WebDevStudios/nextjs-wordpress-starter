@@ -12,19 +12,16 @@
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-example/issues"
   },
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-example/#readme",
-  "scripts": {
-    "build": "next build",
-    "clean": "rm -rf .next",
-    "dev": "yarn clean && yarn lint && next dev",
-    "develop": "yarn dev",
-    "export": "next export",
-    "lint": "./node_modules/.bin/eslint ./ --fix || true",
-    "start": "next start"
+  "engines": {
+    "node": ">=10"
+  },
+  "resolutions": {
+    "webpack": "^5.0.0-beta.28"
   },
   "dependencies": {
     "classnames": "2.2.6",
     "date-fns": "2.16.0",
-    "next": "^9.5.2",
+    "next": "next@canary",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -43,5 +40,14 @@
     "prop-types": "^15.7.2",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^1.7.5"
+  },
+  "scripts": {
+    "build": "next build",
+    "clean": "rm -rf .next",
+    "dev": "yarn clean && yarn lint && next dev",
+    "develop": "yarn dev",
+    "export": "next export",
+    "lint": "./node_modules/.bin/eslint ./ --fix || true",
+    "start": "next start"
   }
 }
