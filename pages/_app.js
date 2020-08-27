@@ -17,8 +17,7 @@ export default function App({Component, pageProps, menus}) {
 App.propTypes = {
   Component: PropTypes.any.isRequired,
   pageProps: PropTypes.object.isRequired,
-  primaryMenu: PropTypes.object,
-  mobileMenu: PropTypes.object
+  menus: PropTypes.object
 }
 
 /**

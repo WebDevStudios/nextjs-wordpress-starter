@@ -63,7 +63,8 @@ export default function Post({post, posts, preview, primaryMenu}) {
 Post.propTypes = {
   post: PropTypes.object,
   posts: PropTypes.object,
-  preview: PropTypes.bool
+  preview: PropTypes.bool,
+  primaryMenu: PropTypes.object
 }
 
 export async function getStaticProps({params, preview = false, previewData}) {

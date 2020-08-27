@@ -39,6 +39,7 @@ export default function Index({allPosts: {edges}, primaryMenu, preview}) {
 
 Index.propTypes = {
   allPosts: PropTypes.object,
+  primaryMenu: PropTypes.object,
   preview: PropTypes.bool
 }
 

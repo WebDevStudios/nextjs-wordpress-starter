@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import ActiveLink from '../utils/activeLink'
 import {convertWPURL} from '@/lib/helpers'
 
@@ -46,4 +47,9 @@ export default function Navigation({menu, location}) {
       )}
     </>
   )
+}
+
+Navigation.propTypes = {
+  menu: PropTypes.array,
+  location: PropTypes.string
 }

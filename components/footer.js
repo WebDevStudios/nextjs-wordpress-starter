@@ -1,9 +1,13 @@
+import PropTypes from 'prop-types'
 import Container from './container'
 import {EXAMPLE_PATH} from '@/lib/config'
 import Navigation from '@/components/navigation'
 
 export default function Footer({menu}) {
-  const menuItems = menu ? menu.edges[0].node.menuItems.nodes : false
+  const menuItems =
+    menu && menu.edges && menu.edges[0]
+      ? menu.edges[0].node.menuItems.nodes
+      : false
   return (
     <footer className="site-footer bg-accent-1 border-t border-accent-2">
       <Container>
@@ -30,4 +34,8 @@ export default function Footer({menu}) {
       </Container>
     </footer>
   )
+}
+
+Footer.propTypes = {
+  menu: PropTypes.object
 }

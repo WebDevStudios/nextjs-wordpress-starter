@@ -21,5 +21,7 @@ export default withRouter(ActiveLink)
 ActiveLink.propTypes = {
   router: PropTypes.object,
   children: PropTypes.object,
-  props: PropTypes.object
+  props: PropTypes.object,
+  href: PropTypes.string,
+  activeClassName: PropTypes.string
 }
