@@ -1,9 +1,6 @@
 import Container from './container'
 import {EXAMPLE_PATH} from '@/lib/config'
-<<<<<<< HEAD
 import Navigation from '@/components/navigation'
-=======
->>>>>>> main
 
 export default function Footer({menu}) {
   const menuItems = menu ? menu.edges[0].node.menuItems.nodes : false
