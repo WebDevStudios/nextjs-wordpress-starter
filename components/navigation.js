@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import ActiveLink from '../utils/activeLink'
-import {convertWPURL} from '@/lib/helpers'
 
 export default function Navigation({menu, location}) {
   return (
@@ -13,10 +12,7 @@ export default function Navigation({menu, location}) {
                 item.childItems.nodes.length > 0 ? item.childItems.nodes : ''
               return (
                 <li key={index}>
-                  <ActiveLink
-                    href={convertWPURL(item.url)}
-                    activeClassName="active"
-                  >
+                  <ActiveLink href={item.url} activeClassName="active">
                     <a target={item.target ? item.target : '_self'}>
                       {item.label}
                     </a>
@@ -27,7 +23,7 @@ export default function Navigation({menu, location}) {
                         return (
                           <li key={index}>
                             <ActiveLink
-                              href={convertWPURL(item.url)}
+                              href={item.url}
                               activeClassName="active"
                             >
                               <a target={item.target ? item.target : '_self'}>
