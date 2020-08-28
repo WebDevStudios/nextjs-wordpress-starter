@@ -12,7 +12,7 @@ import getAllPostsWithSlug from '@/lib/queries/getAllPostsWithSlug'
 import getPostAndMorePosts from '@/lib/queries/getPostAndMorePosts'
 import PostTitle from '@/components/post-title'
 import Head from 'next/head'
-import {CMS_NAME} from '@/lib/constants'
+import {CMS_NAME} from '@/lib/config'
 import Tags from '@/components/tags'
 
 export default function Post({post, posts, preview}) {

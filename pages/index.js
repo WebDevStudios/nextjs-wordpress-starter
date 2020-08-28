@@ -5,8 +5,13 @@ import MoreStories from '@/components/more-stories'
 import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
+<<<<<<< HEAD
 import getAllPostsForHome from '@/lib/queries/getAllPostsForHome'
 import {CMS_NAME} from '@/lib/constants'
+=======
+import {getAllPostsForHome} from '@/lib/api'
+import {CMS_NAME} from '@/lib/config'
+>>>>>>> main
 
 export default function Index({allPosts: {edges}, preview}) {
   const heroPost = edges[0]?.node // eslint-disable-line
