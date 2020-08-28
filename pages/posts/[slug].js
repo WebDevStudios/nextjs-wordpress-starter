@@ -7,13 +7,13 @@ import MoreStories from '@/components/more-stories'
 import PostHeader from '@/components/post-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
-import {getAllPostsWithSlug, getPostAndMorePosts} from '@/lib/api'
+import {getMenus, getAllPostsWithSlug, getPostAndMorePosts} from '@/lib/api'
 import PostTitle from '@/components/post-title'
 import Head from 'next/head'
 import {CMS_NAME} from '@/lib/config'
 import Tags from '@/components/tags'
 
-export default function Post({post, posts, preview, primaryMenu}) {
+export default function Post({post, posts, preview, menus}) {
   const router = useRouter()
   const morePosts = posts?.edges
 
@@ -22,7 +22,7 @@ export default function Post({post, posts, preview, primaryMenu}) {
   }
 
   return (
-    <Layout preview={preview} menu={primaryMenu}>
+    <Layout preview={preview} menus={menus}>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -64,17 +64,19 @@ Post.propTypes = {
   post: PropTypes.object,
   posts: PropTypes.object,
   preview: PropTypes.bool,
-  primaryMenu: PropTypes.object
+  menus: PropTypes.object
 }
 
 export async function getStaticProps({params, preview = false, previewData}) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData)
+  const menus = await getMenus()
 
   return {
     props: {
       preview,
       post: data.post,
-      posts: data.posts
+      posts: data.posts,
+      menus: menus
     }
   }
 }

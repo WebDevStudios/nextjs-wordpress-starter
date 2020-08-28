@@ -2,12 +2,10 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import Container from './container'
 import Navigation from '@/components/navigation'
+import {getMenuBySlug} from '../lib/helpers'
 
-export default function Header({menu}) {
-  const menuItems =
-    menu && menu.edges && menu.edges[0]
-      ? menu.edges[0].node.menuItems.nodes
-      : false
+export default function Header({menus}) {
+  const menu = menus?.primary
   return (
     <Container>
       <header className="site-header">
@@ -17,12 +15,12 @@ export default function Header({menu}) {
           </Link>
           .
         </div>
-        {menu && <Navigation menu={menuItems} location="main" />}
+        {menu && <Navigation menu={menu} location="main" />}
       </header>
     </Container>
   )
 }
 
 Header.propTypes = {
-  menu: PropTypes.object
+  menus: PropTypes.object
 }

@@ -1,16 +1,20 @@
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import ActiveLink from '../utils/activeLink'
 import {convertWPURL} from '@/lib/helpers'
 
 export default function Navigation({menu, location}) {
+  let items = menu[0] && menu[0].node.menuItems.nodes
   return (
     <>
-      {menu && (
+      {items && (
         <nav className={location ? `menu-${location}` : ''}>
           <ul>
-            {menu.map((item, index) => {
+            {items.map((item, index) => {
               const children =
-                item.childItems.nodes.length > 0 ? item.childItems.nodes : ''
+                item.childItems && item.childItems.nodes.length > 0
+                  ? item.childItems.nodes
+                  : ''
               return (
                 <li key={index}>
                   <ActiveLink

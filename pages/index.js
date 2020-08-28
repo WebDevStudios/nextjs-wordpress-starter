@@ -5,16 +5,17 @@ import MoreStories from '@/components/more-stories'
 import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
-import {getAllPostsForHome} from '@/lib/api'
+import {getMenus, getAllPostsForHome} from '@/lib/api'
 import {CMS_NAME} from '@/lib/config'
 
-export default function Index({allPosts: {edges}, primaryMenu, preview}) {
+export default function Index({allPosts: {edges}, preview, menus}) {
+  console.log(menus)
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
 
   return (
     <>
-      <Layout preview={preview} menu={primaryMenu}>
+      <Layout preview={preview} menus={menus}>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
@@ -39,13 +40,15 @@ export default function Index({allPosts: {edges}, primaryMenu, preview}) {
 
 Index.propTypes = {
   allPosts: PropTypes.object,
-  primaryMenu: PropTypes.object,
-  preview: PropTypes.bool
+  preview: PropTypes.bool,
+  menus: PropTypes.object
 }
 
 export async function getStaticProps({preview = false}) {
   const allPosts = await getAllPostsForHome(preview)
+  const menus = await getMenus()
+
   return {
-    props: {allPosts, preview}
+    props: {allPosts, preview, menus}
   }
 }
