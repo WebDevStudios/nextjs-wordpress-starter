@@ -28,8 +28,8 @@ App.propTypes = {
  * @param {*} param
  */
 App.getInitialProps = async ({Component, ctx}) => {
-  const primaryMenu = await getPrimaryMenu()
-  const mobileMenu = await getMobileMenu()
+  const primaryMenu = ''
+  const mobileMenu = ''
   const menus = {
     primary: primaryMenu,
     mobile: mobileMenu
