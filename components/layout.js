@@ -13,7 +13,7 @@ export default function Layout({preview, menus, children}) {
       <div className="min-h-screen">
         <main>{children}</main>
       </div>
-      {/* <Footer menus={menus} /> */}
+      <Footer menus={menus} />
     </>
   )
 }
