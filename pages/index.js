@@ -49,6 +49,7 @@ export async function getStaticProps({preview = false}) {
   const menus = await getMenus()
 
   return {
-    props: {allPosts, preview, menus}
+    props: {allPosts, preview, menus},
+    revalidate: 60
   }
 }

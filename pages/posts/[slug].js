@@ -35,7 +35,7 @@ export default function Post({post, posts, preview, menus}) {
                 </title>
                 <meta
                   property="og:image"
-                  content={post.featuredImage?.sourceUrl}
+                  content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
               <PostHeader
@@ -76,8 +76,10 @@ export async function getStaticProps({params, preview = false, previewData}) {
       preview,
       post: data.post,
       posts: data.posts,
-      menus: menus
-    }
+      menus: menus,
+      posts: data.posts
+    },
+    revalidate: 60
   }
 }
 
