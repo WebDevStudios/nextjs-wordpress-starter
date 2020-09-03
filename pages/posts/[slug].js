@@ -40,7 +40,7 @@ export default function Post({post, posts, preview, menus}) {
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.featuredImage?.node}
+                coverImage={post.featuredImage}
                 date={post.date}
                 author={post.author}
                 categories={post.categories}
@@ -76,8 +76,10 @@ export async function getStaticProps({params, preview = false, previewData}) {
       preview,
       post: data.post,
       posts: data.posts,
-      menus: menus
-    }
+      menus: menus,
+      posts: data.posts
+    },
+    revalidate: 60
   }
 }
 

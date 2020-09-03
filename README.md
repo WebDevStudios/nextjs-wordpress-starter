@@ -1,6 +1,6 @@
 # Next.js WordPress Starter <!-- omit in toc -->
 
-WebdevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
+WebDevStudios fork of the [official Next.js WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress). Used as a starter for headless WordPress projects.
 
 👉 https://nextjs-wordpress-starter.vercel.app
 
