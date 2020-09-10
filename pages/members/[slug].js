@@ -32,6 +32,9 @@ export default function Member({member}) {
                 </title>
               </Head>
               <PostTitle>{member.title}</PostTitle>
+              <h2 className="text-3xl font-medium">
+                {member.acf_team_member_title.title}
+              </h2>
               <PostBody content={member.content} />
             </article>
           </>
