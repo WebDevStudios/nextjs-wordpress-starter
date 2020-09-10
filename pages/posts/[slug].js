@@ -13,6 +13,7 @@ import PostTitle from '@/components/post-title'
 import Head from 'next/head'
 import {CMS_NAME} from '@/lib/config'
 import Tags from '@/components/tags'
+import CustomFields from '@/components/custom-fields'
 
 export default function Post({post, posts, preview}) {
   const router = useRouter()
@@ -48,6 +49,9 @@ export default function Post({post, posts, preview}) {
                 categories={post.categories}
               />
               <PostBody content={post.content} />
+              <div>
+                <CustomFields customFields={post.acf_whatiminto} />
+              </div>
               <footer>
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer>
