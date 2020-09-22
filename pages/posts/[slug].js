@@ -14,6 +14,7 @@ import Head from 'next/head'
 import {CMS_NAME} from '@/lib/config'
 import Tags from '@/components/tags'
 import CustomFields from '@/components/custom-fields'
+import Seo from '@/components/seo'
 
 export default function Post({post, posts, preview}) {
   const router = useRouter()
@@ -36,6 +37,7 @@ export default function Post({post, posts, preview}) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
+                <Seo seo={post.seo} />
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node?.sourceUrl}
