@@ -23,8 +23,13 @@ export default function Post({post, posts, preview}) {
     return <ErrorPage statusCode={404} />
   }
 
+  const seo = {
+    ...post.seo,
+    ogImage: post.featuredImage?.node?.sourceUrl
+  }
+
   return (
-    <Layout preview={preview} seo={post.seo}>
+    <Layout preview={preview} seo={seo}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -36,10 +41,6 @@ export default function Post({post, posts, preview}) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node?.sourceUrl}
-                />
               </Head>
               <PostHeader
                 title={post.title}

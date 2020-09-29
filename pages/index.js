@@ -6,21 +6,21 @@ import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import {getAllPostsForHome} from '@/lib/api'
-import {CMS_NAME} from '@/lib/config'
+import {CMS_NAME, HOME_OG_IMAGE_URL} from '@/lib/config'
 
 export default function Index({allPosts: {edges}, preview}) {
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
+  const seo = {
+    metaDesc: `A statically generated blog example using Next.js and ${CMS_NAME}.`,
+    ogImage: HOME_OG_IMAGE_URL
+  };
 
   return (
     <>
-      <Layout preview={preview}>
+      <Layout preview={preview} seo={seo}>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
-          <meta
-            name="description"
-            content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-          />
         </Head>
         <Container>
           <Intro />

@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import {HOME_OG_IMAGE_URL} from '@/lib/config'
 import PropTypes from 'prop-types'
 
 export default function Meta({seo}) {
   let metaDesc = ''
   let metaRobots = ''
+  let ogImage = ''
+
   if (seo) {
     if (seo.metaDesc) {
       metaDesc = <meta name="description" content={seo.metaDesc} />
@@ -14,7 +15,12 @@ export default function Meta({seo}) {
       const metaRobotsContent = `${seo.metaRobotsNoindex}, ${seo.metaRobotsNofollow}`
       metaRobots = <meta name="robots" content={metaRobotsContent} />
     }
+
+    if (seo.ogImage) {
+      ogImage = <meta property="og:image" content={seo.ogImage} />
+    }
   }
+
   return (
     <Head>
       <link
@@ -45,9 +51,9 @@ export default function Meta({seo}) {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
       {metaDesc}
       {metaRobots}
+      {ogImage}
     </Head>
   )
 }
@@ -57,6 +63,7 @@ Meta.propTypes = {
     metaDesc: PropTypes.string,
     metaKeywords: PropTypes.string,
     metaRobotsNofollow: PropTypes.string,
-    metaRobotsNoindex: PropTypes.string
+    metaRobotsNoindex: PropTypes.string,
+    ogImage: PropTypes.string,
   })
 }
