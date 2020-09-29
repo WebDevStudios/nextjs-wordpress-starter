@@ -47,9 +47,13 @@ Index.propTypes = {
 }
 
 export async function getStaticProps({preview = false}) {
-  const allPosts = await getAllPostsForHome(preview)
+  const data = await getAllPostsForHome(preview)
   return {
-    props: {allPosts, preview},
+    props: {
+      allPosts: data?.posts,
+      globalSeo: data?.seo,
+      preview
+    },
     revalidate: 60
   }
 }
