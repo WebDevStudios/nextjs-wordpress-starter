@@ -1,7 +1,20 @@
 import Head from 'next/head'
 import {HOME_OG_IMAGE_URL} from '@/lib/config'
+import PropTypes from 'prop-types'
 
-export default function Meta() {
+export default function Meta({seo}) {
+  let metaDesc = ''
+  let metaRobots = ''
+  if (seo) {
+    if (seo.metaDesc) {
+      metaDesc = <meta name="description" content={seo.metaDesc} />
+    }
+
+    if (seo.metaRobotsNoindex && seo.metaRobotsNofollow) {
+      const metaRobotsContent = `${seo.metaRobotsNoindex}, ${seo.metaRobotsNofollow}`
+      metaRobots = <meta name="robots" content={metaRobotsContent} />
+    }
+  }
   return (
     <Head>
       <link
@@ -33,6 +46,17 @@ export default function Meta() {
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      {metaDesc}
+      {metaRobots}
     </Head>
   )
+}
+
+Meta.propTypes = {
+  seo: PropTypes.shape({
+    metaDesc: PropTypes.string,
+    metaKeywords: PropTypes.string,
+    metaRobotsNofollow: PropTypes.string,
+    metaRobotsNoindex: PropTypes.string
+  })
 }
