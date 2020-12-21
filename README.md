@@ -15,10 +15,11 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
   - [Local by Flywheel](#local-by-flywheel)
   - [Migrate DB Pro](#migrate-db-pro)
   - [Deployments](#deployments)
+  - [ENV Variables](#env-variables)
   - [Git Branches](#git-branches)
   - [Git Workflow](#git-workflow)
   - [Credentials](#credentials)
-  - [Copying between WPEngine Environments](#copying-between-wpengine-environments)
+  - [WP Engine Environments](#wp-engine-environments)
 - [:octocat: Contributing](#octocat-contributing)
 
 ---
@@ -97,7 +98,25 @@ You can use Migrate DB Pro to pull databases and files. **Please see 1password -
 
 ### Deployments
 
-[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-example) is connected to this repo and handles builds and deployments.
+[Vercel](https://nextjs-wordpress-starter-gregrickaby.webdevstudios.vercel.app) is connected to this repo and handles builds and deployments.
+
+### ENV Variables
+
+You can download the ENV variables from Vercel with the following commands:
+
+```bash
+vercel env pull
+```
+
+**Note: You may need to connect your local to Vercel first!**
+
+```bash
+vercel
+```
+
+And then answer the questions in the command line when prompted.
+
+---
 
 ### Git Branches
 
@@ -120,9 +139,9 @@ You can use Migrate DB Pro to pull databases and files. **Please see 1password -
 - WordPress - `1password --> Next.js Starter --> WordPress`
 - To view hosting dashboards, ping Greg
 
-### Copying between WPEngine Environments
+### WP Engine Environments
 
-WP Engine supports [copying between environments](https://wpengine.com/support/copy-site/). For example, to copy Develop --> Staging:
+WP Engine supports [copying environments](https://wpengine.com/support/copy-site/). For example, to copy Develop --> Staging:
 
 1. Log into the WP Engine [User Portal](https://my.wpengine.com/sites)
 2. Click on [Nextjsstgstart](https://my.wpengine.com/installs/nextjsstgstart)
