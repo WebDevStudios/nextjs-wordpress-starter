@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://the-nextjs-starter.vercel.app/</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/about</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/isr</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/ssg</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/ssr</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/posts/12</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/posts/11</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+<url><loc>https://the-nextjs-starter.vercel.app/posts/1</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2020-11-23T19:12:41.393Z</lastmod></url>
+</urlset>

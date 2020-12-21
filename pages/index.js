@@ -1,51 +1,15 @@
-import PropTypes from 'prop-types'
-import Head from 'next/head'
-import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroPost from '@/components/hero-post'
-import Intro from '@/components/intro'
-import Layout from '@/components/layout'
-import {getAllPostsForHome} from '@/lib/api'
-import {CMS_NAME} from '@/lib/config'
+import Layout from '@/components/common/Layout'
+import Hero from '@/components/molecules/Hero'
+import config from '@/lib/config'
 
-export default function Index({allPosts: {edges}, preview}) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
-
+export default function HomePage() {
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
+    <Layout title={config.siteTitle} description={config.siteDescription}>
+      <Hero
+        background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
+        title="Next.js Starter"
+        description="A slightly opinionated, yet bare-bones Next.js starter."
+      />
+    </Layout>
   )
-}
-
-Index.propTypes = {
-  allPosts: PropTypes.object,
-  preview: PropTypes.bool
-}
-
-export async function getStaticProps({preview = false}) {
-  const allPosts = await getAllPostsForHome(preview)
-  return {
-    props: {allPosts, preview},
-    revalidate: 60
-  }
 }

@@ -1,14 +1,18 @@
-# How To Contribute
+Thanks for contributing — you rock! 🤘
 
-WebDevStudios welcomes contributions and bug fixes from third-parties. Here are the steps to get started:
+## Maintainers
 
-* Create an [Issue](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) so we can all discuss your idea
-* Fork NextJS WordPress Starter
-* Create a feature/hotfix branch off [main](https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/master)
-* Commit code changes to your feature/hotifx branch
-* Continue to merge master into your feature/hotifx branch so it stays current
-* Test across all major browsers
-* Accessibility testing (both WCAG 2.1AA and Section 508)
-* Must pass linting
-* Submit a [Pull Request](https://github.com/WebDevStudios/nextjs-wordpress-starter/pulls) and reference your Issue #
-* If everything tests out on our end, we may merge in your Pull Request
+This repo is maintained by [Greg Rickaby](https://gregrickaby.com/).
+
+## Submitting issues
+
+Before submitting your issue, make sure it has not been discussed earlier. You can search for existing tickets [here](https://github.com/gregrickaby/nextjs-starter/issues).
+
+## Contributing code
+
+Found a bug you can fix? Fantastic! Patches are always welcome. Here's a few tips for crafting a great pull request:
+
+- Include the purpose of your PR. Be explicit about the issue your PR solves. Fill out the Pull Request template completely.
+- Reference any existing issues that relate to your PR. This allows everyone to easily see all related discussions.
+
+By contributing code to Kindergarten Flashcards, you grant its use under the [GNU General Public License v2 (or later)](LICENSE).
