@@ -9,10 +9,11 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
 ## 🗂 Table of Contents <!-- omit in toc -->
 
 - [🎓 Preface](#-preface)
-- [🚀 Getting Started](#-getting-started)
-- [🔧 WordPress Info (The Backend)](#-wordpress-info-the-backend)
+- [🚀 Front-end Setup (Next.js)](#-front-end-setup-nextjs)
+- [🔧 Back-end Setup (WordPress)](#-back-end-setup-wordpress)
 - [💻 Workflow](#-workflow)
   - [Local by Flywheel](#local-by-flywheel)
+  - [Migrate DB Pro](#migrate-db-pro)
   - [Deployments](#deployments)
   - [Git Branches](#git-branches)
   - [Git Workflow](#git-workflow)
@@ -25,31 +26,26 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
 
 You will need the following installed on your computer:
 
-- [Node 12+](https://nodejs.org/en/)
-- [NPM 6+](https://nodejs.org/en/)
+- [Node 12](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
-
-The following frontend technologies are used on this project:
-
-- [Next.js](https://nextjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Prettier](https://prettier.io/)
-- [ESLint](https://eslint.org/)
-- [PostCSS](https://postcss.org/)
-- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
-
-The backend (WordPress) is running [WPGraphQL](https://github.com/wp-graphql/wp-graphql). So familiarity with writing [GraphQL](https://graphql.org/) queries is helpful, but not required.
+- [Vercel CLI](https://vercel.com/download)
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Front-end Setup (Next.js)
 
-The following instructions will standup a local install of the frontend (Next.js). It queries data from the backend (WordPress) via GraphQL. Authentication happens via environment variable `.env.local`.
+The following instructions will standup a local install of Next.js (front-end). It queries data from WordPress (back-end).
 
 **Clone the repo:**
 
 ```bash
 git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
+```
+
+**Check out the `staging` branch**
+
+```bash
+git checkout staging
 ```
 
 **Install dependencies:**
@@ -61,10 +57,8 @@ yarn
 **Create an environment variable file:**
 
 ```bash
-cp .env.local.example .env.local
+vercel env pull
 ```
-
-_The environment variable credentials are in: `1password --> Next.js Environment Variables`. Copy & paste those credentials into `.env.local`_
 
 **Start the development server:**
 
@@ -76,35 +70,15 @@ The frontend is now available at http://localhost:3000
 
 ---
 
-## 🔧 WordPress Info (The Backend)
+## 🔧 Back-end Setup (WordPress)
 
-The backend is a vanilla WordPress install, hosted at [WP Engine](https://nextjs.wpengine.com) with the following plugins which are managed via Composer.
+The backend is hosted at WP Engine. There are 3 environments...please use Develop for working locally.
 
-**Advanced Custom Fields Pro** - ACF handles custom post meta and [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/).
+- [Develop](https://nextjsdevstart.wpengine.com/wp-admin/)
+- [Staging](https://nextjsstgstart.wpengine.com/wp-admin/)
+- [Production](https://nextjs.wpengine.com/wp-admin)
 
-**Custom Post Type UI** - Register custom post types through the WordPress dashboard.
-
-**reSmush.it Image Optimizer** - Keeps image sizes small by optimizing them on upload.
-
-**WDS SSO** - Our internal single-sign on service.
-
-**WP GraphQL** - GraphQL is installed and the endpoint is: `https://nextjs.wpengine.com/graphql`.
-
-**WP GraphiQL** - Use WP GraphiQL to build queries in the [WordPress Dashboard](https://nextjs.wpengine.com/wp-admin/admin.php?page=wp-graphiql%2Fwp-graphiql.php). Those queries can be copied and pasted right into [/lib/api.js](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/lib/api.js)
-
-**WP GraphQL ACF** - Gives the option to expose ACF fields in GraphQL.
-
-**WP GraphQL Custom Post Type UI** - Expose CPTUI data to GraphQL.
-
-**WP GraphQL Gutenberg** - Expose Block (Gutenberg) data to GraphQL.
-
-**WP GraphQL JWT** - Allows the frontend to talk to the backend via environment variable `.env.local`.
-
-**WP GraphQL Yoast** - Exposes Yoast SEO settings in GraphQL.
-
-**WP Migrate DB Pro** - Used for moving database and files between environments.
-
-**There is no frontend for WordPress** - But it is running [wd_s](https://github.com/WebDevStudios/wd_s) which houses `/acf-json` and other functions for building ACF Blocks.
+**Note: There is no frontend for WordPress** - But it is running [wd_s](https://github.com/WebDevStudios/wd_s) which houses `/acf-json` and other functions.
 
 ---
 
@@ -114,7 +88,11 @@ Contributing to this project is a lot like any other WDS project...
 
 ### Local by Flywheel
 
-There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWSr0Wesl2rrxhwJxHW3JUAMg/view?usp=sharing). Simply import the `.zip` file and you can tinker with the WordPress backend.
+There is an [Local export available](https://drive.google.com/drive/folders/1Ju81KThAUHOuWRNslw_m7xZScwoJYkr0). Simply import the `nextjs-wp-XX.XX.XX.zip` file and you can tinker with the WordPress backend.
+
+### Migrate DB Pro
+
+You can use Migrate DB Pro to pull databases and files. **Please see 1password --> Next.js Starter --> Migrate DB Pro**
 
 ### Deployments
 
@@ -122,22 +100,23 @@ There is an [Local export available](https://drive.google.com/file/d/1p0qvsf2OWS
 
 ### Git Branches
 
-- `main` - auto deploys
+- `develop` - auto deploys on Vercel
+- `staging` - auto deploys on Vercel
+- `main` - auto deploys on Vercel
 - `Pull Requests` - deployment previews are automatically generated by Vercel
 
 ### Git Workflow
 
-1. Create a `feature` branch off `main`
+1. Create a `feature` branch off `staging`
 2. Open a draft Pull Request on Github
 3. When finished with your work, fill out the PR template and publish your PR
 4. Vercel will create a deployment preview. It must pass and deploy successfully
-5. After peer review, PR will be merged back into `main`
+5. After peer review, PR will be merged back into `staging`
 6. Repeat ♻️
 
 ### Credentials
 
-- WordPress - `1password --> "Next.js on WPE"`
-- Environment Variable - `1password --> "Next.js Environment Variables"`
+- WordPress - `1password --> Next.js Starter --> WordPress`
 - To view hosting dashboards, ping Greg
 
 ## :octocat: Contributing
