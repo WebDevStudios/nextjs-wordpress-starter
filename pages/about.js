@@ -1,5 +1,5 @@
 import Layout from '@/components/common/Layout'
-import {Info} from '@/components/molecules/Alerts'
+import {Info} from '@/components/molecules/Alert'
 
 export default function About() {
   return (
