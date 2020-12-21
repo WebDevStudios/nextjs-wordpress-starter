@@ -2,11 +2,11 @@ Thanks for contributing — you rock! 🤘
 
 ## Maintainers
 
-This repo is maintained by [Greg Rickaby](https://gregrickaby.com/).
+This repo is maintained by [WebDevStudios](https://webdevstudios.com).
 
 ## Submitting issues
 
-Before submitting your issue, make sure it has not been discussed earlier. You can search for existing tickets [here](https://github.com/gregrickaby/nextjs-starter/issues).
+Before submitting your issue, make sure it has not been discussed earlier. You can search for existing tickets [here](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues).
 
 ## Contributing code
 
