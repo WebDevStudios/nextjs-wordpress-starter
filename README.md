@@ -18,6 +18,7 @@ WebDevStudios fork of the [official Next.js WordPress Example](https://github.co
   - [Git Branches](#git-branches)
   - [Git Workflow](#git-workflow)
   - [Credentials](#credentials)
+  - [Copying between WPEngine Environments](#copying-between-wpengine-environments)
 - [:octocat: Contributing](#octocat-contributing)
 
 ---
@@ -118,6 +119,18 @@ You can use Migrate DB Pro to pull databases and files. **Please see 1password -
 
 - WordPress - `1password --> Next.js Starter --> WordPress`
 - To view hosting dashboards, ping Greg
+
+### Copying between WPEngine Environments
+
+WP Engine supports [copying between environments](https://wpengine.com/support/copy-site/). For example, to copy Develop --> Staging:
+
+1. Log into the WP Engine [User Portal](https://my.wpengine.com/sites)
+2. Click on [Nextjsstgstart](https://my.wpengine.com/installs/nextjsstgstart)
+3. In the top right corner, click the "Copy environment" button
+4. Select the options:
+   ![screenshot](https://dl.dropbox.com/s/uvzm2trqbgbpyky/Screen%20Shot%202020-12-21%20at%2011.19.34%20AM.png?dl=0)
+5. Click "Preview copy" and a modal will appear to let you verify the options
+6. Click "Copy environment"
 
 ## :octocat: Contributing
 
