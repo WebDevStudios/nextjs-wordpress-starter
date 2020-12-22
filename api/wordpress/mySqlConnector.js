@@ -2,8 +2,6 @@ import mysql from 'serverless-mysql'
 import {getEnvVar} from '@/lib/functions'
 
 // Define env vars.
-const mySqlHost = getEnvVar('MYSQL_HOST')
-const mySqlPort = getEnvVar('MYSQL_PORT')
 const mySqlDatabase = getEnvVar('MYSQL_DATABASE')
 const mySqlUsername = getEnvVar('MYSQL_USERNAME')
 const mySqlPassword = getEnvVar('MYSQL_PASSWORD')
@@ -11,8 +9,6 @@ const mySqlPassword = getEnvVar('MYSQL_PASSWORD')
 // Set connection parameters.
 const db = mysql({
   config: {
-    host: mySqlHost,
-    port: mySqlPort,
     database: mySqlDatabase,
     user: mySqlUsername,
     password: mySqlPassword,
