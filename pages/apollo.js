@@ -1,5 +1,7 @@
 import Layout from '@/components/common/Layout'
-import AllPosts, {ALL_POSTS_QUERY} from '@/api/wordpress/posts/AllPosts'
+import ApolloAllPosts, {
+  ALL_POSTS_QUERY
+} from '@/api/wordpress/posts/ApolloAllPosts'
 import {initializeApollo, addApolloState} from '@/api/wordpress/apolloConnector'
 
 export default function ApolloPage() {
@@ -10,7 +12,7 @@ export default function ApolloPage() {
     >
       <div className="container">
         <h1>Apollo Query Example</h1>
-        <AllPosts />
+        <ApolloAllPosts />
       </div>
     </Layout>
   )
