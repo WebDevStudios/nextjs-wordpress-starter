@@ -2,6 +2,10 @@ import {useMemo} from 'react'
 import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
+import {getEnvVar} from '@/lib/functions'
+
+// Define env vars.
+export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
 
 // Set global state name.
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
@@ -17,7 +21,7 @@ export function createApolloClient() {
   return new ApolloClient({
     ssrMode: false,
     link: new HttpLink({
-      uri: `${process.env.DEV_WORDPRESS_API_URL}graphql`,
+      uri: `${wpApiUrlBase}graphql`,
       credentials: ''
     }),
     cache: new InMemoryCache()
