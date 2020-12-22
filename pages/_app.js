@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
-import {useApollo} from '@/api/wordpress/connector'
+import {useApollo} from '@/api/wordpress/apolloConnector'
 
 export default function App({Component, pageProps}) {
   /**

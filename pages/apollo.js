@@ -1,6 +1,6 @@
 import Layout from '@/components/common/Layout'
 import AllPosts, {ALL_POSTS_QUERY} from '@/api/wordpress/posts/AllPosts'
-import {initializeApollo, addApolloState} from '@/api/wordpress/connector'
+import {initializeApollo, addApolloState} from '@/api/wordpress/apolloConnector'
 
 export default function ApolloPage() {
   return (
