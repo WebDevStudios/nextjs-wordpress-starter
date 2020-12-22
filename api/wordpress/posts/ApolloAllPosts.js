@@ -19,7 +19,7 @@ export const ALL_POSTS_QUERY = gql`
  *
  * @see https://www.apollographql.com/docs/react/api/react/hooks/#usequery
  */
-export default function AllPosts() {
+export default function ApolloAllPosts() {
   const {loading, error, data} = useQuery(ALL_POSTS_QUERY)
 
   if (error) return <div>Error loading posts.</div>
