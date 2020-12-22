@@ -67,6 +67,7 @@
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react-is": "^17.0.1",
+    "serverless-mysql": "^1.5.4",
     "storybook-addon-next-router": "^2.0.0",
     "storybook-css-modules-preset": "^1.0.5",
     "stylelint": "^13.8.0",
