@@ -6,7 +6,7 @@ module.exports = {
     fastRefresh: true,
     strictMode: true
   },
-  stories: ['../components/**/**/*.stories.js'],
+  stories: ['../components/**/**/*.stories.@(js|mdx)'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',

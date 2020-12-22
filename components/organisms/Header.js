@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Navigation from '../molecules/Navigation'
+import Navigation from './Navigation'
 
 function Logo() {
   return (
