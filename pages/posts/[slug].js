@@ -6,7 +6,7 @@ import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
 
 export default function BlogPost({post}) {
   return (
-    <Layout title={post.title.rendered} description={post.excerpt.rendered}>
+    <Layout title={post?.title} description={post?.excerpt}>
       <div className="container">
         <Info>
           The content below is sourced from the WordPress REST-API.{' '}
@@ -17,8 +17,8 @@ export default function BlogPost({post}) {
 
         <section>
           <article>
-            <h1 dangerouslySetInnerHTML={{__html: post.title.rendered}} />
-            <div dangerouslySetInnerHTML={{__html: post.content.rendered}} />
+            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+            <div dangerouslySetInnerHTML={{__html: post?.blocksJSON}} />
           </article>
         </section>
       </div>
