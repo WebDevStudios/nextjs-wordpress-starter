@@ -2,49 +2,51 @@ const {gql} = require('@apollo/client')
 
 // Query: retrieve post by specified identifier.
 const queryPostById = gql`
-  query GET_POST_BY_SLUG($id: ID!, $idType: PostIdType!) {
-    blocksJSON
-    databaseId
-    date
-    slug
-    title
-    excerpt
-    seo {
-      canonical
+  query GET_POST_BY_SLUG($id: ID!, $idType: PostIdType = SLUG) {
+    post(id: $id, idType: $idType) {
+      blocksJSON
+      databaseId
+      date
+      slug
       title
-      metaDesc
-      metaRobotsNofollow
-      metaRobotsNoindex
-      opengraphImage {
-        sourceUrl
-      }
-    }
-    tags {
-      edges {
-        node {
-          name
-          slug
+      excerpt
+      seo {
+        canonical
+        title
+        metaDesc
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphImage {
+          sourceUrl
         }
       }
-    }
-    author {
-      node {
-        slug
-        nickname
-      }
-    }
-    categories {
-      edges {
-        node {
-          slug
-          name
+      tags {
+        edges {
+          node {
+            name
+            slug
+          }
         }
       }
-    }
-    featuredImage {
-      node {
-        altText
-        sourceUrl(size: LARGE)
+      author {
+        node {
+          slug
+          nickname
+        }
+      }
+      categories {
+        edges {
+          node {
+            slug
+            name
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl(size: LARGE)
+        }
       }
     }
   }
