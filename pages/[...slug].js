@@ -55,7 +55,9 @@ export async function getStaticPaths() {
  */
 export async function getStaticProps({params}) {
   // Handle catch-all routes.
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+  const slug = Array.isArray(params.slug)
+    ? `/${params.slug.join('/')}/`
+    : params.slug
 
   const post = await getPostTypeById(postType, slug)
 
