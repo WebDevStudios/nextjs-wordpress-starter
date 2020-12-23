@@ -20,7 +20,7 @@ export default function AlgoliaSearch({indexName}) {
   const [searchHistory, setSearchHistory] = useState([])
   const [displayHistory, setDisplayHistory] = useState(0)
 
-  //Delete recent searches and reset History state
+  // Delete recent searches and history
   const clearLocalStorage = () => {
     deleteLocalStorage(storageName)
     setSearchHistory([])
@@ -38,6 +38,7 @@ export default function AlgoliaSearch({indexName}) {
 
   // On Page Load
   useEffect(() => {
+    console.log('dwdw')
     // Get Search History
     if (localStorage) {
       const history = localStorage.getItem(storageName)
@@ -47,7 +48,7 @@ export default function AlgoliaSearch({indexName}) {
         setSearchHistory(searchHistory)
       }
     }
-  }, [])
+  }, [storageName])
 
   return (
     <section className={styles.algoliaSearch} id="site-search">
