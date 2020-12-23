@@ -1,6 +1,7 @@
 import queryPostById from '../posts/queryPostById'
 import {initializeApollo} from '../connector'
 import queryPageById from '../pages/queryPageById'
+import {isHierarchicalPostType} from './postTypes'
 
 /**
  * Retrieve single post by specified identifier.
@@ -16,6 +17,12 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     page: queryPageById,
     post: queryPostById
   }
+
+  // Check if post type is hierarchical.
+  const isHierarchical = isHierarchicalPostType(postType)
+
+  // Fix default ID type for hierarchical posts.
+  idType = !isHierarchical || 'SLUG' !== idType ? idType : 'URI'
 
   // Retrieve post type query.
   const query = postTypeQuery?.[postType] ?? null
