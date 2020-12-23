@@ -27,7 +27,7 @@ export default function BlogPost({post}) {
 }
 
 /**
- * Get page static paths.
+ * Get post static paths.
  *
  * @return {Object} Object consisting of array of paths and fallback setting.
  */
@@ -36,13 +36,13 @@ export async function getStaticPaths() {
 }
 
 /**
- * Get page static props.
+ * Get post static props.
  *
- * @param  {Object}  context             Context for current page.
- * @param  {Object}  context.params      Route parameters for current page.
- * @param  {boolean} context.preview     Whether requesting preview of page.
- * @param  {Object}  context.previewData Page preview data.
- * @return {Object}                      Page props.
+ * @param  {Object}  context             Context for current post.
+ * @param  {Object}  context.params      Route parameters for current post.
+ * @param  {boolean} context.preview     Whether requesting preview of post.
+ * @param  {Object}  context.previewData Post preview data.
+ * @return {Object}                      Post props.
  */
 export async function getStaticProps({params}) {
   const post = await getPostTypeById('post', params.slug)
