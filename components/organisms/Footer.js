@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import config from '@/lib/config'
+import config from '@/functions/config'
 
 export default function Footer() {
   return (

@@ -1,4 +1,4 @@
-import config from '@/lib/config'
+import config from '@/functions/config'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
