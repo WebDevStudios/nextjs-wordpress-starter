@@ -1,6 +1,6 @@
 import Layout from '@/components/common/Layout'
 import {Info} from '@/components/molecules/Alert'
-import {fetcher} from '@/lib/functions'
+import fetcher from '@/functions/fetcher'
 import PropTypes from 'prop-types'
 
 export default function BlogPost({post}) {

@@ -1,6 +1,3 @@
-// Generic data fetcher.
-export const fetcher = (...args) => fetch(...args).then((res) => res.json()) // eslint-disable-line no-undef
-
 /**
  * Retrieve environment-specific var.
  *
