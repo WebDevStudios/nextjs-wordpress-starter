@@ -1,7 +1,8 @@
 import Layout from '@/components/common/Layout'
 import {Info} from '@/components/molecules/Alert'
-import fetcher from '@/functions/fetcher'
 import PropTypes from 'prop-types'
+import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
+import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
 
 export default function BlogPost({post}) {
   return (
@@ -25,27 +26,28 @@ export default function BlogPost({post}) {
   )
 }
 
+/**
+ * Get page static paths.
+ *
+ * @return {Object} Object consisting of array of paths and fallback setting.
+ */
 export async function getStaticPaths() {
-  const posts = await fetcher('https://nextjs.wpengine.com/wp-json/wp/v2/posts')
-
-  return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          id: `${post.id}`
-        }
-      }
-    }),
-    fallback: false
-  }
+  return await getPostTypeStaticPaths('post')
 }
 
+/**
+ * Get page static props.
+ *
+ * @param  {Object}  context             Context for current page.
+ * @param  {Object}  context.params      Route parameters for current page.
+ * @param  {boolean} context.preview     Whether requesting preview of page.
+ * @param  {Object}  context.previewData Page preview data.
+ * @return {Object}                      Page props.
+ */
 export async function getStaticProps({params}) {
-  const post = await fetcher(
-    `https://nextjs.wpengine.com/wp-json/wp/v2/posts/${params.id}`
-  )
+  const post = await getPostTypeById('post', params.slug)
 
-  return {props: {post}}
+  return {props: {post: post?.data?.post ?? null}}
 }
 
 BlogPost.propTypes = {
