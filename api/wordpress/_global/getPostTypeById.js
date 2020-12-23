@@ -1,5 +1,6 @@
 import queryPostById from '../posts/queryPostById'
 import {initializeApollo} from '../connector'
+import queryPageById from '../pages/queryPageById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -12,6 +13,7 @@ import {initializeApollo} from '../connector'
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
   const postTypeQuery = {
+    page: queryPageById,
     post: queryPostById
   }
 
