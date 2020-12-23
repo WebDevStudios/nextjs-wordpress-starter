@@ -7,7 +7,7 @@ import styles from '../AlgoliaSearch.module.css'
  * @param {*} history
  * @param {*} searchClick
  */
-const History = ({history, searchClick, clearLocalStorage, searchUrl}) => {
+const History = ({history, searchClick, clearLocalStorage, buildSearchUrl}) => {
   const config = {
     now: new Date(), // Now, as a date object
     nowTs: Date.now(),
@@ -88,7 +88,7 @@ const History = ({history, searchClick, clearLocalStorage, searchUrl}) => {
               <li key={`history-${index}`}>
                 <button
                   type="button"
-                  data-url={searchUrl(item.title)}
+                  data-url={buildSearchUrl(item.title)}
                   onClick={(e) => searchClick(e)}
                 >
                   <span>{item.title}</span>
@@ -118,5 +118,5 @@ History.propTypes = {
   ),
   searchClick: PropTypes.func,
   clearLocalStorage: PropTypes.func,
-  searchUrl: PropTypes.func
+  buildSearchUrl: PropTypes.func
 }

@@ -1,5 +1,5 @@
 /**
- * Set localStorage for search results
+ * Set localStorage for search results.
  *
  * @param {*} name  Local Storage name.
  * @param {*} value The value to store.
@@ -28,7 +28,7 @@ export const setLocalStorage = (name, value) => {
 }
 
 /**
- * Delete the localStorage for search results
+ * Delete the localStorage for search results.
  *
  * @param {*} name  Local Storage name.
  */
@@ -40,7 +40,7 @@ export const deleteLocalStorage = (name) => {
 }
 
 /**
- * Remove duplicate entries from local storage
+ * Remove duplicate entries from local storage.
  *
  * @param {*} array
  * @param {*} value
