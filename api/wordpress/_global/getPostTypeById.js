@@ -33,5 +33,5 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     return null
   }
 
-  return post
+  return post?.data?.post ?? null
 }

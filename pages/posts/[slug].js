@@ -56,7 +56,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
   const post = await getPostTypeById(postType, params.slug)
 
-  return {props: {post: post?.data?.post ?? null}}
+  return {props: {post}}
 }
 
 BlogPost.propTypes = {
