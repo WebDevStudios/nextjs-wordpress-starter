@@ -12,8 +12,8 @@ export const postTypes = {
   testimonial: 'testimonials'
 }
 
-// Define WP post types w/ "page" capability type.
-export const pageCapabilityPostTypes = ['page']
+// Define hierarchical post types.
+export const hierarchicalPostTypes = ['page']
 
 /**
  * Check if post type is valid.
@@ -26,11 +26,11 @@ export function isValidPostType(postType) {
 }
 
 /**
- * Check if post type has "page" capability type.
+ * Check if post type is hierarchical.
  *
  * @param  {string} postType WP post type.
- * @return {bool}            Whether provided post type has "page" capability type.
+ * @return {bool}            Whether provided post type is hierarchical.
  */
-export function isPageCapabilityPostType(postType) {
-  return pageCapabilityPostTypes.includes(postType)
+export function isHierarchicalPostType(postType) {
+  return hierarchicalPostTypes.includes(postType)
 }
