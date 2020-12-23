@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
 
+// Define route post type.
+const postType = 'post'
+
 export default function BlogPost({post}) {
   return (
     <Layout title={post?.title} description={post?.excerpt}>
@@ -32,7 +35,7 @@ export default function BlogPost({post}) {
  * @return {Object} Object consisting of array of paths and fallback setting.
  */
 export async function getStaticPaths() {
-  return await getPostTypeStaticPaths('post')
+  return await getPostTypeStaticPaths(postType)
 }
 
 /**
@@ -45,7 +48,7 @@ export async function getStaticPaths() {
  * @return {Object}                      Post props.
  */
 export async function getStaticProps({params}) {
-  const post = await getPostTypeById('post', params.slug)
+  const post = await getPostTypeById(postType, params.slug)
 
   return {props: {post: post?.data?.post ?? null}}
 }
