@@ -7,6 +7,12 @@ import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
 // Define route post type.
 const postType = 'post'
 
+/**
+ * The BlogPost component displays an individual blog post via dynamic routing.
+ *
+ * @param  {Object} [props] Properties passed to the component.
+ * @return {Element}        Element to render.
+ */
 export default function BlogPost({post}) {
   return (
     <Layout title={post?.title} description={post?.excerpt}>
