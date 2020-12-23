@@ -35,9 +35,9 @@ export default async function getPostTypeStaticPaths(postType) {
 
   // Process paths.
   return {
-    paths: !posts?.data?.nodes
+    paths: !posts?.data?.[pluralName]?.nodes
       ? []
-      : posts.data.nodes.map((post) => {
+      : posts.data[pluralName].nodes.map((post) => {
           return {
             params: {
               slug: `${post.slug}`
