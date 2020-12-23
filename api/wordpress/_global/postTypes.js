@@ -12,6 +12,9 @@ export const postTypes = {
   testimonial: 'testimonials'
 }
 
+// Define WP post types w/ "page" capability type.
+export const pageCapabilityPostTypes = ['page']
+
 /**
  * Check if post type is valid.
  *
@@ -20,4 +23,14 @@ export const postTypes = {
  */
 export function isValidPostType(postType) {
   return Object.keys(postTypes).includes(postType)
+}
+
+/**
+ * Check if post type has "page" capability type.
+ *
+ * @param  {string} postType WP post type.
+ * @return {bool}            Whether provided post type has "page" capability type.
+ */
+export function isPageCapabilityPostType(postType) {
+  return pageCapabilityPostTypes.includes(postType)
 }
