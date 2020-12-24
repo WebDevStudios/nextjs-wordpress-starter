@@ -7,7 +7,7 @@ import categoriesPostFields from '../_partials/categoriesPostFields'
 
 const {gql} = require('@apollo/client')
 
-// Fragment: retrieve single page fields.
+// Fragment: retrieve single post fields.
 const singlePostFragment = gql`
   fragment SinglePostFields on Post {
     ${globalPostFields}
