@@ -10,6 +10,7 @@ const postType = 'post'
 /**
  * The BlogPost component displays an individual blog post via dynamic routing.
  *
+ * @author WebDevStudios
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
@@ -38,6 +39,7 @@ export default function BlogPost({post}) {
 /**
  * Get post static paths.
  *
+ * @author WebDevStudios
  * @return {Object} Object consisting of array of paths and fallback setting.
  */
 export async function getStaticPaths() {
@@ -56,7 +58,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
   const post = await getPostTypeById(postType, params.slug)
 
-  return {props: {post}}
+  return {
+    props: {
+      post
+    }
+  }
 }
 
 BlogPost.propTypes = {

@@ -1,6 +1,7 @@
 /**
  * Retrieve environment-specific var.
  *
+ * @author WebDevStudios
  * @param  {string} varName  Environment variable.
  * @param  {bool}   isPublic Whether var is public.
  * @return {string}          Env var value.

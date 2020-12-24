@@ -6,6 +6,7 @@ import {isHierarchicalPostType} from './postTypes'
 /**
  * Retrieve single post by specified identifier.
  *
+ * @author WebDevStudios
  * @param  {string}        postType WP post type.
  * @param  {Number|string} id       Post identifier.
  * @param  {string}        idType   Type of ID.
