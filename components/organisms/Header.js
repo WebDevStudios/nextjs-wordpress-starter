@@ -18,6 +18,8 @@ function Logo() {
   )
 }
 
+// TODO: Pass Algolia indexName via props from ENV vars.
+
 export default function Header() {
   return (
     <header className="sticky top-0 pb-8 transition-all z-50">
