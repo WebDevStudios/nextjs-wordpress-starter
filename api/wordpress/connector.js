@@ -2,7 +2,7 @@ import {useMemo} from 'react'
 import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
-import {getEnvVar} from '@/lib/functions'
+import getEnvVar from '@/functions/getEnvVar'
 
 // Define env vars.
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')

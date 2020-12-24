@@ -1,6 +1,6 @@
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import config from '@/lib/config'
+import config from '@/functions/config'
 
 export default function HomePage() {
   return (

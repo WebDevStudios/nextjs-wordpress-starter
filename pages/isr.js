@@ -1,8 +1,8 @@
 import Layout from '@/components/common/Layout'
 import {Info} from '@/components/molecules/Alert'
-import {fetcher} from '@/lib/functions'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import fetcher from '@/functions/fetcher'
 
 export default function IncrementalStaticRegeneration(props) {
   return (
