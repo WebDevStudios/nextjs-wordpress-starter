@@ -2,7 +2,7 @@ const {gql} = require('@apollo/client')
 
 // Query: retrieve page by specified identifier.
 const queryPageById = gql`
-  query GET_POST_BY_SLUG($id: ID!, $idType: PageIdType = URI) {
+  query GET_PAGE_BY_SLUG($id: ID!, $idType: PageIdType = URI) {
     page(id: $id, idType: $idType) {
       blocksJSON
       databaseId
