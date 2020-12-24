@@ -41,21 +41,24 @@ export default async function getPostTypeStaticPaths(postType) {
   const posts = await apolloClient.query({query})
 
   // Process paths.
-  return {
-    paths: !posts?.data?.[pluralName]?.nodes
-      ? []
-      : posts.data[pluralName].nodes.map((post) => {
-          // Use string path for non-hierarchical posts, split into array if hierarchical.
-          const slug = !isHierarchical
-            ? post[pathField]
-            : post[pathField].replace(/^\/|\/$/g, '').split('/')
+  const paths = !posts?.data?.[pluralName]?.nodes
+    ? []
+    : posts.data[pluralName].nodes.map((post) => {
+        // Use path field as-is for non-hierarchical post types.
+        // Trim leading and trailing slashes then split into array on inner slashes for hierarchical post types.
+        const slug = !isHierarchical
+          ? post[pathField]
+          : post[pathField].replace(/^\/|\/$/g, '').split('/')
 
-          return {
-            params: {
-              slug
-            }
+        return {
+          params: {
+            slug
           }
-        }),
+        }
+      })
+
+  return {
+    paths,
     fallback: false
   }
 }
