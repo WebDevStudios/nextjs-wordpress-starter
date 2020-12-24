@@ -9,6 +9,8 @@ import styles from './AlgoliaSearch.module.css'
 import Results from './components/Results'
 import {deleteLocalStorage} from './functions/localStorage'
 
+// TODO: Create Storybook for this component.
+
 export default function AlgoliaSearch({indexName}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
@@ -16,12 +18,10 @@ export default function AlgoliaSearch({indexName}) {
   const storageName = indexName // Local Storage Name - set to algolia index.
   const historyLength = 6 // Max amount of history items to save to local storage.
 
-  // React state.
   const [searchState, setSearchState] = useState(query)
   const [searchHistory, setSearchHistory] = useState([])
   const [displayHistory, setDisplayHistory] = useState(0)
 
-  // Initial Algolia config.
   const algoliaConfig = {
     query: router?.query?.q || '',
     hitsPerPage: 6
