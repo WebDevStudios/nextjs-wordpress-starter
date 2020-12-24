@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 /**
  * Decide which block component to display.
- *
+ * @author WebDevStudios
  * @param {object} block        The block data.
  * @param {number} index        A unique key required by React.
  * @param {object} siteSettings Global settings.
