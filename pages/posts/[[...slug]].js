@@ -2,7 +2,7 @@ import Layout from '@/components/common/Layout'
 import {Info} from '@/components/molecules/Alert'
 import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
-import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
+import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 
 // Define route post type.
 const postType = 'post'
@@ -56,13 +56,7 @@ export async function getStaticPaths() {
  * @return {Object}                      Post props.
  */
 export async function getStaticProps({params}) {
-  const post = await getPostTypeById(postType, params.slug)
-
-  return {
-    props: {
-      post
-    }
-  }
+  return getPostTypeStaticProps(params, postType)
 }
 
 BlogPost.propTypes = {

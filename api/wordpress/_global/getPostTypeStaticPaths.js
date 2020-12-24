@@ -44,11 +44,8 @@ export default async function getPostTypeStaticPaths(postType) {
   const paths = !posts?.data?.[pluralName]?.nodes
     ? []
     : posts.data[pluralName].nodes.map((post) => {
-        // Use path field as-is for non-hierarchical post types.
-        // Trim leading and trailing slashes then split into array on inner slashes for hierarchical post types.
-        const slug = !isHierarchical
-          ? post[pathField]
-          : post[pathField].replace(/^\/|\/$/g, '').split('/')
+        // Trim leading and trailing slashes then split into array on inner slashes.
+        const slug = post[pathField].replace(/^\/|\/$/g, '').split('/')
 
         return {
           params: {
