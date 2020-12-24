@@ -7,7 +7,7 @@ import buildSearchUrl from '../functions/buildSearchUrl'
 import PropTypes from 'prop-types'
 
 /**
- * Display Hits and Search History Results
+ * Component for rendering Algolia `Hits` and search `History` components.
  */
 const Results = connectStateResults(
   ({

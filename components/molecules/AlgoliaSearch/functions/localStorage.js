@@ -1,10 +1,11 @@
 /**
  * Set localStorage for search results.
  *
- * @param {*} name  Local Storage name.
- * @param {*} value The value to store.
+ * @param {string} name      Local Storage name.
+ * @param {string} value     The value to store.
+ * @param {number} maxLength Maximum history items to store.
  */
-export const setLocalStorage = (name, value) => {
+export const setLocalStorage = (name, value, maxLength) => {
   if (!localStorage) {
     return false
   }
@@ -23,6 +24,8 @@ export const setLocalStorage = (name, value) => {
     storageArr.unshift(item) // Add item to top of list.
     data = storageArr
   }
+
+  data = data.slice(0, maxLength) // Slice array to maxLength.
 
   localStorage.setItem(name, JSON.stringify(data)) // Set local storage.
 }

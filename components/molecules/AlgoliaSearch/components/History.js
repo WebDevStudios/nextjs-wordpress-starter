@@ -2,10 +2,7 @@ import PropTypes from 'prop-types'
 import styles from '../AlgoliaSearch.module.css'
 
 /**
- * Renders search history.
- *
- * @param {*} history
- * @param {*} searchClick
+ * Component for rendering search history.
  */
 const History = ({history, searchClick, clearLocalStorage, buildSearchUrl}) => {
   const config = {

@@ -14,41 +14,44 @@ export default function AlgoliaSearch({indexName}) {
   const path = router?.asPath // URL from router.
   const hasQuery = path.includes('q=') // Do we have a querystring value.
   const query = hasQuery ? parseQuerystring(path, 'q') : '' // Parse the QS.
-  const storageName = indexName // Local Storage Name.
+
+  const storageName = indexName // Local Storage Name - set to algolia index.
+  const historyLength = 6 // Max amount of history items to save to local storage.
 
   const [searchState, setSearchState] = useState(query)
   const [searchHistory, setSearchHistory] = useState([])
   const [displayHistory, setDisplayHistory] = useState(0)
 
-  // Delete recent searches and history
-  const clearLocalStorage = () => {
-    deleteLocalStorage(storageName)
-    setSearchHistory([])
-  }
-
-  // Show/Hide the search history.
+  /**
+   * Show/Hide the search history.
+   *
+   * @return {boolean}
+   */
   const showHistory = useCallback(() => {
-    setDisplayHistory(searchState === '' ? true : false)
+    setDisplayHistory(searchState === '')
   }, [searchState])
 
-  // SearchState
+  // Track changes in `searchState`.
   useEffect(() => {
     showHistory()
   }, [searchState, showHistory])
 
-  // On Page Load
+  // Get search history on initial page load.
   useEffect(() => {
-    console.log('dwdw')
-    // Get Search History
     if (localStorage) {
       const history = localStorage.getItem(storageName)
       if (history) {
         let searchHistory = JSON.parse(history)
-        searchHistory = searchHistory.slice(0, 6)
         setSearchHistory(searchHistory)
       }
     }
   }, [storageName])
+
+  // Delete recent searches and clear history.
+  const clearLocalStorage = () => {
+    deleteLocalStorage(storageName)
+    setSearchHistory([])
+  }
 
   return (
     <section className={styles.algoliaSearch} id="site-search">
@@ -58,7 +61,13 @@ export default function AlgoliaSearch({indexName}) {
           <SearchBox
             className={styles.aisSearchBox}
             onSubmit={(e) =>
-              searchSubmit(e, setSearchState, searchState, storageName)
+              searchSubmit(
+                e,
+                setSearchState,
+                searchState,
+                storageName,
+                historyLength
+              )
             }
             onFocus={() => showHistory()}
             onKeyUp={(e) => {
@@ -71,7 +80,7 @@ export default function AlgoliaSearch({indexName}) {
             translations={{
               submitTitle: 'Submit Search Query.',
               resetTitle: 'Clear Search Query',
-              placeholder: 'Search resources...'
+              placeholder: 'Enter search term...'
             }}
           />
           <Results

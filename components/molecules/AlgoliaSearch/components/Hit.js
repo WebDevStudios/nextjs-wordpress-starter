@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
 import searchClick from '../functions/searchClick'
 import {Highlight} from 'react-instantsearch-dom'
+
+/**
+ * Component for rendering individual search result.
+ */
 const Hit = ({hit}) => {
   return (
     <button
