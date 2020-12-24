@@ -10,7 +10,7 @@ import {isHierarchicalPostType} from './postTypes'
  * @param  {string}        postType WP post type.
  * @param  {Number|string} id       Post identifier.
  * @param  {string}        idType   Type of ID.
- * @return {?Object}                Post data or null.
+ * @return {Object}                 Post data or error object.
  */
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
@@ -28,20 +28,34 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Retrieve post type query.
   const query = postTypeQuery?.[postType] ?? null
 
-  // If no query is set for given post type, return.
+  // If no query is set for given post type, return error message.
   if (!query) {
-    return null
+    return {
+      isError: true,
+      message: `Post type \`${postType}\` is not supported.`
+    }
   }
 
   // Get/create Apollo instance.
   const apolloClient = initializeApollo()
 
   // Execute query.
-  const post = await apolloClient.query({query, variables: {id, idType}})
+  const post = await apolloClient
+    .query({query, variables: {id, idType}})
+    .then((post) => post?.data?.[postType] ?? null)
+    .catch((error) => {
+      return {
+        isError: true,
+        message: error.message
+      }
+    })
 
   if (!post) {
-    return null
+    return {
+      isError: true,
+      message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
+    }
   }
 
-  return post?.data?.[postType] ?? null
+  return post
 }
