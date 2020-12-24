@@ -12,15 +12,20 @@ import {deleteLocalStorage} from './functions/localStorage'
 export default function AlgoliaSearch({indexName}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
-  const hasQuery = path.includes('q=') // Do we have a querystring value.
-  const query = hasQuery ? parseQuerystring(path, 'q') : '' // Parse the QS.
-
+  const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
   const storageName = indexName // Local Storage Name - set to algolia index.
   const historyLength = 6 // Max amount of history items to save to local storage.
 
+  // React state.
   const [searchState, setSearchState] = useState(query)
   const [searchHistory, setSearchHistory] = useState([])
   const [displayHistory, setDisplayHistory] = useState(0)
+
+  // Initial Algolia config.
+  const algoliaConfig = {
+    query: router?.query?.q || '',
+    hitsPerPage: 6
+  }
 
   /**
    * Show/Hide the search history.
@@ -57,7 +62,7 @@ export default function AlgoliaSearch({indexName}) {
     <section className={styles.algoliaSearch} id="site-search">
       <div className={styles.wrap}>
         <InstantSearch searchClient={searchClient} indexName={indexName}>
-          <Configure query={router?.query?.q || ''} hitsPerPage={6} />
+          <Configure {...algoliaConfig} />
           <SearchBox
             className={styles.aisSearchBox}
             onSubmit={(e) =>
