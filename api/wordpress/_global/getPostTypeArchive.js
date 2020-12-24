@@ -51,11 +51,11 @@ export default async function getPostTypeArchive(
   }
 
   // Execute query.
-  const post = await apolloClient
+  const posts = await apolloClient
     .query({query, variables})
     .then(
-      (post) =>
-        post?.data?.[postType]?.edges ?? {
+      (posts) =>
+        posts?.data?.[postType]?.edges ?? {
           isError: true,
           message: `An error occurred while trying to retrieve data for ${postType} archive.`
         }
@@ -69,6 +69,6 @@ export default async function getPostTypeArchive(
 
   return {
     apolloClient,
-    post
+    posts
   }
 }
