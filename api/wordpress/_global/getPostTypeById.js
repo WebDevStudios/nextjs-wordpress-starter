@@ -42,20 +42,19 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Execute query.
   const post = await apolloClient
     .query({query, variables: {id, idType}})
-    .then((post) => post?.data?.[postType] ?? null)
+    .then(
+      (post) =>
+        post?.data?.[postType] ?? {
+          isError: true,
+          message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
+        }
+    )
     .catch((error) => {
       return {
         isError: true,
         message: error.message
       }
     })
-
-  if (!post) {
-    return {
-      isError: true,
-      message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
-    }
-  }
 
   return {
     apolloClient,
