@@ -56,6 +56,6 @@ export default async function getPostTypeStaticPaths(postType) {
 
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   }
 }
