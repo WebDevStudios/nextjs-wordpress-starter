@@ -10,7 +10,7 @@ import {isHierarchicalPostType} from './postTypes'
  * @param  {string}        postType WP post type.
  * @param  {Number|string} id       Post identifier.
  * @param  {string}        idType   Type of ID.
- * @return {Object}                 Post data or error object.
+ * @return {Object}                 Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
@@ -57,5 +57,8 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     }
   }
 
-  return post
+  return {
+    apolloClient,
+    post
+  }
 }
