@@ -13,14 +13,14 @@ export default function App({Component, pageProps}) {
   const apolloClient = useApollo(pageProps)
 
   // Check for errors.
-  const isError = pageProps?.post?.isError
-  let errorMessage = pageProps?.post?.message ?? 'An unknown error occurred.'
+  const error = pageProps?.error
+  let errorMessage = pageProps?.errorMessage ?? 'An unknown error occurred.'
   // Trim trailing period - added via Error component.
   errorMessage = errorMessage.replace(/\.$/g, '')
 
   return (
     <ApolloProvider client={apolloClient}>
-      {isError ? (
+      {error ? (
         <Error statusCode={500} title={errorMessage} />
       ) : (
         <Component {...pageProps} />

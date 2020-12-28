@@ -20,12 +20,17 @@ export default async function getPostTypeStaticProps(
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
   // Retrieve post data.
-  const {apolloClient, post} = await getPostTypeById(postType, slug)
+  const {apolloClient, post, error, errorMessage} = await getPostTypeById(
+    postType,
+    slug
+  )
 
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
     props: {
-      post
+      post,
+      error,
+      errorMessage
     },
     revalidate: 60 * 5
   })
