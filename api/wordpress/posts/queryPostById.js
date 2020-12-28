@@ -22,7 +22,7 @@ const singlePostFragment = gql`
 `
 // Query: retrieve post by specified identifier.
 const queryPostById = gql`
-  query GET_POST_BY_SLUG(
+  query GET_POST_BY_ID(
     $id: ID!
     $idType: PostIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
