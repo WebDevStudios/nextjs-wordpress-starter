@@ -29,27 +29,39 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Retrieve post type query.
   const query = postTypeQuery?.[postType] ?? null
 
-  // If no query is set for given post type, return error message.
-  if (!query) {
-    return {
-      isError: true,
-      message: `Post type \`${postType}\` is not supported.`
-    }
-  }
-
   // Get/create Apollo instance.
   const apolloClient = initializeApollo()
 
+  // Set up return object.
+  const response = {
+    apolloClient,
+    error: false,
+    errorMessage: null
+  }
+
+  // If no query is set for given post type, return error message.
+  if (!query) {
+    return {
+      apolloClient,
+      error: true,
+      errorMessage: `Post type \`${postType}\` is not supported.`
+    }
+  }
+
   // Execute query.
-  const post = await apolloClient
+  response.post = await apolloClient
     .query({query, variables: {id, idType}})
-    .then(
-      (post) =>
-        post?.data?.[postType] ?? {
-          isError: true,
-          message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
-        }
-    )
+    .then((post) => {
+      // Set error props if data not found.
+      if (!post?.data?.[postType]) {
+        response.error = true
+        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
+
+        return null
+      }
+
+      return post.data[postType]
+    })
     .then(async (post) => {
       // Handle blocks.
       if (!post || !post?.blocksJSON) {
@@ -65,14 +77,11 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
       return newPost
     })
     .catch((error) => {
-      return {
-        isError: true,
-        message: error.message
-      }
+      response.error = true
+      response.errorMessage = error.message
+
+      return null
     })
 
-  return {
-    apolloClient,
-    post
-  }
+  return response
 }
