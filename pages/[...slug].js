@@ -28,7 +28,11 @@ export default function Page({post}) {
         <section>
           <article>
             <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <div dangerouslySetInnerHTML={{__html: post?.blocksJSON}} />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(post?.blocks ?? [])
+              }}
+            />
           </article>
         </section>
       </div>

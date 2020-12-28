@@ -2,6 +2,7 @@ import queryPostById from '../posts/queryPostById'
 import {initializeApollo} from '../connector'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
+import formatBlockData from '@/functions/formatBlockData'
 
 /**
  * Retrieve single post by specified identifier.
@@ -49,6 +50,20 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
           message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
         }
     )
+    .then(async (post) => {
+      // Handle blocks.
+      if (!post || !post?.blocksJSON) {
+        return post
+      }
+
+      const newPost = {...post}
+
+      newPost.blocks = await formatBlockData(
+        JSON.parse(newPost.blocksJSON) ?? []
+      )
+
+      return newPost
+    })
     .catch((error) => {
       return {
         isError: true,
