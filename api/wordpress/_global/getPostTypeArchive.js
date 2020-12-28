@@ -29,16 +29,24 @@ export default async function getPostTypeArchive(
   // Retrieve post type query.
   const query = postTypeQuery?.[postType] ?? null
 
+  // Get/create Apollo instance.
+  const apolloClient = initializeApollo()
+
+  // Set up return object.
+  const response = {
+    apolloClient,
+    error: false,
+    errorMessage: null
+  }
+
   // If no query is set for given post type, return error message.
   if (!query) {
     return {
-      isError: true,
-      message: `Post type \`${postType}\` archives are not supported.`
+      apolloClient,
+      error: true,
+      errorMessage: `Post type \`${postType}\` archives are not supported.`
     }
   }
-
-  // Get/create Apollo instance.
-  const apolloClient = initializeApollo()
 
   // Determine query variables.
   const variables = {
@@ -51,24 +59,25 @@ export default async function getPostTypeArchive(
   }
 
   // Execute query.
-  const posts = await apolloClient
+  response.posts = await apolloClient
     .query({query, variables})
-    .then(
-      (posts) =>
-        posts?.data?.[postType]?.edges ?? {
-          isError: true,
-          message: `An error occurred while trying to retrieve data for ${postType} archive.`
-        }
-    )
-    .catch((error) => {
-      return {
-        isError: true,
-        message: error.message
+    .then((posts) => {
+      // Set error props if data not found.
+      if (!posts?.data?.[postType]?.edges) {
+        response.error = true
+        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} archive.`
+
+        return null
       }
+
+      return posts.data[postType].edges
+    })
+    .catch((error) => {
+      response.error = true
+      response.errorMessage = error.message
+
+      return null
     })
 
-  return {
-    apolloClient,
-    posts
-  }
+  return response
 }
