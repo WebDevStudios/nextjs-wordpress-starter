@@ -3,6 +3,7 @@ import {Info} from '@/components/molecules/Alert'
 import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Link from 'next/link'
 
 // Define route post type.
 const postType = 'post'
@@ -28,7 +29,11 @@ export default function BlogPost({post, posts, archive}) {
               posts.map((post, index) => (
                 <>
                   <article key={index}>
-                    <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+                    <Link href={post.uri}>
+                      <a>
+                        <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+                      </a>
+                    </Link>
                     <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
                   </article>
                   <hr />
