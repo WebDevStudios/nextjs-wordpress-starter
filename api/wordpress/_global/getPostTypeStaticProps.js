@@ -1,5 +1,6 @@
 import getPostTypeById from './getPostTypeById'
 import {addApolloState} from '../connector'
+import getPostTypeArchive from './getPostTypeArchive'
 
 /**
  * Retrieve static props by post type.
@@ -16,6 +17,24 @@ export default async function getPostTypeStaticProps(
   // preview = false, // TODO - add preview handling.
   // previewData = null
 ) {
+  // Check for dynamic archive display.
+  if (!Object.keys(params).length) {
+    const {apolloClient, posts, error, errorMessage} = await getPostTypeArchive(
+      postType
+    )
+
+    // Merge in query results as Apollo state.
+    return addApolloState(apolloClient, {
+      props: {
+        posts,
+        error,
+        errorMessage,
+        archive: true
+      },
+      revalidate: 60 * 5
+    })
+  }
+
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
