@@ -1,5 +1,6 @@
 import {initializeApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
+import {postTypes} from './postTypes'
 
 /**
  * Retrieve post archive.
@@ -62,15 +63,17 @@ export default async function getPostTypeArchive(
   response.posts = await apolloClient
     .query({query, variables})
     .then((posts) => {
+      const pluralType = postTypes[postType] ?? postType
+
       // Set error props if data not found.
-      if (!posts?.data?.[postType]?.edges) {
+      if (!posts?.data?.[pluralType]?.edges) {
         response.error = true
-        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} archive.`
+        response.errorMessage = `An error occurred while trying to retrieve data for ${pluralType} archive.`
 
         return null
       }
 
-      return posts.data[postType].edges
+      return posts.data[pluralType].edges
     })
     .catch((error) => {
       response.error = true
