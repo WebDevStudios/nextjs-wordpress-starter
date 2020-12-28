@@ -73,7 +73,8 @@ export default async function getPostTypeArchive(
         return null
       }
 
-      return posts.data[pluralType].edges
+      // Flatten posts array to include inner node post data.
+      return posts.data[pluralType].edges.map((post) => post.node)
     })
     .catch((error) => {
       response.error = true
