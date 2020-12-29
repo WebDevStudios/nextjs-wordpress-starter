@@ -52,7 +52,7 @@ export const fieldProps = {
   ChainedSelectField: `
     chainedSelectsAlignment
     chainedSelectsHideInactive
-    choices {
+    chainedSelectChoices: choices {
       choices {
         choices {
           choices {
@@ -94,7 +94,7 @@ export const fieldProps = {
     size
   `,
   CheckboxField: `
-    choices {
+    checkboxChoices: choices {
       isSelected
       text
       value
@@ -156,7 +156,7 @@ export const fieldProps = {
   ListField: `
     addIconUrl
     allowsPrepopulate
-    choices {
+    listChoices: choices {
       text
       value
     }
@@ -171,7 +171,7 @@ export const fieldProps = {
     pageNumber
   `,
   MultiSelectField: `
-    choices {
+    multiSelectChoices: choices {
       isSelected
       text
       value
@@ -249,7 +249,7 @@ export const fieldProps = {
   `,
   PasswordField: `
     allowsPrepopulate
-    choices
+    passwordChoices: choices
     description
     errorMessage
     inputs {
@@ -277,7 +277,7 @@ export const fieldProps = {
   `,
   PostCategoryField: `
     allowsPrepopulate
-    choices {
+    postCategoryChoices: choices {
       isSelected
       text
       value
@@ -355,7 +355,7 @@ export const fieldProps = {
   `,
   RadioField: `
     allowsPrepopulate
-    choices {
+    radioChoices: choices {
       isSelected
       text
       value
@@ -388,7 +388,7 @@ export const fieldProps = {
   `,
   SelectField: `
     allowsPrepopulate
-    choices {
+    selectChoices: choices {
       isSelected
       text
       value
