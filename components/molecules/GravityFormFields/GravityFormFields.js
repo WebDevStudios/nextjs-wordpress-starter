@@ -5,14 +5,14 @@ export default function GravityFormFields({className, fields}) {
   return (
     <>
       {fields.length > 0 &&
-        fields.map((field, index) => {
-          const {label} = field.node
-          const fieldId = `field-${index}`
+        fields.map((field) => {
+          const {id, label, type} = field.node
+          const fieldId = `field-${id}`
 
           return (
-            <div className={className} key={index}>
+            <div className={className} key={id}>
               <label htmlFor={fieldId}>{label}</label>
-              <Field id={fieldId} type="text" name={fieldId} />
+              <Field id={fieldId} type={type} name={fieldId} />
               <ErrorMessage name={fieldId} />
             </div>
           )
