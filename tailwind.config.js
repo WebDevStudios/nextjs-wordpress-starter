@@ -19,6 +19,22 @@ module.exports = {
         sans: ['Libre Franklin', 'sans-serif'],
         serif: ['Libre Baskerville', 'serif']
       },
+      fontSize: {
+        'root-em': '16px',
+        uber: '7rem',
+        hero: '5rem',
+        body: '1.125rem',
+        sm: '1rem',
+        caption: '0.875rem',
+        xs: '0.75rem',
+        xxs: '0.625rem',
+        h1: '3rem',
+        h2: '2.25rem',
+        h3: '1.875rem',
+        h4: '1.625rem',
+        h5: '1.25rem',
+        lead: '1.5rem'
+      },
       spacing: {
         // The px values for spacing are equivalent to their keys.
         px: '1px',
