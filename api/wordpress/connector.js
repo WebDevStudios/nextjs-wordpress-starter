@@ -41,4 +41,6 @@ export function initializeWpApollo(initialState = null) {
 
   // Create the Apollo Client once in the client.
   if (!wpApolloClient) wpApolloClient = newApolloClient
+
+  return newApolloClient
 }
