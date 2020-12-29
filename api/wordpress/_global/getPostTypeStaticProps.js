@@ -1,6 +1,6 @@
 import getPostTypeById from './getPostTypeById'
-import {addApolloState} from '../connector'
 import getPostTypeArchive from './getPostTypeArchive'
+import {addApolloState} from '@/api/apolloConfig'
 
 /**
  * Retrieve static props by post type.
