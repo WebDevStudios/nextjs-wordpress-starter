@@ -1,5 +1,6 @@
 import {Field, ErrorMessage} from 'formik'
 import PropTypes from 'prop-types'
+import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 
 export default function GravityFormFields({className, fields}) {
   return (
@@ -7,7 +8,7 @@ export default function GravityFormFields({className, fields}) {
       {fields.length > 0 &&
         fields.map((field) => {
           const {id, label, type} = field.node
-          const fieldId = `field-${id}`
+          const fieldId = getGfFieldId(id)
 
           return (
             <div className={className} key={id}>
