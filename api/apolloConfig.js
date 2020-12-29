@@ -1,6 +1,7 @@
 import {useMemo} from 'react'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
+import {initializeWpApollo} from './wordpress/connector'
 
 // Set global state name.
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
@@ -61,6 +62,7 @@ export function addApolloState(client, pageProps) {
  */
 export function useApollo(pageProps) {
   const state = pageProps[APOLLO_STATE_PROP_NAME]
-  const store = useMemo(() => initializeApollo(state), [state])
+  // Use WP Apollo instance by default.
+  const store = useMemo(() => initializeWpApollo(state), [state])
   return store
 }
