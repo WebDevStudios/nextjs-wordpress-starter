@@ -35,9 +35,6 @@ export function initializeApollo(apolloClient, initialState = null) {
     apolloClient.cache.restore(data)
   }
 
-  // For SSG and SSR always create a new Apollo Client.
-  if (typeof window === 'undefined') return apolloClient
-
   return apolloClient
 }
 

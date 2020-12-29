@@ -39,6 +39,9 @@ export function initializeWpApollo(initialState = null) {
 
   const newApolloClient = initializeApollo(_apolloClient, initialState)
 
+  // For SSG and SSR always create a new Apollo Client.
+  if (typeof window === 'undefined') return newApolloClient
+
   // Create the Apollo Client once in the client.
   if (!wpApolloClient) wpApolloClient = newApolloClient
 
