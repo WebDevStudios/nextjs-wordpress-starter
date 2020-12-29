@@ -1,4 +1,5 @@
-const {gql} = require('@apollo/client')
+import {fieldProps, globalFieldProps} from './fieldProps'
+import {gql} from '@apollo/client'
 
 /**
  * Partial: retrieve basic data on all form fields.
@@ -6,49 +7,14 @@ const {gql} = require('@apollo/client')
  * @return {string} Form fields query partial.
  */
 function getFormFieldsPartial() {
-  const fields = [
-    'AddressField',
-    'CaptchaField',
-    'ChainedSelectField',
-    'CheckboxField',
-    'DateField',
-    'EmailField',
-    'FileUploadField',
-    'HiddenField',
-    'HtmlField',
-    'ListField',
-    'MultiSelectField',
-    'NameField',
-    'NumberField',
-    'PageField',
-    'PasswordField',
-    'PhoneField',
-    'PostCategoryField',
-    'PostContentField',
-    'PostCustomField',
-    'PostExcerptField',
-    'PostImageField',
-    'PostTagsField',
-    'PostTitleField',
-    'RadioField',
-    'SectionField',
-    'SignatureField',
-    'SelectField',
-    'TextAreaField',
-    'TextField',
-    'TimeField',
-    'WebsiteField'
-  ]
-
   return (
-    fields
+    Object.keys(fieldProps)
       // Build individual query partials by field type.
       .map(
         (field) => `
           ... on ${field} {
-            type
-            label
-            cssClass
+            ${globalFieldProps}
+            ${fieldProps[field]}
           }
         `
       )
