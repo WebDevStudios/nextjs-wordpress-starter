@@ -1,7 +1,7 @@
 import {Field, ErrorMessage} from 'formik'
 import PropTypes from 'prop-types'
 
-export default function GravityFormFields({fields}) {
+export default function GravityFormFields({className, fields}) {
   return (
     <>
       {fields.length > 0 &&
@@ -10,7 +10,7 @@ export default function GravityFormFields({fields}) {
           const fieldId = `field-${index}`
 
           return (
-            <div key={index}>
+            <div className={className} key={index}>
               <label htmlFor={fieldId}>{label}</label>
               <Field id={fieldId} type="text" name={fieldId} />
               <ErrorMessage name={fieldId} />
@@ -22,6 +22,7 @@ export default function GravityFormFields({fields}) {
 }
 
 GravityFormFields.propTypes = {
+  className: PropTypes.string,
   fields: PropTypes.array
 }
 

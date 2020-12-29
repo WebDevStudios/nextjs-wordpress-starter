@@ -1,1 +1,1 @@
-export {default} from './GravityFormField'
+export {default} from './GravityFormFields'
