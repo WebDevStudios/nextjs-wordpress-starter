@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 
 export default function GravityFormFields({className, fields}) {
+  // TODO Add an error message for unsupported fields.
   return (
     <>
       {fields.length > 0 &&
