@@ -2,6 +2,7 @@ import queryPostById from '../posts/queryPostById'
 import {initializeApollo} from '../connector'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
+import formatBlockData from '@/functions/formatBlockData'
 
 /**
  * Retrieve single post by specified identifier.
@@ -10,7 +11,7 @@ import {isHierarchicalPostType} from './postTypes'
  * @param  {string}        postType WP post type.
  * @param  {Number|string} id       Post identifier.
  * @param  {string}        idType   Type of ID.
- * @return {Object}                 Post data or error object.
+ * @return {Object}                 Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
@@ -28,34 +29,59 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Retrieve post type query.
   const query = postTypeQuery?.[postType] ?? null
 
-  // If no query is set for given post type, return error message.
-  if (!query) {
-    return {
-      isError: true,
-      message: `Post type \`${postType}\` is not supported.`
-    }
-  }
-
   // Get/create Apollo instance.
   const apolloClient = initializeApollo()
 
-  // Execute query.
-  const post = await apolloClient
-    .query({query, variables: {id, idType}})
-    .then((post) => post?.data?.[postType] ?? null)
-    .catch((error) => {
-      return {
-        isError: true,
-        message: error.message
-      }
-    })
+  // Set up return object.
+  const response = {
+    apolloClient,
+    error: false,
+    errorMessage: null
+  }
 
-  if (!post) {
+  // If no query is set for given post type, return error message.
+  if (!query) {
     return {
-      isError: true,
-      message: `An error occurred while trying to retrieve data for ${postType} "${id}."`
+      apolloClient,
+      error: true,
+      errorMessage: `Post type \`${postType}\` is not supported.`
     }
   }
 
-  return post
+  // Execute query.
+  response.post = await apolloClient
+    .query({query, variables: {id, idType}})
+    .then((post) => {
+      // Set error props if data not found.
+      if (!post?.data?.[postType]) {
+        response.error = true
+        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
+
+        return null
+      }
+
+      return post.data[postType]
+    })
+    .then(async (post) => {
+      // Handle blocks.
+      if (!post || !post?.blocksJSON) {
+        return post
+      }
+
+      const newPost = {...post}
+
+      newPost.blocks = await formatBlockData(
+        JSON.parse(newPost.blocksJSON) ?? []
+      )
+
+      return newPost
+    })
+    .catch((error) => {
+      response.error = true
+      response.errorMessage = error.message
+
+      return null
+    })
+
+  return response
 }

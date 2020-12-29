@@ -27,8 +27,10 @@ export default async function getPostTypeStaticPaths(postType) {
   const query = gql`
     query GET_SLUGS {
       ${pluralName}(first: 10000) {
-        nodes {
-          ${pathField}
+        edges {
+          node {
+            ${pathField}
+          }
         }
       }
     }
@@ -41,14 +43,11 @@ export default async function getPostTypeStaticPaths(postType) {
   const posts = await apolloClient.query({query})
 
   // Process paths.
-  const paths = !posts?.data?.[pluralName]?.nodes
+  const paths = !posts?.data?.[pluralName]?.edges
     ? []
-    : posts.data[pluralName].nodes.map((post) => {
-        // Use path field as-is for non-hierarchical post types.
-        // Trim leading and trailing slashes then split into array on inner slashes for hierarchical post types.
-        const slug = !isHierarchical
-          ? post[pathField]
-          : post[pathField].replace(/^\/|\/$/g, '').split('/')
+    : posts.data[pluralName].edges.map((post) => {
+        // Trim leading and trailing slashes then split into array on inner slashes.
+        const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
 
         return {
           params: {
@@ -59,6 +58,6 @@ export default async function getPostTypeStaticPaths(postType) {
 
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   }
 }
