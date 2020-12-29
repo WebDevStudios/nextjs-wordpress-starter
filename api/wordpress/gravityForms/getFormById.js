@@ -4,6 +4,7 @@ import queryFormById from './queryFormById'
 /**
  * Retrieve single form by ID.
  *
+ * @author WebDevStudios
  * @param  {string} id Form ID.
  * @return {Object}    Post data or error object.
  */
