@@ -3,6 +3,7 @@ const globalPostFields = `
   databaseId
   date
   slug
+  uri
   title
 `
 export default globalPostFields

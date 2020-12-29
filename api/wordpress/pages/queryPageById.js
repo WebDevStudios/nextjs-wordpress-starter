@@ -19,7 +19,7 @@ const singlePageFragment = gql`
 
 // Query: retrieve page by specified identifier.
 const queryPageById = gql`
-  query GET_PAGE_BY_SLUG(
+  query GET_PAGE_BY_ID(
     $id: ID!
     $idType: PageIdType = URI
     $imageSize: MediaItemSizeEnum = LARGE

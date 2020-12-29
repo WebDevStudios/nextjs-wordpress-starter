@@ -7,7 +7,7 @@ import categoriesPostFields from '../_partials/categoriesPostFields'
 
 const {gql} = require('@apollo/client')
 
-// Fragment: retrieve single page fields.
+// Fragment: retrieve single post fields.
 const singlePostFragment = gql`
   fragment SinglePostFields on Post {
     ${globalPostFields}
@@ -22,7 +22,7 @@ const singlePostFragment = gql`
 `
 // Query: retrieve post by specified identifier.
 const queryPostById = gql`
-  query GET_POST_BY_SLUG(
+  query GET_POST_BY_ID(
     $id: ID!
     $idType: PostIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
