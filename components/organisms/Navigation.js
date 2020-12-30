@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Link from 'next/link'
-import config from '@/lib/config'
+import config from '@/functions/config'
 import Hamburger from 'hamburger-react'
 
 function Links() {

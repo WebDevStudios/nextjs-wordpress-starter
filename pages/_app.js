@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {useApollo} from '@/api/wordpress/connector'
+import Error from 'next/error'
 
 export default function App({Component, pageProps}) {
   /**
@@ -11,9 +12,19 @@ export default function App({Component, pageProps}) {
    */
   const apolloClient = useApollo(pageProps)
 
+  // Check for errors.
+  const error = pageProps?.error
+  let errorMessage = pageProps?.errorMessage ?? 'An unknown error occurred.'
+  // Trim trailing period - added via Error component.
+  errorMessage = errorMessage.replace(/\.$/g, '')
+
   return (
     <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} />
+      {error ? (
+        <Error statusCode={500} title={errorMessage} />
+      ) : (
+        <Component {...pageProps} />
+      )}
     </ApolloProvider>
   )
 }

@@ -1,6 +1,6 @@
 import Layout from '@/components/common/Layout'
 import {Info} from '@/components/molecules/Alert'
-import {fetcher} from '@/lib/functions'
+import fetcher from '@/functions/fetcher'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
