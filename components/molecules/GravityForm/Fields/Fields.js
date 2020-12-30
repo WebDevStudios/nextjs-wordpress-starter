@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
-import * as Fields from '.'
+import * as GfFields from '.'
 
-export default function GravityFormFields({className, fields}) {
+export default function Fields({className, fields}) {
   return (
     <>
       {fields.length > 0 &&
@@ -15,7 +15,7 @@ export default function GravityFormFields({className, fields}) {
           switch (type) {
             case 'text':
               fieldToRender = (
-                <Fields.Text
+                <GfFields.Text
                   fieldId={fieldId}
                   key={id}
                   label={label}
@@ -39,11 +39,11 @@ export default function GravityFormFields({className, fields}) {
   )
 }
 
-GravityFormFields.propTypes = {
+Fields.propTypes = {
   className: PropTypes.string,
   fields: PropTypes.array
 }
 
-GravityFormFields.defaultProps = {
+Fields.defaultProps = {
   fields: []
 }
