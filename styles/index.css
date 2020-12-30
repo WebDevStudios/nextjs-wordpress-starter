@@ -4,5 +4,5 @@
 
 html,
 body {
-  @apply dark:bg-gray-900 dark:text-white;
+  @apply dark:bg-grey-darkest dark:text-white;
 }
