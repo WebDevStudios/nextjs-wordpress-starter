@@ -1,13 +1,14 @@
-import {Field, ErrorMessage} from 'formik'
 import PropTypes from 'prop-types'
+import * as Input from '@/components/atoms/Inputs'
 
 export default function Text({className, fieldId, label, type}) {
   return (
-    <div className={className} key={fieldId}>
-      <label htmlFor={fieldId}>{label}</label>
-      <Field id={fieldId} type={type} name={fieldId} />
-      <ErrorMessage name={fieldId} />
-    </div>
+    <Input.Text
+      className={className}
+      fieldId={fieldId}
+      label={label}
+      type={type}
+    />
   )
 }
 
