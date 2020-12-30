@@ -1,15 +1,10 @@
 import React from 'react'
-import {Formik, Form as FormikForm, Field, ErrorMessage} from 'formik'
-import GravityFormFields from '@/components/molecules/GravityFormFields'
+import {Formik, Form as FormikForm} from 'formik'
 import styles from './Form.module.css'
 import * as Yup from 'yup'
 import PropTypes from 'prop-types'
 
-export default function Form({attributes: {formData}}) {
-  const gravityFormFields = formData?.fields?.edges
-
-  console.log(gravityFormFields)
-
+export default function Form({children}) {
   const formDefaults = {
     ['field-0']: '',
     firstName: '',
@@ -24,15 +19,7 @@ export default function Form({attributes: {formData}}) {
         ['field-0']: Yup.string()
           .min(3, 'Must be 3 characters or more')
           .max(15, 'Must be 15 characters or less')
-          .required('Required'),
-        firstName: Yup.string()
-          .min(3, 'Must be 3 characters or more')
-          .max(15, 'Must be 15 characters or less')
-          .required('Required'),
-        lastName: Yup.string()
-          .max(20, 'Must be 20 characters or less')
-          .required('Required'),
-        email: Yup.string().email('Invalid email address').required('Required')
+          .required('Required')
       })}
       onSubmit={(values, {setSubmitting}) => {
         setTimeout(() => {
@@ -42,20 +29,7 @@ export default function Form({attributes: {formData}}) {
       }}
     >
       <FormikForm className={styles.form}>
-        <GravityFormFields
-          className={styles.fields}
-          fields={gravityFormFields}
-        />
-
-        <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" type="text" />
-        <ErrorMessage name="firstName" />
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" type="text" />
-        <ErrorMessage name="lastName" />
-        <label htmlFor="email">Email Address</label>
-        <Field name="email" type="email" />
-        <ErrorMessage name="email" />
+        {children}
         <button type="submit">Submit</button>
       </FormikForm>
     </Formik>
@@ -63,7 +37,5 @@ export default function Form({attributes: {formData}}) {
 }
 
 Form.propTypes = {
-  attributes: PropTypes.shape({
-    formData: PropTypes.Object
-  })
+  children: PropTypes.Object
 }
