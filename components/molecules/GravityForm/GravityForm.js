@@ -5,11 +5,7 @@ import Fields from './Fields'
 export default function GravityForm({formData}) {
   const fieldData = formData?.fields?.edges
 
-  return (
-    <Form>
-      <Fields fields={fieldData} />
-    </Form>
-  )
+  return <Form>{fieldData && <Fields fields={fieldData} />}</Form>
 }
 
 GravityForm.propTypes = {
