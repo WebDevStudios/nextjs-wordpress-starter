@@ -1,14 +1,12 @@
-// Generic data fetcher.
-export const fetcher = (...args) => fetch(...args).then((res) => res.json()) // eslint-disable-line no-undef
-
 /**
  * Retrieve environment-specific var.
  *
+ * @author WebDevStudios
  * @param  {string} varName  Environment variable.
  * @param  {bool}   isPublic Whether var is public.
  * @return {string}          Env var value.
  */
-export function getEnvVar(varName, isPublic = false) {
+export default function getEnvVar(varName, isPublic = false) {
   const prefix = isPublic ? 'NEXT_PUBLIC_' : ''
 
   // If var missing or currently in Vercel "dev" (local), use local settings.
