@@ -1,28 +1,17 @@
 import PropTypes from 'prop-types'
-import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 import * as GfFields from '.'
 
-export default function Fields({className, fields}) {
+export default function Fields({fields}) {
   return (
     <>
       {fields.length > 0 &&
         fields.map((field) => {
-          const {id, label, type} = field.node
-          const fieldId = getGfFieldId(id)
-
+          const {id, type} = field.node
           let fieldToRender = null
 
           switch (type) {
             case 'text':
-              fieldToRender = (
-                <GfFields.Text
-                  fieldId={fieldId}
-                  key={id}
-                  label={label}
-                  type={type}
-                  className={className}
-                />
-              )
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
               break
 
             default:
@@ -40,7 +29,6 @@ export default function Fields({className, fields}) {
 }
 
 Fields.propTypes = {
-  className: PropTypes.string,
   fields: PropTypes.array
 }
 
