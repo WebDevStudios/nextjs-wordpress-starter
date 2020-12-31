@@ -1,14 +1,14 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 export function Info({children}) {
   return (
     <div
-      className="flex items-center bg-blue-500 text-white px-4 mb-8 rounded shadow"
+      className="flex items-center bg-secondary-dark text-white p-12 mb-12 rounded shadow"
       role="alert"
     >
       <svg
-        className="fill-current w-4 h-4 mr-4"
+        className="fill-current w-12 h-12 mr-12"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
