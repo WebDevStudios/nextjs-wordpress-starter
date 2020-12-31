@@ -4,7 +4,7 @@ import {Field, ErrorMessage} from 'formik'
 export default function Text({className, fieldId, label, type}) {
   return (
     <div className={className} key={fieldId}>
-      <label htmlFor={fieldId}>{label}</label>
+      {label && <label htmlFor={fieldId}>{label}</label>}
       <Field id={fieldId} type={type} name={fieldId} />
       <ErrorMessage name={fieldId} />
     </div>
