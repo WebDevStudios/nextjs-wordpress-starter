@@ -14,7 +14,7 @@ import Hero from './'
  */
 
 export default {
-  title: 'Design System/Molecules/Hero',
+  title: 'Components/Molecules/Hero',
   component: Hero
 }
 
