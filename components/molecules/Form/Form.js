@@ -9,13 +9,13 @@ import cn from 'classnames'
 export default function Form({
   className,
   children,
+  id,
   formDefaults,
   title,
   validationSchema
 }) {
   return (
     <Formik
-      className={className}
       initialValues={formDefaults}
       validationSchema={validationSchema}
       onSubmit={(values, {setSubmitting}) => {
@@ -25,7 +25,7 @@ export default function Form({
         }, 400)
       }}
     >
-      <FormikForm className={cn(styles.form, className)}>
+      <FormikForm id={id} className={cn(styles.form, className)}>
         {title && <h1 className={styles.title}>{title}</h1>}
         {children}
         <button type="submit">Submit</button>
@@ -37,6 +37,7 @@ export default function Form({
 Form.propTypes = {
   className: PropTypes.string,
   children: PropTypes.object,
+  id: PropTypes.string,
   formDefaults: PropTypes.object,
   title: PropTypes.string,
   validationSchema: PropTypes.object
