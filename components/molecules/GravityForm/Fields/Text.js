@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import * as Input from '@/components/atoms/Inputs'
-import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
+import {getGfFieldId, getGfHiddenClassName} from '@/functions/GravityForms'
 import cn from 'classnames'
 
 export default function Text({
@@ -12,7 +12,7 @@ export default function Text({
   visibility
 }) {
   const fieldId = getGfFieldId(id)
-  const isHiddenClass = visibility === 'visible' ? null : 'isHidden'
+  const isHiddenClass = getGfHiddenClassName(visibility)
 
   return (
     <div className={cn(className, isHiddenClass) || null}>
