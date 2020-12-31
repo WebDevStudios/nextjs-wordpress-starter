@@ -11,6 +11,7 @@ import NoResults from './NoResults'
 const SearchResults = connectStateResults(({searchResults, indexName}) => {
   return (
     <>
+      <h1>Search Results</h1>
       {searchResults && searchResults.nbHits ? (
         <>
           <p className={styles.total}>
@@ -19,7 +20,7 @@ const SearchResults = connectStateResults(({searchResults, indexName}) => {
           </p>
 
           <InfiniteHits
-            className={styles.hits}
+            className={styles.aisHits}
             hitComponent={Hit}
             translations={{
               loadMore: 'Load More'

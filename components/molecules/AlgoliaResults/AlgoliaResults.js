@@ -12,19 +12,16 @@ import SearchResults from './Templates/SearchResults'
 export default function AlgoliaResults({indexName, config}) {
   return (
     <section className={cn('container', styles.algoliaResults)}>
-      <div className={styles.resultsWrap}>
-        <h1>Search Results</h1>
-        {config.query !== '' && (
-          <InstantSearch
-            searchClient={config.query !== '' ? searchResultsClient : ''}
-            indexName={indexName}
-          >
-            <Configure {...config} />
-            <SearchResults indexName={indexName} />
-          </InstantSearch>
-        )}
-        {config.query === '' && <NoResults query={config.query} />}
-      </div>
+      {config.query !== '' && (
+        <InstantSearch
+          searchClient={config.query !== '' ? searchResultsClient : ''}
+          indexName={indexName}
+        >
+          <Configure {...config} />
+          <SearchResults indexName={indexName} />
+        </InstantSearch>
+      )}
+      {config.query === '' && <NoResults query={config.query} />}
     </section>
   )
 }

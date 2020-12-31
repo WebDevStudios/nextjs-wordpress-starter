@@ -5,7 +5,6 @@ import styles from '../AlgoliaResults.module.css'
  * Component for rendering individual search result.
  */
 const Hit = ({hit}) => {
-  console.log(hit)
   return (
     <div className={styles.hit}>
       <h3>{hit.post_title}</h3>

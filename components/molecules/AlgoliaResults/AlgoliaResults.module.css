@@ -1,37 +1,52 @@
 .algoliaResults {
-  @apply py-8;
+  @apply pt-20 pb-40;
 
   & h1 {
-    @apply mb-2;
+    @apply mb-8;
 
     font-size: 30px;
   }
 
+  /* Results */
   & .total {
-    @apply mb-2;
+    @apply mb-20;
 
     & span {
       @apply font-semibold;
     }
   }
 
-  & .resultsWrap {
-    @apply p-32;
+  & .aisHits {
+    @apply text-center;
+
+    & > ul {
+      @apply grid gap-24 grid-cols-1 text-left;
+    }
+
+    & > button {
+      @apply inline-block m-auto mt-44 border rounded px-24 py-8 transition-colors duration-200 ease-in-out;
+
+      &[disabled] {
+        @apply opacity-25 cursor-not-allowed;
+      }
+    }
   }
 
+  /* Hit */
   & .hit {
-    @apply py-8 border-t;
+    @apply py-20 border-t;
 
     & h3 {
       @apply font-semibold;
-
-      font-size: 20px;
     }
 
     & .date {
-      @apply italic mb-1;
-
-      font-size: 14px;
+      @apply italic mb-8;
     }
+  }
+
+  /* No results */
+  & .empty {
+    @apply py-20;
   }
 }
