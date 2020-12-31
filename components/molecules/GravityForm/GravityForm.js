@@ -4,7 +4,7 @@ import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 
-export default function GravityForm({formData: {fields, title}}) {
+export default function GravityForm({formData: {fields, formId, title}}) {
   const fieldData = fields?.edges
 
   /**
@@ -33,6 +33,7 @@ export default function GravityForm({formData: {fields, title}}) {
 
   return (
     <Form
+      id={formId && `gform-${formId}`}
       formDefaults={fieldDefaults}
       title={title}
       validationSchema={Yup.object({
@@ -48,5 +49,9 @@ export default function GravityForm({formData: {fields, title}}) {
 }
 
 GravityForm.propTypes = {
-  formData: PropTypes.object
+  formData: PropTypes.shape({
+    fields: PropTypes.object,
+    formId: PropTypes.number,
+    title: PropTypes.string
+  })
 }
