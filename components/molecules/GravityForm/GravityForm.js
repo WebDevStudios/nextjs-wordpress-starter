@@ -31,6 +31,7 @@ export default function GravityForm({
     return defaults
   }
 
+  // Generate default state based on field ids.
   const fieldDefaults = getFieldDefaults(fieldData)
 
   return (
