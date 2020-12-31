@@ -6,6 +6,7 @@ import cn from 'classnames'
 export default function Text({
   className,
   description,
+  enablePasswordInput,
   errorMessage,
   id,
   label,
@@ -22,7 +23,7 @@ export default function Text({
         errorMessage={errorMessage}
         fieldId={fieldId}
         label={label}
-        type={type}
+        type={(enablePasswordInput && 'password') || type}
       />
     </div>
   )
@@ -31,9 +32,14 @@ export default function Text({
 Text.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
+  enablePasswordInput: PropTypes.bool,
   errorMessage: PropTypes.string,
   id: PropTypes.number.isRequired,
   label: PropTypes.string,
   type: PropTypes.string.isRequired,
   visibility: PropTypes.string
+}
+
+Text.defaultProps = {
+  enablePasswordInput: false
 }
