@@ -4,10 +4,13 @@ import styles from './Form.module.css'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
+// TODO Update form title with dynamic heading tag.
+
 export default function Form({
   className,
   children,
   formDefaults,
+  title,
   validationSchema
 }) {
   return (
@@ -23,6 +26,7 @@ export default function Form({
       }}
     >
       <FormikForm className={cn(styles.form, className)}>
+        {title && <h1 className={styles.title}>{title}</h1>}
         {children}
         <button type="submit">Submit</button>
       </FormikForm>
@@ -34,5 +38,6 @@ Form.propTypes = {
   className: PropTypes.string,
   children: PropTypes.object,
   formDefaults: PropTypes.object,
+  title: PropTypes.string,
   validationSchema: PropTypes.object
 }
