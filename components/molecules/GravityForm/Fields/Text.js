@@ -5,6 +5,7 @@ import cn from 'classnames'
 
 export default function Text({
   className,
+  description,
   errorMessage,
   id,
   label,
@@ -17,6 +18,7 @@ export default function Text({
   return (
     <div className={cn(className, isHiddenClass) || null}>
       <Input.Text
+        description={description}
         errorMessage={errorMessage}
         fieldId={fieldId}
         label={label}
@@ -28,6 +30,7 @@ export default function Text({
 
 Text.propTypes = {
   className: PropTypes.string,
+  description: PropTypes.string,
   errorMessage: PropTypes.string,
   id: PropTypes.number.isRequired,
   label: PropTypes.string,
