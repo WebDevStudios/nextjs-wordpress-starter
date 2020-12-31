@@ -4,8 +4,8 @@ import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 
-export default function GravityForm({formData}) {
-  const fieldData = formData?.fields?.edges
+export default function GravityForm({formData: {fields, title}}) {
+  const fieldData = fields?.edges
 
   /**
    * Map field GravityForm ids and defaults to Object.
@@ -34,6 +34,7 @@ export default function GravityForm({formData}) {
   return (
     <Form
       formDefaults={fieldDefaults}
+      title={title}
       validationSchema={Yup.object({
         ['field-1']: Yup.string()
           .min(3, 'Must be 3 characters or more')
