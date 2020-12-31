@@ -1,5 +1,5 @@
 import {searchClient} from '@/api/algolia/connector'
-import {parseQuerystring} from '@/lib/functions'
+import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
 import searchSubmit from './functions/searchSubmit'
 import PropTypes from 'prop-types'
@@ -11,7 +11,7 @@ import {deleteLocalStorage} from './functions/localStorage'
 
 // TODO: Create Storybook for this component.
 
-export default function AlgoliaSearch({indexName}) {
+export default function AlgoliaSearch({indexName, useHistory}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
@@ -43,7 +43,7 @@ export default function AlgoliaSearch({indexName}) {
 
   // Get search history on initial page load.
   useEffect(() => {
-    if (localStorage) {
+    if (localStorage && useHistory) {
       const history = localStorage.getItem(storageName)
       if (history) {
         let searchHistory = JSON.parse(history)
@@ -100,5 +100,10 @@ export default function AlgoliaSearch({indexName}) {
 }
 
 AlgoliaSearch.propTypes = {
-  indexName: PropTypes.string
+  indexName: PropTypes.string.isRequired,
+  useHistory: PropTypes.bool
+}
+
+AlgoliaSearch.defaultProps = {
+  useHistory: true
 }

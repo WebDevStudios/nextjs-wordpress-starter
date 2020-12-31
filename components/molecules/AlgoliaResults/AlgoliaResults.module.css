@@ -16,7 +16,7 @@
   }
 
   & .resultsWrap {
-    @apply px-20;
+    @apply p-32;
   }
 
   & .hit {

@@ -23,7 +23,7 @@ function Logo() {
 export default function Header() {
   return (
     <header className="sticky top-0 pb-8 transition-all z-50">
-      <AlgoliaSearch indexName="wds_dev_searchable_posts" />
+      <AlgoliaSearch indexName="wds_dev_searchable_posts" useHistory={true} />
       <div className="container px-4 lg:px-0 flex items-center justify-between">
         <Logo />
         <Navigation />

@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch/lite'
-import {getEnvVar} from '@/lib/functions'
+import getEnvVar from '@/functions/getEnvVar'
 
 // Define env vars.
 export const algoliaIndexName = getEnvVar('ALGOLIA_INDEX_NAME', true)

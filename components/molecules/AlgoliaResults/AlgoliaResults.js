@@ -9,7 +9,7 @@ import SearchResults from './Templates/SearchResults'
 
 // TODO: Create Storybook for this component.
 
-export default function AlgoliaResults({indexName, config, show_filters}) {
+export default function AlgoliaResults({indexName, config}) {
   return (
     <section className={cn('container', styles.algoliaResults)}>
       <div className={styles.resultsWrap}>

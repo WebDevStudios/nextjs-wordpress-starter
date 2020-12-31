@@ -1,10 +1,10 @@
 import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
-import {parseQuerystring} from '@/lib/functions'
+import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
 import React from 'react'
-import config from '@/lib/config'
+import config from '@/functions/config'
 
 // TODO: Pass Algolia indexName via props from ENV vars.
 
