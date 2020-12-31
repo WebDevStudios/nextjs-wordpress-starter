@@ -11,6 +11,7 @@ export default function Text({
   id,
   isRequired,
   label,
+  size,
   type,
   visibility
 }) {
@@ -18,7 +19,10 @@ export default function Text({
   const isHiddenClass = getGfHiddenClassName(visibility)
 
   return (
-    <div className={cn(className, isHiddenClass) || null}>
+    <div
+      className={cn(className, isHiddenClass) || null}
+      field-size={size && `size-${size}`}
+    >
       <Input.Text
         description={description}
         errorMessage={errorMessage}
@@ -39,6 +43,7 @@ Text.propTypes = {
   id: PropTypes.number.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
+  size: PropTypes.string,
   type: PropTypes.string.isRequired,
   visibility: PropTypes.string
 }
