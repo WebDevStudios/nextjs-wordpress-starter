@@ -9,6 +9,7 @@ export default function Text({
   enablePasswordInput,
   errorMessage,
   id,
+  isRequired,
   label,
   type,
   visibility
@@ -24,6 +25,7 @@ export default function Text({
         fieldId={fieldId}
         label={label}
         type={(enablePasswordInput && 'password') || type}
+        isRequired={isRequired}
       />
     </div>
   )
@@ -35,11 +37,13 @@ Text.propTypes = {
   enablePasswordInput: PropTypes.bool,
   errorMessage: PropTypes.string,
   id: PropTypes.number.isRequired,
+  isRequired: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string.isRequired,
   visibility: PropTypes.string
 }
 
 Text.defaultProps = {
-  enablePasswordInput: false
+  enablePasswordInput: false,
+  isRequired: false
 }
