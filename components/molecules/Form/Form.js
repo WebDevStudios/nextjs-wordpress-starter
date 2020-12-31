@@ -41,3 +41,7 @@ Form.propTypes = {
   title: PropTypes.string,
   validationSchema: PropTypes.object
 }
+
+Form.defaultProps = {
+  formDefaults: {}
+}
