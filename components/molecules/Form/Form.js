@@ -2,10 +2,17 @@ import React from 'react'
 import {Formik, Form as FormikForm} from 'formik'
 import styles from './Form.module.css'
 import PropTypes from 'prop-types'
+import cn from 'classnames'
 
-export default function Form({children, formDefaults, validationSchema}) {
+export default function Form({
+  className,
+  children,
+  formDefaults,
+  validationSchema
+}) {
   return (
     <Formik
+      className={className}
       initialValues={formDefaults}
       validationSchema={validationSchema}
       onSubmit={(values, {setSubmitting}) => {
@@ -15,7 +22,7 @@ export default function Form({children, formDefaults, validationSchema}) {
         }, 400)
       }}
     >
-      <FormikForm className={styles.form}>
+      <FormikForm className={cn(styles.form, className)}>
         {children}
         <button type="submit">Submit</button>
       </FormikForm>
@@ -24,6 +31,7 @@ export default function Form({children, formDefaults, validationSchema}) {
 }
 
 Form.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.object,
   formDefaults: PropTypes.object,
   validationSchema: PropTypes.object
