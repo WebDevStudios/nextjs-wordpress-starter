@@ -7,6 +7,7 @@ import styles from '../AlgoliaResults.module.css'
 export default function NoResults({query}) {
   return (
     <>
+      <h1>Search Results</h1>
       {query !== '' && (
         <p className={styles.total}>
           <span>0 Results</span> for {query}
