@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import {connectMenu} from 'react-instantsearch-dom'
@@ -15,9 +16,12 @@ const Menu = ({
   showMore,
   limit,
   translations,
-  attribute
+  attribute,
+  className
 }) => {
   const [extended, setExtended] = useState(false)
+
+  console.log(items)
 
   return (
     <>
@@ -33,7 +37,7 @@ const Menu = ({
                       type="radio"
                       id={`chk-${item.label}`}
                       name={attribute}
-                      value={item.value.join(',')}
+                      value={item.value}
                       onChange={() => refine(item.value)}
                       checked={item.isRefined}
                     />
@@ -64,7 +68,8 @@ Menu.propTypes = {
   showMore: PropTypes.bool,
   limit: PropTypes.number,
   translations: PropTypes.object,
-  attribute: PropTypes.string
+  attribute: PropTypes.string,
+  className: PropTypes.string
 }
 
 const CustomMenu = connectMenu(Menu)
