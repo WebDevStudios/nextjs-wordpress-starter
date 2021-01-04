@@ -1,4 +1,4 @@
-import InputCheckbox from '@/components/molecules/InputCheckbox'
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {connectToggleRefinement} from 'react-instantsearch-dom'
@@ -11,25 +11,17 @@ import styles from '../AlgoliaResults.module.css'
  */
 const ToggleRefinement = ({
   currentRefinement,
-  attribute,
   label,
   value,
   refine,
-  title
+  title,
+  className
 }) => {
   return (
     <section className={cn(styles.filterPanel, className)}>
       {title && <h3>{title}</h3>}
       <ul>
         <li>
-          <InputCheckbox
-            id={attribute}
-            label={label}
-            name={label}
-            value={value}
-            onChange={() => refine(currentRefinement ? false : true)}
-            checked={currentRefinement}
-          />
           <input
             type="checkbox"
             id={`chk-${label}`}
@@ -52,7 +44,7 @@ ToggleRefinement.propTypes = {
   label: PropTypes.string,
   limit: PropTypes.number,
   value: PropTypes.string,
-  attribute: PropTypes.string
+  className: PropTypes.string
 }
 
 const CustomToggleRefinement = connectToggleRefinement(ToggleRefinement)

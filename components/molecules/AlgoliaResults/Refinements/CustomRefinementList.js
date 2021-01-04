@@ -50,6 +50,7 @@ const RefinementList = ({
               onClick={() => {
                 setExtended(!extended)
               }}
+              className={styles.moreBtn}
             >
               {translations['showMore'](extended)}
             </button>

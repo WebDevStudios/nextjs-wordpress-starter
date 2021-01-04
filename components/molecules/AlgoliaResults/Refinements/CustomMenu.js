@@ -48,10 +48,11 @@ const Menu = ({
           </ul>
           {showMore && limit < items.length && (
             <button
-              className={filters.moreBtn}
+              type="button"
               onClick={() => {
                 setExtended(!extended)
               }}
+              className={styles.moreBtn}
             >
               {translations['showMore'](extended)}
             </button>

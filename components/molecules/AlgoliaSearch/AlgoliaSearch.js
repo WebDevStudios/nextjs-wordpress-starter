@@ -50,7 +50,7 @@ export default function AlgoliaSearch({indexName, useHistory}) {
         setSearchHistory(searchHistory)
       }
     }
-  }, [storageName])
+  }, [storageName, useHistory])
 
   // Delete recent searches and clear history.
   const clearLocalStorage = () => {
