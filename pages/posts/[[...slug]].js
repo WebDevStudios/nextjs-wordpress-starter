@@ -1,9 +1,10 @@
-import Layout from '@/components/common/Layout'
-import {Info} from '@/components/molecules/Alert'
-import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Layout from '@/components/common/Layout'
+import {Info} from '@/components/molecules/Alert'
+import {BlogJsonLd, NextSeo} from 'next-seo'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 // Define route post type.
 const postType = 'post'
@@ -21,6 +22,29 @@ export default function BlogPost({post, posts, archive}) {
   if (archive) {
     return (
       <Layout title="Blog">
+        <NextSeo
+          title="Query from Yoast SEO"
+          description="Query from Yoast SEO"
+          openGraph={{
+            title: 'Query from Yoast SEO',
+            description: 'Query from Yoast SEO',
+            images: [
+              {
+                url: 'Query from Yoast SEO',
+                alt: 'Query from Yoast SEO'
+              }
+            ]
+          }}
+        />
+        <BlogJsonLd
+          url="Query from Yoast SEO"
+          title="Query from Yoast SEO"
+          images={['Query from Yoast SEO']}
+          datePublished="Query from Yoast SEO"
+          dateModified="Query from Yoast SEO"
+          authorName="Jane Blogs"
+          description="Query from Yoast SEO"
+        />
         <div className="container">
           <section>
             {!posts || !posts.length ? (
