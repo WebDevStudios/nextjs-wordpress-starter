@@ -1,4 +1,5 @@
 import {searchClient} from '@/api/algolia/connector'
+import cn from 'classnames'
 import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
 import searchSubmit from './functions/searchSubmit'
@@ -11,7 +12,7 @@ import {deleteLocalStorage} from './functions/localStorage'
 
 // TODO: Create Storybook for this component.
 
-export default function AlgoliaSearch({indexName, useHistory}) {
+export default function AlgoliaSearch({indexName, useHistory, className}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
@@ -59,49 +60,48 @@ export default function AlgoliaSearch({indexName, useHistory}) {
   }
 
   return (
-    <section className={styles.algoliaSearch} id="site-search">
-      <div className={styles.wrap}>
-        <InstantSearch searchClient={searchClient} indexName={indexName}>
-          <Configure {...algoliaConfig} />
-          <SearchBox
-            className={styles.aisSearchBox}
-            onSubmit={(e) =>
-              searchSubmit(
-                e,
-                setSearchState,
-                searchState,
-                storageName,
-                historyLength
-              )
-            }
-            onFocus={() => showHistory()}
-            onKeyUp={(e) => {
-              setSearchState(e.currentTarget.value)
-            }}
-            onReset={() => {
-              setSearchState('')
-            }}
-            defaultRefinement={router?.query?.q || null}
-            translations={{
-              submitTitle: 'Submit Search Query.',
-              resetTitle: 'Clear Search Query',
-              placeholder: 'Enter search term...'
-            }}
-          />
-          <Results
-            displayHistory={displayHistory}
-            searchHistory={searchHistory}
-            clearLocalStorage={clearLocalStorage}
-          />
-        </InstantSearch>
-      </div>
-    </section>
+    <div className={cn(styles.algoliaSearch, className)}>
+      <InstantSearch searchClient={searchClient} indexName={indexName}>
+        <Configure {...algoliaConfig} />
+        <SearchBox
+          className={styles.aisSearchBox}
+          onSubmit={(e) =>
+            searchSubmit(
+              e,
+              setSearchState,
+              searchState,
+              storageName,
+              historyLength
+            )
+          }
+          onFocus={() => showHistory()}
+          onKeyUp={(e) => {
+            setSearchState(e.currentTarget.value)
+          }}
+          onReset={() => {
+            setSearchState('')
+          }}
+          defaultRefinement={router?.query?.q || null}
+          translations={{
+            submitTitle: 'Submit Search Query.',
+            resetTitle: 'Clear Search Query',
+            placeholder: 'Enter search term...'
+          }}
+        />
+        <Results
+          displayHistory={displayHistory}
+          searchHistory={searchHistory}
+          clearLocalStorage={clearLocalStorage}
+        />
+      </InstantSearch>
+    </div>
   )
 }
 
 AlgoliaSearch.propTypes = {
   indexName: PropTypes.string.isRequired,
-  useHistory: PropTypes.bool
+  useHistory: PropTypes.bool,
+  className: PropTypes.string
 }
 
 AlgoliaSearch.defaultProps = {

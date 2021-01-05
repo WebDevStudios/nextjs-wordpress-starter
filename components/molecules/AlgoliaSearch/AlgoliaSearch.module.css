@@ -1,12 +1,8 @@
 .algoliaSearch {
-  @apply container block relative w-full py-4 pb-6;
+  @apply relative;
 
-  & .wrap {
-    @apply ml-auto relative;
-
-    height: 100%;
-    width: 260px;
-  }
+  height: 100%;
+  width: 260px;
 
   & form {
     @apply relative h-full;
@@ -15,6 +11,7 @@
       @apply w-full p-2 pr-8 border;
 
       font-size: 15px;
+      line-height: 1.15;
 
       &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
