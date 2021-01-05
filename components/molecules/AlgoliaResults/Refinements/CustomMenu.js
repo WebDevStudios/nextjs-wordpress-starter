@@ -6,8 +6,6 @@ import styles from '../AlgoliaResults.module.css'
 
 /**
  * Custom display of Algolia [Menu](https://www.algolia.com/doc/api-reference/widgets/menu/react/) widget.
- *
- * @param {*} param
  */
 const Menu = ({
   items,

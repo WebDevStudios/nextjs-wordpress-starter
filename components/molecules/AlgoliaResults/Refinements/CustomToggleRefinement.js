@@ -6,8 +6,6 @@ import styles from '../AlgoliaResults.module.css'
 
 /**
  * Custom display of Algolia [ToggleRefinement](https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/) widget.
- *
- * @param {*} param
  */
 const ToggleRefinement = ({
   currentRefinement,

@@ -4,8 +4,6 @@ import styles from '../AlgoliaResults.module.css'
 
 /**
  * Custom display of Algolia [ClearRefinements](https://www.algolia.com/doc/api-reference/widgets/clear-refinements/react/) widget.
- *
- * @param {*} param
  */
 const ClearRefinements = ({items, refine}) => (
   <>
@@ -28,5 +26,4 @@ ClearRefinements.propTypes = {
 }
 
 const CustomClearRefinements = connectCurrentRefinements(ClearRefinements)
-
 export default CustomClearRefinements

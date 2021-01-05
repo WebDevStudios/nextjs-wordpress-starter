@@ -6,8 +6,6 @@ import styles from '../AlgoliaResults.module.css'
 
 /**
  * Custom display of Algolia [RefinementList](https://www.algolia.com/doc/api-reference/widgets/refinement-list/react/) widget.
- *
- * @param {*} param
  */
 const RefinementList = ({
   items,

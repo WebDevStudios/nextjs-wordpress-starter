@@ -9,6 +9,9 @@ import Authors from '../Facets/Authors'
 import CustomClearRefinements from '../Refinements/CustomClearRefinements'
 import Sort from '../Facets/Sort'
 
+/**
+ * Refinement config passed into Algolia facets.
+ */
 const refinements = {
   limit: 3,
   translations: {
