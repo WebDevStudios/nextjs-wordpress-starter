@@ -48,16 +48,7 @@ export default function HomePage({post}) {
  * @return {Object}                      Post props.
  */
 export async function getStaticProps() {
-  const props = await getPostTypeStaticProps({slug: '/'}, postType)
-
-  return !props.props.error
-    ? props
-    : // Fallback to empty props if homepage not set in WP.
-      {
-        props: {
-          post: null
-        }
-      }
+  return await getPostTypeStaticProps({slug: '/'}, postType)
 }
 
 HomePage.propTypes = {
