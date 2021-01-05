@@ -24,15 +24,17 @@ export default function HomePage({post}) {
   // Display static page content as fallback.
   return (
     <Layout title={config.siteTitle} description={config.siteDescription}>
-      <Hero
-        background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
-        title="Next.js Starter"
-        description="A slightly opinionated, yet bare-bones Next.js starter."
-      />
-      <p>
-        To display your WordPress homepage dynamically, set your homepage to a
-        static page via the WP dashboard (Settings: Reading Settings).
-      </p>
+      <>
+        <Hero
+          background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
+          title="Next.js Starter"
+          description="A slightly opinionated, yet bare-bones Next.js starter."
+        />
+        <p>
+          To display your WordPress homepage dynamically, set your homepage to a
+          static page via the WP dashboard (Settings: Reading Settings).
+        </p>
+      </>
     </Layout>
   )
 }
