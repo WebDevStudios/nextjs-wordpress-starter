@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client'
 import {isValidPostType, postTypes, isHierarchicalPostType} from './postTypes'
-import {initializeApollo} from '../connector'
+import {initializeWpApollo} from '../connector'
 
 /**
  * Retrieve static paths by post type.
@@ -37,7 +37,7 @@ export default async function getPostTypeStaticPaths(postType) {
   `
 
   // Get/create Apollo instance.
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeWpApollo()
 
   // Execute query.
   const posts = await apolloClient.query({query})
