@@ -31,7 +31,7 @@ export function createWpApolloClient() {
  *
  * @author WebDevStudios
  * @param  {mixed} initialState Initial Apollo state.
- * @return {object}             WP Apollo client instance.
+ * @return {Object}             WP Apollo client instance.
  */
 export function initializeWpApollo(initialState = null) {
   // Only run one instance of the Apollo client.
