@@ -7,7 +7,8 @@ export default function Text({
   fieldId,
   isRequired,
   label,
-  type
+  type,
+  validation
 }) {
   return (
     <div className={className} key={fieldId}>
@@ -18,6 +19,7 @@ export default function Text({
         name={fieldId}
         required={isRequired}
         type={type}
+        validate={validation}
       />
       {description && <p>{description}</p>}
       <ErrorMessage name={fieldId} />
@@ -31,7 +33,8 @@ Text.propTypes = {
   fieldId: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  validation: PropTypes.func
 }
 
 Text.defaultProps = {
