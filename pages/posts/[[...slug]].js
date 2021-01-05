@@ -1,9 +1,9 @@
-import Layout from '@/components/common/Layout'
-import {Info} from '@/components/molecules/Alert'
-import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Layout from '@/components/common/Layout'
+import {BlogJsonLd, NextSeo} from 'next-seo'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 // Define route post type.
 const postType = 'post'
@@ -20,7 +20,7 @@ export default function BlogPost({post, posts, archive}) {
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
-      <Layout title="Blog">
+      <Layout>
         <div className="container">
           <section>
             {!posts || !posts.length ? (
@@ -28,6 +28,20 @@ export default function BlogPost({post, posts, archive}) {
             ) : (
               posts.map((post, index) => (
                 <>
+                  <NextSeo
+                    title="Query from Yoast SEO"
+                    description="Query from Yoast SEO"
+                    openGraph={{
+                      title: 'Query from Yoast SEO',
+                      description: 'Query from Yoast SEO',
+                      images: [
+                        {
+                          url: 'Query from Yoast SEO',
+                          alt: 'Query from Yoast SEO'
+                        }
+                      ]
+                    }}
+                  />
                   <article key={index}>
                     <Link href={post.uri}>
                       <a>
@@ -47,15 +61,31 @@ export default function BlogPost({post, posts, archive}) {
   }
 
   return (
-    <Layout title={post?.title} description={post?.excerpt}>
+    <Layout>
+      <NextSeo
+        title="Query from Yoast SEO"
+        description="Query from Yoast SEO"
+        openGraph={{
+          title: 'Query from Yoast SEO',
+          description: 'Query from Yoast SEO',
+          images: [
+            {
+              url: 'Query from Yoast SEO',
+              alt: 'Query from Yoast SEO'
+            }
+          ]
+        }}
+      />
+      <BlogJsonLd
+        url="Query from Yoast SEO"
+        title="Query from Yoast SEO"
+        images={['Query from Yoast SEO']}
+        datePublished="Query from Yoast SEO"
+        dateModified="Query from Yoast SEO"
+        authorName="Query from Yoast SEO"
+        description="Query from Yoast SEO"
+      />
       <div className="container">
-        <Info>
-          The content below is sourced from the WordPress REST-API.{' '}
-          <a href="https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation">
-            Learn more about SSG.
-          </a>
-        </Info>
-
         <section>
           <article>
             <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
