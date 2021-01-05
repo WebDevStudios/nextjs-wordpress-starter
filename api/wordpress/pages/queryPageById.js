@@ -11,6 +11,7 @@ const singlePageFragment = gql`
     ${globalPostFields}
     blocksJSON
     excerpt
+    isFrontPage
     ${seoPostFields}
     ${authorPostFields}
     ${featuredImagePostFields}
