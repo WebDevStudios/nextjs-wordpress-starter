@@ -4,6 +4,7 @@ import {gql} from '@apollo/client'
 /**
  * Partial: retrieve basic data on all form fields.
  *
+ * @author WebDevStudios
  * @return {string} Form fields query partial.
  */
 function getFormFieldsPartial() {

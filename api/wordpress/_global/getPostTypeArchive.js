@@ -1,4 +1,4 @@
-import {initializeApollo} from '../connector'
+import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
 
@@ -31,7 +31,7 @@ export default async function getPostTypeArchive(
   const query = postTypeQuery?.[postType] ?? null
 
   // Get/create Apollo instance.
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeWpApollo()
 
   // Set up return object.
   const response = {

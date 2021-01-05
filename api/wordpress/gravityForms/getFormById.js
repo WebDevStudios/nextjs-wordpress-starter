@@ -1,9 +1,10 @@
-import {initializeApollo} from '../connector'
+import {initializeWpApollo} from '../connector'
 import queryFormById from './queryFormById'
 
 /**
  * Retrieve single form by ID.
  *
+ * @author WebDevStudios
  * @param  {string} id Form ID.
  * @return {Object}    Post data or error object.
  */
@@ -12,7 +13,7 @@ export default async function getFormById(id) {
   const formId = Buffer.from(`GravityFormsForm:${id}`).toString('base64')
 
   // Get/create Apollo instance.
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeWpApollo()
 
   // Execute query.
   const form = await apolloClient

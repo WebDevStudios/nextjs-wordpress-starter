@@ -1,10 +1,11 @@
 import getPostTypeById from './getPostTypeById'
-import {addApolloState} from '../connector'
 import getPostTypeArchive from './getPostTypeArchive'
+import {addApolloState} from '@/api/apolloConfig'
 
 /**
  * Retrieve static props by post type.
  *
+ * @author WebDevStudios
  * @param  {string}  params      Post params (e.g., slug).
  * @param  {string}  postType    Post Type.
  * @param  {boolean} preview     Whether requesting preview of post.
