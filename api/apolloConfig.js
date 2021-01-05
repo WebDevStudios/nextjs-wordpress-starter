@@ -43,8 +43,9 @@ export function initializeApollo(apolloClient, initialState = null) {
  * Pass down Apollo state to page props.
  *
  * @author WebDevStudios
- * @param {object} client Apollo  Client props.
- * @param {object} pageProps      Props from getStaticProps().
+ * @param  {Object} client    Apollo  Client props.
+ * @param  {Object} pageProps Props from getStaticProps().
+ * @return {Object}           Updated page props.
  */
 export function addApolloState(client, pageProps) {
   if (pageProps?.props) {
@@ -58,7 +59,8 @@ export function addApolloState(client, pageProps) {
  * Only update when the cache value has changed.
  *
  * @author WebDevStudios
- * @param  {object} pageProps Props from getStaticProps().
+ * @param  {Object} pageProps Props from getStaticProps().
+ * @return {Object}           WP Apollo client instance.
  */
 export function useApollo(pageProps) {
   const state = pageProps[APOLLO_STATE_PROP_NAME]
