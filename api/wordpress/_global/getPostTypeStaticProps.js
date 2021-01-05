@@ -45,13 +45,22 @@ export default async function getPostTypeStaticProps(
     slug
   )
 
+  const props = {
+    post,
+    error,
+    errorMessage
+  }
+
+  // Custom handling for homepage.
+  if (error) {
+    // Fallback to empty props if homepage not set in WP.
+    props.post = null
+    props.error = false
+  }
+
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
-    props: {
-      post,
-      error,
-      errorMessage
-    },
+    props,
     revalidate: 60 * 5
   })
 }

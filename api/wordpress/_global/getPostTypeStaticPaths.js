@@ -45,16 +45,19 @@ export default async function getPostTypeStaticPaths(postType) {
   // Process paths.
   const paths = !posts?.data?.[pluralName]?.edges
     ? []
-    : posts.data[pluralName].edges.map((post) => {
-        // Trim leading and trailing slashes then split into array on inner slashes.
-        const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
+    : posts.data[pluralName].edges
+        .map((post) => {
+          // Trim leading and trailing slashes then split into array on inner slashes.
+          const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
 
-        return {
-          params: {
-            slug
+          return {
+            params: {
+              slug
+            }
           }
-        }
-      })
+        })
+        // Filter out certain posts with custom routes (e.g., homepage).
+        .filter((post) => !!post.params.slug.join('/').length)
 
   return {
     paths,
