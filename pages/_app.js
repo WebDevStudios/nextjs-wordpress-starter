@@ -1,4 +1,4 @@
-import {useApollo} from '@/api/wordpress/connector'
+import {useApollo} from '@/api/apolloConfig'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {DefaultSeo} from 'next-seo'
