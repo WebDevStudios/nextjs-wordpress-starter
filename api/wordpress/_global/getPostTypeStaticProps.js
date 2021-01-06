@@ -1,10 +1,11 @@
 import getPostTypeById from './getPostTypeById'
-import {addApolloState} from '../connector'
 import getPostTypeArchive from './getPostTypeArchive'
+import {addApolloState} from '@/api/apolloConfig'
 
 /**
  * Retrieve static props by post type.
  *
+ * @author WebDevStudios
  * @param  {string}  params      Post params (e.g., slug).
  * @param  {string}  postType    Post Type.
  * @param  {boolean} preview     Whether requesting preview of post.
@@ -44,13 +45,22 @@ export default async function getPostTypeStaticProps(
     slug
   )
 
+  const props = {
+    post,
+    error,
+    errorMessage
+  }
+
+  // Custom handling for homepage.
+  if (error) {
+    // Fallback to empty props if homepage not set in WP.
+    props.post = null
+    props.error = false
+  }
+
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
-    props: {
-      post,
-      error,
-      errorMessage
-    },
+    props,
     revalidate: 60 * 5
   })
 }

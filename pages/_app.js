@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
+import {useApollo} from '@/api/apolloConfig'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
-import {useApollo} from '@/api/wordpress/connector'
+import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
+import PropTypes from 'prop-types'
 
 export default function App({Component, pageProps}) {
   /**
@@ -23,7 +24,27 @@ export default function App({Component, pageProps}) {
       {error ? (
         <Error statusCode={500} title={errorMessage} />
       ) : (
-        <Component {...pageProps} />
+        <>
+          <DefaultSeo
+            title="Next.js WordPress Starter"
+            description="Query from Yoast SEO"
+            openGraph={{
+              type: 'website',
+              locale: 'en_US',
+              url: 'Query from Yoast SEO',
+              site_name: '',
+              images: [
+                {
+                  url: 'Query from Yoast SEO',
+                  width: 'Query from Yoast SEO',
+                  height: 'Query from Yoast SEO',
+                  alt: 'Query from Yoast SEO'
+                }
+              ]
+            }}
+          />
+          <Component {...pageProps} />
+        </>
       )}
     </ApolloProvider>
   )
