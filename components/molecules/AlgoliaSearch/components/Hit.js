@@ -6,6 +6,7 @@ import {Highlight} from 'react-instantsearch-dom'
  * Component for rendering individual search result.
  */
 const Hit = ({hit}) => {
+  console.log(hit)
   return (
     <button
       type="button"
@@ -17,8 +18,8 @@ const Hit = ({hit}) => {
     </button>
   )
 }
+export default Hit
+
 Hit.propTypes = {
   hit: PropTypes.object.isRequired
 }
-
-export default Hit

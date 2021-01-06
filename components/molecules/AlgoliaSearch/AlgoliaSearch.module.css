@@ -4,7 +4,17 @@
   height: 100%;
   width: 260px;
 
-  & form {
+  /* Pre-Search Input */
+  & .aisPreSearch {
+    @apply relative;
+
+    & .trigger {
+      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text;
+    }
+  }
+
+  /* Search Input */
+  & .aisSearchBox {
     @apply relative h-full;
 
     & input {
@@ -25,7 +35,7 @@
       }
     }
 
-    /* Search Buttons */
+    /* Buttons */
     & button {
       @apply absolute cursor-pointer flex justify-center items-center right-1;
 
@@ -72,6 +82,7 @@
     width: 100%;
   }
 
+  /* Show dropmenu on Focus */
   &:focus-within {
     & .aisDropmenu {
       @apply visible opacity-100;
