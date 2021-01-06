@@ -1,7 +1,7 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import {BlogJsonLd, NextSeo} from 'next-seo'
+import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
@@ -28,20 +28,6 @@ export default function BlogPost({post, posts, archive}) {
             ) : (
               posts.map((post, index) => (
                 <>
-                  <NextSeo
-                    title="Query from Yoast SEO"
-                    description="Query from Yoast SEO"
-                    openGraph={{
-                      title: 'Query from Yoast SEO',
-                      description: 'Query from Yoast SEO',
-                      images: [
-                        {
-                          url: 'Query from Yoast SEO',
-                          alt: 'Query from Yoast SEO'
-                        }
-                      ]
-                    }}
-                  />
                   <article key={index}>
                     <Link href={post.uri}>
                       <a>
@@ -61,21 +47,22 @@ export default function BlogPost({post, posts, archive}) {
   }
 
   return (
-    <Layout>
-      <NextSeo
-        title="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-        openGraph={{
-          title: 'Query from Yoast SEO',
-          description: 'Query from Yoast SEO',
-          images: [
-            {
-              url: 'Query from Yoast SEO',
-              alt: 'Query from Yoast SEO'
-            }
-          ]
-        }}
-      />
+    <Layout
+      title="Query from Yoast SEO"
+      description="Query from Yoast SEO"
+      noIndex={false} // query from yoast seo
+      noFollow={false} // query from yoast seo
+      openGraph={{
+        title: 'Query from Yoast SEO',
+        description: 'Query from Yoast SEO',
+        images: [
+          {
+            url: 'Query from Yoast SEO',
+            alt: 'Query from Yoast SEO'
+          }
+        ]
+      }}
+    >
       <BlogJsonLd
         url="Query from Yoast SEO"
         title="Query from Yoast SEO"

@@ -1,7 +1,6 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 
 // Define route post type.
@@ -16,21 +15,22 @@ const postType = 'page'
  */
 export default function Page({post}) {
   return (
-    <Layout>
-      <NextSeo
-        title="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-        openGraph={{
-          title: 'Query from Yoast SEO',
-          description: 'Query from Yoast SEO',
-          images: [
-            {
-              url: 'Query from Yoast SEO',
-              alt: 'Query from Yoast SEO'
-            }
-          ]
-        }}
-      />
+    <Layout
+      title="Query from Yoast SEO"
+      description="Query from Yoast SEO"
+      noIndex={false} // query from yoast seo
+      noFollow={false} // query from yoast seo
+      openGraph={{
+        title: 'Query from Yoast SEO',
+        description: 'Query from Yoast SEO',
+        images: [
+          {
+            url: 'Query from Yoast SEO',
+            alt: 'Query from Yoast SEO'
+          }
+        ]
+      }}
+    >
       <div className="container">
         <section>
           <article>

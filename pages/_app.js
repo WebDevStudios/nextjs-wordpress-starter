@@ -26,8 +26,10 @@ export default function App({Component, pageProps}) {
       ) : (
         <>
           <DefaultSeo
-            title="Next.js WordPress Starter"
+            title="Query from Yoast SEO"
             description="Query from Yoast SEO"
+            noIndex={false} // query from yoast seo
+            noFollow={false} // query from yoast seo
             openGraph={{
               type: 'website',
               locale: 'en_US',
