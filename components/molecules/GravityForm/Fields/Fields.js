@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import * as GfFields from '.'
 import {useEffect} from 'react'
-import * as Yup from 'yup'
+import getGfFieldValidationSchema from '@/functions/GravityForms/getGfFieldValidationSchema'
 
 export default function Fields({fields, setFormValidation}) {
   /**
@@ -12,14 +12,12 @@ export default function Fields({fields, setFormValidation}) {
    */
   useEffect(() => {
     const formValidationSchema = {}
-
     fields.forEach((field) => {
-      Object.assign(formValidationSchema, {
-        [`field-${field?.node?.id}`]: Yup.string()
-          .min(3, 'Must be 3 characters or more')
-          .max(15, 'Must be 15 characters or less')
-          .required('Required!!!!!')
-      })
+      console.log(getGfFieldValidationSchema(field?.node))
+      Object.assign(
+        formValidationSchema,
+        getGfFieldValidationSchema(field?.node)
+      )
     })
 
     setFormValidation(formValidationSchema)
