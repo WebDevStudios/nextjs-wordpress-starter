@@ -3,10 +3,13 @@ import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
+import {useState} from 'react'
 
 export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
+  const [formValidation, setFormValidation] = useState({})
+  const validationSchema = Yup.object(formValidation)
   const fieldData = fields?.edges
 
   /**
@@ -40,18 +43,15 @@ export default function GravityForm({
 
   return (
     <Form
-      id={formId && `gform-${formId}`}
       className={cssClass}
       formDefaults={fieldDefaults}
+      id={formId && `gform-${formId}`}
       title={title}
-      validationSchema={Yup.object({
-        ['field-1']: Yup.string()
-          .min(3, 'Must be 3 characters or more')
-          .max(15, 'Must be 15 characters or less')
-          .required('Required')
-      })}
+      validationSchema={validationSchema}
     >
-      {fieldData && <Fields fields={fieldData} />}
+      {fieldData && (
+        <Fields fields={fieldData} setFormValidation={setFormValidation} />
+      )}
     </Form>
   )
 }
