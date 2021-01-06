@@ -18,6 +18,10 @@ export default function GravityForm({
   function getFieldDefaults(fields) {
     const defaults = {}
 
+    if (!fields || !fields.length) {
+      return defaults
+    }
+
     fields.forEach((field) => {
       if (!field.node.id) {
         return
