@@ -18,13 +18,13 @@ const Results = connectStateResults(
     clearLocalStorage
   }) => {
     return (
-      <div className={styles.aisDropmenu}>
+      <div className={styles.dropMenu}>
         {searchState &&
         searchState.query &&
         searchState.query.length > 0 &&
         searchResults &&
         searchResults.nbHits > 0 ? (
-          <Hits className={styles.aisHits} hitComponent={Hit} />
+          <Hits className={styles.hits} hitComponent={Hit} />
         ) : (
           displayHistory && (
             <History

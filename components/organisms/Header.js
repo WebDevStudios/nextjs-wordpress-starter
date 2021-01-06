@@ -28,6 +28,7 @@ export default function Header() {
           <AlgoliaSearch
             indexName="wds_dev_searchable_posts"
             useHistory={true}
+            usePlaceholder={true}
             className="ml-auto"
           />
         </div>

@@ -4,7 +4,12 @@ import styles from '../AlgoliaSearch.module.css'
 /**
  * Component for rendering search history.
  */
-const History = ({history, searchClick, clearLocalStorage, buildSearchUrl}) => {
+export default function History({
+  history,
+  searchClick,
+  clearLocalStorage,
+  buildSearchUrl
+}) {
   const config = {
     now: new Date(), // Now, as a date object
     nowTs: Date.now(),
@@ -79,7 +84,7 @@ const History = ({history, searchClick, clearLocalStorage, buildSearchUrl}) => {
   return (
     <>
       {!!history && !!history.length && (
-        <div className={styles.aisHistory}>
+        <div className={styles.history}>
           <ul>
             {history.map((item, index) => (
               <li key={`history-${index}`}>
@@ -104,7 +109,6 @@ const History = ({history, searchClick, clearLocalStorage, buildSearchUrl}) => {
     </>
   )
 }
-export default History
 
 History.propTypes = {
   history: PropTypes.arrayOf(

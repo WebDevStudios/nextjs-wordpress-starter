@@ -17,7 +17,7 @@ const Sort = ({index, defaultRefinement}) => {
           label: 'Alphabetical'
         },
         {
-          value: `${index}_date_asc`,
+          value: `${index}_date_desc`,
           label: 'Most Recent'
         }
       ]}

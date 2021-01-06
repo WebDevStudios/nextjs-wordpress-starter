@@ -3,10 +3,9 @@ import searchClick from '../functions/searchClick'
 import {Highlight} from 'react-instantsearch-dom'
 
 /**
- * Component for rendering individual search result.
+ * Component for rendering individual search result (Hit).
  */
-const Hit = ({hit}) => {
-  console.log(hit)
+export default function Hit({hit}) {
   return (
     <button
       type="button"
@@ -18,7 +17,6 @@ const Hit = ({hit}) => {
     </button>
   )
 }
-export default Hit
 
 Hit.propTypes = {
   hit: PropTypes.object.isRequired

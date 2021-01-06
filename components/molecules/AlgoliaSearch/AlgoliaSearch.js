@@ -5,13 +5,18 @@ import PropTypes from 'prop-types'
 import React, {useRef, useState} from 'react'
 import styles from './AlgoliaSearch.module.css'
 import dynamic from 'next/dynamic'
-import PreSearch from './components/PreSearch'
+import SearchPlaceholder from './components/SearchPlaceholder'
 const Search = dynamic(() => import('./components/Search'), {
-  loading: () => <PreSearch />
+  loading: () => <SearchPlaceholder />
 })
 
 // TODO: Create Storybook for this component.
-export default function AlgoliaSearch({indexName, useHistory, className}) {
+export default function AlgoliaSearch({
+  indexName,
+  useHistory,
+  usePlaceholder,
+  className
+}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
@@ -19,10 +24,13 @@ export default function AlgoliaSearch({indexName, useHistory, className}) {
   const searchRef = useRef()
 
   /**
-   * Set a min-height value on the search wrapper to avoid movement during dynamic render.
+   * Set a min-height value on the search wrapper to avoid DOM movement during dynamic render.
    */
   const setMinHeight = () => {
-    const minHeight = searchRef?.current ? searchRef.current.offsetHeight : '0'
+    const minHeight =
+      searchRef?.current && usePlaceholder
+        ? searchRef.current.offsetHeight
+        : '0'
     return {minHeight: `${minHeight}px`}
   }
 
@@ -32,10 +40,10 @@ export default function AlgoliaSearch({indexName, useHistory, className}) {
       ref={searchRef}
       style={setMinHeight()}
     >
-      {!!loadAlgolia ? (
+      {!!loadAlgolia || !usePlaceholder ? (
         <Search indexName={indexName} useHistory={useHistory} query={query} />
       ) : (
-        <PreSearch query={query} setLoadAlgolia={setLoadAlgolia} />
+        <SearchPlaceholder query={query} setLoadAlgolia={setLoadAlgolia} />
       )}
     </div>
   )
@@ -44,9 +52,11 @@ export default function AlgoliaSearch({indexName, useHistory, className}) {
 AlgoliaSearch.propTypes = {
   indexName: PropTypes.string.isRequired,
   useHistory: PropTypes.bool,
+  usePlaceholder: PropTypes.bool,
   className: PropTypes.string
 }
 
 AlgoliaSearch.defaultProps = {
-  useHistory: true
+  useHistory: true,
+  usePlaceholder: true
 }

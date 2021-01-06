@@ -3,17 +3,25 @@ import styles from '../AlgoliaSearch.module.css'
 import PropTypes from 'prop-types'
 
 /**
- * Component for rendering a "fake" Algolia search bar.
+ * This component renders a placeholder for the Algolia `Search` component.
+ * The `Search` component is loaded using Dynamic Imports in Next once initiated by the user.
+ *
  */
-export default function PreSearch({setLoadAlgolia, query}) {
+export default function SearchPlaceholder({setLoadAlgolia, query}) {
   return (
-    <div className={styles.aisPreSearch}>
-      <div className={styles.aisSearchBox}>
+    <div className={styles.searchPlaceholder}>
+      <div className={styles.searchBox}>
         <div
+          role="button"
           tabIndex="0"
           className={styles.trigger}
           onClick={() => {
             !setLoadAlgolia(true)
+          }}
+          onKeyPress={(event) => {
+            if (event.key === 'Enter') {
+              !setLoadAlgolia(true)
+            }
           }}
         />
         <input
@@ -31,7 +39,7 @@ export default function PreSearch({setLoadAlgolia, query}) {
   )
 }
 
-PreSearch.propTypes = {
-  setLoadAlgolia: PropTypes.func,
+SearchPlaceholder.propTypes = {
+  setLoadAlgolia: PropTypes.func.isRequired,
   query: PropTypes.string
 }

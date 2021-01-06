@@ -1,7 +1,7 @@
 /**
  * The magnify glass icon.
  */
-const SearchIcon = () => {
+export default function SearchIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,5 +13,3 @@ const SearchIcon = () => {
     </svg>
   )
 }
-
-export default SearchIcon

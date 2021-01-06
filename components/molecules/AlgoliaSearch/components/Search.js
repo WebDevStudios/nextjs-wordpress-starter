@@ -11,19 +11,18 @@ import SearchIcon from './SearchIcon'
 // TODO: Create Storybook for this component.
 
 /**
- * Component for rendering Algolia search with history.
+ * Component for rendering Algolia search with hits and history.
  */
 export default function Search({indexName, useHistory, query}) {
   const storageName = indexName // Local Storage Name - set to algolia index.
   const historyLength = 6 // Max amount of history items to save to local storage.
-
+  const hitsPerPage = 6 // Amount of hit to render in drop results.
   const [searchState, setSearchState] = useState(query)
   const [searchHistory, setSearchHistory] = useState([])
   const [displayHistory, setDisplayHistory] = useState(0)
-
   const config = {
     query: query,
-    hitsPerPage: 6
+    hitsPerPage: hitsPerPage
   }
 
   /**
@@ -60,9 +59,11 @@ export default function Search({indexName, useHistory, query}) {
   return (
     <InstantSearch searchClient={searchClient} indexName={indexName}>
       <Configure {...config} />
-      <div className={styles.aisSearchBox}>
+      <div className={styles.searchBox}>
         <SearchBox
+          /*eslint-disable */
           autoFocus={true}
+          /*eslint-enable */
           onSubmit={(e) =>
             searchSubmit(
               e,
