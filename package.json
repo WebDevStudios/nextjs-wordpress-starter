@@ -35,10 +35,12 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "formik": "^2.2.6",
     "hamburger-react": "^2.4.0",
     "next": "latest",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@apollo/client": "^3.3.6",
