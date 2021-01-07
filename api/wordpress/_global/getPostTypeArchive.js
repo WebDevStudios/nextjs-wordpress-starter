@@ -62,11 +62,11 @@ export default async function getPostTypeArchive(
   // Execute query.
   response.posts = await apolloClient
     .query({query, variables})
-    .then((posts) => {
+    .then((archive) => {
       const pluralType = postTypes[postType] ?? postType
 
       // Set error props if data not found.
-      if (!posts?.data?.[pluralType]?.edges) {
+      if (!archive?.data?.[pluralType]?.edges) {
         response.error = true
         response.errorMessage = `An error occurred while trying to retrieve data for ${pluralType} archive.`
 
@@ -74,7 +74,11 @@ export default async function getPostTypeArchive(
       }
 
       // Flatten posts array to include inner node post data.
-      return posts.data[pluralType].edges.map((post) => post.node)
+      const posts = archive.data[pluralType].edges.map((post) => post.node)
+
+      return {
+        posts
+      }
     })
     .catch((error) => {
       response.error = true
