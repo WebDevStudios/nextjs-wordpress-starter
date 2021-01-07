@@ -4,7 +4,7 @@ import styles from '../AlgoliaResults.module.css'
 /**
  * Component for rendering individual search result.
  */
-const Hit = ({hit}) => {
+export default function Hit({hit}) {
   return (
     <div className={styles.hit}>
       <h3>{hit.post_title}</h3>
@@ -13,8 +13,6 @@ const Hit = ({hit}) => {
     </div>
   )
 }
-
-export default Hit
 
 Hit.propTypes = {
   hit: PropTypes.any

@@ -4,7 +4,7 @@ import CustomRefinementList from '../Refinements/CustomRefinementList'
 /**
  * Component for displaying Post Type facets.
  */
-const Authors = ({refinements, defaultRefinement, className}) => {
+export default function Authors({refinements, defaultRefinement, className}) {
   const data = {
     title: 'Authors',
     attribute: 'post_author.display_name',
@@ -16,7 +16,6 @@ const Authors = ({refinements, defaultRefinement, className}) => {
   }
   return <CustomRefinementList {...data} />
 }
-export default Authors
 
 Authors.propTypes = {
   refinements: PropTypes.shape({

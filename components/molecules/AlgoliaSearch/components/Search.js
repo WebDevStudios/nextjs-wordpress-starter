@@ -61,9 +61,9 @@ export default function Search({indexName, useHistory, query}) {
       <Configure {...config} />
       <div className={styles.searchBox}>
         <SearchBox
-          /*eslint-disable */
+          /* eslint-disable */
           autoFocus={true}
-          /*eslint-enable */
+          /* eslint-enable */
           onSubmit={(e) =>
             searchSubmit(
               e,

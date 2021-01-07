@@ -4,7 +4,7 @@ import {SortBy} from 'react-instantsearch-dom'
 /**
  * Component for displaying Post Type facets.
  */
-const Sort = ({index, defaultRefinement}) => {
+export default function Sort({index, defaultRefinement}) {
   return (
     <SortBy
       items={[
@@ -27,7 +27,6 @@ const Sort = ({index, defaultRefinement}) => {
     />
   )
 }
-export default Sort
 
 Sort.propTypes = {
   index: PropTypes.string.isRequired,

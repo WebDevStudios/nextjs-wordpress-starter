@@ -15,7 +15,8 @@ const RefinementList = ({
   limit,
   translations,
   attribute,
-  className
+  className,
+  showCount
 }) => {
   const [extended, setExtended] = useState(false)
 
@@ -37,7 +38,9 @@ const RefinementList = ({
                       onChange={() => refine(item.value)}
                       checked={item.isRefined}
                     />
-                    <label htmlFor={`chk-${item.label}`}>{item.label}</label>
+                    <label htmlFor={`chk-${item.label}`}>
+                      {item.label} {showCount && <span>[{item.count}]</span>}
+                    </label>
                   </li>
                 )
             )}
@@ -66,7 +69,12 @@ RefinementList.propTypes = {
   limit: PropTypes.number,
   translations: PropTypes.object,
   attribute: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  showCount: PropTypes.bool
+}
+
+RefinementList.defaultProps = {
+  showCount: true
 }
 
 const CustomRefinementList = connectRefinementList(RefinementList)

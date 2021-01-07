@@ -4,7 +4,7 @@ import CustomRefinementList from '../Refinements/CustomRefinementList'
 /**
  * Component for displaying Post Type facets.
  */
-const PostType = ({refinements, defaultRefinement, className}) => {
+export default function PostType({refinements, defaultRefinement, className}) {
   const data = {
     title: 'Content Type',
     attribute: 'post_type_label',
@@ -16,7 +16,6 @@ const PostType = ({refinements, defaultRefinement, className}) => {
   }
   return <CustomRefinementList {...data} />
 }
-export default PostType
 
 PostType.propTypes = {
   refinements: PropTypes.shape({

@@ -15,11 +15,10 @@ const Menu = ({
   limit,
   translations,
   attribute,
-  className
+  className,
+  showCount
 }) => {
   const [extended, setExtended] = useState(false)
-
-  console.log(items)
 
   return (
     <>
@@ -39,7 +38,9 @@ const Menu = ({
                       onChange={() => refine(item.value)}
                       checked={item.isRefined}
                     />
-                    <label htmlFor={`chk-${item.label}`}>{item.label}</label>
+                    <label htmlFor={`chk-${item.label}`}>
+                      {item.label} {showCount && <span>[{item.count}]</span>}
+                    </label>
                   </li>
                 )
             )}
@@ -68,7 +69,12 @@ Menu.propTypes = {
   limit: PropTypes.number,
   translations: PropTypes.object,
   attribute: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  showCount: PropTypes.bool
+}
+
+Menu.defaultProps = {
+  showCount: true
 }
 
 const CustomMenu = connectMenu(Menu)
