@@ -36,6 +36,8 @@ export default async function getPostTypeArchive(
   // Set up return object.
   const response = {
     apolloClient,
+    posts: null,
+    pagination: null,
     error: false,
     errorMessage: null
   }
@@ -60,7 +62,7 @@ export default async function getPostTypeArchive(
   }
 
   // Execute query.
-  response.posts = await apolloClient
+  await apolloClient
     .query({query, variables})
     .then((archive) => {
       const pluralType = postTypes[postType] ?? postType
@@ -75,21 +77,14 @@ export default async function getPostTypeArchive(
       }
 
       // Flatten posts array to include inner node post data.
-      const posts = data.edges.map((post) => post.node)
+      response.posts = data.edges.map((post) => post.node)
 
       // Extract pagination data.
-      const pagination = data.pageInfo
-
-      return {
-        posts,
-        pagination
-      }
+      response.pagination = data.pageInfo
     })
     .catch((error) => {
       response.error = true
       response.errorMessage = error.message
-
-      return null
     })
 
   return response
