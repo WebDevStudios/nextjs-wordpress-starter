@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
+import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import PropTypes from 'prop-types'
 import Page from './[...slug]'
-import {NextSeo} from 'next-seo'
 
 // Define route post type.
 const postType = 'page'
@@ -23,21 +22,22 @@ export default function HomePage({post}) {
 
   // Display static page content as fallback.
   return (
-    <Layout>
-      <NextSeo
-        title="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-        openGraph={{
-          title: 'Query from Yoast SEO',
-          description: 'Query from Yoast SEO',
-          images: [
-            {
-              url: 'Query from Yoast SEO',
-              alt: 'Query from Yoast SEO'
-            }
-          ]
-        }}
-      />
+    <Layout
+      title="Query from Yoast SEO"
+      description="Query from Yoast SEO"
+      noIndex={false} // query from yoast seo
+      noFollow={false} // query from yoast seo
+      openGraph={{
+        title: 'Query from Yoast SEO',
+        description: 'Query from Yoast SEO',
+        images: [
+          {
+            url: 'Query from Yoast SEO',
+            alt: 'Query from Yoast SEO'
+          }
+        ]
+      }}
+    >
       <Hero
         background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
         title="Next.js Starter"
