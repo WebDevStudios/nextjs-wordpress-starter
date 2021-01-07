@@ -1,8 +1,7 @@
-import Layout from '@/components/common/Layout'
-import {Info} from '@/components/molecules/Alert'
-import PropTypes from 'prop-types'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Layout from '@/components/common/Layout'
+import PropTypes from 'prop-types'
 
 // Define route post type.
 const postType = 'page'
@@ -16,15 +15,23 @@ const postType = 'page'
  */
 export default function Page({post}) {
   return (
-    <Layout title={post?.title} description={post?.excerpt}>
+    <Layout
+      title="Query from Yoast SEO"
+      description="Query from Yoast SEO"
+      noIndex={false} // query from yoast seo
+      noFollow={false} // query from yoast seo
+      openGraph={{
+        title: 'Query from Yoast SEO',
+        description: 'Query from Yoast SEO',
+        images: [
+          {
+            url: 'Query from Yoast SEO',
+            alt: 'Query from Yoast SEO'
+          }
+        ]
+      }}
+    >
       <div className="container">
-        <Info>
-          The content below is sourced from the WordPress REST-API.{' '}
-          <a href="https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation">
-            Learn more about SSG.
-          </a>
-        </Info>
-
         <section>
           <article>
             <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
