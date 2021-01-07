@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import * as Yup from 'yup'
-import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
+import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import {useState} from 'react'
 
 export default function GravityForm({

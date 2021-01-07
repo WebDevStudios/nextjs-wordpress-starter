@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import * as GfFields from '.'
 import {useEffect} from 'react'
-import getGfFieldValidationSchema from '@/functions/GravityForms/getGfFieldValidationSchema'
+import getGfFieldValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
 
 export default function Fields({fields, setFormValidation}) {
   /**

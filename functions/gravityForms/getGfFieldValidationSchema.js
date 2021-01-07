@@ -1,4 +1,4 @@
-import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
+import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import * as Yup from 'yup'
 
 // TODO Refactor this file for scaling purposes.

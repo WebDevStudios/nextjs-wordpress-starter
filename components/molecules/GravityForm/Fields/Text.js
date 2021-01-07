@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import * as Input from '@/components/atoms/Inputs'
-import {getGfFieldId, getGfHiddenClassName} from '@/functions/GravityForms'
+import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
 import cn from 'classnames'
 
 export default function Text({
