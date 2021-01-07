@@ -13,7 +13,6 @@ export default function Fields({fields, setFormValidation}) {
   useEffect(() => {
     const formValidationSchema = {}
     fields.forEach((field) => {
-      console.log(getGfFieldValidationSchema(field?.node))
       Object.assign(
         formValidationSchema,
         getGfFieldValidationSchema(field?.node)
