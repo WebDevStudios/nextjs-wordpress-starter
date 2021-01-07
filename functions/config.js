@@ -3,14 +3,7 @@ const config = {
   siteDescription: 'The description of this website',
   siteUrl: 'https://website.vercel.app',
   author: '@yourname',
-  navigation: [
-    {label: 'Home', href: '/'},
-    {label: 'About', href: '/about'},
-    {label: 'Apollo', href: '/apollo'},
-    {label: 'SSG', href: '/ssg'},
-    {label: 'SSR', href: '/ssr'},
-    {label: 'ISR', href: '/isr'}
-  ],
+  navigation: [{label: 'HOOK UP WP NAV MENU', href: '/'}],
   social: {
     github: {
       label: 'Github',

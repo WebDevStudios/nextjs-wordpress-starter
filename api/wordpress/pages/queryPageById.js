@@ -6,7 +6,7 @@ import featuredImagePostFields from '../_partials/featuredImagePostFields'
 const {gql} = require('@apollo/client')
 
 // Fragment: retrieve single page fields.
-const singlePageFragment = gql`
+export const singlePageFragment = gql`
   fragment SinglePageFields on Page {
     ${globalPostFields}
     blocksJSON
