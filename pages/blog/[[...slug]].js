@@ -15,10 +15,11 @@ const postType = 'post'
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
-export default function BlogPost({post, posts, archive}) {
+export default function BlogPost({post, archive, posts, pagination}) {
   // Check for post archive.
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
+    console.log({pagination})
     return (
       <Layout>
         <div className="container">
@@ -114,5 +115,6 @@ export async function getStaticProps({params}) {
 BlogPost.propTypes = {
   post: PropTypes.object,
   posts: PropTypes.array,
-  archive: PropTypes.bool
+  archive: PropTypes.bool,
+  pagination: PropTypes.object
 }
