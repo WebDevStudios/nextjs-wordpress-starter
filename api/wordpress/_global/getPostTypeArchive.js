@@ -64,9 +64,10 @@ export default async function getPostTypeArchive(
     .query({query, variables})
     .then((archive) => {
       const pluralType = postTypes[postType] ?? postType
+      const data = archive?.data?.[pluralType] ?? null
 
       // Set error props if data not found.
-      if (!archive?.data?.[pluralType]?.edges) {
+      if (!data?.edges || !data?.pageInfo) {
         response.error = true
         response.errorMessage = `An error occurred while trying to retrieve data for ${pluralType} archive.`
 
@@ -74,10 +75,14 @@ export default async function getPostTypeArchive(
       }
 
       // Flatten posts array to include inner node post data.
-      const posts = archive.data[pluralType].edges.map((post) => post.node)
+      const posts = data.edges.map((post) => post.node)
+
+      // Extract pagination data.
+      const pagination = data.pageInfo
 
       return {
-        posts
+        posts,
+        pagination
       }
     })
     .catch((error) => {
