@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
  * The `Search` component is loaded using Dynamic Imports in Next once initiated by the user.
  *
  */
-export default function SearchPlaceholder({setLoadAlgolia, query}) {
+export default function SearchPlaceholder({toggleAlgolia, query}) {
   return (
     <div className={styles.searchPlaceholder}>
       <div className={styles.searchBox}>
@@ -16,11 +16,11 @@ export default function SearchPlaceholder({setLoadAlgolia, query}) {
           tabIndex="0"
           className={styles.trigger}
           onClick={() => {
-            !setLoadAlgolia(true)
+            toggleAlgolia(true)
           }}
           onKeyPress={(event) => {
             if (event.key === 'Enter') {
-              !setLoadAlgolia(true)
+              toggleAlgolia(true)
             }
           }}
         />
@@ -40,6 +40,6 @@ export default function SearchPlaceholder({setLoadAlgolia, query}) {
 }
 
 SearchPlaceholder.propTypes = {
-  setLoadAlgolia: PropTypes.func.isRequired,
+  toggleAlgolia: PropTypes.func,
   query: PropTypes.string
 }

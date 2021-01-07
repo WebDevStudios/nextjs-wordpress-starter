@@ -35,10 +35,12 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "formik": "^2.2.6",
     "hamburger-react": "^2.4.0",
     "next": "latest",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@apollo/client": "^3.3.6",
@@ -56,12 +58,13 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "graphql": "^15.4.0",
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
+    "next-seo": "^4.17.0",
     "next-sitemap": "^1.3.29",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",

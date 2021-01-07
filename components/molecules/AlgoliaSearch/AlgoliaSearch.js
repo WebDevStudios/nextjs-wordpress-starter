@@ -38,6 +38,15 @@ export default function AlgoliaSearch({
     return {minHeight: `${minHeight}px`}
   }
 
+  /**
+   * Toggle the state of the Algolia `Search` and `SearchPlaceholder` components.
+   *
+   * @param {*} value
+   */
+  const toggleAlgolia = (value) => {
+    setLoadAlgolia(value)
+  }
+
   return (
     <div
       className={cn(styles.algoliaSearch, className)}
@@ -47,7 +56,7 @@ export default function AlgoliaSearch({
       {!!loadAlgolia || !usePlaceholder ? (
         <Search indexName={indexName} useHistory={useHistory} query={query} />
       ) : (
-        <SearchPlaceholder query={query} setLoadAlgolia={setLoadAlgolia} />
+        <SearchPlaceholder query={query} toggleAlgolia={toggleAlgolia} />
       )}
     </div>
   )

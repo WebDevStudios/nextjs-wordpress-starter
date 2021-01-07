@@ -3,6 +3,7 @@ import getFormById from '@/api/wordpress/gravityForms/getFormById'
 /**
  * Format and retrieve expanded block data.
  *
+ * @author WebDevStudios
  * @param  {Array} blocks Basic block data.
  * @return {Array}        Formatted block data.
  */

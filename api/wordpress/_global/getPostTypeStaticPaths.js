@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client'
 import {isValidPostType, postTypes, isHierarchicalPostType} from './postTypes'
-import {initializeApollo} from '../connector'
+import {initializeWpApollo} from '../connector'
 
 /**
  * Retrieve static paths by post type.
@@ -37,7 +37,7 @@ export default async function getPostTypeStaticPaths(postType) {
   `
 
   // Get/create Apollo instance.
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeWpApollo()
 
   // Execute query.
   const posts = await apolloClient.query({query})
@@ -45,16 +45,19 @@ export default async function getPostTypeStaticPaths(postType) {
   // Process paths.
   const paths = !posts?.data?.[pluralName]?.edges
     ? []
-    : posts.data[pluralName].edges.map((post) => {
-        // Trim leading and trailing slashes then split into array on inner slashes.
-        const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
+    : posts.data[pluralName].edges
+        .map((post) => {
+          // Trim leading and trailing slashes then split into array on inner slashes.
+          const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
 
-        return {
-          params: {
-            slug
+          return {
+            params: {
+              slug
+            }
           }
-        }
-      })
+        })
+        // Filter out certain posts with custom routes (e.g., homepage).
+        .filter((post) => !!post.params.slug.join('/').length)
 
   return {
     paths,
