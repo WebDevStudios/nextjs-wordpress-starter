@@ -1,6 +1,8 @@
 import getGfFieldId from '@/functions/GravityForms/getGfFieldId'
 import * as Yup from 'yup'
 
+// TODO Refactor this file for scaling purposes.
+
 /**
  * Map props to validation schemas.
  *
