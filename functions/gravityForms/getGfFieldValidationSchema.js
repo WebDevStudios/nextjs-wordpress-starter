@@ -81,14 +81,14 @@ function getValidationSchemaType(fieldData) {
   // Get Schema based on GravityForm field type.
   switch (fieldData?.type) {
     case 'text':
-      schemaGetter = new stringSchemaGetter(fieldData)
+      schemaGetter = new stringSchemaGetter(fieldData).schema
       break
 
     default:
       return
   }
 
-  return schemaGetter.schema
+  return schemaGetter
 }
 
 /**
