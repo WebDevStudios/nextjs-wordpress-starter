@@ -13,7 +13,6 @@ export default class StringSchemaFactory {
    *
    * Note: wp-graphql-gravity-forms plugin may need to be replaced.
    *
-   * @author WebDevStudios
    * @see https://github.com/harness-software/wp-graphql-gravity-forms
    * @param {Object} fieldData from GravityForm GraphQL data Object.
    */
@@ -26,7 +25,6 @@ export default class StringSchemaFactory {
    *
    * Combine multiple schemas into one.
    *
-   * @author WebDevStudios
    * @see https://github.com/jquense/yup#mixedconcatschema-schema-schema
    * @returns {Object} Combined Yup validationSchema Object.
    */
@@ -39,7 +37,6 @@ export default class StringSchemaFactory {
   /**
    * Get Yup required field validaion.
    *
-   * @author WebDevStudios
    * @see https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
    * @return {Object} Yup validationSchema Object.
    */
@@ -54,7 +51,6 @@ export default class StringSchemaFactory {
   /**
    * Get Yup max line length validation.
    *
-   * @author WebDevStudios
    * @see https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
    * @return {Object} Yup validationSchema Object.
    */
