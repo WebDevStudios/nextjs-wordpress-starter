@@ -4,7 +4,8 @@ import * as Yup from 'yup'
  * Create Yup string schema object.
  *
  * @author WebDevStudios
- * @see    https://github.com/jquense/yup#string
+ * @see https://github.com/jquense/yup#string
+ * @returns {Object} Yup validationSchema Object.
  */
 export default class StringSchemaFactory {
   /**
@@ -12,10 +13,9 @@ export default class StringSchemaFactory {
    *
    * Note: wp-graphql-gravity-forms plugin may need to be replaced.
    *
-   * @param  {Object} fieldData from GravityForm GraphQL data Object.
-   *
    * @author WebDevStudios
-   * @see    https://github.com/harness-software/wp-graphql-gravity-forms
+   * @see https://github.com/harness-software/wp-graphql-gravity-forms
+   * @param {Object} fieldData from GravityForm GraphQL data Object.
    */
   constructor(fieldData) {
     this.fieldData = fieldData
@@ -26,10 +26,9 @@ export default class StringSchemaFactory {
    *
    * Combine multiple schemas into one.
    *
+   * @author WebDevStudios
+   * @see https://github.com/jquense/yup#mixedconcatschema-schema-schema
    * @returns {Object} Combined Yup validationSchema Object.
-   *
-   * @author  WebDevStudios
-   * @see     https://github.com/jquense/yup#mixedconcatschema-schema-schema
    */
   get schema() {
     return Yup.string()
@@ -40,10 +39,9 @@ export default class StringSchemaFactory {
   /**
    * Get Yup required field validaion.
    *
-   * @return {Object} Yup validationSchema Object.
-   *
    * @author WebDevStudios
-   * @see    https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
+   * @see https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
+   * @return {Object} Yup validationSchema Object.
    */
   getRequiredSchema() {
     if (!this.fieldData?.isRequired) {
@@ -56,10 +54,9 @@ export default class StringSchemaFactory {
   /**
    * Get Yup max line length validation.
    *
-   * @return {Object} Yup validationSchema Object.
-   *
    * @author WebDevStudios
-   * @see    https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
+   * @see https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
+   * @return {Object} Yup validationSchema Object.
    */
   getMaxLengthSchema() {
     if (!this.fieldData?.maxLength) {
