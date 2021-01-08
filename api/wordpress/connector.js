@@ -6,11 +6,11 @@ import {initializeApollo} from '../apolloConfig'
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
 
 // Define Frontend WP API data endpoint base.
-const wpDataEndpointBase = '/api/wp'
+const wpDataEndpointBase = '/wp'
 
 // Define Frontend WP API data endpoints.
 export const wpDataEndpoints = {
-  archive: `${wpDataEndpointBase}/loadMorePosts`
+  archive: `${wpDataEndpointBase}/archive`
 }
 
 let wpApolloClient
