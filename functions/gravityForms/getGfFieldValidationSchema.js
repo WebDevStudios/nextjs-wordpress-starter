@@ -8,8 +8,8 @@ import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchema
  *
  * @author WebDevStudios
  * @see https://github.com/jquense/yup#api
- * @param {Object}   fieldData GravityForm field props.
- * @returns {Object} Schema validation for field.
+ * @param {Object}  fieldData GravityForm field props.
+ * @return {Object} Schema validation for field.
  */
 function getValidationSchemaByType(fieldData) {
   let schemaGetter = null
@@ -30,8 +30,8 @@ function getValidationSchemaByType(fieldData) {
  * Map props to validation schemas.
  *
  * @author WebDevStudios
- * @param {Object}   fieldData GravityForm field props.
- * @returns {Object} Schema validation for field.
+ * @param {Object}  fieldData GravityForm field props.
+ * @return {Object} Schema validation for field.
  */
 export default function getGfFieldValidationSchema(fieldData) {
   return {
