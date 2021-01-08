@@ -4,6 +4,7 @@ import Layout from '@/components/common/Layout'
 import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 
 // Define route post type.
 const postType = 'post'
@@ -16,10 +17,19 @@ const postType = 'post'
  * @return {Element}        Element to render.
  */
 export default function BlogPost({post, archive, posts, pagination}) {
+  /**
+   * Load more posts for archive.
+   */
+  async function loadPosts() {
+    const response = await getArchivePosts(postType, pagination?.endCursor)
+
+    // TODO: use response to display next "page" of posts.
+    console.log(response)
+  }
+
   // Check for post archive.
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
-    console.log({pagination})
     return (
       <Layout
         title="Query from Yoast SEO"
@@ -53,6 +63,10 @@ export default function BlogPost({post, archive, posts, pagination}) {
                 </article>
               ))
             )}
+            {/* TODO: replace this with a component. */}
+            <button onClick={loadPosts} disabled={pagination.hasNextPage}>
+              Load more
+            </button>
           </section>
         </div>
       </Layout>
