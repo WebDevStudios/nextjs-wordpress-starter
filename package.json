@@ -35,7 +35,6 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "apollo-server-micro": "^2.19.1",
     "formik": "^2.2.6",
     "hamburger-react": "^2.4.0",
     "next": "latest",
