@@ -2,10 +2,12 @@ import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import * as Yup from 'yup'
 
 /**
- * Get Yup string schema object based on GF Feild Props.
+ * Create Yup string schema object.
  *
+ * @param {Object} GravityForm field data Object.
  * @author Mike England <mike.england@webdevstudios.com>
  * @since 2021-01-07
+ * @link https://github.com/jquense/yup#string
  */
 class stringSchemaFactory {
   constructor(fieldData) {
@@ -15,9 +17,12 @@ class stringSchemaFactory {
   /**
    * Get Yup schema object with validation requirements.
    *
+   * Combine multiple schemas into one.
+   *
    * @author Mike England <mike.england@webdevstudios.com>
    * @since 2021-01-07
    * @returns {Object} Combined Yup validationSchema Object.
+   * @link https://github.com/jquense/yup#mixedconcatschema-schema-schema
    */
   get schema() {
     return Yup.string()
@@ -63,6 +68,8 @@ class stringSchemaFactory {
 
 /**
  * Match field type with Yup schema object.
+ *
+ * Match GravityForm field to Yup API property.
  *
  * @param {Object} fieldData GravityForm field props.
  * @returns {Object} Schema validation for field.
