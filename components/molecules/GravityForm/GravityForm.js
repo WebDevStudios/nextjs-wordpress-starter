@@ -16,7 +16,7 @@ export default function GravityForm({
    * Map field GravityForm ids and defaults to Object.
    *
    * @param {Array}   fields Array of fields.
-   * @return {Object} default field values.
+   * @return {Object} Default field values.
    */
   function getFieldDefaults(fields) {
     const defaults = {}
