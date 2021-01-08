@@ -13,11 +13,11 @@ class stringSchemaGetter {
   }
 
   /**
-   * Get Yup schema object based on fieldData.
+   * Get Yup schema object with validation requirements.
    *
    * @author Mike England <mike.england@webdevstudios.com>
    * @since 2021-01-07
-   * @returns ~~~~
+   * @returns {Object} Combined Yup validationSchema Object.
    */
   get schema() {
     return Yup.string()
