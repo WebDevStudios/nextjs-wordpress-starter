@@ -104,6 +104,10 @@ function getValidationSchemaType(fieldData) {
  * Map props to validation schemas.
  *
  * @param {Object} fieldData GravityForm field props.
+ * @returns {Object} Schema validation for field.
+ *
+ * @author Mike England <mike.england@webdevstudios.com>
+ * @since 2021-01-08
  */
 export default function getGfFieldValidationSchema(fieldData) {
   const validationSchema = getValidationSchemaType(fieldData)
