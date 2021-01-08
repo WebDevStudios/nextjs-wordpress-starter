@@ -34,13 +34,11 @@ class stringSchemaGetter {
    * @link https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
    */
   getRequiredSchema() {
-    let schema = Yup.string()
-
     if (!this.fieldData?.isRequired) {
       return
     }
 
-    return schema.required('Required!')
+    return Yup.string().required('Required!')
   }
 
   /**
@@ -52,13 +50,11 @@ class stringSchemaGetter {
    * @link https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
    */
   getMaxLengthSchema() {
-    let schema = Yup.string()
-
     if (!this.fieldData?.maxLength) {
       return
     }
 
-    return schema.max(
+    return Yup.string().max(
       this.fieldData.maxLength,
       `Must be ${this.fieldData.maxLength} characters or less`
     )
