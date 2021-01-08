@@ -85,7 +85,7 @@ class StringSchemaFactory {
  * @since 2021-01-07
  * @link https://github.com/jquense/yup#api
  */
-function getValidationSchemaType(fieldData) {
+function getValidationSchemaByType(fieldData) {
   let schemaGetter = null
 
   switch (fieldData?.type) {
@@ -110,9 +110,7 @@ function getValidationSchemaType(fieldData) {
  * @since 2021-01-08
  */
 export default function getGfFieldValidationSchema(fieldData) {
-  const validationSchema = getValidationSchemaType(fieldData)
-
   return {
-    [getGfFieldId(fieldData.id)]: validationSchema
+    [getGfFieldId(fieldData.id)]: getValidationSchemaByType(fieldData)
   }
 }
