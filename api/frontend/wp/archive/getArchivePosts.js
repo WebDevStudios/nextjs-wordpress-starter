@@ -29,7 +29,13 @@ export default async function getArchivePosts(
         order
       }
     })
-    .then((response) => response)
+    .then(
+      (response) =>
+        response?.data?.archive ?? {
+          error: true,
+          errorMessage: `An error occurred while trying to retrieve data for ${postType} archive.`
+        }
+    )
     .catch((error) => {
       return {
         error: true,
