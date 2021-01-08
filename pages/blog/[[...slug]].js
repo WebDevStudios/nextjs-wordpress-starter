@@ -28,17 +28,14 @@ export default function BlogPost({post, archive, posts, pagination}) {
               <p>No posts found.</p>
             ) : (
               posts.map((post, index) => (
-                <>
-                  <article key={index}>
-                    <Link href={post.uri}>
-                      <a>
-                        <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                      </a>
-                    </Link>
-                    <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                  </article>
-                  <hr />
-                </>
+                <article key={index}>
+                  <Link href={post.uri}>
+                    <a>
+                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+                    </a>
+                  </Link>
+                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
+                </article>
               ))
             )}
           </section>
