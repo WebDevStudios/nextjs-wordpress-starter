@@ -3,9 +3,8 @@ import * as Yup from 'yup'
 /**
  * Create Yup string schema object.
  *
- * @author Mike England <mike.england@webdevstudios.com>
- * @since 2021-01-07
- * @link https://github.com/jquense/yup#string
+ * @author WebDevStudios
+ * @see    https://github.com/jquense/yup#string
  */
 export default class StringSchemaFactory {
   /**
@@ -13,8 +12,10 @@ export default class StringSchemaFactory {
    *
    * Note: wp-graphql-gravity-forms plugin may need to be replaced.
    *
-   * @param {Object} fieldData from GravityForm GraphQL data Object.
-   * @link https://github.com/harness-software/wp-graphql-gravity-forms
+   * @param  {Object} fieldData from GravityForm GraphQL data Object.
+   *
+   * @author WebDevStudios
+   * @see    https://github.com/harness-software/wp-graphql-gravity-forms
    */
   constructor(fieldData) {
     this.fieldData = fieldData
@@ -25,10 +26,10 @@ export default class StringSchemaFactory {
    *
    * Combine multiple schemas into one.
    *
-   * @author Mike England <mike.england@webdevstudios.com>
-   * @since 2021-01-07
    * @returns {Object} Combined Yup validationSchema Object.
-   * @link https://github.com/jquense/yup#mixedconcatschema-schema-schema
+   *
+   * @author  WebDevStudios
+   * @see     https://github.com/jquense/yup#mixedconcatschema-schema-schema
    */
   get schema() {
     return Yup.string()
@@ -39,10 +40,10 @@ export default class StringSchemaFactory {
   /**
    * Get Yup required field validaion.
    *
-   * @author Mike England <mike.england@webdevstudios.com>
-   * @since 2021-01-07
    * @return {Object} Yup validationSchema Object.
-   * @link https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
+   *
+   * @author WebDevStudios
+   * @see    https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
    */
   getRequiredSchema() {
     if (!this.fieldData?.isRequired) {
@@ -55,10 +56,10 @@ export default class StringSchemaFactory {
   /**
    * Get Yup max line length validation.
    *
-   * @author Mike England <mike.england@webdevstudios.com>
-   * @since 2021-01-07
    * @return {Object} Yup validationSchema Object.
-   * @link https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
+   *
+   * @author WebDevStudios
+   * @see    https://github.com/jquense/yup#stringmaxlimit-number--ref-message-string--function-schema
    */
   getMaxLengthSchema() {
     if (!this.fieldData?.maxLength) {
