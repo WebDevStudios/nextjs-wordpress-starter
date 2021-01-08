@@ -35,6 +35,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "apollo-link-rest": "^0.8.0-beta.0",
     "formik": "^2.2.6",
     "hamburger-react": "^2.4.0",
     "next": "latest",
