@@ -21,7 +21,22 @@ export default function BlogPost({post, archive, posts, pagination}) {
   if (archive) {
     console.log({pagination})
     return (
-      <Layout>
+      <Layout
+        title="Query from Yoast SEO"
+        description="Query from Yoast SEO"
+        noIndex={false} // query from yoast seo
+        noFollow={false} // query from yoast seo
+        openGraph={{
+          title: 'Query from Yoast SEO',
+          description: 'Query from Yoast SEO',
+          images: [
+            {
+              url: 'Query from Yoast SEO',
+              alt: 'Query from Yoast SEO'
+            }
+          ]
+        }}
+      >
         <div className="container">
           <section>
             {!posts || !posts.length ? (
