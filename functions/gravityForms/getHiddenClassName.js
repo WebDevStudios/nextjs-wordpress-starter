@@ -1,7 +1,7 @@
 /**
  * Determine hidden className.
  *
- * @param   {string} visibility setting of GravityForm field.
+ * @param {string}   visibility setting of GravityForm field.
  * @returns {string} Classname selector based on visibility.
  */
 export default function getGfHiddenClassName(visibility) {
