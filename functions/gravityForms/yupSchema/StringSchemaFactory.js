@@ -5,7 +5,7 @@ import * as Yup from 'yup'
  *
  * @author WebDevStudios
  * @see https://github.com/jquense/yup#string
- * @returns {Object} Yup validationSchema Object.
+ * @return {Object} Yup validationSchema Object.
  */
 export default class StringSchemaFactory {
   /**
@@ -26,7 +26,7 @@ export default class StringSchemaFactory {
    * Combine multiple schemas into one.
    *
    * @see https://github.com/jquense/yup#mixedconcatschema-schema-schema
-   * @returns {Object} Combined Yup validationSchema Object.
+   * @return {Object} Combined Yup validationSchema Object.
    */
   get schema() {
     return Yup.string()
