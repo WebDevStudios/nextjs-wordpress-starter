@@ -7,7 +7,7 @@ import * as Yup from 'yup'
  * @author Mike England <mike.england@webdevstudios.com>
  * @since 2021-01-07
  */
-class stringSchemaGetter {
+class stringSchemaFactory {
   constructor(fieldData) {
     this.fieldData = fieldData
   }
@@ -74,10 +74,9 @@ class stringSchemaGetter {
 function getValidationSchemaType(fieldData) {
   let schemaGetter = null
 
-  // Get Schema based on GravityForm field type.
   switch (fieldData?.type) {
     case 'text':
-      schemaGetter = new stringSchemaGetter(fieldData).schema
+      schemaGetter = new stringSchemaFactory(fieldData).schema
       break
 
     default:
