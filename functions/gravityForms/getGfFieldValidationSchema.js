@@ -4,12 +4,19 @@ import * as Yup from 'yup'
 /**
  * Create Yup string schema object.
  *
- * @param {Object} GravityForm field data Object.
  * @author Mike England <mike.england@webdevstudios.com>
  * @since 2021-01-07
  * @link https://github.com/jquense/yup#string
  */
-class stringSchemaFactory {
+class StringSchemaFactory {
+  /**
+   * Constructor.
+   *
+   * Note: wp-graphql-gravity-forms plugin may need to be replaced.
+   *
+   * @param {Object} fieldData from GravityForm GraphQL data Object.
+   * @link https://github.com/harness-software/wp-graphql-gravity-forms
+   */
   constructor(fieldData) {
     this.fieldData = fieldData
   }
@@ -47,7 +54,7 @@ class stringSchemaFactory {
   }
 
   /**
-   * Get Yup max line length validaion.
+   * Get Yup max line length validation.
    *
    * @author Mike England <mike.england@webdevstudios.com>
    * @since 2021-01-07
@@ -83,7 +90,7 @@ function getValidationSchemaType(fieldData) {
 
   switch (fieldData?.type) {
     case 'text':
-      schemaGetter = new stringSchemaFactory(fieldData).schema
+      schemaGetter = new StringSchemaFactory(fieldData).schema
       break
 
     default:
