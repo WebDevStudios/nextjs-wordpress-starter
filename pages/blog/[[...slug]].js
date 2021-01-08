@@ -64,7 +64,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
               ))
             )}
             {/* TODO: replace this with a component. */}
-            <button onClick={loadPosts} disabled={pagination.hasNextPage}>
+            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
               Load more
             </button>
           </section>
