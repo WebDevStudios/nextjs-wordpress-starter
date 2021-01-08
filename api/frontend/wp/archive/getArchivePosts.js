@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client'
+import {wpDataEndpoints} from '@/api/wordpress/connector'
 
 // Query: retrieve archive posts by post type.
 const queryArchivePosts = gql`
@@ -13,7 +14,7 @@ const queryArchivePosts = gql`
       cursor: $cursor
       orderBy: $orderBy
       order: $order
-    ) @rest(type: "Archive", path: "/wp/archive?{args}") {
+    ) @rest(type: "Archive", path: "${wpDataEndpoints.archive}?{args}") {
       pagination
       posts
     }
