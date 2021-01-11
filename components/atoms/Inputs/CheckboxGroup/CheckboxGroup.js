@@ -6,18 +6,18 @@ export default function CheckboxGroup({
   checkboxes,
   className,
   description,
-  fieldId,
+  id,
   label
 }) {
   return (
-    <div className={className} key={fieldId}>
-      {label && <label htmlFor={fieldId}>{label}</label>}
+    <div className={className} key={id}>
+      {label && <label htmlFor={id}>{label}</label>}
       {description && <p>{description}</p>}
       {!!checkboxes.length > 0 &&
         checkboxes.map((checkbox) => (
           <Checkbox key={checkbox.id} {...checkbox} />
         ))}
-      <ErrorMessage name={fieldId} />
+      <ErrorMessage name={id} />
     </div>
   )
 }
@@ -26,7 +26,7 @@ CheckboxGroup.propTypes = {
   checkboxes: PropTypes.arrayOf(PropTypes.object).isRequired,
   className: PropTypes.string,
   description: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   validation: PropTypes.func
