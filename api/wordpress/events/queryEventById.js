@@ -15,6 +15,7 @@ const singleEventFragment = gql`
     ${featuredImagePostFields}
   }
 `
+
 // Query: retrieve event by specified identifier.
 const queryEventById = gql`
   query GET_EVENT_BY_ID(
