@@ -4,7 +4,7 @@ import {postTypes} from './postTypes'
 import queryEventsArchive from '../events/queryEventsArchive'
 import queryCareersArchive from '../careers/queryCareersArchive'
 import queryServicesArchive from '../services/queryServicesArchive'
-import queryTeamsArchive from '../teams/queryTeamMembersArchive'
+import queryTeamsArchive from '../teams/queryTeamsArchive'
 
 /**
  * Retrieve post archive.

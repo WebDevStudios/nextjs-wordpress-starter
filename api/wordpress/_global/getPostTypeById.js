@@ -6,7 +6,7 @@ import formatBlockData from '@/functions/formatBlockData'
 import queryEventById from '../events/queryEventById'
 import queryCareerById from '../careers/queryCareerById'
 import queryServiceById from '../services/queryServiceById'
-import queryTeamById from '../teams/queryTeamMemberById'
+import queryTeamById from '../teams/queryTeamById'
 
 /**
  * Retrieve single post by specified identifier.
