@@ -3,7 +3,7 @@ import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
 
-// Fragment: retrieve archive post fields.
+// Fragment: retrieve archive event fields.
 const archiveEventFragment = gql`
   fragment ArchiveEventFields on Event {
     ${globalPostFields}
@@ -12,7 +12,7 @@ const archiveEventFragment = gql`
   }
 `
 
-// Query: retrieve posts archive.
+// Query: retrieve events archive.
 const queryEventsArchive = gql`
   query GET_EVENTS_ARCHIVE(
     $first: Int
