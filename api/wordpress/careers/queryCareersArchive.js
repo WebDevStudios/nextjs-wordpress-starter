@@ -12,14 +12,6 @@ const archiveCareerFragment = gql`
   }
 `
 
-console.log(`
-fragment ArchiveCareerFields on Career {
-  ${globalPostFields}
-  excerpt
-  ${featuredImagePostFields}
-}
-`)
-
 // Query: retrieve careers archive.
 const queryCareersArchive = gql`
   query GET_CAREERS_ARCHIVE(
