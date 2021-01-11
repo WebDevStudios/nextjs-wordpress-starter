@@ -9,13 +9,6 @@ import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 // Define route post type.
 const postType = 'post'
 
-/**
- * The BlogPost component displays an individual blog post via dynamic routing.
- *
- * @author WebDevStudios
- * @param  {Object} [props] Properties passed to the component.
- * @return {Element}        Element to render.
- */
 export default function BlogPost({post, archive, posts, pagination}) {
   /**
    * Load more posts for archive.
