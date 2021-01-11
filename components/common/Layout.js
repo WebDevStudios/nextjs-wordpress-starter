@@ -15,7 +15,7 @@ export default function Layout({children, ...props}) {
         noindex={props?.noIndex}
       />
       <Meta />
-      <Header algolia={props?.algolia} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>
@@ -28,6 +28,5 @@ Layout.propTypes = {
   noFollow: PropTypes.bool,
   noIndex: PropTypes.bool,
   openGraph: PropTypes.object,
-  title: PropTypes.string.isRequired,
-  algolia: PropTypes.object
+  title: PropTypes.string.isRequired
 }

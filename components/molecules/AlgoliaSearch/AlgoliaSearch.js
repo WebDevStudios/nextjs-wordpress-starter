@@ -6,12 +6,12 @@ import React, {useContext, useRef, useState} from 'react'
 import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import styles from './AlgoliaSearch.module.css'
 import dynamic from 'next/dynamic'
-import SearchPlaceholder from './components/SearchPlaceholder'
+import SearchPlaceholder from './Components/SearchPlaceholder'
 
 /* eslint-disable */
 // This always throws an error: `Component definition is missing display name`.
 // Error also appears when using the [NextJS example](https://nextjs.org/docs/advanced-features/dynamic-import#with-custom-loading-component)
-const Search = dynamic(() => import('./components/Search'), {
+const Search = dynamic(() => import('./Components/Search'), {
   loading: () => <SearchPlaceholder />
 })
 /* eslint-enable */
@@ -27,7 +27,7 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   /**
    * Set a min-height value on the search wrapper to avoid DOM movement during dynamic render.
    */
-  const setMinHeight = () => {
+  function setMinHeight() {
     const minHeight =
       searchRef?.current && usePlaceholder
         ? searchRef.current.offsetHeight
@@ -38,9 +38,9 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   /**
    * Toggle the state of the Algolia `Search` and `SearchPlaceholder` components.
    *
-   * @param {*} value
+   * @param {boolean} value Show/hide Algolia search input.
    */
-  const toggleAlgolia = (value) => {
+  function toggleAlgolia(value) {
     setLoadAlgolia(value)
   }
 
