@@ -5,6 +5,7 @@ import queryEventsArchive from '../events/queryEventsArchive'
 import queryCareersArchive from '../careers/queryCareersArchive'
 import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
+import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
 
 /**
  * Retrieve post archive.
@@ -30,6 +31,7 @@ export default async function getPostTypeArchive(
   const postTypeQuery = {
     career: queryCareersArchive,
     event: queryEventsArchive,
+    portfolio: queryPortfoliosArchive,
     post: queryPostsArchive,
     service: queryServicesArchive,
     team: queryTeamsArchive
