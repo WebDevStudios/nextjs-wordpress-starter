@@ -1,5 +1,5 @@
-const {gql} = require('@apollo/client')
-const {singlePageFragment} = require('./queryPageById')
+import {gql} from '@apollo/client'
+import {singlePageFragment} from './queryPageById'
 
 // Query: retrieve homepage.
 const queryHomepage = gql`

@@ -4,6 +4,7 @@ import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
 import formatBlockData from '@/functions/formatBlockData'
 import queryEventById from '../events/queryEventById'
+import queryCareerById from '../careers/queryCareerById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -17,6 +18,7 @@ import queryEventById from '../events/queryEventById'
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
   const postTypeQuery = {
+    career: queryCareerById,
     event: queryEventById,
     page: queryPageById,
     post: queryPostById
