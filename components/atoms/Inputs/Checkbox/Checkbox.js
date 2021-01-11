@@ -6,7 +6,7 @@ export default function Checkbox({className, id, label}) {
     <div className={className}>
       {label && (
         <label htmlFor={id}>
-          <Field name="checked" type="checkbox" value="One" />
+          <Field name="checked" type="checkbox" value={`field-${id}`} />
           {label}
         </label>
       )}
