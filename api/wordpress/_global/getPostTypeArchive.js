@@ -1,6 +1,7 @@
 import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
+import queryEventsArchive from '../events/queryEventsArchive'
 
 /**
  * Retrieve post archive.
@@ -24,6 +25,7 @@ export default async function getPostTypeArchive(
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
+    event: queryEventsArchive,
     post: queryPostsArchive
   }
 
