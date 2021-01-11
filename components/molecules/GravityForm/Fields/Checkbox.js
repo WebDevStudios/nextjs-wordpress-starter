@@ -22,9 +22,9 @@ export default function Checkbox({
     >
       <Input.CheckboxGroup
         checkboxes={inputs}
-        label={label}
         description={description}
-        fieldId={fieldId}
+        id={fieldId}
+        label={label}
       />
     </div>
   )
