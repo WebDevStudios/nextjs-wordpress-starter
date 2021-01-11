@@ -4,25 +4,25 @@ import {Field, ErrorMessage} from 'formik'
 export default function Text({
   className,
   description,
-  fieldId,
+  id,
   isRequired,
   label,
   type,
   validation
 }) {
   return (
-    <div className={className} key={fieldId}>
-      {label && <label htmlFor={fieldId}>{label}</label>}
+    <div className={className} key={id}>
+      {label && <label htmlFor={id}>{label}</label>}
       <Field
         aria-required={isRequired}
-        id={fieldId}
-        name={fieldId}
+        id={id}
+        name={id}
         required={isRequired}
         type={type}
         validate={validation}
       />
       {description && <p>{description}</p>}
-      <ErrorMessage name={fieldId} />
+      <ErrorMessage name={id} />
     </div>
   )
 }
@@ -30,7 +30,7 @@ export default function Text({
 Text.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
