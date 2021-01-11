@@ -2,11 +2,13 @@ import PropTypes from 'prop-types'
 import {ErrorMessage} from 'formik'
 
 export default function CheckboxGroup({
+  checkboxes,
   className,
   description,
   fieldId,
   label
 }) {
+  console.log(checkboxes)
   return (
     <div className={className} key={fieldId}>
       {label && <label htmlFor={fieldId}>{label}</label>}
@@ -25,6 +27,7 @@ export default function CheckboxGroup({
 }
 
 CheckboxGroup.propTypes = {
+  checkboxes: PropTypes.arrayOf(PropTypes.object).isRequired,
   className: PropTypes.string,
   description: PropTypes.string,
   fieldId: PropTypes.string.isRequired,
