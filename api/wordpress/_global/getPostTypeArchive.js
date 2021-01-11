@@ -6,6 +6,7 @@ import queryCareersArchive from '../careers/queryCareersArchive'
 import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
 import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
+import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 
 /**
  * Retrieve post archive.
@@ -34,7 +35,8 @@ export default async function getPostTypeArchive(
     portfolio: queryPortfoliosArchive,
     post: queryPostsArchive,
     service: queryServicesArchive,
-    team: queryTeamsArchive
+    team: queryTeamsArchive,
+    testimonial: queryTestimonialsArchive
   }
 
   // Retrieve post type query.
