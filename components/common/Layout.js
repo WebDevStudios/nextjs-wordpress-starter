@@ -15,7 +15,7 @@ export default function Layout({children, ...props}) {
         noindex={props?.noIndex}
       />
       <Meta />
-      <Header />
+      <Header algolia={props?.algolia} />
       <main>{children}</main>
       <Footer />
     </>

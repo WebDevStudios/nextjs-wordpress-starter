@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import AlgoliaSearch from '../molecules/AlgoliaSearch'
 import Navigation from './Navigation'
+import PropTypes from 'prop-types'
 
 function Logo() {
   return (
@@ -18,15 +19,14 @@ function Logo() {
   )
 }
 
-// TODO: Pass Algolia indexName via props from ENV vars.
-
-export default function Header() {
+export default function Header(props) {
+  const {algolia} = props
   return (
     <header className="sticky top-0 pb-8 transition-all z-50">
       <div className="container flex items-center justify-end">
         <div className="relative pt-12 pb-16">
           <AlgoliaSearch
-            indexName="wds_dev_searchable_posts"
+            indexName={algolia?.indexName}
             useHistory={true}
             usePlaceholder={true}
             className="ml-auto"
@@ -39,4 +39,8 @@ export default function Header() {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  props: PropTypes.object
 }

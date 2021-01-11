@@ -13,7 +13,8 @@ const postType = 'page'
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
-export default function Page({post}) {
+export default function Page(props) {
+  const {post, algolia} = props
   return (
     <Layout
       title="Query from Yoast SEO"
@@ -30,6 +31,7 @@ export default function Page({post}) {
           }
         ]
       }}
+      algolia={algolia}
     >
       <div className="container">
         <section>
@@ -71,5 +73,5 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
-  post: PropTypes.object
+  props: PropTypes.object
 }
