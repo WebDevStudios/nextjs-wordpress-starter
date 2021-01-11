@@ -13,6 +13,18 @@ export default function CheckboxGroup({
     <div className={className} key={fieldId}>
       {label && <label htmlFor={fieldId}>{label}</label>}
       {description && <p>{description}</p>}
+      {!!checkboxes.length > 0 &&
+        checkboxes.map((checkbox) => {
+          const {id, label, name} = checkbox
+
+          return (
+            <ul key={id}>
+              <li>{`Checkbox id:${id}`}</li>
+              <li>{`Checkbox name:${name}`}</li>
+              <li>{label}</li>
+            </ul>
+          )
+        })}
       {/* <Field
         aria-required={isRequired}
         id={fieldId}
