@@ -4,7 +4,7 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
 
-// Fragment: retrieve single post fields.
+// Fragment: retrieve single event fields.
 const singleEventFragment = gql`
   fragment SingleEventFields on Event {
     ${globalPostFields}
@@ -15,7 +15,7 @@ const singleEventFragment = gql`
     ${featuredImagePostFields}
   }
 `
-// Query: retrieve post by specified identifier.
+// Query: retrieve event by specified identifier.
 const queryEventById = gql`
   query GET_EVENT_BY_ID(
     $id: ID!
