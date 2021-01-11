@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import {Field} from 'formik'
 
-export default function Checkbox({className, fieldId, label}) {
+export default function Checkbox({className, id, label}) {
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={fieldId}>
+        <label htmlFor={id}>
           <Field name="checked" type="checkbox" value="One" />
           {label}
         </label>
@@ -16,6 +16,6 @@ export default function Checkbox({className, fieldId, label}) {
 
 Checkbox.propTypes = {
   className: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired
 }
