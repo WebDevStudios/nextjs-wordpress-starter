@@ -7,7 +7,7 @@ const seoPostFields = `
     metaRobotsNofollow
     metaRobotsNoindex
     opengraphImage {
-      sourceUrl
+      sourceUrl(size: THUMBNAIL)
     }
   }
 `
