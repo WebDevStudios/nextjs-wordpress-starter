@@ -8,6 +8,7 @@ import queryCareerById from '../careers/queryCareerById'
 import queryServiceById from '../services/queryServiceById'
 import queryTeamById from '../teams/queryTeamById'
 import queryPortfolioById from '../portfolios/queryPortfolioById'
+import queryTestimonialById from '../testimonials/queryTestimonialById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -27,7 +28,8 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     portfolio: queryPortfolioById,
     post: queryPostById,
     service: queryServiceById,
-    team: queryTeamById
+    team: queryTeamById,
+    testimonial: queryTestimonialById
   }
 
   // Check if post type is hierarchical.
