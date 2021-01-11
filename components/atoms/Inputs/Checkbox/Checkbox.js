@@ -16,6 +16,6 @@ export default function Checkbox({className, id, label}) {
 
 Checkbox.propTypes = {
   className: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   label: PropTypes.string.isRequired
 }
