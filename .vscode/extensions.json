@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "csstools.postcss",
+    "silvenon.mdx",
+    "stylelint.vscode-stylelint",
+    "snipsnapdev.snipsnap-vscode",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

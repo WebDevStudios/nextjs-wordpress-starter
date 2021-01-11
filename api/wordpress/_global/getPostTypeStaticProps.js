@@ -21,16 +21,12 @@ export default async function getPostTypeStaticProps(
 ) {
   // Check for dynamic archive display.
   if (!Object.keys(params).length) {
-    const {apolloClient, posts, error, errorMessage} = await getPostTypeArchive(
-      postType
-    )
+    const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
       props: {
-        posts,
-        error,
-        errorMessage,
+        ...archiveData,
         archive: true
       },
       revalidate: 60 * 5
@@ -41,16 +37,12 @@ export default async function getPostTypeStaticProps(
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
   // Retrieve post data.
-  const {apolloClient, post, error, errorMessage} = await getPostTypeById(
+  const {apolloClient, error, ...postData} = await getPostTypeById(
     postType,
     slug
   )
 
-  const props = {
-    post,
-    error,
-    errorMessage
-  }
+  const props = {...postData, error}
 
   // Custom handling for homepage.
   if (error) {
