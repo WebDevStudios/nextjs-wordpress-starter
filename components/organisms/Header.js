@@ -42,5 +42,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  props: PropTypes.object
+  props: PropTypes.object,
+  algolia: PropTypes.object
 }

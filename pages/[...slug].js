@@ -73,5 +73,7 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
-  props: PropTypes.object
+  props: PropTypes.object,
+  post: PropTypes.object,
+  algolia: PropTypes.object
 }

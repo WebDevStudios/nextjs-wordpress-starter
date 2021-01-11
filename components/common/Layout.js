@@ -28,5 +28,6 @@ Layout.propTypes = {
   noFollow: PropTypes.bool,
   noIndex: PropTypes.bool,
   openGraph: PropTypes.object,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  algolia: PropTypes.object
 }

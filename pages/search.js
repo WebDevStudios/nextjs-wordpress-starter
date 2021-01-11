@@ -48,5 +48,6 @@ export async function getStaticProps() {
 }
 
 Search.propTypes = {
-  props: PropTypes.object
+  props: PropTypes.object,
+  algolia: PropTypes.object
 }
