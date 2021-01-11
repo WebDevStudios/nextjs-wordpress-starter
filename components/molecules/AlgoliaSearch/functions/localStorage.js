@@ -5,7 +5,7 @@
  * @param {string} value     The value to store.
  * @param {number} maxLength Maximum history items to store.
  */
-export const setLocalStorage = (name, value, maxLength) => {
+export function setLocalStorage(name, value, maxLength) {
   if (!localStorage) {
     return false
   }
@@ -35,7 +35,7 @@ export const setLocalStorage = (name, value, maxLength) => {
  *
  * @param {*} name  Local Storage name.
  */
-export const deleteLocalStorage = (name) => {
+export function deleteLocalStorage(name) {
   if (!name) {
     return false
   }
@@ -48,7 +48,7 @@ export const deleteLocalStorage = (name) => {
  * @param {*} array
  * @param {*} value
  */
-const removeStorageDuplicates = (array = [], value = '') => {
+function removeStorageDuplicates(array = [], value = '') {
   if (!array || !value) {
     return false
   }

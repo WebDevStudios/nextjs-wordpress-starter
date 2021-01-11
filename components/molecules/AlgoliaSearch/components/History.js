@@ -46,7 +46,7 @@ export default function History({
    * @param {*} first
    * @param {*} second
    */
-  const isSameDate = (first, second) => {
+  function isSameDate(first, second) {
     return (
       first.getFullYear() === second.getFullYear() &&
       first.getMonth() === second.getMonth() &&
@@ -59,7 +59,7 @@ export default function History({
    *
    * @param {*} time
    */
-  const convertDate = (time) => {
+  function convertDate(time) {
     if (!time) {
       return false
     }
@@ -83,7 +83,7 @@ export default function History({
 
   return (
     <>
-      {!!history && !!history.length && (
+      {!!history?.length && (
         <div className={styles.history}>
           <ul>
             {history.map((item, index) => (

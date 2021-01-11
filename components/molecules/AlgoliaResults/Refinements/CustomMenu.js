@@ -7,7 +7,7 @@ import styles from '../AlgoliaResults.module.css'
 /**
  * Custom display of Algolia [Menu](https://www.algolia.com/doc/api-reference/widgets/menu/react/) widget.
  */
-const Menu = ({
+function Menu({
   items,
   refine,
   title,
@@ -17,7 +17,7 @@ const Menu = ({
   attribute,
   className,
   showCount
-}) => {
+}) {
   const [extended, setExtended] = useState(false)
 
   return (

@@ -7,14 +7,14 @@ import styles from '../AlgoliaResults.module.css'
 /**
  * Custom display of Algolia [ToggleRefinement](https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/) widget.
  */
-const ToggleRefinement = ({
+function ToggleRefinement({
   currentRefinement,
   label,
   value,
   refine,
   title,
   className
-}) => {
+}) {
   return (
     <section className={cn(styles.filterPanel, className)}>
       {title && <h3>{title}</h3>}

@@ -7,7 +7,7 @@ import styles from '../AlgoliaResults.module.css'
 /**
  * Custom display of Algolia [RefinementList](https://www.algolia.com/doc/api-reference/widgets/refinement-list/react/) widget.
  */
-const RefinementList = ({
+function RefinementList({
   items,
   refine,
   title,
@@ -17,7 +17,7 @@ const RefinementList = ({
   attribute,
   className,
   showCount
-}) => {
+}) {
   const [extended, setExtended] = useState(false)
 
   return (

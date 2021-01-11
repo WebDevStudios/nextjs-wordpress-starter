@@ -6,7 +6,7 @@
  * @param {*} name The name to search.
  * @return {string} The found query value.
  */
-const parseQuerystring = (path, name) => {
+export default function parseQuerystring(path, name) {
   if (!path || !name) {
     return false
   }
@@ -17,5 +17,3 @@ const parseQuerystring = (path, name) => {
     ? ''
     : decodeURIComponent(results[1].replace(/\+/g, ' '))
 }
-
-export default parseQuerystring

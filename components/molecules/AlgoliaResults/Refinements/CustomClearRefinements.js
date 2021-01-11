@@ -5,20 +5,22 @@ import styles from '../AlgoliaResults.module.css'
 /**
  * Custom display of Algolia [ClearRefinements](https://www.algolia.com/doc/api-reference/widgets/clear-refinements/react/) widget.
  */
-const ClearRefinements = ({items, refine}) => (
-  <>
-    {!!items.length && (
-      <button
-        type="button"
-        onClick={() => refine(items)}
-        disabled={!items.length}
-        className={styles.clearBtn}
-      >
-        Clear All Filters
-      </button>
-    )}
-  </>
-)
+function ClearRefinements({items, refine}) {
+  return (
+    <>
+      {!!items.length && (
+        <button
+          type="button"
+          onClick={() => refine(items)}
+          disabled={!items.length}
+          className={styles.clearBtn}
+        >
+          Clear All Filters
+        </button>
+      )}
+    </>
+  )
+}
 
 ClearRefinements.propTypes = {
   items: PropTypes.any.isRequired,

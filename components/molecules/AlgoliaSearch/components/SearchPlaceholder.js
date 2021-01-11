@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 /**
  * This component renders a placeholder for the Algolia `Search` component.
  * The `Search` component is loaded using Dynamic Imports in Next once initiated by the user.
- *
  */
 export default function SearchPlaceholder({toggleAlgolia, query}) {
   return (
