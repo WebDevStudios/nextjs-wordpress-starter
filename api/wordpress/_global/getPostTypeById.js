@@ -3,6 +3,7 @@ import {initializeWpApollo} from '../connector'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
 import formatBlockData from '@/functions/formatBlockData'
+import queryEventById from '../events/queryEventById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -16,6 +17,7 @@ import formatBlockData from '@/functions/formatBlockData'
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
   const postTypeQuery = {
+    event: queryEventById,
     page: queryPageById,
     post: queryPostById
   }
