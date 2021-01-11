@@ -9,7 +9,6 @@ export default function CheckboxGroup({
   fieldId,
   label
 }) {
-  console.log(checkboxes)
   return (
     <div className={className} key={fieldId}>
       {label && <label htmlFor={fieldId}>{label}</label>}
