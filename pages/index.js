@@ -1,4 +1,5 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import getMenus from '@/api/wordpress/_global/getMenus'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
 import PropTypes from 'prop-types'
@@ -60,7 +61,12 @@ export default function HomePage({post}) {
  * @return {Object}                      Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps({slug: '/'}, postType)
+  const post = await getPostTypeStaticProps({slug: '/'}, postType)
+  const menus = await getMenus()
+
+  console.log(menus)
+
+  return post
 }
 
 HomePage.propTypes = {
