@@ -5,6 +5,7 @@ import {isHierarchicalPostType} from './postTypes'
 import formatBlockData from '@/functions/formatBlockData'
 import queryEventById from '../events/queryEventById'
 import queryCareerById from '../careers/queryCareerById'
+import queryServiceById from '../services/queryServiceById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -21,7 +22,8 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     career: queryCareerById,
     event: queryEventById,
     page: queryPageById,
-    post: queryPostById
+    post: queryPostById,
+    service: queryServiceById
   }
 
   // Check if post type is hierarchical.
