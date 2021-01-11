@@ -15,6 +15,7 @@ const singlePortfolioFragment = gql`
     ${featuredImagePostFields}
   }
 `
+
 // Query: retrieve portfolio by specified identifier.
 const queryPortfolioById = gql`
   query GET_PORTFOLIO_BY_ID(
