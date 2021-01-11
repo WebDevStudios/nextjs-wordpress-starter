@@ -5,7 +5,7 @@ import {gql} from '@apollo/client'
 
 // Fragment: retrieve single career fields.
 const singleCareerFragment = gql`
-  fragment SinglePostFields on Post {
+  fragment SingleCareerFields on Career {
     ${globalPostFields}
     blocksJSON
     excerpt
@@ -13,15 +13,16 @@ const singleCareerFragment = gql`
     ${featuredImagePostFields}
   }
 `
+
 // Query: retrieve career by specified identifier.
 const queryCareerById = gql`
-  query GET_POST_BY_ID(
+  query GET_CAREER_BY_ID(
     $id: ID!
-    $idType: PostIdType = SLUG
+    $idType: CareerIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    post(id: $id, idType: $idType) {
-      ...SinglePostFields
+    career(id: $id, idType: $idType) {
+      ...SingleCareerFields
     }
   }
   ${singleCareerFragment}
