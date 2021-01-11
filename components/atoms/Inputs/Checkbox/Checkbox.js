@@ -3,7 +3,7 @@ import {Field} from 'formik'
 
 export default function Checkbox({className, fieldId, label}) {
   return (
-    <div className={className} key={fieldId}>
+    <div className={className}>
       {label && (
         <label htmlFor={fieldId}>
           <Field name="checked" type="checkbox" value="One" />
