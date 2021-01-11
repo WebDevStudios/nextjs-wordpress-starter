@@ -14,12 +14,10 @@ const postType = 'page'
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
-export default function HomePage(props) {
-  const {post, algolia} = props
-
+export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
-    return <Page post={post} algolia={algolia} />
+    return <Page post={post} />
   }
 
   // Display static page content as fallback.
@@ -39,7 +37,6 @@ export default function HomePage(props) {
           }
         ]
       }}
-      algolia={algolia}
     >
       <Hero
         background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
@@ -68,6 +65,5 @@ export async function getStaticProps() {
 
 HomePage.propTypes = {
   props: PropTypes.object,
-  post: PropTypes.object,
-  algolia: PropTypes.object
+  post: PropTypes.object
 }

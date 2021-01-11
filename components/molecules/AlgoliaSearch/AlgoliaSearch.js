@@ -2,7 +2,8 @@ import cn from 'classnames'
 import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import React, {useRef, useState} from 'react'
+import React, {useContext, useRef, useState} from 'react'
+import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import styles from './AlgoliaSearch.module.css'
 import dynamic from 'next/dynamic'
 import SearchPlaceholder from './components/SearchPlaceholder'
@@ -15,17 +16,13 @@ const Search = dynamic(() => import('./components/Search'), {
 })
 /* eslint-enable */
 
-export default function AlgoliaSearch({
-  indexName,
-  useHistory,
-  usePlaceholder,
-  className
-}) {
+export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
   const [loadAlgolia, setLoadAlgolia] = useState(0)
   const searchRef = useRef()
+  const {indexName} = useContext(AlgoliaContext)
 
   /**
    * Set a min-height value on the search wrapper to avoid DOM movement during dynamic render.
@@ -63,7 +60,6 @@ export default function AlgoliaSearch({
 }
 
 AlgoliaSearch.propTypes = {
-  indexName: PropTypes.string.isRequired,
   useHistory: PropTypes.bool,
   usePlaceholder: PropTypes.bool,
   className: PropTypes.string

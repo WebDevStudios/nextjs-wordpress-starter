@@ -1,7 +1,8 @@
 import {searchResultsClient} from '@/api/algolia/connector'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
+import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
 import styles from './AlgoliaResults.module.css'
 import NoResults from './Templates/NoResults'
@@ -9,7 +10,8 @@ import SearchResults from './Templates/SearchResults'
 
 // TODO: Create Storybook for this component.
 
-export default function AlgoliaResults({indexName, config}) {
+export default function AlgoliaResults({config}) {
+  const {indexName} = useContext(AlgoliaContext)
   return (
     <section className={cn('container', styles.algoliaResults)}>
       {config.query !== '' && (
@@ -27,7 +29,6 @@ export default function AlgoliaResults({indexName, config}) {
 }
 
 AlgoliaResults.propTypes = {
-  indexName: PropTypes.string,
   config: PropTypes.shape({
     query: PropTypes.string,
     hitsPerPage: PropTypes.number.isRequired
