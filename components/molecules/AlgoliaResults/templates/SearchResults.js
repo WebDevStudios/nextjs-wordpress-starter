@@ -4,10 +4,10 @@ import {connectStateResults, InfiniteHits} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 import Hit from './Hit'
 import NoResults from './NoResults'
-import PostType from '../Facets/PostType'
-import Authors from '../Facets/Authors'
-import CustomClearRefinements from '../Refinements/CustomClearRefinements'
-import Sort from '../Facets/Sort'
+import PostType from '../facets/PostType'
+import Authors from '../facets/Authors'
+import CustomClearRefinements from '../refinements/CustomClearRefinements'
+import Sort from '../facets/Sort'
 
 /**
  * Refinement config passed into Algolia facets.

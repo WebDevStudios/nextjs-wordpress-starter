@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import CustomRefinementList from '../Refinements/CustomRefinementList'
+import CustomRefinementList from '../refinements/CustomRefinementList'
 
 /**
  * Component for displaying Post Type facets.

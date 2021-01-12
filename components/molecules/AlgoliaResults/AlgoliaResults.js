@@ -5,8 +5,8 @@ import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
 import styles from './AlgoliaResults.module.css'
-import NoResults from './Templates/NoResults'
-import SearchResults from './Templates/SearchResults'
+import NoResults from './templates/NoResults'
+import SearchResults from './templates/SearchResults'
 
 // TODO: Create Storybook for this component.
 
