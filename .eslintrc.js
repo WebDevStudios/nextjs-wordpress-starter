@@ -16,8 +16,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:jsdoc/recommended',
-    'prettier'
+    'prettier',
+    'plugin:jsdoc/recommended'
   ],
   settings: {
     react: {
