@@ -3,18 +3,18 @@ import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
 
-// Fragment: retrieve archive post fields.
-const archivePostFragment = gql`
-  fragment ArchivePostFields on Post {
+// Fragment: retrieve archive portfolio fields.
+const archivePortfolioFragment = gql`
+  fragment ArchivePortfolioFields on Portfolio {
     ${globalPostFields}
     excerpt
     ${featuredImagePostFields}
   }
 `
 
-// Query: retrieve posts archive.
-const queryPostsArchive = gql`
-  query GET_POSTS_ARCHIVE(
+// Query: retrieve portfolios archive.
+const queryPortfoliosArchive = gql`
+  query GET_PORTFOLIOS_ARCHIVE(
     $first: Int
     $last: Int
     $after: String
@@ -23,7 +23,7 @@ const queryPostsArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
-    posts(
+    portfolios(
       first: $first
       last: $last
       after: $after
@@ -33,12 +33,12 @@ const queryPostsArchive = gql`
       ${archivePageInfo}
       edges {
         node {
-          ...ArchivePostFields
+          ...ArchivePortfolioFields
         }
       }
     }
   }
-  ${archivePostFragment}
+  ${archivePortfolioFragment}
 `
 
-export default queryPostsArchive
+export default queryPortfoliosArchive

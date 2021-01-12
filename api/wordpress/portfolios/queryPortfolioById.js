@@ -4,9 +4,9 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
 
-// Fragment: retrieve single page fields.
-export const singlePageFragment = gql`
-  fragment SinglePageFields on Page {
+// Fragment: retrieve single portfolio fields.
+const singlePortfolioFragment = gql`
+  fragment SinglePortfolioFields on Portfolio {
     ${globalPostFields}
     blocksJSON
     excerpt
@@ -16,18 +16,18 @@ export const singlePageFragment = gql`
   }
 `
 
-// Query: retrieve page by specified identifier.
-const queryPageById = gql`
-  query GET_PAGE_BY_ID(
+// Query: retrieve portfolio by specified identifier.
+const queryPortfolioById = gql`
+  query GET_PORTFOLIO_BY_ID(
     $id: ID!
-    $idType: PageIdType = URI
+    $idType: PortfolioIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    page(id: $id, idType: $idType) {
-      ...SinglePageFields
+    portfolio(id: $id, idType: $idType) {
+      ...SinglePortfolioFields
     }
   }
-  ${singlePageFragment}
+  ${singlePortfolioFragment}
 `
 
-export default queryPageById
+export default queryPortfolioById

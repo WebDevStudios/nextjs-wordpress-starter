@@ -4,9 +4,9 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
 
-// Fragment: retrieve single page fields.
-export const singlePageFragment = gql`
-  fragment SinglePageFields on Page {
+// Fragment: retrieve single team member fields.
+const singleTeamFragment = gql`
+  fragment SingleTeamFields on Team {
     ${globalPostFields}
     blocksJSON
     excerpt
@@ -16,18 +16,18 @@ export const singlePageFragment = gql`
   }
 `
 
-// Query: retrieve page by specified identifier.
-const queryPageById = gql`
-  query GET_PAGE_BY_ID(
+// Query: retrieve team member by specified identifier.
+const queryTeamById = gql`
+  query GET_TEAM_BY_ID(
     $id: ID!
-    $idType: PageIdType = URI
+    $idType: TeamIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    page(id: $id, idType: $idType) {
-      ...SinglePageFields
+    team(id: $id, idType: $idType) {
+      ...SingleTeamFields
     }
   }
-  ${singlePageFragment}
+  ${singleTeamFragment}
 `
 
-export default queryPageById
+export default queryTeamById

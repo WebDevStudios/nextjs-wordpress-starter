@@ -4,9 +4,9 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
 
-// Fragment: retrieve single page fields.
-export const singlePageFragment = gql`
-  fragment SinglePageFields on Page {
+// Fragment: retrieve single service fields.
+const singleServiceFragment = gql`
+  fragment SingleServiceFields on Service {
     ${globalPostFields}
     blocksJSON
     excerpt
@@ -16,18 +16,18 @@ export const singlePageFragment = gql`
   }
 `
 
-// Query: retrieve page by specified identifier.
-const queryPageById = gql`
-  query GET_PAGE_BY_ID(
+// Query: retrieve service by specified identifier.
+const queryServiceById = gql`
+  query GET_SERVICE_BY_ID(
     $id: ID!
-    $idType: PageIdType = URI
+    $idType: ServiceIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    page(id: $id, idType: $idType) {
-      ...SinglePageFields
+    service(id: $id, idType: $idType) {
+      ...SingleServiceFields
     }
   }
-  ${singlePageFragment}
+  ${singleServiceFragment}
 `
 
-export default queryPageById
+export default queryServiceById

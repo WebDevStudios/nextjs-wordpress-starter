@@ -7,9 +7,9 @@ import PropTypes from 'prop-types'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 
 // Define route post type.
-const postType = 'post'
+const postType = 'team'
 
-export default function BlogPost({post, archive, posts, pagination}) {
+export default function Team({post, archive, posts, pagination}) {
   /**
    * Load more posts for archive.
    */
@@ -121,6 +121,7 @@ export async function getStaticPaths() {
 /**
  * Get post static props.
  *
+ * @author WebDevStudios
  * @param  {Object}  context             Context for current post.
  * @param  {Object}  context.params      Route parameters for current post.
  * @param  {boolean} context.preview     Whether requesting preview of post.
@@ -131,7 +132,7 @@ export async function getStaticProps({params}) {
   return getPostTypeStaticProps(params, postType)
 }
 
-BlogPost.propTypes = {
+Team.propTypes = {
   post: PropTypes.object,
   posts: PropTypes.array,
   archive: PropTypes.bool,
