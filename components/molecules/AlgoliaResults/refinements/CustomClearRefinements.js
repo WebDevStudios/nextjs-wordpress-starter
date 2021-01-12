@@ -8,7 +8,7 @@ import styles from '../AlgoliaResults.module.css'
 function ClearRefinements({items, refine}) {
   return (
     <>
-      {!!items.length && (
+      {!!items?.length && (
         <button
           type="button"
           onClick={() => refine(items)}
