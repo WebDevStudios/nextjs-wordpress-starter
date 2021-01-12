@@ -6,18 +6,32 @@ export default function CheckboxGroup({
   checkboxes,
   className,
   description,
-  id,
+  id: groupId,
   label
 }) {
   return (
-    <div className={className} key={id}>
-      {label && <label htmlFor={id}>{label}</label>}
+    <div
+      aria-labelledby={groupId}
+      className={className}
+      id={groupId}
+      role="group"
+    >
+      {label && <label htmlFor={groupId}>{label}</label>}
       {description && <p>{description}</p>}
       {!!checkboxes.length > 0 &&
-        checkboxes.map((checkbox) => (
-          <Checkbox key={checkbox.id} {...checkbox} />
-        ))}
-      <ErrorMessage name={id} />
+        checkboxes.map((checkbox) => {
+          const {id, label} = checkbox
+
+          return (
+            <Checkbox
+              id={id}
+              key={`${groupId}-${id}`}
+              label={label}
+              name={groupId}
+            />
+          )
+        })}
+      <ErrorMessage name={groupId} />
     </div>
   )
 }
