@@ -3,7 +3,9 @@ import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
+import AlgoliaProvider from '@/components/common/AlgoliaProvider'
 
 export default function App({Component, pageProps}) {
   /**
@@ -19,35 +21,42 @@ export default function App({Component, pageProps}) {
   // Trim trailing period - added via Error component.
   errorMessage = errorMessage.replace(/\.$/g, '')
 
+  // Initialize Algolia state for context provider.
+  const [algolia] = useState({
+    indexName: pageProps?.algolia?.indexName
+  })
+
   return (
     <ApolloProvider client={apolloClient}>
-      {error ? (
-        <Error statusCode={500} title={errorMessage} />
-      ) : (
-        <>
-          <DefaultSeo
-            title="Query from Yoast SEO"
-            description="Query from Yoast SEO"
-            noIndex={false} // query from yoast seo
-            noFollow={false} // query from yoast seo
-            openGraph={{
-              type: 'website',
-              locale: 'en_US',
-              url: 'Query from Yoast SEO',
-              site_name: '',
-              images: [
-                {
-                  url: 'Query from Yoast SEO',
-                  width: 'Query from Yoast SEO',
-                  height: 'Query from Yoast SEO',
-                  alt: 'Query from Yoast SEO'
-                }
-              ]
-            }}
-          />
-          <Component {...pageProps} />
-        </>
-      )}
+      <AlgoliaProvider value={algolia}>
+        {error ? (
+          <Error statusCode={500} title={errorMessage} />
+        ) : (
+          <>
+            <DefaultSeo
+              title="Query from Yoast SEO"
+              description="Query from Yoast SEO"
+              noIndex={false} // query from yoast seo
+              noFollow={false} // query from yoast seo
+              openGraph={{
+                type: 'website',
+                locale: 'en_US',
+                url: 'Query from Yoast SEO',
+                site_name: '',
+                images: [
+                  {
+                    url: 'Query from Yoast SEO',
+                    width: 'Query from Yoast SEO',
+                    height: 'Query from Yoast SEO',
+                    alt: 'Query from Yoast SEO'
+                  }
+                ]
+              }}
+            />
+            <Component {...pageProps} />
+          </>
+        )}
+      </AlgoliaProvider>
     </ApolloProvider>
   )
 }

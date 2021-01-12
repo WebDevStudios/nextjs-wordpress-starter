@@ -1,5 +1,6 @@
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchemaFactory'
+import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFactory'
 
 /**
  * Match field type with Yup schema object.
@@ -15,6 +16,10 @@ function getValidationSchemaByType(fieldData) {
   let schemaGetter = null
 
   switch (fieldData?.type) {
+    case 'checkbox':
+      schemaGetter = new ArraySchemaFactory(fieldData).schema
+      break
+
     case 'text':
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break

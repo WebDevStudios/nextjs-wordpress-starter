@@ -30,6 +30,10 @@ export default function Fields({fields, setFormValidation}) {
           let fieldToRender = null
 
           switch (type) {
+            case 'checkbox':
+              fieldToRender = <GfFields.Checkbox {...field.node} key={id} />
+              break
+
             case 'text':
               fieldToRender = <GfFields.Text {...field.node} key={id} />
               break

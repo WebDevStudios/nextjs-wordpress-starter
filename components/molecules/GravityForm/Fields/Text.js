@@ -26,10 +26,10 @@ export default function Text({
       <Input.Text
         description={description}
         errorMessage={errorMessage}
-        fieldId={fieldId}
+        id={fieldId}
+        isRequired={isRequired}
         label={label}
         type={(enablePasswordInput && 'password') || type}
-        isRequired={isRequired}
       />
     </div>
   )

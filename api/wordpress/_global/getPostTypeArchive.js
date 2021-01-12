@@ -1,6 +1,12 @@
 import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
+import queryEventsArchive from '../events/queryEventsArchive'
+import queryCareersArchive from '../careers/queryCareersArchive'
+import queryServicesArchive from '../services/queryServicesArchive'
+import queryTeamsArchive from '../teams/queryTeamsArchive'
+import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
+import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 
 /**
  * Retrieve post archive.
@@ -24,7 +30,13 @@ export default async function getPostTypeArchive(
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
-    post: queryPostsArchive
+    career: queryCareersArchive,
+    event: queryEventsArchive,
+    portfolio: queryPortfoliosArchive,
+    post: queryPostsArchive,
+    service: queryServicesArchive,
+    team: queryTeamsArchive,
+    testimonial: queryTestimonialsArchive
   }
 
   // Retrieve post type query.

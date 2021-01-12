@@ -6,13 +6,6 @@ import PropTypes from 'prop-types'
 // Define route post type.
 const postType = 'page'
 
-/**
- * The Page component displays an individual page via dynamic routing.
- *
- * @author WebDevStudios
- * @param  {Object} [props] Properties passed to the component.
- * @return {Element}        Element to render.
- */
 export default function Page({post}) {
   return (
     <Layout
@@ -71,5 +64,6 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
+  props: PropTypes.object,
   post: PropTypes.object
 }
