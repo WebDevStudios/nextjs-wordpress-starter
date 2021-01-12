@@ -5,7 +5,9 @@ import {connectMenu} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Custom display of Algolia [Menu](https://www.algolia.com/doc/api-reference/widgets/menu/react/) widget.
+ * Custom display of Algolia Menu widget.
+ *
+ * @see https://www.algolia.com/doc/api-reference/widgets/menu/react/
  */
 function Menu({
   items,
