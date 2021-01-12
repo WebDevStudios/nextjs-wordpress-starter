@@ -4,42 +4,62 @@ import Layout from '@/components/common/Layout'
 import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 
 // Define route post type.
 const postType = 'post'
 
-/**
- * The BlogPost component displays an individual blog post via dynamic routing.
- *
- * @author WebDevStudios
- * @param  {Object} [props] Properties passed to the component.
- * @return {Element}        Element to render.
- */
-export default function BlogPost({post, posts, archive}) {
+export default function BlogPost({post, archive, posts, pagination}) {
+  /**
+   * Load more posts for archive.
+   */
+  async function loadPosts() {
+    const response = await getArchivePosts(postType, pagination?.endCursor)
+
+    // TODO: use response to display next "page" of posts.
+    console.log(response)
+  }
+
   // Check for post archive.
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
-      <Layout>
+      <Layout
+        title="Query from Yoast SEO"
+        description="Query from Yoast SEO"
+        noIndex={false} // query from yoast seo
+        noFollow={false} // query from yoast seo
+        openGraph={{
+          title: 'Query from Yoast SEO',
+          description: 'Query from Yoast SEO',
+          images: [
+            {
+              url: 'Query from Yoast SEO',
+              alt: 'Query from Yoast SEO'
+            }
+          ]
+        }}
+      >
         <div className="container">
           <section>
             {!posts || !posts.length ? (
               <p>No posts found.</p>
             ) : (
               posts.map((post, index) => (
-                <>
-                  <article key={index}>
-                    <Link href={post.uri}>
-                      <a>
-                        <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                      </a>
-                    </Link>
-                    <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                  </article>
-                  <hr />
-                </>
+                <article key={index}>
+                  <Link href={post.uri}>
+                    <a>
+                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+                    </a>
+                  </Link>
+                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
+                </article>
               ))
             )}
+            {/* TODO: replace this with a component. */}
+            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
+              Load more
+            </button>
           </section>
         </div>
       </Layout>
@@ -114,5 +134,6 @@ export async function getStaticProps({params}) {
 BlogPost.propTypes = {
   post: PropTypes.object,
   posts: PropTypes.array,
-  archive: PropTypes.bool
+  archive: PropTypes.bool,
+  pagination: PropTypes.object
 }

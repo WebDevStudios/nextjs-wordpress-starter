@@ -8,13 +8,6 @@ import Page from './[...slug]'
 // Define route post type.
 const postType = 'page'
 
-/**
- * The HomePage component displays the home page via dynamic routing.
- *
- * @author WebDevStudios
- * @param  {Object} [props] Properties passed to the component.
- * @return {Element}        Element to render.
- */
 export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
@@ -70,5 +63,6 @@ export async function getStaticProps() {
 }
 
 HomePage.propTypes = {
+  props: PropTypes.object,
   post: PropTypes.object
 }

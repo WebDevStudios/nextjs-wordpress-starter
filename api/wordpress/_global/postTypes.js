@@ -5,7 +5,7 @@ export const postTypes = {
   event: 'events',
   mediaItem: 'mediaItems',
   page: 'pages',
-  porfolio: 'portfolios',
+  portfolio: 'portfolios',
   post: 'posts',
   service: 'services',
   team: 'teams',
