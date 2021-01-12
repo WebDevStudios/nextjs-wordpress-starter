@@ -5,7 +5,9 @@ import {connectRefinementList} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Custom display of Algolia [RefinementList](https://www.algolia.com/doc/api-reference/widgets/refinement-list/react/) widget.
+ * Custom display of Algolia RefinementList widget.
+ *
+ * @see https://www.algolia.com/doc/api-reference/widgets/refinement-list/react/
  */
 function RefinementList({
   items,
