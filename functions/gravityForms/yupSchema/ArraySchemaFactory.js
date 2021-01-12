@@ -29,6 +29,20 @@ export default class ArraySchemaFactory {
    * @return {Object} Combined Yup validationSchema Object.
    */
   get schema() {
-    return Yup.array()
+    return Yup.array().concat(this.getMinLengthSchema())
+  }
+
+  /**
+   * Set a minimum length limit for the array.
+   *
+   * @see https://github.com/jquense/yup#arrayminlimit-number--ref-message-string--function-schema
+   * @return {Object} Yup validationSchema Object.
+   */
+  getMinLengthSchema() {
+    if (!this.fieldData?.isRequired) {
+      return
+    }
+
+    return Yup.array().min(1, `Atleast one option must be checked.`)
   }
 }
