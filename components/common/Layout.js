@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * Render the Layout component.
  *
  * @author WebDevStudios
- * @param {object} props          Properties passed to the component.
+ * @param {object} props          The component attributes as props.
  * @param {any}    props.children Child component(s) to render.
  * @param {object} props.props    All remaining props.
  * @return {Element}              The Layout component.
