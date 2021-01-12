@@ -1,6 +1,7 @@
 /**
  * Click Event for Search Results
  *
+ * @author WebDevStudios
  * @param {*} e
  */
 const searchClick = (e) => {
