@@ -42,6 +42,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'func-style': ['error', 'declaration'],
     'jsdoc/check-indentation': 1,
-    'jsdoc/check-line-alignment': [1, 'always']
+    'jsdoc/check-line-alignment': [1, 'always'],
+    'no-console': ['error', {allow: ['warn', 'error']}]
   }
 }
