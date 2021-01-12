@@ -4,11 +4,17 @@ import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
 import PropTypes from 'prop-types'
 import Page from './[...slug]'
+import formatHeirarchialMenu from '@/functions/formatHeirarchialMenu'
 
 // Define route post type.
 const postType = 'page'
 
-export default function HomePage({post}) {
+export default function HomePage({post, menus}) {
+  console.log(menus)
+  // console.log('primaryMenu', formatHeirarchialMenu(primaryMenu))
+  // console.log('footerMenu', formatHeirarchialMenu(footerMenu))
+  // console.log('mobileMenu', formatHeirarchialMenu(mobileMenu))
+
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
     return <Page post={post} />
@@ -55,14 +61,16 @@ export default function HomePage({post}) {
  */
 export async function getStaticProps() {
   const post = await getPostTypeStaticProps({slug: '/'}, postType)
-  const menus = await getMenus()
+  // const primaryMenu = await getMenu('primary-menu')
+  // const footerMenu = await getMenu('footer-menu')
+  // const mobileMenu = await getMenu('mobile-menu')
 
-  console.log(menus)
+  const menus = await getMenus(['primary-menu', 'footer-menu', 'mobile-menu'])
 
-  return post
-}
-
-HomePage.propTypes = {
-  props: PropTypes.object,
-  post: PropTypes.object
+  return {
+    props: {
+      post: post,
+      menus: menus
+    }
+  }
 }
