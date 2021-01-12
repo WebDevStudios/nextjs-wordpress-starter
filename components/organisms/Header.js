@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AlgoliaSearch from '../molecules/AlgoliaSearch'
 import Navigation from './Navigation'
 
 function Logo() {
@@ -19,7 +20,16 @@ function Logo() {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 py-8 transition-all">
+    <header className="sticky top-0 pb-8 transition-all z-50">
+      <div className="container flex items-center justify-end">
+        <div className="relative pt-12 pb-16">
+          <AlgoliaSearch
+            useHistory={true}
+            usePlaceholder={true}
+            className="ml-auto"
+          />
+        </div>
+      </div>
       <div className="container px-4 lg:px-0 flex items-center justify-between">
         <Logo />
         <Navigation />

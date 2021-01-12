@@ -57,5 +57,6 @@ export async function getStaticProps() {
 }
 
 HomePage.propTypes = {
+  props: PropTypes.object,
   post: PropTypes.object
 }

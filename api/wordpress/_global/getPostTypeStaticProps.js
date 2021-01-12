@@ -1,3 +1,4 @@
+import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
@@ -48,6 +49,11 @@ export default async function getPostTypeStaticProps(
     // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
+  }
+
+  // Add Algolia env vars.
+  props.algolia = {
+    indexName: algoliaIndexName
   }
 
   // Merge in query results as Apollo state.
