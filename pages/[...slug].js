@@ -64,5 +64,6 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
+  props: PropTypes.object,
   post: PropTypes.object
 }

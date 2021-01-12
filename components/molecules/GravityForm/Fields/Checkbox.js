@@ -1,18 +1,15 @@
 import PropTypes from 'prop-types'
-import * as Input from '@/components/atoms/Inputs'
 import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
 import cn from 'classnames'
+import * as Input from '@/components/atoms/Inputs'
 
-export default function Text({
+export default function Checkbox({
   className,
   description,
-  enablePasswordInput,
-  errorMessage,
   id,
-  isRequired,
+  inputs,
   label,
   size,
-  type,
   visibility
 }) {
   const fieldId = getGfFieldId(id)
@@ -23,32 +20,22 @@ export default function Text({
       className={cn(className, isHiddenClass) || null}
       field-size={size && `size-${size}`}
     >
-      <Input.Text
+      <Input.CheckboxGroup
+        checkboxes={inputs}
         description={description}
-        errorMessage={errorMessage}
         id={fieldId}
-        isRequired={isRequired}
         label={label}
-        type={(enablePasswordInput && 'password') || type}
       />
     </div>
   )
 }
 
-Text.propTypes = {
+Checkbox.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
-  enablePasswordInput: PropTypes.bool,
-  errorMessage: PropTypes.string,
   id: PropTypes.number.isRequired,
-  isRequired: PropTypes.bool,
+  inputs: PropTypes.arrayOf(PropTypes.object),
   label: PropTypes.string,
   size: PropTypes.string,
-  type: PropTypes.string.isRequired,
   visibility: PropTypes.string
-}
-
-Text.defaultProps = {
-  enablePasswordInput: false,
-  isRequired: false
 }
