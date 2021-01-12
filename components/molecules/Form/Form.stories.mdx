@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
 import noop from 'lodash/noop'
+import {Field, ErrorMessage} from 'formik'
+import * as Yup from 'yup'
 
 import Form from '.'
 
@@ -15,28 +17,38 @@ Use this component to render a form.
     <Form
       className="sample-form"
       id="form-1"
-      formDefaults=""
+      formDefaults={{
+        firstName: 'test'
+      }}
       title="Sample Form"
-      validationSchema={{}}
-    ></Form>
+      validationSchema={Yup.object().shape({
+        firstName: Yup.string().required('This field is required.')
+      })}
+    >
+      <label htmlFor="firstName">First Name</label>
+      <Field id="firstName" name="firstName" placeholder="Jane" />
+      <ErrorMessage name="firstName" />
+    </Form>
   </Story>
 </Canvas>
 
 ## How it Works
 
-The `Form` component under the hood is powered by [Formik](https://formik.org/docs/overview). Formik manages form state, validation, and form submission.
+The `Form` component under the hood is powered by [Formik](https://formik.org/docs/overview). Formik is used for form state management, validation, and form submissions.
 
-### Setting up form defaults and state
+## Setting up form defaults and state
 
 The `formDefaults` handles your data by passing it to `Formik` as `initialValues`. Each property passed into `formDefaults` should match the name of the input it corresponds to. The name prop is how Formik manages the state of each input.
 
-**Example Field**
+## Creating an Input
 
-The following example creats a basic text input field using the Formik `<Field />` component. The `name` prop on the `field` is set to `firstName` which is used for tracking the import state.
+Creating form inputs with Formik can be as simple or custom as you would like.
+
+_The following example creates a basic text input field using the Formik `<Field />` component. The `name` prop on the `field` is set to `firstName` which is used for tracking the import state._
 
 ```js
-  <label htmlFor="firstName">First Name</label>
-  <Field id="firstName" name="firstName" placeholder="Jane" />
+<label htmlFor="firstName">First Name</label>
+<Field id="firstName" name="firstName" placeholder="Jane" />
 ```
 
 **Example Default**
