@@ -33,6 +33,7 @@ module.exports = {
         extensions: ['.js', '.jsx']
       }
     ],
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'func-style': ['error', 'declaration']
   }
 }
