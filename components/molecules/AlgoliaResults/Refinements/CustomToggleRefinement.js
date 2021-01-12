@@ -5,7 +5,9 @@ import {connectToggleRefinement} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Custom display of Algolia [ToggleRefinement](https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/) widget.
+ * Custom display of Algolia ToggleRefinement widget.
+ *
+ * @see https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/
  */
 function ToggleRefinement({
   currentRefinement,
