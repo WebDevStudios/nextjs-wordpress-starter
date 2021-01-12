@@ -40,9 +40,9 @@ export default class ArraySchemaFactory {
    */
   getMinLengthSchema() {
     if (!this.fieldData?.isRequired) {
-      return
+      return Yup.array()
     }
 
-    return Yup.array().min(1, `Atleast one option must be checked.`)
+    return Yup.array().min(1, 'Atleast one option must be checked.')
   }
 }
