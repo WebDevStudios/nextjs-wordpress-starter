@@ -2,8 +2,8 @@
  * Retrieve environment-specific var.
  *
  * @author WebDevStudios
- * @param  {string} varName  Environment variable.
- * @param  {bool}   isPublic Whether var is public.
+ * @param {string}  varName  Environment variable.
+ * @param {boolean} isPublic Whether var is public.
  * @return {string}          Env var value.
  */
 export default function getEnvVar(varName, isPublic = false) {
