@@ -6,7 +6,7 @@
   @apply mb-80 min-w-full;
 
   & th {
-    @apply py-24 text-left text-gray-900;
+    @apply py-24 text-left text-grey-dark;
   }
 
   & tr {
