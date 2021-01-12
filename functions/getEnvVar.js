@@ -35,6 +35,7 @@ export default function getEnvVar(varName, isPublic = false) {
 /**
  * Parse a querystring by name.
  *
+ * @author WebDevStudios
  * @param {string} path URL path.
  * @param {string} name The name to match.
  */

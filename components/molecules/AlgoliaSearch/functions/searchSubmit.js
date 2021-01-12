@@ -4,6 +4,7 @@ import {setLocalStorage} from './localStorage'
 /**
  * Search Form Submit Handler
  *
+ * @author WebDevStudios
  * @param {object} event            Form submit.
  * @param {function} setSearchState Callback function to set search state.
  * @param {array}  searchState      Search state array.

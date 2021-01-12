@@ -1,6 +1,7 @@
 /**
  * Set localStorage for search results.
  *
+ * @author WebDevStudios
  * @param {string} name      Local Storage name.
  * @param {string} value     The value to store.
  * @param {number} maxLength Maximum history items to store.
