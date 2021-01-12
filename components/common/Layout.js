@@ -5,13 +5,13 @@ import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 
 /**
- * Render the <Layout /> component.
+ * Render the Layout component.
  *
  * @author WebDevStudios
- * @param {object}  props            Properties passed to the component.
- * @param {object}  [props.children] Child component(s) to render.
- * @param {boolean} [props.props]    All remaining props.
- * @return {Element}                 Element to render.
+ * @param {object} props          Properties passed to the component.
+ * @param {object} props.children Child component(s) to render.
+ * @param {object} props.props    All remaining props.
+ * @return {Element}              Element to render.
  */
 export default function Layout({children, ...props}) {
   return (
