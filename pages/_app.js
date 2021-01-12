@@ -22,7 +22,7 @@ export default function App({Component, pageProps}) {
   errorMessage = errorMessage.replace(/\.$/g, '')
 
   // Initialize Algolia state for context provider.
-  const [algolia, setAlgolia] = useState({
+  const [algolia] = useState({
     indexName: pageProps?.algolia?.indexName
   })
 

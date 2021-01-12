@@ -22,5 +22,6 @@ export default function AlgoliaProvider(props) {
 
 AlgoliaProvider.propTypes = {
   indexName: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.object,
+  value: PropTypes.object
 }
