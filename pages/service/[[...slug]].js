@@ -121,6 +121,7 @@ export async function getStaticPaths() {
 /**
  * Get post static props.
  *
+ * @author WebDevStudios
  * @param  {Object}  context             Context for current post.
  * @param  {Object}  context.params      Route parameters for current post.
  * @param  {boolean} context.preview     Whether requesting preview of post.
