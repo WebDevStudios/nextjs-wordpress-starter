@@ -7,11 +7,13 @@ export const AlgoliaContext = createContext({
 })
 
 /**
- * Provide indexName env var.
+ * Render the AlgoliaProvider component.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
- * @return {Element}     The child elements wrapped in a context provider.
+ * @param {object} props          The component attributes as props.
+ * @param {any}    props.children Child component(s) to render.
+ * @param {object} props.value    The Algolia index name.
+ * @return {Element}              The AlgoliaProvider component.
  */
 export default function AlgoliaProvider(props) {
   return (
@@ -23,6 +25,5 @@ export default function AlgoliaProvider(props) {
 
 AlgoliaProvider.propTypes = {
   children: PropTypes.object,
-  indexName: PropTypes.string,
   value: PropTypes.object
 }
