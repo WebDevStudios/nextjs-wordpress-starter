@@ -9,8 +9,12 @@ import dynamic from 'next/dynamic'
 import SearchPlaceholder from './components/SearchPlaceholder'
 
 /* eslint-disable */
-// This always throws an error: `Component definition is missing display name`.
-// Error also appears when using the [NextJS example](https://nextjs.org/docs/advanced-features/dynamic-import#with-custom-loading-component)
+/**
+ * This always throws an error: Component definition is missing display name.
+ * Error also appears when using the NextJS example.
+ *
+ * @see https://nextjs.org/docs/advanced-features/dynamic-import#with-custom-loading-component
+ */
 const Search = dynamic(() => import('./components/Search'), {
   loading: () => <SearchPlaceholder />
 })
