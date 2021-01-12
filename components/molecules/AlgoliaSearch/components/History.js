@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import styles from '../AlgoliaSearch.module.css'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
 /**
  * Component for rendering search history.
@@ -10,75 +12,19 @@ export default function History({
   clearLocalStorage,
   buildSearchUrl
 }) {
-  const config = {
-    now: new Date(), // Now, as a date object
-    nowTs: Date.now(),
-    dayLength: 86400000, // Day in milliseconds.
-    weekLength: 604800000, // Week in milliseconds.
-    months: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ],
-    days: [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday'
-    ]
-  }
-
   /**
-   * Compare two date for the same year, month, day.
+   * Convert date and time to relative from now.
    *
-   * @param {*} first
-   * @param {*} second
-   */
-  function isSameDate(first, second) {
-    return (
-      first.getFullYear() === second.getFullYear() &&
-      first.getMonth() === second.getMonth() &&
-      first.getDate() === second.getDate()
-    )
-  }
-
-  /**
-   * Convert Timestamp into readable date.
-   *
-   * @param {*} time
+   * @author WebDevStudios
+   * @see https://day.js.org/docs/en/display/from-now
+   * @see https://day.js.org/docs/en/plugin/relative-time
+   * @param  {string}  time   The time as a timestamp.
+   * @return {string} newTime Returns the string of relative time from now.
    */
   function convertDate(time) {
-    if (!time) {
-      return false
-    }
-
-    const date = new Date(time) // History date converted to date.
-    const month = date.getMonth() // Month.
-    const dayNumber = date.getDate() // Day.
-    const day = date.getDay() // Day name.
-    let data = ''
-
-    if (isSameDate(config.now, date)) {
-      data = 'Today' // Renders: Today
-    } else {
-      data =
-        config.nowTs - time < config.weekLength // Renders: Day of Week
-          ? config.days[day]
-          : `${config.months[month]} ${dayNumber}` // Renders: Month Abv + day
-    }
-    return data
+    dayjs.extend(relativeTime)
+    const newTime = dayjs(time).fromNow()
+    return newTime
   }
 
   return (
