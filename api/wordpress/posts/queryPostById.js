@@ -4,8 +4,7 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import tagsPostFields from '../_partials/tagsPostFields'
 import categoriesPostFields from '../_partials/categoriesPostFields'
-
-const {gql} = require('@apollo/client')
+import {gql} from '@apollo/client'
 
 // Fragment: retrieve single post fields.
 const singlePostFragment = gql`
