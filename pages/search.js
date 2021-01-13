@@ -6,7 +6,10 @@ import {useRouter} from 'next/router'
 import config from '@/functions/config'
 
 /**
- * The Search component displays the search page.
+ * Render the Search component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Search component.
  */
 export default function Search() {
   const router = useRouter()
@@ -27,10 +30,10 @@ export default function Search() {
 /**
  * Get post static props.
  *
- * @param  {Object}  context             Context for current post.
- * @param  {boolean} context.preview     Whether requesting preview of post.
- * @param  {Object}  context.previewData Post preview data.
- * @return {Object}                      Post props.
+ * @param {object}  context             Context for current post.
+ * @param {boolean} context.preview     Whether requesting preview of post.
+ * @param {object}  context.previewData Post preview data.
+ * @return {object}                      Post props.
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, 'search')

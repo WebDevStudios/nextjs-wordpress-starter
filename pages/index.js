@@ -7,6 +7,14 @@ import Page from './[...slug]'
 // Define route post type.
 const postType = 'page'
 
+/**
+ * Render the HomePage component.
+ *
+ * @author WebDevStudios
+ * @param {object} props      The component attributes as props.
+ * @param {object} props.post The post data object.
+ * @return {Element}          The HomePage component.
+ */
 export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
@@ -47,10 +55,10 @@ export default function HomePage({post}) {
 /**
  * Get post static props.
  *
- * @param  {Object}  context             Context for current post.
- * @param  {boolean} context.preview     Whether requesting preview of post.
- * @param  {Object}  context.previewData Post preview data.
- * @return {Object}                      Post props.
+ * @param {object}  context             Context for current post.
+ * @param {boolean} context.preview     Whether requesting preview of post.
+ * @param {object}  context.previewData Post preview data.
+ * @return {object}                      Post props.
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, postType)
