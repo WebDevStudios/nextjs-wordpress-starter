@@ -20,7 +20,7 @@ const postType = 'page'
  */
 export default function Page({post}) {
   return (
-    <Layout seo={{...post.seo}}>
+    <Layout seo={{...post?.seo}}>
       <div className="container">
         <section>
           <article>

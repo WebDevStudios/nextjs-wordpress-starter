@@ -75,7 +75,7 @@ export default function Service({post, archive, posts, pagination}) {
   }
 
   return (
-    <Layout seo={{...post.seo}} hasJsonLd={true}>
+    <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <div className="container">
         <section>
           <article>
