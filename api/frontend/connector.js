@@ -15,7 +15,7 @@ const restLink = new RestLink({
  * @see https://www.apollographql.com/docs/react/api/core/ApolloClient/
  *
  * @author WebDevStudios
- * @return {Object} Apollo client instance.
+ * @return {object} Apollo client instance.
  */
 export function createFeApolloClient() {
   return new ApolloClient({
@@ -29,8 +29,8 @@ export function createFeApolloClient() {
  * Init Apollo for Frontend API and merge with initial state.
  *
  * @author WebDevStudios
- * @param  {mixed} initialState Initial Apollo state.
- * @return {Object}             Frontend Apollo client instance.
+ * @param {mixed} initialState Initial Apollo state.
+ * @return {object}            Frontend Apollo client instance.
  */
 export function initializeFeApollo(initialState = null) {
   // Only run one instance of the Apollo client.

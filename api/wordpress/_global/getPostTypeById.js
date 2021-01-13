@@ -14,10 +14,10 @@ import queryTestimonialById from '../testimonials/queryTestimonialById'
  * Retrieve single post by specified identifier.
  *
  * @author WebDevStudios
- * @param  {string}        postType WP post type.
- * @param  {Number|string} id       Post identifier.
- * @param  {string}        idType   Type of ID.
- * @return {Object}                 Object containing Apollo client instance and post data or error object.
+ * @param {string}          postType WP post type.
+ * @param {number | string} id       Post identifier.
+ * @param {string}          idType   Type of ID.
+ * @return {object}                  Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
