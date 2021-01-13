@@ -24,7 +24,6 @@ module.exports = {
       version: 'detect'
     },
     jsdoc: {
-      unnamedRootBase: ['props'],
       tagNamePreference: {
         returns: 'return'
       }
@@ -33,14 +32,20 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'jsx-a11y', 'prettier', 'jsdoc'],
   rules: {
     'func-style': ['error', 'declaration'],
-    'jsdoc/check-indentation': 1,
-    'jsdoc/check-line-alignment': [1, 'always'],
+    'jsdoc/check-indentation': 'warn',
+    'jsdoc/check-line-alignment': ['warn', 'always'],
+    'jsdoc/require-param': [
+      'warn',
+      {
+        unnamedRootBase: ['props']
+      }
+    ],
     'jsx-a11y/anchor-is-valid': 'off',
     'no-console': ['error', {allow: ['warn', 'error']}],
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
-      1,
+      'warn',
       {
         extensions: ['.js', '.jsx']
       }
