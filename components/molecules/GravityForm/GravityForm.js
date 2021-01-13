@@ -4,6 +4,8 @@ import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import {useState} from 'react'
+import styles from './GravityForm.module.css'
+import cn from 'classnames'
 
 /**
  * Render the GravityForm component.
@@ -54,7 +56,7 @@ export default function GravityForm({
 
   return (
     <Form
-      className={cssClass}
+      className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       title={title}
