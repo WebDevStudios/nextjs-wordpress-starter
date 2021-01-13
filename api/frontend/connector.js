@@ -29,8 +29,8 @@ export function createFeApolloClient() {
  * Init Apollo for Frontend API and merge with initial state.
  *
  * @author WebDevStudios
- * @param {mixed} initialState Initial Apollo state.
- * @return {object}            Frontend Apollo client instance.
+ * @param {*} initialState Initial Apollo state.
+ * @return {object}        Frontend Apollo client instance.
  */
 export function initializeFeApollo(initialState = null) {
   // Only run one instance of the Apollo client.

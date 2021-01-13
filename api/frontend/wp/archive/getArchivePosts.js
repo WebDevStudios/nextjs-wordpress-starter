@@ -6,9 +6,9 @@ import {initializeFeApollo} from '../../connector'
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
+ * @param {string} cursor   Start cursor for pagination.
  * @param {string} orderBy  Order by: field.
  * @param {string} order    Order by: direction.
- * @param {string} cursor   Start cursor for pagination.
  * @return {object}         Archive post and pagination data or error object.
  */
 export default async function getArchivePosts(
