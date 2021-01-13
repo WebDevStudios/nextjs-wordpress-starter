@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import {useContext, useState} from 'react'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
-import Navigation from '@/components/common/Navigation'
+import Navigation from '@/components/molecules/Navigation'
 import styles from './Header.module.css'
 import Hamburger from 'hamburger-react'
 import {MenuContext} from '@/components/common/MenuProvider'
+
+// TODO: Create Storybook for this component.
+// TODO: Split Drawer and Logo into components.
 
 function Logo() {
   return (
@@ -25,11 +28,14 @@ function Logo() {
 function Drawer({menu}) {
   return (
     <div className="bg-white dark:bg-gray-900 absolute w-56 h-screen py-12 px-4 top-0 right-0 flex flex-col shadow-md z-50">
-      <Navigation menu={menu} className={styles.header} />
+      <Navigation menu={menu} styles={styles} className={styles.header} />
     </div>
   )
 }
 
+/**
+ * Render the header as a component.
+ */
 export default function Header() {
   const {menus} = useContext(MenuContext)
   const [isOpen, setOpen] = useState(false)
@@ -46,7 +52,11 @@ export default function Header() {
       </div>
       <div className="container px-4 lg:px-0 flex items-center justify-between">
         <Logo />
-        <Navigation menu={menus?.primary_menu} className={styles.primaryMenu} />
+        <Navigation
+          menu={menus?.primary_menu}
+          styles={styles}
+          className={styles.primaryMenu}
+        />
         {isOpen ? <Drawer menu={menus?.mobile_menu} /> : null}
         <span className="md:hidden">
           <Hamburger label="Show menu" toggled={isOpen} toggle={setOpen} />

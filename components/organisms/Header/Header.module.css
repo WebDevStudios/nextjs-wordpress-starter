@@ -1,18 +1,5 @@
 .header {
   @apply sticky top-0 pb-8 transition-all z-50;
 
-  & .primaryMenu {
-    & > ul {
-      @apply flex;
-
-      /* Hide nested ul */
-      & ul {
-        @apply hidden;
-      }
-
-      & > li {
-        @apply ml-12;
-      }
-    }
-  }
+  background-color: #fff;
 }

@@ -1,11 +1,17 @@
 .footer {
   @apply py-10;
 
-  & > ul {
-    @apply flex justify-center;
+  & .footerMenu {
+    & > ul {
+      @apply flex justify-center mb-12;
 
-    & > li {
-      @apply mx-8;
+      & > li {
+        @apply mx-8;
+      }
     }
+  }
+
+  & .copyright {
+    @apply py-4 text-center text-sm;
   }
 }

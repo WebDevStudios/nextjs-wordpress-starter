@@ -1,4 +1,6 @@
-import ActiveLink from './ActiveLink'
+import ActiveLink from '@/components/common/ActiveLink'
+import styles from './Navigation.module.css'
+import cn from 'classnames'
 
 /**
  * @param props
@@ -7,26 +9,26 @@ export default function Navigation({menu, className}) {
   return (
     <>
       {!!menu?.length && (
-        <nav className={className}>
+        <nav className={cn(styles.navigation, className)}>
           <ul>
             {menu.map((item, index) => {
               const children =
                 item.children && item.children.length > 0 ? item.children : ''
               return (
                 <li key={index}>
-                  <ActiveLink href={item.path} activeClassName="active">
+                  <ActiveLink href={item.path} activeClassName={styles.active}>
                     <a target={item.target ? item.target : '_self'}>
                       {item.label}
                     </a>
                   </ActiveLink>
                   {children && (
-                    <ul aria-hidden="true">
+                    <ul>
                       {children.map((item, index) => {
                         return (
                           <li key={index}>
                             <ActiveLink
                               href={item.path}
-                              activeClassName="active"
+                              activeClassName={styles.active}
                             >
                               <a target={item.target ? item.target : '_self'}>
                                 {item.label}

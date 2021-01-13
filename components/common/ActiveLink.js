@@ -1,27 +1,42 @@
+import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import {withRouter} from 'next/router'
 import Link from 'next/link'
 import React, {Children} from 'react'
 
-const ActiveLink = ({router, children, ...props}) => {
+export default function ActiveLink({children, activeClassName, ...props}) {
+  const {asPath} = useRouter()
   const child = Children.only(children)
-  let className = child.props.className || ''
+  const childClassName = child.props.className || ''
 
-  if (router.pathname === props.href && props.activeClassName) {
-    className = `${className} ${props.activeClassName}`.trim()
+  /**
+   * Remove the last trailing slash from a URL path.
+   *
+   * @param {string} str String to replace /.
+   * @return {string}    Updated string.
+   */
+  function stripTrailingSlash(str) {
+    if (str.substr(-1) === '/') {
+      return str.substr(0, str.length - 1)
+    }
+    return str
   }
 
-  delete props.activeClassName
+  const className =
+    asPath === stripTrailingSlash(props.href) || asPath === props.as
+      ? `${childClassName} ${activeClassName}`.trim()
+      : childClassName
 
-  return <Link {...props}>{React.cloneElement(child, {className})}</Link>
+  return (
+    <Link {...props}>
+      {React.cloneElement(child, {
+        className: className || null
+      })}
+    </Link>
+  )
 }
 
-export default withRouter(ActiveLink)
-
 ActiveLink.propTypes = {
-  router: PropTypes.object,
   children: PropTypes.object,
-  props: PropTypes.object,
-  href: PropTypes.string,
-  activeClassName: PropTypes.string
+  activeClassName: PropTypes.string,
+  props: PropTypes.object
 }

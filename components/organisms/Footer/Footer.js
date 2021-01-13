@@ -1,21 +1,39 @@
 import Link from 'next/link'
 import config from '@/functions/config'
 import {useContext} from 'react'
-import Navigation from '@/components/common/Navigation'
 import styles from './Footer.module.css'
 import {MenuContext} from '@/components/common/MenuProvider'
+import ActiveLink from '@/components/common/ActiveLink'
+import cn from 'classnames'
 
+// TODO: Create Storybook for this component.
+
+/**
+ * Render the footer as a component.
+ */
 export default function Footer() {
   const {menus} = useContext(MenuContext)
   return (
-    <footer>
+    <footer className={styles.footer}>
       {!!menus?.footer_menu && (
-        <div className="container">
-          <Navigation menu={menus?.footer_menu} className={styles.footer} />
-        </div>
+        <nav className={cn('container', styles.footerMenu)}>
+          <ul>
+            {menus?.footer_menu.map((item, index) => {
+              return (
+                <li key={index}>
+                  <ActiveLink href={item.path} activeClassName={styles?.active}>
+                    <a target={item.target ? item.target : '_self'}>
+                      {item.label}
+                    </a>
+                  </ActiveLink>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
       )}
 
-      <div className="container p-4 lg:px-0 text-center text-sm">
+      <div className={cn('container', styles.copyright)}>
         &copy; {new Date().getFullYear()} {config.siteName} by {config.author}{' '}
         &middot;{' '}
         <Link href={config.social.github.href}>
