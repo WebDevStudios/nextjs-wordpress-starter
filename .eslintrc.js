@@ -40,6 +40,12 @@ module.exports = {
         unnamedRootBase: ['props']
       }
     ],
+    'jsdoc/check-values': [
+      'warn',
+      {
+        allowedAuthors: ['WebDevStudios']
+      }
+    ],
     'jsx-a11y/anchor-is-valid': 'off',
     'no-console': ['error', {allow: ['warn', 'error']}],
     'prettier/prettier': 'error',
