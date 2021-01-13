@@ -3,6 +3,10 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Layout from '@/components/common/Layout'
 import PropTypes from 'prop-types'
 
+// TODO Remove BlockGravityForm once block support is added.
+// TODO Remove slug based BlockGravityForm from page render.
+import BlockGravityForm from '@/components/blocks/BlockGravityForm'
+
 // Define route post type.
 const postType = 'page'
 
@@ -43,6 +47,7 @@ export default function Page({post}) {
             />
           </article>
         </section>
+        {post.slug === 'form-demo' && <BlockGravityForm {...post?.blocks[0]} />}
       </div>
     </Layout>
   )
