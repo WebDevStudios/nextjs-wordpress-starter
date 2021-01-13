@@ -1,4 +1,8 @@
 import PropTypes from 'prop-types'
+import {
+  isValidPostType,
+  isHierarchicalPostType
+} from '@/api/wordpress/_global/postTypes'
 
 // Yoast SEO prop types.
 export const seoPropTypes = {
@@ -42,4 +46,25 @@ export const archivePropTypes = {
     hasPreviousPage: PropTypes.bool,
     startCursor: PropTypes.string
   })
+}
+
+/**
+ * Retrieve basic prop types for a given page.
+ *
+ * @author WebDevStudios
+ * @param {string} postType WP post type.
+ * @return {object}         Page prop types.
+ */
+export default function getPagePropTypes(postType) {
+  // Check if post type is valid.
+  if (!isValidPostType(postType)) {
+    return null
+  }
+
+  const hasArchive = !isHierarchicalPostType(postType)
+
+  return {
+    ...postPropTypes,
+    ...(hasArchive && archivePropTypes)
+  }
 }
