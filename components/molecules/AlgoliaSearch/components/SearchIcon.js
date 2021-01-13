@@ -1,5 +1,8 @@
 /**
- * The magnify glass icon.
+ * Render the SearchIcon component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The SearchIcon component.
  */
 export default function SearchIcon() {
   return (

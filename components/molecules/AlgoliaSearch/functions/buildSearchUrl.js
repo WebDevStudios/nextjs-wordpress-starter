@@ -1,8 +1,9 @@
 /**
  * Construct Search URL and navigate user to results.
  *
- * @param  {string} Query param.
- * @return {string} destination url.
+ * @author WebDevStudios
+ * @param {string} query The search query.
+ * @return {string}      The search URL with search query.
  */
 export default function buildSearchUrl(query) {
   if (!query) {
