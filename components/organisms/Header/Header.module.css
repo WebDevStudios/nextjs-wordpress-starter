@@ -1,0 +1,16 @@
+.header {
+  @apply py-10;
+
+  & > ul {
+    @apply flex;
+
+    /* Hide nested ul */
+    & ul {
+      @apply hidden;
+    }
+
+    & > li {
+      @apply ml-8;
+    }
+  }
+}

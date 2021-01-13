@@ -1,0 +1,11 @@
+.footer {
+  @apply py-10;
+
+  & > ul {
+    @apply flex justify-center;
+
+    & > li {
+      @apply mx-8;
+    }
+  }
+}

@@ -4,7 +4,6 @@ import ActiveLink from './ActiveLink'
  * @param props
  */
 export default function Navigation({menu, className}) {
-  console.log(menu)
   return (
     <>
       {!!menu?.length && (
