@@ -7,7 +7,7 @@
  * @param  {object}
  * @return {array}      Array containing a updated menu list.
  */
-export default function formatHeirarchialMenu(
+export default function createHeirarchialMenu(
   data = [],
   {idKey = 'id', parentKey = 'parentId', childrenKey = 'children'} = {}
 ) {

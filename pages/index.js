@@ -4,7 +4,6 @@ import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
 import PropTypes from 'prop-types'
 import Page from './[...slug]'
-import formatHeirarchialMenu from '@/functions/formatHeirarchialMenu'
 
 // Define route post type.
 const postType = 'page'
@@ -23,6 +22,7 @@ export default function HomePage({post, menus}) {
   // Display static page content as fallback.
   return (
     <Layout
+      menus={menus}
       title="Query from Yoast SEO"
       description="Query from Yoast SEO"
       noIndex={false} // query from yoast seo
@@ -61,10 +61,6 @@ export default function HomePage({post, menus}) {
  */
 export async function getStaticProps() {
   const post = await getPostTypeStaticProps({slug: '/'}, postType)
-  // const primaryMenu = await getMenu('primary-menu')
-  // const footerMenu = await getMenu('footer-menu')
-  // const mobileMenu = await getMenu('mobile-menu')
-
   const menus = await getMenus(['primary-menu', 'footer-menu', 'mobile-menu'])
 
   return {
