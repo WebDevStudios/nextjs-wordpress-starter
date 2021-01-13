@@ -1,8 +1,8 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import PropTypes from 'prop-types'
 import Page from './[...slug]'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 // Define route post type.
 const postType = 'page'
@@ -63,6 +63,5 @@ export async function getStaticProps() {
 }
 
 HomePage.propTypes = {
-  props: PropTypes.object,
-  post: PropTypes.object
+  ...getPagePropTypes(postType)
 }

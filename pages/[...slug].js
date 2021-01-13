@@ -1,11 +1,11 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import PropTypes from 'prop-types'
+import BlockGravityForm from '@/components/blocks/BlockGravityForm'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 // TODO Remove BlockGravityForm once block support is added.
 // TODO Remove slug based BlockGravityForm from page render.
-import BlockGravityForm from '@/components/blocks/BlockGravityForm'
 
 // Define route post type.
 const postType = 'page'
@@ -76,6 +76,5 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
-  props: PropTypes.object,
-  post: PropTypes.object
+  ...getPagePropTypes(postType)
 }

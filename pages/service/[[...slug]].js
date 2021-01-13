@@ -3,8 +3,8 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Layout from '@/components/common/Layout'
 import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 // Define route post type.
 const postType = 'service'
@@ -140,8 +140,5 @@ export async function getStaticProps({params}) {
 }
 
 Service.propTypes = {
-  post: PropTypes.object,
-  posts: PropTypes.array,
-  archive: PropTypes.bool,
-  pagination: PropTypes.object
+  ...getPagePropTypes(postType)
 }
