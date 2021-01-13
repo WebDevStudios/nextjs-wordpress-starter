@@ -15,6 +15,7 @@ export const seoPropTypes = {
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
     opengraphImage: PropTypes.shape({
+      altText: PropTypes.string,
       sourceUrl: PropTypes.string
     })
   })
