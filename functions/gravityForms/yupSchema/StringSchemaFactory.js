@@ -39,20 +39,6 @@ export default class StringSchemaFactory {
   /**
    * Get Yup required field validaion.
    *
-   * @see https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
-   * @return {object} Yup validationSchema Object.
-   */
-  getRequiredSchema() {
-    if (!this.fieldData?.isRequired) {
-      return
-    }
-
-    return Yup.string().required('Required!')
-  }
-
-  /**
-   * Get Yup required field validaion.
-   *
    * @see https://github.com/jquense/yup#stringemailmessage-string--function-schema
    * @return {object} Yup validationSchema Object.
    */
@@ -79,6 +65,20 @@ export default class StringSchemaFactory {
       this.fieldData.maxLength,
       `Must be ${this.fieldData.maxLength} characters or less`
     )
+  }
+
+  /**
+   * Get Yup required field validaion.
+   *
+   * @see https://github.com/jquense/yup#stringrequiredmessage-string--function-schema
+   * @return {object} Yup validationSchema Object.
+   */
+  getRequiredSchema() {
+    if (!this.fieldData?.isRequired) {
+      return
+    }
+
+    return Yup.string().required('Required!')
   }
 
   /**
