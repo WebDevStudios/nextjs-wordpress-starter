@@ -76,22 +76,7 @@ export default function Portfolio({post, archive, posts, pagination}) {
   }
 
   return (
-    <Layout
-      title="Query from Yoast SEO"
-      description="Query from Yoast SEO"
-      noIndex={false} // query from yoast seo
-      noFollow={false} // query from yoast seo
-      openGraph={{
-        title: 'Query from Yoast SEO',
-        description: 'Query from Yoast SEO',
-        images: [
-          {
-            url: 'Query from Yoast SEO',
-            alt: 'Query from Yoast SEO'
-          }
-        ]
-      }}
-    >
+    <Layout seo={{...post.seo}}>
       <BlogJsonLd
         url="Query from Yoast SEO"
         title="Query from Yoast SEO"

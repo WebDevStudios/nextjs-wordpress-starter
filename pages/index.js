@@ -23,22 +23,7 @@ export default function HomePage({post}) {
 
   // Display static page content as fallback.
   return (
-    <Layout
-      title="Query from Yoast SEO"
-      description="Query from Yoast SEO"
-      noIndex={false} // query from yoast seo
-      noFollow={false} // query from yoast seo
-      openGraph={{
-        title: 'Query from Yoast SEO',
-        description: 'Query from Yoast SEO',
-        images: [
-          {
-            url: 'Query from Yoast SEO',
-            alt: 'Query from Yoast SEO'
-          }
-        ]
-      }}
-    >
+    <Layout seo={{...post.seo}}>
       <Hero
         background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
         title="Next.js Starter"
