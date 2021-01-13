@@ -32,6 +32,10 @@ function getValidationSchemaByType(fieldData) {
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break
 
+    case 'website':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
     default:
       return
   }
