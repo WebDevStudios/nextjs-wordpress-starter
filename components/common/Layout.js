@@ -3,6 +3,7 @@ import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
+import {seoPropTypes} from '@/functions/getPagePropTypes'
 
 /**
  * Render the Layout component.
@@ -10,18 +11,27 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param {object} props          The component attributes as props.
  * @param {any}    props.children Child component(s) to render.
- * @param {object} props.props    All remaining props.
+ * @param {object} props.seo      Yoast SEO data from WordPress.
  * @return {Element}              The Layout component.
  */
-export default function Layout({children, ...props}) {
+export default function Layout({children, seo}) {
   return (
     <>
       <NextSeo
-        title={props?.title}
-        description={props?.description}
-        openGraph={props?.openGraph}
-        nofollow={props?.noFollow}
-        noindex={props?.noIndex}
+        title={seo?.title}
+        description={seo?.metaDesc}
+        openGraph={{
+          title: seo?.title,
+          description: seo?.metaDesc,
+          images: [
+            {
+              url: seo?.opengraphImage?.sourceUrl,
+              alt: seo?.opengraphImage?.altText
+            }
+          ]
+        }}
+        nofollow={seo?.metaRobotsNofollow}
+        noindex={seo?.metaRobotsNofollow}
       />
       <Meta />
       <Header />
@@ -33,9 +43,5 @@ export default function Layout({children, ...props}) {
 
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
-  description: PropTypes.string.isRequired,
-  noFollow: PropTypes.bool,
-  noIndex: PropTypes.bool,
-  openGraph: PropTypes.object,
-  title: PropTypes.string.isRequired
+  ...seoPropTypes
 }
