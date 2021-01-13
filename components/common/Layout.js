@@ -15,9 +15,9 @@ export default function Layout({children, ...props}) {
         noindex={props?.noIndex}
       />
       <Meta />
-      <Header menus={props?.menus} />
+      <Header />
       <main>{children}</main>
-      <Footer menus={props?.menus} />
+      <Footer />
     </>
   )
 }

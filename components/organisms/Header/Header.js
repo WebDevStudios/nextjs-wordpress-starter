@@ -1,7 +1,10 @@
 import Link from 'next/link'
+import {useContext, useState} from 'react'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Navigation from '@/components/common/Navigation'
 import styles from './Header.module.css'
+import Hamburger from 'hamburger-react'
+import {MenuContext} from '@/components/common/MenuProvider'
 
 function Logo() {
   return (
@@ -19,9 +22,19 @@ function Logo() {
   )
 }
 
-export default function Header({menus}) {
+function Drawer({menu}) {
   return (
-    <header className="sticky top-0 pb-8 transition-all z-50">
+    <div className="bg-white dark:bg-gray-900 absolute w-56 h-screen py-12 px-4 top-0 right-0 flex flex-col shadow-md z-50">
+      <Navigation menu={menu} className={styles.header} />
+    </div>
+  )
+}
+
+export default function Header() {
+  const {menus} = useContext(MenuContext)
+  const [isOpen, setOpen] = useState(false)
+  return (
+    <header className={styles.header}>
       <div className="container flex items-center justify-end">
         <div className="relative pt-12 pb-16">
           <AlgoliaSearch
@@ -33,7 +46,11 @@ export default function Header({menus}) {
       </div>
       <div className="container px-4 lg:px-0 flex items-center justify-between">
         <Logo />
-        <Navigation menu={menus?.primary_menu} className={styles.header} />
+        <Navigation menu={menus?.primary_menu} className={styles.primaryMenu} />
+        {isOpen ? <Drawer menu={menus?.mobile_menu} /> : null}
+        <span className="md:hidden">
+          <Hamburger label="Show menu" toggled={isOpen} toggle={setOpen} />
+        </span>
       </div>
     </header>
   )

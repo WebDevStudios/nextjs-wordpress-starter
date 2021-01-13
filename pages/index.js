@@ -1,8 +1,6 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
-import getMenus from '@/api/wordpress/_global/getMenus'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import PropTypes from 'prop-types'
 import Page from './[...slug]'
 
 // Define route post type.
@@ -13,16 +11,15 @@ const postType = 'page'
  * @param root0.post
  * @param root0.menus
  */
-export default function HomePage({post, menus}) {
+export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
-    return <Page post={post} menus={menus} />
+    return <Page post={post} />
   }
 
   // Display static page content as fallback.
   return (
     <Layout
-      menus={menus}
       title="Query from Yoast SEO"
       description="Query from Yoast SEO"
       noIndex={false} // query from yoast seo
@@ -61,13 +58,5 @@ export default function HomePage({post, menus}) {
  * @return {object}                      Post props.
  */
 export async function getStaticProps() {
-  const post = await getPostTypeStaticProps({slug: '/'}, postType)
-  const menus = await getMenus(['primary-menu', 'footer-menu', 'mobile-menu'])
-
-  return {
-    props: {
-      post: post,
-      menus: menus
-    }
-  }
+  return await getPostTypeStaticProps({slug: '/'}, postType)
 }

@@ -2,6 +2,8 @@ import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
+import getMenus from './getMenus'
+import config from '@/functions/config'
 
 /**
  * Retrieve static props by post type.
@@ -50,6 +52,9 @@ export default async function getPostTypeStaticProps(
     props.post = null
     props.error = false
   }
+
+  // Get WP Nav Menus.
+  props.menus = await getMenus(config.navMenus)
 
   // Add Algolia env vars.
   props.algolia = {

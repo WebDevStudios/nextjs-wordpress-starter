@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import config from '@/functions/config'
+import {useContext} from 'react'
 import Navigation from '@/components/common/Navigation'
 import styles from './Footer.module.css'
+import {MenuContext} from '@/components/common/MenuProvider'
 
-export default function Footer({menus}) {
+export default function Footer() {
+  const {menus} = useContext(MenuContext)
   return (
     <footer>
       {!!menus?.footer_menu && (

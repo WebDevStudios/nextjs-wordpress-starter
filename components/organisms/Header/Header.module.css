@@ -1,16 +1,18 @@
 .header {
-  @apply py-10;
+  @apply sticky top-0 pb-8 transition-all z-50;
 
-  & > ul {
-    @apply flex;
+  & .primaryMenu {
+    & > ul {
+      @apply flex;
 
-    /* Hide nested ul */
-    & ul {
-      @apply hidden;
-    }
+      /* Hide nested ul */
+      & ul {
+        @apply hidden;
+      }
 
-    & > li {
-      @apply ml-8;
+      & > li {
+        @apply ml-12;
+      }
     }
   }
 }

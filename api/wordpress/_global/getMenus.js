@@ -33,7 +33,10 @@ export default async function getMenus(locations = []) {
     }
   `
 
+  // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
+
+  // Execute query.
   const menus = await apolloClient.query({query})
 
   // Filter returned menus by specific location.
