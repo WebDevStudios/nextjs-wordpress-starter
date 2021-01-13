@@ -10,6 +10,36 @@ export const seoPropTypes = {
     url: PropTypes.string,
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
-    opengraphImage: PropTypes.string
+    opengraphImage: PropTypes.shape({
+      sourceUrl: PropTypes.string
+    })
+  })
+}
+
+// Basic post prop types.
+export const postPropTypes = {
+  post: PropTypes.shape({
+    author: PropTypes.object,
+    blocks: PropTypes.array,
+    databaseId: PropTypes.number,
+    date: PropTypes.string,
+    excerpt: PropTypes.string,
+    featuredImage: PropTypes.object,
+    ...seoPropTypes,
+    slug: PropTypes.string,
+    title: PropTypes.string,
+    uri: PropTypes.string
+  })
+}
+
+// Basic post archive prop types.
+export const archivePropTypes = {
+  archive: PropTypes.bool,
+  posts: PropTypes.array,
+  pagination: PropTypes.shape({
+    endCursor: PropTypes.string,
+    hasNextPage: PropTypes.bool,
+    hasPreviousPage: PropTypes.bool,
+    startCursor: PropTypes.string
   })
 }
