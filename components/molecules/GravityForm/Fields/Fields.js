@@ -3,6 +3,15 @@ import * as GfFields from '.'
 import {useEffect} from 'react'
 import getGfFieldValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
 
+/**
+ * Render the Fields component.
+ *
+ * @author WebDevStudios
+ * @param {object}   props                   The component attributes as props.
+ * @param {Array}    props.fields            GravityForm fields data.
+ * @param {Function} props.setFormValidation Callback function for setting formValidation state.
+ * @return {Element}                         The Fields component.
+ */
 export default function Fields({fields, setFormValidation}) {
   /**
    * Map through fields to setup form validation.
@@ -34,7 +43,19 @@ export default function Fields({fields, setFormValidation}) {
               fieldToRender = <GfFields.Checkbox {...field.node} key={id} />
               break
 
+            case 'email':
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
+            case 'phone':
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
             case 'text':
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
+            case 'website':
               fieldToRender = <GfFields.Text {...field.node} key={id} />
               break
 

@@ -1,7 +1,7 @@
 import {searchResultsClient} from '@/api/algolia/connector'
+import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
 import styles from './AlgoliaResults.module.css'
@@ -10,6 +10,14 @@ import SearchResults from './templates/SearchResults'
 
 // TODO: Create Storybook for this component.
 
+/**
+ * Render the AlgoliaResults component.
+ *
+ * @author WebDevStudios
+ * @param {object} props        The component attributes as props.
+ * @param {object} props.config Algolia configuration.
+ * @return {Element}            The AlgoliaResults component.
+ */
 export default function AlgoliaResults({config}) {
   const {indexName} = useContext(AlgoliaContext)
   return (

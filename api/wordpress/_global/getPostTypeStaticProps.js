@@ -7,11 +7,9 @@ import {addApolloState} from '@/api/apolloConfig'
  * Retrieve static props by post type.
  *
  * @author WebDevStudios
- * @param  {string}  params      Post params (e.g., slug).
- * @param  {string}  postType    Post Type.
- * @param  {boolean} preview     Whether requesting preview of post.
- * @param  {?Object} previewData Post preview data.
- * @return {Object}              Object containing post props and revalidate setting.
+ * @param {string} params   Post params (e.g., slug).
+ * @param {string} postType Post Type.
+ * @return {object}         Object containing post props and revalidate setting.
  */
 export default async function getPostTypeStaticProps(
   params,

@@ -1,10 +1,17 @@
-import SearchIcon from './SearchIcon'
-import styles from '../AlgoliaSearch.module.css'
 import PropTypes from 'prop-types'
+import styles from '../AlgoliaSearch.module.css'
+import SearchIcon from './SearchIcon'
 
 /**
- * This component renders a placeholder for the Algolia `Search` component.
- * The `Search` component is loaded using Dynamic Imports in Next once initiated by the user.
+ * Render the SearchPlaceholder component.
+ *
+ * Note: the `Search` component is loaded using Dynamic Imports.
+ *
+ * @author WebDevStudios
+ * @param {object}   props               The component attributes as props.
+ * @param {Function} props.toggleAlgolia Toggle the Search component.
+ * @param {string}   props.query         The search query.
+ * @return {Element}                     The SearchPlaceholder component.
  */
 export default function SearchPlaceholder({toggleAlgolia, query}) {
   return (

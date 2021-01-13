@@ -4,8 +4,8 @@ import getPostTypeArchive from '@/api/wordpress/_global/getPostTypeArchive'
  * Load more posts for an archive.
  *
  * @author WebDevStudios
- * @param  {Object} req Instance of http.IncomingMessage.
- * @param  {Object} res Instance of http.ServerResponse.
+ * @param {object} req Instance of http.IncomingMessage.
+ * @param {object} res Instance of http.ServerResponse.
  */
 export default async function archive(req, res) {
   try {

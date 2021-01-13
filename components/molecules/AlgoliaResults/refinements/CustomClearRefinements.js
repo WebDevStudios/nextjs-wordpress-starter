@@ -3,7 +3,14 @@ import {connectCurrentRefinements} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Custom display of Algolia [ClearRefinements](https://www.algolia.com/doc/api-reference/widgets/clear-refinements/react/) widget.
+ * Render the ClearRefinements component.
+ *
+ * @author WebDevStudios
+ * @see https://www.algolia.com/doc/api-reference/widgets/clear-refinements/react/
+ * @param {object}   props        The component attributes as props.
+ * @param {any}      props.items  Any refinement.
+ * @param {Function} props.refine Modifies the items being displayed.
+ * @return {Element}              The ClearRefinements component.
  */
 function ClearRefinements({items, refine}) {
   return (
