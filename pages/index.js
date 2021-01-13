@@ -55,6 +55,7 @@ export default function HomePage({post}) {
 /**
  * Get post static props.
  *
+ * @author WebDevStudios
  * @return {object} Post props.
  */
 export async function getStaticProps() {

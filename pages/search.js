@@ -30,6 +30,7 @@ export default function Search() {
 /**
  * Get post static props.
  *
+ * @author WebDevStudios
  * @return {object} Post props.
  */
 export async function getStaticProps() {
