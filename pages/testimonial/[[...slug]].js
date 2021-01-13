@@ -1,7 +1,6 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPagePropTypes from '@/functions/getPagePropTypes'
@@ -76,16 +75,7 @@ export default function Testimonial({post, archive, posts, pagination}) {
   }
 
   return (
-    <Layout seo={{...post.seo}}>
-      <BlogJsonLd
-        url="Query from Yoast SEO"
-        title="Query from Yoast SEO"
-        images={['Query from Yoast SEO']}
-        datePublished="Query from Yoast SEO"
-        dateModified="Query from Yoast SEO"
-        authorName="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-      />
+    <Layout seo={{...post.seo}} hasJsonLd={true}>
       <div className="container">
         <section>
           <article>
