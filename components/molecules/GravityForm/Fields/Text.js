@@ -35,6 +35,28 @@ export default function Text({
   const fieldId = getGfFieldId(id)
   const isHiddenClass = getGfHiddenClassName(visibility)
 
+  /**
+   * Convert type to an HTML input type.
+   *
+   * @param {string} type GravityForm field type.
+   * @return {string}     HTML input type.
+   */
+  function modifyFieldType(type) {
+    let inputType = type
+
+    if (enablePasswordInput && 'password') {
+      inputType = 'password'
+    }
+
+    if (type === 'phone') {
+      inputType = 'tel'
+    }
+
+    return inputType
+  }
+
+  const inputType = modifyFieldType(type)
+
   return (
     <div
       className={cn(className, isHiddenClass) || null}
@@ -46,7 +68,7 @@ export default function Text({
         id={fieldId}
         isRequired={isRequired}
         label={label}
-        type={(enablePasswordInput && 'password') || type}
+        type={inputType}
       />
     </div>
   )
