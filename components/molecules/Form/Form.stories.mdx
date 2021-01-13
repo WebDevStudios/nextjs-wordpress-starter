@@ -22,11 +22,13 @@ Use this component to render a form.
       }}
       title="Sample Form"
       validationSchema={Yup.object().shape({
-        firstName: Yup.string().required('This field is required.')
+        firstName: Yup.string()
+          .required('This field is required.')
+          .min(5, 'Minimum of 5 characters.')
       })}
     >
       <label htmlFor="firstName">First Name</label>
-      <Field id="firstName" name="firstName" placeholder="Jane" />
+      <Field id="firstName" name="firstName" placeholder="Jane" type="text" />
       <ErrorMessage name="firstName" />
     </Form>
   </Story>
