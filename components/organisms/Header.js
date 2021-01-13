@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import AlgoliaSearch from '../molecules/AlgoliaSearch'
-import Navigation from './Navigation'
+import Navigation from '@/components/common/Navigation'
 
 function Logo() {
   return (
@@ -18,7 +18,7 @@ function Logo() {
   )
 }
 
-export default function Header() {
+export default function Header({menus}) {
   return (
     <header className="sticky top-0 pb-8 transition-all z-50">
       <div className="container flex items-center justify-end">
@@ -32,7 +32,7 @@ export default function Header() {
       </div>
       <div className="container px-4 lg:px-0 flex items-center justify-between">
         <Logo />
-        <Navigation />
+        <Navigation menu={menus?.primary_menu} className="primary-menu" />
       </div>
     </header>
   )

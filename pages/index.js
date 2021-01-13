@@ -8,15 +8,15 @@ import Page from './[...slug]'
 // Define route post type.
 const postType = 'page'
 
+/**
+ * @param root0
+ * @param root0.post
+ * @param root0.menus
+ */
 export default function HomePage({post, menus}) {
-  console.log(menus)
-  // console.log('primaryMenu', formatHeirarchialMenu(primaryMenu))
-  // console.log('footerMenu', formatHeirarchialMenu(footerMenu))
-  // console.log('mobileMenu', formatHeirarchialMenu(mobileMenu))
-
   // Display dynamic page data if homepage retrieved from WP.
   if (post) {
-    return <Page post={post} />
+    return <Page post={post} menus={menus} />
   }
 
   // Display static page content as fallback.
@@ -54,10 +54,11 @@ export default function HomePage({post, menus}) {
 /**
  * Get post static props.
  *
- * @param  {Object}  context             Context for current post.
- * @param  {boolean} context.preview     Whether requesting preview of post.
- * @param  {Object}  context.previewData Post preview data.
- * @return {Object}                      Post props.
+ * @see https://github.com/WebDevStudios/nextjs-starter-wordpress/blob/main/themes/wds_headless/inc/menus.php
+ * @param {object}  context             Context for current post.
+ * @param {boolean} context.preview     Whether requesting preview of post.
+ * @param {object}  context.previewData Post preview data.
+ * @return {object}                      Post props.
  */
 export async function getStaticProps() {
   const post = await getPostTypeStaticProps({slug: '/'}, postType)

@@ -6,9 +6,10 @@ import PropTypes from 'prop-types'
 // Define route post type.
 const postType = 'page'
 
-export default function Page({post}) {
+export default function Page({post, menus}) {
   return (
     <Layout
+      menus={menus}
       title="Query from Yoast SEO"
       description="Query from Yoast SEO"
       noIndex={false} // query from yoast seo
