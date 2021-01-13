@@ -20,6 +20,14 @@ function getValidationSchemaByType(fieldData) {
       schemaGetter = new ArraySchemaFactory(fieldData).schema
       break
 
+    case 'email':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'phone':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
     case 'text':
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break
