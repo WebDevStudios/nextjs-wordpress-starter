@@ -55,8 +55,7 @@ export default function HomePage({post}) {
 /**
  * Get post static props.
  *
- * @param {object} context Context for current post.
- * @return {object}        Post props.
+ * @return {object} Post props.
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, postType)
