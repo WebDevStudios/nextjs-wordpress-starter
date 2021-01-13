@@ -5,17 +5,26 @@ import {connectToggleRefinement} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Custom display of Algolia ToggleRefinement widget.
+ * Render the ToggleRefinement component.
  *
- * @see https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/
+ * @author WebDevStudios
+ * @see   https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/
+ * @param {object}   props                   The component attributes as props.
+ * @param {boolean}  props.currentRefinement The current refinement.
+ * @param {Function} props.refine            Update the current refinement.
+ * @param {string}   props.className         The component class.
+ * @param {string}   props.title             The component title.
+ * @param {string}   props.value             The form value.
+ * @param {string}   props.label             The form label.
+ * @return {Element}                         The ToggleRefinement component.
  */
 function ToggleRefinement({
+  className,
   currentRefinement,
   label,
-  value,
   refine,
   title,
-  className
+  value
 }) {
   return (
     <section className={cn(styles.filterPanel, className)}>
@@ -37,14 +46,14 @@ function ToggleRefinement({
     </section>
   )
 }
+
 ToggleRefinement.propTypes = {
+  className: PropTypes.string,
   currentRefinement: PropTypes.bool.isRequired,
+  label: PropTypes.string,
   refine: PropTypes.func,
   title: PropTypes.string,
-  label: PropTypes.string,
-  limit: PropTypes.number,
-  value: PropTypes.string,
-  className: PropTypes.string
+  value: PropTypes.string
 }
 
 const CustomToggleRefinement = connectToggleRefinement(ToggleRefinement)
