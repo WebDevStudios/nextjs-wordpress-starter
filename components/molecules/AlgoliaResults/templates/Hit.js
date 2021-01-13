@@ -2,7 +2,12 @@ import PropTypes from 'prop-types'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Component for rendering individual search result.
+ * Render the Hit component.
+ *
+ * @author WebDevStudios
+ * @param {object} props     The component attributes as props.
+ * @param {object} props.hit The hit data.
+ * @return {Element}         The Hit component.
  */
 export default function Hit({hit}) {
   return (
