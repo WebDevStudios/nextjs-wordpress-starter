@@ -14,6 +14,9 @@ export const seoPropTypes = {
     url: PropTypes.string,
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
+    opengraphAuthor: PropTypes.string,
+    opengraphModifiedTime: PropTypes.string,
+    opengraphPublishedTime: PropTypes.string,
     opengraphImage: PropTypes.shape({
       altText: PropTypes.string,
       sourceUrl: PropTypes.string
