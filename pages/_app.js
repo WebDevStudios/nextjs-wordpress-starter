@@ -7,6 +7,15 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 import AlgoliaProvider from '@/components/common/AlgoliaProvider'
 
+/**
+ * Render the App component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props           The component attributes as props.
+ * @param {object}  props.Component Page component to display.
+ * @param {boolean} props.pageProps Page component props.
+ * @return {Element}                The App component.
+ */
 export default function App({Component, pageProps}) {
   /**
    * Wrap the app in the ApolloProvider component.
