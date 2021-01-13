@@ -3,6 +3,23 @@ import * as Input from '@/components/atoms/Inputs'
 import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
 import cn from 'classnames'
 
+/**
+ * Render the GravityForm Text component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props                     GravityForm field props.
+ * @param {string}  props.className           Classname string.
+ * @param {string}  props.description         GravityForm field description.
+ * @param {boolean} props.enablePasswordInput GravityForm password enabled option.
+ * @param {string}  props.errorMessage        GravityForm error message option.
+ * @param {number}  props.id                  GravityForm unique field id.
+ * @param {boolean} props.isRequired          GravityForm isRequired field.
+ * @param {string}  props.label               GravityForm field label.
+ * @param {string}  props.size                GravityForm field size.
+ * @param {string}  props.type                GravityForm field type.
+ * @param {boolean} props.visibility          GravityForm visibility option.
+ * @return {Element}                          The Text component.
+ */
 export default function Text({
   className,
   description,
@@ -18,6 +35,32 @@ export default function Text({
   const fieldId = getGfFieldId(id)
   const isHiddenClass = getGfHiddenClassName(visibility)
 
+  /**
+   * Convert type to an HTML input type.
+   *
+   * @param {string} type GravityForm field type.
+   * @return {string}     HTML input type.
+   */
+  function modifyFieldType(type) {
+    let inputType = type
+
+    if (enablePasswordInput && 'password') {
+      inputType = 'password'
+    }
+
+    if (type === 'phone') {
+      inputType = 'tel'
+    }
+
+    if (type === 'website') {
+      inputType = 'url'
+    }
+
+    return inputType
+  }
+
+  const inputType = modifyFieldType(type)
+
   return (
     <div
       className={cn(className, isHiddenClass) || null}
@@ -29,7 +72,7 @@ export default function Text({
         id={fieldId}
         isRequired={isRequired}
         label={label}
-        type={(enablePasswordInput && 'password') || type}
+        type={inputType}
       />
     </div>
   )
