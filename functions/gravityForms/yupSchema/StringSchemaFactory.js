@@ -56,7 +56,7 @@ export default class StringSchemaFactory {
    * @return {object} Yup validationSchema Object.
    */
   getEmailSchema() {
-    if (!this.fieldData?.type === 'email') {
+    if (this.fieldData?.type !== 'email') {
       return
     }
 
