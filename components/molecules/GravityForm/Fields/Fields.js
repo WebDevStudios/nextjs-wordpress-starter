@@ -43,6 +43,14 @@ export default function Fields({fields, setFormValidation}) {
               fieldToRender = <GfFields.Checkbox {...field.node} key={id} />
               break
 
+            case 'email':
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
+            case 'phone':
+              fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
             case 'text':
               fieldToRender = <GfFields.Text {...field.node} key={id} />
               break
