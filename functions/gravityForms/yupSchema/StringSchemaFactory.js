@@ -33,6 +33,7 @@ export default class StringSchemaFactory {
       .concat(this.getEmailSchema())
       .concat(this.getMaxLengthSchema())
       .concat(this.getRequiredSchema())
+      .concat(this.getUrlSchema())
   }
 
   /**
@@ -78,5 +79,19 @@ export default class StringSchemaFactory {
       this.fieldData.maxLength,
       `Must be ${this.fieldData.maxLength} characters or less`
     )
+  }
+
+  /**
+   * Get Yup required field validaion.
+   *
+   * @see https://github.com/jquense/yup#stringurlmessage-string--function-schema
+   * @return {object} Yup validationSchema Object.
+   */
+  getUrlSchema() {
+    if (this.fieldData?.type !== 'website') {
+      return
+    }
+
+    return Yup.string().url(`Must be a valid url "https://example.com".`)
   }
 }
