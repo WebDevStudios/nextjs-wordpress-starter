@@ -5,9 +5,11 @@ import Navigation from '@/components/molecules/Navigation'
 import styles from './Header.module.css'
 import Hamburger from 'hamburger-react'
 import {MenuContext} from '@/components/common/MenuProvider'
+import cn from 'classnames'
 
 // TODO: Create Storybook for this component.
-// TODO: Split Drawer and Logo into components.
+// TODO: Split Logo into component.
+// TODO: Create mobile menu.
 
 function Logo() {
   return (
@@ -55,10 +57,9 @@ export default function Header() {
         <Navigation
           menu={menus?.primary_menu}
           styles={styles}
-          className={styles.primaryMenu}
+          className={cn(styles.primaryMenu, isOpen && styles.open)}
         />
-        {isOpen ? <Drawer menu={menus?.mobile_menu} /> : null}
-        <span className="md:hidden">
+        <span className="hidden">
           <Hamburger label="Show menu" toggled={isOpen} toggle={setOpen} />
         </span>
       </div>

@@ -15,8 +15,18 @@
     & > li {
       @apply relative ml-20;
 
+      & a {
+        &:hover,
+        &:focus {
+          @apply underline;
+        }
+
+        &.active {
+          @apply font-bold underline;
+        }
+      }
+
       & a.active {
-        @apply font-bold underline;
       }
 
       &:hover,
