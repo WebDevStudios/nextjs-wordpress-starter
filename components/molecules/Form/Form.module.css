@@ -1,4 +1,6 @@
 .form {
+  @apply bg-white text-black;
+
   padding: 1em;
 
   & .fields {
@@ -13,5 +15,6 @@
     @apply block relative;
 
     color: black;
+    outline: 1px solid black;
   }
 }
