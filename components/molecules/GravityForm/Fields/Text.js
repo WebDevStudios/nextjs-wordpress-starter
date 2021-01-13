@@ -52,6 +52,10 @@ export default function Text({
       inputType = 'tel'
     }
 
+    if (type === 'website') {
+      inputType = 'url'
+    }
+
     return inputType
   }
 
