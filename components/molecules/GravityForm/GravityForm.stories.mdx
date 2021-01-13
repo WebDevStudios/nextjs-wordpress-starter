@@ -240,3 +240,19 @@ Use this component to render a form from the GravityForm block.
     <GravityForm {...sampleForm.attributes} />
   </Story>
 </Canvas>
+
+## How it Works
+
+The `GravityForm` component renders a `Form` component with and maps through fields using the `<Fields />` component.
+
+Checkout [Form](?path=/docs/design-system-molecules-form--component) for more details on how Forms work.
+
+## Field Mapping
+
+All Field mapping is handled by the `<Fields />` component. Each field is mapped during the form render process which pairs GravityForm field data to `validationSchema` and `Field` components.
+
+See [Fields](?path=/docs/design-system-molecules-gravityform-fields--page)
+
+## Form submissions
+
+Feature not completed at this time.
