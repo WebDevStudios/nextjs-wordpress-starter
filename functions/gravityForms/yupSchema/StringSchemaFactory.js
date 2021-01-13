@@ -30,6 +30,7 @@ export default class StringSchemaFactory {
    */
   get schema() {
     return Yup.string()
+      .concat(this.getEmailSchema())
       .concat(this.getMaxLengthSchema())
       .concat(this.getRequiredSchema())
   }
@@ -46,6 +47,20 @@ export default class StringSchemaFactory {
     }
 
     return Yup.string().required('Required!')
+  }
+
+  /**
+   * Get Yup required field validaion.
+   *
+   * @see https://github.com/jquense/yup#stringemailmessage-string--function-schema
+   * @return {object} Yup validationSchema Object.
+   */
+  getEmailSchema() {
+    if (!this.fieldData?.type === 'email') {
+      return
+    }
+
+    return Yup.string().email(`Must be a valid email.`)
   }
 
   /**
