@@ -30,10 +30,7 @@ export default function Search() {
 /**
  * Get post static props.
  *
- * @param {object}  context             Context for current post.
- * @param {boolean} context.preview     Whether requesting preview of post.
- * @param {object}  context.previewData Post preview data.
- * @return {object}                      Post props.
+ * @return {object} Post props.
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, 'search')
