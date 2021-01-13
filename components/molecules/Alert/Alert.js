@@ -1,6 +1,14 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
+/**
+ * Render the Info component.
+ *
+ * @author WebDevStudios
+ * @param {object} props          The component attributes as props.
+ * @param {any}    props.children Child component(s) to render.
+ * @return {Element}              The Info component.
+ */
 export function Info({children}) {
   return (
     <div
@@ -19,6 +27,18 @@ export function Info({children}) {
   )
 }
 
+Info.propTypes = {
+  children: PropTypes.any.isRequired
+}
+
+/**
+ * Render the Warning component.
+ *
+ * @author WebDevStudios
+ * @param {object} props          The component attributes as props.
+ * @param {any}    props.children Child component(s) to render.
+ * @return {Element}              The Warning component.
+ */
 export function Warning({children}) {
   return (
     <div
@@ -29,10 +49,6 @@ export function Warning({children}) {
       <p>{children}</p>
     </div>
   )
-}
-
-Info.propTypes = {
-  children: PropTypes.any.isRequired
 }
 
 Warning.propTypes = {
