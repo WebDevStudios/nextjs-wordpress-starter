@@ -52,7 +52,7 @@ Select.propTypes = {
   id: PropTypes.number.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
-  selectChoices: PropTypes.arrayOf([PropTypes.object]),
+  selectChoices: PropTypes.arrayOf(PropTypes.object),
   size: PropTypes.string,
   visibility: PropTypes.string
 }

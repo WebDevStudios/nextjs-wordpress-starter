@@ -48,7 +48,7 @@ Select.propTypes = {
   id: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
-  options: PropTypes.arrayOf([PropTypes.object])
+  options: PropTypes.arrayOf(PropTypes.object)
 }
 
 Select.defaultProps = {
