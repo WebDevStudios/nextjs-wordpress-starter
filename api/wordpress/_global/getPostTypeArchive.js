@@ -7,6 +7,7 @@ import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
 import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
 import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
+import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 
 /**
  * Retrieve post archive.
@@ -77,8 +78,13 @@ export default async function getPostTypeArchive(
   await apolloClient
     .query({query, variables})
     .then((archive) => {
+      const {homepageSettings, siteSeo, ...archiveData} = archive.data
+
+      // Retrieve default SEO data.
+      response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
+
       const pluralType = postTypes[postType] ?? postType
-      const data = archive?.data?.[pluralType] ?? null
+      const data = archiveData?.[pluralType] ?? null
 
       // Set error props if data not found.
       if (!data?.edges || !data?.pageInfo) {
@@ -91,14 +97,11 @@ export default async function getPostTypeArchive(
       // Flatten posts array to include inner node post data.
       response.posts = data.edges.map((post) => post.node)
 
-      // Use homepage settings to populate SEO data.
-      const homepageData = archive?.data?.homepageSettings
-
       // Attempt to use posts page for blog, default to front page.
       const defaultPage =
-        'post' === postType && homepageData?.postsPage
-          ? homepageData.postsPage
-          : homepageData?.frontPage
+        'post' === postType && homepageSettings?.postsPage
+          ? homepageSettings.postsPage
+          : homepageSettings?.frontPage
 
       // Populate post object.
       response.post = {...defaultPage}
