@@ -15,7 +15,12 @@ export default function formatDefaultSeoData(seoData) {
       locale: 'en_US',
       url: seoData?.canonical ?? '',
       site_name: '',
-      images: []
+      images: [
+        {
+          url: seoData?.opengraphImage?.sourceUrl,
+          alt: seoData?.opengraphImage?.altText
+        }
+      ]
     }
   }
 }
