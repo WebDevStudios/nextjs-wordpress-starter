@@ -32,7 +32,8 @@ export default function Layout({children, seo, hasJsonLd}) {
         openGraph={{
           title: seo?.title,
           description: seo?.metaDesc,
-          images: [...seoImages]
+          images: [...seoImages],
+          url: seo?.canonical
         }}
         nofollow={'follow' !== seo?.metaRobotsNofollow}
         noindex={'index' !== seo?.metaRobotsNoindex}
