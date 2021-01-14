@@ -5,14 +5,15 @@ import PropTypes from 'prop-types'
  * Render the Select component.
  *
  * @author WebDevStudios
- * @param {object} props         props.
- * @param {string} props.label   GravityForm field label.
- * @param {Array}  props.options Array of input options objects.
+ * @param {object} props           props.
+ * @param {string} props.className Select wrapper className.
+ * @param {string} props.label     Select input label.
+ * @param {Array}  props.options   Array of input options objects.
  * @return {Element}             The Select component.
  */
-export default function Select({label, options}) {
+export default function Select({className, label, options}) {
   return (
-    <div>
+    <div className={className}>
       {label && <label>{label}</label>}
       <Field as="select" name="color">
         {!!options?.length > 0 &&
@@ -31,6 +32,7 @@ export default function Select({label, options}) {
 }
 
 Select.propTypes = {
+  className: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf([PropTypes.object])
 }
