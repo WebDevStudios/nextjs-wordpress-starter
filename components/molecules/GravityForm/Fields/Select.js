@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
 import cn from 'classnames'
-import * as Input from '@/components/atoms/Inputs'
 
 /**
  * Render GravityForms Checkbox field component.
@@ -9,7 +8,6 @@ import * as Input from '@/components/atoms/Inputs'
  * @param {object}        props             GravityForm Checkbox field props.
  * @param {string}        props.className   GravityForm field wrapper class.
  * @param {string}        props.description GravityForm field description.
- * @param {Array}         props.inputs      Array of checkbox field input data.
  * @param {string|number} props.id          GravityForm field id.
  * @param {string}        props.label       GravityForm field label.
  * @param {string}        props.size        GravityForm field size.
@@ -20,7 +18,6 @@ export default function Select({
   className,
   description,
   id,
-  inputs,
   label,
   size,
   visibility
@@ -30,15 +27,12 @@ export default function Select({
 
   return (
     <div
+      id={fieldId}
       className={cn(className, isHiddenClass) || null}
       field-size={size && `size-${size}`}
     >
-      <Input.CheckboxGroup
-        checkboxes={inputs}
-        description={description}
-        id={fieldId}
-        label={label}
-      />
+      {description}
+      {label}
     </div>
   )
 }
@@ -47,7 +41,6 @@ Select.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
   id: PropTypes.number.isRequired,
-  inputs: PropTypes.arrayOf(PropTypes.object),
   label: PropTypes.string,
   size: PropTypes.string,
   visibility: PropTypes.string
