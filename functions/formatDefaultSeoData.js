@@ -5,20 +5,23 @@
  * @return {object}        Formatted SEO data.
  */
 export default function formatDefaultSeoData(seoData) {
+  const homepage = seoData?.homepageSettings?.frontPage?.seo
+  const siteSeo = seoData?.siteSeo
+
   return {
-    title: seoData?.title ?? '',
-    description: seoData?.metaDesc ?? '',
-    noIndex: 'index' !== seoData?.metaRobotsNoindex,
-    noFollow: 'follow' !== seoData?.metaRobotsNofollow,
+    title: homepage?.title ?? '',
+    description: homepage?.metaDesc ?? '',
+    noIndex: 'index' !== homepage?.metaRobotsNoindex,
+    noFollow: 'follow' !== homepage?.metaRobotsNofollow,
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: seoData?.canonical ?? '',
-      site_name: '',
+      url: siteSeo?.schema?.siteUrl ?? '',
+      site_name: siteSeo?.schema?.siteName ?? '',
       images: [
         {
-          url: seoData?.opengraphImage?.sourceUrl,
-          alt: seoData?.opengraphImage?.altText
+          url: siteSeo?.openGraph?.defaultImage?.sourceUrl ?? '',
+          alt: siteSeo?.openGraph?.defaultImage?.altText ?? ''
         }
       ]
     }
