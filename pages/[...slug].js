@@ -32,7 +32,9 @@ export default function Page({post}) {
             />
           </article>
         </section>
-        {post.slug === 'form-demo' && <BlockGravityForm {...post?.blocks[0]} />}
+        {post?.slug === 'form-demo' && (
+          <BlockGravityForm {...post?.blocks[0]} />
+        )}
       </div>
     </Layout>
   )
