@@ -34,8 +34,8 @@ export default function Layout({children, seo, hasJsonLd}) {
           description: seo?.metaDesc,
           images: [...seoImages]
         }}
-        nofollow={seo?.metaRobotsNofollow}
-        noindex={seo?.metaRobotsNofollow}
+        nofollow={'follow' !== seo?.metaRobotsNofollow}
+        noindex={'index' !== seo?.metaRobotsNoindex}
       />
       {!!hasJsonLd && (
         <BlogJsonLd
