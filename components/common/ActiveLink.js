@@ -4,13 +4,15 @@ import PropTypes from 'prop-types'
 import React, {Children} from 'react'
 
 /**
- * Component to set an active link.
+ * Render the ActiveLink Component.
  *
  * @author WebDevStudios
  * @see https://nextjs.org/docs/api-reference/next/link
- * @param {object} children    Child objects for rendering.
- * @param {object} activeClass The classname for the active element.
- * @param {object} props.href  The href to be added as a link.
+ * @param {object}  props             props.
+ * @param {object}  props.children    Child objects for rendering.
+ * @param {string}  props.activeClass The classname for the active element.
+ * @param {object}  props.href        The href to be added as a link.
+ * @return {Element}                  The ActiveLink component.
  */
 export default function ActiveLink({children, activeClass, ...props}) {
   const {asPath} = useRouter()
@@ -20,7 +22,7 @@ export default function ActiveLink({children, activeClass, ...props}) {
   /**
    * Remove the last trailing slash from a URL path.
    *
-   * @param {string} str String to replace /.
+   * @param {string} str The string to search and replace /.
    * @return {string}    Updated string.
    */
   function stripTrailingSlash(str) {

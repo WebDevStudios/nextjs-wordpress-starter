@@ -3,7 +3,13 @@ import cn from 'classnames'
 import styles from './Navigation.module.css'
 
 /**
- * @param props
+ * Render the Navigation Component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props           props.
+ * @param {array}  props.menu       Array of menu items.
+ * @param {string}  props.className Optional classname for the element.
+ * @return {Element}                The Navigation component.
  */
 export default function Navigation({menu, className}) {
   return (
