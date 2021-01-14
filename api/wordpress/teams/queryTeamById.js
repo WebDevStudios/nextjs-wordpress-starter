@@ -3,6 +3,7 @@ import seoPostFields from '../_partials/seoPostFields'
 import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
+import homepageSeoFields from '../_partials/homepageSeoFields'
 
 // Fragment: retrieve single team member fields.
 const singleTeamFragment = gql`
@@ -23,6 +24,7 @@ const queryTeamById = gql`
     $idType: TeamIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
+    ${homepageSeoFields}
     team(id: $id, idType: $idType) {
       ...SingleTeamFields
     }

@@ -5,6 +5,7 @@ import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import tagsPostFields from '../_partials/tagsPostFields'
 import categoriesPostFields from '../_partials/categoriesPostFields'
 import {gql} from '@apollo/client'
+import homepageSeoFields from '../_partials/homepageSeoFields'
 
 // Fragment: retrieve single post fields.
 const singlePostFragment = gql`
@@ -26,6 +27,7 @@ const queryPostById = gql`
     $idType: PostIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
+    ${homepageSeoFields}
     post(id: $id, idType: $idType) {
       ...SinglePostFields
     }

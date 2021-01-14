@@ -3,6 +3,7 @@ import seoPostFields from '../_partials/seoPostFields'
 import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
+import homepageSeoFields from '../_partials/homepageSeoFields'
 
 // Fragment: retrieve single page fields.
 export const singlePageFragment = gql`
@@ -23,6 +24,7 @@ const queryPageById = gql`
     $idType: PageIdType = URI
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
+    ${homepageSeoFields}
     page(id: $id, idType: $idType) {
       ...SinglePageFields
     }
