@@ -2,6 +2,8 @@ import {gql} from '@apollo/client'
 import {initializeWpApollo} from '../connector'
 import filterByLocation from '@/api/wordpress/menus/filterByLocation'
 
+// TODO: Rebakah to look at the way this query is set up in terms of file structure
+
 /**
  * Get menu data from WPGraphQL.
  *

@@ -1,9 +1,18 @@
+import Link from 'next/link'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 import React, {Children} from 'react'
 
-export default function ActiveLink({children, activeClassName, ...props}) {
+/**
+ * Component to set an active link.
+ *
+ * @author WebDevStudios
+ * @see https://nextjs.org/docs/api-reference/next/link
+ * @param {object} children    Child objects for rendering.
+ * @param {object} activeClass The classname for the active element.
+ * @param {object} props.href  The href to be added as a link.
+ */
+export default function ActiveLink({children, activeClass, ...props}) {
   const {asPath} = useRouter()
   const child = Children.only(children)
   const childClassName = child.props.className || ''
@@ -23,7 +32,7 @@ export default function ActiveLink({children, activeClassName, ...props}) {
 
   const className =
     asPath === stripTrailingSlash(props.href) || asPath === props.as
-      ? `${childClassName} ${activeClassName}`.trim()
+      ? `${childClassName} ${activeClass}`.trim()
       : childClassName
 
   return (
@@ -37,6 +46,6 @@ export default function ActiveLink({children, activeClassName, ...props}) {
 
 ActiveLink.propTypes = {
   children: PropTypes.object,
-  activeClassName: PropTypes.string,
+  activeClass: PropTypes.string,
   props: PropTypes.object
 }

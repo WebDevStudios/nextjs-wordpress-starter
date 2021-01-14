@@ -1,6 +1,6 @@
 import ActiveLink from '@/components/common/ActiveLink'
-import styles from './Navigation.module.css'
 import cn from 'classnames'
+import styles from './Navigation.module.css'
 
 /**
  * @param props
