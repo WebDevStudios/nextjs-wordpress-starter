@@ -2,7 +2,7 @@ import {gql} from '@apollo/client'
 import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
-import homepageSeoFields from '../_partials/homepageSeoFields'
+import defaultSeoFields from '../_partials/defaultSeoFields'
 
 // Fragment: retrieve archive portfolio fields.
 const archivePortfolioFragment = gql`
@@ -24,7 +24,7 @@ const queryPortfoliosArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
-    ${homepageSeoFields}
+    ${defaultSeoFields}
     portfolios(
       first: $first
       last: $last
