@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
+import * as Input from '@/components/atoms/Inputs'
 import cn from 'classnames'
 
 /**
@@ -40,6 +41,7 @@ export default function Select({
 
         return <p key={key}>{`${text} | ${value} | ${isSelected}`}</p>
       })}
+      <Input.Select />
     </div>
   )
 }
