@@ -20,7 +20,9 @@ export default function Layout({children, seo, hasJsonLd}) {
   const seoImages = [
     {
       url: seo?.opengraphImage?.sourceUrl,
-      alt: seo?.opengraphImage?.altText
+      alt: seo?.opengraphImage?.altText,
+      height: 150,
+      width: 150
     }
   ]
 
