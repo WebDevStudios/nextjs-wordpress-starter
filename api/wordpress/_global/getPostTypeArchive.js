@@ -96,8 +96,9 @@ export default async function getPostTypeArchive(
 
       // Attempt to use posts page for blog, default to front page.
       const defaultPage =
-        ('post' === postType && homepageData?.postsPage) ??
-        homepageData?.frontPage
+        'post' === postType && homepageData?.postsPage
+          ? homepageData.postsPage
+          : homepageData?.frontPage
 
       // Populate post object.
       response.post = {...defaultPage}
