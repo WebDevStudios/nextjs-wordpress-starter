@@ -12,10 +12,16 @@ import PropTypes from 'prop-types'
 export default function Select({options}) {
   return (
     <Field as="select" name="color">
-      <option value="grapefruit">{options?.[0]}</option>
-      <option value="lime">Lime</option>
-      <option value="coconut">Coconut</option>
-      <option value="mango">Mango</option>
+      {!!options?.length > 0 &&
+        options.map((option, key) => {
+          const {text, value} = option
+
+          return (
+            <option key={key} value={value}>
+              {text}
+            </option>
+          )
+        })}
     </Field>
   )
 }
