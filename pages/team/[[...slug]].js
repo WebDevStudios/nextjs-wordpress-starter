@@ -32,22 +32,7 @@ export default function Team({post, archive, posts, pagination}) {
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
-      <Layout
-        title="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-        noIndex={false} // query from yoast seo
-        noFollow={false} // query from yoast seo
-        openGraph={{
-          title: 'Query from Yoast SEO',
-          description: 'Query from Yoast SEO',
-          images: [
-            {
-              url: 'Query from Yoast SEO',
-              alt: 'Query from Yoast SEO'
-            }
-          ]
-        }}
-      >
+      <Layout seo={{...post?.seo}}>
         <div className="container">
           <section>
             {!posts || !posts.length ? (
