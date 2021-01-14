@@ -2,6 +2,7 @@ import {gql} from '@apollo/client'
 import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
+import seoPostFields from '../_partials/seoPostFields'
 
 // Fragment: retrieve archive career fields.
 const archiveCareerFragment = gql`
@@ -23,6 +24,11 @@ const queryCareersArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
+    homepageSettings {
+      frontPage {
+        ${seoPostFields}
+      }
+    }
     careers(
       first: $first
       last: $last

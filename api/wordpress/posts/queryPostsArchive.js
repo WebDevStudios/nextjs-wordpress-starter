@@ -2,6 +2,7 @@ import {gql} from '@apollo/client'
 import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
+import seoPostFields from '../_partials/seoPostFields'
 
 // Fragment: retrieve archive post fields.
 const archivePostFragment = gql`
@@ -23,6 +24,14 @@ const queryPostsArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
+    homepageSettings {
+      frontPage {
+        ${seoPostFields}
+      }
+      postsPage {
+        ${seoPostFields}
+      }
+    }
     posts(
       first: $first
       last: $last
