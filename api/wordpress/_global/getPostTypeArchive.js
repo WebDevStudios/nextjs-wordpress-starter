@@ -91,6 +91,17 @@ export default async function getPostTypeArchive(
       // Flatten posts array to include inner node post data.
       response.posts = data.edges.map((post) => post.node)
 
+      // Use homepage settings to populate SEO data.
+      const homepageData = archive?.data?.homepageSettings
+
+      // Attempt to use posts page for blog, default to front page.
+      const defaultPage =
+        ('post' === postType && homepageData?.postsPage) ??
+        homepageData?.frontPage
+
+      // Populate post object.
+      response.post = {...defaultPage}
+
       // Extract pagination data.
       response.pagination = data.pageInfo
     })
