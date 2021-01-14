@@ -1,4 +1,4 @@
-import {Field} from 'formik'
+import {Field, ErrorMessage} from 'formik'
 import PropTypes from 'prop-types'
 
 /**
@@ -37,6 +37,7 @@ export default function Select({
             )
           })}
         {description && <p>{description}</p>}
+        <ErrorMessage name={id} />
       </Field>
     </div>
   )
