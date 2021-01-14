@@ -67,7 +67,7 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     .then((post) => {
       const {homepageSettings, siteSeo, ...postData} = post.data
 
-      // Try to retrieve homepage SEO as fallback.
+      // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
       // Set error props if data not found.
