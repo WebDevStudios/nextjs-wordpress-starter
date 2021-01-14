@@ -81,16 +81,22 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
       return postData[postType]
     })
     .then(async (post) => {
+      // Add slug/ID to post.
+      const newPost = {
+        ...post,
+        slug: id
+      }
+
       // Handle blocks.
       if (!post || !post?.blocksJSON) {
         return post
       }
 
-      const newPost = {...post}
-
       newPost.blocks = await formatBlockData(
         JSON.parse(newPost.blocksJSON) ?? []
       )
+
+      delete newPost.blocksJSON
 
       return newPost
     })
