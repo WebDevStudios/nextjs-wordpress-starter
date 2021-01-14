@@ -30,11 +30,11 @@ export default function Select({
 
   return (
     <div
-      id={fieldId}
       className={cn(className, isHiddenClass) || null}
       field-size={size && `size-${size}`}
     >
       <Input.Select
+        id={fieldId}
         description={description}
         label={label}
         options={selectChoices}
