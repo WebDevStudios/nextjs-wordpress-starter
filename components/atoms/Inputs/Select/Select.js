@@ -1,3 +1,5 @@
+import {Field} from 'formik'
+
 /**
  * Render the Select component.
  *
@@ -6,13 +8,11 @@
  */
 export default function Select() {
   return (
-    <select>
+    <Field as="select" name="color">
       <option value="grapefruit">Grapefruit</option>
       <option value="lime">Lime</option>
-      <option selected value="coconut">
-        Coconut
-      </option>
+      <option value="coconut">Coconut</option>
       <option value="mango">Mango</option>
-    </select>
+    </Field>
   )
 }
