@@ -36,12 +36,7 @@ export default function Select({
     >
       {description}
       {label}
-      {selectChoices.map((option, key) => {
-        const {isSelected, text, value} = option
-
-        return <p key={key}>{`${text} | ${value} | ${isSelected}`}</p>
-      })}
-      <Input.Select />
+      <Input.Select options={selectChoices} />
     </div>
   )
 }
