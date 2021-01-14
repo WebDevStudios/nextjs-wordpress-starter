@@ -9,8 +9,8 @@ import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFa
  *
  * @author WebDevStudios
  * @see https://github.com/jquense/yup#api
- * @param {Object}  fieldData GravityForm field props.
- * @return {Object} Schema validation for field.
+ * @param {object} fieldData GravityForm field props.
+ * @return {object}          Schema validation for field.
  */
 function getValidationSchemaByType(fieldData) {
   let schemaGetter = null
@@ -20,7 +20,19 @@ function getValidationSchemaByType(fieldData) {
       schemaGetter = new ArraySchemaFactory(fieldData).schema
       break
 
+    case 'email':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'phone':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
     case 'text':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'website':
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break
 
@@ -35,8 +47,8 @@ function getValidationSchemaByType(fieldData) {
  * Map props to validation schemas.
  *
  * @author WebDevStudios
- * @param {Object}  fieldData GravityForm field props.
- * @return {Object} Schema validation for field.
+ * @param {object} fieldData GravityForm field props.
+ * @return {object}          Schema validation for field.
  */
 export default function getGfFieldValidationSchema(fieldData) {
   return {
