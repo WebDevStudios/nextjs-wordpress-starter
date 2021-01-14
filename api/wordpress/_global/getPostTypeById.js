@@ -64,6 +64,9 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   response.post = await apolloClient
     .query({query, variables: {id, idType}})
     .then((post) => {
+      // Try to retrieve homepage SEO as fallback.
+      response.defaultSeo = post.data?.homepageSettings?.frontPage?.seo ?? null
+
       // Set error props if data not found.
       if (!post?.data?.[postType]) {
         response.error = true
