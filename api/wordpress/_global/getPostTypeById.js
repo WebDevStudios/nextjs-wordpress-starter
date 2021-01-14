@@ -9,6 +9,7 @@ import queryServiceById from '../services/queryServiceById'
 import queryTeamById from '../teams/queryTeamById'
 import queryPortfolioById from '../portfolios/queryPortfolioById'
 import queryTestimonialById from '../testimonials/queryTestimonialById'
+import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 
 /**
  * Retrieve single post by specified identifier.
@@ -65,7 +66,9 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
     .query({query, variables: {id, idType}})
     .then((post) => {
       // Try to retrieve homepage SEO as fallback.
-      response.defaultSeo = post.data?.homepageSettings?.frontPage?.seo ?? null
+      response.defaultSeo = formatDefaultSeoData(
+        post.data?.homepageSettings?.frontPage?.seo
+      )
 
       // Set error props if data not found.
       if (!post?.data?.[postType]) {
