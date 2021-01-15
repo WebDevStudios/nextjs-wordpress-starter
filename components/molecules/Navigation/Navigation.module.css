@@ -26,9 +26,6 @@
         }
       }
 
-      & a.active {
-      }
-
       &:hover,
       &:focus-within {
         & > ul {

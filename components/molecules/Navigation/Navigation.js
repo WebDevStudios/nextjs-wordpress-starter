@@ -1,17 +1,20 @@
-import ActiveLink from '@/components/common/ActiveLink'
+import isLinkActive from '@/functions/isLinkActive'
 import cn from 'classnames'
+import Link from 'next/link'
+import {useRouter} from 'next/router'
 import styles from './Navigation.module.css'
 
 /**
  * Render the Navigation Component.
  *
  * @author WebDevStudios
- * @param {object}  props           props.
- * @param {array}  props.menu       Array of menu items.
+ * @param {object}  props           Navigation props.
+ * @param {array}   props.menu      Array of menu items.
  * @param {string}  props.className Optional classname for the element.
  * @return {Element}                The Navigation component.
  */
 export default function Navigation({menu, className}) {
+  const {asPath} = useRouter()
   return (
     <>
       {!!menu?.length && (
@@ -22,24 +25,34 @@ export default function Navigation({menu, className}) {
                 item.children && item.children.length > 0 ? item.children : ''
               return (
                 <li key={index}>
-                  <ActiveLink href={item.path} activeClassName={styles.active}>
-                    <a target={item.target ? item.target : '_self'}>
+                  <Link href={item.path}>
+                    <a
+                      target={item.target ? item.target : '_self'}
+                      className={cn(
+                        'nav-item',
+                        isLinkActive(asPath, item.path) && styles.active
+                      )}
+                    >
                       {item.label}
                     </a>
-                  </ActiveLink>
+                  </Link>
                   {children && (
                     <ul>
                       {children.map((item, index) => {
                         return (
                           <li key={index}>
-                            <ActiveLink
-                              href={item.path}
-                              activeClassName={styles.active}
-                            >
-                              <a target={item.target ? item.target : '_self'}>
+                            <Link href={item.path}>
+                              <a
+                                target={item.target ? item.target : '_self'}
+                                className={cn(
+                                  'nav-item',
+                                  isLinkActive(asPath, item.path) &&
+                                    styles.active
+                                )}
+                              >
                                 {item.label}
                               </a>
-                            </ActiveLink>
+                            </Link>
                           </li>
                         )
                       })}

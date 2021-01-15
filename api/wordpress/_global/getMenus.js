@@ -13,7 +13,7 @@ import filterByLocation from '@/api/wordpress/menus/filterByLocation'
  */
 export default async function getMenus(locations = []) {
   if (!locations.length > 0) {
-    return [] // exit if empty
+    return [] // Exit if empty.
   }
   const query = gql`
     query menuQuery {

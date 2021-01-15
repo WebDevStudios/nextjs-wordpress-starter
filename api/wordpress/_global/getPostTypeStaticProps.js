@@ -54,7 +54,8 @@ export default async function getPostTypeStaticProps(
   }
 
   // Get WP Nav Menus.
-  props.menus = await getMenus(config.navMenus)
+  const menus = await getMenus(config.navMenus)
+  props.menus = menus
 
   // Add Algolia env vars.
   props.algolia = {

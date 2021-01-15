@@ -1,15 +1,14 @@
-import Link from 'next/link'
+import {MenuContext} from '@/components/common/MenuProvider'
 import config from '@/functions/config'
+import cn from 'classnames'
+import Link from 'next/link'
 import {useContext} from 'react'
 import styles from './Footer.module.css'
-import {MenuContext} from '@/components/common/MenuProvider'
-import ActiveLink from '@/components/common/ActiveLink'
-import cn from 'classnames'
 
 // TODO: Create Storybook for this component.
 
 /**
- * Render the footer as a component.
+ * Render Footer component.
  */
 export default function Footer() {
   const {menus} = useContext(MenuContext)
@@ -21,11 +20,11 @@ export default function Footer() {
             {menus?.footer_menu.map((item, index) => {
               return (
                 <li key={index}>
-                  <ActiveLink href={item.path} activeClassName={styles?.active}>
+                  <Link href={item.path}>
                     <a target={item.target ? item.target : '_self'}>
                       {item.label}
                     </a>
-                  </ActiveLink>
+                  </Link>
                 </li>
               )
             })}
