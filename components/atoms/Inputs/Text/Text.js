@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types'
 import {Field, ErrorMessage} from 'formik'
 
+/**
+ * @param props0
+ * @param props0.className
+ * @param props0.description
+ * @param props0.id
+ * @param props0.isRequired
+ * @param props0.label
+ * @param props0.type
+ * @param props0.validation
+ */
 export default function Text({
   className,
   description,
@@ -11,7 +21,7 @@ export default function Text({
   validation
 }) {
   return (
-    <div className={className} key={id}>
+    <div className={className}>
       {label && <label htmlFor={id}>{label}</label>}
       <Field
         aria-required={isRequired}
