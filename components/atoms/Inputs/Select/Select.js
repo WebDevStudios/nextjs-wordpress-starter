@@ -1,5 +1,7 @@
 import {Field, ErrorMessage} from 'formik'
 import PropTypes from 'prop-types'
+import cn from 'classnames'
+import styles from './Select.module.css'
 
 /**
  * Render the Select component.
@@ -23,7 +25,7 @@ export default function Select({
   options
 }) {
   return (
-    <div className={className}>
+    <div className={cn(styles.select, className)}>
       {label && <label>{label}</label>}
       <Field as="select" id={id} name={id} required={isRequired}>
         {!!options?.length > 0 &&
