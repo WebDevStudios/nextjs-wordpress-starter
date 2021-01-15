@@ -1,7 +1,6 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import PropTypes from 'prop-types'
 import Page from './[...slug]'
 
 // Define route post type.
@@ -60,9 +59,4 @@ export default function HomePage({post}) {
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, postType)
-}
-
-HomePage.propTypes = {
-  props: PropTypes.object,
-  post: PropTypes.object
 }

@@ -1,0 +1,5 @@
+.header {
+  @apply sticky top-0 pb-8 transition-all z-50;
+
+  background-color: #fff;
+}
