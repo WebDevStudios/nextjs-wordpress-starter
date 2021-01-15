@@ -5,7 +5,7 @@ import {Field, ErrorMessage} from 'formik'
  * Render the Text component.
  *
  * @author WebDevStudios
- * @param {object}  props             props.
+ * @param {object}  props             The component attributes as props.
  * @param {string}  props.className   Text wrapper className.
  * @param {string}  props.description Text description.
  * @param {string}  props.id          Text input id.

@@ -7,7 +7,7 @@ import cn from 'classnames'
 /**
  * Render Form component.
  *
- * @param {object}        props                  Form props.
+ * @param {object}        props                  The component attributes as props.
  * @param {Element}       props.children         Form children elements.
  * @param {string}        props.className        Form wrapper class.
  * @param {object}        props.formDefaults     Formik default data.
