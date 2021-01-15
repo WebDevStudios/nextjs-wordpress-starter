@@ -45,7 +45,7 @@
     "yup": "^0.32.8"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.6",
+    "@apollo/client": "^3.3.7",
     "@babel/core": "^7.12.10",
     "@storybook/addon-a11y": "^6.1.14",
     "@storybook/addon-actions": "^6.1.14",
