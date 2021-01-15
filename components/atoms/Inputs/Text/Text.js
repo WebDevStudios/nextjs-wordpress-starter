@@ -2,14 +2,18 @@ import PropTypes from 'prop-types'
 import {Field, ErrorMessage} from 'formik'
 
 /**
- * @param props0
- * @param props0.className
- * @param props0.description
- * @param props0.id
- * @param props0.isRequired
- * @param props0.label
- * @param props0.type
- * @param props0.validation
+ * Render the Text component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props             props.
+ * @param {string}  props.className   Text wrapper className.
+ * @param {string}  props.description Text description.
+ * @param {string}  props.id          Text input id.
+ * @param {string}  props.label       Text input label.
+ * @param {boolean} props.isRequired  If input is required.
+ * @param {string}  props.type        Text input type.
+ * @param {object}  props.validation  Manual text validation.
+ * @return {Element}                  The Text component.
  */
 export default function Text({
   className,
