@@ -37,8 +37,8 @@ export default function Select({
             )
           })}
         {description && <p>{description}</p>}
-        <ErrorMessage name={id} />
       </Field>
+      <ErrorMessage name={id} />
     </div>
   )
 }
