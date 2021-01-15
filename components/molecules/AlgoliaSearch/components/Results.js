@@ -1,10 +1,10 @@
-import Hit from './Hit'
-import History from './History'
+import PropTypes from 'prop-types'
 import {connectStateResults, Hits} from 'react-instantsearch-dom'
 import styles from '../AlgoliaSearch.module.css'
-import searchClick from '../functions/searchClick'
 import buildSearchUrl from '../functions/buildSearchUrl'
-import PropTypes from 'prop-types'
+import searchClick from '../functions/searchClick'
+import History from './History'
+import Hit from './Hit'
 
 /**
  * Component for rendering Algolia `Hits` and search `History` components.

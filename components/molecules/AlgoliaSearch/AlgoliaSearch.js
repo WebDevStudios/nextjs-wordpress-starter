@@ -1,14 +1,13 @@
-import cn from 'classnames'
+import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import parseQuerystring from '@/functions/parseQuerystring'
+import cn from 'classnames'
+import dynamic from 'next/dynamic'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
 import React, {useContext, useRef, useState} from 'react'
-import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
 import styles from './AlgoliaSearch.module.css'
-import dynamic from 'next/dynamic'
 import SearchPlaceholder from './components/SearchPlaceholder'
 
-/* eslint-disable */
 /**
  * This always throws an error: Component definition is missing display name.
  * Error also appears when using the NextJS example.
@@ -16,10 +15,19 @@ import SearchPlaceholder from './components/SearchPlaceholder'
  * @see https://nextjs.org/docs/advanced-features/dynamic-import#with-custom-loading-component
  */
 const Search = dynamic(() => import('./components/Search'), {
-  loading: () => <SearchPlaceholder />
+  loading: () => <SearchPlaceholder /> // eslint-disable-line
 })
-/* eslint-enable */
 
+/**
+ * Render the AlgoliaSearch component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props                The component attributes as props.
+ * @param {string}  props.className      The component class.
+ * @param {boolean} props.useHistory     Whether to display the history.
+ * @param {boolean} props.usePlaceholder Whether to display the placeholder.
+ * @return {Element}                     The AlgoliaSearch component.
+ */
 export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
@@ -29,7 +37,10 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const {indexName} = useContext(AlgoliaContext)
 
   /**
-   * Set a min-height value on the search wrapper to avoid DOM movement during dynamic render.
+   * Set a min-height value on the search wrapper
+   * to avoid DOM movement during dynamic render.
+   *
+   * @return {object} A minimum height value.
    */
   function setMinHeight() {
     const minHeight =
@@ -40,7 +51,8 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   }
 
   /**
-   * Toggle the state of the Algolia `Search` and `SearchPlaceholder` components.
+   * Toggle the state of the Algolia `Search`
+   * and `SearchPlaceholder` components.
    *
    * @param {boolean} value Show/hide Algolia search input.
    */
@@ -64,9 +76,9 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
 }
 
 AlgoliaSearch.propTypes = {
+  className: PropTypes.string,
   useHistory: PropTypes.bool,
-  usePlaceholder: PropTypes.bool,
-  className: PropTypes.string
+  usePlaceholder: PropTypes.bool
 }
 
 AlgoliaSearch.defaultProps = {

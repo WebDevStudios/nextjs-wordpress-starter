@@ -9,15 +9,24 @@ import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 // Define route post type.
 const postType = 'service'
 
+/**
+ * Render the BlogPost component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props            The component attributes as props.
+ * @param {object}  props.post       Post data from WordPress.
+ * @param {boolean} props.archive    Whether displaying single post (false) or archive (true).
+ * @param {Array}   props.posts      Array of post data from WordPress.
+ * @param {object}  props.pagination Archive pagination data from WordPress.
+ * @return {Element}                 The BlogPost component.
+ */
 export default function Service({post, archive, posts, pagination}) {
   /**
    * Load more posts for archive.
    */
   async function loadPosts() {
-    const response = await getArchivePosts(postType, pagination?.endCursor)
-
     // TODO: use response to display next "page" of posts.
-    console.log(response)
+    await getArchivePosts(postType, pagination?.endCursor)
   }
 
   // Check for post archive.
@@ -112,7 +121,7 @@ export default function Service({post, archive, posts, pagination}) {
  * Get post static paths.
  *
  * @author WebDevStudios
- * @return {Object} Object consisting of array of paths and fallback setting.
+ * @return {object} Object consisting of array of paths and fallback setting.
  */
 export async function getStaticPaths() {
   return await getPostTypeStaticPaths(postType)
@@ -122,11 +131,9 @@ export async function getStaticPaths() {
  * Get post static props.
  *
  * @author WebDevStudios
- * @param  {Object}  context             Context for current post.
- * @param  {Object}  context.params      Route parameters for current post.
- * @param  {boolean} context.preview     Whether requesting preview of post.
- * @param  {Object}  context.previewData Post preview data.
- * @return {Object}                      Post props.
+ * @param {object} context        Context for current post.
+ * @param {object} context.params Route parameters for current post.
+ * @return {object}               Post props.
  */
 export async function getStaticProps({params}) {
   return getPostTypeStaticProps(params, postType)

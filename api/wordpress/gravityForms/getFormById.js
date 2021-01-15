@@ -5,8 +5,8 @@ import queryFormById from './queryFormById'
  * Retrieve single form by ID.
  *
  * @author WebDevStudios
- * @param  {string} id Form ID.
- * @return {Object}    Post data or error object.
+ * @param {string} id Form ID.
+ * @return {object}   Post data or error object.
  */
 export default async function getFormById(id) {
   // Determine form global ID.

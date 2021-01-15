@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {connectStateResults, InfiniteHits} from 'react-instantsearch-dom'
 import styles from '../AlgoliaResults.module.css'
+import Authors from '../facets/Authors'
+import PostType from '../facets/PostType'
+import Sort from '../facets/Sort'
+import CustomClearRefinements from '../refinements/CustomClearRefinements'
 import Hit from './Hit'
 import NoResults from './NoResults'
-import PostType from '../facets/PostType'
-import Authors from '../facets/Authors'
-import CustomClearRefinements from '../refinements/CustomClearRefinements'
-import Sort from '../facets/Sort'
 
 /**
  * Refinement config passed into Algolia facets.

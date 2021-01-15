@@ -2,6 +2,12 @@ import Link from 'next/link'
 import AlgoliaSearch from '../molecules/AlgoliaSearch'
 import Navigation from './Navigation'
 
+/**
+ * Render the Logo component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Logo component.
+ */
 function Logo() {
   return (
     <Link href="/">
@@ -18,6 +24,12 @@ function Logo() {
   )
 }
 
+/**
+ * Render the Header component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Header component.
+ */
 export default function Header() {
   return (
     <header className="sticky top-0 pb-8 transition-all z-50">

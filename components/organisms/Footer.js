@@ -1,6 +1,12 @@
-import Link from 'next/link'
 import config from '@/functions/config'
+import Link from 'next/link'
 
+/**
+ * Render the Footer component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Footer component.
+ */
 export default function Footer() {
   return (
     <footer>

@@ -37,6 +37,7 @@ module.exports = {
     'jsdoc/require-param': [
       'warn',
       {
+        checkRestProperty: true,
         unnamedRootBase: ['props']
       }
     ],
