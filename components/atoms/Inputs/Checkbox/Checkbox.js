@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types'
 import {Field} from 'formik'
 
+/**
+ * Render Checkbox component.
+ *
+ * @param {object}        props           Input props.
+ * @param {string}        props.className Input className.
+ * @param {string|number} props.id        Input id.
+ * @param {string}        props.label     Input label.
+ * @param {string}        props.name      Input name.
+ * @return {Element}                      The Checkbox component.
+ */
 export default function Checkbox({className, id, label, name}) {
   return (
     <div className={className}>
