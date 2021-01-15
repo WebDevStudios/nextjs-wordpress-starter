@@ -18,6 +18,32 @@ siteSeo: seo {
       sourceUrl(size: THUMBNAIL)
     }
   }
+  social {
+    facebook {
+      url
+    }
+    instagram {
+      url
+    }
+    linkedIn {
+      url
+    }
+    mySpace {
+      url
+    }
+    pinterest {
+      url
+    }
+    twitter {
+      username
+    }
+    wikipedia {
+      url
+    }
+    youTube {
+      url
+    }
+  }
 }
 `
 
