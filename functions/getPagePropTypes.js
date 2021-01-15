@@ -4,6 +4,20 @@ import {
   isHierarchicalPostType
 } from '@/api/wordpress/_global/postTypes'
 
+// Yoast SEO social prop types.
+export const seoSocialPropTypes = {
+  social: PropTypes.shape({
+    facebook: PropTypes.string,
+    instagram: PropTypes.string,
+    linkedIn: PropTypes.string,
+    mySpace: PropTypes.string,
+    pinterest: PropTypes.string,
+    twitter: PropTypes.string,
+    wikipedia: PropTypes.string,
+    youTube: PropTypes.string
+  })
+}
+
 // Yoast SEO prop types.
 export const seoPropTypes = {
   seo: PropTypes.shape({
@@ -21,16 +35,7 @@ export const seoPropTypes = {
       altText: PropTypes.string,
       sourceUrl: PropTypes.string
     }),
-    social: PropTypes.shape({
-      facebook: PropTypes.string,
-      instagram: PropTypes.string,
-      linkedIn: PropTypes.string,
-      mySpace: PropTypes.string,
-      pinterest: PropTypes.string,
-      twitter: PropTypes.string,
-      wikipedia: PropTypes.string,
-      youTube: PropTypes.string
-    })
+    ...seoSocialPropTypes
   })
 }
 
