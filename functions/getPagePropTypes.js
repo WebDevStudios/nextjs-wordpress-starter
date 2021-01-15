@@ -20,6 +20,16 @@ export const seoPropTypes = {
     opengraphImage: PropTypes.shape({
       altText: PropTypes.string,
       sourceUrl: PropTypes.string
+    }),
+    social: PropTypes.shape({
+      facebook: PropTypes.string,
+      instagram: PropTypes.string,
+      linkedIn: PropTypes.string,
+      mySpace: PropTypes.string,
+      pinterest: PropTypes.string,
+      twitter: PropTypes.string,
+      wikipedia: PropTypes.string,
+      youTube: PropTypes.string
     })
   })
 }

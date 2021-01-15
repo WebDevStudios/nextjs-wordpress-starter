@@ -26,6 +26,18 @@ export default function formatDefaultSeoData(seoData) {
           width: 150
         }
       ]
+    },
+    social: {
+      facebook: siteSeo?.social?.facebook?.url ?? '',
+      instagram: siteSeo?.social?.instagram?.url ?? '',
+      linkedIn: siteSeo?.social?.linkedIn?.url ?? '',
+      mySpace: siteSeo?.social?.mySpace?.url ?? '',
+      pinterest: siteSeo?.social?.pinterest?.url ?? '',
+      twitter: siteSeo?.social?.twitter?.username
+        ? `https://twitter.com/${siteSeo.social.twitter.username}`
+        : '',
+      wikipedia: siteSeo?.social?.wikipedia?.url ?? '',
+      youTube: siteSeo?.social?.youTube?.url ?? ''
     }
   }
 }
