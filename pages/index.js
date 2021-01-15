@@ -7,9 +7,12 @@ import Page from './[...slug]'
 const postType = 'page'
 
 /**
- * @param root0
- * @param root0.post
- * @param root0.menus
+ * Render the HomePage component.
+ *
+ * @author WebDevStudios
+ * @param {object} props      The component attributes as props.
+ * @param {object} props.post Post data from WordPress.
+ * @return {Element}          The HomePage component.
  */
 export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
@@ -51,11 +54,16 @@ export default function HomePage({post}) {
 /**
  * Get post static props.
  *
+<<<<<<< HEAD
  * @see https://github.com/WebDevStudios/nextjs-starter-wordpress/blob/main/themes/wds_headless/inc/menus.php
  * @param {object}  context             Context for current post.
  * @param {boolean} context.preview     Whether requesting preview of post.
  * @param {object}  context.previewData Post preview data.
  * @return {object}                      Post props.
+=======
+ * @author WebDevStudios
+ * @return {object} Post props.
+>>>>>>> b94848f4dba6c575636b21821be52f6717dd39e0
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, postType)

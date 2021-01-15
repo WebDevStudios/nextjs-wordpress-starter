@@ -2,7 +2,13 @@ import PropTypes from 'prop-types'
 import {SortBy} from 'react-instantsearch-dom'
 
 /**
- * Component for displaying Post Type facets.
+ * Render the Sort component.
+ *
+ * @author WebDevStudios
+ * @param {object} props                   The component attributes as props.
+ * @param {string} props.index             The index property.
+ * @param {string} props.defaultRefinement The default refinement setting.
+ * @return {Element}                       The Sort component.
  */
 export default function Sort({index, defaultRefinement}) {
   return (

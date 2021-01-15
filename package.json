@@ -45,7 +45,7 @@
     "yup": "^0.32.8"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.6",
+    "@apollo/client": "^3.3.7",
     "@babel/core": "^7.12.10",
     "@storybook/addon-a11y": "^6.1.14",
     "@storybook/addon-actions": "^6.1.14",
@@ -60,7 +60,7 @@
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^31.0.3",
+    "eslint-plugin-jsdoc": "^31.0.5",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",

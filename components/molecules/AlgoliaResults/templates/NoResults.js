@@ -2,7 +2,12 @@ import PropTypes from 'prop-types'
 import styles from '../AlgoliaResults.module.css'
 
 /**
- * Component for rendering no results content.
+ * Render the NoResults component.
+ *
+ * @author WebDevStudios
+ * @param {object} props       The component attributes as props.
+ * @param {object} props.query The no results data.
+ * @return {Element}           The NoResults component.
  */
 export default function NoResults({query}) {
   return (
@@ -25,6 +30,7 @@ export default function NoResults({query}) {
 NoResults.propTypes = {
   query: PropTypes.string
 }
+
 NoResults.defaultProps = {
   query: ''
 }

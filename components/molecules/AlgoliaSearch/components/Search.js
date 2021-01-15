@@ -1,19 +1,26 @@
 import {searchClient} from '@/api/algolia/connector'
-import searchSubmit from '../functions/searchSubmit'
 import PropTypes from 'prop-types'
 import React, {useCallback, useEffect, useState} from 'react'
 import {Configure, InstantSearch, SearchBox} from 'react-instantsearch-dom'
-import {deleteLocalStorage} from '../functions/localStorage'
-import Results from './Results'
 import styles from '../AlgoliaSearch.module.css'
+import {deleteLocalStorage} from '../functions/localStorage'
+import searchSubmit from '../functions/searchSubmit'
+import Results from './Results'
 import SearchIcon from './SearchIcon'
 
 // TODO: Create Storybook for this component.
 
 /**
- * Component for rendering Algolia search with hits and history.
+ * Render the Search component.
+ *
+ * @author WebDevStudios
+ * @param {object}  props            The component attributes as props.
+ * @param {string}  props.indexName  The search index name stored in Algolia.
+ * @param {string}  props.query      The search query
+ * @param {boolean} props.useHistory Whether to display search history.
+ * @return {Element}                 The Search component.
  */
-export default function Search({indexName, useHistory, query}) {
+export default function Search({indexName, query, useHistory}) {
   const storageName = indexName // Local Storage Name - set to algolia index.
   const historyLength = 6 // Max amount of history items to save to local storage.
   const hitsPerPage = 6 // Amount of hit to render in drop results.
@@ -50,8 +57,10 @@ export default function Search({indexName, useHistory, query}) {
     }
   }, [storageName, useHistory])
 
-  // Delete recent searches and clear history.
-  const clearLocalStorage = () => {
+  /**
+   * Delete recent searches and clear history.
+   */
+  function clearLocalStorage() {
     deleteLocalStorage(storageName)
     setSearchHistory([])
   }
@@ -100,8 +109,8 @@ export default function Search({indexName, useHistory, query}) {
 
 Search.propTypes = {
   indexName: PropTypes.string.isRequired,
-  useHistory: PropTypes.bool,
-  query: PropTypes.string
+  query: PropTypes.string,
+  useHistory: PropTypes.bool
 }
 
 Search.defaultProps = {
