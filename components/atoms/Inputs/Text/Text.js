@@ -12,7 +12,6 @@ import {Field, ErrorMessage} from 'formik'
  * @param {string}  props.label       Text input label.
  * @param {boolean} props.isRequired  If input is required.
  * @param {string}  props.type        Text input type.
- * @param {object}  props.validation  Manual text validation.
  * @return {Element}                  The Text component.
  */
 export default function Text({
@@ -45,8 +44,7 @@ Text.propTypes = {
   id: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  validation: PropTypes.func
+  type: PropTypes.string.isRequired
 }
 
 Text.defaultProps = {

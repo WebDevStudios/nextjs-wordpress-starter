@@ -12,7 +12,6 @@ import cn from 'classnames'
  * @param {string}        props.className        Form wrapper class.
  * @param {object}        props.formDefaults     Formik default data.
  * @param {string|number} props.id               Form id.
- * @param {string}        props.title            Form Title
  * @param {object}        props.validationSchema Yup validation schema object.
  * @return {Element}                             The Form component.
  */
@@ -47,7 +46,6 @@ Form.propTypes = {
   className: PropTypes.string,
   formDefaults: PropTypes.object,
   id: PropTypes.string,
-  title: PropTypes.string,
   validationSchema: PropTypes.object
 }
 
