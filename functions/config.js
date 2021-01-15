@@ -3,7 +3,7 @@ const config = {
   siteDescription: 'The description of this website',
   siteUrl: 'https://website.vercel.app',
   author: '@yourname',
-  navMenus: ['primary-menu', 'footer-menu', 'mobile-menu'],
+  menuLocations: ['primary-menu', 'footer-menu', 'mobile-menu'],
   social: {
     github: {
       label: 'Github',

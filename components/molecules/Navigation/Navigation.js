@@ -5,7 +5,7 @@ import {useRouter} from 'next/router'
 import styles from './Navigation.module.css'
 
 /**
- * Render the Navigation Component.
+ * Render the Navigation component.
  *
  * @author WebDevStudios
  * @param {object}  props           Navigation props.
