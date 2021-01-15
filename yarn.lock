@@ -179,10 +179,10 @@
   dependencies:
     node-fetch "2.6.1"
 
-"@apollo/client@^3.3.6":
-  version "3.3.6"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.6.tgz#f359646308167f38d5bc498dfc2344c888400093"
-  integrity sha512-XSm/STyNS8aHdDigLLACKNMHwI0qaQmEHWHtTP+jHe/E1wZRnn66VZMMgwKLy2V4uHISHfmiZ4KpUKDPeJAKqg==
+"@apollo/client@^3.3.7":
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.7.tgz#f15bf961dc0c2bee37a47bf86b8881fdc6183810"
+  integrity sha512-Cb0OqqvlehlRHtHIXRIS/Pe5WYU4hHl1FznXTRSxBAN42WmBUM3zy/Unvw183RdWMyV6Kc2pFKOEuaG1K7JTAQ==
   dependencies:
     "@graphql-typed-document-node/core" "^3.0.0"
     "@types/zen-observable" "^0.8.0"
@@ -191,7 +191,7 @@
     fast-json-stable-stringify "^2.0.0"
     graphql-tag "^2.11.0"
     hoist-non-react-statics "^3.3.2"
-    optimism "^0.13.1"
+    optimism "^0.14.0"
     prop-types "^15.7.2"
     symbol-observable "^2.0.0"
     ts-invariant "^0.6.0"
@@ -2970,6 +2970,13 @@
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.3.1.tgz#81080cdc2e0d8265cd303faa0c64b38a77884e06"
   integrity sha512-8/Ftr3jUZ4EXhACfSwPIfNsE8V6WKesdjp+Dxi78Bej6qlasAxiz0/F8j0miACRj9CL4vC5Y5FsfwwEYAuhWbg==
+  dependencies:
+    tslib "^1.14.1"
+
+"@wry/trie@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@wry/trie/-/trie-0.2.1.tgz#4191e1d4a85dd77dfede383d65563138ed82fc47"
+  integrity sha512-sYkuXZqArky2MLQCv4tLW6hX3N8AfTZ5ZMBc8jC6Yy35WYr82UYLLtjS7k/uRGHOA0yTSjuNadG6QQ6a5CS5hQ==
   dependencies:
     tslib "^1.14.1"
 
@@ -9677,12 +9684,13 @@ openurl@^1.1.1:
   resolved "https://registry.yarnpkg.com/openurl/-/openurl-1.1.1.tgz#3875b4b0ef7a52c156f0db41d4609dbb0f94b387"
   integrity sha1-OHW0sO96UsFW8NtB1GCduw+Us4c=
 
-optimism@^0.13.1:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.13.2.tgz#002a438b69652bfe8f8754a4493ed35c2e9d9821"
-  integrity sha512-kJkpDUEs/Rp8HsAYYlDzyvQHlT6YZa95P+2GGNR8p/VvsIkt6NilAk7oeTvMRKCq7BeclB7+bmdIexog2859GQ==
+optimism@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.14.0.tgz#256fb079a3428585b40a3a8462f907e0abd2fc49"
+  integrity sha512-ygbNt8n4DOCVpkwiLF+IrKKeNHOjtr9aXLWGP9HNJGoblSGsnVbJLstcH6/nE9Xy5ZQtlkSioFQNnthmENW6FQ==
   dependencies:
     "@wry/context" "^0.5.2"
+    "@wry/trie" "^0.2.1"
 
 optionator@^0.8.1:
   version "0.8.3"
@@ -13014,12 +13022,7 @@ tsconfig-paths@^3.9.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.10.0, tslib@^1.9.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
-  integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
-
-tslib@^1.14.1, tslib@^1.9.3:
+tslib@^1.10.0, tslib@^1.14.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
