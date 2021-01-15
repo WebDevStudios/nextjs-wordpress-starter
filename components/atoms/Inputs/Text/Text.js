@@ -21,8 +21,7 @@ export default function Text({
   id,
   isRequired,
   label,
-  type,
-  validation
+  type
 }) {
   return (
     <div className={className}>
@@ -33,7 +32,6 @@ export default function Text({
         name={id}
         required={isRequired}
         type={type}
-        validate={validation}
       />
       {description && <p>{description}</p>}
       <ErrorMessage name={id} />
