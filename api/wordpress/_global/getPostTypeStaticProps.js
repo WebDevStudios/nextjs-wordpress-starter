@@ -2,6 +2,8 @@ import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
+import getMenus from '@/api/wordpress/menus/getMenus'
+import config from '@/functions/config'
 
 /**
  * Retrieve static props by post type.
@@ -17,9 +19,20 @@ export default async function getPostTypeStaticProps(
   // preview = false, // TODO - add preview handling.
   // previewData = null
 ) {
+  // Get WP Nav Menus.
+  const menus = await getMenus(config.menuLocations)
+
   // Check for dynamic archive display.
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
+
+    // Add WP Nav Menus to archive.
+    archiveData.menus = menus
+
+    // Add Algolia env vars to archive.
+    archiveData.algolia = {
+      indexName: algoliaIndexName
+    }
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
@@ -48,6 +61,9 @@ export default async function getPostTypeStaticProps(
     props.post = null
     props.error = false
   }
+
+  // Set WP Nav Menus.
+  props.menus = menus
 
   // Add Algolia env vars.
   props.algolia = {

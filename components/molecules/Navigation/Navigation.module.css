@@ -1,0 +1,37 @@
+.navigation {
+  @apply pt-8;
+
+  & > ul {
+    @apply flex;
+
+    /* Nested ul */
+    & ul {
+      @apply hidden absolute left-0 z-50 p-16 shadow-sm;
+
+      top: 100%;
+      background-color: #fff;
+    }
+
+    & > li {
+      @apply relative ml-20;
+
+      & a {
+        &:hover,
+        &:focus {
+          @apply underline;
+        }
+
+        &.active {
+          @apply font-bold underline;
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        & > ul {
+          @apply block;
+        }
+      }
+    }
+  }
+}
