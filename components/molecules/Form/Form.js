@@ -6,11 +6,23 @@ import cn from 'classnames'
 
 // TODO Update form title with dynamic heading tag.
 
+/**
+ * Render Form component.
+ *
+ * @param {object}        props                  Form props.
+ * @param {Element}       props.children         Form children elements.
+ * @param {string}        props.className        Form wrapper class.
+ * @param {object}        props.formDefaults     Formik default data.
+ * @param {string|number} props.id               Form id.
+ * @param {string}        props.title            Form Title
+ * @param {object}        props.validationSchema Yup validation schema object.
+ * @return {Element}                             The Form component.
+ */
 export default function Form({
-  className,
   children,
-  id,
+  className,
   formDefaults,
+  id,
   title,
   validationSchema
 }) {
@@ -35,10 +47,10 @@ export default function Form({
 }
 
 Form.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.object,
-  id: PropTypes.string,
+  className: PropTypes.string,
   formDefaults: PropTypes.object,
+  id: PropTypes.string,
   title: PropTypes.string,
   validationSchema: PropTypes.object
 }
