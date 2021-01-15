@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * @param {object} block        The block data.
  * @param {number} index        A unique key required by React.
  * @param {object} siteSettings Global settings.
- * @return {node}               A block-based component.
+ * @return {Element}            A block-based component.
  */
 export default function displayBlock(block, index, siteSettings) {
   const {attributes, name} = block

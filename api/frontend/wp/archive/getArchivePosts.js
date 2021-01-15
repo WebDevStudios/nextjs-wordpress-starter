@@ -5,11 +5,11 @@ import {initializeFeApollo} from '../../connector'
  * Retrieve next page of posts for post type archive.
  *
  * @author WebDevStudios
- * @param  {string} postType WP post type.
- * @param  {string} orderBy  Order by: field.
- * @param  {string} order    Order by: direction.
- * @param  {string} cursor   Start cursor for pagination.
- * @return {Object}          Archive post and pagination data or error object.
+ * @param {string} postType WP post type.
+ * @param {string} cursor   Start cursor for pagination.
+ * @param {string} orderBy  Order by: field.
+ * @param {string} order    Order by: direction.
+ * @return {object}         Archive post and pagination data or error object.
  */
 export default async function getArchivePosts(
   postType,

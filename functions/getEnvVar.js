@@ -2,8 +2,8 @@
  * Retrieve environment-specific var.
  *
  * @author WebDevStudios
- * @param  {string} varName  Environment variable.
- * @param  {bool}   isPublic Whether var is public.
+ * @param {string}  varName  Environment variable.
+ * @param {boolean} isPublic Whether var is public.
  * @return {string}          Env var value.
  */
 export default function getEnvVar(varName, isPublic = false) {
@@ -30,23 +30,4 @@ export default function getEnvVar(varName, isPublic = false) {
     default:
       return process.env[`${prefix}DEV_${varName}`]
   }
-}
-
-/**
- * Parse a querystring by name.
- *
- * @author WebDevStudios
- * @param {string} path URL path.
- * @param {string} name The name to match.
- */
-export function parseQuerystring(path, name) {
-  if (!path || !name) {
-    return false
-  }
-  name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]')
-  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
-  var results = regex.exec(path)
-  return results === null
-    ? ''
-    : decodeURIComponent(results[1].replace(/\+/g, ' '))
 }
