@@ -1,0 +1,24 @@
+.footer {
+  @apply py-10;
+
+  & .footerMenu {
+    & > ul {
+      @apply flex justify-center mb-12;
+
+      & > li {
+        @apply mx-8;
+
+        & a {
+          &:hover,
+          &:focus {
+            @apply underline;
+          }
+        }
+      }
+    }
+  }
+
+  & .copyright {
+    @apply py-4 text-center text-sm;
+  }
+}
