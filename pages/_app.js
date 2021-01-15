@@ -36,7 +36,21 @@ export default function App({Component, pageProps}) {
   })
 
   // Extract default SEO props from page props.
-  const {defaultSeo, ...passThruProps} = pageProps
+  const {
+    defaultSeo: {social, ...defaultSeoData},
+    ...passThruProps
+  } = pageProps
+
+  const componentProps = {
+    ...passThruProps,
+    post: {
+      ...passThruProps?.post,
+      seo: {
+        ...passThruProps?.post?.seo,
+        social
+      }
+    }
+  }
 
   return (
     <ApolloProvider client={apolloClient}>
@@ -45,8 +59,8 @@ export default function App({Component, pageProps}) {
           <Error statusCode={500} title={errorMessage} />
         ) : (
           <>
-            {!!defaultSeo && <DefaultSeo {...defaultSeo} />}
-            <Component {...passThruProps} />
+            {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+            <Component {...componentProps} />
           </>
         )}
       </AlgoliaProvider>
