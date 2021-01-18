@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import styles from './Hero.module.css'
 
-export default function Hero(props) {
+export default function Hero({background, body, cta, subtitle, title}) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="container relative z-10 p-24 lg:p-64">
-        <h2 className="text-h2">{props.title}</h2>
-        <p className="text-body">{props.description}</p>
-      </div>
-      <div className="absolute top-0 z-0">
-        <img src={props.background} alt="" loading="lazy" />
+    <section className={styles.hero}>
+      <div className={styles.content}>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        <h1 className={styles.title}>{title}</h1>
+        {body && <p className={styles.body}>{body}</p>}
       </div>
     </section>
   )
@@ -17,6 +16,17 @@ export default function Hero(props) {
 
 Hero.propTypes = {
   background: PropTypes.string,
-  description: PropTypes.string,
-  title: PropTypes.string
+  body: PropTypes.string,
+  cta: PropTypes.shape({
+    text: PropTypes.string,
+    url: PropTypes.string
+  }),
+  subtitle: PropTypes.string,
+  title: PropTypes.string.isRequired
+}
+
+Hero.defaultProps = {
+  body: 'Body',
+  title: 'Title',
+  subtitle: 'Subtitle'
 }

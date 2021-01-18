@@ -1,0 +1,18 @@
+.hero {
+  @apply container p-32;
+  @apply bg-black-10;
+
+  & .content {
+    & .subtitle {
+      @apply text-h5;
+    }
+
+    & .title {
+      @apply font-secondary text-hero;
+    }
+
+    & .body {
+      @apply text-sm;
+    }
+  }
+}
