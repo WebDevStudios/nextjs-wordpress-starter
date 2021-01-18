@@ -18,7 +18,7 @@
   }
 
   & td {
-    @apply py-12 pr-24 align-top;
+    @apply py-12 pr-24 align-middle;
 
     &:first-child {
       @apply pr-80;
