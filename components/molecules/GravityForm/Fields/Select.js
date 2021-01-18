@@ -4,9 +4,9 @@ import * as Input from '@/components/atoms/Inputs'
 import cn from 'classnames'
 
 /**
- * Render GravityForms Checkbox field component.
+ * Render GravityForms Select field component.
  *
- * @param {object}        props               GravityForm Checkbox field props.
+ * @param {object}        props               GravityForm Select field as props.
  * @param {string}        props.className     GravityForm field wrapper class.
  * @param {string}        props.description   GravityForm field description.
  * @param {string|number} props.id            GravityForm field id.
@@ -15,7 +15,7 @@ import cn from 'classnames'
  * @param {string}        props.size          GravityForm field size.
  * @param {Array}         props.selectChoices GravityForm field selection options.
  * @param {boolean}       props.visibility    GravityForm field visibility.
- * @return {Element}                          The Checkbox component.
+ * @return {Element}                          The Select component.
  */
 export default function Select({
   className,

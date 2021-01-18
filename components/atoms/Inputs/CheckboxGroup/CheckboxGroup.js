@@ -5,7 +5,7 @@ import Checkbox from '@/components/atoms/Inputs/Checkbox'
 /**
  * Render CheckboxGroup component.
  *
- * @param {object}        props             CheckboxGroup props.
+ * @param {object}        props             The component attributes as props.
  * @param {Array}         props.checkboxes  Array of checkbox data objects.
  * @param {string}        props.className   CheckboxGroup wrapper className.
  * @param {string|number} props.id          CheckboxGroup id.

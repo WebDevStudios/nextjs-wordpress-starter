@@ -4,7 +4,7 @@ import {Field} from 'formik'
 /**
  * Render Checkbox component.
  *
- * @param {object}        props           Input props.
+ * @param {object}        props           The component attributes as props.
  * @param {string}        props.className Input className.
  * @param {string|number} props.id        Input id.
  * @param {string}        props.label     Input label.
