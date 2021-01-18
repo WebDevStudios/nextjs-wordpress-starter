@@ -5,6 +5,14 @@ import {initializeApollo} from '../apolloConfig'
 // Define env vars.
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
 
+// Define Frontend WP API data endpoint base.
+const wpDataEndpointBase = '/wp'
+
+// Define Frontend WP API data endpoints.
+export const wpDataEndpoints = {
+  archive: `${wpDataEndpointBase}/archive`
+}
+
 let wpApolloClient
 
 /**
@@ -13,7 +21,7 @@ let wpApolloClient
  * @see https://www.apollographql.com/docs/react/api/core/ApolloClient/
  *
  * @author WebDevStudios
- * @return {Object} Apollo client instance.
+ * @return {object} Apollo client instance.
  */
 export function createWpApolloClient() {
   return new ApolloClient({
@@ -30,8 +38,8 @@ export function createWpApolloClient() {
  * Init Apollo for WP and merge with initial state.
  *
  * @author WebDevStudios
- * @param  {mixed} initialState Initial Apollo state.
- * @return {Object}             WP Apollo client instance.
+ * @param {*} initialState Initial Apollo state.
+ * @return {object}        WP Apollo client instance.
  */
 export function initializeWpApollo(initialState = null) {
   // Only run one instance of the Apollo client.

@@ -4,6 +4,15 @@ import Header from '@/components/organisms/Header'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 
+/**
+ * Render the Layout component.
+ *
+ * @author WebDevStudios
+ * @param {object} props          The component attributes as props.
+ * @param {any}    props.children Child component(s) to render.
+ * @param {object} props.props    All remaining props.
+ * @return {Element}              The Layout component.
+ */
 export default function Layout({children, ...props}) {
   return (
     <>
@@ -28,5 +37,6 @@ Layout.propTypes = {
   noFollow: PropTypes.bool,
   noIndex: PropTypes.bool,
   openGraph: PropTypes.object,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  menus: PropTypes.object
 }

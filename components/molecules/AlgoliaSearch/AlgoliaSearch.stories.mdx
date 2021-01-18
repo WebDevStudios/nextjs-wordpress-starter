@@ -1,0 +1,18 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import AlgoliaSearch from './'
+
+<Meta title="Design System/Molecules/AlgoliaSearch" component={AlgoliaSearch} />
+
+# Search
+
+Use this component to display an informational alert.
+
+<Canvas>
+  <Story name="Search Input">
+    <AlgoliaSearch
+      indexName="wds_dev_searchable_posts"
+      useHistory={true}
+      className="p-12"
+    />
+  </Story>
+</Canvas>

@@ -1,5 +1,11 @@
 import Head from 'next/head'
 
+/**
+ * Render extra meta tags in the document head.
+ *
+ * @author WebDevStudios
+ * @return {Element}  The Meta component.
+ */
 export default function Meta() {
   return (
     <Head>

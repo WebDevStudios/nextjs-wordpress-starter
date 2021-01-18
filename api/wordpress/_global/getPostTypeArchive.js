@@ -1,18 +1,24 @@
 import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
+import queryEventsArchive from '../events/queryEventsArchive'
+import queryCareersArchive from '../careers/queryCareersArchive'
+import queryServicesArchive from '../services/queryServicesArchive'
+import queryTeamsArchive from '../teams/queryTeamsArchive'
+import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
+import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 
 /**
  * Retrieve post archive.
  *
  * @author WebDevStudios
- * @param  {string} postType WP post type.
- * @param  {string} orderBy  Order by: field.
- * @param  {string} order    Order by: direction.
- * @param  {string} cursor   Start/end cursor for pagination.
- * @param  {bool}   getNext  Whether to retrieve next set of posts (true) or previous set (false).
- * @param  {number} perPage  Number of posts per page.
- * @return {Object}          Object containing Apollo client instance and post archive data or error object.
+ * @param {string}  postType WP post type.
+ * @param {string}  orderBy  Order by: field.
+ * @param {string}  order    Order by: direction.
+ * @param {string}  cursor   Start/end cursor for pagination.
+ * @param {boolean} getNext  Whether to retrieve next set of posts (true) or previous set (false).
+ * @param {number}  perPage  Number of posts per page.
+ * @return {object}          Object containing Apollo client instance and post archive data or error object.
  */
 export default async function getPostTypeArchive(
   postType,
@@ -24,7 +30,13 @@ export default async function getPostTypeArchive(
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
-    post: queryPostsArchive
+    career: queryCareersArchive,
+    event: queryEventsArchive,
+    portfolio: queryPortfoliosArchive,
+    post: queryPostsArchive,
+    service: queryServicesArchive,
+    team: queryTeamsArchive,
+    testimonial: queryTestimonialsArchive
   }
 
   // Retrieve post type query.
@@ -36,6 +48,8 @@ export default async function getPostTypeArchive(
   // Set up return object.
   const response = {
     apolloClient,
+    posts: null,
+    pagination: null,
     error: false,
     errorMessage: null
   }
@@ -60,13 +74,14 @@ export default async function getPostTypeArchive(
   }
 
   // Execute query.
-  response.posts = await apolloClient
+  await apolloClient
     .query({query, variables})
-    .then((posts) => {
+    .then((archive) => {
       const pluralType = postTypes[postType] ?? postType
+      const data = archive?.data?.[pluralType] ?? null
 
       // Set error props if data not found.
-      if (!posts?.data?.[pluralType]?.edges) {
+      if (!data?.edges || !data?.pageInfo) {
         response.error = true
         response.errorMessage = `An error occurred while trying to retrieve data for ${pluralType} archive.`
 
@@ -74,13 +89,14 @@ export default async function getPostTypeArchive(
       }
 
       // Flatten posts array to include inner node post data.
-      return posts.data[pluralType].edges.map((post) => post.node)
+      response.posts = data.edges.map((post) => post.node)
+
+      // Extract pagination data.
+      response.pagination = data.pageInfo
     })
     .catch((error) => {
       response.error = true
       response.errorMessage = error.message
-
-      return null
     })
 
   return response

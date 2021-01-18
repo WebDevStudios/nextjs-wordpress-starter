@@ -1,0 +1,20 @@
+.form {
+  @apply bg-white text-black;
+
+  padding: 1em;
+
+  & .fields {
+    margin-bottom: 1rem;
+  }
+
+  & .error {
+    color: red;
+  }
+
+  & input {
+    @apply block relative;
+
+    color: black;
+    outline: 1px solid black;
+  }
+}
