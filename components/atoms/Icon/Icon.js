@@ -3,10 +3,6 @@ import React from 'react'
 import tailwindConfig from '../../../tailwind.config.js'
 import {icons} from './icons'
 
-const iconNames = Object.keys(icons)
-
-console.log(iconNames)
-
 /**
  * Convert icon size to px taking rem into account.
  *
