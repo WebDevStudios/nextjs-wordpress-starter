@@ -4,7 +4,20 @@ import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import {useState} from 'react'
+import styles from './GravityForm.module.css'
+import cn from 'classnames'
 
+/**
+ * Render the GravityForm component.
+ *
+ * @param {object} props                   The GravityForm block attributes as props.
+ * @param {object} props.formData          GravityForm form data.
+ * @param {string} props.formData.cssClass GravityForm form classname.
+ * @param {object} props.formData.fields   GravityForm form fields.
+ * @param {number} props.formData.formId   GravityForm form id.
+ * @param {string} props.formData.title    GravityForm form title.
+ * @return {Element}                       The GravityForm component.
+ */
 export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
@@ -16,7 +29,7 @@ export default function GravityForm({
    * Map field GravityForm ids and defaults to Object.
    *
    * @param {Array} fields Array of fields.
-   * @returns {Object} default field values.
+   * @return {object}      Default field values.
    */
   function getFieldDefaults(fields) {
     const defaults = {}
@@ -43,12 +56,12 @@ export default function GravityForm({
 
   return (
     <Form
-      className={cssClass}
+      className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
-      title={title}
       validationSchema={validationSchema}
     >
+      {title && <h2>{title}</h2>}
       {fieldData && (
         <Fields fields={fieldData} setFormValidation={setFormValidation} />
       )}

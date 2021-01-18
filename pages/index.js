@@ -1,18 +1,18 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
-import PropTypes from 'prop-types'
 import Page from './[...slug]'
 
 // Define route post type.
 const postType = 'page'
 
 /**
- * The HomePage component displays the home page via dynamic routing.
+ * Render the HomePage component.
  *
  * @author WebDevStudios
- * @param  {Object} [props] Properties passed to the component.
- * @return {Element}        Element to render.
+ * @param {object} props      The component attributes as props.
+ * @param {object} props.post Post data from WordPress.
+ * @return {Element}          The HomePage component.
  */
 export default function HomePage({post}) {
   // Display dynamic page data if homepage retrieved from WP.
@@ -54,15 +54,9 @@ export default function HomePage({post}) {
 /**
  * Get post static props.
  *
- * @param  {Object}  context             Context for current post.
- * @param  {boolean} context.preview     Whether requesting preview of post.
- * @param  {Object}  context.previewData Post preview data.
- * @return {Object}                      Post props.
+ * @author WebDevStudios
+ * @return {object} Post props.
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, postType)
-}
-
-HomePage.propTypes = {
-  post: PropTypes.object
 }

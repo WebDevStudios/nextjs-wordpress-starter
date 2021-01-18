@@ -1,41 +1,61 @@
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
-import * as Yup from 'yup'
+import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchemaFactory'
+import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFactory'
 
-// TODO Refactor this file for scaling purposes.
+/**
+ * Match field type with Yup schema object.
+ *
+ * Match GravityForm field to Yup API property.
+ *
+ * @author WebDevStudios
+ * @see https://github.com/jquense/yup#api
+ * @param {object} fieldData GravityForm field props.
+ * @return {object}          Schema validation for field.
+ */
+function getValidationSchemaByType(fieldData) {
+  let schemaGetter = null
+
+  switch (fieldData?.type) {
+    case 'checkbox':
+      schemaGetter = new ArraySchemaFactory(fieldData).schema
+      break
+
+    case 'email':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'phone':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'text':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'select':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    case 'website':
+      schemaGetter = new StringSchemaFactory(fieldData).schema
+      break
+
+    default:
+      return
+  }
+
+  return schemaGetter
+}
 
 /**
  * Map props to validation schemas.
  *
- * @param {Object} fieldData GravityForm field props.
+ * @author WebDevStudios
+ * @param {object} fieldData GravityForm field props.
+ * @return {object}          Schema validation for field.
  */
 export default function getGfFieldValidationSchema(fieldData) {
-  const validationTypes = {
-    text: 'string'
-  }
-
-  const type = validationTypes?.[fieldData?.type]
-
-  if (!type) {
-    return
-  }
-
-  const yupType = Yup[type]()
-
-  /**
-   * Conditionally concat Yup validations.
-   */
-  const validationSchema = yupType
-    .concat(
-      fieldData?.maxLength
-        ? yupType.max(
-            fieldData.maxLength,
-            `Must be ${fieldData.maxLength} characters or less`
-          )
-        : null
-    )
-    .concat(fieldData?.isRequired ? yupType.required('Required!') : null)
-
   return {
-    [getGfFieldId(fieldData.id)]: validationSchema
+    [getGfFieldId(fieldData.id)]: getValidationSchemaByType(fieldData)
   }
 }

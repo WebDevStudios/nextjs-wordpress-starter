@@ -6,8 +6,8 @@ import {initializeWpApollo} from '../connector'
  * Retrieve static paths by post type.
  *
  * @author WebDevStudios
- * @param  {string} postType WP post type.
- * @return {Object}          Post type paths.
+ * @param {string} postType WP post type.
+ * @return {object}         Post type paths.
  */
 export default async function getPostTypeStaticPaths(postType) {
   if (!postType || !isValidPostType(postType)) {
