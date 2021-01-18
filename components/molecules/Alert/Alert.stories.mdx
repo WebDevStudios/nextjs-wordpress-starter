@@ -1,24 +1,14 @@
 import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
-import {Info, Warning} from './'
+import Alert from './'
 
-<Meta title="Components/Molecules/Alert" component={Info} />
+<Meta title="Components/Molecules/Alert" component={Alert} />
 
-# Info
+# Alert
 
-Use this component to display an informational alert.
-
-<Canvas>
-  <Story name="Info">
-    <Info>This is an Info Alert</Info>
-  </Story>
-</Canvas>
-
-# Warning
-
-Use this component to display an warning alert.
+Use this to alert the user of an event.
 
 <Canvas>
-  <Story name="Warning">
-    <Warning>This is a Warning Alert</Warning>
+  <Story name="Alert">
+    <Alert icon="checkmarkCircle" body="This is an alert." />
   </Story>
 </Canvas>

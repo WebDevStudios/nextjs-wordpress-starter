@@ -1,0 +1,7 @@
+.alert {
+  @apply flex;
+
+  & .icon {
+    @apply mr-24;
+  }
+}
