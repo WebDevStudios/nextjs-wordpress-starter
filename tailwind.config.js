@@ -17,8 +17,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Libre Franklin', 'sans-serif'],
-      serif: ['Libre Baskerville', 'serif']
+      primary: ['Oxygen', 'sans-serif'],
+      secondary: ['Inter', 'sans-serif']
     },
     fontSize: {
       'root-em': '16px',
