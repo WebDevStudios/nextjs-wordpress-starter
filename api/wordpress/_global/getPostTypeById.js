@@ -64,8 +64,8 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Execute query.
   response.post = await apolloClient
     .query({query, variables: {id, idType}})
-    .then((response) => {
-      const {homepageSettings, siteSeo, ...postData} = response.data
+    .then((res) => {
+      const {homepageSettings, siteSeo, ...postData} = res.data
 
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
