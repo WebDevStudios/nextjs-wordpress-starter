@@ -12,7 +12,7 @@ import styles from './Alert.module.css'
  * @param {string} props.className Optional classNames.
  * @param {string} props.icon      Icon to use.
  * @param {string} props.type      The type of alert.
- * @return  {Element}              The Alert component.
+ * @return {Element}               The Alert component.
  */
 export default function Alert({body, className, icon, type}) {
   return (

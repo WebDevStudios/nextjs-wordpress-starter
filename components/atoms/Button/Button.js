@@ -13,7 +13,7 @@ import styles from './Button.module.css'
  * @param {boolean} props.iconOnly     Whether this button is an icon only.
  * @param {string}  props.iconPosition Position to render the icon.
  * @param {string}  props.text         Button text or aria-label.
- * @return {Element}               The inside of the Button component.
+ * @return {Element}                   The inside of the Button component.
  */
 function ButtonInner({icon, iconOnly, iconPosition, text}) {
   return (
@@ -52,7 +52,7 @@ ButtonInner.propTypes = {
  * @param {string}   props.type         Button type.
  * @param {string}   props.url          Button link url.
  * @param {boolean}  props.urlExternal  Whether the url on this button links to an external site.
- * @return {Element}                  The button component.
+ * @return {Element}                    The button component.
  */
 export default function Button({
   attributes,

@@ -13,7 +13,7 @@ import styles from './Hero.module.css'
  * @param {object} props.cta             Object with text and url props for the CTA button.
  * @param {string} props.subtitle        Text for the subtitle.
  * @param {string} props.title           Text for the title.
- * @return  {Element}                    The Hero component.
+ * @return {Element}                     The Hero component.
  */
 export default function Hero({backgroundImage, body, cta, subtitle, title}) {
   return (
