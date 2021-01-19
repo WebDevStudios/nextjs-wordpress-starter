@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import {MenuContext} from '@/components/common/MenuProvider'
-import config from '@/functions/config'
 import cn from 'classnames'
 import Link from 'next/link'
 import {useContext} from 'react'
@@ -12,11 +12,12 @@ import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
  * Render the Footer component.
  *
  * @author WebDevStudios
- * @param {object} props        The component attributes as props.
- * @param {any}    props.social Yoast SEO social media data.
- * @return {Element}            The Footer component.
+ * @param {object} props           The component attributes as props.
+ * @param {object} props.social    Yoast SEO social media data.
+ * @param {string} props.siteTitle Yoast SEO site title.
+ * @return {Element}               The Footer component.
  */
-export default function Footer({social}) {
+export default function Footer({social, siteTitle}) {
   const {menus} = useContext(MenuContext)
   return (
     <footer className={styles.footer}>
@@ -39,7 +40,7 @@ export default function Footer({social}) {
       )}
 
       <div className={cn('container', styles.copyright)}>
-        &copy; {new Date().getFullYear()} {config.siteName} by {config.author}
+        &copy; {new Date().getFullYear()} {siteTitle}
         {!!social?.facebook && (
           <>
             {' '}
@@ -118,5 +119,6 @@ export default function Footer({social}) {
 }
 
 Footer.propTypes = {
-  ...seoSocialPropTypes
+  ...seoSocialPropTypes,
+  siteTitle: PropTypes.string
 }
