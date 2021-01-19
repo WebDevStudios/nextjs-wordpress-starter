@@ -1,6 +1,7 @@
 import {gql} from '@apollo/client'
 import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
+import archivePageInfo from '../_partials/archivePageInfo'
 
 // Fragment: retrieve archive post fields.
 const archivePostFragment = gql`
@@ -29,6 +30,7 @@ const queryPostsArchive = gql`
       before: $before
       where: {orderby: {field: $orderBy, order: $order}}
     ) {
+      ${archivePageInfo}
       edges {
         node {
           ...ArchivePostFields

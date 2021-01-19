@@ -1,0 +1,5 @@
+.select {
+  & select {
+    @apply block border;
+  }
+}

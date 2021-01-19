@@ -3,21 +3,33 @@ import {initializeWpApollo} from '../connector'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
 import formatBlockData from '@/functions/formatBlockData'
+import queryEventById from '../events/queryEventById'
+import queryCareerById from '../careers/queryCareerById'
+import queryServiceById from '../services/queryServiceById'
+import queryTeamById from '../teams/queryTeamById'
+import queryPortfolioById from '../portfolios/queryPortfolioById'
+import queryTestimonialById from '../testimonials/queryTestimonialById'
 
 /**
  * Retrieve single post by specified identifier.
  *
  * @author WebDevStudios
- * @param  {string}        postType WP post type.
- * @param  {Number|string} id       Post identifier.
- * @param  {string}        idType   Type of ID.
- * @return {Object}                 Object containing Apollo client instance and post data or error object.
+ * @param {string}          postType WP post type.
+ * @param {number | string} id       Post identifier.
+ * @param {string}          idType   Type of ID.
+ * @return {object}                  Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Define single post query based on post type.
   const postTypeQuery = {
+    career: queryCareerById,
+    event: queryEventById,
     page: queryPageById,
-    post: queryPostById
+    portfolio: queryPortfolioById,
+    post: queryPostById,
+    service: queryServiceById,
+    team: queryTeamById,
+    testimonial: queryTestimonialById
   }
 
   // Check if post type is hierarchical.
