@@ -56,7 +56,7 @@ export default async function getPostTypeStaticProps(
   const props = {...postData, error}
 
   // Custom handling for homepage.
-  if (error) {
+  if ('/' === slug && error) {
     // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
