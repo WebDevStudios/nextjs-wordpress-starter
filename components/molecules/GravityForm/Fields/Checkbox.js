@@ -12,7 +12,6 @@ import * as Input from '@/components/atoms/Inputs'
  * @param {Array}         props.inputs      Array of checkbox field input data.
  * @param {string|number} props.id          GravityForm field id.
  * @param {string}        props.label       GravityForm field label.
- * @param {string}        props.size        GravityForm field size.
  * @param {boolean}       props.visibility  GravityForm field visibility.
  * @return {Element}                        The Checkbox component.
  */
@@ -22,24 +21,19 @@ export default function Checkbox({
   id,
   inputs,
   label,
-  size,
   visibility
 }) {
   const fieldId = getGfFieldId(id)
   const isHiddenClass = getGfHiddenClassName(visibility)
 
   return (
-    <div
+    <Input.CheckboxGroup
       className={cn(className, isHiddenClass) || null}
-      field-size={size && `size-${size}`}
-    >
-      <Input.CheckboxGroup
-        checkboxes={inputs}
-        description={description}
-        id={fieldId}
-        label={label}
-      />
-    </div>
+      checkboxes={inputs}
+      description={description}
+      id={fieldId}
+      label={label}
+    />
   )
 }
 
@@ -49,6 +43,5 @@ Checkbox.propTypes = {
   id: PropTypes.number.isRequired,
   inputs: PropTypes.arrayOf(PropTypes.object),
   label: PropTypes.string,
-  size: PropTypes.string,
   visibility: PropTypes.string
 }
