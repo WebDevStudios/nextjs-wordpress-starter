@@ -3,10 +3,6 @@
 
   padding: 1em;
 
-  & .fields {
-    margin-bottom: 1rem;
-  }
-
   & label {
     @apply font-semibold;
 
