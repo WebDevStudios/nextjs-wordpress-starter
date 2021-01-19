@@ -5,7 +5,7 @@ import * as Yup from 'yup'
  *
  * @author WebDevStudios
  * @see https://github.com/jquense/yup#array
- * @return {Object} Yup validationSchema Object.
+ * @return {object} Yup validationSchema Object.
  */
 export default class ArraySchemaFactory {
   /**
@@ -14,7 +14,7 @@ export default class ArraySchemaFactory {
    * Note: wp-graphql-gravity-forms plugin may need to be replaced.
    *
    * @see https://github.com/harness-software/wp-graphql-gravity-forms
-   * @param {Object} fieldData from GravityForm GraphQL data Object.
+   * @param {object} fieldData from GravityForm GraphQL data Object.
    */
   constructor(fieldData) {
     this.fieldData = fieldData
@@ -26,7 +26,7 @@ export default class ArraySchemaFactory {
    * Combine multiple schemas into one.
    *
    * @see https://github.com/jquense/yup#mixedconcatschema-schema-schema
-   * @return {Object} Combined Yup validationSchema Object.
+   * @return {object} Combined Yup validationSchema Object.
    */
   get schema() {
     return Yup.array().concat(this.getMinLengthSchema())
@@ -36,7 +36,7 @@ export default class ArraySchemaFactory {
    * Set a minimum length limit for the array.
    *
    * @see https://github.com/jquense/yup#arrayminlimit-number--ref-message-string--function-schema
-   * @return {Object} Yup validationSchema Object.
+   * @return {object} Yup validationSchema Object.
    */
   getMinLengthSchema() {
     if (!this.fieldData?.isRequired) {

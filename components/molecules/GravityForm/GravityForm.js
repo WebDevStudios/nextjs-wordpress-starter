@@ -59,9 +59,9 @@ export default function GravityForm({
       className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
-      title={title}
       validationSchema={validationSchema}
     >
+      {title && <h2>{title}</h2>}
       {fieldData && (
         <Fields fields={fieldData} setFormValidation={setFormValidation} />
       )}

@@ -4,14 +4,22 @@ import styles from './Form.module.css'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
-// TODO Update form title with dynamic heading tag.
-
+/**
+ * Render Form component.
+ *
+ * @param {object}        props                  The component attributes as props.
+ * @param {Element}       props.children         Form children elements.
+ * @param {string}        props.className        Form wrapper class.
+ * @param {object}        props.formDefaults     Formik default data.
+ * @param {string|number} props.id               Form id.
+ * @param {object}        props.validationSchema Yup validation schema object.
+ * @return {Element}                             The Form component.
+ */
 export default function Form({
-  className,
   children,
-  id,
+  className,
   formDefaults,
-  title,
+  id,
   validationSchema
 }) {
   return (
@@ -26,7 +34,6 @@ export default function Form({
       }}
     >
       <FormikForm id={id} className={cn(styles.form, className)}>
-        {title && <h1 className={styles.title}>{title}</h1>}
         {children}
         <button type="submit">Submit</button>
       </FormikForm>
@@ -35,11 +42,10 @@ export default function Form({
 }
 
 Form.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.object,
-  id: PropTypes.string,
+  className: PropTypes.string,
   formDefaults: PropTypes.object,
-  title: PropTypes.string,
+  id: PropTypes.string,
   validationSchema: PropTypes.object
 }
 
