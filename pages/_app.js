@@ -49,6 +49,7 @@ export default function App({Component, pageProps}) {
       seo: {
         ...passThruProps?.post?.seo,
         siteTitle: defaultSeoData?.openGraph?.siteName,
+        siteDescription: defaultSeoData?.description,
         social
       }
     }
