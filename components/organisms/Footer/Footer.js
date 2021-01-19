@@ -1,6 +1,12 @@
+import {MenuContext} from '@/components/common/MenuProvider'
 import config from '@/functions/config'
+import cn from 'classnames'
 import Link from 'next/link'
+import {useContext} from 'react'
+import styles from './Footer.module.css'
 import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
+
+// TODO: Create Storybook for this component.
 
 /**
  * Render the Footer component.
@@ -10,12 +16,30 @@ import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
  * @param {any}    props.social Yoast SEO social media data.
  * @return {Element}            The Footer component.
  */
-export default function Footer({social}) {
+export default function Footer(({social})) {
+  const {menus} = useContext(MenuContext)
   return (
-    <footer>
-      <div className="container p-4 lg:px-0 text-center text-sm">
-        &copy; {new Date().getFullYear()} {config.siteName} by {config.author}
-        {!!social?.facebook && (
+    <footer className={styles.footer}>
+      {!!menus?.footer_menu && (
+        <nav className={cn('container', styles.footerMenu)}>
+          <ul>
+            {menus?.footer_menu.map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link href={item.path}>
+                    <a target={item.target ? item.target : '_self'}>
+                      {item.label}
+                    </a>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      )}
+
+      <div className={cn('container', styles.copyright)}>
+        &copy; {new Date().getFullYear()} {config.siteName} by {config.author}{!!social?.facebook && (
           <>
             {' '}
             &middot;{' '}

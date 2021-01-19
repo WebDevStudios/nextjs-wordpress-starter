@@ -2,6 +2,17 @@ import PropTypes from 'prop-types'
 import {ErrorMessage} from 'formik'
 import Checkbox from '@/components/atoms/Inputs/Checkbox'
 
+/**
+ * Render CheckboxGroup component.
+ *
+ * @param {object}        props             CheckboxGroup props.
+ * @param {Array}         props.checkboxes  Array of checkbox data objects.
+ * @param {string}        props.className   CheckboxGroup wrapper className.
+ * @param {string|number} props.id          CheckboxGroup id.
+ * @param {string}        props.label       CheckboxGroup input label.
+ * @param {string}        props.description CheckboxGroup input name.
+ * @return {Element}                        The CheckboxGroup component.
+ */
 export default function CheckboxGroup({
   checkboxes,
   className,

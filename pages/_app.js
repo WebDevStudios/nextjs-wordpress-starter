@@ -6,6 +6,7 @@ import Error from 'next/error'
 import {useState} from 'react'
 import PropTypes from 'prop-types'
 import AlgoliaProvider from '@/components/common/AlgoliaProvider'
+import MenuProvider from '@/components/common/MenuProvider'
 
 /**
  * Render the App component.
@@ -52,17 +53,24 @@ export default function App({Component, pageProps}) {
     }
   }
 
+  // Initialize state for Menu context provider.
+  const [navMenus] = useState({
+    menus: pageProps?.menus
+  })
+
   return (
     <ApolloProvider client={apolloClient}>
       <AlgoliaProvider value={algolia}>
-        {error ? (
-          <Error statusCode={500} title={errorMessage} />
-        ) : (
-          <>
-            {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
-            <Component {...componentProps} />
-          </>
-        )}
+        <MenuProvider value={navMenus}>
+          {error ? (
+            <Error statusCode={500} title={errorMessage} />
+          ) : (
+            <>
+              {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+              <Component {...componentProps} />
+            </>
+          )}
+        </MenuProvider>
       </AlgoliaProvider>
     </ApolloProvider>
   )
