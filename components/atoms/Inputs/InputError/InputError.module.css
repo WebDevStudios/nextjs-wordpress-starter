@@ -1,0 +1,5 @@
+.inputError {
+  @apply inline-block;
+
+  color: #df1642;
+}
