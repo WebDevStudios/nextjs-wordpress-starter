@@ -17,7 +17,7 @@ export default function formatDefaultSeoData(seoData) {
       type: 'website',
       locale: 'en_US',
       url: siteSeo?.schema?.siteUrl ?? '',
-      site_name: siteSeo?.schema?.siteName ?? '',
+      siteName: siteSeo?.schema?.siteName ?? '',
       images: [
         {
           url: siteSeo?.openGraph?.defaultImage?.sourceUrl ?? '',
