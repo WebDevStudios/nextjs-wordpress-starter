@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {Field, ErrorMessage} from 'formik'
+import {Field} from 'formik'
+import InputError from '@/components/atoms/Inputs/InputError'
 
 /**
  * Render the Text component.
@@ -33,7 +34,7 @@ export default function Text({
         type={type}
       />
       {description && <p>{description}</p>}
-      <ErrorMessage name={id} />
+      <InputError name={id} />
     </div>
   )
 }
