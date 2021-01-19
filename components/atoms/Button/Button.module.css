@@ -1,0 +1,65 @@
+.button {
+  @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase font-secondary;
+
+  &:hover,
+  &:focus,
+  &:active:not([disabled]) {
+    @apply no-underline;
+  }
+
+  /* SIZES */
+  &.lg,
+  &.md,
+  &.sm {
+    & svg + span {
+      @apply ml-12;
+    }
+
+    & span + svg {
+      @apply ml-12;
+    }
+  }
+
+  &.lg {
+    @apply px-16 py-12 text-h5;
+
+    line-height: 1.5625rem;
+  }
+
+  &.md {
+    @apply px-16 py-12 text-sm;
+
+    line-height: 1.25rem;
+  }
+
+  &.sm {
+    @apply px-16 py-8 text-caption;
+
+    line-height: 1.0625rem;
+  }
+
+  &.fluid {
+    @apply block w-full text-center;
+  }
+
+  /* TYPES */
+  &.primary {
+    @apply bg-primary text-white border-transparent;
+
+    &.disabled {
+      @apply opacity-50;
+    }
+  }
+
+  &.secondary {
+    @apply bg-transparent text-primary border-primary;
+
+    &.disabled {
+      @apply opacity-50;
+    }
+  }
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
+}
