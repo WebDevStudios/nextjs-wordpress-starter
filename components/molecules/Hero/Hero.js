@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button'
 import PropTypes from 'prop-types'
 import React from 'react'
 import tailwindConfig from '../../../tailwind.config'
@@ -29,6 +30,17 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <h1 className={styles.title}>{title}</h1>
         {body && <p className={styles.body}>{body}</p>}
+        {cta && (
+          <Button
+            className={styles.button}
+            url={cta.url ? cta.url : null}
+            icon={cta.icon ? cta.icon : null}
+            text={cta.text ? cta.text : null}
+            type="primary"
+            iconPosition="right"
+            size="md"
+          />
+        )}
       </div>
     </section>
   )
@@ -38,6 +50,7 @@ Hero.propTypes = {
   backgroundImage: PropTypes.string,
   body: PropTypes.string,
   cta: PropTypes.shape({
+    icon: PropTypes.string,
     text: PropTypes.string,
     url: PropTypes.string
   }),

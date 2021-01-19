@@ -21,5 +21,9 @@
     & .body {
       @apply text-sm;
     }
+
+    & .body + .button {
+      @apply mt-16;
+    }
   }
 }
