@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import {Field} from 'formik'
 import InputError from '@/components/atoms/Inputs/InputError'
+import styles from './Text.module.css'
+import cn from 'classnames'
 
 /**
  * Render the Text component.
@@ -24,7 +26,7 @@ export default function Text({
   type
 }) {
   return (
-    <div className={className}>
+    <div className={cn(styles.text, className)}>
       {label && (
         <label htmlFor={id} required={isRequired}>
           {label}
