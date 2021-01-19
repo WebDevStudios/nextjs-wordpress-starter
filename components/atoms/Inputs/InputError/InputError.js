@@ -8,10 +8,10 @@ import {ErrorMessage} from 'formik'
  * @param {string|number} props.name Input id.
  * @return {Element}                 The InputError component.
  */
-export default function Error({name}) {
+export default function InputError({name}) {
   return <ErrorMessage name={name} />
 }
 
-Error.propTypes = {
+InputError.propTypes = {
   name: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
