@@ -7,12 +7,15 @@
     margin-bottom: 1rem;
   }
 
-  /* Asterisk on required labels */
-  & label[required] {
-    &::after {
-      color: red;
-      content: '*';
-      display: inline-block;
+  & label {
+    @apply font-semibold;
+
+    &[required] {
+      &::after {
+        color: red;
+        content: '*';
+        display: inline-block;
+      }
     }
   }
 
