@@ -61,6 +61,9 @@ module.exports = {
       76: '4.75rem',
       80: '5rem'
     },
+    borderWidth: {
+      DEFAULT: '0.125rem'
+    },
     borderRadius: {
       none: '0',
       DEFAULT: '0.25rem',
@@ -158,6 +161,7 @@ module.exports = {
         10: 'rgba(0,0,0,0.1)',
         5: 'rgba(0,0,0,0.05)'
       },
+      transparent: 'rgba(0,0,0,0)',
       brand: {
         android: '#A4C639',
         behance: '#1769FF',
