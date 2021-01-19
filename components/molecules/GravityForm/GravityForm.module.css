@@ -1,5 +1,5 @@
 .gravityForm {
   & > div {
-    @apply mb-5;
+    @apply mb-8;
   }
 }
