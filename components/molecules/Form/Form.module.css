@@ -7,8 +7,13 @@
     margin-bottom: 1rem;
   }
 
-  & .error {
-    color: red;
+  /* Asterisk on required labels */
+  & label[required] {
+    &::after {
+      color: red;
+      content: '*';
+      display: inline-block;
+    }
   }
 
   & input {
