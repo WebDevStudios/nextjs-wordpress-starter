@@ -64,21 +64,23 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   // Execute query.
   response.post = await apolloClient
     .query({query, variables: {id, idType}})
-    .then((post) => {
-      const {homepageSettings, siteSeo, ...postData} = post.data
+    .then((response) => {
+      const {homepageSettings, siteSeo, ...postData} = response.data
 
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
+      const post = postData?.[postType]
+
       // Set error props if data not found.
-      if (!postData?.[postType]) {
+      if (!post) {
         response.error = true
         response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
 
         return null
       }
 
-      return postData[postType]
+      return post
     })
     .then(async (post) => {
       // Add slug/ID to post.
