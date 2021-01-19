@@ -16,7 +16,7 @@ import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
  * @param {any}    props.social Yoast SEO social media data.
  * @return {Element}            The Footer component.
  */
-export default function Footer(({social})) {
+export default function Footer({social}) {
   const {menus} = useContext(MenuContext)
   return (
     <footer className={styles.footer}>
@@ -39,7 +39,8 @@ export default function Footer(({social})) {
       )}
 
       <div className={cn('container', styles.copyright)}>
-        &copy; {new Date().getFullYear()} {config.siteName} by {config.author}{!!social?.facebook && (
+        &copy; {new Date().getFullYear()} {config.siteName} by {config.author}
+        {!!social?.facebook && (
           <>
             {' '}
             &middot;{' '}
