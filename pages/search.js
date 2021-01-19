@@ -3,15 +3,17 @@ import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
 import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
-import config from '@/functions/config'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 /**
  * Render the Search component.
  *
  * @author WebDevStudios
- * @return {Element} The Search component.
+ * @param {object} props      The component attributes as props.
+ * @param {object} props.post Post data from WordPress.
+ * @return {Element}          The Search component.
  */
-export default function Search() {
+export default function Search({post}) {
   const router = useRouter()
   const path = router?.asPath // URL from router.
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
@@ -21,7 +23,7 @@ export default function Search() {
   }
 
   return (
-    <Layout title={config.siteTitle} description={config.siteDescription}>
+    <Layout seo={{...post?.seo}}>
       <AlgoliaResults config={algoliaConfig} isSearch={true} />
     </Layout>
   )
@@ -35,4 +37,8 @@ export default function Search() {
  */
 export async function getStaticProps() {
   return await getPostTypeStaticProps({slug: '/'}, 'search')
+}
+
+Search.propTypes = {
+  ...getPagePropTypes('page')
 }
