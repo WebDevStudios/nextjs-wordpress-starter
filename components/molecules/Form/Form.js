@@ -42,7 +42,7 @@ export default function Form({
 }
 
 Form.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,
   className: PropTypes.string,
   formDefaults: PropTypes.object,
   id: PropTypes.string,
