@@ -22,19 +22,19 @@ module.exports = {
     },
     fontSize: {
       'root-em': '16px',
-      uber: '7rem',
-      hero: '5rem',
-      body: '1.125rem',
-      sm: '1rem',
-      caption: '0.875rem',
-      xs: '0.75rem',
-      xxs: '0.625rem',
-      h1: '3rem',
-      h2: '2.25rem',
-      h3: '1.875rem',
-      h4: '1.625rem',
-      h5: '1.25rem',
-      lead: '1.5rem'
+      uber: ['7rem', '7.5rem'],
+      hero: ['5rem', '6rem'],
+      body: ['1.125rem', '2rem'],
+      sm: ['1rem', '1.75rem'],
+      caption: ['0.875rem', '1.25rem'],
+      xs: ['0.75rem', '1.25rem'],
+      xxs: ['0.625rem', '1rem'],
+      h1: ['3rem', '3.75rem'],
+      h2: ['2.25rem', '3.25rem'],
+      h3: ['1.875rem', '3rem'],
+      h4: ['1.625rem', '2.5rem'],
+      h5: ['1.25rem', '2rem'],
+      lead: ['1.5rem', '2.25rem']
     },
     spacing: {
       // The px values for spacing are equivalent to their keys.
@@ -60,6 +60,13 @@ module.exports = {
       72: '4.5rem',
       76: '4.75rem',
       80: '5rem'
+    },
+    borderRadius: {
+      none: '0',
+      DEFAULT: '0.25rem',
+      larger: '0.375rem',
+      largest: '0.5rem',
+      full: '9999px'
     },
     colors: {
       primary: {
