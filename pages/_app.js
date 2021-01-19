@@ -38,7 +38,7 @@ export default function App({Component, pageProps}) {
 
   // Extract default SEO props from page props.
   const {
-    defaultSeo: {social, ...defaultSeoData},
+    defaultSeo: {social, ...defaultSeoData} = {},
     ...passThruProps
   } = pageProps
 
