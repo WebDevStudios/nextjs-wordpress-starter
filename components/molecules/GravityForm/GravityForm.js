@@ -61,7 +61,7 @@ export default function GravityForm({
       id={formId && `gform-${formId}`}
       validationSchema={validationSchema}
     >
-      {title && <h2>{title}</h2>}
+      {title && <h2 className={styles.title}>{title}</h2>}
       {fieldData && (
         <Fields fields={fieldData} setFormValidation={setFormValidation} />
       )}
