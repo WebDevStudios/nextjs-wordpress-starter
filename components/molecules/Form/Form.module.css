@@ -3,6 +3,10 @@
 
   padding: 1em;
 
+  & > div {
+    @apply mb-5;
+  }
+
   & label {
     @apply font-semibold;
 
