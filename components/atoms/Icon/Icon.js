@@ -6,10 +6,10 @@ import {icons} from './icons'
 /**
  * Convert icon size to px taking rem into account.
  *
- * @author WebDevStudios
  * @param {string} size The icon size.
+ * @return {string} The size in px.
  */
-const sizeToPx = (size) => {
+function sizeToPx(size) {
   const sizeToRem = {
     sm: '1',
     md: '1.25',
