@@ -25,7 +25,11 @@ export default function Text({
 }) {
   return (
     <div className={className}>
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && (
+        <label htmlFor={id} required={isRequired}>
+          {label}
+        </label>
+      )}
       <Field
         aria-required={isRequired}
         id={id}
