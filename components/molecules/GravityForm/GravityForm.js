@@ -51,11 +51,11 @@ export default function GravityForm({
    * @param {Array} fields Array of fields.
    * @return {object}      Default field values.
    */
-  function getFormSettings(fields) {
-    const defaults = {}
+  function getFormFieldDefaults(fields) {
+    const formDefaults = {}
 
     if (!fields || !fields.length) {
-      return defaults
+      return formDefaults
     }
 
     fields.forEach((field) => {
@@ -63,16 +63,16 @@ export default function GravityForm({
         return
       }
 
-      Object.assign(defaults, {
+      Object.assign(formDefaults, {
         [getGfFieldId(field.node.id)]: field.node.defaultValue
       })
     })
 
-    return defaults
+    return formDefaults
   }
 
   // Generate default state based on field ids.
-  const fieldDefaults = getFormSettings(fieldData)
+  const fieldDefaults = getFormFieldDefaults(fieldData)
 
   return (
     <Form
