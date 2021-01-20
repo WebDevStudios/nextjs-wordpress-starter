@@ -1,11 +1,9 @@
-import {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import getGfFieldValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
-import {useState} from 'react'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
 
@@ -23,27 +21,34 @@ import cn from 'classnames'
 export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
-  const [formValidation, setFormValidation] = useState({})
-  const validationSchema = Yup.object(formValidation)
   const fieldData = fields?.edges
 
   /**
-   * Map through fields to setup form validation.
+   * Setup GravityForm validation schema from fields.
    *
-   * Note: Yup form validation cannot be set at the field level
-   * to prevent too many re-renders.
+   * @param {Array} fields Array of fields.
+   * @return {object}      Field validation schema object.
    */
-  useEffect(() => {
+  function getFormFieldValidationSchema(fields) {
     const formValidationSchema = {}
-    fieldData.forEach((field) => {
+
+    if (!fields || !fields.length) {
+      return formValidationSchema
+    }
+
+    fields.forEach((field) => {
+      if (!field.node.id) {
+        return
+      }
+
       Object.assign(
         formValidationSchema,
         getGfFieldValidationSchema(field?.node)
       )
     })
 
-    setFormValidation(formValidationSchema)
-  }, [fieldData, setFormValidation])
+    return formValidationSchema
+  }
 
   /**
    * Map field GravityForm ids and defaults to Object.
@@ -72,6 +77,8 @@ export default function GravityForm({
   }
 
   // Generate default state based on field ids.
+  const fieldValidationSchema = getFormFieldValidationSchema(fieldData)
+  const formValidationSchema = Yup.object(fieldValidationSchema)
   const fieldDefaults = getFormFieldDefaults(fieldData)
 
   return (
@@ -79,12 +86,10 @@ export default function GravityForm({
       className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
-      validationSchema={validationSchema}
+      validationSchema={formValidationSchema}
     >
       {title && <h2 className={styles.title}>{title}</h2>}
-      {fieldData && (
-        <Fields fields={fieldData} setFormValidation={setFormValidation} />
-      )}
+      {fieldData && <Fields fields={fieldData} />}
     </Form>
   )
 }
