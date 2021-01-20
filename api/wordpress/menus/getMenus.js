@@ -17,7 +17,7 @@ export default function getMenus(menus, locations = menuLocations) {
   }
 
   // Filter returned menus by specific menu location.
-  const filteredMenus = filterMenusByLocation(menus?.edges?.nodes, locations)
+  const filteredMenus = filterMenusByLocation(menus?.nodes, locations)
 
   return filteredMenus || []
 }
