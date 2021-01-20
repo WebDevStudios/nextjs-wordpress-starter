@@ -1,36 +1,10 @@
 import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
-import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
+import getGfFormDefaults from '@/functions/gravityForms/getGfFormDefaults'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
-
-/**
- * Map field GravityForm ids and defaults to Object.
- *
- * @param {Array} fields Array of fields.
- * @return {object}      Default field values.
- */
-function getFormFieldDefaults(fields) {
-  const formDefaults = {}
-
-  if (!fields || !fields.length) {
-    return formDefaults
-  }
-
-  fields.forEach((field) => {
-    if (!field.node.id) {
-      return
-    }
-
-    Object.assign(formDefaults, {
-      [getGfFieldId(field.node.id)]: field.node.defaultValue
-    })
-  })
-
-  return formDefaults
-}
 
 /**
  * Render the GravityForm component.
@@ -51,7 +25,7 @@ export default function GravityForm({
   // Generate default state based on field ids.
   const fieldValidationSchema = getGfFormValidationSchema(fieldData)
   const formValidationSchema = fieldValidationSchema
-  const fieldDefaults = getFormFieldDefaults(fieldData)
+  const fieldDefaults = getGfFormDefaults(fieldData)
 
   return (
     <Form
