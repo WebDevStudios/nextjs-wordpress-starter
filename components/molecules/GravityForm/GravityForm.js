@@ -3,33 +3,9 @@ import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
-import getGfFieldValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
+import getGfFieldsValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
-
-/**
- * Setup GravityForm validation schema from fields.
- *
- * @param {Array} fields Array of fields.
- * @return {object}      Field validation schema object.
- */
-function getFormFieldValidationSchema(fields) {
-  const formValidationSchema = {}
-
-  if (!fields || !fields.length) {
-    return formValidationSchema
-  }
-
-  fields.forEach((field) => {
-    if (!field.node.id) {
-      return
-    }
-
-    Object.assign(formValidationSchema, getGfFieldValidationSchema(field?.node))
-  })
-
-  return formValidationSchema
-}
 
 /**
  * Map field GravityForm ids and defaults to Object.
@@ -74,7 +50,7 @@ export default function GravityForm({
   const fieldData = fields?.edges
 
   // Generate default state based on field ids.
-  const fieldValidationSchema = getFormFieldValidationSchema(fieldData)
+  const fieldValidationSchema = getGfFieldsValidationSchema(fieldData)
   const formValidationSchema = Yup.object(fieldValidationSchema)
   const fieldDefaults = getFormFieldDefaults(fieldData)
 
