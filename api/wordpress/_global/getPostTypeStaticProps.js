@@ -22,25 +22,29 @@ export default async function getPostTypeStaticProps(
   // Get WP Nav Menus.
   const menus = await getMenus(config.menuLocations)
 
+  // Set revalidate length (seconds).
+  const revalidate = 60 * 5
+
+  // Set sharedProps.
+  const sharedProps = {
+    menus,
+    algolia: {
+      indexName: algoliaIndexName
+    }
+  }
+
   // Check for dynamic archive display.
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
-
-    // Add WP Nav Menus to archive.
-    archiveData.menus = menus
-
-    // Add Algolia env vars to archive.
-    archiveData.algolia = {
-      indexName: algoliaIndexName
-    }
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
       props: {
         ...archiveData,
+        ...sharedProps,
         archive: true
       },
-      revalidate: 60 * 5
+      revalidate
     })
   }
 
@@ -53,7 +57,11 @@ export default async function getPostTypeStaticProps(
     slug
   )
 
-  const props = {...postData, error}
+  const props = {
+    ...postData,
+    ...sharedProps,
+    error
+  }
 
   // Custom handling for homepage.
   if ('/' === slug && error) {
@@ -62,17 +70,9 @@ export default async function getPostTypeStaticProps(
     props.error = false
   }
 
-  // Set WP Nav Menus.
-  props.menus = menus
-
-  // Add Algolia env vars.
-  props.algolia = {
-    indexName: algoliaIndexName
-  }
-
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
     props,
-    revalidate: 60 * 5
+    revalidate
   })
 }
