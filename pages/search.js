@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
 import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
-import getPagePropTypes from '@/functions/getPagePropTypes'
+import {seoPropTypes} from '@/functions/getPagePropTypes'
 
 /**
  * Render the Search component.
@@ -40,5 +41,7 @@ export async function getStaticProps() {
 }
 
 Search.propTypes = {
-  ...getPagePropTypes('page')
+  post: PropTypes.shape({
+    seo: {...seoPropTypes.seo}
+  })
 }
