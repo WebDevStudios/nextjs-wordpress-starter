@@ -51,6 +51,7 @@ export default function App({Component, pageProps}) {
   // Extract default SEO props from page props.
   const {
     defaultSeo: {social, ...defaultSeoData} = {},
+    menus,
     ...passThruProps
   } = pageProps
 
@@ -69,7 +70,7 @@ export default function App({Component, pageProps}) {
 
   // Initialize state for Menu context provider.
   const [navMenus] = useState({
-    menus: pageProps?.menus
+    menus
   })
 
   return (
