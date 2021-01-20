@@ -41,10 +41,10 @@ function getSelectDefaults(options) {
   /**
    * Get first option with isSelected property.
    */
-  const selectedOption = [].filter((option) => !!option.isSelected).shift()
+  const selectedOption = options.filter((option) => !!option.isSelected).shift()
 
   if (selectedOption) {
-    selectDefault = selectedOption.shift().value
+    selectDefault = selectedOption.value
   }
 
   return selectDefault
