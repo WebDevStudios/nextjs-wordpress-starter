@@ -1,24 +1,46 @@
 import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
-import {Info, Warning} from './'
+import Alert from './'
 
-<Meta title="Design System/Molecules/Alert" component={Info} />
+<Meta title="Components/Molecules/Alert" component={Alert} />
 
-# Info
+# Alert
 
-Use this component to display an informational alert.
+Use this to alert the user of an event.
 
 <Canvas>
-  <Story name="Info">
-    <Info>This is an Info Alert</Info>
+  <Story name="Alert">
+    <Alert body="This is an alert." />
   </Story>
 </Canvas>
 
-# Warning
+## Types
 
-Use this component to display an warning alert.
+Use different alert types depending on the context of the alert.
 
 <Canvas>
-  <Story name="Warning">
-    <Warning>This is a Warning Alert</Warning>
+  <Story name="Types">
+    <Alert className="mb-8" type="default" body="Updates now available!" />
+    <Alert
+      className="mb-8"
+      type="success"
+      icon="checkmarkCircle"
+      body="Your changes have been saved."
+    />
+    <Alert
+      className="mb-8"
+      type="error"
+      icon="eyeOff"
+      body="Oops! Changes were not saved."
+    />
+  </Story>
+</Canvas>
+
+## Icon
+
+Pick any icon from the [icon system](?path=/docs/general-icons--page) to use in your alert.
+
+<Canvas>
+  <Story name="Icon">
+    <Alert icon="shieldOff" body="You are not protected!" type="error" />
   </Story>
 </Canvas>

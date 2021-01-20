@@ -1,0 +1,269 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import DocTable from './DocTable'
+
+import tailwindConfig from '../tailwind.config.js'
+
+export const ColorTableHead = () => {
+  return (
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Class</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+  )
+}
+
+export const ColorTableRow = ({colorClassName, value}) => {
+  return (
+    <tr key={colorClassName}>
+      <td>
+        <div
+          className={`w-80 h-40 rounded border-solid border bg-${colorClassName}`}
+          style={{borderColor: '#d1d1d1'}}
+        />
+      </td>
+      <td>
+        <code>{colorClassName}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  )
+}
+
+<Meta title="Docs/Colors" />
+
+# Primary
+
+Primary colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.primary).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'primary' : `primary-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Secondary
+
+Secondary colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.secondary).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT')
+                ? 'secondary'
+                : `secondary-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Tertiary
+
+Tertiary colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.tertiary).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'tertiary' : `tertiary-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Success
+
+Success colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.success).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'success' : `success-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Warning
+
+Warning colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.warning).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'warning' : `warning-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Error
+
+Error colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.error).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'error' : `error-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Grey
+
+Grey colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.grey).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'grey' : `grey-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# White and White Opacity
+
+White and white opacity shades.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.white).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'white' : `white-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Black and Black Opacity
+
+Black and black opacity shades.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.black).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'black' : `black-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+# Brand
+
+Brand colors.
+
+<DocTable>
+  <>
+    <ColorTableHead />
+    <tbody>
+      {Object.entries(tailwindConfig.theme.colors.brand).map((color, i) => {
+        return (
+          <ColorTableRow
+            key={color[1]}
+            colorClassName={
+              color[0].endsWith('DEFAULT') ? 'brand' : `brand-${color[0]}`
+            }
+            value={color[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocTable>

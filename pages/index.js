@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/molecules/Hero'
@@ -49,6 +50,10 @@ export default function HomePage({post}) {
       </p>
     </Layout>
   )
+}
+
+HomePage.propTypes = {
+  post: PropTypes.object
 }
 
 /**

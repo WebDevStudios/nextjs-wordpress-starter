@@ -1,5 +1,5 @@
 .footer {
-  @apply py-10;
+  @apply py-8;
 
   & .footerMenu {
     & > ul {
