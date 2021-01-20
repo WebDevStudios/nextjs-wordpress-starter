@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
-import {Field, ErrorMessage} from 'formik'
+import {Field} from 'formik'
+import InputError from '@/components/atoms/Inputs/InputError'
+import styles from './Text.module.css'
+import cn from 'classnames'
 
 /**
  * Render the Text component.
@@ -23,8 +26,12 @@ export default function Text({
   type
 }) {
   return (
-    <div className={className}>
-      {label && <label htmlFor={id}>{label}</label>}
+    <div className={cn(styles.text, className)}>
+      {label && (
+        <label htmlFor={id} required={isRequired}>
+          {label}
+        </label>
+      )}
       <Field
         aria-required={isRequired}
         id={id}
@@ -33,7 +40,7 @@ export default function Text({
         type={type}
       />
       {description && <p>{description}</p>}
-      <ErrorMessage name={id} />
+      <InputError name={id} />
     </div>
   )
 }

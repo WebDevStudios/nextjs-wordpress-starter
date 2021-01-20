@@ -3,12 +3,20 @@
 
   padding: 1em;
 
-  & .fields {
-    margin-bottom: 1rem;
+  & > div {
+    @apply mb-4;
   }
 
-  & .error {
-    color: red;
+  & label {
+    @apply font-semibold;
+
+    &[required] {
+      &::after {
+        color: red;
+        content: '*';
+        display: inline-block;
+      }
+    }
   }
 
   & input {

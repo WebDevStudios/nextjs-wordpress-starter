@@ -19,13 +19,25 @@ function sizeToPx(size) {
   return sizeToRem[size] * parseFloat(tailwindConfig.theme.fontSize['root-em'])
 }
 
+/**
+ * Render the Icon component.
+ *
+ * @param {object}  props            The component attributes as props.
+ * @param {boolean} props.ariaHidden If aria-hidden is true.
+ * @param {string}  props.className  Icon className.
+ * @param {string}  props.icon       Icon svg.
+ * @param {string}  props.size       Icon size.
+ * @param {string}  props.style      Icon style variation.
+ * @param {string}  props.title      Icon title.
+ * @return {Element}                 The Icon component.
+ */
 export default function Icon({
+  ariaHidden,
+  className,
   icon,
   size,
   style,
-  title,
-  className,
-  ariaHidden
+  title
 }) {
   return (
     <svg
@@ -46,8 +58,8 @@ Icon.propTypes = {
   ariaHidden: PropTypes.bool,
   className: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  style: PropTypes.oneOf(['fill', 'line']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  style: PropTypes.oneOf(['fill', 'line']),
   title: PropTypes.string.isRequired
 }
 
