@@ -1,4 +1,4 @@
-import formatHeirarchialMenu from '@/api/wordpress/menus/formatHeirarchialMenu'
+import formatHeirarchialMenu from './formatHeirarchialMenu'
 
 /**
  * Filter menus array by menu location.

@@ -1,4 +1,4 @@
-import filterByLocation from '@/api/wordpress/menus/filterByLocation'
+import filterMenusByLocation from '@/functions/filterMenusByLocation'
 
 // Define default menu locations.
 export const menuLocations = ['primary-menu', 'footer-menu', 'mobile-menu']
@@ -17,7 +17,7 @@ export default async function getMenus(data, locations = menuLocations) {
   }
 
   // Filter returned menus by specific menu location.
-  const filteredMenus = filterByLocation(data?.menus?.nodes, locations)
+  const filteredMenus = filterMenusByLocation(data?.menus?.nodes, locations)
 
   return filteredMenus || []
 }
