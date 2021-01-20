@@ -26,7 +26,7 @@ export default function Select({
 }) {
   return (
     <div className={cn(styles.select, className)}>
-      {label && <label>{label}</label>}
+      {label && <label required={isRequired}>{label}</label>}
       <Field as="select" id={id} name={id} required={isRequired}>
         {!!options?.length > 0 &&
           options.map((option, key) => {
