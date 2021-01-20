@@ -44,12 +44,14 @@ export const postPropTypes = {
   post: PropTypes.shape({
     author: PropTypes.object,
     blocks: PropTypes.array,
+    databaseId: PropTypes.number,
     date: PropTypes.string,
     excerpt: PropTypes.string,
     featuredImage: PropTypes.object,
     ...seoPropTypes,
     slug: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    uri: PropTypes.string
   })
 }
 
