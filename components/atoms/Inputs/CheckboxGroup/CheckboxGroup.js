@@ -11,6 +11,7 @@ import Checkbox from '@/components/atoms/Inputs/Checkbox'
  * @param {string|number} props.id          CheckboxGroup id.
  * @param {string}        props.label       CheckboxGroup input label.
  * @param {string}        props.description CheckboxGroup input name.
+ * @param {boolean}       props.isRequired  If input is required.
  * @return {Element}                        The CheckboxGroup component.
  */
 export default function CheckboxGroup({
@@ -18,7 +19,8 @@ export default function CheckboxGroup({
   className,
   description,
   id: groupId,
-  label
+  label,
+  isRequired
 }) {
   return (
     <div
@@ -27,7 +29,11 @@ export default function CheckboxGroup({
       id={groupId}
       role="group"
     >
-      {label && <label htmlFor={groupId}>{label}</label>}
+      {label && (
+        <label htmlFor={groupId} required={isRequired}>
+          {label}
+        </label>
+      )}
       {description && <p>{description}</p>}
       {!!checkboxes.length > 0 &&
         checkboxes.map((checkbox) => {
