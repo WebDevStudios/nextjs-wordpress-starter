@@ -20,13 +20,16 @@ function sizeToPx(size) {
 }
 
 /**
- * @param props0
- * @param props0.icon
- * @param props0.size
- * @param props0.style
- * @param props0.title
- * @param props0.className
- * @param props0.ariaHidden
+ * Render the Icon component.
+ *
+ * @param {object}  props            props.
+ * @param {boolean} props.ariaHidden If aria-hidden is true.
+ * @param {string}  props.className  Icon className.
+ * @param {string}  props.icon       Icon svg.
+ * @param {string}  props.size       Icon size.
+ * @param {string}  props.style      Icon style variation.
+ * @param {string}  props.title      Icon title.
+ * @return {Element}                 The Icon component.
  */
 export default function Icon({
   ariaHidden,
