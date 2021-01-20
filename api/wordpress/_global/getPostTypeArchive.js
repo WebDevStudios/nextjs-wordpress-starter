@@ -9,6 +9,45 @@ import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
 import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 
+// Define SEO for archives.
+export const archiveSeo = {
+  career: {
+    title: 'Careers',
+    description: '',
+    route: 'careers'
+  },
+  event: {
+    title: 'Events',
+    description: '',
+    route: 'events'
+  },
+  portfolio: {
+    title: 'Portfolio',
+    description: '',
+    route: 'portfolio'
+  },
+  post: {
+    title: 'Blog',
+    description: '',
+    route: 'blog'
+  },
+  service: {
+    title: 'Services',
+    description: '',
+    route: 'service'
+  },
+  team: {
+    title: 'Team Members',
+    description: '',
+    route: 'team'
+  },
+  testimonial: {
+    title: 'Testimonials',
+    description: '',
+    route: 'testimonial'
+  }
+}
+
 /**
  * Retrieve post archive.
  *
@@ -97,14 +136,23 @@ export default async function getPostTypeArchive(
       // Flatten posts array to include inner node post data.
       response.posts = data.edges.map((post) => post.node)
 
-      // Attempt to use posts page for blog, default to front page.
-      const defaultPage =
-        'post' === postType && homepageSettings?.postsPage
-          ? homepageSettings.postsPage
-          : homepageSettings?.frontPage
-
-      // Populate post object.
-      response.post = {...defaultPage}
+      // Attempt to use posts page for blog, default to custom SEO.
+      response.post = {
+        seo:
+          'post' === postType && homepageSettings?.postsPage?.seo
+            ? homepageSettings.postsPage.seo
+            : {
+                title: `${archiveSeo?.[postType]?.title} - ${
+                  response.defaultSeo?.openGraph?.siteName ?? ''
+                }`,
+                metaDesc: archiveSeo?.[postType]?.description,
+                canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
+                  archiveSeo?.[postType]?.route
+                }`,
+                metaRobotsNofollow: 'follow',
+                metaRobotsNoindex: 'index'
+              }
+      }
 
       // Extract pagination data.
       response.pagination = data.pageInfo
