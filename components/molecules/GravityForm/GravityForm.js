@@ -8,6 +8,56 @@ import styles from './GravityForm.module.css'
 import cn from 'classnames'
 
 /**
+ * Setup GravityForm validation schema from fields.
+ *
+ * @param {Array} fields Array of fields.
+ * @return {object}      Field validation schema object.
+ */
+function getFormFieldValidationSchema(fields) {
+  const formValidationSchema = {}
+
+  if (!fields || !fields.length) {
+    return formValidationSchema
+  }
+
+  fields.forEach((field) => {
+    if (!field.node.id) {
+      return
+    }
+
+    Object.assign(formValidationSchema, getGfFieldValidationSchema(field?.node))
+  })
+
+  return formValidationSchema
+}
+
+/**
+ * Map field GravityForm ids and defaults to Object.
+ *
+ * @param {Array} fields Array of fields.
+ * @return {object}      Default field values.
+ */
+function getFormFieldDefaults(fields) {
+  const formDefaults = {}
+
+  if (!fields || !fields.length) {
+    return formDefaults
+  }
+
+  fields.forEach((field) => {
+    if (!field.node.id) {
+      return
+    }
+
+    Object.assign(formDefaults, {
+      [getGfFieldId(field.node.id)]: field.node.defaultValue
+    })
+  })
+
+  return formDefaults
+}
+
+/**
  * Render the GravityForm component.
  *
  * @param {object} props                   The GravityForm block attributes as props.
@@ -22,59 +72,6 @@ export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
   const fieldData = fields?.edges
-
-  /**
-   * Setup GravityForm validation schema from fields.
-   *
-   * @param {Array} fields Array of fields.
-   * @return {object}      Field validation schema object.
-   */
-  function getFormFieldValidationSchema(fields) {
-    const formValidationSchema = {}
-
-    if (!fields || !fields.length) {
-      return formValidationSchema
-    }
-
-    fields.forEach((field) => {
-      if (!field.node.id) {
-        return
-      }
-
-      Object.assign(
-        formValidationSchema,
-        getGfFieldValidationSchema(field?.node)
-      )
-    })
-
-    return formValidationSchema
-  }
-
-  /**
-   * Map field GravityForm ids and defaults to Object.
-   *
-   * @param {Array} fields Array of fields.
-   * @return {object}      Default field values.
-   */
-  function getFormFieldDefaults(fields) {
-    const formDefaults = {}
-
-    if (!fields || !fields.length) {
-      return formDefaults
-    }
-
-    fields.forEach((field) => {
-      if (!field.node.id) {
-        return
-      }
-
-      Object.assign(formDefaults, {
-        [getGfFieldId(field.node.id)]: field.node.defaultValue
-      })
-    })
-
-    return formDefaults
-  }
 
   // Generate default state based on field ids.
   const fieldValidationSchema = getFormFieldValidationSchema(fieldData)
