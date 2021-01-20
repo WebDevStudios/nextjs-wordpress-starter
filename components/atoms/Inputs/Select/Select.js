@@ -7,7 +7,7 @@ import styles from './Select.module.css'
  * Render the Select component.
  *
  * @author WebDevStudios
- * @param {object}  props             props.
+ * @param {object}  props             The component attributes as props.
  * @param {string}  props.className   Select wrapper className.
  * @param {string}  props.description Select description.
  * @param {string}  props.label       Select input label.
@@ -26,7 +26,7 @@ export default function Select({
 }) {
   return (
     <div className={cn(styles.select, className)}>
-      {label && <label>{label}</label>}
+      {label && <label required={isRequired}>{label}</label>}
       <Field as="select" id={id} name={id} required={isRequired}>
         {!!options?.length > 0 &&
           options.map((option, key) => {
