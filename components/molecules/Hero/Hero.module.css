@@ -1,0 +1,29 @@
+.hero {
+  @apply container px-32 rounded-largest text-white;
+
+  padding-top: 9.125rem;
+  padding-bottom: 9.5rem;
+
+  /* The card background uses css custom properties that are set inline in the component. */
+  /* stylelint-disable-line comment-empty-line-before */ /* prettier-ignore */
+  background: linear-gradient(var(--image-tint-color), var(--image-tint-color)), var(--image-url) center center, var(--image-fallback-color);
+  background-size: cover;
+
+  & .content {
+    & .subtitle {
+      @apply text-h5;
+    }
+
+    & .title {
+      @apply font-secondary text-hero;
+    }
+
+    & .body {
+      @apply text-sm;
+    }
+
+    & .body + .button {
+      @apply mt-16;
+    }
+  }
+}

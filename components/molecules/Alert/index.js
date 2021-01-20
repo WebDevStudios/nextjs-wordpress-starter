@@ -1,1 +1,1 @@
-export {Info, Warning} from './Alert.js'
+export {default} from './Alert.js'

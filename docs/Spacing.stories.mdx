@@ -1,0 +1,62 @@
+import {Meta, Canvas} from '@storybook/addon-docs/blocks'
+import DocsTable from './DocTable'
+
+import tailwindConfig from '../tailwind.config.js'
+
+export const SpacingTableRow = ({spacingClassName, size}) => {
+  return (
+    <tr key={spacingClassName}>
+      <td>
+        <div className={`h-20 w-${spacingClassName} bg-primary`}></div>
+      </td>
+      <td>
+        <code>{spacingClassName}</code>
+      </td>
+      <td>
+        <code>{size}</code>
+      </td>
+      <td>
+        <code>
+          {spacingClassName === 'px' ? '1px' : `${parseFloat(size) * 16}px`}
+        </code>
+      </td>
+    </tr>
+  )
+}
+
+<Meta title="Docs/Spacing" />
+
+# Spacing
+
+The spacing scale is defined in rem which is set to `16px` at the time this page was created.
+
+Values in the scale are listed below, along with each pixel equivalent.
+
+**Note -**
+If the rem value is changed, the calculation on this page will be wrong unless updated.
+
+## Scale
+
+<DocsTable>
+  <>
+    <thead>
+      <tr>
+        <th>Example</th>
+        <th>Class</th>
+        <th>Value</th>
+        <th>Pixels</th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(tailwindConfig.theme.spacing).map((space, i) => {
+        return (
+          <SpacingTableRow
+            key={space[1]}
+            spacingClassName={space[0]}
+            size={space[1]}
+          />
+        )
+      })}
+    </tbody>
+  </>
+</DocsTable>
