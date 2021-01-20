@@ -6,8 +6,12 @@ const seoPostFields = `
     metaDesc
     metaRobotsNofollow
     metaRobotsNoindex
+    opengraphAuthor
+    opengraphModifiedTime
+    opengraphPublishedTime
     opengraphImage {
-      sourceUrl
+      altText
+      sourceUrl(size: THUMBNAIL)
     }
   }
 `

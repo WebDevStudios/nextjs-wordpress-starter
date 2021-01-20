@@ -1,11 +1,11 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import PropTypes from 'prop-types'
+import BlockGravityForm from '@/components/blocks/BlockGravityForm'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 // TODO Remove BlockGravityForm once block support is added.
 // TODO Remove slug based BlockGravityForm from page render.
-import BlockGravityForm from '@/components/blocks/BlockGravityForm'
 
 // Define route post type.
 const postType = 'page'
@@ -20,22 +20,7 @@ const postType = 'page'
  */
 export default function Page({post}) {
   return (
-    <Layout
-      title="Query from Yoast SEO"
-      description="Query from Yoast SEO"
-      noIndex={false} // query from yoast seo
-      noFollow={false} // query from yoast seo
-      openGraph={{
-        title: 'Query from Yoast SEO',
-        description: 'Query from Yoast SEO',
-        images: [
-          {
-            url: 'Query from Yoast SEO',
-            alt: 'Query from Yoast SEO'
-          }
-        ]
-      }}
-    >
+    <Layout seo={{...post?.seo}}>
       <div className="container">
         <section>
           <article>
@@ -78,6 +63,5 @@ export async function getStaticProps({params}) {
 }
 
 Page.propTypes = {
-  props: PropTypes.object,
-  post: PropTypes.object
+  ...getPagePropTypes(postType)
 }
