@@ -20,9 +20,8 @@ import cn from 'classnames'
 export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
+  // Setup form defaults and validation based on GravityForm field data.
   const fieldData = fields?.edges
-
-  // Generate default state based on field ids.
   const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
 
