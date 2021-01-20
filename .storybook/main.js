@@ -1,6 +1,10 @@
 const path = require('path')
 
-// https://storybook.js.org/docs/react/configure/overview
+/**
+ * Configure Storybook.
+ *
+ * @see https://storybook.js.org/docs/react/configure/overview
+ */
 module.exports = {
   reactOptions: {
     fastRefresh: true,
