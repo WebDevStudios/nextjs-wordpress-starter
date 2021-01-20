@@ -11,7 +11,7 @@ export const menuLocations = ['primary-menu', 'footer-menu', 'mobile-menu']
  * @param {Array}  locations The menu locations as an array.
  * @return {Array}           Returns array of menu objects.
  */
-export default async function getMenus(menus, locations = menuLocations) {
+export default function getMenus(menus, locations = menuLocations) {
   if (!locations.length > 0) {
     return [] // Exit if empty.
   }
