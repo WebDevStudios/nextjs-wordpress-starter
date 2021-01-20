@@ -32,6 +32,7 @@ function getMergedCheckboxes(checkboxChoices, inputs) {
  * @param {string}        props.description     GravityForm field description.
  * @param {Array}         props.inputs          Array of checkbox field input data.
  * @param {string|number} props.id              GravityForm field id.
+ * @param {boolean}       props.isRequired      If input is required.
  * @param {string}        props.label           GravityForm field label.
  * @param {boolean}       props.visibility      GravityForm field visibility.
  * @return {Element}                            The Checkbox component.
@@ -41,6 +42,7 @@ export default function Checkbox({
   checkboxChoices,
   description,
   id,
+  isRequired,
   inputs,
   label,
   visibility
@@ -56,6 +58,7 @@ export default function Checkbox({
       description={description}
       id={fieldId}
       label={label}
+      isRequired={isRequired}
     />
   )
 }
@@ -66,6 +69,7 @@ Checkbox.propTypes = {
   description: PropTypes.string,
   id: PropTypes.number.isRequired,
   inputs: PropTypes.arrayOf(PropTypes.object),
+  isRequired: PropTypes.bool,
   label: PropTypes.string,
   visibility: PropTypes.string
 }
