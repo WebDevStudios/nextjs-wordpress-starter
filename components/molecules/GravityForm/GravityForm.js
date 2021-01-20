@@ -1,8 +1,10 @@
+import {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
+import getGfFieldValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
 import {useState} from 'react'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
@@ -26,12 +28,30 @@ export default function GravityForm({
   const fieldData = fields?.edges
 
   /**
+   * Map through fields to setup form validation.
+   *
+   * Note: Yup form validation cannot be set at the field level
+   * to prevent too many re-renders.
+   */
+  useEffect(() => {
+    const formValidationSchema = {}
+    fieldData.forEach((field) => {
+      Object.assign(
+        formValidationSchema,
+        getGfFieldValidationSchema(field?.node)
+      )
+    })
+
+    setFormValidation(formValidationSchema)
+  }, [fieldData, setFormValidation])
+
+  /**
    * Map field GravityForm ids and defaults to Object.
    *
    * @param {Array} fields Array of fields.
    * @return {object}      Default field values.
    */
-  function getFieldDefaults(fields) {
+  function getFormSettings(fields) {
     const defaults = {}
 
     if (!fields || !fields.length) {
@@ -52,7 +72,7 @@ export default function GravityForm({
   }
 
   // Generate default state based on field ids.
-  const fieldDefaults = getFieldDefaults(fieldData)
+  const fieldDefaults = getFormSettings(fieldData)
 
   return (
     <Form
