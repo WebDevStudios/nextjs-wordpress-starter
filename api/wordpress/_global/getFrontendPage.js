@@ -40,7 +40,9 @@ export default async function getFrontendPage(route) {
       // Set route SEO.
       return {
         seo: {
-          title: frontendPageSeo?.[route]?.title,
+          title: `${frontendPageSeo?.[route]?.title} - ${
+            response.defaultSeo?.openGraph?.siteName ?? ''
+          }`,
           metaDesc: frontendPageSeo?.[route]?.description,
           canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${route}`
         }
