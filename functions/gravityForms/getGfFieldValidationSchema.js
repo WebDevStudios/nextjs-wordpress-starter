@@ -48,23 +48,23 @@ function getValidationSchemaByType(fieldData) {
 }
 
 /**
- * Map props to validation schemas.
+ * Create validation schema Object for a single field.
  *
  * @author WebDevStudios
  * @param {object} fieldData GravityForm field props.
- * @return {object}          Schema validation for field.
+ * @return {object}          Field validation schema object.
  */
-export function getGfFieldValidationSchema(fieldData) {
+function getGfFieldValidationSchema(fieldData) {
   return {
     [getGfFieldId(fieldData.id)]: getValidationSchemaByType(fieldData)
   }
 }
 
 /**
- * Setup GravityForm validation schema from fields.
+ * Create validation schema Object for GravityForm.
  *
  * @param {Array} fields Array of fields.
- * @return {object}      Field validation schema object.
+ * @return {object}      Form validation schema object.
  */
 export default function getGfFieldsValidationSchema(fields) {
   const formValidationSchema = {}
