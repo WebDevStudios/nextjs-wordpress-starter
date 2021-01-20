@@ -4,6 +4,7 @@ import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getMenus from '@/api/wordpress/menus/getMenus'
 import config from '@/functions/config'
+import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
 
 /**
  * Retrieve static props by post type.
@@ -31,6 +32,19 @@ export default async function getPostTypeStaticProps(
     algolia: {
       indexName: algoliaIndexName
     }
+  }
+
+  // Check for Frontend-only routes.
+  if (Object.keys(frontendPageSeo).includes(postType)) {
+    const {apolloClient, ...routeData} = await getFrontendPage(postType)
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...routeData,
+        ...sharedProps
+      },
+      revalidate
+    })
   }
 
   // Check for dynamic archive display.

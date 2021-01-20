@@ -36,7 +36,7 @@ export default function Search({post}) {
  * @return {object} Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps({slug: '/'}, 'search')
+  return await getPostTypeStaticProps(null, 'search')
 }
 
 Search.propTypes = {
