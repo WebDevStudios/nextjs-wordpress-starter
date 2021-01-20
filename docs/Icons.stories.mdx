@@ -1,0 +1,66 @@
+import {Meta, Canvas} from '@storybook/addon-docs/blocks'
+import DocTable from './DocTable'
+import Icon from '../components/atoms/Icon'
+import {icons} from '../components/atoms/Icon/icons'
+
+export const IconTableRow = ({iconName, style}) => {
+  return (
+    <tr>
+      <td>
+        <Icon
+          icon={iconName}
+          style={style}
+          title={`${iconName} icon example`}
+          ariaHidden={false}
+          className="text-black"
+        />
+      </td>
+      <td>
+        <code>{iconName}</code>
+      </td>
+    </tr>
+  )
+}
+
+<Meta title="Docs/Icons" />
+
+# Icons
+
+Below is a list of all of the available icons.
+See [the `<Icon />` story in Design System](?path=/docs/components-atoms-icon--component) for details on how to use these as a component.
+
+## Line Icons
+
+<DocTable>
+  <>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(icons).map((icon, key) => {
+        return <IconTableRow key={key} iconName={icon[0]} style="line" />
+      })}
+    </tbody>
+  </>
+</DocTable>
+
+## Fill Icons
+
+<DocTable>
+  <>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(icons).map((icon, key) => {
+        return <IconTableRow key={key} iconName={icon[0]} style="fill" />
+      })}
+    </tbody>
+  </>
+</DocTable>

@@ -27,6 +27,7 @@ const queryPageById = gql`
     ${defaultSeoFields}
     page(id: $id, idType: $idType) {
       ...SinglePageFields
+      isPostsPage
     }
   }
   ${singlePageFragment}
