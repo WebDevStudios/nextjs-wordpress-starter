@@ -1,23 +1,23 @@
 import filterByLocation from '@/api/wordpress/menus/filterByLocation'
-import queryMenus from './queryMenus'
+
+// Define default menu locations.
+export const menuLocations = ['primary-menu', 'footer-menu', 'mobile-menu']
 
 /**
  * Get menu data from WPGraphQL.
  *
  * @author WebDevStudios
- * @param {array} locations The menu locations as an array.
- * @return {array}          Returns array of menu objects.
+ * @param {object} data      Query response data.
+ * @param {Array}  locations The menu locations as an array.
+ * @return {Array}           Returns array of menu objects.
  */
-export default async function getMenus(locations = []) {
+export default async function getMenus(data, locations = menuLocations) {
   if (!locations.length > 0) {
     return [] // Exit if empty.
   }
 
-  // Query WP Menus.
-  const menus = await queryMenus()
-
   // Filter returned menus by specific menu location.
-  const filteredMenus = filterByLocation(menus?.data?.menus?.nodes, locations)
+  const filteredMenus = filterByLocation(data?.menus?.nodes, locations)
 
   return filteredMenus || []
 }
