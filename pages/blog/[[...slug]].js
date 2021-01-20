@@ -40,7 +40,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
             ) : (
               posts.map((post, index) => (
                 <article key={index}>
-                  <Link href={post.uri}>
+                  <Link href={post?.uri}>
                     <a>
                       <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
                     </a>
