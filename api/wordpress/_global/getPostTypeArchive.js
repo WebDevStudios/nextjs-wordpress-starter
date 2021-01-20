@@ -140,7 +140,12 @@ export default async function getPostTypeArchive(
       response.post = {
         seo:
           'post' === postType && homepageSettings?.postsPage?.seo
-            ? homepageSettings.postsPage.seo
+            ? {
+                ...homepageSettings.postsPage.seo,
+                canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
+                  archiveSeo?.[postType]?.route
+                }`
+              }
             : {
                 title: `${archiveSeo?.[postType]?.title} - ${
                   response.defaultSeo?.openGraph?.siteName ?? ''
