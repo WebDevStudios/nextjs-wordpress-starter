@@ -2,8 +2,6 @@ import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
-import getMenus from '@/api/wordpress/menus/getMenus'
-import config from '@/functions/config'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
 
 /**
@@ -20,15 +18,11 @@ export default async function getPostTypeStaticProps(
   // preview = false, // TODO - add preview handling.
   // previewData = null
 ) {
-  // Get WP Nav Menus.
-  const menus = await getMenus(config.menuLocations)
-
   // Set revalidate length (seconds).
   const revalidate = 60 * 5
 
   // Set sharedProps.
   const sharedProps = {
-    menus,
     algolia: {
       indexName: algoliaIndexName
     }
