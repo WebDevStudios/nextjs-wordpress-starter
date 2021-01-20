@@ -23,8 +23,7 @@ export default function GravityForm({
   const fieldData = fields?.edges
 
   // Generate default state based on field ids.
-  const fieldValidationSchema = getGfFormValidationSchema(fieldData)
-  const formValidationSchema = fieldValidationSchema
+  const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
 
   return (
