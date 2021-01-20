@@ -67,7 +67,7 @@ function getGfFieldValidationSchema(fieldData) {
  * @param {Array} fields Array of fields.
  * @return {object}      Form validation schema object.
  */
-export default function getGfFieldsValidationSchema(fields) {
+export default function getGfFormValidationSchema(fields) {
   const formValidationSchema = {}
 
   if (!fields || !fields.length) {

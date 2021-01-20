@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
-import getGfFieldsValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
+import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
 
@@ -49,7 +49,7 @@ export default function GravityForm({
   const fieldData = fields?.edges
 
   // Generate default state based on field ids.
-  const fieldValidationSchema = getGfFieldsValidationSchema(fieldData)
+  const fieldValidationSchema = getGfFormValidationSchema(fieldData)
   const formValidationSchema = fieldValidationSchema
   const fieldDefaults = getFormFieldDefaults(fieldData)
 
