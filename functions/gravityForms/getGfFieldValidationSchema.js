@@ -1,3 +1,4 @@
+import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchemaFactory'
 import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFactory'
@@ -81,5 +82,5 @@ export default function getGfFieldsValidationSchema(fields) {
     Object.assign(formValidationSchema, getGfFieldValidationSchema(field?.node))
   })
 
-  return formValidationSchema
+  return Yup.object(formValidationSchema)
 }

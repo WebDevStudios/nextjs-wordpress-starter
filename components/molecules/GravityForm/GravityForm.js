@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
-import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import getGfFieldsValidationSchema from '@/functions/gravityForms/getGfFieldValidationSchema'
 import styles from './GravityForm.module.css'
@@ -51,7 +50,7 @@ export default function GravityForm({
 
   // Generate default state based on field ids.
   const fieldValidationSchema = getGfFieldsValidationSchema(fieldData)
-  const formValidationSchema = Yup.object(fieldValidationSchema)
+  const formValidationSchema = fieldValidationSchema
   const fieldDefaults = getFormFieldDefaults(fieldData)
 
   return (
