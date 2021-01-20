@@ -31,9 +31,9 @@ export default function Select({
   return (
     <Input.Select
       className={cn(className, isHiddenClass) || null}
+      description={description}
       id={fieldId}
       isRequired={isRequired}
-      description={description}
       label={label}
       options={selectChoices}
     />
