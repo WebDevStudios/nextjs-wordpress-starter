@@ -22,7 +22,7 @@ function sizeToPx(size) {
 /**
  * Render the Icon component.
  *
- * @param {object}  props            props.
+ * @param {object}  props            The component attributes as props.
  * @param {boolean} props.ariaHidden If aria-hidden is true.
  * @param {string}  props.className  Icon className.
  * @param {string}  props.icon       Icon svg.

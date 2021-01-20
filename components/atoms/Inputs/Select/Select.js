@@ -7,7 +7,7 @@ import styles from './Select.module.css'
  * Render the Select component.
  *
  * @author WebDevStudios
- * @param {object}  props             props.
+ * @param {object}  props             The component attributes as props.
  * @param {string}  props.className   Select wrapper className.
  * @param {string}  props.description Select description.
  * @param {string}  props.label       Select input label.
