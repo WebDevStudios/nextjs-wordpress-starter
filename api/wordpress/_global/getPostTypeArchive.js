@@ -7,6 +7,46 @@ import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
 import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
 import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
+import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+
+// Define SEO for archives.
+export const archiveSeo = {
+  career: {
+    title: 'Careers',
+    description: '',
+    route: 'careers'
+  },
+  event: {
+    title: 'Events',
+    description: '',
+    route: 'events'
+  },
+  portfolio: {
+    title: 'Portfolio',
+    description: '',
+    route: 'portfolio'
+  },
+  post: {
+    title: 'Blog',
+    description: '',
+    route: 'blog'
+  },
+  service: {
+    title: 'Services',
+    description: '',
+    route: 'service'
+  },
+  team: {
+    title: 'Team Members',
+    description: '',
+    route: 'team'
+  },
+  testimonial: {
+    title: 'Testimonials',
+    description: '',
+    route: 'testimonial'
+  }
+}
 
 /**
  * Retrieve post archive.
@@ -77,8 +117,13 @@ export default async function getPostTypeArchive(
   await apolloClient
     .query({query, variables})
     .then((archive) => {
+      const {homepageSettings, siteSeo, ...archiveData} = archive.data
+
+      // Retrieve default SEO data.
+      response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
+
       const pluralType = postTypes[postType] ?? postType
-      const data = archive?.data?.[pluralType] ?? null
+      const data = archiveData?.[pluralType] ?? null
 
       // Set error props if data not found.
       if (!data?.edges || !data?.pageInfo) {
@@ -90,6 +135,29 @@ export default async function getPostTypeArchive(
 
       // Flatten posts array to include inner node post data.
       response.posts = data.edges.map((post) => post.node)
+
+      // Attempt to use posts page for blog, default to custom SEO.
+      response.post = {
+        seo:
+          'post' === postType && homepageSettings?.postsPage?.seo
+            ? {
+                ...homepageSettings.postsPage.seo,
+                canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
+                  archiveSeo?.[postType]?.route
+                }`
+              }
+            : {
+                title: `${archiveSeo?.[postType]?.title} - ${
+                  response.defaultSeo?.openGraph?.siteName ?? ''
+                }`,
+                metaDesc: archiveSeo?.[postType]?.description,
+                canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
+                  archiveSeo?.[postType]?.route
+                }`,
+                metaRobotsNofollow: 'follow',
+                metaRobotsNoindex: 'index'
+              }
+      }
 
       // Extract pagination data.
       response.pagination = data.pageInfo
