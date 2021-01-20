@@ -2,15 +2,16 @@ import isLinkActive from '@/functions/isLinkActive'
 import cn from 'classnames'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import PropTypes from 'prop-types'
 import styles from './Navigation.module.css'
 
 /**
  * Render the Navigation component.
  *
  * @author WebDevStudios
- * @param {object}  props           Navigation props.
- * @param {array}   props.menu      Array of menu items.
- * @param {string}  props.className Optional classname for the element.
+ * @param {object} props           Navigation props.
+ * @param {Array}  props.menu      Array of menu items.
+ * @param {string} props.className Optional classname for the element.
  * @return {Element}                The Navigation component.
  */
 export default function Navigation({menu, className}) {
@@ -66,4 +67,9 @@ export default function Navigation({menu, className}) {
       )}
     </>
   )
+}
+
+Navigation.propTypes = {
+  className: PropTypes.string,
+  menu: PropTypes.arrayOf(PropTypes.object)
 }
