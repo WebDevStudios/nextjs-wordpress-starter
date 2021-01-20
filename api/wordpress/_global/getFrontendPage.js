@@ -38,14 +38,13 @@ export default async function getFrontendPage(route) {
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
       // Set route SEO.
-      return !frontendPageSeo?.[route]
-        ? null
-        : {
-            seo: {
-              title: frontendPageSeo[route]?.title,
-              description: frontendPageSeo[route]?.description
-            }
-          }
+      return {
+        seo: {
+          title: frontendPageSeo?.[route]?.title,
+          metaDesc: frontendPageSeo?.[route]?.description,
+          canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${route}`
+        }
+      }
     })
     .catch((error) => {
       response.error = true
