@@ -54,8 +54,32 @@ function getValidationSchemaByType(fieldData) {
  * @param {object} fieldData GravityForm field props.
  * @return {object}          Schema validation for field.
  */
-export default function getGfFieldValidationSchema(fieldData) {
+export function getGfFieldValidationSchema(fieldData) {
   return {
     [getGfFieldId(fieldData.id)]: getValidationSchemaByType(fieldData)
   }
+}
+
+/**
+ * Setup GravityForm validation schema from fields.
+ *
+ * @param {Array} fields Array of fields.
+ * @return {object}      Field validation schema object.
+ */
+export default function getGfFieldsValidationSchema(fields) {
+  const formValidationSchema = {}
+
+  if (!fields || !fields.length) {
+    return formValidationSchema
+  }
+
+  fields.forEach((field) => {
+    if (!field.node.id) {
+      return
+    }
+
+    Object.assign(formValidationSchema, getGfFieldValidationSchema(field?.node))
+  })
+
+  return formValidationSchema
 }
