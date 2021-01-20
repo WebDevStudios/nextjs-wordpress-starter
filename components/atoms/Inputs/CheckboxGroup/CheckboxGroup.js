@@ -31,7 +31,7 @@ export default function CheckboxGroup({
       {description && <p>{description}</p>}
       {!!checkboxes.length > 0 &&
         checkboxes.map((checkbox) => {
-          const {id, label} = checkbox
+          const {id, label, value} = checkbox
 
           return (
             <Checkbox
@@ -39,6 +39,7 @@ export default function CheckboxGroup({
               key={`${groupId}-${id}`}
               label={label}
               name={groupId}
+              value={value}
             />
           )
         })}
