@@ -78,7 +78,7 @@
     "react-is": "^17.0.1",
     "storybook-addon-next-router": "^2.0.0",
     "storybook-css-modules-preset": "^1.0.5",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
