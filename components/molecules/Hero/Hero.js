@@ -22,7 +22,7 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
         '--image-url': `url(${backgroundImage})`,
-        '--image-tint-color': `${tailwindConfig.theme.colors.black[40]}`,
+        '--image-tint-color': `${tailwindConfig.theme.colors.black}50`,
         '--image-fallback-color': `${tailwindConfig.theme.colors.grey['darkest']}`
       }}
     >

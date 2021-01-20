@@ -44,7 +44,7 @@
 
   /* TYPES */
   &.primary {
-    @apply bg-primary text-white border-transparent;
+    @apply bg-primary text-white border-white border-opacity-0;
 
     &.disabled {
       @apply opacity-50;
@@ -52,7 +52,7 @@
   }
 
   &.secondary {
-    @apply bg-transparent text-primary border-primary;
+    @apply bg-white bg-opacity-0 text-primary border-primary;
 
     &.disabled {
       @apply opacity-50;
