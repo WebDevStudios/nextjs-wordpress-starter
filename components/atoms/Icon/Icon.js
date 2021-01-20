@@ -29,12 +29,12 @@ function sizeToPx(size) {
  * @param props0.ariaHidden
  */
 export default function Icon({
+  ariaHidden,
+  className,
   icon,
   size,
   style,
-  title,
-  className,
-  ariaHidden
+  title
 }) {
   return (
     <svg
@@ -55,8 +55,8 @@ Icon.propTypes = {
   ariaHidden: PropTypes.bool,
   className: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  style: PropTypes.oneOf(['fill', 'line']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  style: PropTypes.oneOf(['fill', 'line']),
   title: PropTypes.string.isRequired
 }
 
