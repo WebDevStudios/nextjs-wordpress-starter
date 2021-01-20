@@ -26,6 +26,31 @@ function getCheckboxDefaults(checkboxes) {
 }
 
 /**
+ * Assign default values for GravityForm Select.
+ *
+ * @param {Array} options Array of select option data Objects.
+ * @return {string}       Select option value that is selected.
+ */
+function getSelectDefaults(options) {
+  let selectDefault = ''
+
+  if (!options.length > 0) {
+    return selectDefault
+  }
+
+  /**
+   * Get first option with isSelected property.
+   */
+  const selectedOption = [].filter((option) => !!option.isSelected).shift()
+
+  if (selectedOption) {
+    selectDefault = selectedOption.shift().value
+  }
+
+  return selectDefault
+}
+
+/**
  * Match field type with a default value.
  *
  * @author WebDevStudios
@@ -39,6 +64,10 @@ function getFieldDefaultByType(fieldData) {
   switch (fieldData?.type) {
     case 'checkbox':
       defaultValue = getCheckboxDefaults(fieldData?.checkboxChoices)
+      break
+
+    case 'select':
+      defaultValue = getSelectDefaults(fieldData?.selectChoices)
       break
 
     default:
