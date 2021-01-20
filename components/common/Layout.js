@@ -17,14 +17,16 @@ import {seoPropTypes} from '@/functions/getPagePropTypes'
  */
 export default function Layout({children, seo, hasJsonLd}) {
   // Define SEO image prop.
-  const seoImages = [
-    {
-      url: seo?.opengraphImage?.sourceUrl,
-      alt: seo?.opengraphImage?.altText,
-      height: 150,
-      width: 150
-    }
-  ]
+  const seoImages = !seo?.opengraphImage?.sourceUrl
+    ? null
+    : [
+        {
+          url: seo.opengraphImage.sourceUrl,
+          alt: seo?.opengraphImage?.altText,
+          height: 150,
+          width: 150
+        }
+      ]
 
   return (
     <>
@@ -34,7 +36,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         openGraph={{
           title: seo?.title,
           description: seo?.metaDesc,
-          images: [...seoImages],
+          images: seoImages ? [...seoImages] : null,
           url: seo?.canonical
         }}
         nofollow={'follow' !== seo?.metaRobotsNofollow}
@@ -44,7 +46,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={[...seoImages]}
+          images={seoImages ? [...seoImages] : null}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
