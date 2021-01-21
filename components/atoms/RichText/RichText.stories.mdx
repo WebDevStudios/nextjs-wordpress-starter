@@ -1,7 +1,7 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
 import RichText from '.'
 
-<Meta title="Design System/Atoms/RichText" component={RichText} />
+<Meta title="Components/Atoms/RichText" component={RichText} />
 
 # RichText
 
@@ -23,9 +23,8 @@ The following shows examples that have generic styles applied.
 
 <Canvas>
   <Story name="ContentSamples">
-    <RichText tag='div'>
-      {
-        `<h1>H1</h1>
+    <RichText tag="div">
+      {`<h1>H1</h1>
         <h2>H2</h2>
         <h3>H3</h3>
         <h3>H3</h3>
@@ -54,8 +53,7 @@ The following shows examples that have generic styles applied.
             </ol>
           </li>
           <li>OL List item 3</li>
-        </ol>`
-      }
+        </ol>`}
     </RichText>
   </Story>
 </Canvas>
@@ -66,7 +64,7 @@ In certain cases the wrapper element should change according to the content need
 
 <Canvas>
   <Story name="Tag">
-    <RichText tag='h2'>
+    <RichText tag="h2">
       {`This heading has <strong>Bold Content</strong> and <i>Italics</i>`}
     </RichText>
   </Story>
@@ -79,9 +77,9 @@ Arbitrary HTML attributes can be added to the RichText component with the `attri
 <Canvas>
   <Story name="Attributes">
     <RichText
-      tag='h2'
+      tag="h2"
       attributes={{
-        'data-att': true,
+        'data-att': true
       }}
     >
       {`This heading has <strong>Bold Content</strong> and <i>Italics</i>`}
@@ -101,10 +99,9 @@ export const Template = (args) => <Icon {...args} />
     args={{
       id: 'component-id',
       className: 'component-class',
-      children: <p>Paragraph content.</p>,
+      children: <p>Paragraph content.</p>
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
-

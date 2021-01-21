@@ -7,6 +7,10 @@
   & p,
   &.p {
     @apply font-primary text-root-em mb-20;
+
+    & > a {
+      @apply text-primary;
+    }
   }
 
   /* Heading Styles */
