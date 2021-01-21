@@ -4,6 +4,7 @@ import {initializeApollo} from '../apolloConfig'
 
 // Define env vars.
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
+export const wpPreviewSecret = process.env.WORDPRESS_PREVIEW_SECRET
 
 // Define Frontend WP API data endpoint base.
 const wpDataEndpointBase = '/wp'
