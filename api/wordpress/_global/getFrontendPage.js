@@ -1,6 +1,7 @@
-import queryDefaultSeo from '../_global/queryDefaultSeo'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import {initializeWpApollo} from '../connector'
+import queryDefaultPageData from './queryDefaultPageData'
+import getMenus from '../menus/getMenus'
 
 // Define SEO for Frontend routes.
 export const frontendPageSeo = {
@@ -30,9 +31,12 @@ export default async function getFrontendPage(route) {
 
   // Execute query.
   response.post = await apolloClient
-    .query({query: queryDefaultSeo})
+    .query({query: queryDefaultPageData})
     .then((res) => {
-      const {homepageSettings, siteSeo} = res.data
+      const {homepageSettings, siteSeo, menus} = res.data
+
+      // Retrieve menus.
+      response.menus = getMenus(menus)
 
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
