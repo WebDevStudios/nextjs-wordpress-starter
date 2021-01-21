@@ -19,7 +19,7 @@ import getMenus from '../menus/getMenus'
  * @param {string}          postType WP post type.
  * @param {number | string} id       Post identifier.
  * @param {string}          idType   Type of ID.
- * @param {boolean}         preview  Whether requesting preview of draft.
+ * @param {boolean}         preview  Whether checking if post preview exists.
  * @return {object}                  Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(
