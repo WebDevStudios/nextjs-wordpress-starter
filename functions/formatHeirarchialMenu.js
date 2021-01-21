@@ -3,9 +3,12 @@
  *
  * @author WebDevStudios
  * @see https://www.wpgraphql.com/docs/menus/#hierarchical-data
- * @param {array}  data    The array containing menu data.
- * @param {object} Default Object keys
- * @return {array}         Array containing a updated menu list.
+ * @param {Array}  data             The array containing menu data.
+ * @param {object} keys             Object keys.
+ * @param {string} keys.idKey       ID key.
+ * @param {string} keys.parentKey   Parent key.
+ * @param {string} keys.childrenKey Children key.
+ * @return {Array}                  Array containing a updated menu list.
  */
 export default function formatHeirarchialMenu(
   data = [],
