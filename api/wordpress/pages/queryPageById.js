@@ -4,6 +4,7 @@ import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
 import defaultSeoFields from '../_partials/defaultSeoFields'
+import commentsPostFields from '../_partials/commentsPostFields'
 
 // Fragment: retrieve single page fields.
 export const singlePageFragment = gql`
@@ -14,6 +15,7 @@ export const singlePageFragment = gql`
     ${seoPostFields}
     ${authorPostFields}
     ${featuredImagePostFields}
+    ${commentsPostFields}
   }
 `
 

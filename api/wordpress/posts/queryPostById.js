@@ -6,6 +6,7 @@ import tagsPostFields from '../_partials/tagsPostFields'
 import categoriesPostFields from '../_partials/categoriesPostFields'
 import {gql} from '@apollo/client'
 import defaultSeoFields from '../_partials/defaultSeoFields'
+import commentsPostFields from '../_partials/commentsPostFields'
 
 // Fragment: retrieve single post fields.
 const singlePostFragment = gql`
@@ -18,6 +19,7 @@ const singlePostFragment = gql`
     ${featuredImagePostFields}
     ${tagsPostFields}
     ${categoriesPostFields}
+    ${commentsPostFields}
   }
 `
 // Query: retrieve post by specified identifier.
