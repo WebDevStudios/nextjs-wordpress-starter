@@ -5,6 +5,13 @@ import {initializeApollo} from '../apolloConfig'
 // Define env vars.
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
 export const wpPreviewSecret = process.env.WORDPRESS_PREVIEW_SECRET
+const wpAppUser = process.env.WORDPRESS_APPLICATION_USERNAME
+const wpAppPass = process.env.WORDPRESS_APPLICATION_PASSWORD
+
+// Set WP application password auth header.
+const wpAuthorization = Buffer.from(`${wpAppUser}:${wpAppPass}`).toString(
+  'base64'
+)
 
 // Define Frontend WP API data endpoint base.
 const wpDataEndpointBase = '/wp'
@@ -29,7 +36,10 @@ export function createWpApolloClient() {
     ssrMode: false,
     link: new HttpLink({
       uri: `${wpApiUrlBase}graphql`,
-      credentials: ''
+      credentials: '',
+      headers: {
+        authorization: `Basic ${wpAuthorization}`
+      }
     }),
     cache: new InMemoryCache()
   })
