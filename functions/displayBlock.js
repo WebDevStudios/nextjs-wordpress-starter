@@ -12,24 +12,11 @@ import PropTypes from 'prop-types'
  */
 export default function displayBlock(block, index, siteSettings) {
   const {attributes, name} = block
-  const {algolia} = siteSettings
 
   // prettier-ignore
   switch (name) {
     case 'acf/accordions':
       return <Blocks.BlockAccordions props={attributes} key={index} />
-    case 'acf/algolia':
-      return (
-        <Blocks.BlockAlgolia
-          props={attributes}
-          key={index}
-          indexName={
-            algolia?.indexName
-              ? algolia.indexName
-              : ''
-          }
-        />
-      )
     case 'acf/netflix':
       return (
         <Blocks.BlockNetflixCarousel props={attributes} key={index} />

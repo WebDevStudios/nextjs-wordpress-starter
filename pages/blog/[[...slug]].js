@@ -4,6 +4,7 @@ import Layout from '@/components/common/Layout'
 import Link from 'next/link'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPagePropTypes from '@/functions/getPagePropTypes'
+import BlockRender from '@/components/molecules/BlockRender'
 
 // Define route post type.
 const postType = 'post'
@@ -65,11 +66,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
         <section>
           <article>
             <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <div
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(post?.blocks ?? [])
-              }}
-            />
+            <BlockRender blocks={post?.blocks} />
           </article>
         </section>
       </div>

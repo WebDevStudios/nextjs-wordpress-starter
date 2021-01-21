@@ -14,16 +14,7 @@ export default function BlockParagraph({props}) {
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
-    <p
-      className={cn(
-        'container',
-        'container--sm',
-        `text-${alignment}`,
-        className
-      )}
-      id={anchor}
-      tag="p"
-    >
+    <p className={cn(`text-${alignment}`, className)} id={anchor !== null}>
       {content}
     </p>
   )
