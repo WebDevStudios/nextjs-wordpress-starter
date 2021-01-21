@@ -30,6 +30,11 @@ export default function Page({post}) {
                 __html: JSON.stringify(post?.blocks ?? [])
               }}
             />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(post?.comments ?? [])
+              }}
+            />
           </article>
         </section>
         {post?.slug === 'form-demo' && (

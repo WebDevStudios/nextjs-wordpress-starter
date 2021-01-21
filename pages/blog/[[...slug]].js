@@ -70,6 +70,11 @@ export default function BlogPost({post, archive, posts, pagination}) {
                 __html: JSON.stringify(post?.blocks ?? [])
               }}
             />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(post?.comments ?? [])
+              }}
+            />
           </article>
         </section>
       </div>
