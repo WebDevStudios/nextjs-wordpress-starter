@@ -1,16 +1,14 @@
-import Icon from '@/components/atoms/Icon'
-import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import displayBlock from '@/functions/displayBlock'
 
 /**
- * Render the BlockRender component.
+ * Render the Blocks component.
  *
  * @param {array} blocks An array of blocks.
- * @return {Element}     The BlockRender component.
+ * @return {Element}     The Blocks component.
  */
-export default function BlockRender({blocks}) {
+export default function Blocks({blocks}) {
   return (
     <>
       {
@@ -25,10 +23,10 @@ export default function BlockRender({blocks}) {
   )
 }
 
-BlockRender.propTypes = {
+Blocks.propTypes = {
   blocks: PropTypes.array.isRequired
 }
 
-BlockRender.defaultProps = {
+Blocks.defaultProps = {
   blocks: []
 }

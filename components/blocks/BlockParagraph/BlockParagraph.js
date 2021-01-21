@@ -1,3 +1,4 @@
+import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -14,9 +15,13 @@ export default function BlockParagraph({props}) {
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
-    <p className={cn(`text-${alignment}`, className)} id={anchor !== null}>
+    <RichText
+      className={cn(`text-${alignment}`, className)}
+      id={anchor}
+      tag="p"
+    >
       {content}
-    </p>
+    </RichText>
   )
 }
 

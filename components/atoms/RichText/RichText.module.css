@@ -1,0 +1,37 @@
+.richtext {
+  &.center {
+    @apply text-center;
+  }
+
+  /* Paragraph, List Styles */
+  & p,
+  &.p {
+    @apply font-primary text-root-em mb-20;
+  }
+
+  /* Heading Styles */
+  & h1,
+  &.h1 {
+    @apply font-secondary text-h1 mb-20;
+  }
+
+  & h2,
+  &.h2 {
+    @apply font-secondary text-h2 mb-20;
+  }
+
+  & h3,
+  &.h3 {
+    @apply font-secondary text-h3 mb-20;
+  }
+
+  & h4,
+  &.h4 {
+    @apply font-secondary text-h4 mb-12;
+  }
+
+  & h5,
+  &.h5 {
+    @apply font-secondary text-h5 mb-12;
+  }
+}

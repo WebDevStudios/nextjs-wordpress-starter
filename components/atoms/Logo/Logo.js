@@ -7,8 +7,8 @@ export default function Logo() {
     <Link href="/">
       <a>
         <img
-          src="/logo.svg"
-          alt="site logo"
+          src="/images/wds-logo-inverse.svg"
+          alt="Site logo"
           loading="lazy"
           height="128"
           width="128"
