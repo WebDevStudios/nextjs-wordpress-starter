@@ -8,6 +8,7 @@ import queryTeamsArchive from '../teams/queryTeamsArchive'
 import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
 import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import getMenus from '../menus/getMenus'
 
 // Define SEO for archives.
 export const archiveSeo = {
@@ -117,7 +118,10 @@ export default async function getPostTypeArchive(
   await apolloClient
     .query({query, variables})
     .then((archive) => {
-      const {homepageSettings, siteSeo, ...archiveData} = archive.data
+      const {homepageSettings, siteSeo, menus, ...archiveData} = archive.data
+
+      // Retrieve menus.
+      response.menus = getMenus(menus)
 
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})

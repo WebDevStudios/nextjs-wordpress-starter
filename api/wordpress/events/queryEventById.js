@@ -3,7 +3,7 @@ import seoPostFields from '../_partials/seoPostFields'
 import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
-import defaultSeoFields from '../_partials/defaultSeoFields'
+import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve single event fields.
 const singleEventFragment = gql`
@@ -24,7 +24,7 @@ const queryEventById = gql`
     $idType: EventIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    ${defaultSeoFields}
+    ${defaultPageData}
     event(id: $id, idType: $idType) {
       ...SingleEventFields
     }
