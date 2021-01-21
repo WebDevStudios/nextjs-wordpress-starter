@@ -10,6 +10,7 @@ import queryTeamById from '../teams/queryTeamById'
 import queryPortfolioById from '../portfolios/queryPortfolioById'
 import queryTestimonialById from '../testimonials/queryTestimonialById'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import getMenus from '../menus/getMenus'
 
 /**
  * Retrieve single post by specified identifier.
@@ -65,7 +66,10 @@ export default async function getPostTypeById(postType, id, idType = 'SLUG') {
   response.post = await apolloClient
     .query({query, variables: {id, idType}})
     .then((res) => {
-      const {homepageSettings, siteSeo, ...postData} = res.data
+      const {homepageSettings, siteSeo, menus, ...postData} = res.data
+
+      // Retrieve menus.
+      response.menus = getMenus(menus)
 
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})

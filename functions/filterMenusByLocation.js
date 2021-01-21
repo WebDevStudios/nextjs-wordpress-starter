@@ -1,4 +1,4 @@
-import formatHeirarchialMenu from '@/api/wordpress/menus/formatHeirarchialMenu'
+import formatHeirarchialMenu from './formatHeirarchialMenu'
 
 /**
  * Filter menus array by menu location.
@@ -8,7 +8,7 @@ import formatHeirarchialMenu from '@/api/wordpress/menus/formatHeirarchialMenu'
  * @param {Array} locations The array of locations for filtering.
  * @return {object}         An object containing the requested locations as individual objects.
  */
-export default function filterByLocation(menus, locations) {
+export default function filterMenusByLocation(menus, locations) {
   const data = {}
 
   // Loop each menu location.

@@ -3,7 +3,7 @@ import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
 import seoPostFields from '../_partials/seoPostFields'
-import defaultSeoFields from '../_partials/defaultSeoFields'
+import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve archive post fields.
 const archivePostFragment = gql`
@@ -25,7 +25,7 @@ const queryPostsArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
-    ${defaultSeoFields}
+    ${defaultPageData}
     homepageSettings {
       postsPage {
         ${seoPostFields}

@@ -2,7 +2,7 @@ import globalPostFields from '../_partials/globalPostFields'
 import seoPostFields from '../_partials/seoPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
-import defaultSeoFields from '../_partials/defaultSeoFields'
+import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve single career fields.
 const singleCareerFragment = gql`
@@ -22,7 +22,7 @@ const queryCareerById = gql`
     $idType: CareerIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
-    ${defaultSeoFields}
+    ${defaultPageData}
     career(id: $id, idType: $idType) {
       ...SingleCareerFields
     }
