@@ -82,7 +82,8 @@ export default async function getPostTypeStaticProps(
   const {apolloClient, error, ...postData} = await getPostTypeById(
     postType,
     id,
-    idType
+    idType,
+    isCurrentPostPreview ? 'full' : null
   )
 
   const props = {
