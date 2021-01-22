@@ -8,13 +8,11 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props           The component attributes as props.
- * @param {string}    props.className Optional classnames.
- * @param {string}    props.align     Optional alignment style.
- * @param {string}    props.anchor    Optional anchor/id.
- * @param {string}    props.content   The content of the block.
- * @return {Element}               The RichText component.
+ * @param {string} className Optional classnames.
+ * @param {string} align     Optional alignment style.
+ * @param {string} anchor    Optional anchor/id.
+ * @param {string} content   The content of the block.
+ * @return {Element}           The RichText component.
  */
 export default function BlockParagraph({className, align, anchor, content}) {
   // TODO Add settings for unused props in default WP Paragraph Block

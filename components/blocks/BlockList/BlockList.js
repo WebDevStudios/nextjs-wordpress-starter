@@ -7,11 +7,11 @@ import PropTypes from 'prop-types'
  * The core List block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {string} className Optional classnames.
- * @param {string} ordered   Is this an ordered list.
- * @param {string} anchor    Optional anchor/id.
- * @param {string} values    The content of the block.
- * @return {Element}         The RichText component.
+ * @param {string}  className Optional classnames.
+ * @param {boolean} ordered   Is this an ordered list.
+ * @param {string}  anchor    Optional anchor/id.
+ * @param {string}  values    The content of the block.
+ * @return {Element}          The RichText component.
  */
 export default function BlockList({className, ordered, anchor, values}) {
   return (
@@ -23,7 +23,7 @@ export default function BlockList({className, ordered, anchor, values}) {
 
 BlockList.propTypes = {
   anchor: PropTypes.string,
-  ordered: PropTypes.boolen,
+  ordered: PropTypes.bool,
   className: PropTypes.string,
   values: PropTypes.string
 }

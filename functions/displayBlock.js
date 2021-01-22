@@ -17,11 +17,11 @@ export default function displayBlock(block, index) {
     case 'acf/accordions':
       return <Blocks.BlockAccordions {...attributes} key={index} />
     case 'acf/netflix':
-      return (
-        <Blocks.BlockNetflixCarousel {...attributes} key={index} />
-      )
-    case 'core/block-quote':
-      return <Blocks.BlockBlockquote {...attributes} key={index} />
+      return <Blocks.BlockNetflixCarousel {...attributes} key={index} />
+    case 'core/quote':
+      return <Blocks.BlockQuote {...attributes} key={index} />
+    case 'core/pullquote':
+      return <Blocks.PullQuote {...attributes} key={index} />
     case 'core/embed':
       return <Blocks.BlockVideoEmbed {...attributes} key={index} />
     case 'core/heading':
