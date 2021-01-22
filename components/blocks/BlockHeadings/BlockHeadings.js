@@ -9,8 +9,9 @@ import React from 'react'
  * The core Headings block from Gutenberg.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props The component attributes as props.
+ * @param {object} props       The component attributes as props.
+ * @param {object} props.props The block attributes props from WordPress.
+ * @return {Element}           RichText component with heading content
  */
 export default function BlockHeadings({props}) {
   const {anchor, align, className, content, level} = props
