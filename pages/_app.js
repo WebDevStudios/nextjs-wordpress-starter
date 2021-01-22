@@ -48,9 +48,29 @@ export default function App({Component, pageProps}) {
     indexName: pageProps?.algolia?.indexName
   })
 
+  // Extract default SEO props from page props.
+  const {
+    defaultSeo: {social, ...defaultSeoData} = {},
+    menus,
+    ...passThruProps
+  } = pageProps
+
+  const componentProps = {
+    ...passThruProps,
+    post: {
+      ...passThruProps?.post,
+      seo: {
+        ...passThruProps?.post?.seo,
+        siteTitle: defaultSeoData?.openGraph?.siteName,
+        siteDescription: defaultSeoData?.description,
+        social
+      }
+    }
+  }
+
   // Initialize state for Menu context provider.
   const [navMenus] = useState({
-    menus: pageProps?.menus
+    menus
   })
 
   return (
@@ -61,27 +81,8 @@ export default function App({Component, pageProps}) {
             <Error statusCode={500} title={errorMessage} />
           ) : (
             <>
-              <DefaultSeo
-                title="Query from Yoast SEO"
-                description="Query from Yoast SEO"
-                noIndex={false} // query from yoast seo
-                noFollow={false} // query from yoast seo
-                openGraph={{
-                  type: 'website',
-                  locale: 'en_US',
-                  url: 'Query from Yoast SEO',
-                  site_name: '',
-                  images: [
-                    {
-                      url: 'Query from Yoast SEO',
-                      width: 'Query from Yoast SEO',
-                      height: 'Query from Yoast SEO',
-                      alt: 'Query from Yoast SEO'
-                    }
-                  ]
-                }}
-              />
-              <Component {...pageProps} />
+              {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+              <Component {...componentProps} />
             </>
           )}
         </MenuProvider>

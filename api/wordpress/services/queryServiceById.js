@@ -3,6 +3,7 @@ import seoPostFields from '../_partials/seoPostFields'
 import authorPostFields from '../_partials/authorPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import {gql} from '@apollo/client'
+import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve single service fields.
 const singleServiceFragment = gql`
@@ -23,6 +24,7 @@ const queryServiceById = gql`
     $idType: ServiceIdType = SLUG
     $imageSize: MediaItemSizeEnum = LARGE
   ) {
+    ${defaultPageData}
     service(id: $id, idType: $idType) {
       ...SingleServiceFields
     }

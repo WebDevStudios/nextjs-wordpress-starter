@@ -2,8 +2,7 @@ import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
-import getMenus from '@/api/wordpress/menus/getMenus'
-import config from '@/functions/config'
+import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
 
 /**
  * Retrieve static props by post type.
@@ -19,28 +18,41 @@ export default async function getPostTypeStaticProps(
   // preview = false, // TODO - add preview handling.
   // previewData = null
 ) {
-  // Get WP Nav Menus.
-  const menus = await getMenus(config.menuLocations)
+  // Set revalidate length (seconds).
+  const revalidate = 60 * 5
+
+  // Set sharedProps.
+  const sharedProps = {
+    algolia: {
+      indexName: algoliaIndexName
+    }
+  }
+
+  // Check for Frontend-only routes.
+  if (Object.keys(frontendPageSeo).includes(postType)) {
+    const {apolloClient, ...routeData} = await getFrontendPage(postType)
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...routeData,
+        ...sharedProps
+      },
+      revalidate
+    })
+  }
 
   // Check for dynamic archive display.
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
 
-    // Add WP Nav Menus to archive.
-    archiveData.menus = menus
-
-    // Add Algolia env vars to archive.
-    archiveData.algolia = {
-      indexName: algoliaIndexName
-    }
-
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
       props: {
         ...archiveData,
+        ...sharedProps,
         archive: true
       },
-      revalidate: 60 * 5
+      revalidate
     })
   }
 
@@ -53,26 +65,22 @@ export default async function getPostTypeStaticProps(
     slug
   )
 
-  const props = {...postData, error}
+  const props = {
+    ...postData,
+    ...sharedProps,
+    error
+  }
 
   // Custom handling for homepage.
-  if (error) {
+  if ('/' === slug && error) {
     // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
   }
 
-  // Set WP Nav Menus.
-  props.menus = menus
-
-  // Add Algolia env vars.
-  props.algolia = {
-    indexName: algoliaIndexName
-  }
-
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
     props,
-    revalidate: 60 * 5
+    revalidate
   })
 }

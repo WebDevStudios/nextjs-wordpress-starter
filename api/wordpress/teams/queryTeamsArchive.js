@@ -2,6 +2,7 @@ import {gql} from '@apollo/client'
 import globalPostFields from '../_partials/globalPostFields'
 import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
+import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve archive team fields.
 const archiveTeamFragment = gql`
@@ -23,6 +24,7 @@ const queryTeamsArchive = gql`
     $order: OrderEnum = DESC
     $imageSize: MediaItemSizeEnum = THUMBNAIL
   ) {
+    ${defaultPageData}
     teams(
       first: $first
       last: $last

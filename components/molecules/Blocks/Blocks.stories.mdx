@@ -1,0 +1,49 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Blocks from './'
+
+export const wpblocks = [
+  {
+    name: 'core/heading',
+    attributes: {
+      anchor: '',
+      content: 'This is a Heading Block (h2)',
+      level: 2
+    }
+  },
+  {
+    name: 'core/paragraph',
+    attributes: {
+      anchor: '',
+      content:
+        'Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.'
+    }
+  },
+  {
+    name: 'core/heading',
+    attributes: {
+      anchor: '',
+      content: 'Another Heading Block (h3)',
+      level: 3
+    }
+  },
+  {
+    name: 'core/paragraph',
+    attributes: {
+      anchor: '',
+      content:
+        'Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.'
+    }
+  }
+]
+
+<Meta title="Components/Molecules/Blocks" component={Blocks} />
+
+# Default Component
+
+Use this component to render WordPress blocks.
+
+<Canvas>
+  <Story name="Default Component">
+    <Blocks blocks={wpblocks} />
+  </Story>
+</Canvas>

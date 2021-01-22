@@ -12,7 +12,6 @@ import cn from 'classnames'
  * @param {string|number} props.id            GravityForm field id.
  * @param {boolean}       props.isRequired    GravityForm field is required.
  * @param {string}        props.label         GravityForm field label.
- * @param {string}        props.size          GravityForm field size.
  * @param {Array}         props.selectChoices GravityForm field selection options.
  * @param {boolean}       props.visibility    GravityForm field visibility.
  * @return {Element}                          The Select component.
@@ -23,7 +22,6 @@ export default function Select({
   id,
   isRequired,
   label,
-  size,
   selectChoices,
   visibility
 }) {
@@ -31,18 +29,14 @@ export default function Select({
   const isHiddenClass = getGfHiddenClassName(visibility)
 
   return (
-    <div
+    <Input.Select
       className={cn(className, isHiddenClass) || null}
-      field-size={size && `size-${size}`}
-    >
-      <Input.Select
-        id={fieldId}
-        isRequired={isRequired}
-        description={description}
-        label={label}
-        options={selectChoices}
-      />
-    </div>
+      description={description}
+      id={fieldId}
+      isRequired={isRequired}
+      label={label}
+      options={selectChoices}
+    />
   )
 }
 
@@ -53,6 +47,5 @@ Select.propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   selectChoices: PropTypes.arrayOf(PropTypes.object),
-  size: PropTypes.string,
   visibility: PropTypes.string
 }

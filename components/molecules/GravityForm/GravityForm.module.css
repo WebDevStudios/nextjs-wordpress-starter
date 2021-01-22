@@ -1,5 +1,5 @@
 .gravityForm {
-  & > div {
-    @apply mb-5;
+  & .title {
+    @apply text-h2 mb-4;
   }
 }

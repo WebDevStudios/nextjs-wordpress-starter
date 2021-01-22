@@ -1,3 +1,4 @@
+import * as Yup from 'yup'
 import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
 import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchemaFactory'
 import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFactory'
@@ -48,14 +49,38 @@ function getValidationSchemaByType(fieldData) {
 }
 
 /**
- * Map props to validation schemas.
+ * Create validation schema Object for a single field.
  *
  * @author WebDevStudios
  * @param {object} fieldData GravityForm field props.
- * @return {object}          Schema validation for field.
+ * @return {object}          Field validation schema object.
  */
-export default function getGfFieldValidationSchema(fieldData) {
+function getGfFieldValidationSchema(fieldData) {
   return {
     [getGfFieldId(fieldData.id)]: getValidationSchemaByType(fieldData)
   }
+}
+
+/**
+ * Create validation schema Object for GravityForm.
+ *
+ * @param {Array} fields Array of fields.
+ * @return {object}      Form validation schema object.
+ */
+export default function getGfFormValidationSchema(fields) {
+  const formValidationSchema = {}
+
+  if (!fields || !fields.length) {
+    return formValidationSchema
+  }
+
+  fields.forEach((field) => {
+    if (!field.node.id) {
+      return
+    }
+
+    Object.assign(formValidationSchema, getGfFieldValidationSchema(field?.node))
+  })
+
+  return Yup.object(formValidationSchema)
 }

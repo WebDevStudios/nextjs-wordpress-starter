@@ -9,14 +9,15 @@ import {Field} from 'formik'
  * @param {string|number} props.id        Input id.
  * @param {string}        props.label     Input label.
  * @param {string}        props.name      Input name.
+ * @param {string}        props.value     Input value.
  * @return {Element}                      The Checkbox component.
  */
-export default function Checkbox({className, id, label, name}) {
+export default function Checkbox({className, id, label, name, value}) {
   return (
     <div className={className}>
       {label && (
         <label htmlFor={id}>
-          <Field name={name} type="checkbox" value={`value${id}`} />
+          <Field name={name} type="checkbox" value={value || name} />
           {label}
         </label>
       )}
@@ -28,5 +29,6 @@ Checkbox.propTypes = {
   className: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string
 }

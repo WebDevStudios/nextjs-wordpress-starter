@@ -15,7 +15,6 @@ import cn from 'classnames'
  * @param {number}  props.id                  GravityForm unique field id.
  * @param {boolean} props.isRequired          GravityForm isRequired field.
  * @param {string}  props.label               GravityForm field label.
- * @param {string}  props.size                GravityForm field size.
  * @param {string}  props.type                GravityForm field type.
  * @param {boolean} props.visibility          GravityForm visibility option.
  * @return {Element}                          The Text component.
@@ -28,7 +27,6 @@ export default function Text({
   id,
   isRequired,
   label,
-  size,
   type,
   visibility
 }) {
@@ -62,19 +60,15 @@ export default function Text({
   const inputType = modifyFieldType(type)
 
   return (
-    <div
+    <Input.Text
       className={cn(className, isHiddenClass) || null}
-      field-size={size && `size-${size}`}
-    >
-      <Input.Text
-        description={description}
-        errorMessage={errorMessage}
-        id={fieldId}
-        isRequired={isRequired}
-        label={label}
-        type={inputType}
-      />
-    </div>
+      description={description}
+      errorMessage={errorMessage}
+      id={fieldId}
+      isRequired={isRequired}
+      label={label}
+      type={inputType}
+    />
   )
 }
 
@@ -86,7 +80,6 @@ Text.propTypes = {
   id: PropTypes.number.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
-  size: PropTypes.string,
   type: PropTypes.string.isRequired,
   visibility: PropTypes.string
 }

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
-import * as Yup from 'yup'
-import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
-import {useState} from 'react'
+import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
+import getGfFormDefaults from '@/functions/gravityForms/getGfFormDefaults'
 import styles from './GravityForm.module.css'
 import cn from 'classnames'
 
@@ -21,50 +20,20 @@ import cn from 'classnames'
 export default function GravityForm({
   formData: {cssClass, fields, formId, title}
 }) {
-  const [formValidation, setFormValidation] = useState({})
-  const validationSchema = Yup.object(formValidation)
+  // Setup form defaults and validation based on GravityForm field data.
   const fieldData = fields?.edges
-
-  /**
-   * Map field GravityForm ids and defaults to Object.
-   *
-   * @param {Array} fields Array of fields.
-   * @return {object}      Default field values.
-   */
-  function getFieldDefaults(fields) {
-    const defaults = {}
-
-    if (!fields || !fields.length) {
-      return defaults
-    }
-
-    fields.forEach((field) => {
-      if (!field.node.id) {
-        return
-      }
-
-      Object.assign(defaults, {
-        [getGfFieldId(field.node.id)]: field.node.defaultValue
-      })
-    })
-
-    return defaults
-  }
-
-  // Generate default state based on field ids.
-  const fieldDefaults = getFieldDefaults(fieldData)
+  const formValidationSchema = getGfFormValidationSchema(fieldData)
+  const fieldDefaults = getGfFormDefaults(fieldData)
 
   return (
     <Form
       className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
-      validationSchema={validationSchema}
+      validationSchema={formValidationSchema}
     >
-      {title && <h2>{title}</h2>}
-      {fieldData && (
-        <Fields fields={fieldData} setFormValidation={setFormValidation} />
-      )}
+      {title && <h2 className={styles.title}>{title}</h2>}
+      {fieldData && <Fields fields={fieldData} />}
     </Form>
   )
 }

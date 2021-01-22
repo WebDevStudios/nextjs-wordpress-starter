@@ -1,10 +1,10 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import {BlogJsonLd} from 'next-seo'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
+import getPagePropTypes from '@/functions/getPagePropTypes'
+import Blocks from '@/components/molecules/Blocks'
 
 // Define route post type.
 const postType = 'post'
@@ -33,22 +33,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
   // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
-      <Layout
-        title="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-        noIndex={false} // query from yoast seo
-        noFollow={false} // query from yoast seo
-        openGraph={{
-          title: 'Query from Yoast SEO',
-          description: 'Query from Yoast SEO',
-          images: [
-            {
-              url: 'Query from Yoast SEO',
-              alt: 'Query from Yoast SEO'
-            }
-          ]
-        }}
-      >
+      <Layout seo={{...post?.seo}}>
         <div className="container">
           <section>
             {!posts || !posts.length ? (
@@ -56,7 +41,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
             ) : (
               posts.map((post, index) => (
                 <article key={index}>
-                  <Link href={post.uri}>
+                  <Link href={post?.uri}>
                     <a>
                       <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
                     </a>
@@ -76,43 +61,10 @@ export default function BlogPost({post, archive, posts, pagination}) {
   }
 
   return (
-    <Layout
-      title="Query from Yoast SEO"
-      description="Query from Yoast SEO"
-      noIndex={false} // query from yoast seo
-      noFollow={false} // query from yoast seo
-      openGraph={{
-        title: 'Query from Yoast SEO',
-        description: 'Query from Yoast SEO',
-        images: [
-          {
-            url: 'Query from Yoast SEO',
-            alt: 'Query from Yoast SEO'
-          }
-        ]
-      }}
-    >
-      <BlogJsonLd
-        url="Query from Yoast SEO"
-        title="Query from Yoast SEO"
-        images={['Query from Yoast SEO']}
-        datePublished="Query from Yoast SEO"
-        dateModified="Query from Yoast SEO"
-        authorName="Query from Yoast SEO"
-        description="Query from Yoast SEO"
-      />
-      <div className="container">
-        <section>
-          <article>
-            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <div
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(post?.blocks ?? [])
-              }}
-            />
-          </article>
-        </section>
-      </div>
+    <Layout seo={{...post?.seo}} hasJsonLd={true}>
+      <article className="container">
+        <Blocks blocks={post?.blocks} />
+      </article>
     </Layout>
   )
 }
@@ -140,8 +92,5 @@ export async function getStaticProps({params}) {
 }
 
 BlogPost.propTypes = {
-  post: PropTypes.object,
-  posts: PropTypes.array,
-  archive: PropTypes.bool,
-  pagination: PropTypes.object
+  ...getPagePropTypes(postType)
 }
