@@ -8,7 +8,13 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param props.props
+ * @param {object}    props           The component attributes as props.
+ * @param {string}    props.className Optional classnames.
+ * @param {string}    props.align     Optional alignment style.
+ * @param {string}    props.anchor    Optional anchor/id.
+ * @param {string}    props.content   The content of the block.
+ * @return {Element}               The RichText component.
  */
 export default function BlockParagraph({props}) {
   const {className, align, anchor, content} = props
@@ -29,9 +35,6 @@ BlockParagraph.propTypes = {
   props: PropTypes.object.isRequired,
   align: PropTypes.string,
   anchor: PropTypes.string,
-  backgroundColor: PropTypes.string,
   className: PropTypes.string,
-  content: PropTypes.string,
-  fontSize: PropTypes.string,
-  textColor: PropTypes.string
+  content: PropTypes.string
 }

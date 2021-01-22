@@ -1,3 +1,4 @@
+import Separator from '@/components/atoms/Separator'
 import PropTypes from 'prop-types'
 
 /**
@@ -6,24 +7,25 @@ import PropTypes from 'prop-types'
  * The core Separator block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param props.props
+ * @param {object}    props           The component attributes as props.
+ * @param {string}    props.className Optional classnames.
+ * @param {string}    props.anchor    Optional anchor/id.
+ * @return {Element}               The Separator component.
  */
 export default function BlockSeparator({props}) {
-  const {className, color, anchor} = props
+  const {className, anchor} = props
 
   const isFullWidth =
     (className && className.includes('is-style-full-width')) > 0 ? true : false
 
   return (
-    <pre>
-      {JSON.stringify(isFullWidth, {className, color, anchor}, null, 2)}
-    </pre>
+    <Separator className={className} anchor={anchor} fullWidth={isFullWidth} />
   )
 }
 
 BlockSeparator.propTypes = {
   props: PropTypes.object.isRequired,
   className: PropTypes.string,
-  color: PropTypes.string,
   anchor: PropTypes.string
 }
