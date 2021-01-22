@@ -9,7 +9,6 @@ edges {
     id
     date
     parentId
-    commentId
     type
   }
 }
