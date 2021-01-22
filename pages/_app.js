@@ -48,7 +48,7 @@ export default function App({Component, pageProps}) {
     indexName: pageProps?.algolia?.indexName
   })
 
-  // Extract default SEO props from page props.
+  // Extract specific props from page props.
   const {
     defaultSeo: {social, ...defaultSeoData} = {},
     menus,
