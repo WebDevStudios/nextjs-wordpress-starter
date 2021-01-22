@@ -15,7 +15,7 @@ export default async function getPostTypeStaticPaths(postType) {
   }
 
   // Retrieve post type plural name.
-  const pluralName = postTypes[postType]
+  const pluralName = postTypes[postType].pluralName
 
   // Check if post type is hierarchical.
   const isHierarchical = isHierarchicalPostType(postType)

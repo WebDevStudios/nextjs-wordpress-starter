@@ -14,38 +14,31 @@ import getMenus from '../menus/getMenus'
 export const archiveSeo = {
   career: {
     title: 'Careers',
-    description: '',
-    route: 'careers'
+    description: ''
   },
   event: {
     title: 'Events',
-    description: '',
-    route: 'events'
+    description: ''
   },
   portfolio: {
     title: 'Portfolio',
-    description: '',
-    route: 'portfolio'
+    description: ''
   },
   post: {
     title: 'Blog',
-    description: '',
-    route: 'blog'
+    description: ''
   },
   service: {
     title: 'Services',
-    description: '',
-    route: 'service'
+    description: ''
   },
   team: {
     title: 'Team Members',
-    description: '',
-    route: 'team'
+    description: ''
   },
   testimonial: {
     title: 'Testimonials',
-    description: '',
-    route: 'testimonial'
+    description: ''
   }
 }
 
@@ -126,7 +119,7 @@ export default async function getPostTypeArchive(
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
-      const pluralType = postTypes[postType] ?? postType
+      const pluralType = postTypes[postType]?.pluralName ?? postType
       const data = archiveData?.[pluralType] ?? null
 
       // Set error props if data not found.
@@ -147,7 +140,7 @@ export default async function getPostTypeArchive(
             ? {
                 ...homepageSettings.postsPage.seo,
                 canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
-                  archiveSeo?.[postType]?.route
+                  postTypes?.[postType]?.route
                 }`
               }
             : {
@@ -156,7 +149,7 @@ export default async function getPostTypeArchive(
                 }`,
                 metaDesc: archiveSeo?.[postType]?.description,
                 canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
-                  archiveSeo?.[postType]?.route
+                  postTypes?.[postType]?.route
                 }`,
                 metaRobotsNofollow: 'follow',
                 metaRobotsNoindex: 'index'
