@@ -4,6 +4,7 @@ import Layout from '@/components/common/Layout'
 import Link from 'next/link'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPagePropTypes from '@/functions/getPagePropTypes'
+import Blocks from '@/components/molecules/Blocks'
 
 // Define route post type.
 const postType = 'post'
@@ -61,18 +62,9 @@ export default function BlogPost({post, archive, posts, pagination}) {
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <div className="container">
-        <section>
-          <article>
-            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <div
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(post?.blocks ?? [])
-              }}
-            />
-          </article>
-        </section>
-      </div>
+      <article className="container">
+        <Blocks blocks={post?.blocks} />
+      </article>
     </Layout>
   )
 }
