@@ -30,7 +30,7 @@ export default async function getPostTypeStaticProps(
     }
   }
 
-  // Check for Frontend-only routes.
+  /* -- Handle Frontend-only routes. -- */
   if (Object.keys(frontendPageSeo).includes(postType)) {
     const {apolloClient, ...routeData} = await getFrontendPage(postType)
 
@@ -43,7 +43,7 @@ export default async function getPostTypeStaticProps(
     })
   }
 
-  // Check for dynamic archive display.
+  /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
 
@@ -57,6 +57,8 @@ export default async function getPostTypeStaticProps(
       revalidate
     })
   }
+
+  /* -- Handle individual posts. -- */
 
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
@@ -90,9 +92,8 @@ export default async function getPostTypeStaticProps(
     preview: isCurrentPostPreview
   }
 
-  // Custom handling for homepage.
+  // Fallback to empty props if homepage not set in WP.
   if ('/' === slug && error) {
-    // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
   }
