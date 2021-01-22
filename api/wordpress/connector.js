@@ -10,7 +10,8 @@ const wpDataEndpointBase = '/wp'
 
 // Define Frontend WP API data endpoints.
 export const wpDataEndpoints = {
-  archive: `${wpDataEndpointBase}/archive`
+  archive: `${wpDataEndpointBase}/archive`,
+  comments: `${wpDataEndpointBase}/comments`
 }
 
 let wpApolloClient
