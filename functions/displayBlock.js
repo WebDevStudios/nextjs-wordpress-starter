@@ -35,11 +35,11 @@ export default function displayBlock(block, index) {
     case 'core/paragraph':
       return <Blocks.BlockParagraph props={attributes} key={index} />
     case 'core/separator':
-      return <Blocks.BlockSeparator props={attributes} key={index} />
+      return <Blocks.BlockSeparator {...attributes} key={index} />
     case 'core/shortcode':
       return <Blocks.BlockShortcode props={attributes} key={index} />
     case 'core/spacer':
-      return <Blocks.BlockSpacer props={attributes} key={index} />
+      return <Blocks.BlockSpacer {...attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(attributes, null, 2)}</pre>
   }
