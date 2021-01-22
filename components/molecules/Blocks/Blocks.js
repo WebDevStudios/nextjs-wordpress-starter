@@ -5,16 +5,17 @@ import displayBlock from '@/functions/displayBlock'
 /**
  * Render the Blocks component.
  *
- * @param {array} blocks An array of blocks.
- * @return {Element}     The Blocks component.
+ * @author WebDevStudios
+ * @param {object} props        The component attributes as props.
+ * @param {array}  props.blocks The array of blocks.
+ * @return {Element}            The Blocks component.
  */
 export default function Blocks({blocks}) {
   return (
     <>
       {
         // If there are blocks, loop over and display.
-        !!blocks &&
-          blocks.length > 0 &&
+        !!blocks?.length &&
           blocks.map((block, index) => {
             return displayBlock(block, index)
           })
