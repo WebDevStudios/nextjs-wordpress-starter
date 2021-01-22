@@ -41,5 +41,5 @@ BlockHeadings.propTypes = {
   align: PropTypes.string,
   className: PropTypes.string,
   content: PropTypes.string,
-  level: PropTypes.string
+  level: PropTypes.number
 }
