@@ -1,6 +1,7 @@
 /**
  * Exit preview mode and redirect to homepage.
  *
+ * @author WebDevStudios
  * @param {object} req Instance of http.IncomingMessage.
  * @param {object} res Instance of http.ServerResponse.
  */
