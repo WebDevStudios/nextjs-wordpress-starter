@@ -78,6 +78,13 @@ export default async function getPostTypeStaticProps(
     props.error = false
   }
 
+  // Display 404 error page if error encountered.
+  if (props.error) {
+    return {
+      notFound: true
+    }
+  }
+
   // Merge in query results as Apollo state.
   return addApolloState(apolloClient, {
     props,
