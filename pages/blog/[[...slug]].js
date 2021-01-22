@@ -64,6 +64,11 @@ export default function BlogPost({post, archive, posts, pagination}) {
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <article className="container">
         <Blocks blocks={post?.blocks} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(post?.comments ?? [])
+          }}
+        />
       </article>
     </Layout>
   )

@@ -8,7 +8,9 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param {object} props       The component attributes as props.
+ * @param {object} props.props The block attributes props from WordPress.
+ * @return {Element}           RichText component with paragraph content.
  */
 export default function BlockParagraph({props}) {
   const {className, align, anchor, content} = props
