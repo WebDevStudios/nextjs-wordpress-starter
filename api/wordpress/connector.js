@@ -29,16 +29,17 @@ let wpApolloClient
  * @see https://www.apollographql.com/docs/react/api/core/ApolloClient/
  *
  * @author WebDevStudios
- * @return {object} Apollo client instance.
+ * @param {boolean} auth Whether to include authentication via WP application password.
+ * @return {object}      Apollo client instance.
  */
-export function createWpApolloClient() {
+export function createWpApolloClient(auth = false) {
   return new ApolloClient({
     ssrMode: false,
     link: new HttpLink({
       uri: `${wpApiUrlBase}graphql`,
       credentials: '',
       headers: {
-        authorization: `Basic ${wpAuthorization}`
+        authorization: auth ? `Basic ${wpAuthorization}` : ''
       }
     }),
     cache: new InMemoryCache()
