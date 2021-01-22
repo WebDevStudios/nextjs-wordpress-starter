@@ -1,3 +1,4 @@
+import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -7,25 +8,21 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param props.props
+ * @param {object}    props The component attributes as props.
  */
 export default function BlockParagraph({props}) {
   const {className, align, anchor, content} = props
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
-    <p
-      className={cn(
-        'container',
-        'container--sm',
-        `text-${alignment}`,
-        className
-      )}
+    <RichText
+      className={cn(`text-${alignment}`, className)}
       id={anchor}
       tag="p"
     >
       {content}
-    </p>
+    </RichText>
   )
 }
 
