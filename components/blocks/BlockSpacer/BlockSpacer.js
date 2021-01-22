@@ -1,3 +1,4 @@
+import Spacer from '@/components/atoms/Spacer'
 import PropTypes from 'prop-types'
 
 /**
@@ -6,11 +7,15 @@ import PropTypes from 'prop-types'
  * The core Spacer block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param props.props
+ * @param {object}    props        The component attributes as props.
+ * @param {string}    props.anchor Optional anchor/id.
+ * @param {string}    props.height The height of the spacer.
+ * @return {Element}               The Spacer component.
  */
 export default function BlockSpacer({props}) {
   const {anchor, height} = props
-  return <pre>{JSON.stringify({anchor, height}, null, 2)}</pre>
+  return <Spacer pxHeight={height} id={anchor} />
 }
 
 BlockSpacer.propTypes = {
