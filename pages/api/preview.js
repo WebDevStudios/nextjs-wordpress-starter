@@ -27,7 +27,7 @@ export default async function preview(req, res) {
       post_type,
       id,
       'DATABASE_ID',
-      true
+      'basic'
     )
 
     // Handle response errors.

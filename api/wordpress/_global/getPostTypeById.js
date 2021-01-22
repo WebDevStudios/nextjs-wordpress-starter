@@ -19,14 +19,14 @@ import getMenus from '../menus/getMenus'
  * @param {string}          postType WP post type.
  * @param {number | string} id       Post identifier.
  * @param {string}          idType   Type of ID.
- * @param {boolean}         preview  Whether checking if post preview exists.
+ * @param {string}          preview  Whether query is for a regular post view (null), a preview check (basic), or full post preview (full).
  * @return {object}                  Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(
   postType,
   id,
   idType = 'SLUG',
-  preview = false
+  preview = null
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
@@ -99,7 +99,7 @@ export default async function getPostTypeById(
         slug: id
       }
 
-      if (preview || !post || !post?.blocksJSON) {
+      if ('basic' === preview || !post || !post?.blocksJSON) {
         return post
       }
 
