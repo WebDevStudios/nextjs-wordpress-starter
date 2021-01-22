@@ -52,6 +52,7 @@ export default function App({Component, pageProps}) {
   const {
     defaultSeo: {social, ...defaultSeoData} = {},
     menus,
+    preview,
     ...passThruProps
   } = pageProps
 
@@ -82,6 +83,14 @@ export default function App({Component, pageProps}) {
           ) : (
             <>
               {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+              {!!preview && (
+                // TODO -- abstract this to a component.
+                <p>
+                  This page is a preview.{' '}
+                  <a href="/api/exit-preview">Click here</a> to exit preview
+                  mode.
+                </p>
+              )}
               <Component {...componentProps} />
             </>
           )}
