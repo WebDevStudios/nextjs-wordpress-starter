@@ -1,5 +1,5 @@
 import queryPostById from '../posts/queryPostById'
-import {initializeWpApollo} from '../connector'
+import {initializeWpApollo, createWpApolloClient} from '../connector'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
 import formatBlockData from '@/functions/formatBlockData'
@@ -50,7 +50,9 @@ export default async function getPostTypeById(
   const query = postTypeQuery?.[postType] ?? null
 
   // Get/create Apollo instance.
-  const apolloClient = initializeWpApollo()
+  const apolloClient = preview
+    ? createWpApolloClient(true)
+    : initializeWpApollo()
 
   // Set up return object.
   const response = {
