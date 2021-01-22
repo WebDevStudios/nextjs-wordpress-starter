@@ -9,17 +9,20 @@ import React from 'react'
  * The core Headings block from Gutenberg.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props           The component attributes as props.
- * @param {string}    props.className Optional classnames.
- * @param {string}    props.align     Optional alignment style.
- * @param {string}    props.anchor    Optional anchor/id.
- * @param {string}    props.content   The content of the block.
- * @param {string}    props.level     The heading level.
- * @return {Element}               The RichText component.
+ * @param {string} className Optional classnames.
+ * @param {string} align     Optional alignment style.
+ * @param {string} anchor    Optional anchor/id.
+ * @param {string} content   The content of the block.
+ * @param {string} level     The heading level.
+ * @return {Element}         The RichText component.
  */
-export default function BlockHeadings({props}) {
-  const {className, align, anchor, content, level} = props
+export default function BlockHeadings({
+  className,
+  align,
+  anchor,
+  content,
+  level
+}) {
   const alignment = !align ? 'left' : align
 
   return (
@@ -34,7 +37,6 @@ export default function BlockHeadings({props}) {
 }
 
 BlockHeadings.propTypes = {
-  props: PropTypes.object.isRequired,
   anchor: PropTypes.string,
   align: PropTypes.string,
   className: PropTypes.string,

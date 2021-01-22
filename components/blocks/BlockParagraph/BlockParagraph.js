@@ -16,8 +16,7 @@ import PropTypes from 'prop-types'
  * @param {string}    props.content   The content of the block.
  * @return {Element}               The RichText component.
  */
-export default function BlockParagraph({props}) {
-  const {className, align, anchor, content} = props
+export default function BlockParagraph({className, align, anchor, content}) {
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
@@ -32,7 +31,6 @@ export default function BlockParagraph({props}) {
 }
 
 BlockParagraph.propTypes = {
-  props: PropTypes.object.isRequired,
   align: PropTypes.string,
   anchor: PropTypes.string,
   className: PropTypes.string,

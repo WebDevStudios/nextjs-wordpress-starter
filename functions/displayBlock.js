@@ -15,29 +15,29 @@ export default function displayBlock(block, index) {
   // prettier-ignore
   switch (name) {
     case 'acf/accordions':
-      return <Blocks.BlockAccordions props={attributes} key={index} />
+      return <Blocks.BlockAccordions {...attributes} key={index} />
     case 'acf/netflix':
       return (
-        <Blocks.BlockNetflixCarousel props={attributes} key={index} />
+        <Blocks.BlockNetflixCarousel {...attributes} key={index} />
       )
     case 'core/block-quote':
-      return <Blocks.BlockBlockquote props={attributes} key={index} />
+      return <Blocks.BlockBlockquote {...attributes} key={index} />
     case 'core/embed':
-      return <Blocks.BlockVideoEmbed props={attributes} key={index} />
+      return <Blocks.BlockVideoEmbed {...attributes} key={index} />
     case 'core/heading':
-      return <Blocks.BlockHeadings props={attributes} key={index} />
+      return <Blocks.BlockHeadings {...attributes} key={index} />
     case 'core/image':
-      return <Blocks.BlockImage props={attributes} key={index} />
+      return <Blocks.BlockImage {...attributes} key={index} />
     case 'core/image-gallery':
-      return <Blocks.BlockImageGallery props={attributes} key={index} />
+      return <Blocks.BlockImageGallery {...attributes} key={index} />
     case 'core/list':
-      return <Blocks.BlockList props={attributes} key={index} />
+      return <Blocks.BlockList {...attributes} key={index} />
     case 'core/paragraph':
-      return <Blocks.BlockParagraph props={attributes} key={index} />
+      return <Blocks.BlockParagraph {...attributes} key={index} />
     case 'core/separator':
       return <Blocks.BlockSeparator {...attributes} key={index} />
     case 'core/shortcode':
-      return <Blocks.BlockShortcode props={attributes} key={index} />
+      return <Blocks.BlockShortcode {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
     default:

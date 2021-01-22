@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
  * @return {Element}               The Spacer component.
  */
 export default function BlockSpacer({anchor, height}) {
-  return <Spacer pxHeight={height} id={anchor} />
+  return <Spacer height={height} id={anchor} />
 }
 
 BlockSpacer.propTypes = {
@@ -21,5 +21,5 @@ BlockSpacer.propTypes = {
   height: PropTypes.number
 }
 BlockSpacer.defaultProps = {
-  anchor: 50
+  height: 40
 }
