@@ -1,0 +1,30 @@
+.fiftyFifty {
+  @apply desktop:grid desktop:grid-cols-12 desktop:gap-16;
+
+  & .content,
+  & .media {
+    @apply col-span-6 p-16 flex flex-col items-start justify-center;
+  }
+
+  & .content {
+    & .title {
+      @apply mb-8 text-h2 font-secondary;
+    }
+
+    & .body {
+      @apply mb-24 font-primary text-body text-grey-light;
+    }
+  }
+
+  & .media {
+    & .imageWrap {
+      @apply relative h-0 w-full rounded-largest bg-black bg-opacity-20;
+
+      padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
+    }
+
+    & img {
+      @apply absolute top-0 left-0 w-full h-full object-cover rounded-largest;
+    }
+  }
+}
