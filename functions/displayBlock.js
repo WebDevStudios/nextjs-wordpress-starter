@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param {object} block The block data.
  * @param {number} index A unique key required by React.
- * @return {Element}     A block-based component.
+ * @return {Element} A block-based component.
  */
 export default function displayBlock(block, index) {
   const {attributes, name} = block
@@ -30,6 +30,8 @@ export default function displayBlock(block, index) {
     //   return <Blocks.BlockImage {...attributes} key={index} />
     // case 'core/image-gallery':
     //   return <Blocks.BlockImageGallery {...attributes} key={index} />
+    case 'core/table':
+      return <Blocks.BlockTable {...attributes} key={index} />
     case 'core/list':
       return <Blocks.BlockList {...attributes} key={index} />
     case 'core/paragraph':
