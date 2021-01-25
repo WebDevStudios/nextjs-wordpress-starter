@@ -88,12 +88,14 @@ export async function getStaticPaths() {
  * Get post static props.
  *
  * @author WebDevStudios
- * @param {object} context        Context for current post.
- * @param {object} context.params Route parameters for current post.
- * @return {object}               Post props.
+ * @param {object}  context             Context for current post.
+ * @param {object}  context.params      Route parameters for current post.
+ * @param {boolean} context.preview     Whether requesting preview of post.
+ * @param {object}  context.previewData Post preview data.
+ * @return {object}                     Post props.
  */
-export async function getStaticProps({params}) {
-  return getPostTypeStaticProps(params, postType)
+export async function getStaticProps({params, preview, previewData}) {
+  return getPostTypeStaticProps(params, postType, preview, previewData)
 }
 
 BlogPost.propTypes = {

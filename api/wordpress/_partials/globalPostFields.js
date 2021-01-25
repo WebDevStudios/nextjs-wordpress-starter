@@ -5,5 +5,6 @@ const globalPostFields = `
   slug
   uri
   title
+  status
 `
 export default globalPostFields

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param {object} props       The component attributes as props.
  * @param {object} props.props The block attributes props from WordPress.
- * @return {Element}           RichText component with paragraph content
+ * @return {Element}           RichText component with paragraph content.
  */
 export default function BlockParagraph({props}) {
   const {className, align, anchor, content} = props
