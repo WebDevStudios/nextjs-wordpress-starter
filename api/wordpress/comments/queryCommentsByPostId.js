@@ -21,7 +21,11 @@ const queryCommentsByPostId = gql`
       where: {contentId: $id, order: $order, orderby: $orderby}
     ) {
       ${archivePageInfo}
-      ${commentsFields}
+      edges {
+        node {
+          ${commentsFields}
+        }
+      }
     }
   }
 `
