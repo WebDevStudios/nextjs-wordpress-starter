@@ -48,7 +48,7 @@
     "@apollo/client": "^3.3.7",
     "@babel/core": "^7.12.10",
     "@storybook/addon-a11y": "^6.1.14",
-    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.15",
     "@storybook/addon-links": "^6.1.14",
     "@storybook/react": "^6.1.14",
     "algoliasearch": "^4.8.4",
