@@ -49,7 +49,7 @@ export const postPropTypes = {
     excerpt: PropTypes.string,
     featuredImage: PropTypes.object,
     ...seoPropTypes,
-    slug: PropTypes.string,
+    slug: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
     uri: PropTypes.string
   })
@@ -72,7 +72,7 @@ export const archivePropTypes = {
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
- * @return {object}         Page prop types.
+ * @return {object} Page prop types.
  */
 export default function getPagePropTypes(postType) {
   // Check if post type is valid.

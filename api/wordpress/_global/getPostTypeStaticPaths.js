@@ -7,7 +7,7 @@ import {initializeWpApollo} from '../connector'
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
- * @return {object}         Post type paths.
+ * @return {object} Post type paths.
  */
 export default async function getPostTypeStaticPaths(postType) {
   if (!postType || !isValidPostType(postType)) {
@@ -15,7 +15,7 @@ export default async function getPostTypeStaticPaths(postType) {
   }
 
   // Retrieve post type plural name.
-  const pluralName = postTypes[postType]
+  const pluralName = postTypes[postType].pluralName
 
   // Check if post type is hierarchical.
   const isHierarchical = isHierarchicalPostType(postType)

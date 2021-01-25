@@ -7,8 +7,8 @@ import displayBlock from '@/functions/displayBlock'
  *
  * @author WebDevStudios
  * @param {object} props        The component attributes as props.
- * @param {array}  props.blocks The array of blocks.
- * @return {Element}            The Blocks component.
+ * @param {Array}  props.blocks The array of blocks.
+ * @return {Element} The Blocks component.
  */
 export default function Blocks({blocks}) {
   return (

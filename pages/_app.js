@@ -16,7 +16,7 @@ import {useRouter} from 'next/router'
  * @param {object}  props           The component attributes as props.
  * @param {object}  props.Component Page component to display.
  * @param {boolean} props.pageProps Page component props.
- * @return {Element}                The App component.
+ * @return {Element} The App component.
  */
 export default function App({Component, pageProps}) {
   /**
@@ -48,10 +48,11 @@ export default function App({Component, pageProps}) {
     indexName: pageProps?.algolia?.indexName
   })
 
-  // Extract default SEO props from page props.
+  // Extract specific props from page props.
   const {
     defaultSeo: {social, ...defaultSeoData} = {},
     menus,
+    preview,
     ...passThruProps
   } = pageProps
 
@@ -82,6 +83,14 @@ export default function App({Component, pageProps}) {
           ) : (
             <>
               {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+              {!!preview && (
+                // TODO -- abstract this to a component.
+                <p>
+                  This page is a preview.{' '}
+                  <a href="/api/exit-preview">Click here</a> to exit preview
+                  mode.
+                </p>
+              )}
               <Component {...componentProps} />
             </>
           )}
