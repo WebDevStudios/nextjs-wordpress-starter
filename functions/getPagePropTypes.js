@@ -49,7 +49,7 @@ export const postPropTypes = {
     excerpt: PropTypes.string,
     featuredImage: PropTypes.object,
     ...seoPropTypes,
-    slug: PropTypes.string,
+    slug: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
     uri: PropTypes.string
   })
