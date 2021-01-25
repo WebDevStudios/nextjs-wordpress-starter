@@ -3,23 +3,23 @@ import Container from '@/components/atoms/Container'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './FiftyFifty.module.css'
+import styles from './TextMedia.module.css'
 
 /**
- * Render the FiftyFifty component.
+ * Render the TextMedia component.
  *
- * @param {object} props           FiftyFifty component props.
+ * @param {object} props           TextMedia component props.
  * @param {string} props.body      The body text.
  * @param {string} props.className The className.
  * @param {object} props.cta       The cta object with text and url strings.
  * @param {object} props.image     The image object with url and alt text.
  * @param {string} props.title     The title.
- * @return {Element}               The FiftyFifty component.
+ * @return {Element}               The TextMedia component.
  */
-export default function FiftyFifty({body, className, cta, image, title}) {
+export default function TextMedia({body, className, cta, image, title}) {
   return (
     <Container>
-      <section className={cn(styles.fiftyFifty, className)}>
+      <section className={cn(styles.textMedia, className)}>
         <div className={styles.content}>
           <h1 className={styles.title}>{title}</h1>
           {body && <p className={styles.body}>{body}</p>}
@@ -45,7 +45,7 @@ export default function FiftyFifty({body, className, cta, image, title}) {
   )
 }
 
-FiftyFifty.propTypes = {
+TextMedia.propTypes = {
   body: PropTypes.string,
   className: PropTypes.string,
   cta: PropTypes.shape({
@@ -59,7 +59,7 @@ FiftyFifty.propTypes = {
   title: PropTypes.string
 }
 
-FiftyFifty.defaultProps = {
+TextMedia.defaultProps = {
   title: 'Here is a H2 headline in a bold font.',
   body:
     'Let me tell you a little story about how I went sledging in the Australian Alps, and got lost in the process. Oh what a riot that was, and I nearly lost...',
