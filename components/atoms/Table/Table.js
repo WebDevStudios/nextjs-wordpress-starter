@@ -34,7 +34,7 @@ export default function Table({id, head, body, foot, caption, className}) {
                               tag="th"
                               key={index}
                               className={
-                                cell.align !== ''
+                                cell?.align !== ''
                                   ? `text-${cell.align}`
                                   : 'text-left'
                               }
@@ -59,7 +59,7 @@ export default function Table({id, head, body, foot, caption, className}) {
                             tag="td"
                             key={index}
                             className={
-                              cell.align !== ''
+                              cell?.align !== ''
                                 ? `text-${cell.align}`
                                 : 'text-left'
                             }
@@ -85,7 +85,7 @@ export default function Table({id, head, body, foot, caption, className}) {
                               tag="td"
                               key={index}
                               className={
-                                cell.align !== ''
+                                cell?.align !== ''
                                   ? `text-${cell.align}`
                                   : 'text-left'
                               }
