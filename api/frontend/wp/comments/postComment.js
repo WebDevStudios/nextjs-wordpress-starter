@@ -2,7 +2,18 @@ import mutationAddComent from './mutationAddComment'
 import {initializeFeApollo} from '../../connector'
 
 /**
- * Retrieve next page of posts for post type archive.
+ * Post a comment to the given post. Follows established WordPress
+ * behavior for posting comments:
+ *
+ * If this is an authenticated request (i.e. "logged in"), the `author`
+ * fields will be ignored in favor of the logged-in user's information.
+ *
+ * If comment moderation is turned on, the `data.createComment.comment`
+ * object may be `null`. This does not necessarily indicate an error;
+ * the comment may be held for moderation.
+ *
+ * If the comment does not need manual approval, it will be returned
+ * with this query.
  *
  * @author WebDevStudios
  * @param {string} author      Name of the comment author.
