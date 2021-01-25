@@ -8,5 +8,11 @@ const commentsFields = `
   date
   parentId
   type
+  author {
+    node {
+      name
+      url
+    }
+  }
 `
 export default commentsFields
