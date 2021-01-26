@@ -1,0 +1,5 @@
+.separator {
+  @apply w-full bg-tertiary-lightest border-none my-40;
+
+  height: 1px;
+}

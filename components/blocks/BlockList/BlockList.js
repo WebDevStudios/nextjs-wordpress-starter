@@ -1,3 +1,4 @@
+import RichText from '@/components/atoms/RichText'
 import PropTypes from 'prop-types'
 
 /**
@@ -6,20 +7,23 @@ import PropTypes from 'prop-types'
  * The core List block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param {string}  className Optional classnames.
+ * @param {boolean} ordered   Is this an ordered list.
+ * @param {string}  anchor    Optional anchor/id.
+ * @param {string}  values    The content of the block.
+ * @return {Element}          The RichText component.
  */
-export default function BlockList({props}) {
-  const {className, ordered, anchor, values} = props
-
+export default function BlockList({className, ordered, anchor, values}) {
   return (
-    <pre>{JSON.stringify({className, ordered, anchor, values}, null, 2)}</pre>
+    <RichText tag={ordered ? 'ol' : 'ul'} className={className} id={anchor}>
+      {values}
+    </RichText>
   )
 }
 
 BlockList.propTypes = {
-  props: PropTypes.object.isRequired,
   anchor: PropTypes.string,
-  ordered: PropTypes.string,
+  ordered: PropTypes.bool,
   className: PropTypes.string,
   values: PropTypes.string
 }

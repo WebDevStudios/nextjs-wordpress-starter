@@ -1,0 +1,40 @@
+.table {
+  & table {
+    @apply w-full border-collapse mb-20;
+
+    & td,
+    & th {
+      @apply p-12 font-primary text-root-em;
+    }
+
+    & thead {
+      & tr {
+        @apply border-b border-tertiary-light;
+      }
+
+      & th {
+        @apply uppercase;
+      }
+    }
+
+    & tbody {
+      & tr:nth-child(odd) {
+        @apply bg-tertiary-lightest;
+      }
+    }
+
+    & tfoot {
+      & tr {
+        @apply border-t border-tertiary-light;
+      }
+
+      & td {
+        @apply font-primary text-xs;
+      }
+    }
+  }
+
+  & p {
+    @apply mb-20 text-center font-primary text-sm;
+  }
+}

@@ -20,7 +20,7 @@ import getMenus from '../menus/getMenus'
  * @param {number | string} id       Post identifier.
  * @param {string}          idType   Type of ID.
  * @param {string}          preview  Whether query is for a regular post view (null), a preview check (basic), or full post preview (full).
- * @return {object}                  Object containing Apollo client instance and post data or error object.
+ * @return {object} Object containing Apollo client instance and post data or error object.
  */
 export default async function getPostTypeById(
   postType,

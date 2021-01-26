@@ -8,7 +8,7 @@ import {postTypes} from '@/api/wordpress/_global/postTypes'
  * @author WebDevStudios
  * @param {object} req Instance of http.IncomingMessage.
  * @param {object} res Instance of http.ServerResponse.
- * @return {object}    Redirects to appropriate post route on success, returns response error object otherwise.
+ * @return {object} Redirects to appropriate post route on success, returns response error object otherwise.
  */
 export default async function preview(req, res) {
   try {

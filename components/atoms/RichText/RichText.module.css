@@ -4,12 +4,62 @@
   }
 
   /* Paragraph, List Styles */
+  & ul,
+  &.ul,
+  & ol,
+  &.ol,
   & p,
   &.p {
     @apply font-primary text-root-em mb-20;
 
     & > a {
       @apply text-primary;
+    }
+  }
+
+  & ul,
+  &.ul,
+  & ol,
+  &.ol {
+    & li {
+      @apply mb-4 relative pl-24 list-none;
+    }
+
+    & ul,
+    & ol {
+      @apply ml-16 mb-0;
+    }
+  }
+
+  /* Unordered Lists */
+  & ul,
+  &.ul {
+    & li {
+      &::before {
+        @apply absolute block bg-tertiary-lighter rounded-full;
+
+        content: '';
+        width: 5px;
+        height: 5px;
+        left: 0.35rem;
+        top: 0.55rem;
+      }
+    }
+  }
+
+  /* Ordered Lists */
+  & ol,
+  &.ol {
+    counter-reset: item;
+
+    & > li {
+      &::before {
+        @apply absolute block text-tertiary-lighter left-0 italic;
+
+        content: counter(item) '. ';
+        counter-increment: item;
+        margin-left: 2px;
+      }
     }
   }
 

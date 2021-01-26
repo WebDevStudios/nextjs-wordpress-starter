@@ -18,7 +18,8 @@ const wpDataEndpointBase = '/wp'
 
 // Define Frontend WP API data endpoints.
 export const wpDataEndpoints = {
-  archive: `${wpDataEndpointBase}/archive`
+  archive: `${wpDataEndpointBase}/archive`,
+  postComment: `${wpDataEndpointBase}/postComment`
 }
 
 let wpApolloClient
@@ -30,7 +31,7 @@ let wpApolloClient
  *
  * @author WebDevStudios
  * @param {boolean} auth Whether to include authentication via WP application password.
- * @return {object}      Apollo client instance.
+ * @return {object} Apollo client instance.
  */
 export function createWpApolloClient(auth = false) {
   return new ApolloClient({
@@ -51,7 +52,7 @@ export function createWpApolloClient(auth = false) {
  *
  * @author WebDevStudios
  * @param {*} initialState Initial Apollo state.
- * @return {object}        WP Apollo client instance.
+ * @return {object} WP Apollo client instance.
  */
 export function initializeWpApollo(initialState = null) {
   // Only run one instance of the Apollo client.

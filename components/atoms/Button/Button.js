@@ -8,21 +8,17 @@ import styles from './Button.module.css'
 /**
  * Render the common inner part of the button component.
  *
- * @param {object}  props              The props object.
- * @param {string}  props.icon         Optional icon.
- * @param {boolean} props.iconOnly     Whether this button is an icon only.
- * @param {string}  props.iconPosition Position to render the icon.
- * @param {string}  props.text         Button text or aria-label.
- * @return {Element}                   The inside of the Button component.
+ * @param {object}  props          The props object.
+ * @param {string}  props.icon     Optional icon.
+ * @param {boolean} props.iconOnly Whether this button is an icon only.
+ * @param {string}  props.text     Button text or aria-label.
+ * @return {Element}               The inside of the Button component.
  */
-function ButtonInner({icon, iconOnly, iconPosition, text}) {
+function ButtonInner({icon, iconOnly, text}) {
   return (
     <>
-      {icon && iconPosition === 'left' && (
-        <Icon icon={icon} title={text} ariaHidden={text ? true : false} />
-      )}
       {!iconOnly && <span className={styles.text}>{text}</span>}
-      {icon && iconPosition === 'right' && (
+      {icon && (
         <Icon icon={icon} title={text} ariaHidden={text ? true : false} />
       )}
     </>
@@ -32,27 +28,26 @@ function ButtonInner({icon, iconOnly, iconPosition, text}) {
 ButtonInner.propTypes = {
   icon: PropTypes.string,
   iconOnly: PropTypes.bool,
-  iconPosition: PropTypes.bool,
   text: PropTypes.string
 }
 
 /**
- * @param {object}   props              The props object.
- * @param {string}   props.attributes   Optional attributes to add to the button.
- * @param {string}   props.tag          The wrapper tag.
- * @param {string}   props.className    Optional classNames.
- * @param {boolean}  props.disabled     Whether the button is disabled.
- * @param {boolean}  props.fluid        Whether the button should be full width.
- * @param {string}   props.icon         Icon to render inside the button.
- * @param {boolean}  props.iconOnly     Whether this button should render as an icon only button.
- * @param {string}   props.iconPosition Position to render the icon.
- * @param {Function} props.onClick      Button onClick function.
- * @param {string}   props.size         Button size.
- * @param {string}   props.text         Button text.
- * @param {string}   props.type         Button type.
- * @param {string}   props.url          Button link url.
- * @param {boolean}  props.urlExternal  Whether the url on this button links to an external site.
- * @return {Element}                    The button component.
+ * @param {object}   props             The props object.
+ * @param {string}   props.attributes  Optional attributes to add to the button.
+ * @param {string}   props.tag         The wrapper tag.
+ * @param {string}   props.className   Optional classNames.
+ * @param {boolean}  props.disabled    Whether the button is disabled.
+ * @param {boolean}  props.fluid       Whether the button should be full width.
+ * @param {string}   props.icon        Icon to render inside the button.
+ * @param {boolean}  props.iconOnly    Whether this button should render as an icon only button.
+ * @param {string}   props.iconLeft    Whether to render the icon on the left.
+ * @param {Function} props.onClick     Button onClick function.
+ * @param {string}   props.size        Button size.
+ * @param {string}   props.text        Button text.
+ * @param {string}   props.type        Button type.
+ * @param {string}   props.url         Button link url.
+ * @param {boolean}  props.urlExternal Whether the url on this button links to an external site.
+ * @return {Element}                   The button component.
  */
 export default function Button({
   attributes,
@@ -62,7 +57,7 @@ export default function Button({
   fluid,
   icon,
   iconOnly,
-  iconPosition,
+  iconLeft,
   onClick,
   size,
   text,
@@ -74,6 +69,7 @@ export default function Button({
     styles.button,
     className,
     iconOnly && styles.iconOnly,
+    iconLeft && styles.iconLeft,
     fluid && styles.fluid,
     disabled && styles.disabled,
     styles[size],
@@ -91,7 +87,7 @@ export default function Button({
         <ButtonInner
           icon={icon}
           iconOnly={iconOnly}
-          iconPosition={iconPosition}
+          iconLeft={iconLeft}
           text={text}
         />
       </a>
@@ -101,7 +97,7 @@ export default function Button({
           <ButtonInner
             icon={icon}
             iconOnly={iconOnly}
-            iconPosition={iconPosition}
+            iconLeft={iconLeft}
             text={text}
           />
         </a>
@@ -122,7 +118,7 @@ export default function Button({
         <ButtonInner
           icon={icon}
           iconOnly={iconOnly}
-          iconPosition={iconPosition}
+          iconLeft={iconLeft}
           text={text}
         />
       )
@@ -137,7 +133,7 @@ Button.propTypes = {
   fluid: PropTypes.bool,
   icon: PropTypes.string,
   iconOnly: PropTypes.bool,
-  iconPosition: PropTypes.oneOf(['left', 'right']),
+  iconLeft: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   tag: PropTypes.string,
@@ -150,7 +146,7 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   iconOnly: false,
-  iconPosition: 'left',
+  iconLeft: false,
   size: 'md',
   tag: 'button',
   type: 'primary',

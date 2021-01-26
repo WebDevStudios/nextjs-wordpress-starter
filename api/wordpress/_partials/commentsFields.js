@@ -1,16 +1,18 @@
 // Query partial: retrieve comment fields.
 const commentsFields = `
-edges {
-  node {
-    databaseId
-    content(format: RENDERED)
-    parentDatabaseId
-    approved
-    id
-    date
-    parentId
-    type
+  databaseId
+  content(format: RENDERED)
+  parentDatabaseId
+  approved
+  id
+  date
+  parentId
+  type
+  author {
+    node {
+      name
+      url
+    }
   }
-}
 `
 export default commentsFields

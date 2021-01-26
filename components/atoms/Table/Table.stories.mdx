@@ -1,0 +1,109 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Table from '.'
+
+export const head = [
+  {
+    cells: [
+      {
+        content: 'Table Head 1',
+        tag: 'th'
+      },
+      {
+        content: 'Table Head 2',
+        tag: 'th'
+      },
+      {
+        content: 'Table Head 3',
+        tag: 'th'
+      }
+    ]
+  }
+]
+
+export const body = [
+  {
+    cells: [
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      },
+      {
+        content: 'Donec ullmetus auctor fringilla.',
+        tag: 'td'
+      },
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      }
+    ]
+  },
+  {
+    cells: [
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      },
+      {
+        content: 'Donec ullmetus auctor fringilla.',
+        tag: 'td'
+      },
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      }
+    ]
+  },
+  {
+    cells: [
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      },
+      {
+        content: 'Donec ullmetus auctor fringilla.',
+        tag: 'td'
+      },
+      {
+        content: 'Integer venenatis dapibus posuere velit aliquet.',
+        tag: 'td'
+      }
+    ]
+  }
+]
+
+export const foot = [
+  {
+    cells: [
+      {
+        content: 'Table Foot 1',
+        tag: 'td'
+      },
+      {
+        content: 'Table Foot 2',
+        tag: 'td'
+      },
+      {
+        content: 'Table Foot 3',
+        tag: 'td'
+      }
+    ]
+  }
+]
+
+<Meta title="Components/Atoms/Table" component={Table} />
+
+# Table
+
+Use this to display a Table.
+
+<Canvas>
+  <Story name="Component">
+    <Table
+      head={head}
+      body={body}
+      foot={foot}
+      caption="This is a table caption"
+    />
+  </Story>
+</Canvas>
