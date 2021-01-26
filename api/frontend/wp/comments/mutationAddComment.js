@@ -11,15 +11,13 @@ const mutationAddComment = gql`
     $postId: Int!
     $content: String!
   ) {
-    createComment (
-      input: {
-        author: $author,
-        authorEmail: $authorEmail,
-        authorUrl: $authorUrl,
-        commentOn: $postId,
-        content: $content
-      }
-    ) @rest(type: "Comments", path: "${wpDataEndpoints.comments}?{args}") {
+    postComment (
+      author: $author,
+      authorEmail: $authorEmail,
+      authorUrl: $authorUrl,
+      postId: $postId,
+      content: $content
+    ) @rest(type: "Comments", path: "${wpDataEndpoints.postComment}?{args}") {
       comment {
         ${commentsFields}
       }

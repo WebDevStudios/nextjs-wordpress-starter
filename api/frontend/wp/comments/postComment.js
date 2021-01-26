@@ -1,4 +1,4 @@
-import mutationAddComent from './mutationAddComment'
+import mutationAddComment from './mutationAddComment'
 import {initializeFeApollo} from '../../connector'
 
 /**
@@ -33,8 +33,8 @@ export default async function postComment(
   const apolloClient = initializeFeApollo()
 
   return apolloClient
-    .query({
-      query: mutationAddComent,
+    .mutate({
+      mutation: mutationAddComment,
       variables: {
         author,
         authorEmail,
