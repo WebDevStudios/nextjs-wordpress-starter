@@ -100,7 +100,11 @@ export default function Table({id, head, body, foot, caption, className}) {
               </tfoot>
             )}
           </table>
-          {!!caption && <RichText tag="p">{caption}</RichText>}
+          {!!caption && (
+            <div className={styles.caption}>
+              <RichText tag="span">{caption}</RichText>
+            </div>
+          )}
         </div>
       )}
     </>
