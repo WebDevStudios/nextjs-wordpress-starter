@@ -1,4 +1,4 @@
-.textMedia {
+.mediaText {
   @apply desktop:grid desktop:grid-cols-12 desktop:gap-16;
 
   & .content,
