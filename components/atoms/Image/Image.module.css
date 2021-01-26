@@ -2,7 +2,7 @@
   @apply mb-20;
 
   & img {
-    @apply block;
+    @apply block rounded;
   }
 
   & .caption {
