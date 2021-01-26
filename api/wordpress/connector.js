@@ -4,13 +4,22 @@ import {initializeApollo} from '../apolloConfig'
 
 // Define env vars.
 export const wpApiUrlBase = getEnvVar('WORDPRESS_API_URL')
+export const wpPreviewSecret = process.env.WORDPRESS_PREVIEW_SECRET
+const wpAppUser = process.env.WORDPRESS_APPLICATION_USERNAME
+const wpAppPass = process.env.WORDPRESS_APPLICATION_PASSWORD
+
+// Set WP application password auth header.
+const wpAuthorization = Buffer.from(`${wpAppUser}:${wpAppPass}`).toString(
+  'base64'
+)
 
 // Define Frontend WP API data endpoint base.
 const wpDataEndpointBase = '/wp'
 
 // Define Frontend WP API data endpoints.
 export const wpDataEndpoints = {
-  archive: `${wpDataEndpointBase}/archive`
+  archive: `${wpDataEndpointBase}/archive`,
+  postComment: `${wpDataEndpointBase}/postComment`
 }
 
 let wpApolloClient
@@ -21,14 +30,18 @@ let wpApolloClient
  * @see https://www.apollographql.com/docs/react/api/core/ApolloClient/
  *
  * @author WebDevStudios
+ * @param {boolean} auth Whether to include authentication via WP application password.
  * @return {object} Apollo client instance.
  */
-export function createWpApolloClient() {
+export function createWpApolloClient(auth = false) {
   return new ApolloClient({
     ssrMode: false,
     link: new HttpLink({
       uri: `${wpApiUrlBase}graphql`,
-      credentials: ''
+      credentials: '',
+      headers: {
+        authorization: auth ? `Basic ${wpAuthorization}` : ''
+      }
     }),
     cache: new InMemoryCache()
   })
@@ -39,7 +52,7 @@ export function createWpApolloClient() {
  *
  * @author WebDevStudios
  * @param {*} initialState Initial Apollo state.
- * @return {object}        WP Apollo client instance.
+ * @return {object} WP Apollo client instance.
  */
 export function initializeWpApollo(initialState = null) {
   // Only run one instance of the Apollo client.

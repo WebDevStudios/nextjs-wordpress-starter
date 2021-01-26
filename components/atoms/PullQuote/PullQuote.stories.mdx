@@ -1,0 +1,40 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import PullQuote from '.'
+
+<Meta title="Components/Atoms/Pullquote" component={PullQuote} />
+
+# Pull Quote
+
+Use this to display a pull quote.
+
+<Canvas>
+  <Story name="Component">
+    <PullQuote
+      quote="I have no other view than to promote the public good, and am unambitious of honors not founded in the approbation of my country."
+      citation="George Washington"
+    />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<PullQuote />` props in the [Canvas tab of the Controls story](?path=/story/design-system-molecules-pullquote--controls).
+
+export const Template = (args) => <PullQuote {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      quote:
+        'I have no other view than to promote the public good, and am unambitious of honors not founded in the approbation of my country.',
+      citation: 'George Washington',
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg',
+      imageAlt: "George Washington's official portrait"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

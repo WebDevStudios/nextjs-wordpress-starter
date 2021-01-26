@@ -1,0 +1,9 @@
+.divider {
+  @apply w-full py-0 border-blue-500 my-40;
+
+  opacity: 0.1;
+
+  @media print {
+    @apply hidden;
+  }
+}

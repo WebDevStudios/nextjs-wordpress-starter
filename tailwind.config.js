@@ -36,6 +36,11 @@ module.exports = {
       h5: ['1.25rem', '2rem'],
       lead: ['1.5rem', '2.25rem']
     },
+    screens: {
+      tablet: '640px',
+      laptop: '1024px',
+      desktop: '1280px'
+    },
     spacing: {
       // The px values for spacing are equivalent to their keys.
       px: '1px',

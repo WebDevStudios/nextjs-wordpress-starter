@@ -37,7 +37,6 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
             icon={cta.icon ? cta.icon : null}
             text={cta.text ? cta.text : null}
             type="primary"
-            iconPosition="right"
             size="md"
           />
         )}

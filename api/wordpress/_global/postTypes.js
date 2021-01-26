@@ -1,15 +1,45 @@
 // Define valid WP post types (singular and plural GraphQL names).
 export const postTypes = {
-  career: 'careers',
-  comment: 'comments',
-  event: 'events',
-  mediaItem: 'mediaItems',
-  page: 'pages',
-  portfolio: 'portfolios',
-  post: 'posts',
-  service: 'services',
-  team: 'teams',
-  testimonial: 'testimonials'
+  career: {
+    pluralName: 'careers',
+    route: 'careers'
+  },
+  comment: {
+    pluralName: 'comments',
+    route: null
+  },
+  event: {
+    pluralName: 'events',
+    route: 'events'
+  },
+  mediaItem: {
+    pluralName: 'mediaItems',
+    route: null
+  },
+  page: {
+    pluralName: 'pages',
+    route: ''
+  },
+  portfolio: {
+    pluralName: 'portfolios',
+    route: 'portfolio'
+  },
+  post: {
+    pluralName: 'posts',
+    route: 'blog'
+  },
+  service: {
+    pluralName: 'services',
+    route: 'service'
+  },
+  team: {
+    pluralName: 'teams',
+    route: 'team'
+  },
+  testimonial: {
+    pluralName: 'testimonials',
+    route: 'testimonial'
+  }
 }
 
 // Define hierarchical post types.
@@ -20,7 +50,7 @@ export const hierarchicalPostTypes = ['page']
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
- * @return {boolean}        Whether provided post type is valid.
+ * @return {boolean} Whether provided post type is valid.
  */
 export function isValidPostType(postType) {
   return Object.keys(postTypes).includes(postType)
@@ -31,7 +61,7 @@ export function isValidPostType(postType) {
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
- * @return {boolean}        Whether provided post type is hierarchical.
+ * @return {boolean} Whether provided post type is hierarchical.
  */
 export function isHierarchicalPostType(postType) {
   return hierarchicalPostTypes.includes(postType)
