@@ -44,7 +44,7 @@ Form.propTypes = {
   formDefaults: PropTypes.object,
   id: PropTypes.string,
   validationSchema: PropTypes.object,
-  onSubmit: PropTypes.function
+  onSubmit: PropTypes.func
 }
 
 Form.defaultProps = {
