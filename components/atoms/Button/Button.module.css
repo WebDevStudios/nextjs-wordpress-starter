@@ -1,6 +1,18 @@
 .button {
   @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase font-secondary;
 
+  & svg {
+    @apply ml-12;
+  }
+
+  &.iconLeft {
+    @apply flex-row-reverse;
+
+    & svg {
+      @apply mr-12 ml-0;
+    }
+  }
+
   &:hover,
   &:focus,
   &:active:not([disabled]) {
@@ -8,18 +20,6 @@
   }
 
   /* SIZES */
-  &.lg,
-  &.md,
-  &.sm {
-    & svg + span {
-      @apply ml-12;
-    }
-
-    & span + svg {
-      @apply ml-12;
-    }
-  }
-
   &.lg {
     @apply px-16 py-12 text-h5;
 
@@ -61,5 +61,11 @@
 
   &.disabled {
     @apply cursor-not-allowed;
+  }
+
+  &.iconOnly {
+    & svg {
+      @apply m-0;
+    }
   }
 }
