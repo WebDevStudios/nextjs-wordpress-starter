@@ -7,7 +7,7 @@ import postComment from '@/api/frontend/wp/comments/postComment'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
 import Form from '@/components/molecules/Form'
-import {Field, ErrorMessage} from 'formik'
+import Text from '@/components/atoms/Inputs/Text'
 import * as Yup from 'yup'
 
 // Define route post type.
@@ -94,38 +94,10 @@ export default function BlogPost({post, archive, posts, pagination}) {
             setSubmitting(false)
           }}
         >
-          <label htmlFor="author">Author</label>
-          <Field
-            id="author"
-            name="author"
-            placeholder="Test Testerson"
-            type="text"
-          />
-          <ErrorMessage name="author" />
-          <label htmlFor="authorEmail">Email</label>
-          <Field
-            id="authorEmail"
-            name="authorEmail"
-            placeholder="test@nextjswp.local"
-            type="email"
-          />
-          <ErrorMessage name="authorEmail" />
-          <label htmlFor="authorUrl">Website</label>
-          <Field
-            id="authorUrl"
-            name="authorUrl"
-            placeholder="https://nextjswp.local"
-            type="url"
-          />
-          <ErrorMessage name="authorUrl" />
-          <label htmlFor="content">Comment</label>
-          <Field
-            id="content"
-            name="content"
-            placeholder="This is a test comment"
-            type="textarea"
-          />
-          <ErrorMessage name="content" />
+          <Text id="author" label="Author" isRequired type="text" />
+          <Text id="authorEmail" label="Email" isRequired type="email" />
+          <Text id="authorUrl" label="Website" type="url" />
+          <Text id="content" label="Comment" isRequired type="text" />
         </Form>
       </article>
     </Layout>
