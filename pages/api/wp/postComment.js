@@ -33,7 +33,8 @@ export default async function postComment(req, res) {
     res
       .status(error?.status || 500)
       .end(
-        error?.message || 'An error occurred while attempted to load more posts'
+        error?.message ||
+          'An error occurred while attempted to post the comment'
       )
   }
 }
