@@ -1,8 +1,8 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import Hero from '@/components/molecules/Hero'
-import Page from './[...slug]'
+import Hero from '@/components/organisms/Hero'
 import getPagePropTypes from '@/functions/getPagePropTypes'
+import Page from './[...slug]'
 
 // Define route post type.
 const postType = 'page'
