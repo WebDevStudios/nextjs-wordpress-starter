@@ -43,7 +43,7 @@ export default function displayBlock(block, index) {
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
     default:
-      return <pre key={index}>{JSON.stringify(attributes, null, 2)}</pre>
+      return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }
 }
 
