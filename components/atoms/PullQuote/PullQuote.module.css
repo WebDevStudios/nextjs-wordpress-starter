@@ -6,6 +6,6 @@
   }
 
   & > figcaption {
-    @apply font-secondary text-sm italic;
+    @apply font-secondary text-xs pt-12;
   }
 }

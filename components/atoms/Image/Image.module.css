@@ -1,0 +1,11 @@
+.image {
+  @apply mb-20;
+
+  & img {
+    @apply block;
+  }
+
+  & .caption {
+    @apply text-center font-secondary text-xs pt-12;
+  }
+}

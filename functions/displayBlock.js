@@ -26,8 +26,8 @@ export default function displayBlock(block, index) {
     //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
-    // case 'core/image':
-    //   return <Blocks.BlockImage {...attributes} key={index} />
+    case 'core/image':
+      return <Blocks.BlockImage {...attributes} key={index} />
     // case 'core/image-gallery':
     //   return <Blocks.BlockImageGallery {...attributes} key={index} />
     case 'core/table':

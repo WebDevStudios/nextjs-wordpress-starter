@@ -1,10 +1,12 @@
-import Image from '@/components/atoms/Image'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
+import React from 'react'
+import RichText from '../RichText'
+import styles from './Image.module.css'
+import cn from 'classnames'
 
 /**
- * Image Block
- *
- * The core Image block from Gutenberg.
+ * Render the Image component.
  *
  * @author WebDevStudios
  * @param {string} anchor     The anchor/id of the block.
@@ -20,7 +22,7 @@ import PropTypes from 'prop-types'
  * @param {string} url        The full URL path of the image.
  * @return {Element} The Image component.
  */
-export default function BlockImage({
+export default function Image({
   alt,
   anchor,
   caption,
@@ -30,35 +32,49 @@ export default function BlockImage({
   linkTarget,
   linkClass,
   rel,
-  sizeSlug,
   url
 }) {
   return (
-    <Image
-      alt={alt}
-      anchor={anchor}
-      caption={caption}
-      className={className}
-      id={id}
-      href={href}
-      linkTarget={linkTarget}
-      linkClass={linkClass}
-      rel={rel}
-      sizeSlug={sizeSlug}
-      url={url}
-    />
+    <>
+      {!!url && (
+        <div id={anchor || null} className={styles.image}>
+          {href ? (
+            <Link href={href}>
+              <a
+                target={linkTarget || null}
+                rel={rel || null}
+                className={linkClass || null}
+              >
+                <img
+                  src={url}
+                  alt={alt}
+                  className={cn(className, `image-${id}`)}
+                />
+              </a>
+            </Link>
+          ) : (
+            <img src={url} alt={alt} className={cn(className, `image-${id}`)} />
+          )}
+          {!!caption && (
+            <div className={styles.caption}>
+              <RichText tag="span">{caption}</RichText>
+            </div>
+          )}
+        </div>
+      )}
+    </>
   )
 }
 
-BlockImage.propTypes = {
+Image.propTypes = {
   alt: PropTypes.string,
   anchor: PropTypes.string,
   caption: PropTypes.string,
   className: PropTypes.string,
   id: PropTypes.number,
   href: PropTypes.string,
-  linkTarget: PropTypes.string,
   linkClass: PropTypes.string,
+  linkTarget: PropTypes.string,
   rel: PropTypes.string,
   sizeSlug: PropTypes.string,
   url: PropTypes.string
