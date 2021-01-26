@@ -3,6 +3,7 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Layout from '@/components/common/Layout'
 import Link from 'next/link'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
+import postComment from '@/api/frontend/wp/comments/postComment'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
 
@@ -27,6 +28,20 @@ export default function BlogPost({post, archive, posts, pagination}) {
   async function loadPosts() {
     // TODO: use response to display next "page" of posts.
     await getArchivePosts(postType, pagination?.endCursor)
+  }
+
+  /**
+   * Post a comment back to the blog
+   */
+  async function postTestComment() {
+    // TODO: get form data and post the comment
+    await postComment(
+      'Test Testerson',
+      'test@nextjswp.test',
+      'https://nextjswp.test',
+      post.databaseId,
+      'This is a test comment.'
+    )
   }
 
   // Check for post archive.
@@ -69,6 +84,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
             __html: JSON.stringify(post?.comments ?? [])
           }}
         />
+        <button onClick={postTestComment}>Post test comment</button>
       </article>
     </Layout>
   )
