@@ -43,6 +43,18 @@ export default async function getPostTypeStaticProps(
     })
   }
 
+  /* -- Fallback: return error if params missing. -- */
+  if (!params) {
+    return {
+      props: {
+        ...sharedProps,
+        error: true,
+        errorMessage: 'An unexpected error occurred'
+      },
+      revalidate
+    }
+  }
+
   /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
