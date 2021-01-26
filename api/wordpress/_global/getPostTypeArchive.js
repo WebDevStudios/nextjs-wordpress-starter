@@ -52,7 +52,7 @@ export const archiveSeo = {
  * @param {string}  cursor   Start/end cursor for pagination.
  * @param {boolean} getNext  Whether to retrieve next set of posts (true) or previous set (false).
  * @param {number}  perPage  Number of posts per page.
- * @return {object}          Object containing Apollo client instance and post archive data or error object.
+ * @return {object} Object containing Apollo client instance and post archive data or error object.
  */
 export default async function getPostTypeArchive(
   postType,

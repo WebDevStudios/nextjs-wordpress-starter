@@ -1,0 +1,42 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Separator from '.'
+
+<Meta title="Components/Atoms/Separator" component={Separator} />
+
+# Separator
+
+Use this component to display a page separator with top and bottom margins. Use it anywhere you would use an `<hr>` element.
+
+<Canvas>
+  <Story name="Component">
+    <Separator />
+  </Story>
+</Canvas>
+
+## Full Width
+
+The default separator is equal to the container width. To get a full width separator, set the `fullWidth` prop to true.
+
+<Canvas>
+  <Story name="Full Width">
+    <Separator fullWidth />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Separator />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-separator--controls).
+
+export const Template = (args) => <Separator {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      fullWidth: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

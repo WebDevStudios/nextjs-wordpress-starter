@@ -9,12 +9,20 @@ import React from 'react'
  * The core Headings block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props       The component attributes as props.
- * @param {object} props.props The block attributes props from WordPress.
- * @return {Element}           RichText component with heading content.
+ * @param {string} className Optional classnames.
+ * @param {string} align     Optional alignment style.
+ * @param {string} anchor    Optional anchor/id.
+ * @param {string} content   The content of the block.
+ * @param {string} level     The heading level.
+ * @return {Element}         The RichText component.
  */
-export default function BlockHeadings({props}) {
-  const {anchor, align, className, content, level} = props
+export default function BlockHeadings({
+  className,
+  align,
+  anchor,
+  content,
+  level
+}) {
   const alignment = !align ? 'left' : align
 
   return (
@@ -29,10 +37,9 @@ export default function BlockHeadings({props}) {
 }
 
 BlockHeadings.propTypes = {
-  props: PropTypes.object.isRequired,
   anchor: PropTypes.string,
   align: PropTypes.string,
   className: PropTypes.string,
   content: PropTypes.string,
-  level: PropTypes.string
+  level: PropTypes.number
 }
