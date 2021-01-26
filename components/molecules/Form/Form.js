@@ -13,6 +13,7 @@ import cn from 'classnames'
  * @param {object}        props.formDefaults     Formik default data.
  * @param {string|number} props.id               Form id.
  * @param {object}        props.validationSchema Yup validation schema object.
+ * @param {function}      props.onSubmit         Function to execute when form is submitted
  * @return {Element}                             The Form component.
  */
 export default function Form({
@@ -20,18 +21,14 @@ export default function Form({
   className,
   formDefaults,
   id,
-  validationSchema
+  validationSchema,
+  onSubmit
 }) {
   return (
     <Formik
       initialValues={formDefaults}
       validationSchema={validationSchema}
-      onSubmit={(values, {setSubmitting}) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}
+      onSubmit={onSubmit}
     >
       <FormikForm id={id} className={cn(styles.form, className)}>
         {children}
@@ -46,7 +43,8 @@ Form.propTypes = {
   className: PropTypes.string,
   formDefaults: PropTypes.object,
   id: PropTypes.string,
-  validationSchema: PropTypes.object
+  validationSchema: PropTypes.object,
+  onSubmit: PropTypes.function
 }
 
 Form.defaultProps = {
