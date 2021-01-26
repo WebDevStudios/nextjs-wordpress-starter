@@ -16,14 +16,16 @@ const postType = 'page'
  * @return {Element}          The HomePage component.
  */
 export default function HomePage({post}) {
+  const {seo, ...postData} = post
+
   // Display dynamic page data if homepage retrieved from WP.
-  if (post) {
+  if (postData && Object.keys(postData).length > 0) {
     return <Page post={post} />
   }
 
   // Display static page content as fallback.
   return (
-    <Layout seo={{...post?.seo}}>
+    <Layout seo={{...seo}}>
       <Hero
         background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
         title="Next.js Starter"

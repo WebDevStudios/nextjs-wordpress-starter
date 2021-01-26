@@ -13,15 +13,17 @@ import Page from './[...slug]'
  * @return {Element}          The Search component.
  */
 export default function Custom404({post}) {
+  const {seo, ...postData} = post
+
   // Display dynamic page data if 404 page retrieved from WP.
-  if (post) {
+  if (postData && Object.keys(postData).length > 0) {
     return <Page post={post} />
   }
 
   return (
-    <Layout seo={{...post?.seo}}>
+    <Layout seo={{...seo}}>
       <h1>404 Not Found</h1>
-      <p>That post could not be found!</p>
+      <p>That page could not be found!</p>
     </Layout>
   )
 }
