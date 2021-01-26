@@ -1,12 +1,12 @@
 .mediaText {
   @apply desktop:grid desktop:grid-cols-12 desktop:gap-16;
 
-  & .content,
+  & .text,
   & .media {
     @apply col-span-6 p-16 flex flex-col items-start justify-center;
   }
 
-  & .content {
+  & .text {
     & .title {
       @apply mb-8 text-h2 font-secondary;
     }
@@ -25,6 +25,20 @@
 
     & img {
       @apply absolute top-0 left-0 w-full h-full object-cover rounded-largest;
+    }
+  }
+
+  &.mediaLeft {
+    & .media {
+      grid-row-start: 1;
+    }
+
+    & .text {
+      @apply items-end;
+
+      & .body {
+        @apply text-right;
+      }
     }
   }
 }

@@ -8,19 +8,33 @@ import styles from './MediaText.module.css'
 /**
  * Render the MediaText component.
  *
- * @param {object} props           MediaText component props.
- * @param {string} props.body      The body text.
- * @param {string} props.className The className.
- * @param {object} props.cta       The cta object with text and url strings.
- * @param {object} props.image     The image object with url and alt text.
- * @param {string} props.title     The title.
- * @return {Element}               The MediaText component.
+ * @param {object}  props           MediaText component props.
+ * @param {string}  props.body      The body text.
+ * @param {string}  props.className The className.
+ * @param {object}  props.cta       The cta object with text and url strings.
+ * @param {object}  props.image     The image object with url and alt text.
+ * @param {boolean} props.mediaLeft Whether to show media on the left of the text.
+ * @param {string}  props.title     The title.
+ * @return {Element}                The MediaText component.
  */
-export default function MediaText({body, className, cta, image, title}) {
+export default function MediaText({
+  body,
+  className,
+  cta,
+  image,
+  mediaLeft,
+  title
+}) {
   return (
     <Container>
-      <section className={cn(styles.mediaText, className)}>
-        <div className={styles.content}>
+      <section
+        className={cn(
+          styles.mediaText,
+          mediaLeft ? styles.mediaLeft : null,
+          className
+        )}
+      >
+        <div className={styles.text}>
           <h1 className={styles.title}>{title}</h1>
           {body && <p className={styles.body}>{body}</p>}
           {cta && (
@@ -28,6 +42,8 @@ export default function MediaText({body, className, cta, image, title}) {
               className={styles.button}
               url={cta.url ? cta.url : null}
               text={cta.text ? cta.text : null}
+              icon={cta.icon ? cta.icon : null}
+              iconPosition="right"
               type="primary"
               size="md"
             />
@@ -50,26 +66,17 @@ MediaText.propTypes = {
   className: PropTypes.string,
   cta: PropTypes.shape({
     text: PropTypes.string,
-    url: PropTypes.string
+    url: PropTypes.string,
+    icon: PropTypes.string
   }),
   image: PropTypes.shape({
     url: PropTypes.string,
     alt: PropTypes.string
   }),
+  mediaLeft: PropTypes.bool,
   title: PropTypes.string
 }
 
 MediaText.defaultProps = {
-  title: 'Here is a H2 headline in a bold font.',
-  body:
-    'Let me tell you a little story about how I went sledging in the Australian Alps, and got lost in the process. Oh what a riot that was, and I nearly lost...',
-  cta: {
-    text: 'Learn More',
-    url: '#'
-  },
-  image: {
-    url:
-      'https://images.unsplash.com/photo-1611458181887-e4a588329222?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-    alt: 'Bridge over river'
-  }
+  mediaLeft: false
 }
