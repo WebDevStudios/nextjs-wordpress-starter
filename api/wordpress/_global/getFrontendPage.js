@@ -8,6 +8,10 @@ export const frontendPageSeo = {
   search: {
     title: 'Search',
     description: 'Search page'
+  },
+  404: {
+    title: '404 Not Found',
+    description: 'Page not found'
   }
 }
 
