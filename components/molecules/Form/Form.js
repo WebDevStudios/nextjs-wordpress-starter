@@ -13,7 +13,7 @@ import cn from 'classnames'
  * @param {object}        props.formDefaults     Formik default data.
  * @param {string|number} props.id               Form id.
  * @param {object}        props.validationSchema Yup validation schema object.
- * @param {function}      props.onSubmit         Function to execute when form is submitted
+ * @param {Function}      props.onSubmit         Function to execute when form is submitted
  * @return {Element}                             The Form component.
  */
 export default function Form({
