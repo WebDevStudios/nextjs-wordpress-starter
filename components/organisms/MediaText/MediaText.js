@@ -43,7 +43,6 @@ export default function MediaText({
               url={cta.url ? cta.url : null}
               text={cta.text ? cta.text : null}
               icon={cta.icon ? cta.icon : null}
-              iconPosition="right"
               type="primary"
               size="md"
             />
