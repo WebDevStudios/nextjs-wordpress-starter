@@ -84,13 +84,16 @@ export default function BlogPost({post, archive, posts, pagination}) {
           })}
           onSubmit={async (values, {setSubmitting}) => {
             const {author, authorEmail, authorUrl, content} = values
-            await postComment(
+            const response = await postComment(
               author,
               authorEmail,
               authorUrl,
               post.databaseId,
               content
             )
+            response.error
+              ? alert(response.errorMessage)
+              : alert(JSON.stringify(response))
             setSubmitting(false)
           }}
         >
