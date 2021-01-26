@@ -45,14 +45,16 @@ export default async function getPostTypeStaticProps(
 
   /* -- Fallback: return error if params missing. -- */
   if (!params) {
-    return {
-      props: {
-        ...sharedProps,
-        error: true,
-        errorMessage: 'An unexpected error occurred'
-      },
-      revalidate
-    }
+    return '404' !== postType
+      ? {
+          notFound: true
+        }
+      : {
+          props: {
+            ...sharedProps
+          },
+          revalidate
+        }
   }
 
   /* -- Handle dynamic archive display. -- */
