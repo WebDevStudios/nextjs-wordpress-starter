@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className="container flex items-center justify-end">
-        <div className="relative pt-12 pb-16">
+        <div className="relative pb-16">
           <AlgoliaSearch
             useHistory={true}
             usePlaceholder={true}

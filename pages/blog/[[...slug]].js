@@ -49,7 +49,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <div className="container">
+        <div className="container py-20">
           <section>
             {!posts || !posts.length ? (
               <p>No posts found.</p>
@@ -77,7 +77,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <article className="container">
+      <article className="container py-40">
         <Blocks blocks={post?.blocks} />
         <div
           dangerouslySetInnerHTML={{

@@ -27,7 +27,7 @@ module.exports = {
       body: ['1.125rem', '2rem'],
       sm: ['1rem', '1.75rem'],
       caption: ['0.875rem', '1.25rem'],
-      xs: ['0.75rem', '1.25rem'],
+      xs: ['0.85rem', '1.25rem'],
       xxs: ['0.625rem', '1rem'],
       h1: ['3rem', '3.75rem'],
       h2: ['2.25rem', '3.25rem'],
@@ -47,7 +47,9 @@ module.exports = {
       0: '0',
       4: '0.25rem',
       8: '0.5rem',
+      10: '0.625rem',
       12: '0.75rem',
+      14: '0.875rem',
       16: '1rem',
       20: '1.25rem',
       24: '1.5rem',
@@ -67,7 +69,7 @@ module.exports = {
       80: '5rem'
     },
     borderWidth: {
-      DEFAULT: '0.125rem'
+      DEFAULT: '1px'
     },
     borderRadius: {
       none: '0',
