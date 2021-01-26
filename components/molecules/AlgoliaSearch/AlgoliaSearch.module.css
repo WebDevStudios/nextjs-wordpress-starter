@@ -9,7 +9,9 @@
     @apply relative;
 
     & .trigger {
-      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text;
+      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text overflow-hidden;
+
+      text-indent: -9999px;
     }
   }
 
@@ -20,6 +22,7 @@
     & input {
       @apply w-full p-10 pr-48 border border-tertiary-lighter rounded font-primary text-xs;
 
+      background: #fff;
       line-height: 1;
 
       &::-webkit-search-decoration,
