@@ -146,7 +146,7 @@
       @apply mt-4 border-none;
 
       & button {
-        @apply py-8 font-normal text-xxs text-tertiary-lighter;
+        @apply py-8 font-normal text-xxs text-tertiary-light;
 
         &:hover,
         &:focus {
