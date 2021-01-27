@@ -105,6 +105,7 @@ export default async function getPostTypeTaxonomyArchive(
       // Structure archive SEO.
       response.post = {
         seo: {
+          ...archiveSeo,
           title:
             archiveSeo?.title ??
             `${taxonomyId} - ${response.defaultSeo?.openGraph?.siteName ?? ''}`,
