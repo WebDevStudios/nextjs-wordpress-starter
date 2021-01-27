@@ -54,7 +54,10 @@ export default async function processPostTypeQuery(
       // Retrieve default SEO data.
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
-      const post = postData?.[postType]
+      // Retrieve post data.
+      const post =
+        postData?.[postType] ?? // Dynamic posts.
+        postData?.additionalSettings?.additionalSettings?.[postType] // Settings custom page.
 
       // Set error props if data not found.
       if (!post) {
