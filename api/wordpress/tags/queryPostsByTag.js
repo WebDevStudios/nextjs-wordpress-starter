@@ -1,6 +1,7 @@
 import {gql} from '@apollo/client'
 import defaultPageData from '../_partials/defaultPageData'
 import {archivePostFragment, archivePosts} from '../posts/queryPostsArchive'
+import seoPostFields from '../_partials/seoPostFields'
 
 // Query: retrieve posts tag archive.
 const queryPostsByTag = gql`
@@ -17,6 +18,7 @@ const queryPostsByTag = gql`
   ) {
     ${defaultPageData}
     tag(id: $id, idType: $idType) {
+      ${seoPostFields}
       ${archivePosts}
     }
   }
