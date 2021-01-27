@@ -140,8 +140,8 @@ module.exports = {
         darker: '#333333',
         darkest: '#212121'
       },
-      white: '#FFFFFF',
-      black: '#000000',
+      white: {DEFAULT: '#FFFFFF'},
+      black: {DEFAULT: '#000000'},
       brand: {
         android: '#A4C639',
         behance: '#1769FF',

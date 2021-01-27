@@ -1,16 +1,8 @@
 // Define valid WP post types (singular and plural GraphQL names).
 export const postTypes = {
-  career: {
-    pluralName: 'careers',
-    route: 'careers'
-  },
   comment: {
     pluralName: 'comments',
     route: null
-  },
-  event: {
-    pluralName: 'events',
-    route: 'events'
   },
   mediaItem: {
     pluralName: 'mediaItems',
@@ -20,25 +12,13 @@ export const postTypes = {
     pluralName: 'pages',
     route: ''
   },
-  portfolio: {
-    pluralName: 'portfolios',
-    route: 'portfolio'
-  },
   post: {
     pluralName: 'posts',
     route: 'blog'
   },
-  service: {
-    pluralName: 'services',
-    route: 'service'
-  },
   team: {
     pluralName: 'teams',
     route: 'team'
-  },
-  testimonial: {
-    pluralName: 'testimonials',
-    route: 'testimonial'
   }
 }
 
