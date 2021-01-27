@@ -42,6 +42,8 @@ export default function displayBlock(block, index) {
     //   return <Blocks.BlockShortcode {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
+    case 'gravityforms/form':
+      return <Blocks.BlockGravityForm attributes={attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }
