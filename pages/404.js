@@ -12,7 +12,7 @@ const postType = 'page'
  * @author WebDevStudios
  * @param {object} props      The component attributes as props.
  * @param {object} props.post Post data from WordPress.
- * @return {Element}          The Search component.
+ * @return {Element}          The Custom404 component.
  */
 export default function Custom404({post}) {
   const {seo, ...postData} = post
