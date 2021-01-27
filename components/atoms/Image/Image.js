@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RichText from '../RichText'
+import RichText from '@/components/atoms/RichText'
 import styles from './Image.module.css'
 import cn from 'classnames'
 
@@ -53,7 +53,11 @@ export default function Image({
               </a>
             </Link>
           ) : (
-            <img src={url} alt={alt} className={cn(className, `image-${id}`)} />
+            <img
+              src={url}
+              alt={alt}
+              className={cn(className, id && `image-${id}`)}
+            />
           )}
           {!!caption && (
             <div className={styles.caption}>
