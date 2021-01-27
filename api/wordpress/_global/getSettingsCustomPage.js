@@ -3,7 +3,11 @@ import processPostTypeQuery from './processPostTypeQuery'
 
 // Define single page query based on page name.
 export const customPageQuery = {
-  404: queryError404Page
+  404: {
+    query: queryError404Page,
+    title: '404 Not Found',
+    description: ''
+  }
 }
 
 /**
@@ -15,7 +19,20 @@ export const customPageQuery = {
  */
 export default async function getSettingsCustomPage(page) {
   // Retrieve page query.
-  const query = customPageQuery?.[page] ?? null
+  const query = customPageQuery?.[page]?.query ?? null
 
-  return processPostTypeQuery('page', page, query)
+  const data = await processPostTypeQuery('page', page, query)
+
+  // Add custom SEO if missing.
+  if (!data?.post?.seo) {
+    data.post = {
+      ...data?.post,
+      seo: {
+        title: customPageQuery[page]?.title ?? '',
+        description: customPageQuery[page]?.description ?? ''
+      }
+    }
+  }
+
+  return data
 }
