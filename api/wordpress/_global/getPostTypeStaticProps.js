@@ -1,11 +1,12 @@
 import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
-import getPostTypeArchive from './getPostTypeArchive'
+import getPostTypeArchive, {archiveQuerySeo} from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
 import getSettingsCustomPage, {
   customPageQuerySeo
 } from './getSettingsCustomPage'
+import getPostTypeTaxonomyArchive from './getPostTypeTaxonomyArchive'
 
 /**
  * Retrieve static props by post type.
@@ -63,6 +64,30 @@ export default async function getPostTypeStaticProps(
   /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
+
+    // Merge in query results as Apollo state.
+    return addApolloState(apolloClient, {
+      props: {
+        ...archiveData,
+        ...sharedProps,
+        archive: true
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle taxonomy archives. -- */
+  if (
+    Object.keys(archiveQuerySeo).includes(postType) &&
+    params.slug.length > 1
+  ) {
+    const taxonomy = params.slug.shift()
+    const taxonomySlug = params.slug.join('/')
+
+    const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
+      taxonomy,
+      taxonomySlug
+    )
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
