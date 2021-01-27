@@ -1,43 +1,18 @@
 import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
-import queryEventsArchive from '../events/queryEventsArchive'
-import queryCareersArchive from '../careers/queryCareersArchive'
-import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
-import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
-import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '../menus/getMenus'
 
 // Define SEO for archives.
 export const archiveSeo = {
-  career: {
-    title: 'Careers',
-    description: ''
-  },
-  event: {
-    title: 'Events',
-    description: ''
-  },
-  portfolio: {
-    title: 'Portfolio',
-    description: ''
-  },
   post: {
     title: 'Blog',
     description: ''
   },
-  service: {
-    title: 'Services',
-    description: ''
-  },
   team: {
     title: 'Team Members',
-    description: ''
-  },
-  testimonial: {
-    title: 'Testimonials',
     description: ''
   }
 }
@@ -64,13 +39,8 @@ export default async function getPostTypeArchive(
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
-    career: queryCareersArchive,
-    event: queryEventsArchive,
-    portfolio: queryPortfoliosArchive,
     post: queryPostsArchive,
-    service: queryServicesArchive,
-    team: queryTeamsArchive,
-    testimonial: queryTestimonialsArchive
+    team: queryTeamsArchive
   }
 
   // Retrieve post type query.
