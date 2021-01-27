@@ -28,6 +28,9 @@ export default function Layout({children, seo, hasJsonLd}) {
         }
       ]
 
+  // Extract breadcrumbs from SEO.
+  const breadcrumbs = seo?.breadcrumbs
+
   return (
     <>
       <NextSeo
@@ -55,7 +58,23 @@ export default function Layout({children, seo, hasJsonLd}) {
       )}
       <Meta />
       <Header />
-      <main>{children}</main>
+      <main>
+        {/* TODO: extract breadcrumbs to component and make pretty. */}
+        {!!breadcrumbs && !!breadcrumbs.length && (
+          <div>
+            {breadcrumbs.map((breadcrumb, index) => (
+              <>
+                <span key={index}>
+                  <a href={breadcrumb?.url}>{breadcrumb?.text}</a>
+                </span>
+                {index < breadcrumbs.length - 1 && <span> &raquo; </span>}
+              </>
+            ))}
+          </div>
+        )}
+
+        {children}
+      </main>
       <Footer social={seo?.social} siteTitle={seo?.siteTitle} />
     </>
   )
