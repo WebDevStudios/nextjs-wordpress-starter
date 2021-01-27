@@ -17,6 +17,10 @@ const postType = 'page'
 export default function Custom404({post}) {
   const {seo, ...postData} = post
 
+  // Update robots SEO meta.
+  seo.metaRobotsNofollow = 'noindex'
+  seo.metaRobotsNoindex = 'nofollow'
+
   // Display dynamic page data if 404 page retrieved from WP.
   if (postData && Object.keys(postData).length > 0) {
     return <Page post={post} />
