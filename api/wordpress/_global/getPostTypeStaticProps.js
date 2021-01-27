@@ -3,7 +3,9 @@ import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
-import getSettingsCustomPage, {customPageQuery} from './getSettingsCustomPage'
+import getSettingsCustomPage, {
+  customPageQuerySeo
+} from './getSettingsCustomPage'
 
 /**
  * Retrieve static props by post type.
@@ -79,7 +81,7 @@ export default async function getPostTypeStaticProps(
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
   /* -- Handle pages set via Additional Settings. -- */
-  if (Object.keys(customPageQuery).includes(slug)) {
+  if (Object.keys(customPageQuerySeo).includes(slug)) {
     const {apolloClient, ...pageData} = await getSettingsCustomPage(slug)
 
     // Display 404 error page if error encountered.
