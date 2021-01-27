@@ -16,7 +16,7 @@ import getPostTypeTaxonomyArchive from './getPostTypeTaxonomyArchive'
  * @param {string}  postType    Post Type.
  * @param {boolean} preview     Whether requesting preview of post.
  * @param {object}  previewData Post preview data.
- * @return {object} Object containing post props and revalidate setting.
+ * @return {object}             Object containing post props and revalidate setting.
  */
 export default async function getPostTypeStaticProps(
   params,
