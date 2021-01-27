@@ -28,8 +28,14 @@ export default function Custom404({post}) {
 
   return (
     <Layout seo={{...seo}}>
-      <h1>404 Not Found</h1>
-      <p>That page could not be found!</p>
+      <div className="container">
+        <section>
+          <article>
+            <h1>404 Not Found</h1>
+            <p>That page could not be found!</p>
+          </article>
+        </section>
+      </div>
     </Layout>
   )
 }
