@@ -1,6 +1,5 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import Hero from '@/components/organisms/Hero'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Page from './[...slug]'
 
@@ -8,37 +7,32 @@ import Page from './[...slug]'
 const postType = 'page'
 
 /**
- * Render the HomePage component.
+ * Render the Custom404 component.
  *
  * @author WebDevStudios
  * @param {object} props      The component attributes as props.
  * @param {object} props.post Post data from WordPress.
- * @return {Element}          The HomePage component.
+ * @return {Element}          The Custom404 component.
  */
-export default function HomePage({post}) {
+export default function Custom404({post}) {
   const {seo, ...postData} = post
 
-  // Display dynamic page data if homepage retrieved from WP.
+  // Update robots SEO meta.
+  seo.metaRobotsNofollow = 'noindex'
+  seo.metaRobotsNoindex = 'nofollow'
+
+  // Display dynamic page data if 404 page retrieved from WP.
   if (postData && Object.keys(postData).length > 0) {
     return <Page post={post} />
   }
 
-  // Display static page content as fallback.
   return (
     <Layout seo={{...seo}}>
       <div className="container">
         <section>
           <article>
-            <Hero
-              background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
-              title="Next.js Starter"
-              description="A slightly opinionated, yet bare-bones Next.js starter."
-            />
-            <p>
-              To display your WordPress homepage dynamically, set your homepage
-              to a static page via the WP dashboard (Settings: Reading
-              Settings).
-            </p>
+            <h1>404 Not Found</h1>
+            <p>That page could not be found!</p>
           </article>
         </section>
       </div>
@@ -53,9 +47,9 @@ export default function HomePage({post}) {
  * @return {object} Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps({slug: '/'}, postType)
+  return await getPostTypeStaticProps({slug: '404'}, postType)
 }
 
-HomePage.propTypes = {
+Custom404.propTypes = {
   ...getPagePropTypes(postType)
 }
