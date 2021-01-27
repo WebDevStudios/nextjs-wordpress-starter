@@ -14,6 +14,24 @@ export const archivePostFragment = gql`
   }
 `
 
+// Query partial: retrieve archive fields.
+export const archivePosts = `
+  posts(
+    first: $first
+    last: $last
+    after: $after
+    before: $before
+    where: {orderby: {field: $orderBy, order: $order}}
+  ) {
+    ${archivePageInfo}
+    edges {
+      node {
+        ...ArchivePostFields
+      }
+    }
+  }
+`
+
 // Query: retrieve posts archive.
 const queryPostsArchive = gql`
   query GET_POSTS_ARCHIVE(
@@ -31,20 +49,7 @@ const queryPostsArchive = gql`
         ${seoPostFields}
       }
     }
-    posts(
-      first: $first
-      last: $last
-      after: $after
-      before: $before
-      where: {orderby: {field: $orderBy, order: $order}}
-    ) {
-      ${archivePageInfo}
-      edges {
-        node {
-          ...ArchivePostFields
-        }
-      }
-    }
+    ${archivePosts}
   }
   ${archivePostFragment}
 `
