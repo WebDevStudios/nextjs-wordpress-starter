@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
-import {seoPropTypes} from '@/functions/getPagePropTypes'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 import Page from './[...slug]'
+
+// Define route post type.
+const postType = 'page'
 
 /**
  * Render the Custom404 component.
@@ -35,11 +37,9 @@ export default function Custom404({post}) {
  * @return {object} Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps(null, '404')
+  return await getPostTypeStaticProps({slug: 404}, postType)
 }
 
 Custom404.propTypes = {
-  post: PropTypes.shape({
-    seo: {...seoPropTypes.seo}
-  })
+  ...getPagePropTypes(postType)
 }
