@@ -4,8 +4,8 @@ import getFormById from '@/api/wordpress/gravityForms/getFormById'
  * Format and retrieve expanded block data.
  *
  * @author WebDevStudios
- * @param  {Array} blocks Basic block data.
- * @return {Array}        Formatted block data.
+ * @param {Array} blocks Basic block data.
+ * @return {Array}       Formatted block data.
  */
 export default async function formatBlockData(blocks) {
   if (!blocks || !blocks.length) {
@@ -14,7 +14,7 @@ export default async function formatBlockData(blocks) {
 
   return await Promise.all(
     blocks.map(async (block) => {
-      const {name, attributes} = block
+      const {name, attributes, innerBlocks} = block
 
       switch (name) {
         case 'gravityforms/form':
@@ -23,7 +23,9 @@ export default async function formatBlockData(blocks) {
           break
       }
 
-      return {name, attributes}
+      const innerBlocksFormatted = await formatBlockData(innerBlocks)
+
+      return {name, attributes, innerBlocks: innerBlocksFormatted}
     })
   )
 }

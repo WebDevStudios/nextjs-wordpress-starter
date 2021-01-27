@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param {object} block The block data.
  * @param {number} index A unique key required by React.
- * @return {Element} A block-based component.
+ * @return {Element}     A block-based component.
  */
 export default function displayBlock(block, index) {
   const {attributes, name} = block
@@ -45,7 +45,7 @@ export default function displayBlock(block, index) {
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
     default:
-      return <pre key={index}>{JSON.stringify(attributes, null, 2)}</pre>
+      return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }
 }
 
