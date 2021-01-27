@@ -45,7 +45,7 @@ export default async function postComment(
     })
     .then(
       (response) =>
-        response?.data?.createComment ?? {
+        response?.data?.postComment ?? {
           error: true,
           errorMessage: `An error occurred while trying to post the comment.`
         }
