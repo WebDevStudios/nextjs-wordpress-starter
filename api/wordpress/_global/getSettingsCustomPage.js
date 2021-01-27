@@ -28,8 +28,11 @@ export default async function getSettingsCustomPage(page) {
     data.post = {
       ...data?.post,
       seo: {
-        title: customPageQuery[page]?.title ?? '',
-        description: customPageQuery[page]?.description ?? ''
+        title: `${customPageQuery[page]?.title ?? ''} - ${
+          data.defaultSeo?.openGraph?.siteName ?? ''
+        }`,
+        description: customPageQuery[page]?.description ?? '',
+        canonical: `${data.defaultSeo?.openGraph?.url ?? ''}/${page}`
       }
     }
   }
