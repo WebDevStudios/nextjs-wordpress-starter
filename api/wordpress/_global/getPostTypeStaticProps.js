@@ -3,6 +3,7 @@ import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
+import getSettingsCustomPage, {customPageQuery} from './getSettingsCustomPage'
 
 /**
  * Retrieve static props by post type.
@@ -43,6 +44,20 @@ export default async function getPostTypeStaticProps(
     })
   }
 
+  /* -- Fallback: return error if params missing. -- */
+  if (!params) {
+    return '404' !== postType
+      ? {
+          notFound: true
+        }
+      : {
+          props: {
+            ...sharedProps
+          },
+          revalidate
+        }
+  }
+
   /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
@@ -62,6 +77,31 @@ export default async function getPostTypeStaticProps(
 
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+
+  /* -- Handle pages set via Additional Settings. -- */
+  if (Object.keys(customPageQuery).includes(slug)) {
+    const {apolloClient, ...pageData} = await getSettingsCustomPage(slug)
+
+    // Display 404 error page if error encountered.
+    if (pageData.error && '404' !== slug) {
+      return {
+        notFound: true
+      }
+    }
+
+    // Remove error prop.
+    delete pageData?.error
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...pageData,
+        ...sharedProps
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle dynamic posts. -- */
 
   // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
@@ -97,6 +137,13 @@ export default async function getPostTypeStaticProps(
   if ('/' === slug && error) {
     props.post = null
     props.error = false
+  }
+
+  // Display 404 error page if error encountered.
+  if (props.error) {
+    return {
+      notFound: true
+    }
   }
 
   // Merge in query results as Apollo state.
