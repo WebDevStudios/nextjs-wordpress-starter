@@ -6,7 +6,7 @@ import seoPostFields from '../_partials/seoPostFields'
 import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve archive post fields.
-const archivePostFragment = gql`
+export const archivePostFragment = gql`
   fragment ArchivePostFields on Post {
     ${globalPostFields}
     excerpt
