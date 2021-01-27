@@ -21,7 +21,9 @@ export default function displayBlock(block, index) {
     case 'core/quote':
       return <Blocks.BlockQuote {...attributes} key={index} />
     case 'core/pullquote':
-      return <Blocks.PullQuote {...attributes} key={index} />
+      return <Blocks.BlockPullQuote {...attributes} key={index} />
+    case 'core/code':
+       return <Blocks.BlockCode {...attributes} key={index} />
     // case 'core/embed':
     //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
     case 'core/heading':

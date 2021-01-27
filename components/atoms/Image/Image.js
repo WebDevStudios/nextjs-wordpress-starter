@@ -75,7 +75,7 @@ Image.propTypes = {
   anchor: PropTypes.string,
   caption: PropTypes.string,
   className: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   href: PropTypes.string,
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
