@@ -80,13 +80,22 @@ export default async function getPostTypeStaticProps(
 
   /* -- Handle pages set via Additional Settings. -- */
   if (Object.keys(customPageQuery).includes(slug)) {
-    const {apolloClient, error, ...pageData} = await getSettingsCustomPage(slug)
+    const {apolloClient, ...pageData} = await getSettingsCustomPage(slug)
+
+    // Display 404 error page if error encountered.
+    if (pageData.error && '404' !== slug) {
+      return {
+        notFound: true
+      }
+    }
+
+    // Remove error prop.
+    delete pageData?.error
 
     return addApolloState(apolloClient, {
       props: {
         ...pageData,
-        ...sharedProps,
-        error
+        ...sharedProps
       },
       revalidate
     })
