@@ -94,7 +94,7 @@ export default async function getPostTypeTaxonomyArchive(
       // Set error props if data not found.
       if (!posts || !pageInfo) {
         response.error = true
-        response.errorMessage = `An error occurred while trying to retrieve data for ${taxonomy} taxonomy archive.`
+        response.errorMessage = `An error occurred while trying to retrieve data for ${taxonomyId} ${taxonomy} archive.`
 
         return null
       }
