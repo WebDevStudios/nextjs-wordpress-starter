@@ -1,12 +1,7 @@
 import queryPostById from '../posts/queryPostById'
 import queryPageById from '../pages/queryPageById'
 import {isHierarchicalPostType} from './postTypes'
-import queryEventById from '../events/queryEventById'
-import queryCareerById from '../careers/queryCareerById'
-import queryServiceById from '../services/queryServiceById'
 import queryTeamById from '../teams/queryTeamById'
-import queryPortfolioById from '../portfolios/queryPortfolioById'
-import queryTestimonialById from '../testimonials/queryTestimonialById'
 import processPostTypeQuery from './processPostTypeQuery'
 
 /**
@@ -27,14 +22,9 @@ export default async function getPostTypeById(
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
-    career: queryCareerById,
-    event: queryEventById,
     page: queryPageById,
-    portfolio: queryPortfolioById,
     post: queryPostById,
-    service: queryServiceById,
-    team: queryTeamById,
-    testimonial: queryTestimonialById
+    team: queryTeamById
   }
 
   // Check if post type is hierarchical.

@@ -19,6 +19,7 @@ const mutationCommentToPost = gql`
         content: $content
       }
     ) {
+      success
       comment {
         ${commentsFields}
       }

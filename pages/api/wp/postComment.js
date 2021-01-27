@@ -12,6 +12,15 @@ export default async function postComment(req, res) {
     // Retrieve props from request query params.
     const {author, authorEmail, authorUrl, postId, content} = req.query
 
+    // Basic check to see if the referer matches the host.
+    // This is trivially easy to bypass, but it's a first step.
+    if (
+      !req.headers.referer ||
+      !req.headers.referer.includes(req.headers.host)
+    ) {
+      throw new Error('Unauthorized access')
+    }
+
     const commentResponse = await postCommentToPost(
       author,
       authorEmail,
