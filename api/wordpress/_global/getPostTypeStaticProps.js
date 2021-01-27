@@ -3,6 +3,7 @@ import getPostTypeById from './getPostTypeById'
 import getPostTypeArchive from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
+import getSettingsCustomPage, {customPageQuery} from './getSettingsCustomPage'
 
 /**
  * Retrieve static props by post type.
@@ -76,6 +77,22 @@ export default async function getPostTypeStaticProps(
 
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+
+  /* -- Handle pages set via Additional Settings. -- */
+  if (Object.keys(customPageQuery).includes(slug)) {
+    const {apolloClient, error, ...pageData} = await getSettingsCustomPage(slug)
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...pageData,
+        ...sharedProps,
+        error
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle dynamic posts. -- */
 
   // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
