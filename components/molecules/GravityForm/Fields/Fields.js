@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
 import * as GfFields from '.'
 
+import {Field} from 'formik'
+import InputError from '@/components/atoms/Inputs/InputError'
+
 /**
  * Render the Fields component.
  *
@@ -40,6 +43,10 @@ export default function Fields({fields}) {
 
             case 'website':
               fieldToRender = <GfFields.Text {...field.node} key={id} />
+              break
+
+            case 'fileupload':
+              fieldToRender = <GfFields.File {...field.node} key={id} />
               break
 
             default:

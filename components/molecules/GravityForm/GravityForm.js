@@ -31,6 +31,7 @@ export default function GravityForm({
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
+      onSubmit={(values, actions) => console.log({values, actions})}
     >
       {title && <h2 className={styles.title}>{title}</h2>}
       {fieldData && <Fields fields={fieldData} />}
