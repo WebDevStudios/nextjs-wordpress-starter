@@ -35,6 +35,21 @@ export default function displayBlock(block, index) {
           key={index}
         />
       )
+    case 'core/button':
+      return (
+        <Blocks.BlockButton
+          {...attributes}
+          key={index}
+        />
+      )
+    case 'core/buttons':
+      return (
+        <Blocks.BlockButtons
+          options={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
     case 'core/image':
