@@ -81,8 +81,8 @@ export default async function getPostTypeStaticProps(
     Object.keys(archiveQuerySeo).includes(postType) &&
     params.slug.length > 1
   ) {
-    const taxonomy = params.slug.shift()
-    const taxonomySlug = params.slug.join('/')
+    const taxonomy = params.slug.shift() // First "slug" piece is taxonomy type.
+    const taxonomySlug = params.slug.pop() // Last "slug" piece is the lowest-level taxonomy term slug.
 
     const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
       taxonomy,
