@@ -63,12 +63,10 @@ export default function Layout({children, seo, hasJsonLd}) {
         {!!breadcrumbs && !!breadcrumbs.length && (
           <div>
             {breadcrumbs.map((breadcrumb, index) => (
-              <>
-                <span key={index}>
-                  <a href={breadcrumb?.url}>{breadcrumb?.text}</a>
-                </span>
+              <span key={index}>
+                <a href={breadcrumb?.url}>{breadcrumb?.text}</a>
                 {index < breadcrumbs.length - 1 && <span> &raquo; </span>}
-              </>
+              </span>
             ))}
           </div>
         )}
