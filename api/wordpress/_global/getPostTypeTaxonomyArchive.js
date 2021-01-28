@@ -3,6 +3,7 @@ import {postTypes} from './postTypes'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '../menus/getMenus'
 import queryPostsByTag from '../tags/queryPostsByTag'
+import queryPostsByCategory from '../categories/queryPostsByCategory'
 
 /**
  * Retrieve post taxnomy archive.
@@ -30,6 +31,7 @@ export default async function getPostTypeTaxonomyArchive(
 ) {
   // Define single post query based on taxonomy.
   const postTypeQuery = {
+    category: queryPostsByCategory,
     tag: queryPostsByTag
   }
 
