@@ -6,12 +6,14 @@ import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '../menus/getMenus'
 
 // Define SEO for archives.
-export const archiveSeo = {
+export const archiveQuerySeo = {
   post: {
+    query: queryPostsArchive,
     title: 'Blog',
     description: ''
   },
   team: {
+    query: queryTeamsArchive,
     title: 'Team Members',
     description: ''
   }
@@ -27,7 +29,7 @@ export const archiveSeo = {
  * @param {string}  cursor   Start/end cursor for pagination.
  * @param {boolean} getNext  Whether to retrieve next set of posts (true) or previous set (false).
  * @param {number}  perPage  Number of posts per page.
- * @return {object} Object containing Apollo client instance and post archive data or error object.
+ * @return {object}          Object containing Apollo client instance and post archive data or error object.
  */
 export default async function getPostTypeArchive(
   postType,
@@ -37,14 +39,8 @@ export default async function getPostTypeArchive(
   getNext = true,
   perPage = 10
 ) {
-  // Define single post query based on post type.
-  const postTypeQuery = {
-    post: queryPostsArchive,
-    team: queryTeamsArchive
-  }
-
   // Retrieve post type query.
-  const query = postTypeQuery?.[postType] ?? null
+  const query = archiveQuerySeo?.[postType] ?? null
 
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
@@ -114,10 +110,10 @@ export default async function getPostTypeArchive(
                 }`
               }
             : {
-                title: `${archiveSeo?.[postType]?.title} - ${
+                title: `${archiveQuerySeo?.[postType]?.title} - ${
                   response.defaultSeo?.openGraph?.siteName ?? ''
                 }`,
-                metaDesc: archiveSeo?.[postType]?.description,
+                metaDesc: archiveQuerySeo?.[postType]?.description,
                 canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
                   postTypes?.[postType]?.route
                 }`,
