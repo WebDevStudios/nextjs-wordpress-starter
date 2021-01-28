@@ -19,8 +19,9 @@ export default function Code({id, className, content}) {
   // Use the className to pass the langauge.
   const language = className ? className : 'javascript'
 
-  // Replace any `&lt;` encoded HTML.
-  const code = content.replace(/&lt;/g, '<')
+  // Replace any `&lt;` and `&gt; encoded HTML.
+  let code = content.replace(/&lt;/g, '<')
+  code = code.replace(/&gt;/g, '>')
 
   return (
     <>

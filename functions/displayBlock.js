@@ -7,10 +7,10 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param {object} block The block data.
  * @param {number} index A unique key required by React.
- * @return {Element}     A block-based component.
+ * @return {Element} A block-based component.
  */
 export default function displayBlock(block, index) {
-  const {attributes, name} = block
+  const {attributes, name, innerBlocks} = block
 
   // prettier-ignore
   switch (name) {
@@ -23,9 +23,18 @@ export default function displayBlock(block, index) {
     case 'core/pullquote':
       return <Blocks.BlockPullQuote {...attributes} key={index} />
     case 'core/code':
-       return <Blocks.BlockCode {...attributes} key={index} />
+    case 'core/preformatted':
+      return <Blocks.BlockCode {...attributes} key={index} />
     // case 'core/embed':
     //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
+    case 'core/media-text':
+      return (
+        <Blocks.BlockMediaText
+          media={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
     case 'core/image':
