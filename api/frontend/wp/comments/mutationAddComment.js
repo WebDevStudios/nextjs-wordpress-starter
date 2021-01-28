@@ -18,6 +18,7 @@ const mutationAddComment = gql`
       postId: $postId,
       content: $content
     ) @rest(type: "Comments", path: "${wpDataEndpoints.postComment}?{args}") {
+      success
       comment {
         ${commentsFields}
       }

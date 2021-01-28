@@ -36,6 +36,7 @@ export default async function postCommentToPost(
   // Set up return object.
   const response = {
     apolloClient,
+    success: false,
     comment: null
   }
 
@@ -61,6 +62,7 @@ export default async function postCommentToPost(
         return null
       }
 
+      response.success = data.createComment.success
       response.comment = data.createComment.comment
     })
     .catch((error) => {

@@ -1,43 +1,20 @@
 import {initializeWpApollo} from '../connector'
 import queryPostsArchive from '../posts/queryPostsArchive'
 import {postTypes} from './postTypes'
-import queryEventsArchive from '../events/queryEventsArchive'
-import queryCareersArchive from '../careers/queryCareersArchive'
-import queryServicesArchive from '../services/queryServicesArchive'
 import queryTeamsArchive from '../teams/queryTeamsArchive'
-import queryPortfoliosArchive from '../portfolios/queryPortfoliosArchive'
-import queryTestimonialsArchive from '../testimonials/queryTestimonialsArchive'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '../menus/getMenus'
 
 // Define SEO for archives.
-export const archiveSeo = {
-  career: {
-    title: 'Careers',
-    description: ''
-  },
-  event: {
-    title: 'Events',
-    description: ''
-  },
-  portfolio: {
-    title: 'Portfolio',
-    description: ''
-  },
+export const archiveQuerySeo = {
   post: {
+    query: queryPostsArchive,
     title: 'Blog',
     description: ''
   },
-  service: {
-    title: 'Services',
-    description: ''
-  },
   team: {
+    query: queryTeamsArchive,
     title: 'Team Members',
-    description: ''
-  },
-  testimonial: {
-    title: 'Testimonials',
     description: ''
   }
 }
@@ -52,7 +29,7 @@ export const archiveSeo = {
  * @param {string}  cursor   Start/end cursor for pagination.
  * @param {boolean} getNext  Whether to retrieve next set of posts (true) or previous set (false).
  * @param {number}  perPage  Number of posts per page.
- * @return {object} Object containing Apollo client instance and post archive data or error object.
+ * @return {object}          Object containing Apollo client instance and post archive data or error object.
  */
 export default async function getPostTypeArchive(
   postType,
@@ -62,19 +39,8 @@ export default async function getPostTypeArchive(
   getNext = true,
   perPage = 10
 ) {
-  // Define single post query based on post type.
-  const postTypeQuery = {
-    career: queryCareersArchive,
-    event: queryEventsArchive,
-    portfolio: queryPortfoliosArchive,
-    post: queryPostsArchive,
-    service: queryServicesArchive,
-    team: queryTeamsArchive,
-    testimonial: queryTestimonialsArchive
-  }
-
   // Retrieve post type query.
-  const query = postTypeQuery?.[postType] ?? null
+  const query = archiveQuerySeo?.[postType] ?? null
 
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
@@ -144,10 +110,10 @@ export default async function getPostTypeArchive(
                 }`
               }
             : {
-                title: `${archiveSeo?.[postType]?.title} - ${
+                title: `${archiveQuerySeo?.[postType]?.title} - ${
                   response.defaultSeo?.openGraph?.siteName ?? ''
                 }`,
-                metaDesc: archiveSeo?.[postType]?.description,
+                metaDesc: archiveQuerySeo?.[postType]?.description,
                 canonical: `${response.defaultSeo?.openGraph?.url ?? ''}/${
                   postTypes?.[postType]?.route
                 }`,

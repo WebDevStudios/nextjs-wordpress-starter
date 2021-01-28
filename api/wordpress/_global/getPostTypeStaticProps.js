@@ -1,8 +1,12 @@
 import {algoliaIndexName} from '@/api/algolia/connector'
 import getPostTypeById from './getPostTypeById'
-import getPostTypeArchive from './getPostTypeArchive'
+import getPostTypeArchive, {archiveQuerySeo} from './getPostTypeArchive'
 import {addApolloState} from '@/api/apolloConfig'
 import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
+import getSettingsCustomPage, {
+  customPageQuerySeo
+} from './getSettingsCustomPage'
+import getPostTypeTaxonomyArchive from './getPostTypeTaxonomyArchive'
 
 /**
  * Retrieve static props by post type.
@@ -12,7 +16,7 @@ import getFrontendPage, {frontendPageSeo} from './getFrontendPage'
  * @param {string}  postType    Post Type.
  * @param {boolean} preview     Whether requesting preview of post.
  * @param {object}  previewData Post preview data.
- * @return {object} Object containing post props and revalidate setting.
+ * @return {object}             Object containing post props and revalidate setting.
  */
 export default async function getPostTypeStaticProps(
   params,
@@ -43,9 +47,47 @@ export default async function getPostTypeStaticProps(
     })
   }
 
+  /* -- Fallback: return error if params missing. -- */
+  if (!params) {
+    return '404' !== postType
+      ? {
+          notFound: true
+        }
+      : {
+          props: {
+            ...sharedProps
+          },
+          revalidate
+        }
+  }
+
   /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
+
+    // Merge in query results as Apollo state.
+    return addApolloState(apolloClient, {
+      props: {
+        ...archiveData,
+        ...sharedProps,
+        archive: true
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle taxonomy archives. -- */
+  if (
+    Object.keys(archiveQuerySeo).includes(postType) &&
+    params.slug.length > 1
+  ) {
+    const taxonomy = params.slug.shift()
+    const taxonomySlug = params.slug.join('/')
+
+    const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
+      taxonomy,
+      taxonomySlug
+    )
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
@@ -62,6 +104,31 @@ export default async function getPostTypeStaticProps(
 
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+
+  /* -- Handle pages set via Additional Settings. -- */
+  if (Object.keys(customPageQuerySeo).includes(slug)) {
+    const {apolloClient, ...pageData} = await getSettingsCustomPage(slug)
+
+    // Display 404 error page if error encountered.
+    if (pageData.error && '404' !== slug) {
+      return {
+        notFound: true
+      }
+    }
+
+    // Remove error prop.
+    delete pageData?.error
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...pageData,
+        ...sharedProps
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle dynamic posts. -- */
 
   // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
@@ -97,6 +164,13 @@ export default async function getPostTypeStaticProps(
   if ('/' === slug && error) {
     props.post = null
     props.error = false
+  }
+
+  // Display 404 error page if error encountered.
+  if (props.error) {
+    return {
+      notFound: true
+    }
   }
 
   // Merge in query results as Apollo state.

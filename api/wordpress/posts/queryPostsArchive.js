@@ -6,11 +6,29 @@ import seoPostFields from '../_partials/seoPostFields'
 import defaultPageData from '../_partials/defaultPageData'
 
 // Fragment: retrieve archive post fields.
-const archivePostFragment = gql`
+export const archivePostFragment = gql`
   fragment ArchivePostFields on Post {
     ${globalPostFields}
     excerpt
     ${featuredImagePostFields}
+  }
+`
+
+// Query partial: retrieve archive fields.
+export const archivePosts = `
+  posts(
+    first: $first
+    last: $last
+    after: $after
+    before: $before
+    where: {orderby: {field: $orderBy, order: $order}}
+  ) {
+    ${archivePageInfo}
+    edges {
+      node {
+        ...ArchivePostFields
+      }
+    }
   }
 `
 
@@ -31,20 +49,7 @@ const queryPostsArchive = gql`
         ${seoPostFields}
       }
     }
-    posts(
-      first: $first
-      last: $last
-      after: $after
-      before: $before
-      where: {orderby: {field: $orderBy, order: $order}}
-    ) {
-      ${archivePageInfo}
-      edges {
-        node {
-          ...ArchivePostFields
-        }
-      }
-    }
+    ${archivePosts}
   }
   ${archivePostFragment}
 `
