@@ -8,11 +8,13 @@ import PropTypes from 'prop-types'
  * The core Buttons block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} options                      Option props.
- * @param {string} options.anchor               The anchor/id of the block.
- * @param {string} options.orientation          The orientation of buttons.
- * @param {string} options.contentJustification The justification of the buttons.
- * @param {Array}  innerBlocks                  The array of inner blocks to display.
+ * @param options.options
+ * @param {object}            options                      Option props object.
+ * @param {string}            options.anchor               The anchor/id of the block.
+ * @param {string}            options.orientation          The orientation of buttons.
+ * @param {string}            options.contentJustification The justification of the buttons.
+ * @param options.innerBlocks
+ * @param {Array}             innerBlocks                  The array of inner blocks to display.
  * @return {Element}                            The Buttons component.
  */
 export default function BlockButtons({options, innerBlocks}) {
