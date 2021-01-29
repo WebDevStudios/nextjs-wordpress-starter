@@ -9,15 +9,26 @@ import styles from './Hero.module.css'
  *
  * @param {object} props                 Hero component props.
  * @param {string} props.backgroundImage The background image url.
+ * @param {string} props.id              Optional ID for component.
  * @param {string} props.body            Text for the body.
  * @param {object} props.cta             Object with text and url props for the CTA button.
  * @param {string} props.subtitle        Text for the subtitle.
  * @param {string} props.title           Text for the title.
+ * @param {object} props.children        React children.
  * @return {Element}                     The Hero component.
  */
-export default function Hero({backgroundImage, body, cta, subtitle, title}) {
+export default function Hero({
+  backgroundImage,
+  id,
+  body,
+  cta,
+  subtitle,
+  title,
+  children
+}) {
   return (
     <section
+      id={id || null}
       className={styles.hero}
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
@@ -27,18 +38,24 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
       }}
     >
       <div className={styles.content}>
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        <h1 className={styles.title}>{title}</h1>
-        {body && <p className={styles.body}>{body}</p>}
-        {cta && (
-          <Button
-            className={styles.button}
-            url={cta.url ? cta.url : null}
-            icon={cta.icon ? cta.icon : null}
-            text={cta.text ? cta.text : null}
-            type="primary"
-            size="md"
-          />
+        {children ? (
+          children
+        ) : (
+          <>
+            {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+            <h1 className={styles.title}>{title}</h1>
+            {body && <p className={styles.body}>{body}</p>}
+            {cta && (
+              <Button
+                className={styles.button}
+                url={cta.url ? cta.url : null}
+                icon={cta.icon ? cta.icon : null}
+                text={cta.text ? cta.text : null}
+                type="primary"
+                size="md"
+              />
+            )}
+          </>
         )}
       </div>
     </section>
@@ -47,6 +64,7 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
 
 Hero.propTypes = {
   backgroundImage: PropTypes.string,
+  id: PropTypes.string,
   body: PropTypes.string,
   cta: PropTypes.shape({
     icon: PropTypes.string,
@@ -54,5 +72,6 @@ Hero.propTypes = {
     url: PropTypes.string
   }),
   subtitle: PropTypes.string,
-  title: PropTypes.string.isRequired
+  children: PropTypes.node,
+  title: PropTypes.string
 }

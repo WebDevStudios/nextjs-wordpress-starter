@@ -53,6 +53,14 @@ export default function displayBlock(block, index) {
           key={index}
         />
       )
+    case 'core/cover':
+      return (
+        <Blocks.BlockCover
+          media={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
     case 'core/image':
