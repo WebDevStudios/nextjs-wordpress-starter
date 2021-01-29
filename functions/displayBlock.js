@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * @return {Element}     A block-based component.
  */
 export default function displayBlock(block, index) {
-  const {attributes, name} = block
+  const {attributes, name, innerBlocks} = block
 
   // prettier-ignore
   switch (name) {
@@ -21,15 +21,41 @@ export default function displayBlock(block, index) {
     case 'core/quote':
       return <Blocks.BlockQuote {...attributes} key={index} />
     case 'core/pullquote':
-      return <Blocks.PullQuote {...attributes} key={index} />
+      return <Blocks.BlockPullQuote {...attributes} key={index} />
+    case 'core/code':
+    case 'core/preformatted':
+      return <Blocks.BlockCode {...attributes} key={index} />
     // case 'core/embed':
     //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
+    case 'core/media-text':
+      return (
+        <Blocks.BlockMediaText
+          media={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
+    case 'core/button':
+      return (
+        <Blocks.BlockButton
+          {...attributes}
+          key={index}
+        />
+      )
+    case 'core/buttons':
+      return (
+        <Blocks.BlockButtons
+          options={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
-    // case 'core/image':
-    //   return <Blocks.BlockImage {...attributes} key={index} />
-    // case 'core/image-gallery':
-    //   return <Blocks.BlockImageGallery {...attributes} key={index} />
+    case 'core/image':
+      return <Blocks.BlockImage {...attributes} key={index} />
+    case 'core/gallery':
+      return <Blocks.BlockImageGallery {...attributes} key={index} />
     case 'core/table':
       return <Blocks.BlockTable {...attributes} key={index} />
     case 'core/list':
