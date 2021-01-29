@@ -13,22 +13,29 @@ https://nextjs-wordpress-starter-staging.vercel.app/
 - [🎓 Overview](#-overview)
   - [Why?](#why)
   - [How's this all work?](#hows-this-all-work)
+  - [3rd Party Services](#3rd-party-services)
+    - [Algolia](#algolia)
+    - [Chromatic](#chromatic)
+    - [Vercel](#vercel)
+    - [WP Engine](#wp-engine)
 - [🚀 Frontend Setup (Next.js)](#-frontend-setup-nextjs)
   - [Dependencies](#dependencies)
   - [Install](#install)
 - [🔧 Backend Setup (WordPress)](#-backend-setup-wordpress)
   - [Dependencies](#dependencies-1)
   - [Install](#install-1)
+  - [Enable Previews](#enable-previews)
 - [💻 Frontend Development](#-frontend-development)
   - [Git Workflow](#git-workflow)
   - [Deployments](#deployments)
   - [Storybook](#storybook)
 - [WebDevStudios Specific Info](#webdevstudios-specific-info)
   - [WordPress Github](#wordpress-github)
-  - [WP Engine](#wp-engine)
-  - [Chromatic](#chromatic)
+  - [WP Engine](#wp-engine-1)
+  - [Chromatic](#chromatic-1)
   - [1Password](#1password)
   - [Migrate DB Pro](#migrate-db-pro)
+  - [Algolia](#algolia-1)
   - [Copy WP Engine Environments](#copy-wp-engine-environments)
 - [:octocat: Contributing](#octocat-contributing)
 
@@ -38,11 +45,11 @@ https://nextjs-wordpress-starter-staging.vercel.app/
 
 ### Why?
 
-It's easy to query a WordPress REST-API and map over some blog posts in JavaScript. That's where many examples on the Internet stop and you'd be hard pressed to find anything about supporting advanced features because **_headless WordPress is hard!_**
+Querying a REST-API or GraphQL endpoint and looping over blog posts is where many _"how to build a headless WordPress website"_ tutorials stop. You'd be hard pressed to find anything about supporting advanced features and plugins because **_headless WordPress is hard._**
 
-At WebDevStudios we believe that WordPress is so much more than a blog-- and our clients require support for things like: SEO, forms, post previews, search, comments, authentication, custom post types, custom fields, etc...
+At WebDevStudios we believe that WordPress is so much more than a blog-- and our clients require support for things like: SEO, forms, previews, search, comments, authentication, custom post types, custom fields, etc...
 
-With this starter, we've figured out "the hard stuff" and placed the sum of our knowledge into something the community (and our future projects) could use as a jumping off point.
+With this starter, we've figured out the "hard stuff" and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.
 
 ### How's this all work?
 
@@ -50,6 +57,37 @@ The frontend (Next.js) talks to the backend (WordPress) via GraphQL.
 
 <details>
 <img src="https://dl.dropbox.com/s/9wsal7szatfwt6g/nextjs-wordpress-starter-frontend-backend-graphic.png?dl=0" alt="A graphic showing the relationship between environments">
+</details>
+
+### 3rd Party Services
+
+This starter uses a few 3rd party services.
+
+<details>
+
+- [Algolia](https://www.algolia.com/)
+- [Chromatic](https://www.chromatic.com/)
+- [Vercel](https://vercel.com/)
+- [WP Engine](https://wpengine.com)
+
+#### Algolia
+
+We use [WP Search with Algolia](https://wordpress.org/plugins/wp-search-with-algolia/) to push content indicies from WordPress to Algolia. You will need to set up a (free) account and place your API credentials in the frontend `.env` file _and_ in the WordPress plugin settings.
+
+#### Chromatic
+
+Chromatic automates gathering UI feedback, visual testing, and documentation, so developers can iterate faster with less manual work. You will need to update both [`package.json`](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/package.json#L34) and [`chromatic.yml`](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/workflows/chromatic.yml) with your Chromatic API key in order to automate builds.
+
+#### Vercel
+
+Vercel is the company behind Next.js and offers a platform _[that was built for deploying](https://vercel.com/solutions/nextjs)_ Next.js apps.
+
+Vercel has a generous free tier and offers support for both serverless functions (required if using incremental static regeneration) and [`next/image`](https://nextjs.org/docs/api-reference/next/image). Something neither Netlify nor Cloudflare support.
+
+#### WP Engine
+
+We're a partner with WP Engine and love their managed WordPress hosting options. That said, while hosting your headless WordPress install on WP Engine is recommended, it is not required.
+
 </details>
 
 ---
@@ -88,7 +126,7 @@ yarn
 
 **Step 4: Setup ENV Variables**
 
-Copy the sample ENV file, then add your credentials:
+ENV variables are like constants in `wp-config.php`. Copy the sample ENV file, then add your credentials:
 
 ```bash
 cp .env.sample .env
@@ -146,9 +184,22 @@ Before you get started, make sure you have the following dependency installed on
 
 - https://localwp.com/help-docs/getting-started/how-to-import-a-wordpress-site-into-local/
 
-**Step 3: Start the `nextjs-wp` site**
+**Step 3: Configure `wp-config.php`**
 
-**Note:** Make sure your Local URL matches the `LOCAL_WORDPRESS_API_URL` in the frontend `.env` file!
+The follow constants needs to be in `wp-config.php`:
+
+```php
+define('HEADLESS_FRONTEND_URL', 'http://localhost:3000/');
+define('PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
+```
+
+**Step 4: Start the `nextjs-wp` site**
+
+**Note:** Make sure your local URL matches the `LOCAL_WORDPRESS_API_URL` in the frontend `.env` file!
+
+### Enable Previews
+
+To enable previews, you'll need both a `PREVIEW_SECRET_TOKEN` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in `.env`. The token can be any random string so long as they match.
 
 ---
 
@@ -219,6 +270,10 @@ All of the credentials are in the following vault:
 ### Migrate DB Pro
 
 You can use Migrate DB Pro to pull databases and files. Please see 1password for credentials
+
+### Algolia
+
+The login and API credentials are in password.
 
 ### Copy WP Engine Environments
 

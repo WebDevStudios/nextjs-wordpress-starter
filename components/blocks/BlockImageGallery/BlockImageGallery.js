@@ -1,3 +1,4 @@
+import ImageGallery from '@/components/molecules/ImageGallery'
 import PropTypes from 'prop-types'
 
 /**
@@ -6,42 +7,45 @@ import PropTypes from 'prop-types'
  * The core Image Gallery block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param {string} anchor    The anchor/id of the block.
+ * @param {string} caption   The image caption.
+ * @param {string} className The image class.
+ * @param {number} columns   The amount of columns.
+ * @param {Array}  images    The array of images.
+ * @return {Element} The ImageGallery component.
  */
-export default function BlockImageGallery({props}) {
-  const {
-    className,
-    id,
-    data: {images_per_page, images}
-  } = props
-
+export default function BlockImageGallery({
+  anchor,
+  caption,
+  columns,
+  className,
+  images
+}) {
   return (
-    <section
-      id={id ? id : null}
-      data-block="ImageGallery"
+    <ImageGallery
+      anchor={anchor}
+      caption={caption}
+      columns={columns}
       className={className}
-    >
-      <pre>
-        {JSON.stringify(
-          {
-            className,
-            id,
-            data: {images_per_page, images}
-          },
-          null,
-          2
-        )}
-      </pre>
-    </section>
+      images={images}
+    />
   )
 }
 
 BlockImageGallery.propTypes = {
-  props: PropTypes.object.isRequired,
-  id: PropTypes.string,
+  anchor: PropTypes.string,
+  caption: PropTypes.string,
+  columns: PropTypes.number,
   className: PropTypes.string,
-  data: PropTypes.shape({
-    images_per_page: PropTypes.number,
-    images: PropTypes.array
-  })
+  sizeSlug: PropTypes.string,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      alt: PropTypes.string,
+      caption: PropTypes.string,
+      fullUrl: PropTypes.string,
+      id: PropTypes.string,
+      link: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
 }

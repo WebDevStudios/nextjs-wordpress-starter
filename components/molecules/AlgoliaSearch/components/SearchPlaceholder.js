@@ -11,7 +11,7 @@ import SearchIcon from './SearchIcon'
  * @param {object}   props               The component attributes as props.
  * @param {Function} props.toggleAlgolia Toggle the Search component.
  * @param {string}   props.query         The search query.
- * @return {Element}                     The SearchPlaceholder component.
+ * @return {Element} The SearchPlaceholder component.
  */
 export default function SearchPlaceholder({toggleAlgolia, query}) {
   return (
@@ -29,7 +29,9 @@ export default function SearchPlaceholder({toggleAlgolia, query}) {
               toggleAlgolia(true)
             }
           }}
-        />
+        >
+          <span>Click to start searching</span>
+        </div>
         <input
           tabIndex="-1"
           type="search"
@@ -37,7 +39,7 @@ export default function SearchPlaceholder({toggleAlgolia, query}) {
           placeholder="Enter search term..."
           readOnly
         />
-        <button type="button" tabIndex="-1">
+        <button type="button" tabIndex="-1" disabled>
           <SearchIcon />
         </button>
       </div>

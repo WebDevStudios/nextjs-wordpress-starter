@@ -6,14 +6,11 @@ import tailwindConfig from '../../../tailwind.config'
  * Render the Spacer component.
  *
  * @author WebDevStudios
- * @param {object} props        The component attributes as props.
- * @param {string} props.anchor Optional anchor/id.
- * @param {number} props.height The height of the spacer.
- * @return {Element}            The Spacer component.
+ * @param {string} anchor Optional anchor/id.
+ * @param {number} height The height of the spacer.
+ * @return {Element} The Spacer component.
  */
-export default function Spacer(props) {
-  const {height, anchor} = props
-
+export default function Spacer({height, anchor}) {
   const rootEmVal = parseFloat(tailwindConfig.theme.fontSize['root-em'])
 
   return (
