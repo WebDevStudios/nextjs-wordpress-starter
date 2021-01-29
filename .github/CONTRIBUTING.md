@@ -4,15 +4,43 @@ Thanks for contributing — you rock! 🤘
 
 This repo is maintained by [WebDevStudios](https://webdevstudios.com).
 
-## Submitting issues
+---
 
-Before submitting your issue, make sure it has not been discussed earlier. You can search for existing tickets [here](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues).
+## Submitting bug reports and feature requests
 
-## Contributing code
+Before submitting an issue or making a feature request, please search for existing [issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) or look at our [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
 
-Found a bug you can fix? Fantastic! Patches are always welcome. Here's a few tips for crafting a great pull request:
+If you do fill out a bug report, be sure to fill out the report completely!
 
-- Include the purpose of your PR. Be explicit about the issue your PR solves. Fill out the Pull Request template completely.
-- Reference any existing issues that relate to your PR. This allows everyone to easily see all related discussions.
+---
 
-By contributing code to Kindergarten Flashcards, you grant its use under the [GNU General Public License v2 (or later)](LICENSE).
+## Coding standards
+
+Pull requests _must pass_ all assertions and component changes will be reviewed in Chromatic prior to consideration.
+
+### Tips to help your PR get approved
+
+1. Make sure your code editor supports real-time linting.
+2. JSDocs are important and must be completely filled out.
+3. Run `yarn build && yarn start` before submitting your PR, to ensure a build will be successful
+4. Be courteous
+
+In addition to real-time linting, you could run the following commands in your terminal (these commands are also used by Husky during a commit!)
+
+Lint JavaScript:
+
+```bash
+yarn run lint:js
+```
+
+Lint CSS:
+
+```bash
+yarn run lint:css
+```
+
+Format your code:
+
+```bash
+yarn run format
+```
