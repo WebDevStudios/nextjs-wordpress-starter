@@ -11,8 +11,8 @@ Give quoted text visual emphasis.
 <Canvas>
   <Story name="Component">
     <Quote
-      quote='"There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."'
-      type="a"
+      value='"There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."'
+      citation="Jeffery Smith, 28"
     />
   </Story>
 </Canvas>
@@ -29,7 +29,7 @@ export const Template = (args) => <Quote {...args} />
     args={{
       value:
         '"There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."',
-      cite: 'Jeffery Smith, 28'
+      citation: 'Jeffery Smith, 28'
     }}
   >
     {Template.bind({})}

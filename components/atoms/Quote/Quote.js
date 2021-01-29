@@ -13,7 +13,7 @@ import styles from './Quote.module.css'
  * @param {string} citation  The optional author citation.
  * @param {string} id        Optional anchor/id.
  * @param {string} className Optional classnames.
- * @return {Element}         The Quote component.
+ * @return {Element} The Quote component.
  */
 export default function Quote({value, citation, id, className}) {
   return (
@@ -26,7 +26,9 @@ export default function Quote({value, citation, id, className}) {
             </div>
           </blockquote>
           {!!citation && (
-            <figcaption className={styles.cite}>~ {citation}</figcaption>
+            <figcaption className={styles.cite}>
+              ~ <RichText tag="span">{citation}</RichText>
+            </figcaption>
           )}
         </figure>
       )}

@@ -34,7 +34,7 @@
     }
   }
 
-  & p {
-    @apply mb-20 text-center font-primary text-sm;
+  & .caption {
+    @apply mb-20 text-center font-secondary text-xs;
   }
 }

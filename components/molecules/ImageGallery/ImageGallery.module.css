@@ -1,0 +1,35 @@
+.gallery {
+  @apply mb-20;
+
+  & .wrap {
+    @apply grid grid-cols-4 gap-12;
+
+    &.columns-1 {
+      @apply grid-cols-1;
+    }
+
+    &.columns-2 {
+      @apply grid-cols-2;
+    }
+
+    &.columns-3 {
+      @apply grid-cols-4;
+    }
+
+    &.columns-4 {
+      @apply grid-cols-4;
+    }
+
+    &.columns-5 {
+      @apply grid-cols-5;
+    }
+
+    &.columns-6 {
+      @apply grid-cols-6;
+    }
+  }
+
+  & .caption {
+    @apply text-center font-secondary text-xs pt-12;
+  }
+}

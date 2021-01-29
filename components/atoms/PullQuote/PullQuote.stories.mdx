@@ -11,7 +11,7 @@ Use this to display a pull quote.
 <Canvas>
   <Story name="Component">
     <PullQuote
-      quote="I have no other view than to promote the public good, and am unambitious of honors not founded in the approbation of my country."
+      value="I have no other view than to promote the public good, and am unambitious of honors not founded in the approbation of my country."
       citation="George Washington"
     />
   </Story>
@@ -27,12 +27,9 @@ export const Template = (args) => <PullQuote {...args} />
   <Story
     name="Controls"
     args={{
-      quote:
+      value:
         'I have no other view than to promote the public good, and am unambitious of honors not founded in the approbation of my country.',
-      citation: 'George Washington',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg',
-      imageAlt: "George Washington's official portrait"
+      citation: 'George Washington'
     }}
   >
     {Template.bind({})}
