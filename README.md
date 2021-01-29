@@ -309,8 +309,8 @@ WP Engine supports [copying environments](https://wpengine.com/support/copy-site
 
 ## :octocat: Contributing
 
-At WebDevStudios we are committed to open-source technologies and welcome feedback, discussions, and contributions from the community.
+At WebDevStudios we are committed to open-source technologies and welcome feedback, [discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions), and contributions from the community.
 
-Please see [CONTRIBUTING.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md) for more info on how to get started.
+Please see [CONTRIBUTING.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/CONTRIBUTING.md) for more info on how to get started contributing.
 
 Stay safe! 🍻
