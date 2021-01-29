@@ -24,6 +24,7 @@ https://nextjs-wordpress-starter-staging.vercel.app/
 - [🔧 Backend Setup (WordPress)](#-backend-setup-wordpress)
   - [Dependencies](#dependencies-1)
   - [Install](#install-1)
+  - [Enable Previews](#enable-previews)
 - [💻 Frontend Development](#-frontend-development)
   - [Git Workflow](#git-workflow)
   - [Deployments](#deployments)
@@ -48,7 +49,7 @@ Querying a REST-API or GraphQL endpoint and looping over blog posts is where man
 
 At WebDevStudios we believe that WordPress is so much more than a blog-- and our clients require support for things like: SEO, forms, previews, search, comments, authentication, custom post types, custom fields, etc...
 
-With this starter, we've figured out the hard stuff"and placed the sum of our knowledge into something the community (and our future projects) could use as a jumping off point.
+With this starter, we've figured out the "hard stuff" and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.
 
 ### How's this all work?
 
@@ -185,15 +186,20 @@ Before you get started, make sure you have the following dependency installed on
 
 **Step 3: Configure `wp-config.php`**
 
-The follow constant needs to be in `wp-config.php`:
+The follow constants needs to be in `wp-config.php`:
 
 ```php
 define('HEADLESS_FRONTEND_URL', 'http://localhost:3000/');
+define('PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
 ```
 
 **Step 4: Start the `nextjs-wp` site**
 
 **Note:** Make sure your local URL matches the `LOCAL_WORDPRESS_API_URL` in the frontend `.env` file!
+
+### Enable Previews
+
+To enable previews, you'll need both a `PREVIEW_SECRET_TOKEN` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in `.env`. The token can be any random string so long as they match.
 
 ---
 
