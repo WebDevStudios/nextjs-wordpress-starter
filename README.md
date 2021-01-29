@@ -25,11 +25,7 @@ https://nextjs-wordpress-starter-staging.vercel.app/
   - [Dependencies](#dependencies-1)
   - [Install](#install-1)
   - [Enable Previews](#enable-previews)
-- [💻 Frontend Development](#-frontend-development)
-  - [Git Workflow](#git-workflow)
-  - [Deployments](#deployments)
-  - [Storybook](#storybook)
-- [WebDevStudios Specific Info](#webdevstudios-specific-info)
+- [💻 WebDevStudios Specific Info](#-webdevstudios-specific-info)
   - [WordPress Github](#wordpress-github)
   - [WP Engine](#wp-engine-1)
   - [Chromatic](#chromatic-1)
@@ -37,7 +33,7 @@ https://nextjs-wordpress-starter-staging.vercel.app/
   - [Migrate DB Pro](#migrate-db-pro)
   - [Algolia](#algolia-1)
   - [Copy WP Engine Environments](#copy-wp-engine-environments)
-- [:octocat: Contributing](#octocat-contributing)
+- [:octocat: Development and Contributing](#octocat-development-and-contributing)
 
 ---
 
@@ -217,33 +213,7 @@ The token can be any random string as long as they match.
 
 ---
 
-## 💻 Frontend Development
-
-### Git Workflow
-
-1. Create a `feature` branch off `staging`
-2. Work locally adhereing to coding standards
-3. When ready, open a draft Pull Request on Github
-4. When finished, fill out the PR template and publish your PR
-5. Your PR must pass assertions and deploy successfully
-6. After peer review, the PR will be merged back into `staging`
-7. Repeat ♻️
-
-### Deployments
-
-[Vercel](https://nextjs-wordpress-starter-gregrickaby.webdevstudios.vercel.app) is connected to this Github repository and will automatically build and deploy. Learn more about [Vercel + Github integration](https://vercel.com/docs/git/vercel-for-github).
-
-### Storybook
-
-To work with Storybook on your Local, run the following command:
-
-```bash
-yarn storybook
-```
-
-Stories are written in `.mdx` and should be placed next to the component. Learn more about [Storybook](https://storybook.js.org/).
-
-## WebDevStudios Specific Info
+## 💻 WebDevStudios Specific Info
 
 The following information pertains to internal tools and workflows at WebDevStudios.
 
@@ -307,10 +277,10 @@ WP Engine supports [copying environments](https://wpengine.com/support/copy-site
 
 ---
 
-## :octocat: Contributing
+## :octocat: Development and Contributing
 
 At WebDevStudios we are committed to open-source technologies and welcome feedback, [discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions), and contributions from the community.
 
-Please see [CONTRIBUTING.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/CONTRIBUTING.md) for more info on how to get started contributing.
+Please see [CONTRIBUTING.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/CONTRIBUTING.md) for more info on how to get started.
 
 Stay safe! 🍻

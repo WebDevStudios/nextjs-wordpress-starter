@@ -1,18 +1,38 @@
-Thanks for contributing — you rock! 🤘
+# Thanks for contributing — you rock! 🤘 <!-- omit in toc -->
 
-## Maintainers
+- [Development](#development)
+  - [Git Workflow](#git-workflow)
+  - [Deployments](#deployments)
+  - [Storybook](#storybook)
+- [Coding standards](#coding-standards)
+  - [Tips to help your PR get approved](#tips-to-help-your-pr-get-approved)
+- [Submitting bug reports and feature requests](#submitting-bug-reports-and-feature-requests)
 
-This repo is maintained by [WebDevStudios](https://webdevstudios.com).
+## Development
 
----
+### Git Workflow
 
-## Submitting bug reports and feature requests
+1. Create a `feature` branch off `staging`
+2. Work locally adhereing to coding standards
+3. When ready, open a draft Pull Request on Github
+4. When finished, fill out the PR template and publish your PR
+5. Your PR must pass assertions and deploy successfully
+6. After peer review, the PR will be merged back into `staging`
+7. Repeat ♻️
 
-Before submitting an issue or making a feature request, please search for existing [issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) or look at our [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
+### Deployments
 
-If you do fill out a bug report, be sure to fill out the report completely!
+[Vercel](https://nextjs-wordpress-starter-gregrickaby.webdevstudios.vercel.app) is connected to this Github repository and will automatically build and deploy. Learn more about [Vercel + Github integration](https://vercel.com/docs/git/vercel-for-github).
 
----
+### Storybook
+
+To work with Storybook on your Local, run the following command:
+
+```bash
+yarn storybook
+```
+
+Stories are written in `.mdx` and should be placed next to the component. Learn more about [Storybook](https://storybook.js.org/).
 
 ## Coding standards
 
@@ -44,3 +64,9 @@ Format your code:
 ```bash
 yarn run format
 ```
+
+## Submitting bug reports and feature requests
+
+Before submitting an issue or making a feature request, please search for existing [issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) or look at our [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
+
+If you do fill out a bug report, be sure to fill out the report completely!
