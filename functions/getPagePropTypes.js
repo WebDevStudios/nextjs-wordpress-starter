@@ -21,11 +21,9 @@ export const seoSocialPropTypes = {
 // Yoast SEO prop types.
 export const seoPropTypes = {
   seo: PropTypes.shape({
-    siteTitle: PropTypes.string,
-    siteDescription: PropTypes.string,
-    title: PropTypes.string,
+    breadcrumbs: PropTypes.array,
+    canonical: PropTypes.string,
     description: PropTypes.string,
-    url: PropTypes.string,
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
     opengraphAuthor: PropTypes.string,
@@ -35,6 +33,10 @@ export const seoPropTypes = {
       altText: PropTypes.string,
       sourceUrl: PropTypes.string
     }),
+    siteTitle: PropTypes.string,
+    siteDescription: PropTypes.string,
+    title: PropTypes.string,
+    url: PropTypes.string,
     ...seoSocialPropTypes
   })
 }

@@ -1,6 +1,10 @@
 // Query partial: retrieve SEO post fields.
 const seoPostFields = `
   seo {
+    breadcrumbs {
+      text
+      url
+    }
     canonical
     title
     metaDesc
