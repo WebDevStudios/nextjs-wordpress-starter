@@ -1,9 +1,5 @@
 // Define valid WP post types (singular and plural GraphQL names).
 export const postTypes = {
-  comment: {
-    pluralName: 'comments',
-    route: null
-  },
   mediaItem: {
     pluralName: 'mediaItems',
     route: null
