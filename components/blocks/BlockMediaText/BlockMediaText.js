@@ -1,6 +1,9 @@
 import Image from '@/components/atoms/Image'
 import Blocks from '@/components/molecules/Blocks'
+import MediaText from '@/components/organisms/MediaText'
 import PropTypes from 'prop-types'
+
+// TODO: Swap `img` in `MediaText` component with `Image` atom component.
 
 /**
  * Code Block
@@ -8,44 +11,34 @@ import PropTypes from 'prop-types'
  * The core Code block from Gutenberg.
  *
  * @author WebDevStudios
- * @param media.media
- * @param {object}          media               media props.
- * @param {string}          media.anchor        The anchor/id of the block.
- * @param {string}          media.mediaAlt      The image alt text.
- * @param {string}          media.caption       The image caption.
- * @param {string}          media.className     The image class.
- * @param {string}          media.mediaId       The image ID.
- * @param {string}          media.href          The URL of the link.
- * @param {string}          media.linkTarget    Target for the link.
- * @param {string}          media.linkClass     Class for the link.
- * @param {string}          media.rel           The rel attribute for the link.
- * @param {string}          media.sizeSlug      The WP image size.
- * @param {string}          media.mediaUrl      The full URL path of the image.
- * @param {string}          media.mediaPosition The position of the image, left or right.
- * @param media.innerBlocks
- * @param {Array}           innerBlocks         The array of inner blocks to display.
- * @return {Element} The Code component.
+ * @param {object} media               media props.
+ * @param {string} media.anchor        The anchor/id of the block.
+ * @param {string} media.mediaAlt      The image alt text.
+ * @param {string} media.caption       The image caption.
+ * @param {string} media.className     The image class.
+ * @param {string} media.mediaId       The image ID.
+ * @param {string} media.href          The URL of the link.
+ * @param {string} media.linkTarget    Target for the link.
+ * @param {string} media.linkClass     Class for the link.
+ * @param {string} media.rel           The rel attribute for the link.
+ * @param {string} media.sizeSlug      The WP image size.
+ * @param {string} media.mediaUrl      The full URL path of the image.
+ * @param {string} media.mediaPosition The position of the image, left or right.
+ * @param {Array}  innerBlocks         The array of inner blocks to display.
+ * @return {Element}                   The Code component.
  */
 export default function BlockMediaText({media, innerBlocks}) {
   return (
-    <div>
-      {!!media && (
-        <Image
-          alt={media?.mediaAlt}
-          anchor={media?.anchor}
-          caption={media?.caption}
-          className={media?.className}
-          id={media?.mediaId}
-          href={media?.href}
-          linkTarget={media?.linkTarget}
-          linkClass={media?.linkClass}
-          rel={media?.rel}
-          sizeSlug={media?.sizeSlug}
-          url={media?.mediaUrl}
-        />
+    <>
+      {!!media && innerBlocks?.length && (
+        <MediaText
+          mediaLeft={media?.mediaPosition === 'left' ? true : false}
+          image={{url: media?.mediaUrl, alt: media?.mediaAlt}}
+        >
+          <Blocks blocks={innerBlocks} />
+        </MediaText>
       )}
-      {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
-    </div>
+    </>
   )
 }
 
