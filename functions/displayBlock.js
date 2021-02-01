@@ -34,6 +34,13 @@ export default function displayBlock(block, index) {
           key={index}
         />
       )
+    case 'lazyblock/hero':
+      return (
+        <Blocks.BlockHero
+          attributes={attributes}
+          key={index}
+        />
+      )
     case 'core/button':
       return (
         <Blocks.BlockButton

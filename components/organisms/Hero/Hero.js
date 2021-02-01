@@ -1,4 +1,5 @@
 import Button from '@/components/atoms/Button'
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import tailwindConfig from '../../../tailwind.config'
@@ -8,21 +9,31 @@ import styles from './Hero.module.css'
  * Render the Hero component.
  *
  * @param {object} props                 Hero component props.
- * @param {string} props.backgroundImage The background image url.
+ * @param {string} props.backgroundImage The background image object.
  * @param {string} props.body            Text for the body.
- * @param {object} props.cta             Object with text and url props for the CTA button.
+ * @param {string} props.className       The className.
+ * @param {object} props.ctaText         The cta text.
+ * @param {object} props.ctaUrl          The cta url.
  * @param {string} props.subtitle        Text for the subtitle.
  * @param {string} props.title           Text for the title.
  * @return {Element}                     The Hero component.
  */
-export default function Hero({backgroundImage, body, cta, subtitle, title}) {
+export default function Hero({
+  backgroundImage,
+  body,
+  className,
+  ctaText,
+  ctaUrl,
+  subtitle,
+  title
+}) {
   return (
     <section
-      className={styles.hero}
+      className={cn(styles.hero, className)}
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
-        '--image-url': `url(${backgroundImage})`,
-        '--image-tint-color': `${tailwindConfig.theme.colors.black}50`,
+        '--image-url': `url(${backgroundImage.url})`,
+        '--image-tint-color': `${tailwindConfig.theme.colors.black['DEFAULT']}50`,
         '--image-fallback-color': `${tailwindConfig.theme.colors.grey['darkest']}`
       }}
     >
@@ -30,12 +41,12 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <h1 className={styles.title}>{title}</h1>
         {body && <p className={styles.body}>{body}</p>}
-        {cta && (
+        {ctaText && ctaUrl && (
           <Button
             className={styles.button}
-            url={cta.url ? cta.url : null}
-            icon={cta.icon ? cta.icon : null}
-            text={cta.text ? cta.text : null}
+            url={ctaUrl}
+            text={ctaText}
+            icon="arrowRight"
             type="primary"
             size="md"
           />
@@ -46,13 +57,14 @@ export default function Hero({backgroundImage, body, cta, subtitle, title}) {
 }
 
 Hero.propTypes = {
-  backgroundImage: PropTypes.string,
-  body: PropTypes.string,
-  cta: PropTypes.shape({
-    icon: PropTypes.string,
-    text: PropTypes.string,
-    url: PropTypes.string
+  backgroundImage: PropTypes.shape({
+    url: PropTypes.string,
+    alt: PropTypes.string
   }),
+  body: PropTypes.string,
+  className: PropTypes.string,
+  ctaText: PropTypes.string,
+  ctaUrl: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired
 }
