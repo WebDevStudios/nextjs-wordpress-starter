@@ -14,17 +14,25 @@ import cn from 'classnames'
  * @param {string|number} props.id            GravityForm field id.
  * @param {boolean}       props.isRequired    GravityForm field is required.
  * @param {string}        props.label         GravityForm field label.
- * @param {Array}         props.selectChoices GravityForm field selection options.
- * @param {boolean}       props.visibility    GravityForm field visibility.
- * @return {Element}                          The Select component.
+ * @param {boolean}       props.visibility    GravityForm visibility option.
+ * @param {Function}      props.setFieldValue Formik function to set state.
+ * @return {Element}                          The File component.
  */
-export default function File({className, description, id, isRequired, label}) {
+export default function File({
+  className,
+  description,
+  id,
+  isRequired,
+  label,
+  visibility,
+  setFieldValue
+}) {
   const fieldId = getGfFieldId(id)
-
-  // const [upload, setUpload] = useState([])
+  const isHiddenClass = getGfHiddenClassName(visibility)
+  const thisClassName = cn(className, isHiddenClass)
 
   return (
-    <div className={cn(styles.text, className)}>
+    <div className={cn(styles.text, thisClassName)}>
       {label && (
         <label htmlFor={id} required={isRequired}>
           {label}
@@ -36,25 +44,10 @@ export default function File({className, description, id, isRequired, label}) {
         name={fieldId}
         required={isRequired}
         type="file"
-        render={({field, form}) => (
-            <input
-              {...field}
-              type="file"
-              onChange={e => {
-                form.setFieldValue(fieldId, e.currentTarget.files[0])
-              }}
-            />
-          )}
-      />
-      {/* <input
-        id={fieldId}
-        name={fieldId}
-        type="file"
-        onChange={(event) => {
-          setFieldValue(fieldId, event.currentTarget.files[0])
+        onChange={(e) => {
+          setFieldValue(fieldId, e.currentTarget.files[0])
         }}
-        required={isRequired}
-      /> */}
+      />
       {description && <p>{description}</p>}
       <InputError name={id} />
     </div>
@@ -68,5 +61,6 @@ File.propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   selectChoices: PropTypes.arrayOf(PropTypes.object),
-  visibility: PropTypes.string
+  visibility: PropTypes.string,
+  setFieldValue: PropTypes.func
 }
