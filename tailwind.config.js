@@ -37,7 +37,7 @@ module.exports = {
       lead: ['1.5rem', '2.25rem']
     },
     screens: {
-      tablet: '640px',
+      tablet: '768px',
       laptop: '1024px',
       desktop: '1280px'
     },
