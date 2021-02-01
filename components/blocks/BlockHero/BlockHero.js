@@ -1,31 +1,31 @@
-import MediaText from '@/components/organisms/MediaText'
+import Hero from '@/components/organisms/Hero'
 import PropTypes from 'prop-types'
 
 /**
- * Handle the MediaText block.
+ * Handle the Hero block.
  *
  * @author WebDevStudios
  * @param {object} props            The props.
  * @param {object} props.attributes The attributes object.
  * @return {Element}                The component.
  */
-export default function BlockMediaText({attributes}) {
+export default function BlockHero({attributes}) {
   attributes = {
     ...attributes,
-    image: JSON.parse(decodeURIComponent(attributes.image))
+    backgroundImage: JSON.parse(decodeURIComponent(attributes.backgroundImage))
   }
 
   return (
     <>
       {attributes ? (
-        <MediaText {...attributes} />
+        <Hero {...attributes} />
       ) : (
-        'There was a problem with attributes in BlockMediaText.js.'
+        'There was a problem with attributes in BlockHero.js.'
       )}
     </>
   )
 }
 
-BlockMediaText.propTypes = {
+BlockHero.propTypes = {
   attributes: PropTypes.object
 }
