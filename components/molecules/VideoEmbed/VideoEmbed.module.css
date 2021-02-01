@@ -1,0 +1,9 @@
+.videoEmbed {
+  @apply w-full relative overflow-hidden mb-24;
+
+  padding-top: 56.25%;
+
+  & iframe {
+    @apply absolute w-full h-full inset-0;
+  }
+}
