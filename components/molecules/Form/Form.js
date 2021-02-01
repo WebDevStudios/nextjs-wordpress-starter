@@ -46,7 +46,7 @@ export default function Form({
 }
 
 Form.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
   className: PropTypes.string,
   formDefaults: PropTypes.object,
   id: PropTypes.string,

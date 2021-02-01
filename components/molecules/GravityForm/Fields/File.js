@@ -45,7 +45,8 @@ export default function File({
         required={isRequired}
         type="file"
         onChange={(e) => {
-          setFieldValue(fieldId, e.currentTarget.files[0])
+          // Save to _filedata here so we don't corrupt state
+          setFieldValue(`${fieldId}_filedata`, e.currentTarget.files[0])
         }}
       />
       {description && <p>{description}</p>}

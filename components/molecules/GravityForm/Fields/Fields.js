@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types'
 import * as GfFields from '.'
 
-import {Field} from 'formik'
-import InputError from '@/components/atoms/Inputs/InputError'
+// import {Field} from 'formik'
+// import InputError from '@/components/atoms/Inputs/InputError'
 
 /**
  * Render the Fields component.
  *
  * @author WebDevStudios
- * @param {object} props        The component attributes as props.
- * @param {Array}  props.fields GravityForm fields data.
- * @return {Element}              The Fields component.
+ * @param {object} props             The component attributes as props.
+ * @param {Array}  props.fields      GravityForm fields data.
+ * @param {object} props.formikProps Props available to Formik components.
+ * @return {Element}                 The Fields component.
  */
-export default function Fields({fields}) {
+export default function Fields({fields, formikProps}) {
   return (
     <>
       {fields.length > 0 &&
@@ -46,7 +47,13 @@ export default function Fields({fields}) {
               break
 
             case 'fileupload':
-              fieldToRender = <GfFields.File {...field.node} key={id} />
+              fieldToRender = (
+                <GfFields.File
+                  {...field.node}
+                  setFieldValue={formikProps.setFieldValue}
+                  key={id}
+                />
+              )
               break
 
             default:
@@ -65,7 +72,8 @@ export default function Fields({fields}) {
 
 Fields.propTypes = {
   fields: PropTypes.array,
-  setFormValidation: PropTypes.func
+  setFormValidation: PropTypes.func,
+  formikProps: PropTypes.object
 }
 
 Fields.defaultProps = {
