@@ -31,7 +31,37 @@ export default function GravityForm({
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
-      // onSubmit={(values, actions) => console.log({values, actions})}
+      onSubmit={(values) => {
+        const formApiUrl = `https://nextjswp.test/wp-json/gf/v2/forms/${formId}/submissions`
+        const formData = new FormData()
+        const formKeys = Object.keys(values)
+
+        formKeys.forEach((key) => {
+          let fieldName = key.replaceAll('-', '_')
+          if (fieldName.endsWith('_filedata')) {
+            fieldName = fieldName.slice(0, -9)
+          }
+          if (values[key]) {
+            formData.append(fieldName, values[key])
+          }
+        })
+
+        // console.log({values, formApiUrl})
+        // for (var pair of formData.entries()) {
+        //   console.log(pair[0]+ ', ' + pair[1]);
+        // }
+
+        fetch(formApiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          mimeType: 'multipart/form-data',
+          body: formData
+        }).then((response) => response.json())
+        // .then(data => console.log(data))
+        // .catch(error => console.log({error}))
+      }}
     >
       {(formikProps) => (
         <>
