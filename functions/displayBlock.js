@@ -27,11 +27,17 @@ export default function displayBlock(block, index) {
       return <Blocks.BlockCode {...attributes} key={index} />
     // case 'core/embed':
     //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
-    case 'core/media-text':
+    case 'lazyblock/mediatext':
       return (
         <Blocks.BlockMediaText
-          media={attributes}
-          innerBlocks={innerBlocks}
+          attributes={attributes}
+          key={index}
+        />
+      )
+    case 'lazyblock/hero':
+      return (
+        <Blocks.BlockHero
+          attributes={attributes}
           key={index}
         />
       )
