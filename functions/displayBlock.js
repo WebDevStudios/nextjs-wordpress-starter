@@ -42,16 +42,27 @@ export default function displayBlock(block, index) {
         />
       )
     case 'core/button':
-      return (
-        <Blocks.BlockButton
-          {...attributes}
-          key={index}
-        />
-      )
+      return <Blocks.BlockButton {...attributes} key={index} />
     case 'core/buttons':
       return (
         <Blocks.BlockButtons
           options={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
+    case 'core/columns':
+      return (
+        <Blocks.BlockColumns
+          columns={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
+    case 'core/cover':
+      return (
+        <Blocks.BlockCover
+          media={attributes}
           innerBlocks={innerBlocks}
           key={index}
         />
@@ -70,8 +81,6 @@ export default function displayBlock(block, index) {
       return <Blocks.BlockParagraph {...attributes} key={index} />
     case 'core/separator':
       return <Blocks.BlockSeparator {...attributes} key={index} />
-    // case 'core/shortcode':
-    //   return <Blocks.BlockShortcode {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
     default:
