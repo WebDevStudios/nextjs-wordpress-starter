@@ -16,7 +16,7 @@ import styles from './MediaText.module.css'
  * @param {object}  props.image     The image object with url and alt text.
  * @param {boolean} props.mediaLeft Whether to show media on the left of the text.
  * @param {string}  props.title     The title.
- * @return {Element} The MediaText component.
+ * @return {Element}                The MediaText component.
  */
 export default function MediaText({
   body,
