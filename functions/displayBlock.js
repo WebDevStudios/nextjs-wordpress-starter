@@ -26,7 +26,6 @@ export default function displayBlock(block, index) {
     case 'core/preformatted':
       return <Blocks.BlockCode {...attributes} key={index} />
     case 'core/embed':
-      console.log(attributes)
       return <Blocks.BlockEmbed {...attributes} key={index} />
     case 'core/media-text':
       return (

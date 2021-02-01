@@ -1,6 +1,7 @@
-import VideoEmbed from '@/components/molecules/VideoEmbed'
+import TwitterEmbed from '@/components/atoms/TwitterEmbed'
+import VideoEmbed from '@/components/atoms/VideoEmbed'
 import PropTypes from 'prop-types'
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 /**
  * Embed Block
@@ -8,12 +9,12 @@ import React, {useState, useEffect} from 'react'
  * The core Embed block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {string} className Optional classnames.
- * @param {string} align     Optional alignment style.
- * @param {string} anchor    Optional anchor/id.
- * @param {string} content   The content of the block.
- * @param {string} level     The heading level.
- * @return {Element}         The component to embed.
+ * @param {string} className        Optional classnames.
+ * @param {string} url              The URL of the video.
+ * @param {string} caption          Optional caption.
+ * @param {string} align            Block alignment caption.
+ * @param {string} providerNameSlug The type of embed.
+ * @return {Element}                The component to embed.
  */
 export default function BlockEmbed({
   className,
@@ -21,22 +22,20 @@ export default function BlockEmbed({
   caption,
   providerNameSlug
 }) {
-  if (providerNameSlug === 'twitter') {
-    fetch(
-      'https://publish.twitter.com/oembed?url=https://twitter.com/Interior/status/463440424141459456'
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-  }
-
   return (
     <>
       {!!url && (
         <>
           {providerNameSlug === 'twitter' ? (
-            <div></div>
+            <TwitterEmbed className={className} url={url} caption={caption} />
           ) : (
-            <VideoEmbed className={className} url={url} caption={caption} />
+            // <div dangerouslySetInnerHTML={{__html: tweetContent}} />
+            <VideoEmbed
+              className={className}
+              url={url}
+              caption={caption}
+              type={providerNameSlug}
+            />
           )}
         </>
       )}
