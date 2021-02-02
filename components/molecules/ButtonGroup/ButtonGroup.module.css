@@ -1,5 +1,5 @@
 .buttonGroup {
-  @apply mb-40;
+  @apply mb-12;
 
   &.horizontal {
     @apply flex;
