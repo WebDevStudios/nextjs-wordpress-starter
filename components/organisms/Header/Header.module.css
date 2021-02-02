@@ -1,5 +1,5 @@
 .header {
-  @apply sticky top-0 py-8 transition-all z-50 border-b shadow bg-gray-100;
+  @apply sticky top-0 py-4 transition-all z-50 border-b shadow bg-gray-100;
 
   & .search {
     @apply container mb-8;
