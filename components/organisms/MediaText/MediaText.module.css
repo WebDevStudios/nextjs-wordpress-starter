@@ -1,5 +1,5 @@
 .mediaText {
-  @apply tablet:grid tablet:grid-cols-12 tablet:gap-16;
+  @apply md:grid md:grid-cols-12 md:gap-16;
 
   & .text,
   & .media {
@@ -7,26 +7,26 @@
   }
 
   & .text {
-    @apply items-end;
+    @apply items-start;
 
     & .title {
-      @apply mb-8 text-h2 font-secondary;
+      @apply mb-8;
     }
 
     & .body {
-      @apply mb-24 font-primary text-body text-grey-light;
+      @apply mb-24;
     }
   }
 
   & .media {
     & .imageWrap {
-      @apply relative h-0 w-full rounded-largest bg-black bg-opacity-20;
+      @apply relative h-0 w-full rounded bg-opacity-20;
 
       padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
     }
 
     & img {
-      @apply absolute top-0 left-0 w-full h-full object-cover rounded-largest;
+      @apply absolute top-0 left-0 w-full h-full object-cover rounded;
     }
   }
 
@@ -36,7 +36,7 @@
     }
 
     & .text {
-      @apply items-start;
+      @apply items-end;
 
       & .body {
         @apply text-right;

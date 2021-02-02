@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import tailwindConfig from '../../../tailwind.config'
 
 /**
  * Render the Spacer component.
@@ -11,7 +10,7 @@ import tailwindConfig from '../../../tailwind.config'
  * @return {Element} The Spacer component.
  */
 export default function Spacer({height, anchor}) {
-  const rootEmVal = parseFloat(tailwindConfig.theme.fontSize['root-em'])
+  const rootEmVal = 16
 
   return (
     <div

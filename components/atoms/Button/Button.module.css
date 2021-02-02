@@ -1,5 +1,5 @@
 .button {
-  @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase font-secondary;
+  @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase;
 
   & svg {
     @apply ml-12;
@@ -21,19 +21,19 @@
 
   /* SIZES */
   &.lg {
-    @apply px-16 py-12 text-h5;
+    @apply px-6 py-3;
 
     line-height: 1.5625rem;
   }
 
   &.md {
-    @apply px-16 py-12 text-sm;
+    @apply px-3 py-1.5;
 
     line-height: 1.25rem;
   }
 
   &.sm {
-    @apply px-16 py-8 text-caption;
+    @apply px-1.5 py-0.5;
 
     line-height: 1.0625rem;
   }
@@ -44,7 +44,7 @@
 
   /* TYPES */
   &.primary {
-    @apply bg-primary text-white border-white border-opacity-0;
+    @apply bg-white;
 
     &.disabled {
       @apply opacity-50;
@@ -52,7 +52,7 @@
   }
 
   &.secondary {
-    @apply bg-white bg-opacity-0 text-primary border-primary;
+    @apply bg-black text-white;
 
     &.disabled {
       @apply opacity-50;

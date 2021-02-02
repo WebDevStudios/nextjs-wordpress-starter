@@ -2,7 +2,6 @@ import Button from '@/components/atoms/Button'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import tailwindConfig from '../../../tailwind.config'
 import styles from './Hero.module.css'
 
 /**
@@ -34,8 +33,8 @@ export default function Hero({
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
         '--image-url': `url(${backgroundImage.url})`,
-        '--image-tint-color': `${tailwindConfig.theme.colors.black['DEFAULT']}50`,
-        '--image-fallback-color': `${tailwindConfig.theme.colors.grey['darkest']}`
+        '--image-tint-color': `#00000020`,
+        '--image-fallback-color': `#000`
       }}
     >
       <div className={styles.content}>
