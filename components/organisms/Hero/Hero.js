@@ -31,7 +31,7 @@ export default function Hero({
       className={cn(styles.hero, className)}
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
-        '--image-url': `url(${backgroundImage})`,
+        '--image-url': `url(${backgroundImage.url})`,
         '--image-tint-color': `#00000020`,
         '--image-fallback-color': `#000`
       }}
@@ -56,7 +56,7 @@ export default function Hero({
 }
 
 Hero.propTypes = {
-  backgroundImage: PropTypes.string,
+  backgroundImage: PropTypes.object,
   body: PropTypes.string,
   className: PropTypes.string,
   ctaText: PropTypes.string,

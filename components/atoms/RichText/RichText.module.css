@@ -10,7 +10,7 @@
   &.ol,
   & p,
   &.p {
-    @apply mb-20;
+    @apply mb-8;
   }
 
   & ul,
@@ -62,26 +62,26 @@
   /* Heading Styles */
   & h1,
   &.h1 {
-    @apply mb-20;
+    @apply mb-10;
   }
 
   & h2,
   &.h2 {
-    @apply mb-20;
+    @apply mb-10;
   }
 
   & h3,
   &.h3 {
-    @apply mb-20;
+    @apply mb-10;
   }
 
   & h4,
   &.h4 {
-    @apply mb-12;
+    @apply mb-10;
   }
 
   & h5,
   &.h5 {
-    @apply mb-12;
+    @apply mb-10;
   }
 }

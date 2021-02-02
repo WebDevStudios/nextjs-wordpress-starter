@@ -1,9 +1,9 @@
 .lzbMediaText {
-  @apply md:grid md:grid-cols-12 md:gap-16;
+  @apply md:grid md:grid-cols-12 md:gap-16 mb-12;
 
   & .text,
   & .media {
-    @apply col-span-6 p-16 flex flex-col items-start justify-center;
+    @apply col-span-6 flex flex-col items-start justify-center;
   }
 
   & .text {
