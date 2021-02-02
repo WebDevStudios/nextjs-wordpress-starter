@@ -13,7 +13,6 @@ import PropTypes from 'prop-types'
  * @param {string} props.linkTarget The target for the link.
  * @param {string} props.rel        The rel attribute for the link.
  * @param {string} props.text       The link label.
- * @param {string} props.title      The target for the link.
  * @param {string} props.url        The link for the button.
  * @return {Element} The Button component.
  */
@@ -46,6 +45,5 @@ BlockButton.propTypes = {
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
   text: PropTypes.string,
-  title: PropTypes.string,
   url: PropTypes.string
 }

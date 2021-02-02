@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
  * The core YouTube embed block from Gutenberg.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props The component attributes as props.
- * @return {Element}       The YouTube component.
+ * @param {object} props       The component attributes as props.
+ * @param {object} props.props The props object.
+ * @return {Element}           The YouTube component.
  */
 export default function BlockVideoEmbed({props}) {
   const {

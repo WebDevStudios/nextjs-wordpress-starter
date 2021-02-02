@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
  * The core Shortcode block from Gutenberg.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props The component attributes as props.
- * @return {Element}       The Shortcode component.
+ * @param {object} props       The component attributes as props.
+ * @param {object} props.props The component props.
+ * @return {Element}             The Shortcode component.
  */
 export default function BlockShortcode({props}) {
   const {content} = props

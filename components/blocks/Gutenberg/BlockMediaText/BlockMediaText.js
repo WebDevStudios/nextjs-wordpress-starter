@@ -10,22 +10,10 @@ import PropTypes from 'prop-types'
  * The core Code block from Gutenberg.
  *
  * @author WebDevStudios
- * @param media.media
- * @param {object}    media               Media props.
- * @param {string}    media.anchor        The anchor/id of the block.
- * @param {string}    media.mediaAlt      The image alt text.
- * @param {string}    media.caption       The image caption.
- * @param {string}    media.className     The image class.
- * @param {string}    media.mediaId       The image ID.
- * @param {string}    media.href          The URL of the link.
- * @param {string}    media.linkTarget    Target for the link.
- * @param {string}    media.linkClass     Class for the link.
- * @param {string}    media.rel           The rel attribute for the link.
- * @param {string}    media.sizeSlug      The WP image size.
- * @param {string}    media.mediaUrl      The full URL path of the image.
- * @param {string}    media.mediaPosition The position of the image, left or right.
- * @param {Array}     media.innerBlocks   The array of inner blocks to display.
- * @return {Element}                   The Code component.
+ * @param {object} props             The component properties.
+ * @param {object} props.media       Media props.
+ * @param {Array}  props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                 The Code component.
  */
 export default function BlockMediaText({media, innerBlocks}) {
   return (

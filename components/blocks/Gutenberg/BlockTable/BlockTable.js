@@ -7,24 +7,22 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object}      props           The component props.
- * @param {string}      props.className Optional classnames.
- * @param {string}      props.align     Optional alignment style.
- * @param {string}      props.anchor    Optional anchor/id.
- * @param props.head
- * @param props.body
- * @param props.foot
- * @param props.caption
- * @param {string}      props.content   The content of the block.
+ * @param {object} props           The component props.
+ * @param {string} props.anchor    Optional anchor/id.
+ * @param {Array}  props.body      The body blocks.
+ * @param {string} props.caption   The caption.
+ * @param {string} props.className Optional classnames.
+ * @param {Array}  props.foot      The foot blocks
+ * @param {Array}  props.head      The head blocks.
  * @return {Element}               The RichText component.
  */
 export default function BlockTable({
   anchor,
-  head,
   body,
-  foot,
   caption,
-  className
+  className,
+  foot,
+  head
 }) {
   return (
     <Table
