@@ -6,8 +6,9 @@ import PropTypes from 'prop-types'
  * A custom ACF Block for displaying accordions.
  *
  * @author WebDevStudios
- * @param props.props
- * @param {object}    props The component attributes as props.
+ * @param props.props.props
+ * @param props.props.props.props
+ * @param {object}                props.props The component attributes as props.
  */
 export default function BlockAccordions({props}) {
   const {

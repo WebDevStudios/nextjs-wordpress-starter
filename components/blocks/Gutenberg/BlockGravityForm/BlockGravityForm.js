@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
  * GravityForm block.
  *
  * @author WebDevStudios
- * @param props.attributes
- * @param {object}         props The component attributes as props.
+ * @param {object} props            The component props.
+ * @param {object} props.attributes Component attributes.
  */
 export default function BlockGravityForm({attributes}) {
   return <GravityForm {...attributes} />

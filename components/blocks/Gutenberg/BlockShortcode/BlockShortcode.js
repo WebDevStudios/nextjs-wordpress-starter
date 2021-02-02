@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
  * @author WebDevStudios
  * @param props.props
  * @param {object}    props The component attributes as props.
+ * @return {Element}       The Shortcode component.
  */
 export default function BlockShortcode({props}) {
   const {content} = props

@@ -9,12 +9,13 @@ import React from 'react'
  * The core Headings block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {string} className Optional classnames.
- * @param {string} align     Optional alignment style.
- * @param {string} anchor    Optional anchor/id.
- * @param {string} content   The content of the block.
- * @param {string} level     The heading level.
- * @return {Element}         The RichText component.
+ * @param {object} props           The component props.
+ * @param {string} props.className Optional classnames.
+ * @param {string} props.align     Optional alignment style.
+ * @param {string} props.anchor    Optional anchor/id.
+ * @param {string} props.content   The content of the block.
+ * @param {string} props.level     The heading level.
+ * @return {Element}               The RichText component.
  */
 export default function BlockHeadings({
   className,

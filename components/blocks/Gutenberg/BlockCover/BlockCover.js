@@ -8,13 +8,10 @@ import PropTypes from 'prop-types'
  * The core Columns block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object}          props        The component properties.
- * @param {string}          media.anchor The optional anchor/id of the block.
- * @param {string}          media.url    The background image URL.
- * @param props.media
- * @param props.innerBlocks
- * @param {Array}           innerBlocks  The array of inner blocks to display.
- * @return {Element}            The Cover component.
+ * @param {object} props             The component properties.
+ * @param {object} props.media       Media props object.
+ * @param {Array}  props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                 The Cover component.
  */
 export default function BlockCover({media, innerBlocks}) {
   return (

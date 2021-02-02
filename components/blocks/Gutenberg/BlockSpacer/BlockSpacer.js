@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * @param {object} props        The component attributes as props.
  * @param {string} props.anchor Optional anchor/id.
  * @param {number} props.height The height of the spacer.
- * @return {Element}               The Spacer component.
+ * @return {Element}            The Spacer component.
  */
 export default function BlockSpacer({anchor, height}) {
   return <Spacer height={height} id={anchor} />

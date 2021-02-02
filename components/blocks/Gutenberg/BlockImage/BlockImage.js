@@ -7,18 +7,19 @@ import PropTypes from 'prop-types'
  * The core Image block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {string} anchor     The anchor/id of the block.
- * @param {string} alt        The image alt text.
- * @param {string} caption    The image caption.
- * @param {string} className  The image class.
- * @param {string} id         The image ID.
- * @param {string} href       The URL of the link.
- * @param {string} linkTarget Target for the link.
- * @param {string} linkClass  Class for the link.
- * @param {string} rel        The rel attribute for the link.
- * @param {string} sizeSlug   The WP image size.
- * @param {string} url        The full URL path of the image.
- * @return {Element} The Image component.
+ * @param {object} props            The component props.
+ * @param {string} props.anchor     The anchor/id of the block.
+ * @param {string} props.alt        The image alt text.
+ * @param {string} props.caption    The image caption.
+ * @param {string} props.className  The image class.
+ * @param {string} props.id         The image ID.
+ * @param {string} props.href       The URL of the link.
+ * @param {string} props.linkTarget Target for the link.
+ * @param {string} props.linkClass  Class for the link.
+ * @param {string} props.rel        The rel attribute for the link.
+ * @param {string} props.sizeSlug   The WP image size.
+ * @param {string} props.url        The full URL path of the image.
+ * @return {Element}                The Image component.
  */
 export default function BlockImage({
   alt,
