@@ -41,21 +41,29 @@ export default function GravityForm({
           if (fieldName.endsWith('_filedata')) {
             fieldName = fieldName.slice(0, -9)
           }
-          if (values[key]) {
-            formData.append(fieldName, values[key])
+          fieldName = fieldName.replaceAll('field_', 'input_')
+
+          switch (typeof values[key]) {
+            case 'undefined':
+              break
+            case 'object':
+              if (values[key] instanceof Array) {
+                values[key].forEach((arrayFieldValue, index) => {
+                  formData.append(`${fieldName}_${index + 1}`, arrayFieldValue)
+                })
+              } else {
+                //if (values[key] instanceof File) {
+                formData.append(fieldName, values[key])
+              }
+              break
+            default:
+              formData.append(fieldName, values[key])
+              break
           }
         })
 
-        // console.log({values, formApiUrl})
-        // for (var pair of formData.entries()) {
-        //   console.log(pair[0]+ ', ' + pair[1]);
-        // }
-
         fetch(formApiUrl, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
           mimeType: 'multipart/form-data',
           body: formData
         }).then((response) => response.json())
