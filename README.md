@@ -25,11 +25,7 @@ https://nextjs-wordpress-starter-staging.vercel.app/
   - [Dependencies](#dependencies-1)
   - [Install](#install-1)
   - [Enable Previews](#enable-previews)
-- [💻 Frontend Development](#-frontend-development)
-  - [Git Workflow](#git-workflow)
-  - [Deployments](#deployments)
-  - [Storybook](#storybook)
-- [WebDevStudios Specific Info](#webdevstudios-specific-info)
+- [💻 WebDevStudios Specific Info](#-webdevstudios-specific-info)
   - [WordPress Github](#wordpress-github)
   - [WP Engine](#wp-engine-1)
   - [Chromatic](#chromatic-1)
@@ -37,7 +33,7 @@ https://nextjs-wordpress-starter-staging.vercel.app/
   - [Migrate DB Pro](#migrate-db-pro)
   - [Algolia](#algolia-1)
   - [Copy WP Engine Environments](#copy-wp-engine-environments)
-- [:octocat: Contributing](#octocat-contributing)
+- [:octocat: Development and Contributing](#octocat-development-and-contributing)
 
 ---
 
@@ -126,7 +122,9 @@ yarn
 
 **Step 4: Setup ENV Variables**
 
-ENV variables are like constants in `wp-config.php`. Copy the sample ENV file, then add your credentials:
+ENV variables are like constants in `wp-config.php`. They're required in order for authentication and 3rd party services to work.
+
+Copy the [sample ENV file](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.env.sample), then modify it to match your credentials:
 
 ```bash
 cp .env.sample .env
@@ -138,27 +136,39 @@ cp .env.sample .env
 
 <details>
 
-The following steps require A) access to a Vercel account and B) assumes the ENV vars are already set up on Vercel. If you need access to the WDS Team account on Vercel, please reach out to Greg.
+The preferred workflow is to add ENV variables to Vercel first, then pull them down.
 
-**Step 1: Install the [Vercel CLI](https://vercel.com/download)**
+**Step 1: Add ENV vars to Vercel**
+
+Go to:
+
+```text
+Your Project --> Settings --> Environment Variables
+```
+
+![vercel settings](https://dl.dropbox.com/s/7ljvynnez0c5q8y/Screen%20Shot%202021-01-29%20at%2014.07.58.png?dl=0)
+
+**Step 2: Install the [Vercel CLI](https://vercel.com/download)**
 
 ```bash
 npm i -g vercel
 ```
 
-**Step 2: Initialize Vercel**
+**Step 3: Initialize Vercel**
+
+Answer the questions in the command line when prompted.
 
 ```bash
 vercel init
 ```
 
-Answer the questions in the command line when prompted.
-
-**Step 3: Pull down the ENV variables**
+**Step 4: Pull down the ENV variables**
 
 ```bash
 vercel env pull
 ```
+
+Now Next.js has what it needs to talk to 3rd party services.
 
 </details>
 
@@ -195,41 +205,15 @@ define('PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
 
 **Step 4: Start the `nextjs-wp` site**
 
-**Note:** Make sure your local URL matches the `LOCAL_WORDPRESS_API_URL` in the frontend `.env` file!
-
 ### Enable Previews
 
-To enable previews, you'll need both a `PREVIEW_SECRET_TOKEN` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in `.env`. The token can be any random string so long as they match.
+To enable previews, you'll need both a `PREVIEW_SECRET_TOKEN` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in `.env`.
+
+The token can be any random string as long as they match.
 
 ---
 
-## 💻 Frontend Development
-
-### Git Workflow
-
-1. Create a `feature` branch off `staging`
-2. Work locally adhereing to coding standards
-3. When ready, open a draft Pull Request on Github
-4. When finished, fill out the PR template and publish your PR
-5. Your PR must pass assertions and deploy successfully
-6. After peer review, the PR will be merged back into `staging`
-7. Repeat ♻️
-
-### Deployments
-
-[Vercel](https://nextjs-wordpress-starter-gregrickaby.webdevstudios.vercel.app) is connected to this Github repository and will automatically build and deploy. Learn more about [Vercel + Github integration](https://vercel.com/docs/git/vercel-for-github).
-
-### Storybook
-
-To work with Storybook on your Local, run the following command:
-
-```bash
-yarn storybook
-```
-
-Stories are written in `.mdx` and should be placed next to the component. Learn more about [Storybook](https://storybook.js.org/).
-
-## WebDevStudios Specific Info
+## 💻 WebDevStudios Specific Info
 
 The following information pertains to internal tools and workflows at WebDevStudios.
 
@@ -293,6 +277,10 @@ WP Engine supports [copying environments](https://wpengine.com/support/copy-site
 
 ---
 
-## :octocat: Contributing
+## :octocat: Development and Contributing
 
-[Contributions](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md) are welcome. 🍻
+At WebDevStudios we are committed to open-source technologies and welcome feedback, [discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions), and contributions from the community.
+
+Please see [CONTRIBUTING.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/CONTRIBUTING.md) for more info on how to get started.
+
+Stay safe! 🍻
