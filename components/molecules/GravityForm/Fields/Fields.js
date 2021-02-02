@@ -46,6 +46,10 @@ export default function Fields({fields, formikProps}) {
               fieldToRender = <GfFields.Text {...field.node} key={id} />
               break
 
+            case 'textarea':
+              fieldToRender = <GfFields.Textarea {...field.node} key={id} />
+              break
+
             case 'fileupload':
               fieldToRender = (
                 <GfFields.File
