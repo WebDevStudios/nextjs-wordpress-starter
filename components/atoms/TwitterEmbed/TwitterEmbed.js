@@ -1,8 +1,8 @@
+import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
+import {TwitterTweetEmbed} from 'react-twitter-embed'
 import styles from './TwitterEmbed.module.css'
-import {useEffect, useRef} from 'react'
-import RichText from '@/components/atoms/RichText'
 
 /**
  * TwitterEmbed Block
@@ -15,39 +15,22 @@ import RichText from '@/components/atoms/RichText'
  * @return {Element}               The TwitterEmbed component.
  */
 export default function TwitterEmbed({className, caption, url}) {
-  const tweetRef = useRef(null)
-
-  useEffect(() => {
-    if (url === '') {
-      return
-    }
-    // @see https://stackoverflow.com/a/43268098/921927
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-      targetUrl = `https://publish.twitter.com/oembed?url=${url}`
-    fetch(proxyUrl + targetUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && data.html) {
-          // @see https://stackoverflow.com/a/43268098/921927
-          // Create slot for executing a script file.
-          const slotHtml = document
-            .createRange()
-            .createContextualFragment(data.html) // Create a 'tiny' document and parse the html string.
-          tweetRef.current.innerHTML = '' // Clear the container.
-          tweetRef.current.appendChild(slotHtml) // Append the new content.
-        }
-      })
-  }, [])
+  const tweetURL = url ? url.split('/') : '' // Split URL string into array.
+  const tweetId = tweetURL ? tweetURL[tweetURL.length - 1] : '' // Get ID from url array.
 
   return (
-    <div className={cn(styles.twitterEmbed, className)}>
-      <div ref={tweetRef}></div>
-      {!!caption && (
-        <div className={styles.caption}>
-          <RichText tag="span">{caption}</RichText>
+    <>
+      {!!tweetId && Number.isInteger(tweetId) && (
+        <div className={cn(styles.twitterEmbed, className)}>
+          <TwitterTweetEmbed tweetId={tweetId} />
+          {!!caption && (
+            <div className={styles.caption}>
+              <RichText tag="span">{caption}</RichText>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   )
 }
 
