@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Container from '../Container'
 import styles from './Separator.module.css'
 
 /**
@@ -17,9 +18,9 @@ export default function Separator({className, fullWidth}) {
       {fullWidth ? (
         <hr className={cn(styles.separator, className)} />
       ) : (
-        <div>
+        <Container>
           <hr className={cn(styles.separator, className)} />
-        </div>
+        </Container>
       )}
     </>
   )

@@ -1,11 +1,11 @@
 .pullquote {
-  @apply mb-24 p-20 px-40 text-center;
+  @apply mb-6 p-5 px-10 text-center;
 
-  & p {
-    @apply font-secondary text-h5;
+  & blockquote {
+    @apply mb-8;
   }
 
-  & > figcaption {
-    @apply font-secondary text-xs pt-12;
+  & figcaption {
+    @apply font-bold;
   }
 }

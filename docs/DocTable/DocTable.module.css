@@ -3,14 +3,14 @@
 }
 
 .docTable {
-  @apply mb-80 min-w-full;
+  @apply mb-20 min-w-full;
 
   & th {
-    @apply py-24 text-left text-grey-dark;
+    @apply py-6 text-left;
   }
 
   & tr {
-    @apply border-b border-grey-lighter;
+    @apply border-b;
 
     &:last-child {
       @apply border-none;
@@ -18,7 +18,7 @@
   }
 
   & td {
-    @apply py-12 pr-24 align-middle;
+    @apply py-4 pr-24 align-middle;
 
     &:first-child {
       @apply pr-80;
