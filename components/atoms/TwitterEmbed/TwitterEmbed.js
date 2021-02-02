@@ -20,7 +20,7 @@ export default function TwitterEmbed({className, caption, url}) {
 
   return (
     <>
-      {!!tweetId && Number.isInteger(tweetId) && (
+      {!!tweetId && (
         <div className={cn(styles.twitterEmbed, className)}>
           <TwitterTweetEmbed tweetId={tweetId} />
           {!!caption && (
