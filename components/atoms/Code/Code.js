@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './Code.module.css'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {tomorrow} from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import styles from './Code.module.css'
 
 /**
  * Render the Code component.
  *
  * @author WebDevStudios
- * @param {object}      props           The component attributes as props.
- * @param {string}      props.className Optional classname.
- * @param props.id
- * @param props.content
- * @param {boolean}     props.fullWidth Is this a fullwidth block.
- * @return {Element} The Code component.
+ * @param {object} props           The component attributes as props.
+ * @param {string} props.className Optional classname.
+ * @param {string} props.id        The optional ID.
+ * @param {string} props.content   The content for inside the code block.
+ * @return {Element}               The Code component.
  */
 export default function Code({id, className, content}) {
   // Use the className to pass the langauge.

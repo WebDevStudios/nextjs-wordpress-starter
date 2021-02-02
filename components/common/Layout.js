@@ -16,17 +16,19 @@ import {seoPropTypes} from '@/functions/getPagePropTypes'
  * @return {Element}                The Layout component.
  */
 export default function Layout({children, seo, hasJsonLd}) {
+  console.log(seo)
   // Define SEO image prop.
   const seoImages = !seo?.opengraphImage?.sourceUrl
     ? null
     : [
         {
-          url: seo.opengraphImage.sourceUrl,
+          url: seo?.opengraphImage.sourceUrl,
           alt: seo?.opengraphImage?.altText,
           height: 150,
           width: 150
         }
       ]
+  console.log(seoImages)
 
   // Extract breadcrumbs from SEO.
   const breadcrumbs = seo?.breadcrumbs
@@ -49,7 +51,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={seoImages ? [...seoImages] : null}
+          images={seoImages ? [...seoImages] : []}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
