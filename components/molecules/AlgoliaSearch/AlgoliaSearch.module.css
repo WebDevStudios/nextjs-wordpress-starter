@@ -20,7 +20,7 @@
     @apply relative h-full;
 
     & input {
-      @apply w-full p-10 pr-48 border border-tertiary-lighter rounded font-primary text-xs;
+      @apply w-full p-2 pr-8 border rounded;
 
       background: #fff;
       line-height: 1;
@@ -97,7 +97,7 @@
   /* History and Hits Menu */
   & .history,
   & .hits {
-    @apply absolute border border-tertiary-lighter shadow w-full rounded-larger;
+    @apply absolute border shadow w-full rounded;
 
     background-color: #fff;
 
@@ -109,8 +109,6 @@
           & button {
             &:hover,
             &:focus {
-              @apply bg-primary;
-
               color: #fff;
 
               & span.time {
@@ -123,7 +121,7 @@
     }
 
     & button {
-      @apply block w-full py-12 px-20 text-left transition font-primary font-semibold text-xs;
+      @apply block w-full py-12 px-20 text-left transition  font-semibold;
 
       line-height: 1.25;
 
@@ -139,7 +137,7 @@
       @apply w-full flex justify-between items-center;
 
       & span.time {
-        @apply overflow-ellipsis text-right text-primary-light font-normal italic text-xxs flex-shrink-0 self-start;
+        @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start;
 
         width: 30%;
       }
@@ -149,11 +147,11 @@
       @apply mt-4 border-none;
 
       & button {
-        @apply py-8 font-normal text-xxs text-tertiary-light;
+        @apply py-8 font-normal;
 
         &:hover,
         &:focus {
-          @apply underline  text-primary;
+          @apply underline;
         }
       }
     }

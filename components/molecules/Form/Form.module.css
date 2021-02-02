@@ -1,6 +1,4 @@
 .form {
-  @apply bg-white text-black;
-
   padding: 1em;
 
   & > div {

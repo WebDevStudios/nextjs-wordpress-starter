@@ -1,5 +1,5 @@
 .hero {
-  @apply container px-32 rounded-largest text-white;
+  @apply container px-32 rounded;
 
   padding-top: 9.125rem;
   padding-bottom: 9.5rem;
@@ -10,17 +10,14 @@
   background-size: cover;
 
   & .content {
-    & .subtitle {
-      @apply text-h5;
+    /* & .subtitle {
     }
 
     & .title {
-      @apply font-secondary text-hero;
     }
 
     & .body {
-      @apply text-sm;
-    }
+    } */
 
     & .body + .button {
       @apply mt-16;

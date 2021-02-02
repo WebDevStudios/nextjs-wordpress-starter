@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import tailwindConfig from '../../../tailwind.config.js'
 import {icons} from './icons'
 
 /**
@@ -16,7 +15,7 @@ function sizeToPx(size) {
     lg: '1.5'
   }
 
-  return sizeToRem[size] * parseFloat(tailwindConfig.theme.fontSize['root-em'])
+  return sizeToRem[size] * 16
 }
 
 /**
