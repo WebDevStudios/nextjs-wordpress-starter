@@ -9,7 +9,10 @@ import styles from './Header.module.css'
 // TODO: Create mobile menu.
 
 /**
- * Render Header component.
+ * Render the ImageGallery component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Header component.
  */
 export default function Header() {
   const {menus} = useContext(MenuContext)

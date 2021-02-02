@@ -1,9 +1,9 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import BlockGravityForm from '@/components/blocks/Gutenberg/BlockGravityForm'
 import Layout from '@/components/common/Layout'
-import BlockGravityForm from '@/components/blocks/BlockGravityForm'
-import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 
 // TODO Remove BlockGravityForm once block support is added.
 // TODO Remove slug based BlockGravityForm from page render.
