@@ -1,15 +1,15 @@
-import MediaText from '@/components/organisms/MediaText'
+import LzbMediaText from '@/components/organisms/LzbMediaText'
 import PropTypes from 'prop-types'
 
 /**
- * Handle the MediaText block.
+ * Handle the LzbMediaText block.
  *
  * @author WebDevStudios
  * @param {object} props            The props.
  * @param {object} props.attributes The attributes object.
  * @return {Element}                The component.
  */
-export default function BlockMediaText({attributes}) {
+export default function LzbBlockMediaText({attributes}) {
   attributes = {
     ...attributes,
     image: JSON.parse(decodeURIComponent(attributes.image))
@@ -18,14 +18,14 @@ export default function BlockMediaText({attributes}) {
   return (
     <>
       {attributes ? (
-        <MediaText {...attributes} />
+        <LzbMediaText {...attributes} />
       ) : (
-        'There was a problem with attributes in BlockMediaText.js.'
+        'There was a problem with attributes in LzbBlockMediaText.js.'
       )}
     </>
   )
 }
 
-BlockMediaText.propTypes = {
+LzbBlockMediaText.propTypes = {
   attributes: PropTypes.object
 }

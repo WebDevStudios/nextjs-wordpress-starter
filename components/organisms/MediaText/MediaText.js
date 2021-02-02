@@ -2,7 +2,7 @@ import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, {useEffect} from 'react'
 import styles from './MediaText.module.css'
 
 /**
@@ -10,23 +10,31 @@ import styles from './MediaText.module.css'
  *
  * @param {object}  props           MediaText component props.
  * @param {string}  props.body      The body text.
+ * @param {element} props.children  The child elements.
  * @param {string}  props.className The className.
- * @param {object}  props.ctaText   The cta text.
- * @param {object}  props.ctaUrl    The cta url.
+ * @param {object}  props.cta       The cta object with text and url strings.
  * @param {object}  props.image     The image object with url and alt text.
  * @param {boolean} props.mediaLeft Whether to show media on the left of the text.
  * @param {string}  props.title     The title.
- * @return {Element}                The MediaText component.
+ * @return {Element} The MediaText component.
  */
 export default function MediaText({
   body,
+  children,
   className,
-  ctaText,
-  ctaUrl,
+  cta,
   image,
   mediaLeft,
   title
 }) {
+  useEffect(() => {
+    if ((children && title) || (children && body) || (children && cta)) {
+      console.warn(
+        'The title, body and cta props are ignored when using children.'
+      )
+    }
+  })
+
   return (
     <Container>
       <section
@@ -37,19 +45,24 @@ export default function MediaText({
         )}
       >
         <div className={styles.text}>
-          <>
-            {title && <h1 className={styles.title}>{title}</h1>}
-            {body && <p className={styles.body}>{body}</p>}
-            {ctaText && ctaUrl && (
-              <Button
-                className={styles.button}
-                url={ctaUrl}
-                text={ctaText}
-                type="primary"
-                size="md"
-              />
-            )}
-          </>
+          {children ? (
+            children
+          ) : (
+            <>
+              {title && <h1 className={styles.title}>{title}</h1>}
+              {body && <p className={styles.body}>{body}</p>}
+              {cta && (
+                <Button
+                  className={styles.button}
+                  url={cta.url ? cta.url : null}
+                  text={cta.text ? cta.text : null}
+                  icon={cta.icon ? cta.icon : null}
+                  type="primary"
+                  size="md"
+                />
+              )}
+            </>
+          )}
         </div>
         <div className={styles.media}>
           {image && image.url && (
@@ -66,8 +79,12 @@ export default function MediaText({
 MediaText.propTypes = {
   body: PropTypes.string,
   className: PropTypes.string,
-  ctaText: PropTypes.string,
-  ctaUrl: PropTypes.string,
+  children: PropTypes.element,
+  cta: PropTypes.shape({
+    text: PropTypes.string,
+    url: PropTypes.string,
+    icon: PropTypes.string
+  }),
   image: PropTypes.shape({
     url: PropTypes.string,
     alt: PropTypes.string

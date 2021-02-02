@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
  * A custom ACF Block for displaying a carousel of cards.
  *
  * @author WebDevStudios
- * @param {object} props The component attributes as props.
+ * @param props.props
+ * @param {object}    props The component attributes as props.
  */
 export default function BlockNetflixCarousel({props}) {
   const {
