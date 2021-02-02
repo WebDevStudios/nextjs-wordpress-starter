@@ -1,11 +1,11 @@
 .quote {
-  @apply px-28 border-l mb-40;
+  @apply mb-6 p-5 px-10 border-l;
 
-  & p {
-    @apply font-secondary text-h5;
+  & blockquote {
+    @apply mb-8;
   }
 
-  & > figcaption {
-    @apply font-secondary text-sm italic;
+  & figcaption {
+    @apply font-bold;
   }
 }

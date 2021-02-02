@@ -1,0 +1,7 @@
+.code {
+  @apply mb-40;
+
+  & > pre {
+    @apply rounded;
+  }
+}

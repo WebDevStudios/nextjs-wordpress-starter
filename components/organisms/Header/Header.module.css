@@ -1,5 +1,5 @@
 .header {
-  @apply sticky top-0 pb-8 transition-all z-50;
+  @apply sticky top-0 py-20 transition-all z-50 border-b shadow;
 
-  background-color: #fff;
+  background-color: #f7f7f7;
 }

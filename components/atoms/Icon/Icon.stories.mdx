@@ -10,7 +10,7 @@ Use this component to display an icon. See the Icons Story in General for a list
 
 <Canvas>
   <Story name="Component">
-    <Icon icon="info" title="Info" className="text-black" />
+    <Icon icon="info" title="Info" className="" />
   </Story>
 </Canvas>
 
@@ -20,9 +20,9 @@ Three sizes are supported.
 
 <Canvas>
   <Story name="Sizes">
-    <Icon icon="star" size="sm" title="Star" className="my-8 text-black" />
-    <Icon icon="star" size="md" title="Star" className="my-8 text-black" />
-    <Icon icon="star" size="lg" title="Star" className="my-8 text-black" />
+    <Icon icon="star" size="sm" title="Star" className="my-8 " />
+    <Icon icon="star" size="md" title="Star" className="my-8 " />
+    <Icon icon="star" size="lg" title="Star" className="my-8 " />
   </Story>
 </Canvas>
 
@@ -37,14 +37,14 @@ Two styles are supported - line and fill icons.
       style="line"
       size="lg"
       title="Volume up"
-      className="my-8 text-black"
+      className="my-8 "
     />
     <Icon
       icon="clipboard"
       style="fill"
       size="lg"
       title="Volume up"
-      className="my-8 text-black"
+      className="my-8 "
     />
   </Story>
 </Canvas>
@@ -55,12 +55,7 @@ The icon will inherit the closest defined text color using `currentColor`. If yo
 
 <Canvas>
   <Story name="Color">
-    <Icon
-      icon="colorPalette"
-      size="lg"
-      title="Color palette"
-      className="text-primary"
-    />
+    <Icon icon="colorPalette" size="lg" title="Color palette" className="" />
   </Story>
 </Canvas>
 
@@ -75,12 +70,7 @@ See [this article on CSS Tricks](https://css-tricks.com/accessible-svgs/#example
 
 <Canvas>
   <Story name="Accessibility">
-    <Icon
-      icon="options"
-      title="Options"
-      ariaHidden={false}
-      className="text-black"
-    />
+    <Icon icon="options" title="Options" ariaHidden={false} className="" />
   </Story>
 </Canvas>
 
@@ -96,7 +86,7 @@ export const Template = (args) => <Icon {...args} />
     args={{
       icon: 'info',
       title: 'Info',
-      className: 'text-black'
+      className: ''
     }}
   >
     {Template.bind({})}

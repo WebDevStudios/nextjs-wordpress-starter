@@ -9,7 +9,9 @@
     @apply relative;
 
     & .trigger {
-      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text;
+      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text overflow-hidden;
+
+      text-indent: -9999px;
     }
   }
 
@@ -18,10 +20,10 @@
     @apply relative h-full;
 
     & input {
-      @apply w-full p-4 pr-8 border;
+      @apply w-full p-2 pr-8 border rounded;
 
-      font-size: 15px;
-      line-height: 1.15;
+      background: #fff;
+      line-height: 1;
 
       &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
@@ -29,18 +31,14 @@
       &::-webkit-search-results-decoration {
         -webkit-appearance: none;
       }
-
-      &:focus {
-        @apply outline-none;
-      }
     }
 
     /* Buttons (Submit, Reset) */
     & button {
       @apply absolute cursor-pointer flex justify-center items-center right-4;
 
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       top: 50%;
       transform: translateY(-50%);
 
@@ -58,7 +56,7 @@
 
       /* Reset Button */
       &[type='reset'] {
-        @apply right-8;
+        @apply right-28;
 
         & svg {
           width: 12px;
@@ -75,52 +73,60 @@
 
   /* Drop Menu (Hits &  History) */
   & .dropMenu {
-    @apply absolute invisible opacity-0 transition-all duration-150;
+    @apply absolute invisible opacity-0 transition-all duration-150 ease-in-out;
 
     z-index: 999;
-    top: 100%;
-    width: 100%;
+    bottom: -10px;
+    width: 112%;
+    margin-left: -6%;
   }
 
   /* Show dropmenu on Focus */
   &:focus-within {
+    & input {
+      @apply shadow;
+    }
+
     & .dropMenu {
       @apply visible opacity-100;
+
+      bottom: -5px;
     }
   }
 
   /* History and Hits Menu */
   & .history,
   & .hits {
-    @apply absolute border shadow w-full;
+    @apply absolute border shadow w-full rounded;
 
     background-color: #fff;
 
     & ul {
-      @apply py-4 px-4;
+      @apply py-8;
 
       & li {
-        @apply border-t;
+        &:not(.clear) {
+          & button {
+            &:hover,
+            &:focus {
+              color: #fff;
 
-        &:first-of-type {
-          @apply border-none;
+              & span.time {
+                color: #fff;
+              }
+            }
+          }
         }
       }
     }
 
     & button {
-      @apply block w-full py-4 text-left;
+      @apply block w-full py-12 px-20 text-left transition  font-semibold;
 
-      line-height: 1;
-      font-size: 0.85rem;
+      line-height: 1.25;
 
       & em {
         font-style: normal;
-      }
-
-      &:hover,
-      &:focus {
-        @apply underline;
       }
     }
   }
@@ -128,13 +134,12 @@
   /* History Menu */
   & .history {
     & button {
-      @apply w-full flex justify-between items-center font-semibold;
+      @apply w-full flex justify-between items-center;
 
       & span.time {
-        @apply overflow-ellipsis opacity-40 font-normal italic;
+        @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start;
 
-        font-size: 0.7rem;
-        max-width: 30%;
+        width: 30%;
       }
     }
 
@@ -142,9 +147,12 @@
       @apply mt-4 border-none;
 
       & button {
-        @apply font-normal;
+        @apply py-8 font-normal;
 
-        font-size: 0.775rem;
+        &:hover,
+        &:focus {
+          @apply underline;
+        }
       }
     }
   }
