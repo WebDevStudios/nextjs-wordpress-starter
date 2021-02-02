@@ -2,6 +2,6 @@
   @apply block;
 
   & .caption {
-    @apply text-center font-secondary text-xs pt-12;
+    @apply text-center text-xs pt-12;
   }
 }
