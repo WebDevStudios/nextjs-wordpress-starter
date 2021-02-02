@@ -8,7 +8,7 @@ import styles from '../AlgoliaResults.module.css'
  * Render the ToggleRefinement component.
  *
  * @author WebDevStudios
- * @see   https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/
+ * @see https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/react/
  * @param {object}   props                   The component attributes as props.
  * @param {boolean}  props.currentRefinement The current refinement.
  * @param {Function} props.refine            Update the current refinement.

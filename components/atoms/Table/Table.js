@@ -11,7 +11,6 @@ import styles from './Table.module.css'
  * @param {string} props.id        Optional anchor/id.
  * @param {string} props.head      The optional table head array.
  * @param {string} props.body      The table body array.
- * @param {string} props.body      The table body array.
  * @param {string} props.foot      The optional table foorter array.
  * @param {string} props.caption   Optional table caption.
  * @param {string} props.className Optional classnames.

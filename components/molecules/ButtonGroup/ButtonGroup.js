@@ -13,7 +13,7 @@ import styles from './ButtonGroup.module.css'
  * @param {string}  props.id                   The id of the block.
  * @param {string}  props.orientation          The orientation of buttons.
  * @param {string}  props.contentJustification The justification of the buttons.
- * @param {element} props.children             The children props to render.
+ * @param {Element} props.children             The children props to render.
  * @return {Element}                           The ButtonGroup component.
  */
 export default function ButtonGroup({

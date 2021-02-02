@@ -19,7 +19,6 @@ import styles from './Image.module.css'
  * @param {string} props.linkTarget Target for the link.
  * @param {string} props.linkClass  Class for the link.
  * @param {string} props.rel        The rel attribute for the link.
- * @param {string} props.sizeSlug   The WP image size.
  * @param {string} props.url        The full URL path of the image.
  * @return {Element}                The Image component.
  */
@@ -81,6 +80,5 @@ Image.propTypes = {
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
-  sizeSlug: PropTypes.string,
   url: PropTypes.string
 }
