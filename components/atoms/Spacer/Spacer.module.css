@@ -1,5 +1,5 @@
 .divider {
-  @apply w-full py-0 border-blue-500 my-40;
+  @apply w-full py-0 my-40;
 
   opacity: 0.1;
 

@@ -1,15 +1,15 @@
 .table {
   & table {
-    @apply w-full border-collapse mb-20;
+    @apply w-full border-collapse mb-12;
 
     & td,
     & th {
-      @apply p-12 font-primary text-root-em;
+      @apply p-6;
     }
 
     & thead {
       & tr {
-        @apply border-b border-tertiary-light;
+        @apply border-b;
       }
 
       & th {
@@ -19,22 +19,22 @@
 
     & tbody {
       & tr:nth-child(odd) {
-        @apply bg-tertiary-lightest;
+        @apply bg-gray-100;
       }
     }
 
     & tfoot {
       & tr {
-        @apply border-t border-tertiary-light;
+        @apply border-t;
       }
 
       & td {
-        @apply font-primary text-xs;
+        @apply font-bold;
       }
     }
   }
 
   & .caption {
-    @apply mb-20 text-center font-secondary text-xs;
+    @apply mb-12 text-center;
   }
 }
