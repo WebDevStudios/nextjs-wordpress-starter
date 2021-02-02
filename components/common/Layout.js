@@ -16,7 +16,6 @@ import {seoPropTypes} from '@/functions/getPagePropTypes'
  * @return {Element}                The Layout component.
  */
 export default function Layout({children, seo, hasJsonLd}) {
-  console.log(seo)
   // Define SEO image prop.
   const seoImages = !seo?.opengraphImage?.sourceUrl
     ? null
@@ -28,7 +27,6 @@ export default function Layout({children, seo, hasJsonLd}) {
           width: 150
         }
       ]
-  console.log(seoImages)
 
   // Extract breadcrumbs from SEO.
   const breadcrumbs = seo?.breadcrumbs
