@@ -10,7 +10,7 @@ import styles from './MediaText.module.css'
  *
  * @param {object}  props           MediaText component props.
  * @param {string}  props.body      The body text.
- * @param {element} props.children  The child elements.
+ * @param {Element} props.children  The child elements.
  * @param {string}  props.className The className.
  * @param {object}  props.cta       The cta object with text and url strings.
  * @param {object}  props.image     The image object with url and alt text.
