@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, {useState} from 'react'
 import * as Yup from 'yup'
 import Form from '@/components/molecules/Form'
 import Text from '@/components/atoms/Inputs/Text'
@@ -15,6 +15,8 @@ import postComment from '@/api/frontend/wp/comments/postComment'
  * @return {Element} The Comments component.
  */
 export default function Comments({comments, postId}) {
+  const [message, setMessage] = useState('')
+
   return (
     <>
       <h3>Comments</h3>
@@ -66,12 +68,22 @@ export default function Comments({comments, postId}) {
             postId,
             content
           )
-          response.error
-            ? alert(response.errorMessage)
-            : alert(JSON.stringify(response))
+          if (response.error) {
+            setMessage(response.errorMessage)
+            setSubmitting(false)
+            return
+          }
+
+          // alert(JSON.stringify(response))
+          if (response.success && !response.comment) {
+            setMessage(
+              'Your comment was sent and will appear after moderation.'
+            )
+          }
           setSubmitting(false)
         }}
       >
+        {!!message && <div>{message}</div>}
         <Text id="author" label="Author" isRequired type="text" />
         <Text id="authorEmail" label="Email" isRequired type="email" />
         <Text id="authorUrl" label="Website" type="url" />
