@@ -25,16 +25,28 @@ export default function GravityForm({
   const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
 
+  // fetch('/api/wp/getWPUrl')
+  //   .then((result) => result.json)
+  //   .then((parsed) => {
+  //     wpBase = parsed.wpApiUrlBase
+  //   })
+
   return (
     <Form
       className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
-      onSubmit={(values) => {
-        const formApiUrl = `https://nextjswp.test/wp-json/gf/v2/forms/${formId}/submissions`
+      onSubmit={async (values) => {
+        const wpBaseRequest = await fetch('/api/wp/getWPUrl')
+        const wpBaseObject = await wpBaseRequest.json()
+        const wpBase = wpBaseObject.wpApiUrlBase
+
+        const formApiUrl = `${wpBase}wp-json/gf/v2/forms/${formId}/submissions`
         const formData = new FormData()
         const formKeys = Object.keys(values)
+
+        formData.append('form_id', formId)
 
         formKeys.forEach((key) => {
           let fieldName = key.replaceAll('-', '_')
