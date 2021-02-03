@@ -1,7 +1,9 @@
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Button from '@/components/atoms/Button'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import Card from '@/components/molecules/Card'
@@ -35,7 +37,7 @@ export default function Team({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <section className="container py-20">
+        <Container className="container py-20">
           {!posts || !posts.length ? (
             <p>No posts found.</p>
           ) : (
@@ -56,21 +58,22 @@ export default function Team({post, archive, posts, pagination}) {
             type="secondary"
             disabled={!pagination.hasNextPage}
           />
-        </section>
+        </Container>
       </Layout>
     )
   }
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <div className="container">
-        <section>
-          <article>
-            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <Blocks blocks={post?.blocks} />
-          </article>
-        </section>
-      </div>
+      <Container>
+        <article>
+          {!!post?.seo?.breadcrumbs && (
+            <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
+          )}
+          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <Blocks blocks={post?.blocks} />
+        </article>
+      </Container>
     </Layout>
   )
 }

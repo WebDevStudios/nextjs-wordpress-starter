@@ -1,5 +1,6 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Container from '@/components/atoms/Container'
 import BlockGravityForm from '@/components/blocks/Gutenberg/BlockGravityForm'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
@@ -22,17 +23,15 @@ const postType = 'page'
 export default function Page({post}) {
   return (
     <Layout seo={{...post?.seo}}>
-      <div className="container">
-        <section>
-          <article>
-            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <Blocks blocks={post?.blocks} />
-          </article>
-        </section>
+      <Container>
+        <article>
+          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <Blocks blocks={post?.blocks} />
+        </article>
         {post?.slug === 'form-demo' && (
           <BlockGravityForm {...post?.blocks[0]} />
         )}
-      </div>
+      </Container>
     </Layout>
   )
 }

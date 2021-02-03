@@ -1,16 +1,7 @@
 .algoliaResults {
-  @apply pt-20 pb-40;
-
-  & h1 {
-    @apply mb-8;
-
-    font-size: 30px;
-  }
-
   /* Results Header */
   & .resultsHeader {
-    @apply flex justify-between items-center;
-    @apply mb-32;
+    @apply flex justify-between items-center mb-12;
 
     & .total {
       & span {
@@ -44,24 +35,20 @@
       @apply text-center;
 
       & > ul {
-        @apply grid gap-12 grid-cols-1 text-left;
+        @apply grid gap-4 grid-cols-1 text-left;
       }
 
       /* Hit */
       & .hit {
-        @apply p-20 border;
-
-        & h3 {
-          @apply font-semibold;
-        }
+        @apply p-8 border;
 
         & .date {
-          @apply italic mb-8;
+          @apply italic mb-4;
         }
       }
 
       & > button {
-        @apply inline-block m-auto mt-44 border rounded px-24 py-8 transition-colors duration-200 ease-in-out;
+        @apply inline-block m-auto mt-8 border rounded p-4 transition-colors duration-200 ease-in-out;
 
         &[disabled] {
           @apply opacity-25 cursor-not-allowed;

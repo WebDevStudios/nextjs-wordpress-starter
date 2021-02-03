@@ -2,7 +2,9 @@ import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import postComment from '@/api/frontend/wp/comments/postComment'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Button from '@/components/atoms/Button'
+import Container from '@/components/atoms/Container'
 import Text from '@/components/atoms/Inputs/Text'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
@@ -39,7 +41,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <section className="container py-20">
+        <Container>
           {!posts || !posts.length ? (
             <p>No posts found.</p>
           ) : (
@@ -60,50 +62,55 @@ export default function BlogPost({post, archive, posts, pagination}) {
             type="secondary"
             disabled={!pagination.hasNextPage}
           />
-        </section>
+        </Container>
       </Layout>
     )
   }
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <article className="container py-40">
-        <Blocks blocks={post?.blocks} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(post?.comments ?? [])
-          }}
-        />
+      <Container>
+        <article>
+          {!!post?.seo?.breadcrumbs && (
+            <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
+          )}
+          <Blocks blocks={post?.blocks} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(post?.comments ?? [])
+            }}
+          />
 
-        <Form
-          className="sample-form"
-          id="form-1"
-          title="Add a comment"
-          validationSchema={Yup.object().shape({
-            author: Yup.string().required('This field is required.'),
-            authorEmail: Yup.string().required('This field is required.')
-          })}
-          onSubmit={async (values, {setSubmitting}) => {
-            const {author, authorEmail, authorUrl, content} = values
-            const response = await postComment(
-              author,
-              authorEmail,
-              authorUrl,
-              post.databaseId,
-              content
-            )
-            response.error
-              ? alert(response.errorMessage)
-              : alert(JSON.stringify(response))
-            setSubmitting(false)
-          }}
-        >
-          <Text id="author" label="Author" isRequired type="text" />
-          <Text id="authorEmail" label="Email" isRequired type="email" />
-          <Text id="authorUrl" label="Website" type="url" />
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
-      </article>
+          <Form
+            className="sample-form"
+            id="form-1"
+            title="Add a comment"
+            validationSchema={Yup.object().shape({
+              author: Yup.string().required('This field is required.'),
+              authorEmail: Yup.string().required('This field is required.')
+            })}
+            onSubmit={async (values, {setSubmitting}) => {
+              const {author, authorEmail, authorUrl, content} = values
+              const response = await postComment(
+                author,
+                authorEmail,
+                authorUrl,
+                post.databaseId,
+                content
+              )
+              response.error
+                ? alert(response.errorMessage)
+                : alert(JSON.stringify(response))
+              setSubmitting(false)
+            }}
+          >
+            <Text id="author" label="Author" isRequired type="text" />
+            <Text id="authorEmail" label="Email" isRequired type="email" />
+            <Text id="authorUrl" label="Website" type="url" />
+            <Text id="content" label="Comment" isRequired type="text" />
+          </Form>
+        </article>
+      </Container>
     </Layout>
   )
 }
