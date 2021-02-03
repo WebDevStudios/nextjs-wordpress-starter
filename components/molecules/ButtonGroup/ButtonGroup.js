@@ -9,11 +9,12 @@ import styles from './ButtonGroup.module.css'
  * Render the ButtonGroup component.
  *
  * @author WebDevStudios
- * @param {string}  id                   The id of the block.
- * @param {string}  orientation          The orientation of buttons.
- * @param {string}  contentJustification The justification of the buttons.
- * @param {element} children             The children props to render.
- * @return {Element}                     The ButtonGroup component.
+ * @param {object}  props                      The component properties.
+ * @param {string}  props.id                   The id of the block.
+ * @param {string}  props.orientation          The orientation of buttons.
+ * @param {string}  props.contentJustification The justification of the buttons.
+ * @param {Element} props.children             The children props to render.
+ * @return {Element}                           The ButtonGroup component.
  */
 export default function ButtonGroup({
   id,

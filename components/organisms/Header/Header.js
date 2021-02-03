@@ -9,22 +9,23 @@ import styles from './Header.module.css'
 // TODO: Create mobile menu.
 
 /**
- * Render Header component.
+ * Render the ImageGallery component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Header component.
  */
 export default function Header() {
   const {menus} = useContext(MenuContext)
   return (
     <header className={styles.header}>
-      <div className="container flex items-center justify-end">
-        <div className="relative pb-16">
-          <AlgoliaSearch
-            useHistory={true}
-            usePlaceholder={true}
-            className="ml-auto"
-          />
-        </div>
+      <div className={styles.search}>
+        <AlgoliaSearch
+          useHistory={true}
+          usePlaceholder={true}
+          className="ml-auto"
+        />
       </div>
-      <div className="container px-4 lg:px-0 flex items-center justify-between">
+      <div className={styles.navigation}>
         <Logo />
         <Navigation
           menu={menus?.primary_menu}

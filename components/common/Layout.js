@@ -21,7 +21,7 @@ export default function Layout({children, seo, hasJsonLd}) {
     ? null
     : [
         {
-          url: seo.opengraphImage.sourceUrl,
+          url: seo?.opengraphImage.sourceUrl,
           alt: seo?.opengraphImage?.altText,
           height: 150,
           width: 150
@@ -49,7 +49,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={seoImages ? [...seoImages] : null}
+          images={seoImages ? [...seoImages] : []}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}

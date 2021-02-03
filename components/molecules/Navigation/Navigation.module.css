@@ -1,6 +1,4 @@
 .navigation {
-  @apply pt-8;
-
   & > ul {
     @apply flex;
 

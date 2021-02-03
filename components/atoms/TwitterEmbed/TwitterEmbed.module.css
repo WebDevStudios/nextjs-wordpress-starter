@@ -1,0 +1,7 @@
+.twitterEmbed {
+  @apply block;
+
+  & .caption {
+    @apply text-center text-xs pt-12;
+  }
+}
