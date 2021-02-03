@@ -1,0 +1,25 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Card from './'
+
+<Meta title="Components/Molecules/Card" component={Card} />
+
+# Card
+
+Use this component to display a card.
+
+<Canvas>
+  <Story name="Card">
+    <Card
+      image={{
+        sourceUrl:
+          'https://images.unsplash.com/photo-1610991149688-c1321006bcc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1110&q=60'
+      }}
+      meta="This is the meta"
+      title="This is the card title"
+      body="This is the card body"
+      timestamp="May 29, 2021"
+      ctaText="Click Here!"
+      ctaUrl="https://google.com"
+    />
+  </Story>
+</Canvas>
