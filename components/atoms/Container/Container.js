@@ -7,7 +7,7 @@ import cn from 'classnames'
  * Render the Container component.
  *
  * @param {object}  props            Container component props.
- * @param {Element} props.children   Container children.
+ * @param {object}  props.children   Container children.
  * @param {boolean} props.paddingTop Should container render top padding.
  * @param {boolean} props.paddingBtm Should container render bottom padding.
  * @return {Element}                 The Container component.
@@ -27,7 +27,7 @@ export default function Container({children, paddingTop, paddingBtm}) {
 }
 
 Container.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
   paddingTop: PropTypes.bool,
   paddingBtm: PropTypes.bool
 }
