@@ -1,0 +1,35 @@
+.card {
+  @apply flex flex-col;
+
+  & .image {
+    @apply mb-2 relative h-0 w-full rounded;
+
+    padding-top: 64%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
+
+    & img {
+      @apply absolute top-0 left-0 w-full h-full object-cover rounded;
+    }
+  }
+
+  & .content {
+    & .meta {
+      @apply mb-2 text-sm;
+    }
+
+    & .title {
+      @apply mb-2 font-bold;
+    }
+
+    & .body {
+      @apply mb-2;
+    }
+  }
+
+  & .footer {
+    @apply mt-auto flex justify-between items-center;
+
+    & .timestamp {
+      @apply text-sm;
+    }
+  }
+}

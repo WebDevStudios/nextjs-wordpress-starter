@@ -5,11 +5,12 @@ import * as GfFields from '.'
  * Render the Fields component.
  *
  * @author WebDevStudios
- * @param {object} props        The component attributes as props.
- * @param {Array}  props.fields GravityForm fields data.
- * @return {Element}              The Fields component.
+ * @param {object} props             The component attributes as props.
+ * @param {Array}  props.fields      GravityForm fields data.
+ * @param {object} props.formikProps Props available to Formik components.
+ * @return {Element}                 The Fields component.
  */
-export default function Fields({fields}) {
+export default function Fields({fields, formikProps}) {
   return (
     <>
       {fields.length > 0 &&
@@ -42,6 +43,20 @@ export default function Fields({fields}) {
               fieldToRender = <GfFields.Text {...field.node} key={id} />
               break
 
+            case 'textarea':
+              fieldToRender = <GfFields.Textarea {...field.node} key={id} />
+              break
+
+            case 'fileupload':
+              fieldToRender = (
+                <GfFields.File
+                  {...field.node}
+                  setFieldValue={formikProps.setFieldValue}
+                  key={id}
+                />
+              )
+              break
+
             default:
               fieldToRender = (
                 <pre key={id}>
@@ -58,7 +73,8 @@ export default function Fields({fields}) {
 
 Fields.propTypes = {
   fields: PropTypes.array,
-  setFormValidation: PropTypes.func
+  setFormValidation: PropTypes.func,
+  formikProps: PropTypes.object
 }
 
 Fields.defaultProps = {

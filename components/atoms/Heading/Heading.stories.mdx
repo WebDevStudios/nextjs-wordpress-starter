@@ -1,0 +1,62 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Heading from '.'
+
+<Meta title="Components/Atoms/Heading" component={Heading} />
+
+# Heading
+
+Use this component inside other components when you need to dynamically set the heading tag that's used.
+For example, a card's heading might need to be `<h2>` in one place but an `<h3>` when used somewhere else.
+
+This component is deliberatley unstyled. Pass down class names with the `className` prop.
+
+<Canvas>
+  <Story name="Component">
+    <Heading>This is a heading</Heading>
+  </Story>
+</Canvas>
+
+# Tag
+
+`<h1>` through `<h6>` tags are supported.
+
+<Canvas>
+  <Story name="Tag">
+    <Heading tag="h1">This is an h1</Heading>
+    <Heading tag="h2">This is an h2</Heading>
+    <Heading tag="h3">This is an h3</Heading>
+    <Heading tag="h4">This is an h4</Heading>
+    <Heading tag="h5">This is an h5</Heading>
+    <Heading tag="h6">This is an h6</Heading>
+  </Story>
+</Canvas>
+
+# Markup Support
+
+This component supports various types of children content including strings of HTML and standard JSX. The following shows both content types being passed in as children.
+
+<Canvas>
+  <Story name="Markup Support">
+    <Heading tag="h1">{'<strong>String</strong> of HTML Example'}</Heading>
+    <Heading tag="h1">
+      <strong>Object</strong> of JSX Example
+    </Heading>
+  </Story>
+</Canvas>
+
+## Controls
+
+export const Template = (args) => <Heading {...args}>{args.children}</Heading>
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      tag: 'h1',
+      children: 'This is a heading'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

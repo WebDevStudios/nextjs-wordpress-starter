@@ -1,11 +1,14 @@
+import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Breadcrumbs from '@/components/atoms/Breadcrumbs'
+import Button from '@/components/atoms/Button'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
-import Link from 'next/link'
-import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
 import Comments from '@/components/molecules/Comments'
+import Card from '@/components/molecules/Card'
 
 // Define route post type.
 const postType = 'post'
@@ -35,38 +38,43 @@ export default function BlogPost({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <div className="container py-20">
-          <section>
-            {!posts || !posts.length ? (
-              <p>No posts found.</p>
-            ) : (
-              posts.map((post, index) => (
-                <article key={index}>
-                  <Link href={post?.uri}>
-                    <a>
-                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                    </a>
-                  </Link>
-                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                </article>
-              ))
-            )}
-            {/* TODO: replace this with a component. */}
-            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
-              Load more
-            </button>
-          </section>
-        </div>
+        <Container>
+          {!posts || !posts.length ? (
+            <p>No posts found.</p>
+          ) : (
+            <div className="w-1/3 grid grid-cols-1 gap-12">
+              {posts.map((post, index) => (
+                <Card
+                  key={index}
+                  title={post?.title}
+                  url={post?.uri}
+                  body={post?.excerpt}
+                />
+              ))}
+            </div>
+          )}
+          <Button
+            onClick={() => loadPosts}
+            text="Load More"
+            type="secondary"
+            disabled={!pagination.hasNextPage}
+          />
+        </Container>
       </Layout>
     )
   }
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <article className="container py-40">
-        <Blocks blocks={post?.blocks} />
-        <Comments comments={post?.comments?.edges} postId={post.databaseId} />
-      </article>
+      <Container>
+        <article>
+          {!!post?.seo?.breadcrumbs && (
+            <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
+          )}
+          <Blocks blocks={post?.blocks} />
+          <Comments comments={post?.comments?.edges} postId={post.databaseId} />
+        </article>
+      </Container>
     </Layout>
   )
 }

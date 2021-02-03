@@ -14,10 +14,6 @@ export default function displayBlock(block, index) {
 
   // prettier-ignore
   switch (name) {
-    // case 'acf/accordions':
-    //   return <Blocks.BlockAccordions {...attributes} key={index} />
-    // case 'acf/netflix':
-    //   return <Blocks.BlockNetflixCarousel {...attributes} key={index} />
     case 'core/quote':
       return <Blocks.BlockQuote {...attributes} key={index} />
     case 'core/pullquote':
@@ -53,6 +49,8 @@ export default function displayBlock(block, index) {
       return <Blocks.BlockSeparator {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
+    case 'gravityforms/form':
+      return <Blocks.BlockGravityForm attributes={attributes} key={index} />
     case 'lazyblock/mediatext':
       return <Blocks.LzbBlockMediaText attributes={attributes} key={index} />
     case 'lazyblock/hero':

@@ -2,6 +2,7 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Layout from '@/components/common/Layout'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Page from './[...slug]'
+import Container from '@/components/atoms/Container'
 
 // Define route post type.
 const postType = 'page'
@@ -28,14 +29,12 @@ export default function Custom404({post}) {
 
   return (
     <Layout seo={{...seo}}>
-      <div className="container">
-        <section>
-          <article>
-            <h1>404 Not Found</h1>
-            <p>That page could not be found!</p>
-          </article>
-        </section>
-      </div>
+      <Container>
+        <article>
+          <h1>404 Not Found</h1>
+          <p>That page could not be found!</p>
+        </article>
+      </Container>
     </Layout>
   )
 }
