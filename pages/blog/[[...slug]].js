@@ -3,12 +3,9 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Layout from '@/components/common/Layout'
 import Link from 'next/link'
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
-import postComment from '@/api/frontend/wp/comments/postComment'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
-import Form from '@/components/molecules/Form'
-import Text from '@/components/atoms/Inputs/Text'
-import * as Yup from 'yup'
+import Comments from '@/components/molecules/Comments'
 
 // Define route post type.
 const postType = 'post'
@@ -68,40 +65,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <article className="container py-40">
         <Blocks blocks={post?.blocks} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(post?.comments ?? [])
-          }}
-        />
-
-        <Form
-          className="sample-form"
-          id="form-1"
-          title="Add a comment"
-          validationSchema={Yup.object().shape({
-            author: Yup.string().required('This field is required.'),
-            authorEmail: Yup.string().required('This field is required.')
-          })}
-          onSubmit={async (values, {setSubmitting}) => {
-            const {author, authorEmail, authorUrl, content} = values
-            const response = await postComment(
-              author,
-              authorEmail,
-              authorUrl,
-              post.databaseId,
-              content
-            )
-            response.error
-              ? alert(response.errorMessage)
-              : alert(JSON.stringify(response))
-            setSubmitting(false)
-          }}
-        >
-          <Text id="author" label="Author" isRequired type="text" />
-          <Text id="authorEmail" label="Email" isRequired type="email" />
-          <Text id="authorUrl" label="Website" type="url" />
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
+        <Comments comments={post?.comments?.edges} postId={post.databaseId} />
       </article>
     </Layout>
   )
