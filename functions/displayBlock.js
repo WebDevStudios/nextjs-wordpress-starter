@@ -14,10 +14,6 @@ export default function displayBlock(block, index) {
 
   // prettier-ignore
   switch (name) {
-    // case 'acf/accordions':
-    //   return <Blocks.BlockAccordions {...attributes} key={index} />
-    // case 'acf/netflix':
-    //   return <Blocks.BlockNetflixCarousel {...attributes} key={index} />
     case 'core/quote':
       return <Blocks.BlockQuote {...attributes} key={index} />
     case 'core/pullquote':

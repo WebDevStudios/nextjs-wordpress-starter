@@ -1,0 +1,30 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Breadcrumbs from '.'
+
+export const crumbs = [
+  {
+    text: 'Home',
+    url: '/'
+  },
+  {
+    text: 'About',
+    url: '/about'
+  },
+  {
+    text: 'Our Team',
+    url: '/about/team'
+  }
+]
+
+<Meta title="Components/Atoms/Breadcrumbs" component={Breadcrumbs} />
+
+# Breadcrumbs
+
+Use this component to display site breadcrumbs.
+
+<Canvas>
+  <Story name="Component">
+    <Breadcrumbs breadcrumbs={crumbs} />
+  </Story>
+</Canvas>

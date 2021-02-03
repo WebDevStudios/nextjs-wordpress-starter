@@ -1,10 +1,12 @@
+import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Breadcrumbs from '@/components/atoms/Breadcrumbs'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
-import Link from 'next/link'
-import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
-import getPagePropTypes from '@/functions/getPagePropTypes'
 import Blocks from '@/components/molecules/Blocks'
+import getPagePropTypes from '@/functions/getPagePropTypes'
+import Link from 'next/link'
 
 // Define route post type.
 const postType = 'team'
@@ -34,42 +36,41 @@ export default function Team({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <div className="container">
-          <section>
-            {!posts || !posts.length ? (
-              <p>No posts found.</p>
-            ) : (
-              posts.map((post, index) => (
-                <article key={index}>
-                  <Link href={post.uri}>
-                    <a>
-                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                    </a>
-                  </Link>
-                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                </article>
-              ))
-            )}
-            {/* TODO: replace this with a component. */}
-            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
-              Load more
-            </button>
-          </section>
-        </div>
+        <Container>
+          {!posts || !posts.length ? (
+            <p>No posts found.</p>
+          ) : (
+            posts.map((post, index) => (
+              <article key={index}>
+                <Link href={post.uri}>
+                  <a>
+                    <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+                  </a>
+                </Link>
+                <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
+              </article>
+            ))
+          )}
+          {/* TODO: replace this with a component. */}
+          <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
+            Load more
+          </button>
+        </Container>
       </Layout>
     )
   }
 
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
-      <div className="container">
-        <section>
-          <article>
-            <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-            <Blocks blocks={post?.blocks} />
-          </article>
-        </section>
-      </div>
+      <Container>
+        <article>
+          {!!post?.seo?.breadcrumbs && (
+            <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
+          )}
+          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <Blocks blocks={post?.blocks} />
+        </article>
+      </Container>
     </Layout>
   )
 }

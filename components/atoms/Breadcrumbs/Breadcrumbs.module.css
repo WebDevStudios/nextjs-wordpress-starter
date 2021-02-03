@@ -1,0 +1,11 @@
+ul.breadcrumbs {
+  @apply mb-8 flex;
+
+  & li {
+    @apply text-sm font-semibold;
+
+    & .sep {
+      @apply px-2 opacity-50 font-normal;
+    }
+  }
+}
