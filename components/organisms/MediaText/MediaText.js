@@ -1,5 +1,4 @@
 import Button from '@/components/atoms/Button'
-import Container from '@/components/atoms/Container'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useEffect} from 'react'
@@ -36,43 +35,41 @@ export default function MediaText({
   })
 
   return (
-    <Container>
-      <section
-        className={cn(
-          styles.mediaText,
-          mediaLeft ? styles.mediaLeft : null,
-          className
+    <section
+      className={cn(
+        styles.mediaText,
+        mediaLeft ? styles.mediaLeft : null,
+        className
+      )}
+    >
+      <div className={styles.text}>
+        {children ? (
+          children
+        ) : (
+          <>
+            {title && <h1 className={styles.title}>{title}</h1>}
+            {body && <p className={styles.body}>{body}</p>}
+            {cta && (
+              <Button
+                className={styles.button}
+                url={cta.url ? cta.url : null}
+                text={cta.text ? cta.text : null}
+                icon={cta.icon ? cta.icon : null}
+                type="primary"
+                size="md"
+              />
+            )}
+          </>
         )}
-      >
-        <div className={styles.text}>
-          {children ? (
-            children
-          ) : (
-            <>
-              {title && <h1 className={styles.title}>{title}</h1>}
-              {body && <p className={styles.body}>{body}</p>}
-              {cta && (
-                <Button
-                  className={styles.button}
-                  url={cta.url ? cta.url : null}
-                  text={cta.text ? cta.text : null}
-                  icon={cta.icon ? cta.icon : null}
-                  type="primary"
-                  size="md"
-                />
-              )}
-            </>
-          )}
-        </div>
-        <div className={styles.media}>
-          {image && image.url && (
-            <div className={styles.imageWrap}>
-              <img src={image.url} alt={image.alt} />
-            </div>
-          )}
-        </div>
-      </section>
-    </Container>
+      </div>
+      <div className={styles.media}>
+        {image && image.url && (
+          <div className={styles.imageWrap}>
+            <img src={image.url} alt={image.alt} />
+          </div>
+        )}
+      </div>
+    </section>
   )
 }
 

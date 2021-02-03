@@ -1,6 +1,5 @@
 import {searchResultsClient} from '@/api/algolia/connector'
 import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
-import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
@@ -21,7 +20,7 @@ import SearchResults from './templates/SearchResults'
 export default function AlgoliaResults({config}) {
   const {indexName} = useContext(AlgoliaContext)
   return (
-    <section className={cn('container', styles.algoliaResults)}>
+    <div className={styles.algoliaResults}>
       {config.query !== '' && (
         <InstantSearch
           searchClient={config.query !== '' ? searchResultsClient : ''}
@@ -32,7 +31,7 @@ export default function AlgoliaResults({config}) {
         </InstantSearch>
       )}
       {config.query === '' && <NoResults query={config.query} />}
-    </section>
+    </div>
   )
 }
 
