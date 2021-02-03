@@ -25,12 +25,6 @@ export default function GravityForm({
   const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
 
-  // fetch('/api/wp/getWPUrl')
-  //   .then((result) => result.json)
-  //   .then((parsed) => {
-  //     wpBase = parsed.wpApiUrlBase
-  //   })
-
   return (
     <Form
       className={cn(styles.gravityForm, cssClass)}
@@ -64,7 +58,6 @@ export default function GravityForm({
                   formData.append(`${fieldName}_${index + 1}`, arrayFieldValue)
                 })
               } else {
-                //if (values[key] instanceof File) {
                 formData.append(fieldName, values[key])
               }
               break
@@ -79,8 +72,6 @@ export default function GravityForm({
           mimeType: 'multipart/form-data',
           body: formData
         }).then((response) => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.log({error}))
       }}
     >
       {(formikProps) => (

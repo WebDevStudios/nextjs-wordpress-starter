@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 import * as GfFields from '.'
 
-// import {Field} from 'formik'
-// import InputError from '@/components/atoms/Inputs/InputError'
-
 /**
  * Render the Fields component.
  *
