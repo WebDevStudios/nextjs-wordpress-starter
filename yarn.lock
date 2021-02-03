@@ -9327,10 +9327,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-next-seo@^4.18.0:
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.18.0.tgz#c6cf30253088d64c2e552e10d89a831b59f661c4"
-  integrity sha512-Omv6r7hIRArsVpa3rzUmhjsuOm9eSFvG7BU3F/oEl7Z2OYjpOJvVjZsEgHMmsBvgmT1Svy0LDVo1/FKH3Zh4wQ==
+next-seo@^4.19.0:
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.19.0.tgz#b3be79a544e420dbbf1e4fcff98dad9790f15e36"
+  integrity sha512-+jgXd1UW0XKLiBMrumjPDANeV82mTHTxGZJwU6T1mlNougKpXINlDgIHkN30sM2eDXh+xXOURj99WN2Tm9K6rg==
 
 next-sitemap@^1.4.17:
   version "1.4.17"
