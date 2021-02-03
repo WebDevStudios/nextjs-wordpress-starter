@@ -3,13 +3,14 @@ import postComment from '@/api/frontend/wp/comments/postComment'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
+import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import Text from '@/components/atoms/Inputs/Text'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
+import Card from '@/components/molecules/Card'
 import Form from '@/components/molecules/Form'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import Link from 'next/link'
 import * as Yup from 'yup'
 
 // Define route post type.
@@ -41,26 +42,26 @@ export default function BlogPost({post, archive, posts, pagination}) {
     return (
       <Layout seo={{...post?.seo}}>
         <Container>
-          <section>
-            {!posts || !posts.length ? (
-              <p>No posts found.</p>
-            ) : (
-              posts.map((post, index) => (
-                <article key={index}>
-                  <Link href={post?.uri}>
-                    <a>
-                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                    </a>
-                  </Link>
-                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                </article>
-              ))
-            )}
-            {/* TODO: replace this with a component. */}
-            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
-              Load more
-            </button>
-          </section>
+          {!posts || !posts.length ? (
+            <p>No posts found.</p>
+          ) : (
+            <div className="w-1/3 grid grid-cols-1 gap-12">
+              {posts.map((post, index) => (
+                <Card
+                  key={index}
+                  title={post?.title}
+                  url={post?.uri}
+                  body={post?.excerpt}
+                />
+              ))}
+            </div>
+          )}
+          <Button
+            onClick={() => loadPosts}
+            text="Load More"
+            type="secondary"
+            disabled={!pagination.hasNextPage}
+          />
         </Container>
       </Layout>
     )
