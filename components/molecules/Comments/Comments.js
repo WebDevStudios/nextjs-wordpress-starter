@@ -6,16 +6,63 @@ import Text from '@/components/atoms/Inputs/Text'
 import postComment from '@/api/frontend/wp/comments/postComment'
 
 /**
+ * Render an individual comment component.
+ *
+ * @author WebDevStudios
+ * @param {object} props         The component attributes as props.
+ * @param {Array}  props.comment The comment to display.
+ * @return {Element}             The Comment component.
+ */
+function SingleComment({comment}) {
+  if (!comment) {
+    return ''
+  }
+  const {content, date, author} = comment
+  const {name, url} = author.node
+  let nameElement = <span>{name}</span>
+  if (url) {
+    nameElement = (
+      <a href={url} rel="nofollow noreferrer" target="_blank">
+        {name}
+      </a>
+    )
+  }
+  return (
+    <>
+      <h4>
+        {nameElement}
+        {` at ${date}`}
+      </h4>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: content
+        }}
+      />
+      <hr />
+    </>
+  )
+}
+
+SingleComment.propTypes = {
+  comment: PropTypes.object.isRequired
+}
+
+SingleComment.defaultProps = {
+  comment: {}
+}
+
+/**
  * Render the Comments component.
  *
  * @author WebDevStudios
  * @param {object} props          The component attributes as props.
  * @param {Array}  props.comments The array of comments to display.
  * @param {number} props.postId   The database ID of the post.
- * @return {Element} The Comments component.
+ * @return {Element}              The Comments component.
  */
 export default function Comments({comments, postId}) {
   const [message, setMessage] = useState('')
+  const [postedComment, setPostedComment] = useState(false)
 
   return (
     <>
@@ -23,33 +70,14 @@ export default function Comments({comments, postId}) {
       {
         // If there are comments, loop over and display.
         !!comments?.length &&
-          comments.map((comment) => {
-            const {content, date, author} = comment.node
-            const {name, url} = author.node
-            let nameElement = <span>{name}</span>
-            if (url) {
-              nameElement = (
-                <a href={url} rel="nofollow noreferrer" target="_blank">
-                  {name}
-                </a>
-              )
-            }
-            return (
-              <>
-                <h4>
-                  {nameElement}
-                  {` at ${date}`}
-                </h4>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: content
-                  }}
-                />
-                <hr />
-              </>
-            )
-          })
+          comments.map((comment, index) => (
+            <SingleComment comment={comment.node} key={index} />
+          ))
       }
+
+      {!!postedComment && (
+        <SingleComment comment={postedComment} key="posted-comment" />
+      )}
 
       <Form
         className="comment-form"
@@ -79,6 +107,10 @@ export default function Comments({comments, postId}) {
             setMessage(
               'Your comment was sent and will appear after moderation.'
             )
+          }
+
+          if (response.comment) {
+            setPostedComment(response.comment)
           }
           setSubmitting(false)
         }}
