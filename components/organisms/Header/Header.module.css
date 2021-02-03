@@ -9,3 +9,19 @@
     @apply flex items-center justify-between;
   }
 }
+
+.skip {
+  @apply absolute text-sm p-2;
+
+  top: -200px;
+  left: -200px;
+  z-index: 9999;
+  background: #fff;
+
+  &:focus {
+    @apply visible opacity-100;
+
+    top: 10px;
+    left: 10px;
+  }
+}
