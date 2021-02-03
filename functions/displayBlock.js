@@ -25,8 +25,8 @@ export default function displayBlock(block, index) {
     case 'core/code':
     case 'core/preformatted':
       return <Blocks.BlockCode {...attributes} key={index} />
-    // case 'core/embed':
-    //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
+    case 'core/embed':
+      return <Blocks.BlockEmbed {...attributes} key={index} />
     case 'core/media-text':
       return <Blocks.BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/button':
