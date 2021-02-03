@@ -35,15 +35,9 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "apollo-link-rest": "^0.8.0-beta.0",
-    "formik": "^2.2.6",
-    "graphql-anywhere": "^4.2.7",
-    "hamburger-react": "^2.4.0",
     "next": "latest",
     "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-twitter-embed": "^3.0.3",
-    "yup": "^0.32.8"
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@apollo/client": "^3.3.7",
@@ -53,6 +47,7 @@
     "@storybook/addon-links": "^6.1.16",
     "@storybook/react": "^6.1.16",
     "algoliasearch": "^4.8.4",
+    "apollo-link-rest": "^0.8.0-beta.0",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.6.1",
     "dayjs": "^1.10.4",
@@ -65,7 +60,10 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "formik": "^2.2.6",
     "graphql": "^15.5.0",
+    "graphql-anywhere": "^4.2.7",
+    "hamburger-react": "^2.4.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.3",
     "next-seo": "^4.19.0",
@@ -74,14 +72,16 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react-instantsearch-dom": "^6.8.3",
+    "react-instantsearch-dom": "^6.9.0",
     "react-is": "^17.0.1",
     "react-syntax-highlighter": "^15.4.3",
+    "react-twitter-embed": "^3.0.3",
     "storybook-addon-next-router": "^2.0.0",
     "storybook-css-modules-preset": "^1.0.5",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "yup": "^0.32.8"
   },
   "husky": {
     "hooks": {
