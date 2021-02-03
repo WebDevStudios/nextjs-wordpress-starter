@@ -14,10 +14,6 @@ export default function displayBlock(block, index) {
 
   // prettier-ignore
   switch (name) {
-    // case 'acf/accordions':
-    //   return <Blocks.BlockAccordions {...attributes} key={index} />
-    // case 'acf/netflix':
-    //   return <Blocks.BlockNetflixCarousel {...attributes} key={index} />
     case 'core/quote':
       return <Blocks.BlockQuote {...attributes} key={index} />
     case 'core/pullquote':
@@ -25,48 +21,18 @@ export default function displayBlock(block, index) {
     case 'core/code':
     case 'core/preformatted':
       return <Blocks.BlockCode {...attributes} key={index} />
-    // case 'core/embed':
-    //   return <Blocks.BlockVideoEmbed {...attributes} key={index} />
-    case 'lazyblock/mediatext':
-      return (
-        <Blocks.BlockMediaText
-          attributes={attributes}
-          key={index}
-        />
-      )
-    case 'lazyblock/hero':
-      return (
-        <Blocks.BlockHero
-          attributes={attributes}
-          key={index}
-        />
-      )
+    case 'core/embed':
+      return <Blocks.BlockEmbed {...attributes} key={index} />
+    case 'core/media-text':
+      return <Blocks.BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/button':
       return <Blocks.BlockButton {...attributes} key={index} />
     case 'core/buttons':
-      return (
-        <Blocks.BlockButtons
-          options={attributes}
-          innerBlocks={innerBlocks}
-          key={index}
-        />
-      )
+      return <Blocks.BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/columns':
-      return (
-        <Blocks.BlockColumns
-          columns={attributes}
-          innerBlocks={innerBlocks}
-          key={index}
-        />
-      )
+      return  <Blocks.BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/cover':
-      return (
-        <Blocks.BlockCover
-          media={attributes}
-          innerBlocks={innerBlocks}
-          key={index}
-        />
-      )
+      return <Blocks.BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/heading':
       return <Blocks.BlockHeadings {...attributes} key={index} />
     case 'core/image':
@@ -83,6 +49,12 @@ export default function displayBlock(block, index) {
       return <Blocks.BlockSeparator {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
+    case 'gravityforms/form':
+      return <Blocks.BlockGravityForm attributes={attributes} key={index} />
+    case 'lazyblock/mediatext':
+      return <Blocks.LzbBlockMediaText attributes={attributes} key={index} />
+    case 'lazyblock/hero':
+      return <Blocks.LzbBlockHero attributes={attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }

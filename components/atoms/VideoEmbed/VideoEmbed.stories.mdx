@@ -1,0 +1,35 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import VideoEmbed from '.'
+
+<Meta title="Components/Atoms/VideoEmbed" component={VideoEmbed} />
+
+# Video Embed
+
+Use this to display a video in iFrame, pass the YouTube video ID to the `VideoEmbed` component.
+
+<Canvas>
+  <Story name="Component">
+    <VideoEmbed
+      url="https://www.youtube.com/watch?v=ebQbQufIb0E"
+      caption="This is an optional caption"
+    />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<VideoEmbed />` props in the [Canvas tab of the Controls story](?path=/story/design-system-organisims-videoembed--controls).
+
+export const Template = (args) => <VideoEmbed {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      url: 'https://www.youtube.com/watch?v=ebQbQufIb0E'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

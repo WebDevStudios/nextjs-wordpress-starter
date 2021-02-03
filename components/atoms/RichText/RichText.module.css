@@ -10,11 +10,7 @@
   &.ol,
   & p,
   &.p {
-    @apply font-primary text-root-em mb-20;
-
-    & > a {
-      @apply text-primary;
-    }
+    @apply mb-8;
   }
 
   & ul,
@@ -36,7 +32,7 @@
   &.ul {
     & li {
       &::before {
-        @apply absolute block bg-tertiary-lighter rounded-full;
+        @apply absolute block rounded-full;
 
         content: '';
         width: 5px;
@@ -54,7 +50,7 @@
 
     & > li {
       &::before {
-        @apply absolute block text-tertiary-lighter left-0 italic;
+        @apply absolute block left-0 italic;
 
         content: counter(item) '. ';
         counter-increment: item;
@@ -66,26 +62,26 @@
   /* Heading Styles */
   & h1,
   &.h1 {
-    @apply font-secondary text-h1 mb-20;
+    @apply mb-10;
   }
 
   & h2,
   &.h2 {
-    @apply font-secondary text-h2 mb-20;
+    @apply mb-10;
   }
 
   & h3,
   &.h3 {
-    @apply font-secondary text-h3 mb-20;
+    @apply mb-10;
   }
 
   & h4,
   &.h4 {
-    @apply font-secondary text-h4 mb-12;
+    @apply mb-10;
   }
 
   & h5,
   &.h5 {
-    @apply font-secondary text-h5 mb-12;
+    @apply mb-10;
   }
 }

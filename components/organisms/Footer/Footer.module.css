@@ -1,5 +1,5 @@
 .footer {
-  @apply py-40 border-t border-tertiary-lightest;
+  @apply py-8 border-t;
 
   & .footerMenu {
     & > ul {
@@ -19,6 +19,6 @@
   }
 
   & .copyright {
-    @apply py-4 text-center text-xs;
+    @apply py-4 text-center;
   }
 }

@@ -21,15 +21,12 @@ export default function Layout({children, seo, hasJsonLd}) {
     ? null
     : [
         {
-          url: seo.opengraphImage.sourceUrl,
+          url: seo?.opengraphImage.sourceUrl,
           alt: seo?.opengraphImage?.altText,
           height: 150,
           width: 150
         }
       ]
-
-  // Extract breadcrumbs from SEO.
-  const breadcrumbs = seo?.breadcrumbs
 
   return (
     <>
@@ -49,7 +46,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={seoImages ? [...seoImages] : null}
+          images={seoImages ? [...seoImages] : []}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
@@ -58,21 +55,7 @@ export default function Layout({children, seo, hasJsonLd}) {
       )}
       <Meta />
       <Header />
-      <main>
-        {/* TODO: extract breadcrumbs to component and make pretty. */}
-        {!!breadcrumbs && !!breadcrumbs.length && (
-          <div>
-            {breadcrumbs.map((breadcrumb, index) => (
-              <span key={index}>
-                <a href={breadcrumb?.url}>{breadcrumb?.text}</a>
-                {index < breadcrumbs.length - 1 && <span> &raquo; </span>}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer social={seo?.social} siteTitle={seo?.siteTitle} />
     </>
   )

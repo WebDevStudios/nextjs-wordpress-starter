@@ -31,9 +31,55 @@ export default function GravityForm({
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
+      onSubmit={async (values) => {
+        const wpBaseRequest = await fetch('/api/wp/getWPUrl')
+        const wpBaseObject = await wpBaseRequest.json()
+        const wpBase = wpBaseObject.wpApiUrlBase
+
+        const formApiUrl = `${wpBase}wp-json/gf/v2/forms/${formId}/submissions`
+        const formData = new FormData()
+        const formKeys = Object.keys(values)
+
+        formData.append('form_id', formId)
+
+        formKeys.forEach((key) => {
+          let fieldName = key.replaceAll('-', '_')
+          if (fieldName.endsWith('_filedata')) {
+            fieldName = fieldName.slice(0, -9)
+          }
+          fieldName = fieldName.replaceAll('field_', 'input_')
+
+          switch (typeof values[key]) {
+            case 'undefined':
+              break
+            case 'object':
+              if (values[key] instanceof Array) {
+                values[key].forEach((arrayFieldValue, index) => {
+                  formData.append(`${fieldName}_${index + 1}`, arrayFieldValue)
+                })
+              } else {
+                formData.append(fieldName, values[key])
+              }
+              break
+            default:
+              formData.append(fieldName, values[key])
+              break
+          }
+        })
+
+        fetch(formApiUrl, {
+          method: 'POST',
+          mimeType: 'multipart/form-data',
+          body: formData
+        }).then((response) => response.json())
+      }}
     >
-      {title && <h2 className={styles.title}>{title}</h2>}
-      {fieldData && <Fields fields={fieldData} />}
+      {(formikProps) => (
+        <>
+          {title && <h2 className={styles.title}>{title}</h2>}
+          {fieldData && <Fields fields={fieldData} formikProps={formikProps} />}
+        </>
+      )}
     </Form>
   )
 }

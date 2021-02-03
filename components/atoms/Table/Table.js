@@ -7,14 +7,14 @@ import styles from './Table.module.css'
  * Table Block
  *
  * @author WebDevStudios
- * @param {string} id        Optional anchor/id.
- * @param {string} head      The optional table head array.
- * @param {string} body      The table body array.
- * @param {string} body      The table body array.
- * @param {string} foot      The optional table foorter array.
- * @param {string} caption   Optional table caption.
- * @param {string} className Optional classnames.
- * @return {Element} The Table component.
+ * @param {object} props           The component properties.
+ * @param {string} props.id        Optional anchor/id.
+ * @param {string} props.head      The optional table head array.
+ * @param {string} props.body      The table body array.
+ * @param {string} props.foot      The optional table foorter array.
+ * @param {string} props.caption   Optional table caption.
+ * @param {string} props.className Optional classnames.
+ * @return {Element}               The Table component.
  */
 export default function Table({id, head, body, foot, caption, className}) {
   return (

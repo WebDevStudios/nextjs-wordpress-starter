@@ -5,6 +5,7 @@ import AlgoliaResults from '@/components/molecules/AlgoliaResults'
 import parseQuerystring from '@/functions/parseQuerystring'
 import {useRouter} from 'next/router'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
+import Container from '@/components/atoms/Container'
 
 /**
  * Render the Search component.
@@ -25,7 +26,9 @@ export default function Search({post}) {
 
   return (
     <Layout seo={{...post?.seo}}>
-      <AlgoliaResults config={algoliaConfig} isSearch={true} />
+      <Container>
+        <AlgoliaResults config={algoliaConfig} isSearch={true} />
+      </Container>
     </Layout>
   )
 }

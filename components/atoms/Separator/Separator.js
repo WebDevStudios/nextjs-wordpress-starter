@@ -7,9 +7,10 @@ import styles from './Separator.module.css'
  * Render the Separator component.
  *
  * @author WebDevStudios
- * @param {string}  className Optional classname.
- * @param {boolean} fullWidth Is this a fullwidth block.
- * @return {Element} The Separator component.
+ * @param {object}  props           The component properties.
+ * @param {string}  props.className Optional classname.
+ * @param {boolean} props.fullWidth Is this a fullwidth block.
+ * @return {Element}                The Separator component.
  */
 export default function Separator({className, fullWidth}) {
   return (
@@ -17,9 +18,7 @@ export default function Separator({className, fullWidth}) {
       {fullWidth ? (
         <hr className={cn(styles.separator, className)} />
       ) : (
-        <div>
-          <hr className={cn(styles.separator, className)} />
-        </div>
+        <hr className={cn(styles.separator, className)} />
       )}
     </>
   )

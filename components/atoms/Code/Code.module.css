@@ -2,6 +2,6 @@
   @apply mb-40;
 
   & > pre {
-    @apply rounded-larger;
+    @apply rounded;
   }
 }

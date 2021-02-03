@@ -1,5 +1,5 @@
 .hero {
-  @apply container px-32 rounded-largest text-white;
+  @apply mb-12 container px-32 rounded;
 
   padding-top: 9.125rem;
   padding-bottom: 9.5rem;
@@ -11,15 +11,15 @@
 
   & .content {
     & .subtitle {
-      @apply text-h5;
+      @apply text-sm opacity-80 mb-2 text-white;
     }
 
     & .title {
-      @apply font-secondary text-hero;
+      @apply font-bold text-xl mb-4 text-white;
     }
 
     & .body {
-      @apply text-sm;
+      @apply text-white;
     }
 
     & .body + .button {

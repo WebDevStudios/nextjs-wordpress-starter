@@ -1,4 +1,5 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import Hero from '@/components/organisms/Hero'
 import getPagePropTypes from '@/functions/getPagePropTypes'
@@ -26,22 +27,19 @@ export default function HomePage({post}) {
   // Display static page content as fallback.
   return (
     <Layout seo={{...seo}}>
-      <div className="container">
-        <section>
-          <article>
-            <Hero
-              background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
-              title="Next.js Starter"
-              description="A slightly opinionated, yet bare-bones Next.js starter."
-            />
-            <p>
-              To display your WordPress homepage dynamically, set your homepage
-              to a static page via the WP dashboard (Settings: Reading
-              Settings).
-            </p>
-          </article>
-        </section>
-      </div>
+      <Container>
+        <article>
+          <Hero
+            background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
+            title="Next.js Starter"
+            description="A slightly opinionated, yet bare-bones Next.js starter."
+          />
+          <p>
+            To display your WordPress homepage dynamically, set your homepage to
+            a static page via the WP dashboard (Settings: Reading Settings).
+          </p>
+        </article>
+      </Container>
     </Layout>
   )
 }

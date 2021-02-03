@@ -1,15 +1,15 @@
 .alert {
-  @apply flex items-center px-16 py-8 rounded font-primary text-sm text-white bg-primary;
+  @apply flex items-center px-8 py-4 rounded bg-blue-600 text-white;
 
   & .icon {
-    @apply mr-24;
+    @apply mr-6;
   }
 
   &.success {
-    @apply bg-success;
+    @apply bg-red-600;
   }
 
   &.error {
-    @apply bg-error;
+    @apply bg-green-600;
   }
 }
