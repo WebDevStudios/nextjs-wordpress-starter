@@ -13,7 +13,7 @@ import styles from './Breadcrumbs.module.css'
 export default function Breadcrumbs({breadcrumbs}) {
   return (
     <>
-      {!!breadcrumbs && !!breadcrumbs.length && (
+      {!!breadcrumbs?.length && (
         <ul className={styles.breadcrumbs}>
           {breadcrumbs.map((breadcrumb, index) => (
             <li key={index}>
