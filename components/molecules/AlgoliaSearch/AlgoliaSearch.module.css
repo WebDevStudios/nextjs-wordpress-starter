@@ -20,7 +20,7 @@
     @apply relative h-full;
 
     & input {
-      @apply w-full p-2 pr-8 border rounded;
+      @apply w-full p-2 pr-12 border rounded text-sm;
 
       background: #fff;
       line-height: 1;
@@ -35,7 +35,7 @@
 
     /* Buttons (Submit, Reset) */
     & button {
-      @apply absolute cursor-pointer flex justify-center items-center right-4;
+      @apply absolute cursor-pointer flex justify-center items-center right-2;
 
       width: 28px;
       height: 28px;
@@ -56,7 +56,7 @@
 
       /* Reset Button */
       &[type='reset'] {
-        @apply right-28;
+        @apply right-8;
 
         & svg {
           width: 12px;
@@ -77,8 +77,8 @@
 
     z-index: 999;
     bottom: -10px;
-    width: 112%;
-    margin-left: -6%;
+    width: 106%;
+    margin-left: -3%;
   }
 
   /* Show dropmenu on Focus */
@@ -102,28 +102,16 @@
     background-color: #fff;
 
     & ul {
-      @apply py-8;
-
-      & li {
-        &:not(.clear) {
-          & button {
-            &:hover,
-            &:focus {
-              color: #fff;
-
-              & span.time {
-                color: #fff;
-              }
-            }
-          }
-        }
-      }
+      @apply p-2;
     }
 
     & button {
-      @apply block w-full py-12 px-20 text-left transition  font-semibold;
+      @apply block w-full p-2 text-left transition font-semibold text-sm;
 
-      line-height: 1.25;
+      &:hover,
+      &:focus {
+        @apply underline;
+      }
 
       & em {
         font-style: normal;
@@ -137,22 +125,17 @@
       @apply w-full flex justify-between items-center;
 
       & span.time {
-        @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start;
+        @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start text-xs opacity-50;
 
         width: 30%;
       }
     }
 
     & .clear {
-      @apply mt-4 border-none;
+      @apply mt-2 border-t;
 
       & button {
-        @apply py-8 font-normal;
-
-        &:hover,
-        &:focus {
-          @apply underline;
-        }
+        @apply mt-2 font-normal text-xs;
       }
     }
   }
