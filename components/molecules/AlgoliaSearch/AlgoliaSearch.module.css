@@ -35,7 +35,7 @@
 
     /* Buttons (Submit, Reset) */
     & button {
-      @apply absolute cursor-pointer flex justify-center items-center right-2;
+      @apply absolute cursor-pointer flex justify-center items-center right-1;
 
       width: 28px;
       height: 28px;

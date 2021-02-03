@@ -1,5 +1,5 @@
 .code {
-  @apply mb-40;
+  @apply mb-8;
 
   & > pre {
     @apply rounded;

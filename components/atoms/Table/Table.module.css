@@ -1,6 +1,6 @@
 .table {
   & table {
-    @apply w-full border-collapse mb-12;
+    @apply w-full border-collapse mb-8;
 
     & td,
     & th {
@@ -35,6 +35,6 @@
   }
 
   & .caption {
-    @apply mb-12 text-center;
+    @apply mb-8 text-center text-xs;
   }
 }

@@ -1,5 +1,5 @@
 .image {
-  @apply mb-20;
+  @apply mb-8;
 
   & img {
     @apply block rounded;

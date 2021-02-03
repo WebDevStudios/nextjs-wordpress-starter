@@ -1,5 +1,5 @@
 .hero {
-  @apply mb-12 container px-32 rounded;
+  @apply mb-8 container px-32 rounded;
 
   padding-top: 9.125rem;
   padding-bottom: 9.5rem;

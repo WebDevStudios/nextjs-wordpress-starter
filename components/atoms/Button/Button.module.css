@@ -1,5 +1,5 @@
 .button {
-  @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase;
+  @apply inline-flex items-center justify-center rounded border cursor-pointer font-semibold;
 
   & svg {
     @apply ml-12;

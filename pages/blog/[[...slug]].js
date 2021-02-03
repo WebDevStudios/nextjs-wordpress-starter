@@ -73,6 +73,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
           {!!post?.seo?.breadcrumbs && (
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
           )}
+          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
           <Blocks blocks={post?.blocks} />
           <div
             dangerouslySetInnerHTML={{

@@ -1,5 +1,38 @@
 #page-content {
-  h1 {
-    @apply text-xl font-semibold;
+  /* Body Link Styles */
+  & ul:not(.breadcrumbs),
+  & ol,
+  & p {
+    & a {
+      @apply text-blue-500 underline;
+
+      &:hover,
+      &:focus {
+        @apply no-underline;
+      }
+    }
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    @apply mb-4 font-semibold;
+  }
+
+  & h1 {
+    @apply mb-8 text-3xl;
+  }
+
+  & h2 {
+    @apply text-2xl;
+  }
+
+  & h3 {
+    @apply text-xl;
+  }
+
+  & h4 {
+    @apply text-lg;
   }
 }
