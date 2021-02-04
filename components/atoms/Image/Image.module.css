@@ -6,6 +6,6 @@
   }
 
   & .caption {
-    @apply text-center pt-12;
+    @apply text-center text-xs pt-4;
   }
 }

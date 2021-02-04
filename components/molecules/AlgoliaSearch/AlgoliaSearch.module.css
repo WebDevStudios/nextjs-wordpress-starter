@@ -126,8 +126,6 @@
 
       & span.time {
         @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start text-xs opacity-50;
-
-        width: 30%;
       }
     }
 
