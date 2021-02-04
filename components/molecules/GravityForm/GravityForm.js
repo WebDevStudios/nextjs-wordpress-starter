@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import React, {useState} from 'react'
 import Form from '@/components/molecules/Form'
 import Fields from './Fields'
 import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
@@ -24,6 +25,8 @@ export default function GravityForm({
   const fieldData = fields?.edges
   const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
+
+  const [formFeedback, setFeedback] = useState(false)
 
   return (
     <Form
@@ -71,13 +74,24 @@ export default function GravityForm({
           method: 'POST',
           mimeType: 'multipart/form-data',
           body: formData
-        }).then((response) => response.json())
+        })
+          .then((response) => response.json())
+          .then((feedback) => setFeedback(feedback.confirmation_message))
+          .catch((error) => {
+            setFeedback(`Error in form submission: ${error.message}`)
+          })
       }}
     >
       {(formikProps) => (
         <>
           {title && <h2 className={styles.title}>{title}</h2>}
           {fieldData && <Fields fields={fieldData} formikProps={formikProps} />}
+          {!!formFeedback && (
+            <div
+              className="feedback"
+              dangerouslySetInnerHTML={{__html: formFeedback}}
+            />
+          )}
         </>
       )}
     </Form>
