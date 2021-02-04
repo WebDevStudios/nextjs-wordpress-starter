@@ -10,6 +10,9 @@ const archiveTeamFragment = gql`
     ${globalPostFields}
     excerpt
     ${featuredImagePostFields}
+    teamMemberProfile {
+      easterEggUrl
+    }
   }
 `
 
