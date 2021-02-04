@@ -7,6 +7,6 @@ import {create} from '@storybook/theming/create'
  */
 export default create({
   base: 'light',
-  brandTitle: 'WebDevStudios',
-  brandUrl: 'https://webdevstudios.com'
+  brandTitle: 'Next.js WordPress Starter',
+  brandUrl: 'https://nextjs-wordpress-starter-staging.vercel.app'
 })
