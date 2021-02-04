@@ -2,12 +2,13 @@ import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
+import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
+import Card from '@/components/molecules/Card'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import Link from 'next/link'
 
 // Define route post type.
 const postType = 'team'
@@ -37,25 +38,27 @@ export default function Team({post, archive, posts, pagination}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <Container>
+        <Container className="container py-20">
           {!posts || !posts.length ? (
             <p>No posts found.</p>
           ) : (
-            posts.map((post, index) => (
-              <article key={index}>
-                <Link href={post.uri}>
-                  <a>
-                    <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                  </a>
-                </Link>
-                <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-              </article>
-            ))
+            <div className="w-1/3 grid grid-cols-1 gap-12">
+              {posts.map((post, index) => (
+                <Card
+                  key={index}
+                  title={post?.title}
+                  url={post?.uri}
+                  body={post?.excerpt}
+                />
+              ))}
+            </div>
           )}
-          {/* TODO: replace this with a component. */}
-          <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
-            Load more
-          </button>
+          <Button
+            onClick={() => loadPosts}
+            text="Load More"
+            type="secondary"
+            disabled={!pagination.hasNextPage}
+          />
         </Container>
       </Layout>
     )

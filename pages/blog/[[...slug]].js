@@ -1,17 +1,15 @@
 import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
-import postComment from '@/api/frontend/wp/comments/postComment'
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
+import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
-import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
-import Form from '@/components/molecules/Form'
+import Card from '@/components/molecules/Card'
+import Comments from '@/components/molecules/Comments'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import Link from 'next/link'
-import * as Yup from 'yup'
 
 // Define route post type.
 const postType = 'post'
@@ -42,26 +40,26 @@ export default function BlogPost({post, archive, posts, pagination}) {
     return (
       <Layout seo={{...post?.seo}}>
         <Container>
-          <section>
-            {!posts || !posts.length ? (
-              <p>No posts found.</p>
-            ) : (
-              posts.map((post, index) => (
-                <article key={index}>
-                  <Link href={post?.uri}>
-                    <a>
-                      <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
-                    </a>
-                  </Link>
-                  <div dangerouslySetInnerHTML={{__html: post?.excerpt}} />
-                </article>
-              ))
-            )}
-            {/* TODO: replace this with a component. */}
-            <button onClick={loadPosts} disabled={!pagination.hasNextPage}>
-              Load more
-            </button>
-          </section>
+          {!posts || !posts.length ? (
+            <p>No posts found.</p>
+          ) : (
+            <div className="w-1/3 grid grid-cols-1 gap-12">
+              {posts.map((post, index) => (
+                <Card
+                  key={index}
+                  title={post?.title}
+                  url={post?.uri}
+                  body={post?.excerpt}
+                />
+              ))}
+            </div>
+          )}
+          <Button
+            onClick={() => loadPosts}
+            text="Load More"
+            type="secondary"
+            disabled={!pagination.hasNextPage}
+          />
         </Container>
       </Layout>
     )
@@ -76,40 +74,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
           )}
           <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(post?.comments ?? [])
-            }}
-          />
-
-          <Form
-            className="sample-form"
-            id="form-1"
-            title="Add a comment"
-            validationSchema={Yup.object().shape({
-              author: Yup.string().required('This field is required.'),
-              authorEmail: Yup.string().required('This field is required.')
-            })}
-            onSubmit={async (values, {setSubmitting}) => {
-              const {author, authorEmail, authorUrl, content} = values
-              const response = await postComment(
-                author,
-                authorEmail,
-                authorUrl,
-                post.databaseId,
-                content
-              )
-              response.error
-                ? alert(response.errorMessage)
-                : alert(JSON.stringify(response))
-              setSubmitting(false)
-            }}
-          >
-            <Text id="author" label="Author" isRequired type="text" />
-            <Text id="authorEmail" label="Email" isRequired type="email" />
-            <Text id="authorUrl" label="Website" type="url" />
-            <Text id="content" label="Comment" isRequired type="text" />
-          </Form>
+          <Comments comments={post?.comments?.edges} postId={post.databaseId} />
         </article>
       </Container>
     </Layout>

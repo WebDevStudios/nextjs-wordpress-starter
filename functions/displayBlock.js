@@ -49,6 +49,8 @@ export default function displayBlock(block, index) {
       return <Blocks.BlockSeparator {...attributes} key={index} />
     case 'core/spacer':
       return <Blocks.BlockSpacer {...attributes} key={index} />
+    case 'gravityforms/form':
+      return <Blocks.BlockGravityForm attributes={attributes} key={index} />
     case 'lazyblock/mediatext':
       return <Blocks.LzbBlockMediaText attributes={attributes} key={index} />
     case 'lazyblock/hero':
