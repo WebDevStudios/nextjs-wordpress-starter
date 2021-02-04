@@ -55,7 +55,7 @@ export default function Layout({children, seo, hasJsonLd}) {
       )}
       <Meta />
       <Header />
-      <main>{children}</main>
+      <main id="page-content">{children}</main>
       <Footer social={seo?.social} siteTitle={seo?.siteTitle} />
     </>
   )

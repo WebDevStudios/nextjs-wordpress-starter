@@ -1,8 +1,8 @@
 .button {
-  @apply inline-flex items-center justify-center rounded border transition-colors duration-150 ease-in-out cursor-pointer uppercase;
+  @apply inline-flex items-center justify-center rounded border cursor-pointer font-semibold mr-2 mb-2;
 
   & svg {
-    @apply ml-12;
+    @apply ml-4;
   }
 
   &.iconLeft {
@@ -16,26 +16,20 @@
   &:hover,
   &:focus,
   &:active:not([disabled]) {
-    @apply no-underline;
+    @apply underline;
   }
 
   /* SIZES */
   &.lg {
-    @apply px-6 py-3;
-
-    line-height: 1.5625rem;
+    @apply px-4 py-3 text-lg;
   }
 
   &.md {
-    @apply px-3 py-1.5;
-
-    line-height: 1.25rem;
+    @apply px-3 py-2;
   }
 
   &.sm {
     @apply px-1.5 py-0.5;
-
-    line-height: 1.0625rem;
   }
 
   &.fluid {

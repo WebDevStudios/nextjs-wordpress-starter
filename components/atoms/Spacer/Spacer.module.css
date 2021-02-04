@@ -1,9 +1,0 @@
-.divider {
-  @apply w-full py-0 my-40;
-
-  opacity: 0.1;
-
-  @media print {
-    @apply hidden;
-  }
-}

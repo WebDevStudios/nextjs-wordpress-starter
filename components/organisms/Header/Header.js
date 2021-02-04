@@ -1,3 +1,4 @@
+import Container from '@/components/atoms/Container'
 import Logo from '@/components/atoms/Logo'
 import {MenuContext} from '@/components/common/MenuProvider'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
@@ -17,22 +18,29 @@ import styles from './Header.module.css'
 export default function Header() {
   const {menus} = useContext(MenuContext)
   return (
-    <header className={styles.header}>
-      <div className={styles.search}>
-        <AlgoliaSearch
-          useHistory={true}
-          usePlaceholder={true}
-          className="ml-auto"
-        />
-      </div>
-      <div className={styles.navigation}>
-        <Logo />
-        <Navigation
-          menu={menus?.primary_menu}
-          styles={styles}
-          className={styles.primaryMenu}
-        />
-      </div>
-    </header>
+    <>
+      <a className={styles.skip} href="#page-content">
+        Skip to Main Content
+      </a>
+      <header className={styles.header}>
+        <Container paddingTop={false} paddingBtm={false}>
+          <div className={styles.search}>
+            <AlgoliaSearch
+              useHistory={true}
+              usePlaceholder={true}
+              className="ml-auto"
+            />
+          </div>
+          <div className={styles.navigation}>
+            <Logo />
+            <Navigation
+              menu={menus?.primary_menu}
+              styles={styles}
+              className={styles.primaryMenu}
+            />
+          </div>
+        </Container>
+      </header>
+    </>
   )
 }

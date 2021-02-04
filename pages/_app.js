@@ -1,5 +1,6 @@
 import {useApollo} from '@/api/apolloConfig'
 import '@/styles/index.css'
+import '@/styles/demo.css'
 import {ApolloProvider} from '@apollo/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'

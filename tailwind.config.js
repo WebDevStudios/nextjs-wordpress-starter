@@ -10,7 +10,13 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        margin: 'auto'
+        margin: 'auto',
+        screens: {
+          sm: '100%',
+          md: '100%',
+          lg: '1024px',
+          xl: '1280px'
+        }
       }
     }
   },

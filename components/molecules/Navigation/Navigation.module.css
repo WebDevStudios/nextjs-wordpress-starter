@@ -2,18 +2,12 @@
   & > ul {
     @apply flex;
 
-    /* Nested ul */
-    & ul {
-      @apply hidden absolute left-0 z-50 p-16 shadow-sm;
-
-      top: 100%;
-      background-color: #fff;
-    }
-
     & > li {
-      @apply relative ml-20;
+      @apply relative ml-10;
 
       & a {
+        @apply block;
+
         &:hover,
         &:focus {
           @apply underline;
@@ -28,6 +22,23 @@
       &:focus-within {
         & > ul {
           @apply block;
+        }
+      }
+    }
+
+    /* Nested ul / Drop Menu */
+    & ul {
+      @apply hidden absolute left-0 z-50 p-2 shadow-sm rounded border;
+
+      top: 100%;
+      width: 220px;
+      background-color: #fff;
+
+      & > li {
+        @apply text-sm;
+
+        & > a {
+          @apply p-2;
         }
       }
     }
