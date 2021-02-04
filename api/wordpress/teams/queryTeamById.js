@@ -14,6 +14,17 @@ const singleTeamFragment = gql`
     ${seoPostFields}
     ${authorPostFields}
     ${featuredImagePostFields}
+    teamMemberProfile {
+      facebookUrl
+      githubUrl
+      instagramUrl
+      linkedinUrl
+      location
+      websiteUrl
+      twitterUrl
+      title
+      wordpressorgProfileUrl
+    }
   }
 `
 
