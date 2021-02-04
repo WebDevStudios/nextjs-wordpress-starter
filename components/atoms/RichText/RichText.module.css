@@ -3,13 +3,11 @@
     @apply text-center;
   }
 
-  /* Paragraph Styles */
-  &.p {
-    @apply mb-4;
-  }
-
+  /* List Styles */
   &.ul,
   &.ol {
+    @apply mb-4;
+
     & li {
       @apply mb-2 relative pl-6 list-none;
     }
@@ -22,7 +20,7 @@
 
   /* Unordered Lists */
   &.ul {
-    & li {
+    & > li {
       &::before {
         @apply absolute block rounded-full;
 

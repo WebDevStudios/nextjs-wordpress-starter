@@ -1,5 +1,12 @@
+/* This file is for demo purposes only. */
+
 #page-content {
-  /* Body Link Styles */
+  /* Global Styles */
+
+  & .innerWrap {
+    @apply max-w-5xl m-auto py-2;
+  }
+
   & ul:not(.breadcrumbs),
   & ol,
   & p {
@@ -18,11 +25,11 @@
   & h2,
   & h3,
   & h4 {
-    @apply mb-4 font-semibold;
+    @apply mb-6 font-semibold;
   }
 
   & h1 {
-    @apply mb-8 text-3xl;
+    @apply text-4xl;
   }
 
   & h2 {
@@ -30,10 +37,17 @@
   }
 
   & h3 {
-    @apply text-xl;
+    @apply mb-4 text-xl;
   }
 
   & h4 {
-    @apply text-lg;
+    @apply mb-4 text-lg;
+  }
+
+  /* Rich Text Styles */
+  & p,
+  & ul,
+  & ol {
+    @apply mb-4;
   }
 }

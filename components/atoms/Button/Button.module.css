@@ -16,7 +16,7 @@
   &:hover,
   &:focus,
   &:active:not([disabled]) {
-    @apply no-underline;
+    @apply underline;
   }
 
   /* SIZES */

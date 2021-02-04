@@ -5,6 +5,7 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Container from '@/components/atoms/Container'
 import Text from '@/components/atoms/Inputs/Text'
+import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import Form from '@/components/molecules/Form'
@@ -69,11 +70,11 @@ export default function BlogPost({post, archive, posts, pagination}) {
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <Container>
-        <article>
+        <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
           )}
-          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
           <div
             dangerouslySetInnerHTML={{

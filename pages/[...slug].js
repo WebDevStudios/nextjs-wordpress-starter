@@ -1,6 +1,7 @@
 import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Container from '@/components/atoms/Container'
+import RichText from '@/components/atoms/RichText'
 import BlockGravityForm from '@/components/blocks/Gutenberg/BlockGravityForm'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
@@ -24,8 +25,8 @@ export default function Page({post}) {
   return (
     <Layout seo={{...post?.seo}}>
       <Container>
-        <article>
-          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+        <article className="innerWrap">
+          <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
         </article>
         {post?.slug === 'form-demo' && (

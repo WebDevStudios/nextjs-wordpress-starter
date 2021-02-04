@@ -3,6 +3,7 @@ import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPat
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Container from '@/components/atoms/Container'
+import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import getPagePropTypes from '@/functions/getPagePropTypes'
@@ -63,11 +64,11 @@ export default function Team({post, archive, posts, pagination}) {
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <Container>
-        <article>
+        <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
           )}
-          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
         </article>
       </Container>
