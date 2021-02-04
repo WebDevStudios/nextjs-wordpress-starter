@@ -1,5 +1,5 @@
 .columns {
-  @apply grid gap-16 grid-cols-3;
+  @apply grid gap-8 grid-cols-3;
 
   &.columns-1 {
     @apply grid-cols-1;

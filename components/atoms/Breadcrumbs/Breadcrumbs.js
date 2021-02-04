@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './Breadcrumbs.module.css'
+import cn from 'classnames'
 
 /**
  * Render the Breadcrumbs component.
@@ -14,7 +15,7 @@ export default function Breadcrumbs({breadcrumbs}) {
   return (
     <>
       {!!breadcrumbs?.length && (
-        <ul className={styles.breadcrumbs}>
+        <ul className={cn(styles.breadcrumbs, 'breadcrumbs')}>
           {breadcrumbs.map((breadcrumb, index) => (
             <li key={index}>
               <Link href={breadcrumb?.url}>

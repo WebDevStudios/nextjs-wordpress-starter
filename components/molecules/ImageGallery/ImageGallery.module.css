@@ -1,8 +1,8 @@
 .gallery {
-  @apply mb-20;
+  @apply mb-8;
 
   & .wrap {
-    @apply grid grid-cols-4 gap-12;
+    @apply grid grid-cols-4 gap-2;
 
     &.columns-1 {
       @apply grid-cols-1;
@@ -27,9 +27,13 @@
     &.columns-6 {
       @apply grid-cols-6;
     }
+
+    & > div {
+      @apply self-center;
+    }
   }
 
   & .caption {
-    @apply text-center pt-12;
+    @apply text-center text-xs pt-4;
   }
 }

@@ -3,37 +3,28 @@
     @apply text-center;
   }
 
-  /* Paragraph, List Styles */
-  & ul,
+  /* List Styles */
   &.ul,
-  & ol,
-  &.ol,
-  & p,
-  &.p {
-    @apply mb-8;
-  }
-
-  & ul,
-  &.ul,
-  & ol,
   &.ol {
+    @apply mb-4;
+
     & li {
-      @apply mb-4 relative pl-24 list-none;
+      @apply mb-2 relative pl-6 list-none;
     }
 
     & ul,
     & ol {
-      @apply ml-16 mb-0;
+      @apply ml-6 mb-0;
     }
   }
 
   /* Unordered Lists */
-  & ul,
   &.ul {
-    & li {
+    & > li {
       &::before {
         @apply absolute block rounded-full;
 
+        background: #000;
         content: '';
         width: 5px;
         height: 5px;
@@ -44,7 +35,6 @@
   }
 
   /* Ordered Lists */
-  & ol,
   &.ol {
     counter-reset: item;
 
@@ -57,31 +47,5 @@
         margin-left: 2px;
       }
     }
-  }
-
-  /* Heading Styles */
-  & h1,
-  &.h1 {
-    @apply mb-10;
-  }
-
-  & h2,
-  &.h2 {
-    @apply mb-10;
-  }
-
-  & h3,
-  &.h3 {
-    @apply mb-10;
-  }
-
-  & h4,
-  &.h4 {
-    @apply mb-10;
-  }
-
-  & h5,
-  &.h5 {
-    @apply mb-10;
   }
 }

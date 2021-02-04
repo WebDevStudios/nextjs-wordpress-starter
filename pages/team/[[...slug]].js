@@ -4,6 +4,7 @@ import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticPro
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
+import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import Card from '@/components/molecules/Card'
@@ -66,12 +67,38 @@ export default function Team({post, archive, posts, pagination}) {
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <Container>
-        <article>
+        <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
           )}
-          <h1 dangerouslySetInnerHTML={{__html: post?.title}} />
+          <RichText tag="h1">{post?.title}</RichText>
+          <p>{post?.teamMemberProfile?.title}</p>
           <Blocks blocks={post?.blocks} />
+          {!!post?.teamMemberProfile && (
+            // Other profiles exist; this is a sample.
+            <ul>
+              {!!post.teamMemberProfile.facebookUrl && (
+                <li>
+                  <a href={post.teamMemberProfile.facebookUrl}>Facebook</a>
+                </li>
+              )}
+              {!!post.teamMemberProfile.linkedinUrl && (
+                <li>
+                  <a href={post.teamMemberProfile.linkedinUrl}>LinkedIn</a>
+                </li>
+              )}
+              {!!post.teamMemberProfile.twitterUrl && (
+                <li>
+                  <a href={post.teamMemberProfile.twitterUrl}>Twitter</a>
+                </li>
+              )}
+              {!!post.teamMemberProfile.githubUrl && (
+                <li>
+                  <a href={post.teamMemberProfile.githubUrl}>GitHub</a>
+                </li>
+              )}
+            </ul>
+          )}
         </article>
       </Container>
     </Layout>

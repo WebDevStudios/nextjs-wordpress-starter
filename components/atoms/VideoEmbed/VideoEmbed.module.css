@@ -1,5 +1,5 @@
 .videoEmbed {
-  @apply mb-24;
+  @apply mb-8;
 
   & .wrapper {
     @apply w-full relative overflow-hidden;
@@ -12,6 +12,6 @@
   }
 
   & .caption {
-    @apply text-center text-xs pt-12;
+    @apply text-center text-xs pt-4;
   }
 }

@@ -2,10 +2,26 @@
   @apply sticky top-0 py-4 transition-all z-50 border-b shadow bg-gray-100;
 
   & .search {
-    @apply container mb-8;
+    @apply mb-4;
   }
 
   & .navigation {
-    @apply container px-4 lg:px-0 flex items-center justify-between;
+    @apply flex items-end justify-between;
+  }
+}
+
+.skip {
+  @apply absolute text-sm p-2;
+
+  top: -200px;
+  left: -200px;
+  z-index: 9999;
+  background: #fff;
+
+  &:focus {
+    @apply visible opacity-100;
+
+    top: 10px;
+    left: 10px;
   }
 }

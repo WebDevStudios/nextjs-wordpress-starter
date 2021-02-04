@@ -1,3 +1,4 @@
+import RichText from '@/components/atoms/RichText'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {connectStateResults, InfiniteHits} from 'react-instantsearch-dom'
@@ -31,7 +32,7 @@ const SearchResults = connectStateResults(({searchResults, indexName}) => {
         <>
           <div className={styles.resultsHeader}>
             <div>
-              <h1>Search Results</h1>
+              <RichText tag="h1">Search Results</RichText>
               <p className={styles.total}>
                 <span>{searchResults.nbHits} Results</span> for{' '}
                 {searchResults.query}
