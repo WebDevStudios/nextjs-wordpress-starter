@@ -55,6 +55,8 @@ export default function displayBlock(block, index) {
       return <Blocks.LzbBlockMediaText attributes={attributes} key={index} />
     case 'lazyblock/hero':
       return <Blocks.LzbBlockHero attributes={attributes} key={index} />
+    case 'acf/acf-media-text':
+      return <Blocks.AcfBlockMediaText attributes={attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }
