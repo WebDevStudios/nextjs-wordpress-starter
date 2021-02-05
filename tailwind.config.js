@@ -1,3 +1,4 @@
+// https://tailwindcss.com/docs/installation#create-your-configuration-file
 module.exports = {
   purge: {
     content: [

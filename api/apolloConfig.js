@@ -1,6 +1,6 @@
-import {useMemo} from 'react'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
+import {useMemo} from 'react'
 import {initializeWpApollo} from './wordpress/connector'
 
 // Set global state name.
@@ -10,6 +10,9 @@ export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
  * Init Apollo and merge with initial state.
  *
  * @author WebDevStudios
+ *
+ * @see https://www.apollographql.com/docs/react/get-started/
+ *
  * @param {object} apolloClient Apollo client instance.
  * @param {*}      initialState The initial state of things.
  * @return {object}             Apollo client instance.

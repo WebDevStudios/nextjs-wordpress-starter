@@ -11,5 +11,13 @@
   // This will get emmet working in JSX.
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
+  },
+
+  // 🔥 WebDevStudios - Your Success Is Our Mission. 🌮
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#3f4040",
+    "titleBar.inactiveForeground": "#3f4040CC",
+    "titleBar.activeBackground": "#F3713C",
+    "titleBar.inactiveBackground": "#F3713CCC"
   }
 }

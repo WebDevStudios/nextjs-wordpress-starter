@@ -1,5 +1,5 @@
-import algoliasearch from 'algoliasearch/lite'
 import getEnvVar from '@/functions/getEnvVar'
+import algoliasearch from 'algoliasearch/lite'
 
 // Define env vars.
 export const algoliaIndexName = getEnvVar('ALGOLIA_INDEX_NAME', true)
@@ -8,6 +8,7 @@ export const algoliaAppId = process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID
 
 const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchKey)
 
+// https://www.algolia.com/doc/api-client/getting-started/what-is-the-api-client/javascript/?client=javascript
 export const searchClient = {
   search(requests) {
     if (requests.every(({params}) => !params.query)) {
