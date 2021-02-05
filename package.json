@@ -1,7 +1,7 @@
 {
   "name": "nextjs-wordpress-starter",
   "version": "1.0.0",
-  "description": "Next.js WordPress starter.",
+  "description": "Next.js WordPress Starter.",
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
@@ -19,9 +19,8 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token zp8e8oo1lq",
     "clean": "rm -rf .next",
-    "deploy prod": "vercel --prod",
-    "deploy staging": "vercel",
     "dev": "yarn clean && next dev",
     "develop": "yarn dev",
     "export": "next export",
@@ -29,10 +28,9 @@
     "lint": "yarn format && yarn lint:js && yarn lint:css",
     "lint:css": "npx stylelint --config=stylelint.config.js '**/*.css' --fix || true",
     "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
+    "postbuild": "next-sitemap",
     "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "chromatic": "npx chromatic --project-token zp8e8oo1lq",
-    "postbuild": "next-sitemap"
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "next": "latest",
