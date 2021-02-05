@@ -28,21 +28,23 @@ Our starter for headless WordPress projects. View the [demo](https://nextjs-word
 
 ## Frontend Features
 
+- Algolia Search
 - Apollo Client
 - Atomic Design
 - CSS Modules
 - Chromatic
 - ESLint
 - Formik
+- Incremental Static Regeneration
 - JSDocs
 - PostCSS
 - Prettier
 - SEO
 - Sitemaps
+- Static Generation
 - Storybook
 - Stylelint
 - TailwindCSS
-- Vercel
 
 ---
 
