@@ -1,14 +1,14 @@
 import {useApollo} from '@/api/apolloConfig'
-import '@/styles/index.css'
+import AlgoliaProvider from '@/components/common/AlgoliaProvider'
+import MenuProvider from '@/components/common/MenuProvider'
 import '@/styles/demo.css'
+import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
-import {useState, useEffect} from 'react'
-import PropTypes from 'prop-types'
-import AlgoliaProvider from '@/components/common/AlgoliaProvider'
-import MenuProvider from '@/components/common/MenuProvider'
 import {useRouter} from 'next/router'
+import PropTypes from 'prop-types'
+import {useEffect, useState} from 'react'
 
 /**
  * Render the App component.
@@ -17,7 +17,7 @@ import {useRouter} from 'next/router'
  * @param {object}  props           The component attributes as props.
  * @param {object}  props.Component Page component to display.
  * @param {boolean} props.pageProps Page component props.
- * @return {Element} The App component.
+ * @return {Element}                The App component.
  */
 export default function App({Component, pageProps}) {
   /**
