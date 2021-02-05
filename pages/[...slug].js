@@ -2,13 +2,9 @@ import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPat
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
-import BlockGravityForm from '@/components/blocks/Gutenberg/BlockGravityForm'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-
-// TODO Remove BlockGravityForm once block support is added.
-// TODO Remove slug based BlockGravityForm from page render.
 
 // Define route post type.
 const postType = 'page'
@@ -19,7 +15,7 @@ const postType = 'page'
  * @author WebDevStudios
  * @param {object} props      The component attributes as props.
  * @param {object} props.post Post data from WordPress.
- * @return {Element} The Page component.
+ * @return {Element}          The Page component.
  */
 export default function Page({post}) {
   return (
@@ -29,9 +25,6 @@ export default function Page({post}) {
           <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
         </article>
-        {post?.slug === 'form-demo' && (
-          <BlockGravityForm {...post?.blocks[0]} />
-        )}
       </Container>
     </Layout>
   )
@@ -55,7 +48,7 @@ export async function getStaticPaths() {
  * @param {object}  context.params      Route parameters for current post.
  * @param {boolean} context.preview     Whether requesting preview of post.
  * @param {object}  context.previewData Post preview data.
- * @return {object} Post props.
+ * @return {object}                     Post props.
  */
 export async function getStaticProps({params, preview, previewData}) {
   return getPostTypeStaticProps(params, postType, preview, previewData)

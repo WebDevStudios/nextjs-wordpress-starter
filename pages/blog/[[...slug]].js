@@ -23,7 +23,7 @@ const postType = 'post'
  * @param {boolean} props.archive    Whether displaying single post (false) or archive (true).
  * @param {Array}   props.posts      Array of post data from WordPress.
  * @param {object}  props.pagination Archive pagination data from WordPress.
- * @return {Element} The BlogPost component.
+ * @return {Element}                 The BlogPost component.
  */
 export default function BlogPost({post, archive, posts, pagination}) {
   /**
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
  * @param {object}  context.params      Route parameters for current post.
  * @param {boolean} context.preview     Whether requesting preview of post.
  * @param {object}  context.previewData Post preview data.
- * @return {object} Post props.
+ * @return {object}                     Post props.
  */
 export async function getStaticProps({params, preview, previewData}) {
   return getPostTypeStaticProps(params, postType, preview, previewData)
