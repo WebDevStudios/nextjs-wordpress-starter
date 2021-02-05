@@ -10,6 +10,7 @@ Our starter for headless WordPress projects. View the [demo](https://nextjs-word
 
 - Advanced Custom Fields Pro
 - Algolia Search
+- Application Passwords
 - Archives
 - Content Blocks
   - ACF Blocks
