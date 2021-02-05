@@ -38,7 +38,7 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.7",
+    "@apollo/client": "^3.3.8",
     "@babel/core": "^7.12.13",
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-essentials": "^6.1.17",
