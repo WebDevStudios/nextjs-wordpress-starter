@@ -95,7 +95,7 @@ Stories are written in `.mdx` and should be placed next to the component.
 
 ## Releases
 
-Release to the `/main` branch will occur at the end of a bi-weekly sprint, or `hotfixes` as needed.
+Releases to Production will occur at the end of a bi-weekly sprint or via `hotfixes` as needed.
 
 1. On Github, create a PR off the `/staging` branch against the `/main` branch
 2. Copy the WPE Staging environment to WPE Production.
