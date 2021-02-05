@@ -10,15 +10,39 @@ Our starter for headless WordPress projects. View the [demo](https://nextjs-word
 
 - Advanced Custom Fields Pro
 - Algolia Search
+- Archives
 - Content Blocks
   - ACF Blocks
   - Gutenberg
   - Lazy Blocks
 - Custom 404 page
-- Custom Post Types
 - Gravity Forms
+- Menus
+- Pages
+- Post Types
+- Posts
 - Previews
 - WordPress SEO (Yoast)
+
+---
+
+## Frontend Features
+
+- Apollo Client
+- Atomic Design
+- CSS Modules
+- Chromatic
+- ESLint
+- Formik
+- JSDocs
+- PostCSS
+- Prettier
+- SEO
+- Sitemaps
+- Storybook
+- Stylelint
+- TailwindCSS
+- Vercel
 
 ---
 
