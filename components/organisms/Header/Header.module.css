@@ -7,6 +7,10 @@
 
   & .navigation {
     @apply flex items-end justify-between;
+
+    & .logo {
+      @apply w-32 h-auto;
+    }
   }
 }
 

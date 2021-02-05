@@ -32,7 +32,7 @@ export default function Header() {
             />
           </div>
           <div className={styles.navigation}>
-            <Logo />
+            <Logo className={styles.logo} type="dark" />
             <Navigation
               menu={menus?.primary_menu}
               styles={styles}
