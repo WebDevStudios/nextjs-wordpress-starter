@@ -1,0 +1,37 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Quote from '.'
+
+<Meta title="Components/Atoms/Quote" component={Quote} />
+
+# Quote
+
+Give quoted text visual emphasis.
+
+<Canvas>
+  <Story name="Component">
+    <Quote
+      value='"There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."'
+      citation="Jeffery Smith, 28"
+    />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Quote />` props in the [Canvas tab of the Controls story](?path=/story/design-system-molecules-blockquote--controls).
+
+export const Template = (args) => <Quote {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      value:
+        '"There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."',
+      citation: 'Jeffery Smith, 28'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

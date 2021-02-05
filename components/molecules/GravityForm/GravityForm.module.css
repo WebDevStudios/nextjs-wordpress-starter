@@ -1,0 +1,5 @@
+.gravityForm {
+  & .title {
+    @apply mb-4;
+  }
+}

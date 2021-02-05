@@ -1,0 +1,18 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import TwitterEmbed from '.'
+
+<Meta title="Components/Atoms/TwitterEmbed" component={TwitterEmbed} />
+
+# Twitter Embed
+
+Use this to display a tweet from a timeline
+
+<Canvas>
+  <Story name="Component">
+    <TwitterEmbed
+      url="https://twitter.com/webdevstudios/status/1351167649418514432"
+      caption="This is an optional caption"
+    />
+  </Story>
+</Canvas>

@@ -1,0 +1,40 @@
+.table {
+  & table {
+    @apply w-full border-collapse mb-8;
+
+    & td,
+    & th {
+      @apply p-6;
+    }
+
+    & thead {
+      & tr {
+        @apply border-b;
+      }
+
+      & th {
+        @apply uppercase;
+      }
+    }
+
+    & tbody {
+      & tr:nth-child(odd) {
+        @apply bg-gray-100;
+      }
+    }
+
+    & tfoot {
+      & tr {
+        @apply border-t;
+      }
+
+      & td {
+        @apply font-bold;
+      }
+    }
+  }
+
+  & .caption {
+    @apply mb-8 text-center text-xs;
+  }
+}

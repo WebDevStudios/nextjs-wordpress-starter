@@ -1,0 +1,42 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Spacer from '.'
+
+<Meta title="Components/Atoms/Spacer" component={Spacer} />
+
+# Spacer
+
+Use this component to display a spacer with a height. Use it anywhere you would need a blank spacing element.
+
+<Canvas>
+  <Story name="Component">
+    <Spacer pxHeight={100} />
+  </Story>
+</Canvas>
+
+## Height
+
+Specify the height in pixels as a `number`. The component will convert it to rem based on the `rem` value.
+
+<Canvas>
+  <Story name="Height">
+    <Spacer pxHeight={400} />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Spacer />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-spacer--controls).
+
+export const Template = (args) => <Spacer {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      pxHeight: 100
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

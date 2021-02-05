@@ -1,0 +1,94 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import Icon from '.'
+import {icons} from './icons'
+
+<Meta title="Components/Atoms/Icon" component={Icon} />
+
+# Icon
+
+Use this component to display an icon. See the Icons Story in General for a list of [all available icons](?path=/docs/general-icons--page).
+
+<Canvas>
+  <Story name="Component">
+    <Icon icon="info" title="Info" className="" />
+  </Story>
+</Canvas>
+
+## Sizes
+
+Three sizes are supported.
+
+<Canvas>
+  <Story name="Sizes">
+    <Icon icon="star" size="sm" title="Star" className="my-8 " />
+    <Icon icon="star" size="md" title="Star" className="my-8 " />
+    <Icon icon="star" size="lg" title="Star" className="my-8 " />
+  </Story>
+</Canvas>
+
+## Styles
+
+Two styles are supported - line and fill icons.
+
+<Canvas>
+  <Story name="Styles">
+    <Icon
+      icon="clipboard"
+      style="line"
+      size="lg"
+      title="Volume up"
+      className="my-8 "
+    />
+    <Icon
+      icon="clipboard"
+      style="fill"
+      size="lg"
+      title="Volume up"
+      className="my-8 "
+    />
+  </Story>
+</Canvas>
+
+## Color
+
+The icon will inherit the closest defined text color using `currentColor`. If you'd like to specify your own color, use `className` with a text color class.
+
+<Canvas>
+  <Story name="Color">
+    <Icon icon="colorPalette" size="lg" title="Color palette" className="" />
+  </Story>
+</Canvas>
+
+## Accessibility
+
+Always specify a `title` for the icon.
+
+By default, icons are considered decorative.
+If you are using the icon as a standalone or meaningful element, make sure to set `ariaHidden` to `false`.
+
+See [this article on CSS Tricks](https://css-tricks.com/accessible-svgs/#example-1-standalone-icon-meaningful) for details.
+
+<Canvas>
+  <Story name="Accessibility">
+    <Icon icon="options" title="Options" ariaHidden={false} className="" />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Icon />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-icon--controls).
+
+export const Template = (args) => <Icon {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      icon: 'info',
+      title: 'Info',
+      className: ''
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

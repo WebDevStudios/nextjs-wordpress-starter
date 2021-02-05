@@ -1,0 +1,140 @@
+.algoliaSearch {
+  @apply relative;
+
+  height: 100%;
+  width: 260px;
+
+  /* Placeholder Search */
+  & .searchPlaceholder {
+    @apply relative;
+
+    & .trigger {
+      @apply absolute left-0 top-0 w-full h-full z-10 cursor-text overflow-hidden;
+
+      text-indent: -9999px;
+    }
+  }
+
+  /* Search Box */
+  & .searchBox {
+    @apply relative h-full;
+
+    & input {
+      @apply w-full p-2 pr-12 border rounded text-sm;
+
+      background: #fff;
+      line-height: 1;
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
+    }
+
+    /* Buttons (Submit, Reset) */
+    & button {
+      @apply absolute cursor-pointer flex justify-center items-center right-1;
+
+      width: 28px;
+      height: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:hover,
+      &:focus {
+        & svg {
+          @apply opacity-100;
+        }
+      }
+
+      & svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      /* Reset Button */
+      &[type='reset'] {
+        @apply right-8;
+
+        & svg {
+          width: 12px;
+          height: 12px;
+          margin-top: 1px;
+        }
+
+        &[hidden] {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  /* Drop Menu (Hits &  History) */
+  & .dropMenu {
+    @apply absolute invisible opacity-0 transition-all duration-150 ease-in-out;
+
+    z-index: 999;
+    bottom: -10px;
+    width: 106%;
+    margin-left: -3%;
+  }
+
+  /* Show dropmenu on Focus */
+  &:focus-within {
+    & input {
+      @apply shadow;
+    }
+
+    & .dropMenu {
+      @apply visible opacity-100;
+
+      bottom: -5px;
+    }
+  }
+
+  /* History and Hits Menu */
+  & .history,
+  & .hits {
+    @apply absolute border shadow w-full rounded;
+
+    background-color: #fff;
+
+    & ul {
+      @apply p-2;
+    }
+
+    & button {
+      @apply block w-full p-2 text-left transition font-semibold text-sm;
+
+      &:hover,
+      &:focus {
+        @apply underline;
+      }
+
+      & em {
+        font-style: normal;
+      }
+    }
+  }
+
+  /* History Menu */
+  & .history {
+    & button {
+      @apply w-full flex justify-between items-center;
+
+      & span.time {
+        @apply overflow-ellipsis text-right font-normal italic flex-shrink-0 self-start text-xs opacity-50;
+      }
+    }
+
+    & .clear {
+      @apply mt-2 border-t;
+
+      & button {
+        @apply mt-2 font-normal text-xs;
+      }
+    }
+  }
+}

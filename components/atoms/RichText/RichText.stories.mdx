@@ -1,0 +1,107 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import RichText from '.'
+
+<Meta title="Components/Atoms/RichText" component={RichText} />
+
+# RichText
+
+The RichText component is a wrapper component surrounding `children` elements. The wrapper will apply generic styles to the wrapper element and children elements. This component uses is setup to use `dangerouslySetInnerHTML`.
+
+Note: The content passed into the component must be a string.
+
+<Canvas>
+  <Story name="Component">
+    <RichText>
+      {`<p>Example mixed content <strong>with bold text</strong> and <a href="https://example.com">linked content</a>.</p>`}
+    </RichText>
+  </Story>
+</Canvas>
+
+## Content Samples
+
+The following shows examples that have generic styles applied.
+
+<Canvas>
+  <Story name="ContentSamples">
+    <RichText tag="div">
+      {`<h1>H1</h1>
+        <h2>H2</h2>
+        <h3>H3</h3>
+        <h3>H3</h3>
+        <h4>H4</h4>
+        <h5>H5</h5>
+        <h6>H6</h6>
+        <p>Paragraph tag <strong>with</strong> <a href="https://example.com">linked content</a>.</p>
+        <ul>
+          <li>UL List item 1</li>
+          <li>UL List item 2
+            <ul>
+              <li>UL List item 1</li>
+              <li>UL List item 2</li>
+              <li>UL List item 3</li>
+            </ul>
+          </li>
+          <li>UL List item 3</li>
+        </ul>
+        <ol>
+          <li>OL List item 1</li>
+          <li>OL List item 2
+            <ol>
+              <li>OL List item 1</li>
+              <li>OL List item 2</li>
+              <li>OL List item 3</li>
+            </ol>
+          </li>
+          <li>OL List item 3</li>
+        </ol>`}
+    </RichText>
+  </Story>
+</Canvas>
+
+## Tag
+
+In certain cases the wrapper element should change according to the content needs. This can be done using `tag` prop.
+
+<Canvas>
+  <Story name="Tag">
+    <RichText tag="h2">
+      {`This heading has <strong>Bold Content</strong> and <i>Italics</i>`}
+    </RichText>
+  </Story>
+</Canvas>
+
+## Attributes
+
+Arbitrary HTML attributes can be added to the RichText component with the `attributes` prop.
+
+<Canvas>
+  <Story name="Attributes">
+    <RichText
+      tag="h2"
+      attributes={{
+        'data-att': true
+      }}
+    >
+      {`This heading has <strong>Bold Content</strong> and <i>Italics</i>`}
+    </RichText>
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<RichText />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-richtext--controls).
+
+export const Template = (args) => <Icon {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      id: 'component-id',
+      className: 'component-class',
+      children: <p>Paragraph content.</p>
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

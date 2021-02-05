@@ -1,0 +1,15 @@
+.buttonGroup {
+  @apply mb-8;
+
+  &.horizontal {
+    @apply flex;
+  }
+
+  &.center {
+    @apply justify-center;
+  }
+
+  &.right {
+    @apply justify-end;
+  }
+}

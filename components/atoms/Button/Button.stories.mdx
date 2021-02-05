@@ -1,0 +1,176 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import Button from '.'
+
+<Meta title="Components/Atoms/Button" component={Button} />
+
+# Button
+
+Use this component to display a button. Use it anywhere you would use an `<a>` or `<button>` element.
+
+<Canvas>
+  <Story name="Component">
+    <Button
+      url="https://example.com"
+      text="This is a link button"
+      className="mx-8"
+    />
+    <Button text="This is a button" className="mx-8" />
+  </Story>
+</Canvas>
+
+## Sizes
+
+Three sizes are supported.
+
+<Canvas>
+  <Story name="Sizes">
+    <Button size="sm" text="sm" className="mx-8" />
+    <Button size="md" text="md" className="mx-8" />
+    <Button size="lg" text="lg" className="mx-8" />
+  </Story>
+</Canvas>
+
+### Fluid
+
+Set `fluid` to `true` to make the button fill the width of it's container.
+
+<Canvas>
+  <Story name="Fluid">
+    <Button fluid text="fluid" />
+  </Story>
+</Canvas>
+
+## Types
+
+There are two types of buttons.
+
+<Canvas>
+  <Story name="Types">
+    <Button type="primary" text="primary" className="mx-8" />
+    <Button type="secondary" text="secondary" className="mx-8" />
+  </Story>
+</Canvas>
+
+## Disabled
+
+If this button is disabled, set the `disabled` prop to `true`.
+
+<Canvas>
+  <Story name="Disabled">
+    <Button disabled text="This is a disabled button" />
+  </Story>
+</Canvas>
+
+## Link
+
+If your button should link somewhere, pass the `url` prop.
+If the link is external to the Next.js app, also set the `urlExternal` prop to `true`.
+The component will use an `<a>` tag instead of the Next.js `<Link>` component.
+
+See the [Next.js docs](https://nextjs.org/learn/basics/navigate-between-pages/link-component) for more details.
+
+<Canvas>
+  <Story name="Link">
+    <Button
+      url="https://example.com"
+      urlExternal={true}
+      text="This is an external link button"
+      type="primary"
+    />
+  </Story>
+</Canvas>
+
+## Icons
+
+Buttons can contain an icon with text or just an icon.
+
+<Canvas>
+  <Story name="Icons">
+    <Button
+      icon="arrowLeft"
+      type="secondary"
+      text="Button with icon"
+      className="mx-8"
+    />
+    <Button
+      icon="arrowLeft"
+      iconOnly
+      text="volume up"
+      type="secondary"
+      className="mx-8"
+    />
+  </Story>
+</Canvas>
+
+## Icon Left
+
+Icons are positioned on the right by default. Set `iconLeft` to `true` to render the icon to the left of the text.
+
+<Canvas>
+  <Story name="Icon Position">
+    <Button
+      icon="arrowLeft"
+      iconLeft={true}
+      type="secondary"
+      text="Button with icon"
+      className="mx-8"
+    />
+  </Story>
+</Canvas>
+
+## Attributes
+
+Arbitrary HTML attributes can be added to buttons with the `attributes` prop.
+
+<Canvas>
+  <Story name="Attributes">
+    <Button
+      attributes={{
+        'aria-expanded': true,
+        'aria-hidden': false
+      }}
+      url="https://example.com"
+      urlExternal={true}
+      text="Button with HTML Attributes"
+      type="secondary"
+    />
+  </Story>
+</Canvas>
+
+## Tag
+
+By default, a button without a `url` will render with the `<button>` HTML tag. This can be overridden using the `tag` prop.
+
+<Canvas>
+  <Story name="Tag">
+    <Button
+      tag="div"
+      icon="arrowLeft"
+      iconOnly
+      text="Expand section"
+      type="primary"
+    />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Button />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-button--controls).
+
+export const Template = (args) => <Button {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      text: 'This is a link button',
+      url: 'https://example.com',
+      urlExternal: false,
+      tag: 'button',
+      fluid: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,51 +1,59 @@
-import PropTypes from 'prop-types'
-import Head from 'next/head'
-import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroPost from '@/components/hero-post'
-import Intro from '@/components/intro'
-import Layout from '@/components/layout'
-import {getAllPostsForHome} from '@/lib/api'
-import {CMS_NAME} from '@/lib/config'
+import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Container from '@/components/atoms/Container'
+import Layout from '@/components/common/Layout'
+import Hero from '@/components/organisms/Hero'
+import getPagePropTypes from '@/functions/getPagePropTypes'
+import Page from './[...slug]'
 
-export default function Index({allPosts: {edges}, preview}) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+// Define route post type.
+const postType = 'page'
 
+/**
+ * Render the HomePage component.
+ *
+ * @author WebDevStudios
+ * @param {object} props      The component attributes as props.
+ * @param {object} props.post Post data from WordPress.
+ * @return {Element}          The HomePage component.
+ */
+export default function HomePage({post}) {
+  const {seo, ...postData} = post
+
+  // Display dynamic page data if homepage retrieved from WP.
+  if (postData && Object.keys(postData).length > 0) {
+    return <Page post={post} />
+  }
+
+  // Display static page content as fallback.
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
+    <Layout seo={{...seo}}>
+      <Container>
+        <article>
+          <Hero
+            background="https://images.unsplash.com/photo-1513106021000-168e5f56609d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=70"
+            title="Next.js Starter"
+            description="A slightly opinionated, yet bare-bones Next.js starter."
+          />
+          <p>
+            To display your WordPress homepage dynamically, set your homepage to
+            a static page via the WP dashboard (Settings: Reading Settings).
+          </p>
+        </article>
+      </Container>
+    </Layout>
   )
 }
 
-Index.propTypes = {
-  allPosts: PropTypes.object,
-  preview: PropTypes.bool
+/**
+ * Get post static props.
+ *
+ * @author WebDevStudios
+ * @return {object} Post props.
+ */
+export async function getStaticProps() {
+  return await getPostTypeStaticProps({slug: '/'}, postType)
 }
 
-export async function getStaticProps({preview = false}) {
-  const allPosts = await getAllPostsForHome(preview)
-  return {
-    props: {allPosts, preview},
-    revalidate: 60
-  }
+HomePage.propTypes = {
+  ...getPagePropTypes(postType)
 }

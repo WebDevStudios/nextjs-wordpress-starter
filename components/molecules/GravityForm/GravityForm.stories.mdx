@@ -1,0 +1,258 @@
+import {useState} from 'react'
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import noop from 'lodash/noop'
+
+import GravityForm from '.'
+
+export const sampleForm = {
+  name: 'gravityforms/form',
+  attributes: {
+    title: true,
+    description: true,
+    ajax: false,
+    formPreview: true,
+    formId: '4',
+    formData: {
+      __typename: 'GravityFormsForm',
+      formId: 4,
+      title: 'Checkbox Test Form',
+      description:
+        'Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.',
+      cssClass: null,
+      fields: {
+        __typename: 'GravityFormsFormToObjectFieldUnionConnection',
+        edges: [
+          {
+            __typename: 'GravityFormsFormToObjectFieldUnionConnectionEdge',
+            node: {
+              __typename: 'CheckboxField',
+              id: 1,
+              adminLabel: '',
+              adminOnly: null,
+              allowsPrepopulate: false,
+              conditionalLogic: {
+                __typename: 'ConditionalLogic',
+                rules: null,
+                actionType: null,
+                logicType: null
+              },
+              cssClassList: [],
+              label: 'Checkbox field example.',
+              type: 'checkbox',
+              visibility: 'visible',
+              checkboxChoices: [
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'First Choice',
+                  value: 'First Choice'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'Second Choice',
+                  value: 'Second Choice'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'Third Choice',
+                  value: 'Third Choice'
+                }
+              ],
+              description: 'This field is not required.',
+              enableChoiceValue: null,
+              enableSelectAll: false,
+              errorMessage: '',
+              inputName: '',
+              inputs: [
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 1.1,
+                  label: 'First Choice',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 1.2,
+                  label: 'Second Choice',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 1.3,
+                  label: 'Third Choice',
+                  name: ''
+                }
+              ],
+              isRequired: false,
+              size: 'medium'
+            }
+          },
+          {
+            __typename: 'GravityFormsFormToObjectFieldUnionConnectionEdge',
+            node: {
+              __typename: 'CheckboxField',
+              id: 2,
+              adminLabel: '',
+              adminOnly: null,
+              allowsPrepopulate: false,
+              conditionalLogic: {
+                __typename: 'ConditionalLogic',
+                rules: null,
+                actionType: null,
+                logicType: null
+              },
+              cssClassList: [],
+              label: 'Checkbox field example 2.',
+              type: 'checkbox',
+              visibility: 'visible',
+              checkboxChoices: [
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'New Choice 1',
+                  value: 'New Choice 1'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'New Choice 2',
+                  value: 'New Choice 2'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'New Choice 3',
+                  value: 'New Choice 3'
+                }
+              ],
+              description: 'This field is required.',
+              enableChoiceValue: null,
+              enableSelectAll: true,
+              errorMessage: '',
+              inputName: '',
+              inputs: [
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 2.1,
+                  label: 'New Choice 1',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 2.2,
+                  label: 'New Choice 2',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 2.3,
+                  label: 'New Choice 3',
+                  name: ''
+                }
+              ],
+              isRequired: true,
+              size: 'medium'
+            }
+          },
+          {
+            __typename: 'GravityFormsFormToObjectFieldUnionConnectionEdge',
+            node: {
+              __typename: 'CheckboxField',
+              id: 3,
+              adminLabel: '',
+              adminOnly: null,
+              allowsPrepopulate: false,
+              conditionalLogic: {
+                __typename: 'ConditionalLogic',
+                rules: null,
+                actionType: null,
+                logicType: null
+              },
+              cssClassList: [],
+              label: 'Checkbox field example 3.',
+              type: 'checkbox',
+              visibility: 'visible',
+              checkboxChoices: [
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: true,
+                  text: 'First Choice',
+                  value: 'First Choice'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: false,
+                  text: 'Second Choice',
+                  value: 'Second Choice'
+                },
+                {
+                  __typename: 'ChoiceProperty',
+                  isSelected: true,
+                  text: 'Third Choice',
+                  value: 'Third Choice'
+                }
+              ],
+              description: 'This field has defaults.',
+              enableChoiceValue: null,
+              enableSelectAll: false,
+              errorMessage: '',
+              inputName: '',
+              inputs: [
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 3.1,
+                  label: 'First Choice',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 3.2,
+                  label: 'Second Choice',
+                  name: ''
+                },
+                {
+                  __typename: 'CheckboxInputProperty',
+                  id: 3.3,
+                  label: 'Third Choice',
+                  name: ''
+                }
+              ],
+              isRequired: false,
+              size: 'medium'
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+<Meta title="Components/Molecules/GravityForm" component={GravityForm} />
+
+# GravityForm
+
+Use this component to render a form from the GravityForm block.
+
+<Canvas>
+  <Story name="Component">
+    <GravityForm {...sampleForm.attributes} />
+  </Story>
+</Canvas>
+
+## How it Works
+
+The `GravityForm` component renders a `Form` component with and maps through fields using the `<Fields />` component.
+
+Checkout [Form](?path=/docs/design-system-molecules-form--component) for more details on how Forms work.
+
+## Field Mapping
+
+All Field mapping is handled by the `<Fields />` component. Each field is mapped during the form render process which pairs GravityForm field data to `validationSchema` and `Field` components.
+
+See [Fields](?path=/docs/design-system-molecules-gravityform-fields--page)
+
+## Form submissions
+
+Feature not completed at this time.

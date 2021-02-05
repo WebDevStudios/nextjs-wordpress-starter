@@ -1,0 +1,92 @@
+import {useState} from 'react'
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import noop from 'lodash/noop'
+import {Field, ErrorMessage} from 'formik'
+import * as Yup from 'yup'
+
+import Form from '.'
+
+<Meta title="Components/Molecules/Form" component={Form} />
+
+# Form
+
+Use this component to render a form.
+
+<Canvas>
+  <Story name="Component">
+    <Form
+      className="sample-form"
+      id="form-1"
+      formDefaults={{
+        firstName: 'test'
+      }}
+      title="Sample Form"
+      validationSchema={Yup.object().shape({
+        firstName: Yup.string()
+          .required('This field is required.')
+          .min(5, 'Minimum of 5 characters.')
+      })}
+    >
+      <label htmlFor="firstName">First Name</label>
+      <Field id="firstName" name="firstName" placeholder="Jane" type="text" />
+      <ErrorMessage name="firstName" />
+    </Form>
+  </Story>
+</Canvas>
+
+## How it Works
+
+The `Form` component under the hood is powered by [Formik](https://formik.org/docs/overview). Formik is used for form state management, validation, and form submissions.
+
+## Setting up form defaults and state
+
+The `formDefaults` handles your data by passing it to `Formik` as `initialValues`. Each property passed into `formDefaults` should match the name of the input it corresponds to. The name prop is how Formik manages the state of each input.
+
+## Creating an Input
+
+Creating form inputs with Formik can be as simple or custom as you would like.
+
+_The following example creates a basic text input field using the Formik `<Field />` component. The `name` prop on the `field` is set to `firstName` which is used for tracking the import state._
+
+```js
+<label htmlFor="firstName">First Name</label>
+<Field id="firstName" name="firstName" placeholder="Jane" />
+```
+
+**Example Default**
+
+The following example shows a property called `firstName` that has a default value of an empty string. Default values should be included for each field.
+
+```js
+const formDefaults = {
+  firstName: ''
+}
+```
+
+### Field validation and error handling
+
+The Form component relies on Formik and Yup to validate inputs and display input errors. Formik is in charge of displaying the error and processing validation. Meanwhile, Yup handles validation similar to how PropTypes work. This feature can be utilized by creating a validation object and passing it into `validationSchema`.
+
+**Setting up input validationSchema**
+
+The following example demonstrates adding input validaton to the `firstName` text input. By passing in the name of the input and a schema validation Object, this input will automatically be validated according to the schema Object.
+
+```js
+{
+  firstName: Yup.string().required()
+}
+```
+
+**Displaying input errors**
+
+To display an error on an input use the [Formik `<ErrorMessage />` component](https://formik.org/docs/api/errormessage). This component takes in a name prop that should correspond to the input name it's displaying an error for.
+
+This example, will now render the error text for `firstName` from the validationSchema.
+
+```js
+<ErrorMessage name="firstName" />
+```
+
+### Form Submission
+
+Needs documentation...

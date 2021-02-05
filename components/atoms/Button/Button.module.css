@@ -1,0 +1,65 @@
+.button {
+  @apply inline-flex items-center justify-center rounded border cursor-pointer font-semibold mr-2 mb-2;
+
+  & svg {
+    @apply ml-4;
+  }
+
+  &.iconLeft {
+    @apply flex-row-reverse;
+
+    & svg {
+      @apply mr-12 ml-0;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active:not([disabled]) {
+    @apply underline;
+  }
+
+  /* SIZES */
+  &.lg {
+    @apply px-4 py-3 text-lg;
+  }
+
+  &.md {
+    @apply px-3 py-2;
+  }
+
+  &.sm {
+    @apply px-1.5 py-0.5;
+  }
+
+  &.fluid {
+    @apply block w-full text-center;
+  }
+
+  /* TYPES */
+  &.primary {
+    @apply bg-white;
+
+    &.disabled {
+      @apply opacity-50;
+    }
+  }
+
+  &.secondary {
+    @apply bg-black text-white;
+
+    &.disabled {
+      @apply opacity-50;
+    }
+  }
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
+
+  &.iconOnly {
+    & svg {
+      @apply m-0;
+    }
+  }
+}

@@ -1,37 +1,61 @@
-import {getPreviewPost} from '@/lib/api'
+import {wpPreviewSecret} from '@/api/wordpress/connector'
+import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
+import {postTypes} from '@/api/wordpress/_global/postTypes'
 
+/**
+ * Provide post preview functionality.
+ *
+ * @author WebDevStudios
+ * @param {object} req Instance of http.IncomingMessage.
+ * @param {object} res Instance of http.ServerResponse.
+ * @return {object} Redirects to appropriate post route on success, returns response error object otherwise.
+ */
 export default async function preview(req, res) {
-  const {secret, id, slug} = req.query
+  try {
+    const {token, id, slug, post_type} = req.query
 
-  // Check the secret and next parameters
-  // This secret should only be known by this API route
-  if (
-    !process.env.WORDPRESS_PREVIEW_SECRET ||
-    secret !== process.env.WORDPRESS_PREVIEW_SECRET ||
-    (!id && !slug)
-  ) {
-    return res.status(401).json({message: 'Invalid token'})
-  }
-
-  // Fetch WordPress to check if the provided `id` or `slug` exists
-  const post = await getPreviewPost(id || slug, id ? 'DATABASE_ID' : 'SLUG')
-
-  // If the post doesn't exist prevent preview mode from being enabled
-  if (!post) {
-    return res.status(401).json({message: 'Post not found'})
-  }
-
-  // Enable Preview Mode by setting the cookies
-  res.setPreviewData({
-    post: {
-      id: post.databaseId,
-      slug: post.slug,
-      status: post.status
+    // Verify preview secret token.
+    if (
+      !token ||
+      !wpPreviewSecret ||
+      token !== wpPreviewSecret ||
+      (!id && !slug)
+    ) {
+      throw new Error('Invalid token')
     }
-  })
 
-  // Redirect to the path from the fetched post
-  // We don't redirect to `req.query.slug` as that might lead to open redirect vulnerabilities
-  res.writeHead(307, {Location: `/posts/${post.slug || post.databaseId}`})
-  res.end()
+    const {post, error, errorMessage} = await getPostTypeById(
+      post_type,
+      id,
+      'DATABASE_ID',
+      'basic'
+    )
+
+    // Handle response errors.
+    if (error) {
+      throw new Error(errorMessage)
+    }
+
+    // Set page preview data and enable preview mode.
+    res.setPreviewData({
+      post: {
+        id: post.databaseId,
+        slug: post.slug,
+        status: post.status
+      }
+    })
+
+    const baseRoute = postTypes?.[post_type]?.route ?? ''
+
+    // Redirect to post dynamic route.
+    res.redirect(
+      `${baseRoute ? `/${baseRoute}` : ''}/${post.slug || post.databaseId}`
+    )
+  } catch (error) {
+    return res.status(error?.status || 401).json({
+      message:
+        error?.message ||
+        'An error occurred while attempting to view post preview'
+    })
+  }
 }

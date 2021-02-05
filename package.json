@@ -1,53 +1,94 @@
 {
-  "name": "nextjs-wordpress-example",
+  "name": "nextjs-wordpress-starter",
   "version": "1.0.0",
-  "description": "Next.js WordPress Example",
-  "author": "Vercel & WebDevStudios",
-  "license": "GPL-3.0",
+  "description": "Next.js WordPress Starter",
+  "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WebDevStudios/nextjs-wordpress-example.git"
+    "url": "git+https://github.com/WebDevStudios/nextjs-wordpress-starter.git"
   },
+  "author": "WebDevStudios <contact@webdevstudios.com>",
   "bugs": {
-    "url": "https://github.com/WebDevStudios/nextjs-wordpress-example/issues"
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
   },
-  "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-example/#readme",
+  "private": true,
+  "license": "GPL-2.0",
   "engines": {
-    "node": ">=10"
-  },
-  "resolutions": {
-    "webpack": "^5.0.0-beta.28"
-  },
-  "dependencies": {
-    "classnames": "2.2.6",
-    "date-fns": "2.16.0",
-    "next": "next@canary",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.1.1",
-    "prop-types": "^15.7.2",
-    "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "^1.7.5"
+    "node": ">=12"
   },
   "scripts": {
     "build": "next build",
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token zp8e8oo1lq",
     "clean": "rm -rf .next",
-    "dev": "yarn clean && yarn lint && next dev",
+    "dev": "yarn clean && next dev",
     "develop": "yarn dev",
     "export": "next export",
-    "lint": "./node_modules/.bin/eslint ./ --fix || true",
-    "start": "next start"
+    "format": "npx prettier --config=prettier.config.js '**/*.{js,jsx,ts,tsx,md,html,css,scss,json}' --write || true",
+    "lint": "yarn format && yarn lint:js && yarn lint:css",
+    "lint:css": "npx stylelint --config=stylelint.config.js '**/*.css' --fix || true",
+    "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "storybook": "start-storybook -p 6006"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.3.7",
+    "@babel/core": "^7.12.13",
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/react": "^6.1.17",
+    "algoliasearch": "^4.8.4",
+    "apollo-link-rest": "^0.8.0-beta.0",
+    "babel-loader": "^8.2.2",
+    "chromatic": "^5.6.1",
+    "dayjs": "^1.10.4",
+    "deepmerge": "^4.2.2",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^31.6.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "formik": "^2.2.6",
+    "graphql": "^15.5.0",
+    "graphql-anywhere": "^4.2.7",
+    "hamburger-react": "^2.4.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "next-seo": "^4.19.0",
+    "next-sitemap": "^1.4.17",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1",
+    "prop-types": "^15.7.2",
+    "react-instantsearch-dom": "^6.9.0",
+    "react-is": "^17.0.1",
+    "react-syntax-highlighter": "^15.4.3",
+    "react-twitter-embed": "^3.0.3",
+    "storybook-addon-next-router": "^2.0.0",
+    "storybook-css-modules-preset": "^1.0.5",
+    "stylelint": "^13.9.0",
+    "stylelint-config-standard": "^20.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "yup": "^0.32.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "npx eslint --config=.eslintrc.js --fix",
+    "*.{css,scss}": "npx stylelint --config=stylelint.config.js --fix",
+    "*.{md,html,json}": "npx prettier --config=prettier.config.js --write"
   }
 }

@@ -1,0 +1,31 @@
+.docTableWrap {
+  @apply w-full overflow-x-auto;
+}
+
+.docTable {
+  @apply mb-20 min-w-full;
+
+  & th {
+    @apply py-6 text-left;
+  }
+
+  & tr {
+    @apply border-b;
+
+    &:last-child {
+      @apply border-none;
+    }
+  }
+
+  & td {
+    @apply py-4 pr-24 align-middle;
+
+    &:first-child {
+      @apply pr-80;
+    }
+
+    &:last-child {
+      @apply pr-0;
+    }
+  }
+}

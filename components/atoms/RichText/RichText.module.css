@@ -1,0 +1,51 @@
+.richtext {
+  &.center {
+    @apply text-center;
+  }
+
+  /* List Styles */
+  &.ul,
+  &.ol {
+    @apply mb-4;
+
+    & li {
+      @apply mb-2 relative pl-6 list-none;
+    }
+
+    & ul,
+    & ol {
+      @apply ml-6 mb-0;
+    }
+  }
+
+  /* Unordered Lists */
+  &.ul {
+    & > li {
+      &::before {
+        @apply absolute block rounded-full;
+
+        background: #000;
+        content: '';
+        width: 5px;
+        height: 5px;
+        left: 0.35rem;
+        top: 0.55rem;
+      }
+    }
+  }
+
+  /* Ordered Lists */
+  &.ol {
+    counter-reset: item;
+
+    & > li {
+      &::before {
+        @apply absolute block left-0 italic;
+
+        content: counter(item) '. ';
+        counter-increment: item;
+        margin-left: 2px;
+      }
+    }
+  }
+}

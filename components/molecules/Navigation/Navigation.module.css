@@ -1,0 +1,46 @@
+.navigation {
+  & > ul {
+    @apply flex;
+
+    & > li {
+      @apply relative ml-10;
+
+      & a {
+        @apply block;
+
+        &:hover,
+        &:focus {
+          @apply underline;
+        }
+
+        &.active {
+          @apply font-bold underline;
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        & > ul {
+          @apply block;
+        }
+      }
+    }
+
+    /* Nested ul / Drop Menu */
+    & ul {
+      @apply hidden absolute left-0 z-50 p-2 shadow-sm rounded border;
+
+      top: 100%;
+      width: 220px;
+      background-color: #fff;
+
+      & > li {
+        @apply text-sm;
+
+        & > a {
+          @apply p-2;
+        }
+      }
+    }
+  }
+}

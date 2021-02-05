@@ -1,0 +1,11 @@
+.image {
+  @apply mb-8;
+
+  & img {
+    @apply block rounded;
+  }
+
+  & .caption {
+    @apply text-center text-xs pt-4;
+  }
+}

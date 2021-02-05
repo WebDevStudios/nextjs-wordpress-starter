@@ -1,0 +1,17 @@
+.videoEmbed {
+  @apply mb-8;
+
+  & .wrapper {
+    @apply w-full relative overflow-hidden;
+
+    padding-top: 56.25%;
+  }
+
+  & iframe {
+    @apply absolute w-full h-full inset-0;
+  }
+
+  & .caption {
+    @apply text-center text-xs pt-4;
+  }
+}

@@ -1,0 +1,23 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Hero from './'
+
+<Meta title="Components/Molecules/Hero" component={Hero} />
+
+# Component
+
+Use this to display a large CTA, usually at the top of a page.
+
+<Canvas>
+  <Story name="Component">
+    <Hero
+      subtitle="Check it out"
+      title="New Designs"
+      body="Our amazing new design is here! Get it while it's hot, it won't be hot for long... uh oh, already cooling."
+      backgroundImage={{
+        url:
+          'https://images.unsplash.com/photo-1610991149688-c1321006bcc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1110&q=60'
+      }}
+      cta={{icon: 'arrowRight', text: 'Take a look'}}
+    />
+  </Story>
+</Canvas>

@@ -1,0 +1,27 @@
+.columns {
+  @apply grid gap-8 grid-cols-3;
+
+  &.columns-1 {
+    @apply grid-cols-1;
+  }
+
+  &.columns-2 {
+    @apply grid-cols-2;
+  }
+
+  &.columns-3 {
+    @apply grid-cols-3;
+  }
+
+  &.columns-4 {
+    @apply grid-cols-4;
+  }
+
+  &.columns-5 {
+    @apply grid-cols-5;
+  }
+
+  &.columns-6 {
+    @apply grid-cols-6;
+  }
+}
