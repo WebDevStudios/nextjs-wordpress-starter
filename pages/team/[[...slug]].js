@@ -42,7 +42,7 @@ export default function Team({post, archive, posts, pagination}) {
           {!posts || !posts.length ? (
             <p>No posts found.</p>
           ) : (
-            <div className="w-1/3 grid grid-cols-1 gap-12">
+            <div className="grid lg:grid-cols-2 gap-12">
               {posts.map((post, index) => (
                 <Card
                   key={index}
