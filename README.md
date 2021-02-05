@@ -24,6 +24,6 @@ Our starter for headless WordPress projects. View the [demo](https://nextjs-word
 
 ## :octocat: Contributing
 
-WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/staging/.github/CONTRIBUTING.md).
+WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md).
 
 Stay safe! 🍻
