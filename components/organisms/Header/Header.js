@@ -3,6 +3,7 @@ import Logo from '@/components/atoms/Logo'
 import {MenuContext} from '@/components/common/MenuProvider'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Navigation from '@/components/molecules/Navigation'
+import Link from 'next/link'
 import {useContext} from 'react'
 import styles from './Header.module.css'
 
@@ -31,7 +32,11 @@ export default function Header() {
             />
           </div>
           <div className={styles.navigation}>
-            <Logo className={styles.logo} type="dark" />
+            <Link href="/">
+              <a>
+                <Logo className={styles.logo} type="dark" />
+              </a>
+            </Link>
             <Navigation
               menu={menus?.primary_menu}
               styles={styles}
