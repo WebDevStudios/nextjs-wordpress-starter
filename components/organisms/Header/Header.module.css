@@ -2,14 +2,34 @@
   @apply sticky top-0 py-4 transition-all z-50 border-b shadow bg-gray-100;
 
   & .search {
-    @apply mb-4;
+    @apply mb-8;
+
+    @screen lg {
+      @apply mb-4;
+    }
+
+    & .input {
+      @apply mx-auto;
+
+      @screen lg {
+        @apply mx-0 ml-auto;
+      }
+    }
   }
 
   & .navigation {
-    @apply flex items-end justify-between;
+    @apply flex flex-col items-center;
+
+    @screen lg {
+      @apply flex-row items-end justify-between;
+    }
 
     & .logo {
-      @apply w-32 h-auto;
+      @apply mb-8 w-32 h-auto;
+
+      @screen lg {
+        @apply mb-0;
+      }
     }
   }
 }

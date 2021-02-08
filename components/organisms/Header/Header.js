@@ -7,7 +7,6 @@ import {useContext} from 'react'
 import styles from './Header.module.css'
 
 // TODO: Create Storybook for this component.
-// TODO: Create mobile menu.
 
 /**
  * Render the ImageGallery component.
@@ -26,9 +25,9 @@ export default function Header() {
         <Container paddingTop={false} paddingBtm={false}>
           <div className={styles.search}>
             <AlgoliaSearch
+              className={styles.input}
               useHistory={true}
               usePlaceholder={true}
-              className="ml-auto"
             />
           </div>
           <div className={styles.navigation}>
