@@ -3,10 +3,10 @@
 
   & .footerMenu {
     & > ul {
-      @apply flex justify-center mb-8;
+      @apply flex flex-wrap justify-center mb-8;
 
       & > li {
-        @apply mx-8;
+        @apply mx-8 mb-2;
       }
     }
   }

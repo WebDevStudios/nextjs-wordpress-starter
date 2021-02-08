@@ -2,8 +2,6 @@ import Blocks from '@/components/molecules/Blocks'
 import MediaText from '@/components/organisms/MediaText'
 import PropTypes from 'prop-types'
 
-// TODO: Swap `img` in `MediaText` component with `Image` atom component.
-
 /**
  * Code Block
  *

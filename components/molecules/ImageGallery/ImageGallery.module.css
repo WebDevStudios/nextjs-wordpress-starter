@@ -1,6 +1,12 @@
 .gallery {
   @apply mb-8;
 
+  & img {
+    @apply w-full object-cover;
+
+    height: 200px;
+  }
+
   & .wrap {
     @apply grid grid-cols-4 gap-2;
 

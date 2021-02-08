@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './ImageGallery.module.css'
 
-// TODO: Create Storybook for this component.
-
 /**
  * Render the ImageGallery component.
  *

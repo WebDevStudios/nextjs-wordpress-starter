@@ -1,9 +1,9 @@
 .navigation {
   & > ul {
-    @apply flex;
+    @apply flex flex-wrap justify-center;
 
     & > li {
-      @apply relative ml-10;
+      @apply relative mx-8 mb-2;
 
       & a {
         @apply block;
@@ -22,6 +22,12 @@
       &:focus-within {
         & > ul {
           @apply block;
+        }
+      }
+
+      @screen lg {
+        &:last-child {
+          @apply mr-0 mb-0;
         }
       }
     }
