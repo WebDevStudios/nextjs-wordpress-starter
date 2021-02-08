@@ -1,0 +1,21 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import ButtonGroup from './'
+import Button from '@/components/atoms/Button'
+
+<Meta title="Components/Molecules/ButtonGroup" component={ButtonGroup} />
+
+# ButtonGroup
+
+Use this to show a group of buttons.
+
+<Canvas>
+  <Story name="Component">
+    <ButtonGroup>
+      <>
+        <Button text="Button 1" />
+        <Button text="Button 2" />
+        <Button text="Button 3" />
+      </>
+    </ButtonGroup>
+  </Story>
+</Canvas>

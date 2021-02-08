@@ -1,0 +1,39 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import ImageGallery from './'
+import Button from '@/components/atoms/Button'
+
+<Meta title="Components/Molecules/ImageGallery" component={ImageGallery} />
+
+# Image Gallery
+
+Use this to display an image gallery.
+
+<Canvas>
+  <Story name="Component">
+    <ImageGallery
+      images={[
+        {
+          url:
+            'https://images.unsplash.com/photo-1610991149688-c1321006bcc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60',
+          alt: 'Rocky cliffs in the ocean.'
+        },
+        {
+          url:
+            'https://images.unsplash.com/photo-1612792515895-d63f3e98da60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60',
+          alt: 'Building reflections.'
+        },
+        {
+          url:
+            'https://images.unsplash.com/photo-1612787873730-99bb61ae700e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60',
+          alt: 'Building with an overcast sky background.'
+        },
+        {
+          url:
+            'https://images.unsplash.com/photo-1612738072307-3a48bbc7fd80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60',
+          alt: 'Frost on a pane of glass.'
+        }
+      ]}
+      caption="This is a caption for the image gallery."
+    />
+  </Story>
+</Canvas>

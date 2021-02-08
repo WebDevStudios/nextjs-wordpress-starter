@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './ButtonGroup.module.css'
 
-// TODO: Create storybook for ButtonGroup component.
-
 /**
  * Render the ButtonGroup component.
  *
