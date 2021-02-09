@@ -16,15 +16,6 @@ import PropTypes from 'prop-types'
  * @return {Element}                The Layout component.
  */
 export default function Layout({children, seo, hasJsonLd}) {
-  // Define SEO image prop.
-  const seoImages = !seo?.opengraphImage?.sourceUrl
-    ? null
-    : [
-        {
-          url: seo?.opengraphImage.sourceUrl
-        }
-      ]
-
   return (
     <>
       <NextSeo
@@ -33,7 +24,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         openGraph={{
           title: seo?.title,
           description: seo?.metaDesc,
-          images: seoImages ? [...seoImages] : null,
+          images: [{url: seo?.opengraphImage.sourceUrl}],
           url: seo?.canonical
         }}
         nofollow={'follow' !== seo?.metaRobotsNofollow}
@@ -43,7 +34,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={seoImages ? [...seoImages] : []}
+          images={[seo?.opengraphImage.sourceUrl]}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
