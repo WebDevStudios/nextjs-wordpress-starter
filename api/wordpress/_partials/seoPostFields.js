@@ -14,8 +14,7 @@ const seoPostFields = `
     opengraphModifiedTime
     opengraphPublishedTime
     opengraphImage {
-      altText
-      sourceUrl(size: THUMBNAIL)
+      sourceUrl(size: LARGE)
     }
   }
 `
