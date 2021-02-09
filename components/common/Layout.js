@@ -1,9 +1,9 @@
 import Meta from '@/components/common/Meta'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
-import {NextSeo, BlogJsonLd} from 'next-seo'
-import PropTypes from 'prop-types'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
+import {BlogJsonLd, NextSeo} from 'next-seo'
+import PropTypes from 'prop-types'
 
 /**
  * Render the Layout component.
@@ -21,10 +21,7 @@ export default function Layout({children, seo, hasJsonLd}) {
     ? null
     : [
         {
-          url: seo?.opengraphImage.sourceUrl,
-          alt: seo?.opengraphImage?.altText,
-          height: 150,
-          width: 150
+          url: seo?.opengraphImage.sourceUrl
         }
       ]
 
