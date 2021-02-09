@@ -1,0 +1,14 @@
+# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: '*.{js,jsx,ts,tsx}'
+      run: npx eslint --config=.eslintrc.js --fix {staged_files}
+    stylelint:
+      glob: '*.{css,scss}'
+      run: npx stylelint --config=stylelint.config.js --fix {staged_files}
+    prettier:
+      glob: '*.{md,html,json,yml}'
+      run: npx prettier --config=prettier.config.js --write {staged_files}
