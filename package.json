@@ -24,7 +24,7 @@
     "dev": "yarn clean && next dev",
     "develop": "yarn dev",
     "export": "next export",
-    "format": "npx prettier --config=prettier.config.js '**/*.{js,jsx,ts,tsx,md,html,css,scss,json}' --write || true",
+    "format": "npx prettier --config=prettier.config.js '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
     "lint": "yarn format && yarn lint:js && yarn lint:css",
     "lint:css": "npx stylelint --config=stylelint.config.js '**/*.css' --fix || true",
     "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@apollo/client": "^3.3.8",
+    "@arkweid/lefthook": "^0.7.2",
     "@babel/core": "^7.12.13",
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-essentials": "^6.1.17",
@@ -62,8 +63,6 @@
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
     "next-seo": "^4.19.0",
     "next-sitemap": "^1.4.19",
     "postcss-flexbugs-fixes": "^4.2.1",
@@ -80,15 +79,5 @@
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "yup": "^0.32.8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npx eslint --config=.eslintrc.js --fix",
-    "*.{css,scss}": "npx stylelint --config=stylelint.config.js --fix",
-    "*.{md,html,json}": "npx prettier --config=prettier.config.js --write"
   }
 }
