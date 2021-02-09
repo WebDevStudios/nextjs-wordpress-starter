@@ -21,10 +21,7 @@ export default function formatDefaultSeoData(seoData) {
       siteName: siteSeo?.schema?.siteName ?? '',
       images: [
         {
-          url: siteSeo?.openGraph?.defaultImage?.sourceUrl ?? '',
-          alt: siteSeo?.openGraph?.defaultImage?.altText ?? '',
-          height: 150,
-          width: 150
+          url: siteSeo?.openGraph?.defaultImage?.sourceUrl ?? ''
         }
       ]
     },

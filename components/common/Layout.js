@@ -1,9 +1,9 @@
 import Meta from '@/components/common/Meta'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
-import {NextSeo, BlogJsonLd} from 'next-seo'
-import PropTypes from 'prop-types'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
+import {BlogJsonLd, NextSeo} from 'next-seo'
+import PropTypes from 'prop-types'
 
 /**
  * Render the Layout component.
@@ -16,18 +16,6 @@ import {seoPropTypes} from '@/functions/getPagePropTypes'
  * @return {Element}                The Layout component.
  */
 export default function Layout({children, seo, hasJsonLd}) {
-  // Define SEO image prop.
-  const seoImages = !seo?.opengraphImage?.sourceUrl
-    ? null
-    : [
-        {
-          url: seo?.opengraphImage.sourceUrl,
-          alt: seo?.opengraphImage?.altText,
-          height: 150,
-          width: 150
-        }
-      ]
-
   return (
     <>
       <NextSeo
@@ -36,7 +24,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         openGraph={{
           title: seo?.title,
           description: seo?.metaDesc,
-          images: seoImages ? [...seoImages] : null,
+          images: [{url: seo?.opengraphImage?.sourceUrl}],
           url: seo?.canonical
         }}
         nofollow={'follow' !== seo?.metaRobotsNofollow}
@@ -46,7 +34,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={seoImages ? [...seoImages] : []}
+          images={[seo?.opengraphImage.sourceUrl]}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
