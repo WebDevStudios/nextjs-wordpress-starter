@@ -34,13 +34,6 @@ module.exports = {
   rules: {
     'func-style': ['error', 'declaration'],
     'jsdoc/check-indentation': 'warn',
-    'jsdoc/check-line-alignment': [
-      'warn',
-      'always',
-      {
-        tags: ['author', 'param', 'see']
-      }
-    ],
     'jsdoc/require-param': [
       'warn',
       {
