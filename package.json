@@ -14,18 +14,18 @@
   "private": true,
   "license": "GPL-2.0",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token zp8e8oo1lq",
     "clean": "rm -rf .next",
-    "dev": "yarn clean && next dev",
-    "develop": "yarn dev",
+    "dev": "npm run clean && next dev",
+    "develop": "npm dev",
     "export": "next export",
     "format": "npx prettier --config=prettier.config.js '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
-    "lint": "yarn format && yarn lint:js && yarn lint:css",
+    "lint": "npm format && npm lint:js && npm lint:css",
     "lint:css": "npx stylelint --config=stylelint.config.js '**/*.css' --fix || true",
     "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
     "postbuild": "next-sitemap",
@@ -38,17 +38,19 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.8",
+    "@apollo/client": "^3.3.9",
     "@arkweid/lefthook": "^0.7.2",
     "@babel/core": "^7.12.13",
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-essentials": "^6.1.17",
     "@storybook/addon-links": "^6.1.17",
     "@storybook/react": "^6.1.17",
+    "@tailwindcss/postcss7-compat": "^2.0.3",
     "algoliasearch": "^4.8.5",
     "apollo-link-rest": "^0.8.0-beta.0",
+    "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.6.1",
+    "chromatic": "^5.6.2",
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
     "eslint": "^7.19.0",
@@ -65,6 +67,7 @@
     "hamburger-react": "^2.4.0",
     "next-seo": "^4.19.0",
     "next-sitemap": "^1.4.19",
+    "postcss": "^7.0.35",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
@@ -74,10 +77,10 @@
     "react-syntax-highlighter": "^15.4.3",
     "react-twitter-embed": "^3.0.3",
     "storybook-addon-next-router": "^2.0.4",
-    "storybook-css-modules-preset": "^1.0.5",
+    "storybook-css-modules-preset": "^1.0.6",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "yup": "^0.32.8"
   }
 }
