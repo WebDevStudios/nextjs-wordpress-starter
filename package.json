@@ -74,7 +74,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "react-twitter-embed": "^3.0.3",
     "storybook-addon-next-router": "^2.0.4",
-    "storybook-css-modules-preset": "^1.0.5",
+    "storybook-css-modules-preset": "^1.0.6",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
