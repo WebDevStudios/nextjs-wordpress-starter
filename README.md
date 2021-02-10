@@ -4,6 +4,8 @@ Our starter for headless WordPress projects. View the [demo](https://nextjs-word
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
+[![Edit nextjs-wordpress-starter](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/webdevstudios/nextjs-wordpress-starter/tree/staging/?fontsize=14&hidenavigation=1&theme=dark)
+
 ---
 
 ## Supported WordPress Features
