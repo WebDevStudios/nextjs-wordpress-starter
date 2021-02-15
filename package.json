@@ -13,9 +13,6 @@
   },
   "private": true,
   "license": "GPL-2.0",
-  "engines": {
-    "node": ">=14"
-  },
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
