@@ -44,7 +44,7 @@
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-essentials": "^6.1.17",
     "@storybook/addon-links": "^6.1.17",
-    "@storybook/react": "^6.1.17",
+    "@storybook/react": "^6.1.18",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "algoliasearch": "^4.8.5",
     "apollo-link-rest": "^0.8.0-beta.0",
