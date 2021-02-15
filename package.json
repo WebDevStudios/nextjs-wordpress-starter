@@ -41,7 +41,7 @@
     "@apollo/client": "^3.3.9",
     "@arkweid/lefthook": "^0.7.2",
     "@babel/core": "^7.12.16",
-    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-a11y": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.17",
     "@storybook/addon-links": "^6.1.17",
     "@storybook/react": "^6.1.17",
