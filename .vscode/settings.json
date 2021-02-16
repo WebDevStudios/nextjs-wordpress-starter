@@ -1,11 +1,11 @@
 {
   // Enable format with prettier on save, configure import organizing.
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // This will get emmet working in JSX.

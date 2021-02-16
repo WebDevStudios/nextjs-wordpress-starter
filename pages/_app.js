@@ -1,6 +1,7 @@
 import {useApollo} from '@/api/apolloConfig'
 import AlgoliaProvider from '@/components/common/AlgoliaProvider'
 import MenuProvider from '@/components/common/MenuProvider'
+import 'tailwindcss/tailwind.css'
 import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
