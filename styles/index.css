@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   /* Write your own custom base styles here if necessary - https://tailwindcss.com/docs/adding-base-styles#using-css */
 }
