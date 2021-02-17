@@ -34,7 +34,7 @@ export default function Layout({children, seo, hasJsonLd}) {
         <BlogJsonLd
           url={seo?.canonical}
           title={seo?.title}
-          images={[seo?.opengraphImage.sourceUrl]}
+          images={[seo?.opengraphImage?.sourceUrl]}
           datePublished={seo?.opengraphPublishedTime}
           dateModified={seo?.opengraphModifiedTime}
           authorName={seo?.opengraphAuthor}
