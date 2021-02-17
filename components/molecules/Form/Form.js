@@ -1,8 +1,8 @@
-import React from 'react'
-import {Formik, Form as FormikForm} from 'formik'
-import styles from './Form.module.css'
-import PropTypes from 'prop-types'
 import cn from 'classnames'
+import {Form as FormikForm, Formik} from 'formik'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styles from './Form.module.css'
 
 /**
  * Render Form component.
@@ -46,7 +46,7 @@ export default function Form({
 }
 
 Form.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+  children: PropTypes.any,
   className: PropTypes.string,
   formDefaults: PropTypes.object,
   id: PropTypes.string,
