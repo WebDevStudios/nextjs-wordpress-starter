@@ -1,8 +1,7 @@
-import getEnvVar from '@/functions/getEnvVar'
 import algoliasearch from 'algoliasearch/lite'
 
 // Define env vars.
-export const algoliaIndexName = getEnvVar('ALGOLIA_INDEX_NAME', true)
+export const algoliaIndexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME
 export const algoliaSearchKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_KEY
 export const algoliaAppId = process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID
 

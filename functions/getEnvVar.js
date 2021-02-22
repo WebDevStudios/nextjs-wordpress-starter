@@ -1,5 +1,5 @@
 /**
- * Retrieve environment-specific var.
+ * Helper to retrieve environment-specific var.
  *
  * @author WebDevStudios
  * @param {string}  varName  Environment variable.
