@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client'
-import globalPostFields from '../_partials/globalPostFields'
-import featuredImagePostFields from '../_partials/featuredImagePostFields'
 import archivePageInfo from '../_partials/archivePageInfo'
 import defaultPageData from '../_partials/defaultPageData'
+import featuredImagePostFields from '../_partials/featuredImagePostFields'
+import globalPostFields from '../_partials/globalPostFields'
 
 // Fragment: retrieve archive team fields.
 const archiveTeamFragment = gql`
@@ -10,9 +10,6 @@ const archiveTeamFragment = gql`
     ${globalPostFields}
     excerpt
     ${featuredImagePostFields}
-    teamMemberProfile {
-      easterEggUrl
-    }
   }
 `
 

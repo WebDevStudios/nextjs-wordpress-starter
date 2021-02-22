@@ -15,15 +15,8 @@ const singleTeamFragment = gql`
     ${authorPostFields}
     ${featuredImagePostFields}
     teamMemberProfile {
-      facebookUrl
-      githubUrl
-      instagramUrl
-      linkedinUrl
       location
-      websiteUrl
-      twitterUrl
       title
-      wordpressorgProfileUrl
     }
   }
 `

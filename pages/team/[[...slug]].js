@@ -72,33 +72,11 @@ export default function Team({post, archive, posts, pagination}) {
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
           )}
           <RichText tag="h1">{post?.title}</RichText>
-          <p>{post?.teamMemberProfile?.title}</p>
+          <p>
+            {post?.teamMemberProfile?.title} -{' '}
+            {post?.teamMemberProfile?.location}
+          </p>
           <Blocks blocks={post?.blocks} />
-          {!!post?.teamMemberProfile && (
-            // Other profiles exist; this is a sample.
-            <ul>
-              {!!post.teamMemberProfile.facebookUrl && (
-                <li>
-                  <a href={post.teamMemberProfile.facebookUrl}>Facebook</a>
-                </li>
-              )}
-              {!!post.teamMemberProfile.linkedinUrl && (
-                <li>
-                  <a href={post.teamMemberProfile.linkedinUrl}>LinkedIn</a>
-                </li>
-              )}
-              {!!post.teamMemberProfile.twitterUrl && (
-                <li>
-                  <a href={post.teamMemberProfile.twitterUrl}>Twitter</a>
-                </li>
-              )}
-              {!!post.teamMemberProfile.githubUrl && (
-                <li>
-                  <a href={post.teamMemberProfile.githubUrl}>GitHub</a>
-                </li>
-              )}
-            </ul>
-          )}
         </article>
       </Container>
     </Layout>
