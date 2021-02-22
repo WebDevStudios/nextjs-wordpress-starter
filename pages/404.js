@@ -1,8 +1,8 @@
 import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import Page from './[...slug]'
-import Container from '@/components/atoms/Container'
 
 // Define route post type.
 const postType = 'page'
@@ -46,7 +46,7 @@ export default function Custom404({post}) {
  * @return {object} Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps({slug: '404'}, postType)
+  return await getPostTypeStaticProps({slug: '404-not-found'}, postType)
 }
 
 Custom404.propTypes = {
