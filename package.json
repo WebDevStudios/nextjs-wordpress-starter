@@ -13,6 +13,10 @@
   },
   "private": true,
   "license": "GPL-2.0",
+  "engines": {
+    "node": "14",
+    "npm": "7"
+  },
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
@@ -22,7 +26,7 @@
     "develop": "npm dev",
     "export": "next export",
     "format": "npx prettier --config=prettier.config.js '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
-    "lint": "npm format && npm lint:js && npm lint:css",
+    "lint": "npm run format && npm run lint:js && npm run lint:css",
     "lint:css": "npx stylelint --config=stylelint.config.js '**/*.css' --fix || true",
     "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
     "postbuild": "next-sitemap",
@@ -37,7 +41,7 @@
   "devDependencies": {
     "@apollo/client": "^3.3.11",
     "@arkweid/lefthook": "^0.7.2",
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.12.17",
     "@storybook/addon-a11y": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.18",
     "@storybook/addon-links": "^6.1.18",
@@ -47,13 +51,13 @@
     "apollo-link-rest": "^0.8.0-beta.0",
     "autoprefixer": "9.8.6",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.6.2",
+    "chromatic": "^5.6.3",
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
     "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^32.0.2",
+    "eslint-plugin-jsdoc": "^32.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
@@ -62,7 +66,7 @@
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.0",
-    "next-seo": "^4.19.0",
+    "next-seo": "^4.20.0",
     "next-sitemap": "^1.5.6",
     "postcss": "7.0.35",
     "postcss-flexbugs-fixes": "4.2.1",
@@ -75,9 +79,9 @@
     "react-twitter-embed": "^3.0.3",
     "storybook-addon-next-router": "^2.0.4",
     "storybook-css-modules-preset": "^1.0.6",
-    "stylelint": "^13.10.0",
+    "stylelint": "^13.11.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
-    "yup": "^0.32.8"
+    "yup": "^0.32.9"
   }
 }

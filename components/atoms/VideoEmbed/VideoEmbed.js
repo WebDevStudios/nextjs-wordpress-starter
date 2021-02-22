@@ -1,7 +1,7 @@
+import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RichText from '@/components/atoms/RichText'
 import styles from './VideoEmbed.module.css'
 
 /**
@@ -20,6 +20,7 @@ export default function VideoEmbed({className, url, type, caption}) {
    * Create URL embed for YouTube or Vimeo videos.
    *
    * @param {string} url The video URL.
+   * @return {string}    Formatted video URL.
    */
   function createVideoUrl(url) {
     if (!url) {
