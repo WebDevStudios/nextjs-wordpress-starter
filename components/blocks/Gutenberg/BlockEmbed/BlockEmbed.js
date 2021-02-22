@@ -33,24 +33,24 @@ export default function BlockEmbed({
     if (providerNameSlug === 'twitter') {
       setLoadTweet(1)
     }
-  })
+  }, [providerNameSlug])
+
+  if (!url) {
+    return
+  }
 
   return (
     <>
-      {!!url && (
-        <>
-          {!!loadTweet && (
-            <Tweet className={className} url={url} caption={caption} />
-          )}
-          {!!supportedVideoTypes.includes(providerNameSlug) && (
-            <VideoEmbed
-              className={className}
-              url={url}
-              caption={caption}
-              type={providerNameSlug}
-            />
-          )}
-        </>
+      {!!loadTweet && (
+        <Tweet className={className} url={url} caption={caption} />
+      )}
+      {!!supportedVideoTypes.includes(providerNameSlug) && (
+        <VideoEmbed
+          className={className}
+          url={url}
+          caption={caption}
+          type={providerNameSlug}
+        />
       )}
     </>
   )
