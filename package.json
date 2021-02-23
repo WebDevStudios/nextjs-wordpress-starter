@@ -31,7 +31,8 @@
     "lint:js": "npx eslint --config=.eslintrc.js ./ --fix || true",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "wpe-build": "next build"
   },
   "dependencies": {
     "next": "latest",
