@@ -1,18 +1,18 @@
 # Next.js WordPress Starter
 
-Our starter for headless WordPress projects.
-
-https://nextjs-wordpress-starter.vercel.app
+Our starter for headless WordPress projects. https://nextjs-wordpress-starter.vercel.app
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
-
-[![Edit nextjs-wordpress-starter](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/webdevstudios/nextjs-wordpress-starter/tree/main/?fontsize=14&hidenavigation=1&theme=dark&view=editor)
 
 ---
 
 ## Getting Started
 
-Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki) contains all of the documentation necessary to get started.
+Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki) contains all of the documentation necessary to stand up a local install.
+
+Checkout the codebase with CodeSandbox:
+
+[![Edit nextjs-wordpress-starter](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/webdevstudios/nextjs-wordpress-starter/tree/main/?fontsize=14&hidenavigation=1&theme=dark&view=editor)
 
 ---
 
