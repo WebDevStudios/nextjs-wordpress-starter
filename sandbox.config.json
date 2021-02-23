@@ -1,9 +1,0 @@
-{
-  "infiniteLoopProtection": true,
-  "hardReloadOnChange": false,
-  "view": "console",
-  "container": {
-    "node": "14"
-  },
-  "template": "node"
-}
