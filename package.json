@@ -44,7 +44,7 @@
     "@babel/core": "^7.12.17",
     "@storybook/addon-a11y": "^6.1.19",
     "@storybook/addon-essentials": "^6.1.18",
-    "@storybook/addon-links": "^6.1.18",
+    "@storybook/addon-links": "^6.1.19",
     "@storybook/react": "^6.1.19",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "algoliasearch": "^4.8.5",
