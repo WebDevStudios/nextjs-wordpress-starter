@@ -2,7 +2,7 @@ import AcfMediaText from '@/components/organisms/AcfMediaText'
 import PropTypes from 'prop-types'
 
 /**
- * Handle the LzbMediaText block.
+ * Handle the AcfBlockMediaText block.
  *
  * @author WebDevStudios
  * @param {object} props            The props.
