@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import {gql} from '@apollo/client'
 
 // Mutation: Register a user in WP
 const mutationRegisterUser = gql`
@@ -7,12 +7,14 @@ const mutationRegisterUser = gql`
     $username: String!
     $password: String!
   ) {
-    registerUser(input: {
-        email: $email,
-        username: $username,
-        password: $password,
+    registerUser(
+      input: {
+        email: $email
+        username: $username
+        password: $password
         clientMutationId: "RegisterUser"
-    }) {
+      }
+    ) {
       user {
         databaseId
         username
