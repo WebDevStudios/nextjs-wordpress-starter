@@ -4,42 +4,68 @@ import PropTypes from 'prop-types'
 // Import WP blocks using Next Dynamic Imports
 // @see https://nextjs.org/docs/advanced-features/dynamic-import
 
-const BlockQuote = dynamic(() => import('@/blocks/Gutenberg/BlockQuote'))
+const BlockQuote = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockQuote')
+)
 const BlockPullQuote = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockPullQuote')
+  import('@/components/blocks/Gutenberg/BlockPullQuote')
 )
-const BlockCode = dynamic(() => import('@/blocks/Gutenberg/BlockCode'))
-const BlockEmbed = dynamic(() => import('@/blocks/Gutenberg/BlockEmbed'))
+const BlockCode = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockCode')
+)
+const BlockEmbed = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockEmbed')
+)
 const BlockMediaText = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockMediaText')
+  import('@/components/blocks/Gutenberg/BlockMediaText')
 )
-const BlockButton = dynamic(() => import('@/blocks/Gutenberg/BlockButton'))
-const BlockButtons = dynamic(() => import('@/blocks/Gutenberg/BlockButtons'))
-const BlockColumns = dynamic(() => import('@/blocks/Gutenberg/BlockColumns'))
-const BlockCover = dynamic(() => import('@/blocks/Gutenberg/BlockCover'))
-const BlockHeadings = dynamic(() => import('@/blocks/Gutenberg/BlockHeadings'))
-const BlockImage = dynamic(() => import('@/blocks/Gutenberg/BlockImage'))
+const BlockButton = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockButton')
+)
+const BlockButtons = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockButtons')
+)
+const BlockColumns = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockColumns')
+)
+const BlockCover = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockCover')
+)
+const BlockHeadings = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockHeadings')
+)
+const BlockImage = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockImage')
+)
 const BlockImageGallery = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockImageGallery')
+  import('@/components/blocks/Gutenberg/BlockImageGallery')
 )
-const BlockTable = dynamic(() => import('@/blocks/Gutenberg/BlockTable'))
-const BlockList = dynamic(() => import('@/blocks/Gutenberg/BlockList'))
+const BlockTable = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockTable')
+)
+const BlockList = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockList')
+)
 const BlockParagraph = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockParagraph')
+  import('@/components/blocks/Gutenberg/BlockParagraph')
 )
 const BlockSeparator = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockSeparator')
+  import('@/components/blocks/Gutenberg/BlockSeparator')
 )
-const BlockSpacer = dynamic(() => import('@/blocks/Gutenberg/BlockSpacer'))
+const BlockSpacer = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockSpacer')
+)
 const BlockGravityForm = dynamic(() =>
-  import('@/blocks/Gutenberg/BlockGravityForm')
+  import('@/components/blocks/Gutenberg/BlockGravityForm')
 )
 const LzbBlockMediaText = dynamic(() =>
-  import('@/blocks/LazyBlocks/LzbBlockMediaText')
+  import('@/components/blocks/LazyBlocks/LzbBlockMediaText')
 )
-const LzbBlockHero = dynamic(() => import('@/blocks/LazyBlocks/LzbBlockHero'))
+const LzbBlockHero = dynamic(() =>
+  import('@/components/blocks/LazyBlocks/LzbBlockHero')
+)
 const AcfBlockMediaText = dynamic(() =>
-  import('@/blocks/ACF/AcfBlockMediaText')
+  import('@/components/blocks/ACF/AcfBlockMediaText')
 )
 
 /**
