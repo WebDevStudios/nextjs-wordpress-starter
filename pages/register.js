@@ -3,7 +3,7 @@ import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
-import { signIn } from 'next-auth/client'
+import {signIn} from 'next-auth/client'
 import React from 'react'
 
 /**
@@ -18,9 +18,15 @@ export default function Register() {
           className="registration-form"
           id="registration-form"
           title="Register"
-          onSubmit={async (values, { setSubmitting }) => {
-            const { firstName, lastName, email, password, username } = values
-            signIn('wpRegister', { firstName, lastName, email, password, username })
+          onSubmit={async (values, {setSubmitting}) => {
+            const {firstName, lastName, email, password, username} = values
+            signIn('wpRegister', {
+              firstName,
+              lastName,
+              email,
+              password,
+              username
+            })
 
             setSubmitting(false)
           }}

@@ -2,23 +2,30 @@ import registerUser from '@/api/frontend/wp/user/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
-const userFields = ["accessToken", "userId", "username", "firstName", "lastName", "email"]
+const userFields = [
+  'accessToken',
+  'userId',
+  'username',
+  'firstName',
+  'lastName',
+  'email'
+]
 
 /**
  * Populate `obj` with new data from `source`.
- * 
+ *
  * This function gets the `source`.[ userField ] and add this to the
  * `newObj`.
- * 
- * @param {object} obj    Original object 
+ *
+ * @param {object} obj    Original object
  * @param {object} source Source object where new data is present
- * @returns {object} A new object containing the original data + new data
+ * @return {object} A new object containing the original data + new data
  */
 function populateObj(obj, source) {
-  let newObj = { ...obj }
+  let newObj = {...obj}
   for (let field in source) {
     if (!userFields.includes(field)) {
-      continue;
+      continue
     }
 
     newObj[field] = source[field]
@@ -71,16 +78,11 @@ export default NextAuth({
         }
       },
       async authorize(credentials) {
-        const { firstName, lastName, email, password, username } = credentials
-        const response = await registerUser(
-          email,
-          password,
-          username,
-          {
-            firstName,
-            lastName
-          }
-        )
+        const {firstName, lastName, email, password, username} = credentials
+        const response = await registerUser(email, password, username, {
+          firstName,
+          lastName
+        })
 
         if (response.error) {
           throw `/register?error=${response.errorMessage}`
