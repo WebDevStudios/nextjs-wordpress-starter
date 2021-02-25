@@ -1,5 +1,5 @@
 import Container from '@/components/atoms/Container'
-import {MenuContext} from '@/components/common/MenuProvider'
+import {WPContext} from '@/components/common/WordPressProvider'
 import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
@@ -18,7 +18,7 @@ import styles from './Footer.module.css'
  * @return {Element}               The Footer component.
  */
 export default function Footer({social, siteTitle}) {
-  const {menus} = useContext(MenuContext)
+  const {menus} = useContext(WPContext)
   return (
     <footer className={styles.footer}>
       <Container>
