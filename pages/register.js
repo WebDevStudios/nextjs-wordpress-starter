@@ -6,8 +6,7 @@ import { csrfToken, signIn } from 'next-auth/client'
 import React from 'react'
 
 /**
- * @param props0
- * @param props0.csrfToken
+ * Register Component
  */
 export default function Register() {
   return (
