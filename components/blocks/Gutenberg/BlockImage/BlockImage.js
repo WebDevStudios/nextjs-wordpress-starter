@@ -1,4 +1,4 @@
-import Image from '@/components/atoms/Image'
+import DisplayImage from '@/components/atoms/Image'
 import PropTypes from 'prop-types'
 
 /**
@@ -35,7 +35,7 @@ export default function BlockImage({
   url
 }) {
   return (
-    <Image
+    <DisplayImage
       alt={alt}
       anchor={anchor}
       caption={caption}
