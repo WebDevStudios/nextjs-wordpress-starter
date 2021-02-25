@@ -2,6 +2,31 @@ import registerUser from '@/api/frontend/wp/user/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
+const userFields = ["accessToken", "userId", "username", "firstName", "lastName", "email"]
+
+/**
+ * Populate `obj` with new data from `source`.
+ * 
+ * This function gets the `source`.[ userField ] and add this to the
+ * `newObj`.
+ * 
+ * @param {object} obj    Original object 
+ * @param {object} source Source object where new data is present
+ * @returns {object} A new object containing the original data + new data
+ */
+function populateObj(obj, source) {
+  let newObj = { ...obj }
+  for (let field in source) {
+    if (!userFields.includes(field)) {
+      continue;
+    }
+
+    newObj[field] = source[field]
+  }
+
+  return newObj
+}
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -46,17 +71,28 @@ export default NextAuth({
         }
       },
       async authorize(credentials) {
-        const { email, password, username } = credentials
-        const response = await registerUser(email, password, username)
+        const { firstName, lastName, email, password, username } = credentials
+        const response = await registerUser(
+          email,
+          password,
+          username,
+          {
+            firstName,
+            lastName
+          }
+        )
 
         if (response.error) {
           throw `/register?error=${response.errorMessage}`
         }
 
         return {
-          id: response.databaseId,
+          userId: response.databaseId,
           username: response.username,
-          jwtAuthToken: response.jwtAuthToken
+          accessToken: response.jwtAuthToken,
+          firstName: response.firstName,
+          lastName: response.lastName,
+          email: response.email
         }
       }
     })
@@ -69,30 +105,12 @@ export default NextAuth({
   },
   callbacks: {
     async session(session, token) {
-      if (token?.accessToken) {
-        session.accessToken = token.accessToken
-      }
-
-      if (token?.user_id) {
-        session.user.user_id = token.user_id
-      }
+      session.user = populateObj(session.user, token)
 
       return session
     },
     async jwt(token, user) {
-      if (user?.jwtAuthToken) {
-        token.accessToken = user.jwtAuthToken
-      }
-
-      if (user?.id) {
-        token.user_id = user.id
-      }
-
-      if (user?.username) {
-        token.name = user.username
-      }
-
-      return token
+      return populateObj(token, user)
     }
   }
 })

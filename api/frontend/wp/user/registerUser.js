@@ -1,4 +1,4 @@
-import {initializeWpApollo} from '@/api/wordpress/connector'
+import { initializeWpApollo } from '@/api/wordpress/connector'
 import mutationRegisterUser from './mutationRegisterUser'
 
 /**
@@ -8,10 +8,14 @@ import mutationRegisterUser from './mutationRegisterUser'
  * @param {string} email    Email address
  * @param {string} password Password
  * @param {string} username Username
- * @return {object}         Comment data or error object.
+ * @param {object} data     Other user data
+ * @return {object}         User data or error object.
  */
-export default async function registerUser(email, password, username) {
+export default async function registerUser(email, password, username, data) {
   const apolloClient = initializeWpApollo()
+
+  const firstName = data?.firstName ?? ''
+  const lastName = data?.lastName ?? ''
 
   return apolloClient
     .mutate({
@@ -19,7 +23,9 @@ export default async function registerUser(email, password, username) {
       variables: {
         email,
         password,
-        username
+        username,
+        firstName,
+        lastName
       }
     })
     .then(
