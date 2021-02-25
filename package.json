@@ -57,7 +57,7 @@
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
     "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^32.2.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
