@@ -1,5 +1,5 @@
 import getFormById from '@/api/wordpress/gravityForms/getFormById'
-import getMediaByURL from '@/api/wordpress/media/getMediaByURL'
+import getMediaByID from '@/api/wordpress/media/getMediaByID'
 
 /**
  * Format and retrieve expanded block data.
@@ -18,12 +18,12 @@ export default async function formatBlockData(blocks) {
       const {name, attributes, innerBlocks} = block
       switch (name) {
         case 'core/image':
-          // Get image width/height for Next Image
-          attributes.image = await getMediaByURL(attributes?.url)
+          // Retrieve additional image data.
+          attributes.imageData = await getMediaByID(attributes?.id)
           break
         case 'gravityforms/form':
           // Retrieve form data.
-          attributes.formData = await getFormById(attributes.formId)
+          attributes.formData = await getFormById(attributes?.formId)
           break
       }
 
