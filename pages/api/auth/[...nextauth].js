@@ -126,6 +126,9 @@ export default NextAuth({
     },
     async jwt(token, user) {
       return populateObj(token, user)
+    },
+    async redirect(url) {
+      return url
     }
   }
 })
