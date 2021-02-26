@@ -1,3 +1,4 @@
+import loginUser from '@/api/frontend/wp/user/loginUser'
 import registerUser from '@/api/frontend/wp/user/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
@@ -34,6 +35,24 @@ function populateObj(obj, source) {
   return newObj
 }
 
+/**
+ * Returns a user object mapped from `response` received from WP GraphQL
+ * on user login or registration.
+ *
+ * @param {object} response Response from WP GraphQL
+ * @return {object} User object
+ */
+function createUserObj(response) {
+  return {
+    userId: response.databaseId,
+    username: response.username,
+    accessToken: response.jwtAuthToken,
+    firstName: response.firstName,
+    lastName: response.lastName,
+    email: response.email
+  }
+}
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -43,25 +62,26 @@ export default NextAuth({
     }),
     Providers.Credentials({
       id: 'wpLogin',
-      name: 'WordPress',
+      name: 'Login',
       credentials: {
         username: {
-          label: 'Username / Email',
+          label: 'Username',
           type: 'text'
         },
         password: {
           label: 'Password',
           type: 'password'
-        },
-        credType: {
-          type: 'hidden',
-          value: 'login'
         }
       },
-      async authorize() {
-        // console.log('login authorize')
-        // console.log(credentials)
-        return null
+      async authorize(credentials) {
+        const {username, password} = credentials
+        const response = await loginUser(username, password)
+
+        if (response.error) {
+          throw `/login?error=${response.errorMessage}`
+        }
+
+        return createUserObj(response)
       }
     }),
     Providers.Credentials({
@@ -88,14 +108,7 @@ export default NextAuth({
           throw `/register?error=${response.errorMessage}`
         }
 
-        return {
-          userId: response.databaseId,
-          username: response.username,
-          accessToken: response.jwtAuthToken,
-          firstName: response.firstName,
-          lastName: response.lastName,
-          email: response.email
-        }
+        return createUserObj(response)
       }
     })
   ],
