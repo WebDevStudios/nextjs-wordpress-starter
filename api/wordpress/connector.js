@@ -1,5 +1,5 @@
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
-import { initializeApollo } from '../apolloConfig'
+import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
+import {initializeApollo} from '../apolloConfig'
 
 // Define env vars.
 export const wpApiUrlBase = process.env.NEXT_PUBLIC_WORDPRESS_URL
