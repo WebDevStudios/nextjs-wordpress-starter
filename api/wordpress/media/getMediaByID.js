@@ -5,10 +5,15 @@ import queryMediaAttributes from './queryMediaAttributes'
  * Retrieve media details by ID.
  *
  * @author WebDevStudios
- * @param {string} url The media source url.
+ * @param {number} id The media's database ID.
  * @return {object}   Object containing Apollo client instance and post data or error object.
  */
-export default async function getMediaByURL(url) {
+export default async function getMediaByID(id) {
+  // No ID? Bail...
+  if (!id) {
+    return {}
+  }
+
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
 
@@ -17,10 +22,10 @@ export default async function getMediaByURL(url) {
     .query({
       query: queryMediaAttributes,
       variables: {
-        url: url
+        id: id
       }
     })
-    .then((media) => media?.data?.mediaItem?.mediaDetails ?? null)
+    .then((media) => media?.data?.mediaItem ?? null)
     .catch((error) => {
       return {
         isError: true,
