@@ -3,13 +3,24 @@ import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
-import { signIn } from 'next-auth/client'
-import React from 'react'
+import { signIn, useSession } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
 
 /**
  * Login Component
  */
 export default function Login() {
+    const [session] = useSession()
+    const router = useRouter()
+
+    // Redirect to '/profile' if already auth
+    useEffect(() => {
+        if (session && session.user) {
+            router.push('/profile')
+        }
+    })
+
     return (
         <Layout>
             <Container>
@@ -22,7 +33,8 @@ export default function Login() {
                         const { username, password } = values
                         signIn('wpLogin', {
                             username,
-                            password
+                            password,
+                            callbackUrl: '/profile'
                         })
 
                         setSubmitting(false)
