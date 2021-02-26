@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import {PropTypes} from 'prop-types'
-
+import styles from './Image.module.css'
 /**
  * Render the Display Image component.
  *
@@ -22,17 +22,19 @@ export default function DisplayImage(props) {
   // If height/width are set, use Next <Image />.
   if (imageSize.height && imageSize.width) {
     return (
-      <Image
-        alt={props?.alt}
-        height={imageSize?.height}
-        src={fullSizeURL}
-        width={imageSize?.width}
-      />
+      <div className={styles.image}>
+        <Image
+          alt={props?.alt}
+          height={imageSize?.height}
+          src={fullSizeURL}
+          width={imageSize?.width}
+        />
+      </div>
     )
   }
 
   // Otherwise, just use HTML <img />.
-  return <img src={props?.url} alt={props?.alt} />
+  return <img alt={props?.alt} className={styles.image} src={props?.url} />
 }
 
 DisplayImage.propTypes = {
