@@ -3,9 +3,9 @@ import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
-import { signIn, useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
+import {signIn, useSession} from 'next-auth/client'
+import {useRouter} from 'next/router'
+import React, {useEffect} from 'react'
 
 /**
  * Register Component
@@ -27,8 +27,8 @@ export default function Register() {
           className="registration-form"
           id="registration-form"
           title="Register"
-          onSubmit={async (values, { setSubmitting }) => {
-            const { firstName, lastName, email, password, username } = values
+          onSubmit={async (values, {setSubmitting}) => {
+            const {firstName, lastName, email, password, username} = values
             signIn('wpRegister', {
               firstName,
               lastName,
