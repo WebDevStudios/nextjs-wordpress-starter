@@ -1,15 +1,14 @@
-import {useApollo} from '@/api/apolloConfig'
-import AlgoliaProvider from '@/components/common/AlgoliaProvider'
-import MenuProvider from '@/components/common/MenuProvider'
+import { useApollo } from '@/api/apolloConfig'
+import WordPressProvider from '@/components/common/WordPressProvider'
 import '@/styles/demo.css'
 import '@/styles/index.css'
-import {ApolloProvider} from '@apollo/client'
-import {Provider} from 'next-auth/client'
-import {DefaultSeo} from 'next-seo'
+import { ApolloProvider } from '@apollo/client'
+import { Provider } from 'next-auth/client'
+import { DefaultSeo } from 'next-seo'
 import Error from 'next/error'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import 'tailwindcss/tailwind.css'
 
 /**
@@ -21,7 +20,7 @@ import 'tailwindcss/tailwind.css'
  * @param {boolean} props.pageProps Page component props.
  * @return {Element}                The App component.
  */
-export default function App({Component, pageProps}) {
+export default function App({ Component, pageProps }) {
   /**
    * Wrap the app in the ApolloProvider component.
    *
@@ -46,15 +45,11 @@ export default function App({Component, pageProps}) {
   // Trim trailing period - added via Error component.
   errorMessage = errorMessage.replace(/\.$/g, '')
 
-  // Initialize Algolia state for context provider.
-  const [algolia] = useState({
-    indexName: pageProps?.algolia?.indexName
-  })
-
   // Extract specific props from page props.
   const {
-    defaultSeo: {social, ...defaultSeoData} = {},
+    defaultSeo: { social, ...defaultSeoData } = {},
     menus,
+    algolia,
     preview,
     ...passThruProps
   } = pageProps
@@ -72,34 +67,34 @@ export default function App({Component, pageProps}) {
     }
   }
 
-  // Initialize state for Menu context provider.
-  const [navMenus] = useState({
-    menus
+  // Initialize state for WordPress context provider.
+  const [wp] = useState({
+    algolia: {
+      indexName: algolia?.indexName
+    },
+    menus: menus
   })
 
   return (
     <Provider session={pageProps.session}>
       <ApolloProvider client={apolloClient}>
-        <AlgoliaProvider value={algolia}>
-          <MenuProvider value={navMenus}>
-            {error ? (
-              <Error statusCode={500} title={errorMessage} />
-            ) : (
+        <WordPressProvider value={wp}>
+          {error ? (
+            <Error statusCode={500} title={errorMessage} />
+          ) : (
               <>
                 {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
                 {!!preview && (
                   // TODO -- abstract this to a component.
                   <p>
                     This page is a preview.{' '}
-                    <a href="/api/exit-preview">Click here</a> to exit preview
-                    mode.
+                    <a href="/api/exit-preview">Click here</a> to exit preview mode.
                   </p>
                 )}
                 <Component {...componentProps} />
               </>
             )}
-          </MenuProvider>
-        </AlgoliaProvider>
+        </WordPressProvider>
       </ApolloProvider>
     </Provider>
   )

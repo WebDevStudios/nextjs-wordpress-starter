@@ -17,7 +17,7 @@ export default function BlockCover({media, innerBlocks}) {
   return (
     <>
       {!!media?.url && (
-        <Hero backgroundImage={media.url} id={media?.anchor}>
+        <Hero backgroundImage={media} id={media?.anchor}>
           {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
         </Hero>
       )}

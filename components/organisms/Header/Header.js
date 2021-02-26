@@ -1,6 +1,6 @@
 import Container from '@/components/atoms/Container'
 import Logo from '@/components/atoms/Logo'
-import {MenuContext} from '@/components/common/MenuProvider'
+import {WPContext} from '@/components/common/WordPressProvider'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Navigation from '@/components/molecules/Navigation'
 import Link from 'next/link'
@@ -16,7 +16,7 @@ import styles from './Header.module.css'
  * @return {Element} The Header component.
  */
 export default function Header() {
-  const {menus} = useContext(MenuContext)
+  const {menus} = useContext(WPContext)
   return (
     <>
       <a className={styles.skip} href="#page-content">

@@ -1,4 +1,4 @@
-import {AlgoliaContext} from '@/components/common/AlgoliaProvider'
+import {WPContext} from '@/components/common/WordPressProvider'
 import parseQuerystring from '@/functions/parseQuerystring'
 import cn from 'classnames'
 import dynamic from 'next/dynamic'
@@ -34,7 +34,7 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
   const [loadAlgolia, setLoadAlgolia] = useState(0)
   const searchRef = useRef()
-  const {indexName} = useContext(AlgoliaContext)
+  const {algolia} = useContext(WPContext)
 
   /**
    * Set a min-height value on the search wrapper
@@ -61,17 +61,25 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   }
 
   return (
-    <div
-      className={cn(styles.algoliaSearch, className)}
-      ref={searchRef}
-      style={setMinHeight()}
-    >
-      {!!loadAlgolia || !usePlaceholder ? (
-        <Search indexName={indexName} useHistory={useHistory} query={query} />
-      ) : (
-        <SearchPlaceholder query={query} toggleAlgolia={toggleAlgolia} />
+    <>
+      {!!algolia?.indexName && (
+        <div
+          className={cn(styles.algoliaSearch, className)}
+          ref={searchRef}
+          style={setMinHeight()}
+        >
+          {!!loadAlgolia || !usePlaceholder ? (
+            <Search
+              indexName={algolia?.indexName}
+              useHistory={useHistory}
+              query={query}
+            />
+          ) : (
+            <SearchPlaceholder query={query} toggleAlgolia={toggleAlgolia} />
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
 

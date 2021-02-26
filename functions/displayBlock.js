@@ -1,5 +1,72 @@
-import * as Blocks from '@/components/blocks'
+import dynamic from 'next/dynamic'
 import PropTypes from 'prop-types'
+
+// Import WP blocks using Next Dynamic Imports
+// @see https://nextjs.org/docs/advanced-features/dynamic-import
+
+const BlockQuote = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockQuote')
+)
+const BlockPullQuote = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockPullQuote')
+)
+const BlockCode = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockCode')
+)
+const BlockEmbed = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockEmbed')
+)
+const BlockMediaText = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockMediaText')
+)
+const BlockButton = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockButton')
+)
+const BlockButtons = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockButtons')
+)
+const BlockColumns = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockColumns')
+)
+const BlockCover = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockCover')
+)
+const BlockHeadings = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockHeadings')
+)
+const BlockImage = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockImage')
+)
+const BlockImageGallery = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockImageGallery')
+)
+const BlockTable = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockTable')
+)
+const BlockList = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockList')
+)
+const BlockParagraph = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockParagraph')
+)
+const BlockSeparator = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockSeparator')
+)
+const BlockSpacer = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockSpacer')
+)
+const BlockGravityForm = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockGravityForm')
+)
+const LzbBlockMediaText = dynamic(() =>
+  import('@/components/blocks/LazyBlocks/LzbBlockMediaText')
+)
+const LzbBlockHero = dynamic(() =>
+  import('@/components/blocks/LazyBlocks/LzbBlockHero')
+)
+const AcfBlockMediaText = dynamic(() =>
+  import('@/components/blocks/ACF/AcfBlockMediaText')
+)
 
 /**
  * Decide which block component to display.
@@ -15,48 +82,48 @@ export default function displayBlock(block, index) {
   // prettier-ignore
   switch (name) {
     case 'core/quote':
-      return <Blocks.BlockQuote {...attributes} key={index} />
+      return <BlockQuote {...attributes} key={index} />
     case 'core/pullquote':
-      return <Blocks.BlockPullQuote {...attributes} key={index} />
+      return <BlockPullQuote {...attributes} key={index} />
     case 'core/code':
     case 'core/preformatted':
-      return <Blocks.BlockCode {...attributes} key={index} />
+      return <BlockCode {...attributes} key={index} />
     case 'core/embed':
-      return <Blocks.BlockEmbed {...attributes} key={index} />
+      return <BlockEmbed {...attributes} key={index} />
     case 'core/media-text':
-      return <Blocks.BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/button':
-      return <Blocks.BlockButton {...attributes} key={index} />
+      return <BlockButton {...attributes} key={index} />
     case 'core/buttons':
-      return <Blocks.BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/columns':
-      return  <Blocks.BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/cover':
-      return <Blocks.BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/heading':
-      return <Blocks.BlockHeadings {...attributes} key={index} />
+      return <BlockHeadings {...attributes} key={index} />
     case 'core/image':
-      return <Blocks.BlockImage {...attributes} key={index} />
+      return <BlockImage {...attributes} key={index} />
     case 'core/gallery':
-      return <Blocks.BlockImageGallery {...attributes} key={index} />
+      return <BlockImageGallery {...attributes} key={index} />
     case 'core/table':
-      return <Blocks.BlockTable {...attributes} key={index} />
+      return <BlockTable {...attributes} key={index} />
     case 'core/list':
-      return <Blocks.BlockList {...attributes} key={index} />
+      return <BlockList {...attributes} key={index} />
     case 'core/paragraph':
-      return <Blocks.BlockParagraph {...attributes} key={index} />
+      return <BlockParagraph {...attributes} key={index} />
     case 'core/separator':
-      return <Blocks.BlockSeparator {...attributes} key={index} />
+      return <BlockSeparator {...attributes} key={index} />
     case 'core/spacer':
-      return <Blocks.BlockSpacer {...attributes} key={index} />
+      return <BlockSpacer {...attributes} key={index} />
     case 'gravityforms/form':
-      return <Blocks.BlockGravityForm attributes={attributes} key={index} />
+      return <BlockGravityForm attributes={attributes} key={index} />
     case 'lazyblock/mediatext':
-      return <Blocks.LzbBlockMediaText attributes={attributes} key={index} />
+      return <LzbBlockMediaText attributes={attributes} key={index} />
     case 'lazyblock/hero':
-      return <Blocks.LzbBlockHero attributes={attributes} key={index} />
+      return <LzbBlockHero attributes={attributes} key={index} />
     case 'acf/acf-media-text':
-      return <Blocks.AcfBlockMediaText attributes={attributes} key={index} />
+      return <AcfBlockMediaText attributes={attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }

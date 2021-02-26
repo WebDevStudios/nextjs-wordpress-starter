@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://the-nextjs-starter.vercel.app/
+Host: https://nextjs-wordpress-starter.vercel.app/
 
 # Sitemaps
-Sitemap: https://the-nextjs-starter.vercel.app/sitemap.xml
+Sitemap: https://nextjs-wordpress-starter.vercel.app/sitemap.xml
