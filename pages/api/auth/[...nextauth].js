@@ -56,10 +56,6 @@ function createUserObj(response) {
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET
-    }),
     Providers.Credentials({
       id: 'wpLogin',
       name: 'Login',
