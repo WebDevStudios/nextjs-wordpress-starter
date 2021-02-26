@@ -3,6 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 module.exports = withBundleAnalyzer({
   images: {
-    domains: ['nextjswp.test']
+    domains: ['nextjs.wpengine.com', 'nextjsdevstart.wpengine.com', 'nextjswp.test']
   }
 })
