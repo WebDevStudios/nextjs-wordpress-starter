@@ -18,8 +18,8 @@ export default async function formatBlockData(blocks) {
       const {name, attributes, innerBlocks} = block
       switch (name) {
         case 'core/image':
-          // Retrieve additional image data.
-          attributes.imageData = await getMediaByID(attributes?.id)
+          // Retrieve additional image meta.
+          attributes.imageMeta = await getMediaByID(attributes?.id)
           break
         case 'gravityforms/form':
           // Retrieve form data.
