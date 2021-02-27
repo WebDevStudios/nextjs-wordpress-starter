@@ -1,5 +1,5 @@
-import {fieldProps, globalFieldProps} from './fieldProps'
 import {gql} from '@apollo/client'
+import {fieldProps, globalFieldProps} from './fieldProps'
 
 /**
  * Partial: retrieve basic data on all form fields.
