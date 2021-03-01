@@ -53,78 +53,97 @@ function createUserObj(response) {
   }
 }
 
-export default NextAuth({
-  // Configure one or more authentication providers
-  providers: [
-    Providers.Credentials({
-      id: 'wpLogin',
-      name: 'Login',
-      credentials: {
-        username: {
-          label: 'Username',
-          type: 'text'
-        },
-        password: {
-          label: 'Password',
-          type: 'password'
-        }
+const providers = [
+  Providers.Credentials({
+    id: 'wpLogin',
+    name: 'Login',
+    credentials: {
+      username: {
+        label: 'Username',
+        type: 'text'
       },
-      async authorize(credentials) {
-        const {username, password} = credentials
-        const response = await loginUser(username, password)
-
-        if (response.error) {
-          throw `/login?error=${response.errorMessage}`
-        }
-
-        return createUserObj(response)
+      password: {
+        label: 'Password',
+        type: 'password'
       }
-    }),
-    Providers.Credentials({
-      id: 'wpRegister',
-      name: 'Register',
-      credentials: {
-        email: {
-          label: 'Email',
-          type: 'email'
-        },
-        password: {
-          label: 'Password',
-          type: 'password'
-        }
-      },
-      async authorize(credentials) {
-        const {firstName, lastName, email, password, username} = credentials
-        const response = await registerUser(email, password, username, {
-          firstName,
-          lastName
-        })
+    },
+    async authorize(credentials) {
+      const {username, password} = credentials
+      const response = await loginUser(username, password)
 
-        if (response.error) {
-          throw `/register?error=${response.errorMessage}`
-        }
-
-        return createUserObj(response)
+      if (response.error) {
+        throw `/login?error=${response.errorMessage}`
       }
-    })
-  ],
-  pages: {
-    signIn: '/register'
-  },
-  session: {
-    jwt: true
-  },
-  callbacks: {
-    async session(session, token) {
-      session.user = populateObj(session.user, token)
 
-      return session
-    },
-    async jwt(token, user) {
-      return populateObj(token, user)
-    },
-    async redirect(url) {
-      return url
+      return createUserObj(response)
     }
+  }),
+  Providers.Credentials({
+    id: 'wpRegister',
+    name: 'Register',
+    credentials: {
+      email: {
+        label: 'Email',
+        type: 'email'
+      },
+      password: {
+        label: 'Password',
+        type: 'password'
+      }
+    },
+    async authorize(credentials) {
+      const {firstName, lastName, email, password, username} = credentials
+      const response = await registerUser(email, password, username, {
+        firstName,
+        lastName
+      })
+
+      if (response.error) {
+        throw `/register?error=${response.errorMessage}`
+      }
+
+      return createUserObj(response)
+    }
+  })
+]
+
+const pages = {
+  signIn: '/register'
+}
+
+const session = {
+  jwt: true
+}
+
+const jwt = {
+  secret: process.env.JWT_SECRET_KEY
+}
+
+const callbacks = {
+  async session(session, token) {
+    session.user = populateObj(session.user, token)
+
+    return session
+  },
+  async jwt(token, user) {
+    return populateObj(token, user)
+  },
+  async redirect(url) {
+    return url
   }
-})
+}
+
+const options = {
+  providers,
+  pages,
+  session,
+  jwt,
+  callbacks
+}
+
+export default (req, res) => {
+  console.log( 'next auth' )
+  console.log( 'req', req )
+  console.log( 'res', res )
+  return NextAuth(req, res, options)
+}
