@@ -56,7 +56,7 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 
 ---
 
-## :octocat: Contributing
+## Contributing :octocat:
 
 WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md).
 
