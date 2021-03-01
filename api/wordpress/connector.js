@@ -2,7 +2,7 @@ import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
 import {initializeApollo} from '../apolloConfig'
 
 // Define env vars.
-export const wpApiUrlBase = process.env.WORDPRESS_URL
+export const wpApiUrlBase = process.env.NEXT_PUBLIC_WORDPRESS_URL
 export const wpPreviewSecret = process.env.WORDPRESS_PREVIEW_SECRET
 const wpAppUser = process.env.WORDPRESS_APPLICATION_USERNAME
 const wpAppPass = process.env.WORDPRESS_APPLICATION_PASSWORD

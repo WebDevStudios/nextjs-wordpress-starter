@@ -3,6 +3,7 @@ import WordPressProvider from '@/components/common/WordPressProvider'
 import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
+import {Provider} from 'next-auth/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
 import {useRouter} from 'next/router'
@@ -75,25 +76,28 @@ export default function App({Component, pageProps}) {
   })
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <WordPressProvider value={wp}>
-        {error ? (
-          <Error statusCode={500} title={errorMessage} />
-        ) : (
-          <>
-            {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
-            {!!preview && (
-              // TODO -- abstract this to a component.
-              <p>
-                This page is a preview.{' '}
-                <a href="/api/exit-preview">Click here</a> to exit preview mode.
-              </p>
-            )}
-            <Component {...componentProps} />
-          </>
-        )}
-      </WordPressProvider>
-    </ApolloProvider>
+    <Provider session={pageProps.session}>
+      <ApolloProvider client={apolloClient}>
+        <WordPressProvider value={wp}>
+          {error ? (
+            <Error statusCode={500} title={errorMessage} />
+          ) : (
+            <>
+              {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
+              {!!preview && (
+                // TODO -- abstract this to a component.
+                <p>
+                  This page is a preview.{' '}
+                  <a href="/api/exit-preview">Click here</a> to exit preview
+                  mode.
+                </p>
+              )}
+              <Component {...componentProps} />
+            </>
+          )}
+        </WordPressProvider>
+      </ApolloProvider>
+    </Provider>
   )
 }
 
