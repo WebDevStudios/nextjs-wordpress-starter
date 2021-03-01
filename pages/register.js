@@ -19,14 +19,14 @@ export default function Register() {
       router.push('/profile')
     }
   })
-  console.log('Michael')
+  console.log('Michael Panaga')
   console.log(process.env)
 
   return (
     <Layout>
       <Container>
         <RichText tag="h1">Register</RichText>
-        { 'Mico' }
+        { 'Michael Panaga' }
         <Form
           className="registration-form"
           id="registration-form"
