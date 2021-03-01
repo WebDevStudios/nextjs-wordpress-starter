@@ -3,9 +3,9 @@ import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
-import {signIn, useSession} from 'next-auth/client'
-import {useRouter} from 'next/router'
-import React, {useEffect} from 'react'
+import { signIn, useSession } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
 
 /**
  * Register Component
@@ -19,10 +19,14 @@ export default function Register() {
       router.push('/profile')
     }
   })
+  console.log('Michael')
+  console.log(process.env)
+
   return (
     <Layout>
       <Container>
         <RichText tag="h1">Register</RichText>
+        { 'Mico' }
         <Form
           className="registration-form"
           id="registration-form"
