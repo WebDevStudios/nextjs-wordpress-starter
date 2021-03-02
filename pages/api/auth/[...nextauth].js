@@ -142,8 +142,5 @@ const options = {
 }
 
 export default (req, res) => {
-  console.log( 'next auth' )
-  console.log( 'req', req )
-  console.log( 'res', res )
   return NextAuth(req, res, options)
 }

@@ -76,7 +76,7 @@ export default function App({Component, pageProps}) {
   })
 
   return (
-    <Provider>
+    <Provider session={pageProps.session}>
       <ApolloProvider client={apolloClient}>
         <WordPressProvider value={wp}>
           {error ? (
