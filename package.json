@@ -70,7 +70,7 @@
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.0",
     "next-seo": "^4.20.0",
-    "next-sitemap": "^1.5.8",
+    "next-sitemap": "^1.5.10",
     "postcss": "7.0.35",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
