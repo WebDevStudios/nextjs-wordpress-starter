@@ -1,5 +1,5 @@
-import {searchResultsClient} from '@/api/algolia/connector'
 import {WPContext} from '@/components/common/WordPressProvider'
+import {searchResultsClient} from '@/lib/algolia/connector'
 import PropTypes from 'prop-types'
 import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
