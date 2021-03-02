@@ -1,4 +1,4 @@
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import getPostTypeStaticProps from '@/wpapi/wordpress/_global/getPostTypeStaticProps'
 import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import getPagePropTypes from '@/functions/getPagePropTypes'

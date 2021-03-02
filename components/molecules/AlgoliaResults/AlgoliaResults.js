@@ -1,4 +1,4 @@
-import {searchResultsClient} from '@/api/algolia/connector'
+import {searchResultsClient} from '@/wpapi/algolia/connector'
 import {WPContext} from '@/components/common/WordPressProvider'
 import PropTypes from 'prop-types'
 import React, {useContext} from 'react'

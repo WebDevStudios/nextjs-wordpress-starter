@@ -1,6 +1,6 @@
-import {wpPreviewSecret} from '@/api/wordpress/connector'
-import getPostTypeById from '@/api/wordpress/_global/getPostTypeById'
-import {postTypes} from '@/api/wordpress/_global/postTypes'
+import {wpPreviewSecret} from '@/wpapi/wordpress/connector'
+import getPostTypeById from '@/wpapi/wordpress/_global/getPostTypeById'
+import {postTypes} from '@/wpapi/wordpress/_global/postTypes'
 
 /**
  * Provide post preview functionality.

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import getPostTypeStaticProps from '@/wpapi/wordpress/_global/getPostTypeStaticProps'
 import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
 import parseQuerystring from '@/functions/parseQuerystring'

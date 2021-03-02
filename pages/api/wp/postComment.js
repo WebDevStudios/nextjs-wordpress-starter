@@ -1,4 +1,4 @@
-import postCommentToPost from '@/api/wordpress/_global/postCommentToPost'
+import postCommentToPost from '@/wpapi/wordpress/_global/postCommentToPost'
 
 /**
  * Load more posts for an archive.

@@ -1,5 +1,5 @@
-import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
+import getPostTypeStaticPaths from '@/wpapi/wordpress/_global/getPostTypeStaticPaths'
+import getPostTypeStaticProps from '@/wpapi/wordpress/_global/getPostTypeStaticProps'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'

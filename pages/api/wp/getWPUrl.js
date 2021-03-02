@@ -1,4 +1,4 @@
-import {wpApiUrlBase} from '@/api/wordpress/connector'
+import {wpApiUrlBase} from '@/wpapi/wordpress/connector'
 
 /**
  * Load more posts for an archive.

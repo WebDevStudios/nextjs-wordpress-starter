@@ -1,4 +1,4 @@
-import {useApollo} from '@/api/apolloConfig'
+import {useApollo} from '@/wpapi/apolloConfig'
 import WordPressProvider from '@/components/common/WordPressProvider'
 import '@/styles/demo.css'
 import '@/styles/index.css'
