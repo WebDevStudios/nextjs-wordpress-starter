@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
 import {
-  isValidPostType,
-  isHierarchicalPostType
-} from '@/wpapi/wordpress/_global/postTypes'
+  isHierarchicalPostType,
+  isValidPostType
+} from '@/lib/wordpress/_global/postTypes'
+import PropTypes from 'prop-types'
 
 // Yoast SEO social prop types.
 export const seoSocialPropTypes = {

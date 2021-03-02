@@ -1,9 +1,9 @@
+import Text from '@/components/atoms/Inputs/Text'
+import Form from '@/components/molecules/Form'
+import postComment from '@/lib/frontend/wp/comments/postComment'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import * as Yup from 'yup'
-import Form from '@/components/molecules/Form'
-import Text from '@/components/atoms/Inputs/Text'
-import postComment from '@/wpapi/frontend/wp/comments/postComment'
 
 /**
  * Render an individual comment component.

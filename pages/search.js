@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types'
-import getPostTypeStaticProps from '@/wpapi/wordpress/_global/getPostTypeStaticProps'
+import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
-import parseQuerystring from '@/functions/parseQuerystring'
-import {useRouter} from 'next/router'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
-import Container from '@/components/atoms/Container'
+import parseQuerystring from '@/functions/parseQuerystring'
+import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
+import {useRouter} from 'next/router'
+import PropTypes from 'prop-types'
 
 /**
  * Render the Search component.
