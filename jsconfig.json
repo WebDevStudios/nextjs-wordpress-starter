@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/api/*": ["api/*"],
+      "@/api/*": ["wpapi/*"],
       "@/components/*": ["components/*"],
       "@/functions/*": ["functions/*"],
       "@/styles/*": ["styles/*"]
