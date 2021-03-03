@@ -1,10 +1,10 @@
-import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import getPagePropTypes from '@/functions/getPagePropTypes'
+import getPostTypeStaticPaths from '@/lib/wordpress/_global/getPostTypeStaticPaths'
+import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 
 // Define route post type.
 const postType = 'page'

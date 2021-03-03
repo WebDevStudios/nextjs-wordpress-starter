@@ -1,5 +1,5 @@
-import loginUser from '@/api/frontend/wp/user/loginUser'
-import registerUser from '@/api/frontend/wp/user/registerUser'
+import loginUser from '@/lib/frontend/wp/user/loginUser'
+import registerUser from '@/lib/frontend/wp/user/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
