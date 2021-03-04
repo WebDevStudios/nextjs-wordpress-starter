@@ -1,0 +1,135 @@
+import {useState} from 'react'
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import noop from 'lodash/noop'
+import Fields from '../molecules/GravityForm/Fields'
+
+export const fieldsSample = [
+  {
+    __typename: 'GravityFormsFormToObjectFieldUnionConnectionEdge',
+    node: {
+      __typename: 'CheckboxField',
+      id: 2,
+      adminLabel: '',
+      adminOnly: null,
+      allowsPrepopulate: false,
+      conditionalLogic: {
+        __typename: 'ConditionalLogic',
+        rules: null,
+        actionType: null,
+        logicType: null
+      },
+      cssClassList: [],
+      label: 'Checkbox field example 2.',
+      type: 'checkbox',
+      visibility: 'visible',
+      checkboxChoices: [
+        {
+          __typename: 'ChoiceProperty',
+          isSelected: false,
+          text: 'New Choice 1',
+          value: 'New Choice 1'
+        },
+        {
+          __typename: 'ChoiceProperty',
+          isSelected: false,
+          text: 'New Choice 2',
+          value: 'New Choice 2'
+        },
+        {
+          __typename: 'ChoiceProperty',
+          isSelected: false,
+          text: 'New Choice 3',
+          value: 'New Choice 3'
+        }
+      ],
+      description: 'This field is required.',
+      enableChoiceValue: null,
+      enableSelectAll: true,
+      errorMessage: '',
+      inputName: '',
+      inputs: [
+        {
+          __typename: 'CheckboxInputProperty',
+          id: 2.1,
+          label: 'New Choice 1',
+          name: ''
+        },
+        {
+          __typename: 'CheckboxInputProperty',
+          id: 2.2,
+          label: 'New Choice 2',
+          name: ''
+        },
+        {
+          __typename: 'CheckboxInputProperty',
+          id: 2.3,
+          label: 'New Choice 3',
+          name: ''
+        }
+      ],
+      isRequired: true,
+      size: 'medium'
+    }
+  }
+]
+
+<Meta title="Documentation/Fields" component={Fields} />
+
+# Documentation
+
+## Gravity Form Fields
+
+The `<Fields />` component handles maps through each GravityForm field in the form and matches it up with a GravityForm field component.
+
+_Note: This component should not be used outside of the `<GravityForm />` component_
+
+## Adding a new field
+
+To add a new form field do the following:
+
+1. Create a test form in the GravityForm UI.
+2. Add the field that you would like to add support for.
+3. Add the form to a test page that renders the GravityForm block.
+4. Next, locate the Field directory `components/molecules/GravityForm/Fields/` and create a new component file such as `Text.js`. Note: This component name should matchup with the field name from GravityForms, not the input name.
+5. In `Fields/Fields.js` add a new case to the switch statement for your field type. All GravityForm fields should have a `type` property. You can reference your component by using dot notation ex:`GfFields.Text`.
+6. Check that the new Field component renders on your test page from step 3.
+
+**Things to Know**
+
+- Input components should be created in `components/atoms/Inputs/` directory.
+- GravityForm Field components should map props to the inputs.
+- Files names should correspond to the field type.
+
+## Setting up Field Defaults
+
+Needs documentation...
+
+## Adding field validation
+
+Validation can be added to each GravityForm field type by generating a validationSchema Object, or enhancing an already existing SchemaFactory.
+
+Field validation for GravityForms occurs during the field mapping process in `<Fields />` component. Each field type is matched up with [Yup validation](https://github.com/jquense/yup#api) type. If a match is found it will be processed using a `SchemaFactory` which will return a field validationSchema Object.
+
+Note: Validation types cannot be mixed.
+
+### Updating existing validation types
+
+To update an existing validation type, locate the `SchemaFactory` for that field type. If there is not a match you'll need to create a new `SchemaFactories` for that validation type.
+
+_`SchemaFactories` are located in `functions/gravityForms/yupSchema`._
+
+2. To edit an existing validation, locate the method defined in `SchemaFactory`.
+3. To add a new validation method, do the following:
+4. Add new validation method.
+5. Include the new method in `schema()` using `.concat(this.yourNewMethod)`.
+
+### New Validation Types
+
+To add a new type of validation do the following:
+
+1. Add a new case `getValidationSchemaByType()` for the field type.
+2. Clone an existing `SchemaFactory` and update it with new methods and references to Yup API ex: `Yup.string()` to `Yup.number()` etc...
+
+## Unsupported Fields
+
+Due to the amount of available GravityForm fields support will need to be added as needed.
