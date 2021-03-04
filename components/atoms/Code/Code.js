@@ -18,16 +18,27 @@ export default function Code({id, className, content}) {
   // Use the className to pass the langauge.
   const language = className ? className : 'javascript'
 
-  // Replace any `&lt;` and `&gt; encoded HTML.
-  let code = content.replace(/&lt;/g, '<')
-  code = code.replace(/&gt;/g, '>')
+  /**
+   * Replace any `&lt;` and `&gt; encoded HTML.
+   *
+   * @param {string} content The content string.
+   * @return {string}        The formatted content string.
+   */
+  function codeFormatter(content) {
+    if (!content) {
+      return null
+    }
+
+    let code = content.replace(/&lt;/g, '<')
+    return code.replace(/&gt;/g, '>')
+  }
 
   return (
     <>
       {!!content && (
         <div id={id ? id : null} className={styles.code}>
           <SyntaxHighlighter style={tomorrow} language={language}>
-            {code}
+            {codeFormatter(content)}
           </SyntaxHighlighter>
         </div>
       )}
