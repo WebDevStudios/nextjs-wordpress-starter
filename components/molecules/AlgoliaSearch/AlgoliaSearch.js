@@ -1,10 +1,10 @@
-import {WPContext} from '@/components/common/WordPressProvider'
+import {useWordPressContext} from '@/components/common/WordPressProvider'
 import parseQuerystring from '@/functions/parseQuerystring'
 import cn from 'classnames'
 import dynamic from 'next/dynamic'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import React, {useContext, useRef, useState} from 'react'
+import React, {useRef, useState} from 'react'
 import styles from './AlgoliaSearch.module.css'
 import SearchPlaceholder from './components/SearchPlaceholder'
 
@@ -34,7 +34,7 @@ export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const query = path.includes('q=') ? parseQuerystring(path, 'q') : '' // Parse the querystring.
   const [loadAlgolia, setLoadAlgolia] = useState(0)
   const searchRef = useRef()
-  const {algolia} = useContext(WPContext)
+  const {algolia} = useWordPressContext()
 
   /**
    * Set a min-height value on the search wrapper
