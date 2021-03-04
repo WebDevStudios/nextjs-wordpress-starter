@@ -46,7 +46,7 @@
     "@next/bundle-analyzer": "^10.0.7",
     "@storybook/addon-a11y": "^6.1.20",
     "@storybook/addon-essentials": "^6.1.20",
-    "@storybook/addon-links": "^6.1.20",
+    "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.20",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "algoliasearch": "^4.8.5",
