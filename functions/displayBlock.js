@@ -67,6 +67,9 @@ const LzbBlockHero = dynamic(() =>
 const AcfBlockMediaText = dynamic(() =>
   import('@/components/blocks/ACF/AcfBlockMediaText')
 )
+const EstimatedReadingTime = dynamic(() =>
+  import('@/components/blocks/YoastSEO/EstimatedReadingTime')
+)
 
 /**
  * Decide which block component to display.
@@ -91,15 +94,35 @@ export default function displayBlock(block, index) {
     case 'core/embed':
       return <BlockEmbed {...attributes} key={index} />
     case 'core/media-text':
-      return <BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
+      return (
+        <BlockMediaText
+          media={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/button':
       return <BlockButton {...attributes} key={index} />
     case 'core/buttons':
-      return <BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
+      return (
+        <BlockButtons
+          options={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/columns':
-      return <BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
+      return (
+        <BlockColumns
+          columns={attributes}
+          innerBlocks={innerBlocks}
+          key={index}
+        />
+      )
     case 'core/cover':
-      return <BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
+      return (
+        <BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
+      )
     case 'core/heading':
       return <BlockHeadings {...attributes} key={index} />
     case 'core/image':
@@ -124,6 +147,8 @@ export default function displayBlock(block, index) {
       return <LzbBlockHero attributes={attributes} key={index} />
     case 'acf/acf-media-text':
       return <AcfBlockMediaText attributes={attributes} key={index} />
+    case 'yoast-seo/estimated-reading-time':
+      return <EstimatedReadingTime attributes={attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }

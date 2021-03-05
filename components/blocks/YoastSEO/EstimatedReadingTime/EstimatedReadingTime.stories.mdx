@@ -1,0 +1,27 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+
+import EstimatedReadingTime from '.'
+
+export const props = {
+  attributes: {
+    estimatedReadingTime: 1,
+    descriptiveText: 'Estimated reading time: ',
+    showDescriptiveText: true,
+    showIcon: true
+  }
+}
+
+<Meta
+  title="Components/Blocks/Yoast SEO/EstimatedReadingTime"
+  component={EstimatedReadingTime}
+/>
+
+# EstimatedReadingTime
+
+Use this component to display the Yoast Estimated Reading Time component.
+
+<Canvas>
+  <Story name="Component">
+    <EstimatedReadingTime props={props} />
+  </Story>
+</Canvas>
