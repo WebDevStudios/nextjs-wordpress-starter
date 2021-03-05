@@ -1,7 +1,6 @@
-import {WPContext} from '@/components/common/WordPressProvider'
+import {useWordPressContext} from '@/components/common/WordPressProvider'
 import {searchResultsClient} from '@/lib/algolia/connector'
 import PropTypes from 'prop-types'
-import React, {useContext} from 'react'
 import {Configure, InstantSearch} from 'react-instantsearch-dom'
 import styles from './AlgoliaResults.module.css'
 import NoResults from './templates/NoResults'
@@ -18,7 +17,7 @@ import SearchResults from './templates/SearchResults'
  * @return {Element}            The AlgoliaResults component.
  */
 export default function AlgoliaResults({config}) {
-  const {algolia} = useContext(WPContext)
+  const {algolia} = useWordPressContext()
 
   // Dispatch console warning if Index Name missing.
   if (!algolia?.indexName) {

@@ -1,9 +1,8 @@
 import Container from '@/components/atoms/Container'
-import {WPContext} from '@/components/common/WordPressProvider'
+import {useWordPressContext} from '@/components/common/WordPressProvider'
 import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import {useContext} from 'react'
 import styles from './Footer.module.css'
 
 // TODO: Create Storybook for this component.
@@ -18,7 +17,7 @@ import styles from './Footer.module.css'
  * @return {Element}               The Footer component.
  */
 export default function Footer({social, siteTitle}) {
-  const {menus} = useContext(WPContext)
+  const {menus} = useWordPressContext()
   return (
     <footer className={styles.footer}>
       <Container>
