@@ -1,4 +1,5 @@
 import loginUser from '@/lib/frontend/wp/user/loginUser'
+import refreshAuthToken from '@/lib/frontend/wp/user/refreshAuthToken'
 import registerUser from '@/lib/frontend/wp/user/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
@@ -9,7 +10,9 @@ const userFields = [
   'username',
   'firstName',
   'lastName',
-  'email'
+  'email',
+  'token_exp',
+  'refresh_token'
 ]
 
 /**
@@ -49,7 +52,9 @@ function createUserObj(response) {
     accessToken: response.jwtAuthToken,
     firstName: response.firstName,
     lastName: response.lastName,
-    email: response.email
+    email: response.email,
+    token_exp: response.jwtAuthExpiration,
+    refresh_token: response.jwtRefreshToken
   }
 }
 
@@ -120,13 +125,36 @@ const jwt = {
 }
 
 const callbacks = {
+  async jwt(token, user) {
+    const token_exp = parseInt(token?.token_exp)
+    // Get seconds elapsed
+    const date_now = Date.now() / 1000
+
+    if (Number.isInteger(token_exp) && date_now > token_exp) {
+      const refreshToken = token?.refresh_token
+
+      if (!refreshToken) {
+        return {}
+      }
+
+      // Attempt to get a new token using refresh token.
+      const new_auth_token = await refreshAuthToken(refreshToken)
+
+      // Possibly return to login?
+      if (new_auth_token.error) {
+        return {}
+      }
+
+      // Update the access token in session
+      token.accessToken = new_auth_token
+    }
+
+    return populateObj(token, user)
+  },
   async session(session, token) {
     session.user = populateObj(session.user, token)
 
     return session
-  },
-  async jwt(token, user) {
-    return populateObj(token, user)
   },
   async redirect(url) {
     return url
