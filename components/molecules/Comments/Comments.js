@@ -1,6 +1,7 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
 import postComment from '@/lib/frontend/wp/comments/postComment'
+import commentToPost from '@/lib/wordpress/comments/commentToPost'
 import {useSession} from 'next-auth/client'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
@@ -78,9 +79,9 @@ export default function Comments({comments, postId}) {
       {
         // If there are comments, loop over and display.
         !!comments?.length &&
-          comments.map((comment, index) => (
-            <SingleComment comment={comment.node} key={index} />
-          ))
+          comments.map((comment, index) => {
+            return <SingleComment comment={comment.node} key={index} />
+          })
       }
 
       {!!postedComment && (
@@ -137,6 +138,8 @@ export default function Comments({comments, postId}) {
           title="Add a comment"
           onSubmit={async (values, {setSubmitting}) => {
             setSubmitting(false)
+            const {content} = values
+            await commentToPost(postId, content, session?.user?.accessToken)
           }}
         >
           <Text id="content" label="Comment" isRequired type="text" />
