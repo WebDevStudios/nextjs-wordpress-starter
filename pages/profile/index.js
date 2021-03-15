@@ -1,6 +1,7 @@
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
+import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 import {signOut, useSession} from 'next-auth/client'
 import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
@@ -54,4 +55,14 @@ export default function Profile() {
       </Container>
     </Layout>
   )
+}
+
+/**
+ * Get post static props.
+ *
+ * @author WebDevStudios
+ * @return {object} Post props.
+ */
+export async function getStaticProps() {
+  return await getPostTypeStaticProps(null, 'profile')
 }
