@@ -5,6 +5,10 @@
  * https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
  */
 
+body {
+  @apply font-sans;
+}
+
 #page-content {
   /* Global Styles */
 
