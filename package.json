@@ -40,7 +40,7 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.11",
+    "@apollo/client": "^3.3.12",
     "@arkweid/lefthook": "^0.7.2",
     "@babel/core": "^7.13.10",
     "@next/bundle-analyzer": "^10.0.8",
