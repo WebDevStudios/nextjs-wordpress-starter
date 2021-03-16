@@ -1,9 +1,9 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
 import commentToPost from '@/lib/wordpress/comments/commentToPost'
-import { useSession } from 'next-auth/client'
+import {useSession} from 'next-auth/client'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import * as Yup from 'yup'
 
 /**
@@ -140,11 +140,7 @@ export default function Comments({comments, postId}) {
           onSubmit={async (values, {setSubmitting}) => {
             setSubmitting(false)
             const {content} = values
-            await commentToPost(
-              session?.user?.accessToken,
-              postId,
-              content
-            )
+            await commentToPost(session?.user?.accessToken, postId, content)
           }}
         >
           <Text id="content" label="Comment" isRequired type="text" />
