@@ -1,10 +1,9 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
-import postComment from '@/lib/frontend/wp/comments/postComment'
 import commentToPost from '@/lib/wordpress/comments/commentToPost'
-import {useSession} from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import PropTypes from 'prop-types'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import * as Yup from 'yup'
 
 /**
@@ -99,13 +98,15 @@ export default function Comments({comments, postId}) {
           })}
           onSubmit={async (values, {setSubmitting}) => {
             const {author, authorEmail, authorUrl, content} = values
-            const response = await postComment(
+            const response = await commentToPost(
+              null,
+              postId,
+              content,
               author,
               authorEmail,
-              authorUrl,
-              postId,
-              content
+              authorUrl
             )
+
             if (response.error) {
               setMessage(response.errorMessage)
               setSubmitting(false)
@@ -139,7 +140,11 @@ export default function Comments({comments, postId}) {
           onSubmit={async (values, {setSubmitting}) => {
             setSubmitting(false)
             const {content} = values
-            await commentToPost(postId, content, session?.user?.accessToken)
+            await commentToPost(
+              session?.user?.accessToken,
+              postId,
+              content
+            )
           }}
         >
           <Text id="content" label="Comment" isRequired type="text" />
