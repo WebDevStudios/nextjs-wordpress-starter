@@ -3,6 +3,7 @@ import Text from '@/components/atoms/Inputs/Text'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
+import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 import {signIn, useSession} from 'next-auth/client'
 import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
@@ -46,4 +47,14 @@ export default function Login() {
       </Container>
     </Layout>
   )
+}
+
+/**
+ * Get post static props.
+ *
+ * @author WebDevStudios
+ * @return {object} Post props.
+ */
+export async function getStaticProps() {
+  return await getPostTypeStaticProps(null, 'login')
 }
