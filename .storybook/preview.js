@@ -1,6 +1,7 @@
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
 import {addDecorator} from '@storybook/react'
 import {withNextRouter} from 'storybook-addon-next-router'
+import '../styles/demo.css'
 import '../styles/index.css'
 
 /**

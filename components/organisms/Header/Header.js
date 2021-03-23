@@ -1,10 +1,9 @@
 import Container from '@/components/atoms/Container'
 import Logo from '@/components/atoms/Logo'
-import {WPContext} from '@/components/common/WordPressProvider'
+import {useWordPressContext} from '@/components/common/WordPressProvider'
 import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Navigation from '@/components/molecules/Navigation'
 import Link from 'next/link'
-import {useContext} from 'react'
 import styles from './Header.module.css'
 
 // TODO: Create Storybook for this component.
@@ -16,7 +15,7 @@ import styles from './Header.module.css'
  * @return {Element} The Header component.
  */
 export default function Header() {
-  const {menus} = useContext(WPContext)
+  const {menus} = useWordPressContext()
   return (
     <>
       <a className={styles.skip} href="#page-content">

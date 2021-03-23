@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
 import noop from 'lodash/noop'
-import Fields from './Fields'
+import Fields from '../molecules/GravityForm/Fields'
 
 export const fieldsSample = [
   {
@@ -73,13 +73,15 @@ export const fieldsSample = [
   }
 ]
 
-<Meta title="Components/Molecules/GravityForm/Fields" component={Fields} />
+<Meta title="Documentation/Fields" component={Fields} />
 
-# Fields
+# Documentation
+
+## Gravity Form Fields
 
 The `<Fields />` component handles maps through each GravityForm field in the form and matches it up with a GravityForm field component.
 
-_Note: This component should not be used outside of the `<GravityForm />._
+_Note: This component should not be used outside of the `<GravityForm />` component_
 
 ## Adding a new field
 

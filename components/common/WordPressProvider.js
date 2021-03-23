@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types'
-import {createContext} from 'react'
+import {createContext, useContext} from 'react'
 
 // Initialize Menu context object.
 export const WPContext = createContext()
+
+// Export useContext Hook.
+export function useWordPressContext() {
+  return useContext(WPContext)
+}
 
 /**
  * Provide WordPress Context for components.

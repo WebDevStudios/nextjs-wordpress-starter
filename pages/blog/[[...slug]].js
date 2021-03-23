@@ -1,6 +1,3 @@
-import getArchivePosts from '@/api/frontend/wp/archive/getArchivePosts'
-import getPostTypeStaticPaths from '@/api/wordpress/_global/getPostTypeStaticPaths'
-import getPostTypeStaticProps from '@/api/wordpress/_global/getPostTypeStaticProps'
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
@@ -10,6 +7,9 @@ import Blocks from '@/components/molecules/Blocks'
 import Card from '@/components/molecules/Card'
 import Comments from '@/components/molecules/Comments'
 import getPagePropTypes from '@/functions/getPagePropTypes'
+import getArchivePosts from '@/lib/frontend/wp/archive/getArchivePosts'
+import getPostTypeStaticPaths from '@/lib/wordpress/_global/getPostTypeStaticPaths'
+import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 
 // Define route post type.
 const postType = 'post'
