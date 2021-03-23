@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "next": "latest",
-    "react": "17.0.1",
+    "react": "17.0.2",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "eslint-plugin-jsdoc": "^32.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react": "^7.23.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "formik": "^2.2.6",
     "graphql": "^15.5.0",
@@ -76,7 +76,7 @@
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react-instantsearch-dom": "^6.10.3",
-    "react-is": "^17.0.1",
+    "react-is": "^17.0.2",
     "react-syntax-highlighter": "^15.4.3",
     "react-twitter-embed": "^3.0.3",
     "rimraf": "^3.0.2",
