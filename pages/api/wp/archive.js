@@ -32,7 +32,8 @@ export default async function archive(req, res) {
     res
       .status(error?.status || 500)
       .end(
-        error?.message || 'An error occurred while attempted to load more posts'
+        error?.message ||
+          'An error occurred while attempting to load more posts'
       )
   }
 }

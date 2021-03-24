@@ -9,13 +9,16 @@ import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
 
 /**
- * Login Component
+ * Render the Login component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Login component.
  */
 export default function Login() {
   const [session] = useSession()
   const router = useRouter()
 
-  // Redirect to '/profile' if already auth
+  // Redirect to Profile page if user already logged in.
   useEffect(() => {
     if (session && session.user) {
       router.push('/profile')

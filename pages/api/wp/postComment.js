@@ -1,7 +1,7 @@
 import postCommentToPost from '@/lib/wordpress/_global/postCommentToPost'
 
 /**
- * Load more posts for an archive.
+ * Post comment to WP post.
  *
  * @author WebDevStudios
  * @param {object} req Instance of http.IncomingMessage.
@@ -43,7 +43,7 @@ export default async function postComment(req, res) {
       .status(error?.status || 500)
       .end(
         error?.message ||
-          'An error occurred while attempted to post the comment'
+          'An error occurred while attempting to post the comment'
       )
   }
 }

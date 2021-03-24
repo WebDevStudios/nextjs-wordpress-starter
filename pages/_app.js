@@ -51,6 +51,7 @@ export default function App({Component, pageProps}) {
     menus,
     algolia,
     preview,
+    session,
     ...passThruProps
   } = pageProps
 
@@ -76,7 +77,7 @@ export default function App({Component, pageProps}) {
   })
 
   return (
-    <Provider session={pageProps.session}>
+    <Provider session={session}>
       <ApolloProvider client={apolloClient}>
         <WordPressProvider value={wp}>
           {error ? (

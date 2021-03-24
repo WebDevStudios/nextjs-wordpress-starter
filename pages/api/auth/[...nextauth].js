@@ -1,6 +1,6 @@
-import loginUser from '@/lib/frontend/wp/user/loginUser'
-import refreshAuthToken from '@/lib/frontend/wp/user/refreshAuthToken'
-import registerUser from '@/lib/frontend/wp/user/registerUser'
+import refreshAuthToken from '@/lib/frontend/wp/users/refreshAuthToken'
+import registerUser from '@/lib/frontend/wp/users/registerUser'
+import loginUser from '@/lib/wordpress/users/loginUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
