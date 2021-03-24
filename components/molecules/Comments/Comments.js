@@ -92,6 +92,12 @@ export default function Comments({comments, postId}) {
           className="comment-form"
           id="comment-form"
           title="Add a comment"
+          formDefaults={{
+            author: '',
+            authorEmail: '',
+            authorUrl: '',
+            content: ''
+          }}
           validationSchema={Yup.object().shape({
             author: Yup.string().required('This field is required.'),
             authorEmail: Yup.string().required('This field is required.')
@@ -137,6 +143,9 @@ export default function Comments({comments, postId}) {
           className="comment-form"
           id="comment-form"
           title="Add a comment"
+          formDefaults={{
+            content: ''
+          }}
           onSubmit={async (values, {setSubmitting}) => {
             setSubmitting(false)
             const {content} = values

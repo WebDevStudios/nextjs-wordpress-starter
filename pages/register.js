@@ -33,6 +33,13 @@ export default function Register() {
           className="registration-form"
           id="registration-form"
           title="Register"
+          formDefaults={{
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            username: ''
+          }}
           onSubmit={async (values, {setSubmitting}) => {
             const {firstName, lastName, email, password, username} = values
             signIn('wpRegister', {

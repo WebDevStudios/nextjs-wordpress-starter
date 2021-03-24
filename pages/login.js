@@ -33,6 +33,10 @@ export default function Login() {
           className="login-form"
           id="login-form"
           title="Login"
+          formDefaults={{
+            username: '',
+            password: ''
+          }}
           onSubmit={async (values, {setSubmitting}) => {
             const {username, password} = values
             signIn('wpLogin', {
