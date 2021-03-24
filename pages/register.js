@@ -9,12 +9,16 @@ import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
 
 /**
- * Register Component
+ * Render the Register component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Register component.
  */
 export default function Register() {
   const [session] = useSession()
   const router = useRouter()
-  // Redirect to '/profile' if already auth
+
+  // Redirect to Profile page if user already logged in.
   useEffect(() => {
     if (session && session.user) {
       router.push('/profile')
