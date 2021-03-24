@@ -56,7 +56,7 @@ export default function Profile() {
             <p>Email: {user.email}</p>
             <p>Username: {user.username}</p>
             <p>
-              <button onClick={() => signOut()}>Sign out</button>
+              <button onClick={signOut}>Sign out</button>
             </p>
           </>
         )}
