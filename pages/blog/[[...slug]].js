@@ -55,7 +55,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
             </div>
           )}
           <Button
-            onClick={() => loadPosts}
+            onClick={loadPosts}
             text="Load More"
             type="secondary"
             disabled={!pagination.hasNextPage}
