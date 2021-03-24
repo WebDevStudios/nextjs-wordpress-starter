@@ -7,7 +7,10 @@ import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
 
 /**
- * Profile Component
+ * Render the Profile component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Profile component.
  */
 export default function Profile() {
   const [session, loading] = useSession()
