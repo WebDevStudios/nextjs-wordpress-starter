@@ -1,6 +1,6 @@
-import loginUserFe from '@/lib/frontend/wp/users/loginUserFe'
 import refreshAuthToken from '@/lib/frontend/wp/users/refreshAuthToken'
 import registerUser from '@/lib/frontend/wp/users/registerUser'
+import loginUser from '@/lib/wordpress/users/loginUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
@@ -74,7 +74,7 @@ const providers = [
     },
     async authorize(credentials) {
       const {username, password} = credentials
-      const response = await loginUserFe(username, password)
+      const response = await loginUser(username, password)
 
       if (response.error) {
         throw `/login?error=${response.errorMessage}`
