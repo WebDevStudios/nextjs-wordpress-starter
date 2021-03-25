@@ -72,6 +72,49 @@ export default function Comments({comments, postId}) {
     showNonLoggedCommentForm = false
   }
 
+  /**
+   * Handle post comment submission.
+   *
+   * @author WebDevStudios
+   * @param {object}   values                Form values.
+   * @param {object}   actions               Formik form actions.
+   * @param {Function} actions.setSubmitting Toggle form submitting state.
+   */
+  async function handlePostComment(values, {setSubmitting}) {
+    const {
+      author = null,
+      authorEmail = null,
+      authorUrl = null,
+      content
+    } = values
+
+    const response = await commentToPost(
+      session?.user?.accessToken ?? null,
+      postId,
+      content,
+      author,
+      authorEmail,
+      authorUrl
+    )
+
+    if (response.error) {
+      setMessage(response.errorMessage)
+      setSubmitting(false)
+      return
+    }
+
+    // alert(JSON.stringify(response))
+    if (response.success && !response.comment) {
+      setMessage('Your comment was sent and will appear after moderation.')
+    }
+
+    if (response.comment) {
+      setPostedComment(response.comment)
+    }
+
+    setSubmitting(false)
+  }
+
   return (
     <>
       <h3>Comments</h3>
@@ -102,35 +145,7 @@ export default function Comments({comments, postId}) {
             author: Yup.string().required('This field is required.'),
             authorEmail: Yup.string().required('This field is required.')
           })}
-          onSubmit={async (values, {setSubmitting}) => {
-            const {author, authorEmail, authorUrl, content} = values
-            const response = await commentToPost(
-              null,
-              postId,
-              content,
-              author,
-              authorEmail,
-              authorUrl
-            )
-
-            if (response.error) {
-              setMessage(response.errorMessage)
-              setSubmitting(false)
-              return
-            }
-
-            // alert(JSON.stringify(response))
-            if (response.success && !response.comment) {
-              setMessage(
-                'Your comment was sent and will appear after moderation.'
-              )
-            }
-
-            if (response.comment) {
-              setPostedComment(response.comment)
-            }
-            setSubmitting(false)
-          }}
+          onSubmit={handlePostComment}
         >
           {!!message && <div>{message}</div>}
           <Text id="author" label="Author" isRequired type="text" />
@@ -146,11 +161,7 @@ export default function Comments({comments, postId}) {
           formDefaults={{
             content: ''
           }}
-          onSubmit={async (values, {setSubmitting}) => {
-            setSubmitting(false)
-            const {content} = values
-            await commentToPost(session?.user?.accessToken, postId, content)
-          }}
+          onSubmit={handlePostComment}
         >
           <Text id="content" label="Comment" isRequired type="text" />
         </Form>
