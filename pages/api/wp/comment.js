@@ -44,7 +44,7 @@ export default async function comment(req, res) {
       .status(error?.status || 500)
       .end(
         error?.message ||
-          'An error occurred while attempting to post the comment'
+          'An error occurred while trying to insert the post comment'
       )
   }
 }
