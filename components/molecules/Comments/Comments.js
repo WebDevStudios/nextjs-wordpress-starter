@@ -1,6 +1,6 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
-import commentToPost from '@/lib/wordpress/comments/commentToPost'
+import processPostComment from '@/lib/frontend/wp/comments/processPostComment'
 import {useSession} from 'next-auth/client'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
@@ -88,7 +88,7 @@ export default function Comments({comments, postId}) {
       content
     } = values
 
-    const response = await commentToPost(
+    const response = await processPostComment(
       session?.user?.accessToken ?? null,
       postId,
       content,
