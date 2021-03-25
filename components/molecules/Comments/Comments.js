@@ -103,7 +103,6 @@ export default function Comments({comments, postId}) {
       return
     }
 
-    // alert(JSON.stringify(response))
     if (response.success && !response.comment) {
       setMessage('Your comment was sent and will appear after moderation.')
     }
@@ -163,6 +162,7 @@ export default function Comments({comments, postId}) {
           }}
           onSubmit={handlePostComment}
         >
+          {!!message && <div>{message}</div>}
           <Text id="content" label="Comment" isRequired type="text" />
         </Form>
       )}
