@@ -1,13 +1,13 @@
 import postCommentToPost from '@/lib/wordpress/_global/postCommentToPost'
 
 /**
- * Post comment to WP post.
+ * Add comment to WP post.
  *
  * @author WebDevStudios
  * @param {object} req Instance of http.IncomingMessage.
  * @param {object} res Instance of http.ServerResponse.
  */
-export default async function postComment(req, res) {
+export default async function comment(req, res) {
   try {
     // Retrieve props from request query params.
     const {author, authorEmail, authorUrl, postId, content} = req.query
