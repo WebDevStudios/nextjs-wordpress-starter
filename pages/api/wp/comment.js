@@ -1,4 +1,4 @@
-import insertPostComment from '@/lib/wordpress/_global/insertPostComment'
+import insertPostComment from '@/lib/wordpress/comments/insertPostComment'
 
 /**
  * Add comment to WP post.
