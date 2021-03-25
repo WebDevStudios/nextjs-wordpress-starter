@@ -7,7 +7,10 @@ import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
 
 /**
- * Profile Component
+ * Render the Profile component.
+ *
+ * @author WebDevStudios
+ * @return {Element} The Profile component.
  */
 export default function Profile() {
   const [session, loading] = useSession()
@@ -36,6 +39,11 @@ export default function Profile() {
     user = session.user
   }
 
+  // Combine first, last names into full name to avoid displaying `null` on FE.
+  const fullName = []
+  user.firstName && fullName.push(user.firstName)
+  user.lastName && fullName.push(user.lastName)
+
   return (
     <Layout>
       <Container>
@@ -44,11 +52,11 @@ export default function Profile() {
           <p>Loading</p>
         ) : (
           <>
-            <p>Name: {`${user.firstName} ${user.lastName}`}</p>
+            <p>Name: {fullName.join(' ')}</p>
             <p>Email: {user.email}</p>
             <p>Username: {user.username}</p>
             <p>
-              <button onClick={() => signOut()}>Sign out</button>
+              <button onClick={signOut}>Sign out</button>
             </p>
           </>
         )}

@@ -1,16 +1,16 @@
-import postCommentToPost from '@/lib/wordpress/_global/postCommentToPost'
+import insertPostComment from '@/lib/wordpress/comments/insertPostComment'
 
 /**
- * Post comment to WP post.
+ * Add comment to WP post.
  *
  * @author WebDevStudios
  * @param {object} req Instance of http.IncomingMessage.
  * @param {object} res Instance of http.ServerResponse.
  */
-export default async function postComment(req, res) {
+export default async function comment(req, res) {
   try {
     // Retrieve props from request query params.
-    const {author, authorEmail, authorUrl, postId, content} = req.query
+    const {author, authorEmail, authorUrl, postId, content, token} = req.query
 
     // Basic check to see if the referer matches the host.
     // This is trivially easy to bypass, but it's a first step.
@@ -21,12 +21,13 @@ export default async function postComment(req, res) {
       throw new Error('Unauthorized access')
     }
 
-    const commentResponse = await postCommentToPost(
+    const commentResponse = await insertPostComment(
+      token,
+      postId,
+      content,
       author,
       authorEmail,
-      authorUrl,
-      postId,
-      content
+      authorUrl
     )
 
     // Check for errors.
@@ -43,7 +44,7 @@ export default async function postComment(req, res) {
       .status(error?.status || 500)
       .end(
         error?.message ||
-          'An error occurred while attempting to post the comment'
+          'An error occurred while trying to insert the post comment'
       )
   }
 }
