@@ -119,6 +119,18 @@ export default function Comments({comments, postId}) {
     return null
   }
 
+  // Determine form defaults.
+  const formDefaults = showNonLoggedCommentForm
+    ? {
+        author: '',
+        authorEmail: '',
+        authorUrl: '',
+        content: ''
+      }
+    : {
+        content: ''
+      }
+
   return (
     <>
       <h3>Comments</h3>
@@ -134,43 +146,33 @@ export default function Comments({comments, postId}) {
         <SingleComment comment={postedComment} key="posted-comment" />
       )}
 
-      {showNonLoggedCommentForm ? (
-        <Form
-          className="comment-form"
-          id="comment-form"
-          title="Add a comment"
-          formDefaults={{
-            author: '',
-            authorEmail: '',
-            authorUrl: '',
-            content: ''
-          }}
-          validationSchema={Yup.object().shape({
-            author: Yup.string().required('This field is required.'),
-            authorEmail: Yup.string().required('This field is required.')
-          })}
-          onSubmit={handlePostComment}
-        >
-          {!!message && <div>{message}</div>}
-          <Text id="author" label="Author" isRequired type="text" />
-          <Text id="authorEmail" label="Email" isRequired type="email" />
-          <Text id="authorUrl" label="Website" type="url" />
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
-      ) : (
-        <Form
-          className="comment-form"
-          id="comment-form"
-          title="Add a comment"
-          formDefaults={{
-            content: ''
-          }}
-          onSubmit={handlePostComment}
-        >
-          {!!message && <div>{message}</div>}
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
-      )}
+      <Form
+        className="comment-form"
+        id="comment-form"
+        title="Add a comment"
+        formDefaults={formDefaults}
+        validationSchema={
+          showNonLoggedCommentForm
+            ? Yup.object().shape({
+                author: Yup.string().required('This field is required.'),
+                authorEmail: Yup.string().required('This field is required.')
+              })
+            : null
+        }
+        onSubmit={handlePostComment}
+      >
+        {!!message && <div>{message}</div>}
+
+        {showNonLoggedCommentForm && (
+          <>
+            <Text id="author" label="Author" isRequired type="text" />
+            <Text id="authorEmail" label="Email" isRequired type="email" />
+            <Text id="authorUrl" label="Website" type="url" />
+          </>
+        )}
+
+        <Text id="content" label="Comment" isRequired type="text" />
+      </Form>
     </>
   )
 }
