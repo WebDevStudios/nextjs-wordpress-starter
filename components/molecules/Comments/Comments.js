@@ -1,6 +1,7 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
-import postComment from '@/lib/frontend/wp/comments/postComment'
+import processPostComment from '@/lib/frontend/wp/comments/processPostComment'
+import {useSession} from 'next-auth/client'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import * as Yup from 'yup'
@@ -63,6 +64,66 @@ SingleComment.defaultProps = {
 export default function Comments({comments, postId}) {
   const [message, setMessage] = useState('')
   const [postedComment, setPostedComment] = useState(false)
+  const [session, loading] = useSession()
+
+  // Avoid flash if loading.
+  if (loading) {
+    return null
+  }
+
+  /**
+   * Handle post comment submission.
+   *
+   * @author WebDevStudios
+   * @param {object}   values                Form values.
+   * @param {object}   actions               Formik form actions.
+   * @param {Function} actions.setSubmitting Toggle form submitting state.
+   */
+  async function handlePostComment(values, {setSubmitting}) {
+    const {
+      author = null,
+      authorEmail = null,
+      authorUrl = null,
+      content
+    } = values
+
+    const response = await processPostComment(
+      session?.user?.accessToken ?? null,
+      postId,
+      content,
+      author,
+      authorEmail,
+      authorUrl
+    )
+
+    if (response.error) {
+      setMessage(response.errorMessage)
+      setSubmitting(false)
+      return
+    }
+
+    if (response.success && !response.comment) {
+      setMessage('Your comment was sent and will appear after moderation.')
+    }
+
+    if (response.comment) {
+      setPostedComment(response.comment)
+    }
+
+    setSubmitting(false)
+  }
+
+  // Determine form defaults.
+  const formDefaults = !session
+    ? {
+        author: '',
+        authorEmail: '',
+        authorUrl: '',
+        content: ''
+      }
+    : {
+        content: ''
+      }
 
   return (
     <>
@@ -83,42 +144,27 @@ export default function Comments({comments, postId}) {
         className="comment-form"
         id="comment-form"
         title="Add a comment"
-        validationSchema={Yup.object().shape({
-          author: Yup.string().required('This field is required.'),
-          authorEmail: Yup.string().required('This field is required.')
-        })}
-        onSubmit={async (values, {setSubmitting}) => {
-          const {author, authorEmail, authorUrl, content} = values
-          const response = await postComment(
-            author,
-            authorEmail,
-            authorUrl,
-            postId,
-            content
-          )
-          if (response.error) {
-            setMessage(response.errorMessage)
-            setSubmitting(false)
-            return
-          }
-
-          // alert(JSON.stringify(response))
-          if (response.success && !response.comment) {
-            setMessage(
-              'Your comment was sent and will appear after moderation.'
-            )
-          }
-
-          if (response.comment) {
-            setPostedComment(response.comment)
-          }
-          setSubmitting(false)
-        }}
+        formDefaults={formDefaults}
+        validationSchema={
+          !session
+            ? Yup.object().shape({
+                author: Yup.string().required('This field is required.'),
+                authorEmail: Yup.string().required('This field is required.')
+              })
+            : null
+        }
+        onSubmit={handlePostComment}
       >
         {!!message && <div>{message}</div>}
-        <Text id="author" label="Author" isRequired type="text" />
-        <Text id="authorEmail" label="Email" isRequired type="email" />
-        <Text id="authorUrl" label="Website" type="url" />
+
+        {!session && (
+          <>
+            <Text id="author" label="Author" isRequired type="text" />
+            <Text id="authorEmail" label="Email" isRequired type="email" />
+            <Text id="authorUrl" label="Website" type="url" />
+          </>
+        )}
+
         <Text id="content" label="Comment" isRequired type="text" />
       </Form>
     </>

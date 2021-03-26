@@ -1,5 +1,6 @@
 import isLinkActive from '@/functions/isLinkActive'
 import cn from 'classnames'
+import {useSession} from 'next-auth/client'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
@@ -16,14 +17,26 @@ import styles from './Navigation.module.css'
  */
 export default function Navigation({menu, className}) {
   const {asPath} = useRouter()
+  const [session, loading] = useSession()
+
+  const isGuest = !loading && !session?.user?.accessToken
+
   return (
     <>
       {!!menu?.length && (
         <nav className={cn(styles.navigation, className)}>
           <ul>
             {menu.map((item, index) => {
+              // Check for session-specific menu items.
+              if ((loading || isGuest) && item.path === '/profile') {
+                return
+              } else if ((loading || !isGuest) && item.path === '/login') {
+                return
+              }
+
               const children =
                 item.children && item.children.length > 0 ? item.children : ''
+
               return (
                 <li key={index}>
                   <Link href={item.path}>
