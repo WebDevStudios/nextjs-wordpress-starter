@@ -46,6 +46,7 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 - Formik
 - Incremental Static Regeneration
 - JSDocs
+- NextAuth
 - Next/Image Support
 - PostCSS
 - Prettier
