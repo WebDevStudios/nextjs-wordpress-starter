@@ -21,9 +21,10 @@ const userFields = [
  * This function gets the `source`.[ userField ] and add this to the
  * `newObj`.
  *
- * @param {object} obj    Original object
- * @param {object} source Source object where new data is present
- * @return {object} A new object containing the original data + new data
+ * @author WebDevStudios
+ * @param {object} obj    Original object.
+ * @param {object} source Source object where new data is present.
+ * @return {object}       A new object containing the original data + new data.
  */
 function populateObj(obj, source) {
   let newObj = {...obj}
@@ -42,8 +43,9 @@ function populateObj(obj, source) {
  * Returns a user object mapped from `response` received from WP GraphQL
  * on user login or registration.
  *
- * @param {object} response Response from WP GraphQL
- * @return {object} User object
+ * @author WebDevStudios
+ * @param {object} response Response from WP GraphQL.
+ * @return {object}         User object.
  */
 function createUserObj(response) {
   return {
@@ -126,8 +128,9 @@ const jwt = {
 
 const callbacks = {
   async jwt(token, user) {
-    const token_exp = parseInt(token?.token_exp)
-    // Get seconds elapsed
+    const token_exp = parseInt(token?.token_exp, 10)
+
+    // Get seconds elapsed.
     const date_now = Date.now() / 1000
 
     if (Number.isInteger(token_exp) && date_now > token_exp) {
@@ -145,7 +148,7 @@ const callbacks = {
         return {}
       }
 
-      // Update the access token in session
+      // Update the access token in session.
       token.accessToken = new_auth_token
     }
 
