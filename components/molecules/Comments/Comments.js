@@ -66,10 +66,9 @@ export default function Comments({comments, postId}) {
   const [postedComment, setPostedComment] = useState(false)
   const [session, loading] = useSession()
 
-  let showNonLoggedCommentForm = true
-
-  if (session && !loading) {
-    showNonLoggedCommentForm = false
+  // Avoid flash if loading.
+  if (loading) {
+    return null
   }
 
   /**
@@ -114,13 +113,8 @@ export default function Comments({comments, postId}) {
     setSubmitting(false)
   }
 
-  // Avoid flash if loading.
-  if (loading) {
-    return null
-  }
-
   // Determine form defaults.
-  const formDefaults = showNonLoggedCommentForm
+  const formDefaults = !session
     ? {
         author: '',
         authorEmail: '',
@@ -152,7 +146,7 @@ export default function Comments({comments, postId}) {
         title="Add a comment"
         formDefaults={formDefaults}
         validationSchema={
-          showNonLoggedCommentForm
+          !session
             ? Yup.object().shape({
                 author: Yup.string().required('This field is required.'),
                 authorEmail: Yup.string().required('This field is required.')
@@ -163,7 +157,7 @@ export default function Comments({comments, postId}) {
       >
         {!!message && <div>{message}</div>}
 
-        {showNonLoggedCommentForm && (
+        {!session && (
           <>
             <Text id="author" label="Author" isRequired type="text" />
             <Text id="authorEmail" label="Email" isRequired type="email" />
