@@ -18,11 +18,13 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 - Algolia Search
 - Application Passwords
 - Archives
+- Comments
 - Content Blocks
   - ACF Blocks
   - Gutenberg
   - Lazy Blocks
 - Custom 404 page
+- Front-end Login/Registration
 - Gravity Forms
 - Menus
 - Pages
