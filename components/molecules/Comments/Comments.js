@@ -125,9 +125,9 @@ export default function Comments({comments, postId}) {
       {
         // If there are comments, loop over and display.
         !!comments?.length &&
-          comments.map((comment, index) => {
-            return <SingleComment comment={comment.node} key={index} />
-          })
+          comments.map((comment, index) => (
+            <SingleComment comment={comment.node} key={index} />
+          ))
       }
 
       {!!postedComment && (
