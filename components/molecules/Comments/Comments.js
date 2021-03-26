@@ -66,10 +66,9 @@ export default function Comments({comments, postId}) {
   const [postedComment, setPostedComment] = useState(false)
   const [session, loading] = useSession()
 
-  let showNonLoggedCommentForm = true
-
-  if (session && !loading) {
-    showNonLoggedCommentForm = false
+  // Avoid flash if loading.
+  if (loading) {
+    return null
   }
 
   /**
@@ -114,58 +113,60 @@ export default function Comments({comments, postId}) {
     setSubmitting(false)
   }
 
+  // Determine form defaults.
+  const formDefaults = !session
+    ? {
+        author: '',
+        authorEmail: '',
+        authorUrl: '',
+        content: ''
+      }
+    : {
+        content: ''
+      }
+
   return (
     <>
       <h3>Comments</h3>
       {
         // If there are comments, loop over and display.
         !!comments?.length &&
-          comments.map((comment, index) => {
-            return <SingleComment comment={comment.node} key={index} />
-          })
+          comments.map((comment, index) => (
+            <SingleComment comment={comment.node} key={index} />
+          ))
       }
 
       {!!postedComment && (
         <SingleComment comment={postedComment} key="posted-comment" />
       )}
 
-      {showNonLoggedCommentForm ? (
-        <Form
-          className="comment-form"
-          id="comment-form"
-          title="Add a comment"
-          formDefaults={{
-            author: '',
-            authorEmail: '',
-            authorUrl: '',
-            content: ''
-          }}
-          validationSchema={Yup.object().shape({
-            author: Yup.string().required('This field is required.'),
-            authorEmail: Yup.string().required('This field is required.')
-          })}
-          onSubmit={handlePostComment}
-        >
-          {!!message && <div>{message}</div>}
-          <Text id="author" label="Author" isRequired type="text" />
-          <Text id="authorEmail" label="Email" isRequired type="email" />
-          <Text id="authorUrl" label="Website" type="url" />
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
-      ) : (
-        <Form
-          className="comment-form"
-          id="comment-form"
-          title="Add a comment"
-          formDefaults={{
-            content: ''
-          }}
-          onSubmit={handlePostComment}
-        >
-          {!!message && <div>{message}</div>}
-          <Text id="content" label="Comment" isRequired type="text" />
-        </Form>
-      )}
+      <Form
+        className="comment-form"
+        id="comment-form"
+        title="Add a comment"
+        formDefaults={formDefaults}
+        validationSchema={
+          !session
+            ? Yup.object().shape({
+                author: Yup.string().required('This field is required.'),
+                authorEmail: Yup.string().required('This field is required.')
+              })
+            : null
+        }
+        onSubmit={handlePostComment}
+      >
+        {!!message && <div>{message}</div>}
+
+        {!session && (
+          <>
+            <Text id="author" label="Author" isRequired type="text" />
+            <Text id="authorEmail" label="Email" isRequired type="email" />
+            <Text id="authorUrl" label="Website" type="url" />
+          </>
+        )}
+
+        <Text id="content" label="Comment" isRequired type="text" />
+      </Form>
     </>
   )
 }

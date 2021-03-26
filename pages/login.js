@@ -5,6 +5,7 @@ import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
 import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 import {signIn, useSession} from 'next-auth/client'
+import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
 
@@ -51,6 +52,9 @@ export default function Login() {
           <Text id="username" label="Username" isRequired type="text" />
           <Text id="password" label="Password" isRequired type="password" />
         </Form>
+        <Link href="/register">
+          <a>Create an Account</a>
+        </Link>
       </Container>
     </Layout>
   )

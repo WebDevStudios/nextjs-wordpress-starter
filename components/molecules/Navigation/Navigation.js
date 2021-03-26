@@ -18,13 +18,8 @@ import styles from './Navigation.module.css'
 export default function Navigation({menu, className}) {
   const {asPath} = useRouter()
   const [session, loading] = useSession()
-  const loggedInMenu = ['Profile']
-  const nonLoggedMenu = ['Login', 'Register']
 
-  let isLoggedIn = false
-  if (!loading && session?.user?.accessToken) {
-    isLoggedIn = true
-  }
+  const isGuest = !loading && !session?.user?.accessToken
 
   return (
     <>
@@ -32,12 +27,16 @@ export default function Navigation({menu, className}) {
         <nav className={cn(styles.navigation, className)}>
           <ul>
             {menu.map((item, index) => {
-              if (isLoggedIn && nonLoggedMenu.includes(item.label)) return
-
-              if (!isLoggedIn && loggedInMenu.includes(item.label)) return
+              // Check for session-specific menu items.
+              if ((loading || isGuest) && item.path === '/profile') {
+                return
+              } else if ((loading || !isGuest) && item.path === '/login') {
+                return
+              }
 
               const children =
                 item.children && item.children.length > 0 ? item.children : ''
+
               return (
                 <li key={index}>
                   <Link href={item.path}>
