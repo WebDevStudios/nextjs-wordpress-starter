@@ -114,6 +114,11 @@ export default function Comments({comments, postId}) {
     setSubmitting(false)
   }
 
+  // Avoid flash if loading.
+  if (loading) {
+    return null
+  }
+
   return (
     <>
       <h3>Comments</h3>
