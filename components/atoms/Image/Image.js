@@ -23,30 +23,41 @@ import styles from './Image.module.css'
  * @return {Element}                The DisplayImage component.
  */
 export default function DisplayImage(props) {
-  const imageMeta = props?.imageMeta
+  // Set the image size.
   const imageSize = {
-    height: imageMeta?.mediaDetails?.height,
-    width: imageMeta?.mediaDetails?.width
+    height: props?.imageMeta?.mediaDetails?.height ?? props?.height,
+    width: props?.imageMeta?.mediaDetails?.width ?? props?.width
   }
 
+  // Set the image src.
+  const source = props?.imageMeta?.mediaItemUrl ?? props?.url
+
+  // Get the src domain from url.
+  const sourceDomain = new URL(source)
+
+  // Get all domains registered in next.config.js.
+  const domains = process.env.__NEXT_IMAGE_OPTS.domains
+
   /**
-   * Next Image component.
+   * Next.js <Image /> component.
    *
-   * @return {Element} A wrapper for the next/image component.
+   * @see https://nextjs.org/docs/basic-features/image-optimization
+   * @return {Element} The next/image component.
    */
   function NextImage() {
     return (
       <Image
         alt={props?.alt}
         height={imageSize?.height}
-        src={imageMeta?.mediaItemUrl}
+        id={props?.anchor}
+        src={source}
         width={imageSize?.width}
       />
     )
   }
 
   /**
-   * HTML image.
+   * HTML image component.
    *
    * @return {Element} A plain ol' HTML <img> tag.
    */
@@ -54,9 +65,11 @@ export default function DisplayImage(props) {
     return (
       <img
         alt={props?.alt}
-        className={cn(styles.image, props?.className, `image-${props?.id}`)}
+        className={cn(styles.image, props?.className)}
+        height={imageSize?.height}
         id={props?.anchor}
         src={props?.url}
+        width={imageSize?.width}
       />
     )
   }
@@ -82,7 +95,7 @@ export default function DisplayImage(props) {
   }
 
   /**
-   * Image caption
+   * Image caption component.
    *
    * @return {Element} An image caption.
    */
@@ -94,8 +107,13 @@ export default function DisplayImage(props) {
     )
   }
 
-  // If height/width are set, use Next <Image />.
-  if (imageSize.height && imageSize.width) {
+  /**
+   * If src domain includes allowed domains,
+   * use <Image /> component.
+   *
+   * @see https://nextjs.org/docs/basic-features/image-optimization#configuration
+   */
+  if (domains.includes(sourceDomain?.host)) {
     return (
       <div
         id={props?.anchor}
@@ -113,7 +131,9 @@ export default function DisplayImage(props) {
     )
   }
 
-  // Otherwise, just use HTML <img />.
+  /**
+   * Otherwise, just use HTML <img />.
+   */
   return (
     <>
       {props?.href ? (
@@ -134,11 +154,13 @@ DisplayImage.propTypes = {
   caption: PropTypes.string,
   children: PropTypes.any,
   className: PropTypes.string,
+  height: PropTypes.string,
   href: PropTypes.string,
   id: PropTypes.number,
   imageMeta: PropTypes.object,
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
-  url: PropTypes.string
+  url: PropTypes.string,
+  width: PropTypes.string
 }
