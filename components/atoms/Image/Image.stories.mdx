@@ -11,8 +11,10 @@ Use this component to display a image.
 <Canvas>
   <Story name="Component">
     <DisplayImage
-      url="https://images.unsplash.com/photo-1611149469739-cf4647d61f07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
       alt="Image alt text"
+      height="480"
+      url="https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg"
+      width="640"
     />
   </Story>
 </Canvas>
@@ -24,10 +26,12 @@ Add a link to the image using the `href` prop.
 <Canvas>
   <Story name="Image + Link">
     <DisplayImage
-      url="https://images.unsplash.com/photo-1611149469739-cf4647d61f07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
       alt="Image alt text"
       caption="This is the image caption"
+      height="480"
       href="https://webdevstudios.com"
+      url="https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg"
+      width="640"
     />
   </Story>
 </Canvas>
@@ -42,9 +46,12 @@ export const Template = (args) => <DisplayImage {...args} />
   <Story
     name="Controls"
     args={{
+      alt: 'A screenshot of the codebase.',
+      caption: 'A screenshot of the codebase.',
+      height: '480',
       url:
-        'https://images.unsplash.com/photo-1611149469739-cf4647d61f07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-      caption: 'Jeffery Smith, 28'
+        'https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg',
+      width: '640'
     }}
   >
     {Template.bind({})}
