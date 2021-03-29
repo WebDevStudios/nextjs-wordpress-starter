@@ -32,6 +32,11 @@ export default function DisplayImage(props) {
   // Set the image src.
   const source = props?.imageMeta?.mediaItemUrl ?? props?.url
 
+  // No image src? Bail.
+  if (!source) {
+    return <></>
+  }
+
   // Get the src domain from url.
   const sourceDomain = new URL(source)
 
@@ -156,7 +161,7 @@ DisplayImage.propTypes = {
   className: PropTypes.string,
   height: PropTypes.string,
   href: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   imageMeta: PropTypes.object,
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
