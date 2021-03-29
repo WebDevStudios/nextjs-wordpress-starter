@@ -3,6 +3,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 import {PropTypes} from 'prop-types'
 import styles from './Image.module.css'
+const config = require('../../../next.config.js')
 
 /**
  * Render the Display Image component.
@@ -41,7 +42,7 @@ export default function DisplayImage(props) {
   const sourceDomain = new URL(source)
 
   // Get all domains registered in next.config.js.
-  const domains = process.env.__NEXT_IMAGE_OPTS.domains
+  const domains = config?.images?.domains
 
   /**
    * Next.js <Image /> component.
@@ -161,7 +162,7 @@ DisplayImage.propTypes = {
   className: PropTypes.string,
   height: PropTypes.string,
   href: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMeta: PropTypes.object,
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
