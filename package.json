@@ -44,7 +44,7 @@
     "@apollo/client": "^3.3.13",
     "@arkweid/lefthook": "^0.7.2",
     "@babel/core": "^7.13.13",
-    "@next/bundle-analyzer": "^10.0.9",
+    "@next/bundle-analyzer": "^10.1.1",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
