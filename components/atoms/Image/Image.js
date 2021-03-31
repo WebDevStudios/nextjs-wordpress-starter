@@ -84,19 +84,6 @@ export default function DisplayImage(props) {
   }
 
   /**
-   * If src domain includes allowed domains, use <Image /> component.
-   *
-   * Otherwise, use HTML <img />.
-   *
-   * @see https://nextjs.org/docs/basic-features/image-optimization#configuration
-   *
-   * @return {Element} The <Image /> component or HTML <img /> tag.
-   */
-  function NextOrHtmlImage() {
-    return domains.includes(sourceDomain?.host) ? <NextImage /> : <HtmlImage />
-  }
-
-  /**
    * Image Link component.
    *
    * @param {object} props         The component propterties.
