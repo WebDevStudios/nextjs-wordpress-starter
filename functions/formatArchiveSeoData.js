@@ -35,6 +35,9 @@ export default function formatArchiveSeoData(
       `${fallbackSeo?.title} - ${defaultSeo?.openGraph?.siteName ?? ''}`,
     metaDesc: archiveSeo?.metaDesc ?? fallbackSeo?.description ?? '',
     metaRobotsNofollow: archiveSeo?.metaRobotsNofollow ?? 'follow',
-    metaRobotsNoindex: archiveSeo?.metaRobotsNoindex ?? 'index'
+    metaRobotsNoindex: archiveSeo?.metaRobotsNoindex ?? 'index',
+    canonical:
+      archiveSeo?.canonical ??
+      `${defaultSeo?.openGraph?.url ?? ''}/${fallbackSeo?.route}`
   }
 }
