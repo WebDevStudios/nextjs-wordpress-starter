@@ -117,8 +117,7 @@ export default function DisplayImage(props) {
   }
 
   /**
-   * If src domain includes allowed domains,
-   * use <Image /> component.
+   * If src domain includes allowed domains, use <Image /> component.
    *
    * @see https://nextjs.org/docs/basic-features/image-optimization#configuration
    */
@@ -126,7 +125,11 @@ export default function DisplayImage(props) {
     return (
       <div
         id={props?.anchor}
-        className={cn(styles.image, props?.className, `image-${props?.id}`)}
+        className={cn(
+          styles.image,
+          props?.className,
+          props?.id ? `image-${props?.id}` : ''
+        )}
       >
         {props?.href ? (
           <ImageLink>
