@@ -35,7 +35,7 @@ export default function DisplayImage(props) {
 
   // No image src? Bail.
   if (!source) {
-    return <></>
+    return null
   }
 
   // Get the src domain from url.
