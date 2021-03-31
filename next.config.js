@@ -1,9 +1,5 @@
 module.exports = {
   images: {
-    domains: [
-      'nextjs.wpengine.com',
-      'nextjsdevstart.wpengine.com',
-      'nextjswp.test'
-    ]
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(', ')
   }
 }
