@@ -42,7 +42,10 @@ export default function DisplayImage(props) {
   const sourceDomain = new URL(source)
 
   // Get all domains registered in next.config.js.
-  const domains = config?.images?.domains
+  let domains = process.env.NEXT_PUBLIC_IMAGE_DOMAINS
+
+  // Split domains string into individual domains.
+  domains = domains.split(', ')
 
   /**
    * Next.js <Image /> component.
