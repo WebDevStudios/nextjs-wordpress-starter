@@ -1,11 +1,13 @@
 import Container from '@/components/atoms/Container'
 import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
-import {seoPropTypes} from '@/functions/getPagePropTypes'
+import getPagePropTypes from '@/functions/getPagePropTypes'
 import parseQuerystring from '@/functions/parseQuerystring'
 import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 import {useRouter} from 'next/router'
-import PropTypes from 'prop-types'
+
+// Define route post type.
+const postType = 'page'
 
 /**
  * Render the Search component.
@@ -44,7 +46,5 @@ export async function getStaticProps() {
 }
 
 Search.propTypes = {
-  post: PropTypes.shape({
-    seo: {...seoPropTypes.seo}
-  })
+  ...getPagePropTypes(postType)
 }
