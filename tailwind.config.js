@@ -1,5 +1,6 @@
 // https://tailwindcss.com/docs/installation#create-your-configuration-file
 module.exports = {
+  mode: 'jit',
   purge: {
     content: [
       './components/**/*.{js,ts,jsx,tsx,mdx}',
