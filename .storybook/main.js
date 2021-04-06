@@ -16,6 +16,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-links',
+    '@storybook/addon-postcss',
     'storybook-css-modules-preset'
   ],
   webpackFinal: async (config) => {
