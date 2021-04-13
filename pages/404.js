@@ -46,7 +46,7 @@ export default function Custom404({post}) {
  * @return {object} Post props.
  */
 export async function getStaticProps() {
-  return await getPostTypeStaticProps({slug: '404-not-found'}, postType)
+  return await getPostTypeStaticProps({slug: '404'}, postType)
 }
 
 Custom404.propTypes = {
