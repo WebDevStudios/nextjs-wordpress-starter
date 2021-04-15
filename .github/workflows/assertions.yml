@@ -1,4 +1,4 @@
-name: Run Assertions
+name: Assertions
 
 on:
   pull_request:
@@ -38,5 +38,8 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Lint codebase
-        run: npm run lint
+      - name: Lint JavaScript
+        run: npx eslint --config=.eslintrc.js
+
+      - name: Lint CSS
+        run: npx stylelint --config=stylelint.config.js
