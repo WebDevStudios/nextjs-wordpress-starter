@@ -50,7 +50,7 @@
     "@storybook/addon-links": "^6.2.8",
     "@storybook/react": "^6.2.8",
     "@tailwindcss/postcss7-compat": "^2.1.1",
-    "algoliasearch": "^4.8.6",
+    "algoliasearch": "^4.9.0",
     "apollo-link-rest": "^0.8.0-beta.0",
     "autoprefixer": "9.8.6",
     "babel-loader": "^8.2.2",
