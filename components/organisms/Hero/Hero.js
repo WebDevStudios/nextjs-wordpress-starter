@@ -11,7 +11,7 @@ import styles from './Hero.module.css'
  * @param {string} props.backgroundImage The background image object.
  * @param {string} props.body            Text for the body.
  * @param {string} props.className       The className.
- * @param {any} props.children           InnerBlocks.
+ * @param {any}    props.children        InnerBlocks.
  * @param {object} props.ctaText         The cta text.
  * @param {object} props.ctaUrl          The cta url.
  * @param {string} props.subtitle        Text for the subtitle.
