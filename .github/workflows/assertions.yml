@@ -1,4 +1,4 @@
-name: Coding Standards
+name: Run Assertions
 
 on:
   pull_request:
@@ -14,10 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
@@ -27,7 +29,14 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
+
+      - name: Log debug information
+        run: |
+          npm --version
+          node --version
+
       - name: Install dependencies
-      - run: npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
+
       - name: Lint codebase
-      - run: npm run lint
+        run: npm run lint
