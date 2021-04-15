@@ -13,6 +13,9 @@ Before getting started, please [view the wiki](https://github.com/WebDevStudios/
 - [Introduction](#introduction)
 - [Submitting Issues and Feature Requests](#submitting-issues-and-feature-requests)
 - [Development](#development)
+  - [Environments and Primary Branches](#environments-and-primary-branches)
+    - [Next.js (Frontend)](#nextjs-frontend)
+    - [WordPress (Backend)](#wordpress-backend)
   - [Git Workflow](#git-workflow)
   - [PR Preview Deployments](#pr-preview-deployments)
   - [Code Linting](#code-linting)
@@ -31,27 +34,46 @@ If you do file an issue, be sure to fill out the report completely!
 
 ## Development
 
+### Environments and Primary Branches
+
+There are several environments when working with Headless WordPress, both for the Frontend and the Backend.
+
+#### Next.js (Frontend)
+
+- [Vercel Prod](https://nextjs-wordpress-starter.vercel.app/) - `main` branch - Auto deploy
+- [Vercel Develop](https://nextjs-wordpress-starter-develop.vercel.app/) - `develop` branch - Auto deploy
+- Vercel Preview - Auto generated with each branch and PR.
+
+#### WordPress (Backend)
+
+- [WP Engine Prod](https://nextjs.wpengine.com/wp-admin/) - `main` branch - Manual releases only
+- [WP Engine Dev](https://nextjsdevstart.wpengine.com/wp-admin/) - `develop` branch - Auto deploy [via Buddy](https://app.buddy.works/webdevstudios/nextjs-starter-wordpress/pipelines)
+
+> Note: The WordPress install has a seperate [Github Repo](https://github.com/WebDevStudios/nextjs-starter-wordpress).
+
 ### Git Workflow
 
 1. Create a `feature` branch off `main`
 2. Work locally adhering to coding standards
-3. When ready, open a draft Pull Request on Github
-4. When finished, fill out the PR template and publish your PR
-5. Your PR must pass assertions and deploy successfully
+3. Merge your `feature` into `develop` to test on [WPE Dev environment](https://nextjsdevstart.wpengine.com/wp-admin/)
+4. When your `feature` has been tested on WPE Dev, open a Pull Request (PR) and fill out the PR template
+5. Your PR must pass assertions and both Vercel and Chromatic need to complete a preview deployment successfully
 6. After peer review, the PR will be merged back into `main`
 7. Repeat ♻️
 
 ### PR Preview Deployments
 
-[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-starter) is connected to this Github repository and will automatically build and deploy a unique URL for each Pull Request.
+[Vercel](https://vercel.com/webdevstudios/nextjs-wordpress-starter) and [Chromatic](https://www.chromatic.com/) are connected to this Github repository and will automatically build and deploy a unique URL for each Pull Request.
 
-Learn more about [Vercel + Github integration](https://vercel.com/docs/git/vercel-for-github).
+Learn more about [Vercel + Github](https://vercel.com/docs/git/vercel-for-github) and [Chromatic + Github](https://www.chromatic.com/features/publish) integrations.
 
 ### Code Linting
 
 This project has several rulesets and uses ESLint, Prettier, and Stylelint to enforce standards.
 
-In addition to real-time linting, you could run the following commands in your terminal. These commands are also used by Lefthook during a commit.
+In addition to real-time linting, you could run the following commands in your terminal.
+
+> These commands are also used in a pre-commit hook.
 
 Lint JavaScript:
 

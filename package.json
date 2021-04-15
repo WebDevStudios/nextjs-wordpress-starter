@@ -1,18 +1,22 @@
 {
   "name": "nextjs-wordpress-starter",
   "version": "1.0.0",
+  "private": true,
   "description": "Next.js WordPress Starter",
+  "author": "WebDevStudios <contact@webdevstudios.com>",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "next.js",
+    "wordpress"
+  ],
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebDevStudios/nextjs-wordpress-starter.git"
   },
-  "author": "WebDevStudios <contact@webdevstudios.com>",
   "bugs": {
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
   },
-  "private": true,
-  "license": "GPL-2.0",
   "engines": {
     "node": "14",
     "npm": "7"

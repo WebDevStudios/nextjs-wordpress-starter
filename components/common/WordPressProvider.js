@@ -4,7 +4,11 @@ import {createContext, useContext} from 'react'
 // Initialize Menu context object.
 export const WPContext = createContext()
 
-// Export useContext Hook.
+/**
+ * Export useContext Hook.
+ *
+ * @return {Function} WordPress Context
+ */
 export function useWordPressContext() {
   return useContext(WPContext)
 }

@@ -3,7 +3,6 @@ import cn from 'classnames'
 import Image from 'next/image'
 import {PropTypes} from 'prop-types'
 import styles from './Image.module.css'
-const config = require('../../../next.config.js')
 
 /**
  * Render the Display Image component.
