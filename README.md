@@ -18,11 +18,13 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 - Algolia Search
 - Application Passwords
 - Archives
+- Comments
 - Content Blocks
   - ACF Blocks
   - Gutenberg
   - Lazy Blocks
 - Custom 404 page
+- Frontend Login/Registration
 - Gravity Forms
 - Menus
 - Pages
@@ -44,6 +46,7 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 - Formik
 - Incremental Static Regeneration
 - JSDocs
+- NextAuth
 - Next/Image Support
 - PostCSS
 - Prettier
@@ -58,6 +61,8 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 
 ## Contributing :octocat:
 
-WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.github/CONTRIBUTING.md).
+WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/CONTRIBUTING.md).
+
+The Next.js WordPress Starter is free software, and is released under the terms of the GNU General Public License version 2 or any later version. See [LICENSE.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/LICENSE.md) for complete license.
 
 Stay safe! 🍻
