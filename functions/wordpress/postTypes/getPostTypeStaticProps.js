@@ -5,10 +5,10 @@ import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
-import getPostTypeTaxonomyArchive from './getPostTypeTaxonomyArchive'
+import getPostTypeTaxonomyArchive from '@/lib/wordpress/_global/getPostTypeTaxonomyArchive'
 import getSettingsCustomPage, {
   customPageQuerySeo
-} from './getSettingsCustomPage'
+} from '../../../lib/wordpress/_global/getSettingsCustomPage'
 
 /**
  * Retrieve static props by post type.

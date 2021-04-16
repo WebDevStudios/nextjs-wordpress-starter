@@ -7,8 +7,8 @@ import Blocks from '@/components/molecules/Blocks'
 import Card from '@/components/molecules/Card'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
+import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
 import getArchivePosts from '@/lib/next-api/wordpress/archive/getArchivePosts'
-import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 
 // Define route post type.
 const postType = 'team'

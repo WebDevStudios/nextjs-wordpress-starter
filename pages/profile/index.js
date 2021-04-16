@@ -1,7 +1,7 @@
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
-import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
+import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
 import {signOut, useSession} from 'next-auth/client'
 import {useRouter} from 'next/router'
 import React, {useEffect} from 'react'
