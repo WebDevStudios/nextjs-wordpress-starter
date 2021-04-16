@@ -32,19 +32,14 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
-      - name: Log information
-        run: |
-          npm --version
-          node --version
-
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm i --legacy-peer-deps --ignore-scripts --no-fund --no-audit --quiet
 
       - name: Lint JavaScript
-        run: npx eslint --config=.eslintrc.js ./
+        run: npx eslint ./ --config=.eslintrc.js --no-color --env-info
 
       - name: Lint CSS
-        run: npx stylelint --config=stylelint.config.js '**/*.css'
+        run: npx stylelint '**/*.css' --config=stylelint.config.js --no-color --version
 
   chromatic:
     runs-on: ubuntu-latest
