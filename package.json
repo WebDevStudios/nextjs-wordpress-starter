@@ -1,18 +1,22 @@
 {
   "name": "nextjs-wordpress-starter",
   "version": "1.0.0",
+  "private": true,
   "description": "Next.js WordPress Starter",
+  "author": "WebDevStudios <contact@webdevstudios.com>",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "next.js",
+    "wordpress"
+  ],
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebDevStudios/nextjs-wordpress-starter.git"
   },
-  "author": "WebDevStudios <contact@webdevstudios.com>",
   "bugs": {
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
   },
-  "private": true,
-  "license": "GPL-2.0",
   "engines": {
     "node": "14",
     "npm": "7"
@@ -20,7 +24,6 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token zp8e8oo1lq",
     "clean": "rimraf .next/",
     "dev": "npm run clean && next dev",
     "develop": "npm dev",
@@ -69,7 +72,7 @@
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.0",
-    "next-seo": "^4.23.0",
+    "next-seo": "^4.24.0",
     "next-sitemap": "^1.6.25",
     "postcss": "7.0.35",
     "postcss-flexbugs-fixes": "4.2.1",

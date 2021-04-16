@@ -1,0 +1,42 @@
+name: Assertions
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install dependencies
+        run: npm i --legacy-peer-deps --ignore-scripts --no-fund --no-audit --quiet
+
+      - name: Lint JavaScript
+        run: npx eslint ./ --config=.eslintrc.js --no-color --env-info
+
+      - name: Lint CSS
+        run: npx stylelint '**/*.css' --config=stylelint.config.js --no-color --version
