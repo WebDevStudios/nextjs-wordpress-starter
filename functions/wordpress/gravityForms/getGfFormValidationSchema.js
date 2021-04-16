@@ -1,7 +1,7 @@
+import getGfFieldId from '@/functions/wordpress/gravityForms/getGfFieldId'
+import ArraySchemaFactory from '@/functions/wordpress/gravityForms/yupSchema/ArraySchemaFactory'
+import StringSchemaFactory from '@/functions/wordpress/gravityForms/yupSchema/StringSchemaFactory'
 import * as Yup from 'yup'
-import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
-import StringSchemaFactory from '@/functions/gravityForms/yupSchema/StringSchemaFactory'
-import ArraySchemaFactory from '@/functions/gravityForms/yupSchema/ArraySchemaFactory'
 
 /**
  * Match field type with Yup schema object.

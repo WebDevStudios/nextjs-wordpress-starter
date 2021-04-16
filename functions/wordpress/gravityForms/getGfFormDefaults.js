@@ -1,4 +1,4 @@
-import getGfFieldId from '@/functions/gravityForms/getGfFieldId'
+import getGfFieldId from '@/functions/wordpress/gravityForms/getGfFieldId'
 
 /**
  * Assign default values for GravityForm Checkboxes.

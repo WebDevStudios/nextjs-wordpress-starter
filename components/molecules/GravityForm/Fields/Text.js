@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types'
 import * as Input from '@/components/atoms/Inputs'
-import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
+import {
+  getGfFieldId,
+  getGfHiddenClassName
+} from '@/functions/wordpress/gravityForms'
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 
 /**
  * Render the GravityForm Text component.
