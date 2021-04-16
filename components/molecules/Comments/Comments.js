@@ -1,6 +1,6 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
-import processPostComment from '@/lib/frontend/wp/comments/processPostComment'
+import processPostComment from '@/lib/next-api/wp/comments/processPostComment'
 import {useSession} from 'next-auth/client'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
