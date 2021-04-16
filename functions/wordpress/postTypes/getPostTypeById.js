@@ -2,7 +2,7 @@ import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchic
 import queryPageById from '@/lib/wordpress/pages/queryPageById'
 import queryPostById from '@/lib/wordpress/posts/queryPostById'
 import queryTeamById from '@/lib/wordpress/teams/queryTeamById'
-import processPostTypeQuery from './processPostTypeQuery'
+import processPostTypeQuery from '@/lib/wordpress/_global/processPostTypeQuery'
 
 /**
  * Retrieve single post by specified identifier.
