@@ -1,11 +1,11 @@
 import getFrontendPage from '@/functions/wordpress/postTypes/getFrontendPage'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
+import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
 import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
-import getPostTypeTaxonomyArchive from '@/lib/wordpress/_global/getPostTypeTaxonomyArchive'
 import getSettingsCustomPage, {
   customPageQuerySeo
 } from '@/lib/wordpress/_global/getSettingsCustomPage'
