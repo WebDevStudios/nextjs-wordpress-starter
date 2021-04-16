@@ -1,5 +1,5 @@
-import isHierarchicalPostType from '@/functions/wordpress/posts/isHierarchicalPostType'
-import isValidPostType from '@/functions/wordpress/posts/isValidPostType'
+import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchicalPostType'
+import isValidPostType from '@/functions/wordpress/postTypes/isValidPostType'
 import PropTypes from 'prop-types'
 
 // Yoast SEO social prop types.
