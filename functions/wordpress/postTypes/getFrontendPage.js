@@ -1,27 +1,8 @@
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import getMenus from '@/lib/wordpress/menus/getMenus'
-import queryDefaultPageData from './queryDefaultPageData'
-
-// Define SEO for Frontend routes.
-export const frontendPageSeo = {
-  search: {
-    title: 'Search',
-    description: 'Search page'
-  },
-  login: {
-    title: 'Login',
-    description: 'Login page'
-  },
-  register: {
-    title: 'Register',
-    description: 'Registration page'
-  },
-  profile: {
-    title: 'Profile',
-    description: 'Profile page'
-  }
-}
+import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
+import queryDefaultPageData from '@/lib/wordpress/_global/queryDefaultPageData'
 
 /**
  * Retrieve data for Frontend-only route (i.e., page does not exist in WordPress).
