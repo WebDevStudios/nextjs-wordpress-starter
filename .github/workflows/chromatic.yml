@@ -1,11 +1,11 @@
-name: 'Chromatic Deployment'
+name: 'Chromatic'
 
 on:
   pull_request:
     branches: [main, develop]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -13,11 +13,22 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: chromaui/action@v1
-
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          # our project token, to see how to obtain it
-          # refer to https://www.learnstorybook.com/intro-to-storybook/react/en/deploy/
-          projectToken: zp8e8oo1lq
+          fetch-depth: 0
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
