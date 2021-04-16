@@ -3,7 +3,7 @@ import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import getPostTypeStaticPaths from '@/lib/wordpress/_global/getPostTypeStaticPaths'
+import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
 
 // Define route post type.
