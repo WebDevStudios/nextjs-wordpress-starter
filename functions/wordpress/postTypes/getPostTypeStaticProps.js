@@ -8,7 +8,7 @@ import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import getPostTypeTaxonomyArchive from '@/lib/wordpress/_global/getPostTypeTaxonomyArchive'
 import getSettingsCustomPage, {
   customPageQuerySeo
-} from '../../../lib/wordpress/_global/getSettingsCustomPage'
+} from '@/lib/wordpress/_global/getSettingsCustomPage'
 
 /**
  * Retrieve static props by post type.
