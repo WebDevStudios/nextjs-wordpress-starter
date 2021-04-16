@@ -47,9 +47,9 @@ There are several environments when working with Headless WordPress, both for th
 #### WordPress (Backend)
 
 - [WP Engine Prod](https://nextjs.wpengine.com/wp-admin/) - `main` branch - Manual releases only
-- [WP Engine Dev](https://nextjsdevstart.wpengine.com/wp-admin/) - `develop` branch - Auto deploy [via Buddy](https://app.buddy.works/webdevstudios/nextjs-starter-wordpress/pipelines)
+- [WP Engine Dev](https://nextjsdevstart.wpengine.com/wp-admin/) - `develop` branch - Auto deploy [via Buddy](https://app.buddy.works/webdevstudios/wds-headless-wordpress/pipelines)
 
-> Note: The WordPress install has a seperate [Github Repo](https://github.com/WebDevStudios/nextjs-starter-wordpress).
+> Note: The WordPress install has a seperate [Github Repo](https://github.com/WebDevStudios/wds-headless-wordpress).
 
 ### Git Workflow
 
