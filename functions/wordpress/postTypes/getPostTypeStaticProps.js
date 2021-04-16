@@ -1,4 +1,5 @@
 import getFrontendPage from '@/functions/wordpress/postTypes/getFrontendPage'
+import getHeadlessConfigPage from '@/functions/wordpress/postTypes/getHeadlessConfigPage'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
 import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
@@ -7,7 +8,6 @@ import {addApolloState} from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
-import getHeadlessConfigPage from '@/lib/wordpress/_global/getHeadlessConfigPage'
 
 /**
  * Retrieve static props by post type.

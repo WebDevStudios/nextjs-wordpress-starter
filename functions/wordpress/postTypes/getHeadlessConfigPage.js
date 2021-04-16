@@ -1,5 +1,5 @@
-import headlessConfigPageQuerySeo from '../_config/headlessConfigPageQuerySeo'
-import processPostTypeQuery from './processPostTypeQuery'
+import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
+import processPostTypeQuery from '@/lib/wordpress/_global/processPostTypeQuery'
 
 /**
  * Retrieve single page set via Headless Config.
