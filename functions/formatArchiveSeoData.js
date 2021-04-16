@@ -1,4 +1,4 @@
-import {postTypes} from '@/lib/wordpress/_global/postTypes'
+import {postTypes} from '@/lib/wordpress/_config/postTypes'
 
 /**
  * Format archive SEO data.
