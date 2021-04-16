@@ -1,5 +1,5 @@
-import formatBlockData from '@/functions/formatBlockData'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import formatBlockData from '@/functions/wordpress/blocks/formatBlockData'
 import {
   createWpApolloClient,
   initializeWpApollo
