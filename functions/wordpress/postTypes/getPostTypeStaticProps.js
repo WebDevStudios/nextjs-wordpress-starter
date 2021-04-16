@@ -6,9 +6,9 @@ import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
-import getSettingsCustomPage, {
-  customPageQuerySeo
-} from '@/lib/wordpress/_global/getSettingsCustomPage'
+import getHeadlessConfigPage, {
+  headlessConfigPageQuerySeo
+} from '@/lib/wordpress/_global/getHeadlessConfigPage'
 
 /**
  * Retrieve static props by post type.
@@ -108,8 +108,8 @@ export default async function getPostTypeStaticProps(
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
   /* -- Handle pages set via Additional Settings. -- */
-  if (Object.keys(customPageQuerySeo).includes(slug)) {
-    const {apolloClient, ...pageData} = await getSettingsCustomPage(slug)
+  if (Object.keys(headlessConfigPageQuerySeo).includes(slug)) {
+    const {apolloClient, ...pageData} = await getHeadlessConfigPage(slug)
 
     // Display 404 error page if error encountered.
     if (pageData.error && '404' !== slug) {
