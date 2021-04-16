@@ -6,9 +6,8 @@ import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
-import getHeadlessConfigPage, {
-  headlessConfigPageQuerySeo
-} from '@/lib/wordpress/_global/getHeadlessConfigPage'
+import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
+import getHeadlessConfigPage from '@/lib/wordpress/_global/getHeadlessConfigPage'
 
 /**
  * Retrieve static props by post type.
