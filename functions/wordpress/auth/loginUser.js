@@ -1,5 +1,5 @@
+import mutationLoginUser from '@/lib/wordpress/auth/mutationLoginUser'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import mutationLoginUser from '@/lib/wordpress/users/mutationLoginUser'
 
 /**
  * Log user into WP.
