@@ -1,5 +1,5 @@
 import {initializeNextApiApollo} from '@/lib/next-api/connector'
-import queryArchivePosts from './queryArchivePosts'
+import queryArchivePosts from '@/lib/next-api/wordpress/archive/queryArchivePosts'
 
 /**
  * Retrieve next page of posts for post type archive.
