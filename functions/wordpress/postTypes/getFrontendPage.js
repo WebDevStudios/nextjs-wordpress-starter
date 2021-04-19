@@ -1,5 +1,5 @@
-import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '@/functions/wordpress/menus/getMenus'
+import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import queryDefaultPageData from '@/lib/wordpress/pages/queryDefaultPageData'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'

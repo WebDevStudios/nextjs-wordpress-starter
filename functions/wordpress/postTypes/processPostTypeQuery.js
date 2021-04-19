@@ -1,6 +1,6 @@
-import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import formatBlockData from '@/functions/wordpress/blocks/formatBlockData'
 import getMenus from '@/functions/wordpress/menus/getMenus'
+import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData'
 import {
   createWpApolloClient,
   initializeWpApollo

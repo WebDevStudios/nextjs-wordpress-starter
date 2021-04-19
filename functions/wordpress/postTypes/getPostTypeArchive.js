@@ -1,6 +1,6 @@
-import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import getMenus from '@/functions/wordpress/menus/getMenus'
 import formatArchiveSeoData from '@/functions/wordpress/seo/formatArchiveSeoData'
+import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import {postTypes} from '@/lib/wordpress/_config/postTypes'
