@@ -1,5 +1,5 @@
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import queryFormById from './queryFormById'
+import queryFormById from '@/lib/wordpress/gravityForms/queryFormById'
 
 /**
  * Retrieve single form by ID.
@@ -8,7 +8,7 @@ import queryFormById from './queryFormById'
  * @param {string} id Form ID.
  * @return {object}   Post data or error object.
  */
-export default async function getFormById(id) {
+export default async function getGfFormById(id) {
   // Determine form global ID.
   const formId = Buffer.from(`GravityFormsForm:${id}`).toString('base64')
 
