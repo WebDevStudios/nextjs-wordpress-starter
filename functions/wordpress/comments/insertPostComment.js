@@ -1,5 +1,5 @@
+import mutationInsertComment from '@/lib/wordpress/comments/mutationInsertComment'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import mutationInsertComment from './mutationInsertComment'
 
 /**
  * Add a comment to the given post. Follows established WordPress
