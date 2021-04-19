@@ -1,5 +1,5 @@
 import {initializeNextApiApollo} from '@/lib/next-api/connector'
-import mutationAddComment from './mutationAddComment'
+import mutationAddComment from '@/lib/next-api/wordpress/comments/mutationAddComment'
 
 /**
  * Add a comment to the given post. Follows established WordPress
