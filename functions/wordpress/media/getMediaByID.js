@@ -1,5 +1,5 @@
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import queryMediaAttributes from './queryMediaAttributes'
+import queryMediaAttributes from '@/lib/wordpress/media/queryMediaAttributes'
 
 /**
  * Retrieve media details by ID.
