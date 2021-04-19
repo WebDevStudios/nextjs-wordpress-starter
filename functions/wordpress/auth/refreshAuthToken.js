@@ -1,5 +1,5 @@
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import mutationRefreshAuthToken from './mutationRefreshAuthToken'
+import mutationRefreshAuthToken from '@/lib/wordpress/users/mutationRefreshAuthToken'
 
 /**
  * Get a new auth token using refresh token.

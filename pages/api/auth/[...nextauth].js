@@ -1,5 +1,5 @@
 import loginUser from '@/functions/wordpress/auth/loginUser'
-import refreshAuthToken from '@/lib/wordpress/users/refreshAuthToken'
+import refreshAuthToken from '@/functions/wordpress/auth/refreshAuthToken'
 import registerUser from '@/lib/wordpress/users/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
