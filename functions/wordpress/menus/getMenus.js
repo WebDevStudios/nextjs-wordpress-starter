@@ -1,5 +1,5 @@
 import filterMenusByLocation from '@/functions/wordpress/menus/filterMenusByLocation'
-import menuLocations from '../_config/menuLocations'
+import menuLocations from '@/lib/wordpress/_config/menuLocations'
 
 /**
  * Get menu data from WPGraphQL.

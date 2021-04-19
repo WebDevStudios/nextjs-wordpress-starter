@@ -1,10 +1,10 @@
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
 import formatBlockData from '@/functions/wordpress/blocks/formatBlockData'
+import getMenus from '@/functions/wordpress/menus/getMenus'
 import {
   createWpApolloClient,
   initializeWpApollo
 } from '@/lib/wordpress/connector'
-import getMenus from '@/lib/wordpress/menus/getMenus'
 
 /**
  * Retrieve single post.

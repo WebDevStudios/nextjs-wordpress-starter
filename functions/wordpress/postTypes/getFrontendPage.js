@@ -1,6 +1,6 @@
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import getMenus from '@/functions/wordpress/menus/getMenus'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import getMenus from '@/lib/wordpress/menus/getMenus'
 import queryDefaultPageData from '@/lib/wordpress/pages/queryDefaultPageData'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 

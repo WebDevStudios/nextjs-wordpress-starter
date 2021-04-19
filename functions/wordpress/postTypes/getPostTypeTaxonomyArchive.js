@@ -1,7 +1,7 @@
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import getMenus from '@/functions/wordpress/menus/getMenus'
 import queryPostsByCategory from '@/lib/wordpress/categories/queryPostsByCategory'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import getMenus from '@/lib/wordpress/menus/getMenus'
 import queryPostsByTag from '@/lib/wordpress/tags/queryPostsByTag'
 import {postTypes} from '@/lib/wordpress/_config/postTypes'
 

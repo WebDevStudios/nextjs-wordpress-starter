@@ -1,7 +1,7 @@
 import formatArchiveSeoData from '@/functions/formatArchiveSeoData'
 import formatDefaultSeoData from '@/functions/formatDefaultSeoData'
+import getMenus from '@/functions/wordpress/menus/getMenus'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
-import getMenus from '@/lib/wordpress/menus/getMenus'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import {postTypes} from '@/lib/wordpress/_config/postTypes'
 
