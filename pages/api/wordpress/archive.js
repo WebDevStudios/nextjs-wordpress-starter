@@ -1,4 +1,4 @@
-import getPostTypeArchive from '@/lib/wordpress/_global/getPostTypeArchive'
+import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 
 /**
  * Load more posts for an archive.

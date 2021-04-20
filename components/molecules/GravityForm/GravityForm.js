@@ -1,6 +1,6 @@
 import Form from '@/components/molecules/Form'
-import getGfFormDefaults from '@/functions/gravityForms/getGfFormDefaults'
-import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
+import getGfFormDefaults from '@/functions/wordpress/gravityForms/getGfFormDefaults'
+import getGfFormValidationSchema from '@/functions/wordpress/gravityForms/getGfFormValidationSchema'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'

@@ -1,7 +1,5 @@
-import {
-  isHierarchicalPostType,
-  isValidPostType
-} from '@/lib/wordpress/_global/postTypes'
+import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchicalPostType'
+import isValidPostType from '@/functions/wordpress/postTypes/isValidPostType'
 import PropTypes from 'prop-types'
 
 // Yoast SEO social prop types.
@@ -74,7 +72,7 @@ export const archivePropTypes = {
  *
  * @author WebDevStudios
  * @param {string} postType WP post type.
- * @return {object} Page prop types.
+ * @return {object}         Page prop types.
  */
 export default function getPagePropTypes(postType) {
   // Check if post type is valid.
