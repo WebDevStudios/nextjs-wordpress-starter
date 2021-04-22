@@ -27,7 +27,12 @@ export default function processGfFieldValues(entryData, fieldData) {
   const fieldValues = []
   const fields = {}
 
-  fieldData.forEach((field) => {
+  // Ensure fieldData is valid.
+  if (!fieldData?.edges || !fieldData.edges.length) {
+    return fieldValues
+  }
+
+  fieldData.edges.forEach((field) => {
     if (!field?.node?.id) {
       return
     }
