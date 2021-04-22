@@ -6,11 +6,16 @@ import processGfFieldValues from './processGfFieldValues'
  * Process GF form submission via Next API.
  *
  * @author WebDevStudios
- * @param {number} formId   GF form ID.
- * @param {object} formData GF form data.
- * @return {object}         Confirmation or error messaging.
+ * @param {number} formId    GF form ID.
+ * @param {object} entryData GF form entry data.
+ * @param {object} fieldData GF form field config.
+ * @return {object}          Confirmation or error messaging.
  */
-export default function processGfFormSubmission(formId, formData) {
+export default async function processGfFormSubmission(
+  formId,
+  entryData,
+  fieldData
+) {
   // Check data values.
   if (!formId || !parseInt(formId, 10)) {
     return {
@@ -19,14 +24,14 @@ export default function processGfFormSubmission(formId, formData) {
     }
   }
 
-  if (!formData) {
+  if (!entryData) {
     return {
       error: true,
       errorMessage: 'No form data provided.'
     }
   }
 
-  const fieldValues = processGfFieldValues(formId, formData)
+  const fieldValues = processGfFieldValues(entryData, fieldData)
 
   const apolloClient = initializeNextApiApollo()
 
