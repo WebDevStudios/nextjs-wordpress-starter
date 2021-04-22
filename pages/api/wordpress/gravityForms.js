@@ -9,8 +9,8 @@ import insertGfFormEntry from '@/functions/wordpress/gravityForms/insertGfFormEn
  */
 export default async function gravityForms(req, res) {
   try {
-    // Retrieve props from request query params.
-    const {formId, fieldValues} = req.query
+    // Retrieve props from request body.
+    const {formId, fieldValues} = req.body
 
     // Basic check to see if the referer matches the host.
     // This is trivially easy to bypass, but it's a first step.
