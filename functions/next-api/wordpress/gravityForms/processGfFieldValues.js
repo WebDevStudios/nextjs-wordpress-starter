@@ -70,7 +70,7 @@ export default function processGfFieldValues(entryData, fieldData) {
         fieldValue.checkboxValues = []
 
         if (!entryData[fieldName] || !entryData[fieldName].length) {
-          break
+          return
         }
 
         // Determine checkbox input IDs from index in field config choices array.
@@ -92,6 +92,11 @@ export default function processGfFieldValues(entryData, fieldData) {
         break
 
       default:
+        // Skip if empty/undefined.
+        if (!entryData[fieldName]) {
+          return
+        }
+
         fieldValue.value = entryData[fieldName]
         break
     }
