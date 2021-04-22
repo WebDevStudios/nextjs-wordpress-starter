@@ -32,8 +32,8 @@ export default async function insertGfFormEntry(formId, formValues) {
       mutation: mutationInsertFormEntry,
       variables
     })
-    .then((entry) => {
-      const {entryId} = entry?.data?.submitGravityFormsForm?.entryId
+    .then((response) => {
+      const {entryId, entry} = response?.data?.submitGravityFormsForm?.entryId
 
       // Set error props if data not found.
       if (!entryId) {
@@ -45,6 +45,9 @@ export default async function insertGfFormEntry(formId, formValues) {
       }
 
       response.entryId = entryId
+      response.confirmationMessage =
+        entry?.form?.node?.confirmations?.message ||
+        'Thanks for contacting us! We will get in touch with you shortly.'
     })
     .catch((error) => {
       response.error = true
