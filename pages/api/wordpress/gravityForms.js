@@ -10,7 +10,7 @@ import insertGfFormEntry from '@/functions/wordpress/gravityForms/insertGfFormEn
 export default async function gravityForms(req, res) {
   try {
     // Retrieve props from request query params.
-    const {formId, formValues} = req.query
+    const {formId, fieldValues} = req.query
 
     // Basic check to see if the referer matches the host.
     // This is trivially easy to bypass, but it's a first step.
@@ -21,7 +21,7 @@ export default async function gravityForms(req, res) {
       throw new Error('Unauthorized access')
     }
 
-    const formEntry = await insertGfFormEntry(formId, formValues)
+    const formEntry = await insertGfFormEntry(formId, fieldValues)
 
     // Check for errors.
     if (formEntry?.error) {
