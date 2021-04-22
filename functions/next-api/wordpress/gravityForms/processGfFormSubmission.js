@@ -39,15 +39,20 @@ export default function processGfFormSubmission(formId, formData) {
       }
     })
     .then((response) => {
-      return response?.data?.entryId
-        ? {
-            entryId: response.data.entryId
-          }
-        : {
-            error: true,
-            errorMessage:
-              'An error occurred while attempting to process the form entry.'
-          }
+      const {entryId, confirmationMessage} = response?.data
+
+      if (!entryId) {
+        return {
+          error: true,
+          errorMessage:
+            'An error occurred while attempting to process the form entry.'
+        }
+      }
+
+      return {
+        entryId,
+        confirmationMessage
+      }
     })
     .catch((error) => {
       return {
