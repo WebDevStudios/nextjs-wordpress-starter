@@ -7,6 +7,7 @@
  * - ChainedSelectField
  * - DateField
  * - EmailField with Email Confirmation enabled
+ * - FileUploadField
  * - HiddenField
  * - ListField
  * - MultiSelectField
