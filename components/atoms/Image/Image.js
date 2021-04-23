@@ -8,19 +8,20 @@ import styles from './Image.module.css'
  * Render the Display Image component.
  *
  * @author WebDevStudios
- * @param {object} props            The component properties.
- * @param {string} props.alt        The image alt attribute.
- * @param {string} props.anchor     The image anchor.
- * @param {string} props.caption    The image caption.
- * @param {string} props.className  The image class name.
- * @param {string} props.href       A link wrapping the image.
- * @param {number} props.id         The image id.
- * @param {object} props.imageMeta  The image meta.
- * @param {string} props.linkClass  The image link class name.
- * @param {string} props.linkTarget The image link target.
- * @param {string} props.rel        The relationship of the linked URL.
- * @param {string} props.url        The image src attribute.
- * @return {Element}                The DisplayImage component.
+ * @param {object} props               The component properties.
+ * @param {string} props.alt           The image alt attribute.
+ * @param {string} props.anchor        The image anchor.
+ * @param {string} props.caption       The image caption.
+ * @param {string} props.className     The image class name.
+ * @param {string} props.href          A link wrapping the image.
+ * @param {number} props.id            The image id.
+ * @param {object} props.imageMeta     The image meta.
+ * @param {string} props.linkClass     The image link class name.
+ * @param {string} props.linkTarget    The image link target.
+ * @param {bool}   props.nextImageFill Whether next/image should be set to fill or have height/width defined.
+ * @param {string} props.rel           The relationship of the linked URL.
+ * @param {string} props.url           The image src attribute.
+ * @return {Element}                   The DisplayImage component.
  */
 export default function DisplayImage(props) {
   // Set the image size.
@@ -28,6 +29,7 @@ export default function DisplayImage(props) {
     height: props?.imageMeta?.mediaDetails?.height ?? props?.height,
     width: props?.imageMeta?.mediaDetails?.width ?? props?.width
   }
+  // console.log({props})
 
   // Set the image src.
   const source = props?.imageMeta?.mediaItemUrl ?? props?.url
@@ -53,15 +55,21 @@ export default function DisplayImage(props) {
    * @return {Element} The next/image component.
    */
   function NextImage() {
-    return (
-      <Image
-        alt={props?.alt}
-        height={imageSize?.height}
-        id={props?.anchor}
-        src={source}
-        width={imageSize?.width}
-      />
-    )
+    const imageProps = {
+      alt: props?.alt,
+      id: props?.anchor,
+      src: source
+    }
+
+    // Add extra props depending on whether image needs to be set to "fill".
+    if (props?.nextImageFill) {
+      imageProps.layout = 'fill'
+    } else {
+      imageProps.height = imageSize?.height
+      imageProps.width = imageSize?.width
+    }
+
+    return <Image {...imageProps} />
   }
 
   /**
@@ -179,6 +187,7 @@ DisplayImage.propTypes = {
   }),
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
+  nextImageFill: PropTypes.bool,
   rel: PropTypes.string,
   url: PropTypes.string,
   width: PropTypes.string
