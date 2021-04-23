@@ -54,16 +54,17 @@ export default function AcfMediaText({
             )}
           </>
         </div>
-        <div className={styles.media}>
-          {!!image && (
+        {!!image && (
+          <div className={styles.media}>
             <DisplayImage
               className={styles.imageWrap}
               id={image}
               alt={imageMeta?.altText}
               imageMeta={imageMeta}
+              nextImageFill={true}
             />
-          )}
-        </div>
+          </div>
+        )}
       </section>
     </Container>
   )
