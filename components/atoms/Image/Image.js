@@ -168,7 +168,15 @@ DisplayImage.propTypes = {
   height: PropTypes.string,
   href: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  imageMeta: PropTypes.object,
+  imageMeta: PropTypes.shape({
+    altText: PropTypes.string,
+    mediaItemUrl: PropTypes.string,
+    mediaDetails: PropTypes.shape({
+      height: PropTypes.number,
+      sizes: PropTypes.array,
+      width: PropTypes.number
+    })
+  }),
   linkClass: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
