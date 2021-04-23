@@ -16,7 +16,6 @@ export default async function insertGfFormEntry(formId, fieldValues) {
   // Set up return object.
   const response = {
     apolloClient,
-    success: false,
     entryId: null
   }
 
@@ -32,8 +31,8 @@ export default async function insertGfFormEntry(formId, fieldValues) {
       mutation: mutationInsertFormEntry,
       variables
     })
-    .then((response) => {
-      const {entryId, entry} = response?.data?.submitGravityFormsForm?.entryId
+    .then((entryData) => {
+      const {entryId, entry} = entryData?.data?.submitGravityFormsForm
 
       // Set error props if data not found.
       if (!entryId) {
@@ -46,7 +45,7 @@ export default async function insertGfFormEntry(formId, fieldValues) {
 
       response.entryId = entryId
       response.confirmationMessage =
-        entry?.form?.node?.confirmations?.message ||
+        entry?.form?.node?.confirmations?.[0]?.message ||
         'Thanks for contacting us! We will get in touch with you shortly.'
     })
     .catch((error) => {
