@@ -1,4 +1,5 @@
 import Form from '@/components/molecules/Form'
+import processGfFormSubmission from '@/functions/next-api/wordpress/gravityForms/processGfFormSubmission'
 import getGfFormDefaults from '@/functions/wordpress/gravityForms/getGfFormDefaults'
 import getGfFormValidationSchema from '@/functions/wordpress/gravityForms/getGfFormValidationSchema'
 import cn from 'classnames'
@@ -28,59 +29,30 @@ export default function GravityForm({
 
   const [formFeedback, setFeedback] = useState(false)
 
+  /**
+   * Handle form submission.
+   *
+   * @author WebDevStudios
+   * @param {object} values Form values.
+   */
+  async function handleFormSubmission(values) {
+    const response = await processGfFormSubmission(formId, values, formFields)
+
+    if (response?.error) {
+      setFeedback(response.errorMessage)
+      return
+    }
+
+    setFeedback(response.confirmationMessage)
+  }
+
   return (
     <Form
       className={cn(styles.gravityForm, cssClass)}
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
-      onSubmit={async (values) => {
-        const wpBaseRequest = await fetch('/api/wordpress/getWPUrl')
-        const wpBaseObject = await wpBaseRequest.json()
-        const wpBase = wpBaseObject.wpApiUrlBase
-
-        const formApiUrl = `${wpBase}wp-json/gf/v2/forms/${formId}/submissions`
-        const formData = new FormData()
-        const formKeys = Object.keys(values)
-
-        formData.append('form_id', formId)
-
-        formKeys.forEach((key) => {
-          let fieldName = key.replaceAll('-', '_')
-          if (fieldName.endsWith('_filedata')) {
-            fieldName = fieldName.slice(0, -9)
-          }
-          fieldName = fieldName.replaceAll('field_', 'input_')
-
-          switch (typeof values[key]) {
-            case 'undefined':
-              break
-            case 'object':
-              if (values[key] instanceof Array) {
-                values[key].forEach((arrayFieldValue, index) => {
-                  formData.append(`${fieldName}_${index + 1}`, arrayFieldValue)
-                })
-              } else {
-                formData.append(fieldName, values[key])
-              }
-              break
-            default:
-              formData.append(fieldName, values[key])
-              break
-          }
-        })
-
-        fetch(formApiUrl, {
-          method: 'POST',
-          mimeType: 'multipart/form-data',
-          body: formData
-        })
-          .then((response) => response.json())
-          .then((feedback) => setFeedback(feedback.confirmation_message))
-          .catch((error) => {
-            setFeedback(`Error in form submission: ${error.message}`)
-          })
-      }}
+      onSubmit={handleFormSubmission}
     >
       {(formikProps) => (
         <>
