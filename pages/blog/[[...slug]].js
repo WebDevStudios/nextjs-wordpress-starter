@@ -10,6 +10,7 @@ import getPagePropTypes from '@/functions/getPagePropTypes'
 import getArchivePosts from '@/functions/next-api/wordpress/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
+import {useState} from 'react'
 
 // Define route post type.
 const postType = 'post'
@@ -26,12 +27,25 @@ const postType = 'post'
  * @return {Element}                 The BlogPost component.
  */
 export default function BlogPost({post, archive, posts, pagination}) {
+  // Track all posts, including initial posts and additionally loaded pages.
+  const [allPosts, setAllPosts] = useState(posts)
+
+  // Track "load more" button state.
+  const [loadingMore, setLoadingMore] = useState(false)
+
   /**
    * Load more posts for archive.
    */
   async function loadPosts() {
-    // TODO: use response to display next "page" of posts.
-    await getArchivePosts(postType, pagination?.endCursor)
+    setLoadingMore(true)
+
+    const newPosts = await getArchivePosts(postType, pagination?.endCursor)
+
+    setAllPosts([...allPosts, ...(newPosts?.posts ?? [])])
+
+    // TODO: Update current page to avoid constantly loading page "2".
+
+    setLoadingMore(false)
   }
 
   // Check for post archive.
@@ -40,11 +54,11 @@ export default function BlogPost({post, archive, posts, pagination}) {
     return (
       <Layout seo={{...post?.seo}}>
         <Container>
-          {!posts || !posts.length ? (
+          {!allPosts || !allPosts.length ? (
             <p>No posts found.</p>
           ) : (
             <div className="grid lg:grid-cols-2 gap-12">
-              {posts.map((post, index) => (
+              {allPosts.map((post, index) => (
                 <Card
                   key={index}
                   title={post?.title}
@@ -56,9 +70,9 @@ export default function BlogPost({post, archive, posts, pagination}) {
           )}
           <Button
             onClick={loadPosts}
-            text="Load More"
+            text={loadingMore ? 'Loading...' : 'Load More'}
             type="secondary"
-            disabled={!pagination.hasNextPage}
+            disabled={!pagination.hasNextPage || loadingMore}
           />
         </Container>
       </Layout>
