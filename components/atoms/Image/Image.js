@@ -29,7 +29,6 @@ export default function DisplayImage(props) {
     height: props?.imageMeta?.mediaDetails?.height ?? props?.height,
     width: props?.imageMeta?.mediaDetails?.width ?? props?.width
   }
-  // console.log({props})
 
   // Set the image src.
   const source = props?.imageMeta?.mediaItemUrl ?? props?.url
