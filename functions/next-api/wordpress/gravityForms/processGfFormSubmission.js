@@ -9,7 +9,7 @@ import processGfFieldValues from './processGfFieldValues'
  * @param {number} formId    GF form ID.
  * @param {object} entryData GF form entry data.
  * @param {object} fieldData GF form field config.
- * @return {object}          Confirmation or error messaging.
+ * @return {object}          Entry ID and confirmation message or error object.
  */
 export default async function processGfFormSubmission(
   formId,
