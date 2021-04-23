@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types'
-import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
 import * as Input from '@/components/atoms/Inputs'
+import {
+  getGfFieldId,
+  getGfHiddenClassName
+} from '@/functions/wordpress/gravityForms'
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 
 /**
  * Render GravityForms Select field component.

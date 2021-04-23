@@ -1,11 +1,11 @@
+import Form from '@/components/molecules/Form'
+import getGfFormDefaults from '@/functions/wordpress/gravityForms/getGfFormDefaults'
+import getGfFormValidationSchema from '@/functions/wordpress/gravityForms/getGfFormValidationSchema'
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
-import Form from '@/components/molecules/Form'
 import Fields from './Fields'
-import getGfFormValidationSchema from '@/functions/gravityForms/getGfFormValidationSchema'
-import getGfFormDefaults from '@/functions/gravityForms/getGfFormDefaults'
 import styles from './GravityForm.module.css'
-import cn from 'classnames'
 
 /**
  * Render the GravityForm component.
@@ -35,7 +35,7 @@ export default function GravityForm({
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
       onSubmit={async (values) => {
-        const wpBaseRequest = await fetch('/api/wp/getWPUrl')
+        const wpBaseRequest = await fetch('/api/wordpress/getWPUrl')
         const wpBaseObject = await wpBaseRequest.json()
         const wpBase = wpBaseObject.wpApiUrlBase
 

@@ -3,7 +3,7 @@ import Layout from '@/components/common/Layout'
 import AlgoliaResults from '@/components/molecules/AlgoliaResults'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import parseQuerystring from '@/functions/parseQuerystring'
-import getPostTypeStaticProps from '@/lib/wordpress/_global/getPostTypeStaticProps'
+import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
 import {useRouter} from 'next/router'
 
 // Define route post type.

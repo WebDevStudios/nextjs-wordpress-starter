@@ -3,7 +3,7 @@ import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {useApollo} from 'lib/apolloConfig'
-import {Provider} from 'next-auth/client'
+import {Provider as NextAuthProvider} from 'next-auth/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
 import {useRouter} from 'next/router'
@@ -77,7 +77,7 @@ export default function App({Component, pageProps}) {
   })
 
   return (
-    <Provider session={session}>
+    <NextAuthProvider session={session}>
       <ApolloProvider client={apolloClient}>
         <WordPressProvider value={wp}>
           {error ? (
@@ -98,7 +98,7 @@ export default function App({Component, pageProps}) {
           )}
         </WordPressProvider>
       </ApolloProvider>
-    </Provider>
+    </NextAuthProvider>
   )
 }
 

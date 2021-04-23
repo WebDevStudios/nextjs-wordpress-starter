@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types'
-import {getGfFieldId, getGfHiddenClassName} from '@/functions/gravityForms'
-import {Field} from 'formik'
 import InputError from '@/components/atoms/Inputs/InputError'
 import styles from '@/components/atoms/Inputs/Text/Text.module.css'
+import {
+  getGfFieldId,
+  getGfHiddenClassName
+} from '@/functions/wordpress/gravityForms'
 import cn from 'classnames'
+import {Field} from 'formik'
+import PropTypes from 'prop-types'
 
 /**
  * Render GravityForms File field component.
