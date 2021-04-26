@@ -8,20 +8,24 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props           The component props.
- * @param {string} props.className Optional classnames.
- * @param {string} props.align     Optional alignment style.
- * @param {string} props.anchor    Optional anchor/id.
- * @param {string} props.content   The content of the block.
- * @param {boolean} props.dropCap  Whether the paragraph has a drop cap.
- * @return {Element}               The RichText component.
+ * @param {object} props                 The component props.
+ * @param {string} props.backgroundColor The background color.
+ * @param {string} props.className       Optional classnames.
+ * @param {string} props.align           Optional alignment style.
+ * @param {string} props.anchor          Optional anchor/id.
+ * @param {string} props.content         The content of the block.
+ * @param {boolean} props.dropCap        Whether the paragraph has a drop cap.
+ * @param {string} props.textColor       The text color.
+ * @return {Element}                     The RichText component.
  */
 export default function BlockParagraph({
-  className,
   align,
   anchor,
+  backgroundColor,
+  className,
   content,
-  dropCap
+  dropCap,
+  textColor
 }) {
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
@@ -31,6 +35,8 @@ export default function BlockParagraph({
       id={anchor}
       tag="p"
       dropCap={dropCap}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
     >
       {content}
     </RichText>
@@ -40,7 +46,9 @@ export default function BlockParagraph({
 BlockParagraph.propTypes = {
   align: PropTypes.string,
   anchor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   className: PropTypes.string,
   content: PropTypes.string,
-  dropCap: PropTypes.bool
+  dropCap: PropTypes.bool,
+  textColor: PropTypes.string
 }
