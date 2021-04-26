@@ -1,8 +1,6 @@
 import Button from '@/components/atoms/Button'
-import Container from '@/components/atoms/Container'
-import Layout from '@/components/common/Layout'
 import Card from '@/components/molecules/Card'
-import getPagePropTypes from '@/functions/getPagePropTypes'
+import {archivePropTypes} from '@/functions/getPagePropTypes'
 import getArchivePosts from '@/functions/next-api/wordpress/archive/getArchivePosts'
 import {useRef, useState} from 'react'
 
@@ -11,14 +9,12 @@ import {useRef, useState} from 'react'
  *
  * @author WebDevStudios
  * @param {object} props            The component attributes as props.
- * @param {object} props.post       Post data from WordPress.
  * @param {Array}  props.posts      Array of post data from WordPress.
  * @param {object} props.pagination Archive pagination data from WordPress.
  * @param {string} props.postType   WP post type.
- * @param
  * @return {Element}                The Archive component.
  */
-export default function Archive({post, posts, pagination, postType}) {
+export default function Archive({posts, pagination, postType}) {
   // Track all posts, including initial posts and additionally loaded pages.
   const [allPosts, setAllPosts] = useState(posts)
 
@@ -48,33 +44,31 @@ export default function Archive({post, posts, pagination, postType}) {
   }
 
   return (
-    <Layout seo={{...post?.seo}}>
-      <Container>
-        {!allPosts || !allPosts.length ? (
-          <p>No posts found.</p>
-        ) : (
-          <div className="grid lg:grid-cols-2 gap-12">
-            {allPosts.map((post, index) => (
-              <Card
-                key={index}
-                title={post?.title}
-                url={post?.uri}
-                body={post?.excerpt}
-              />
-            ))}
-          </div>
-        )}
-        <Button
-          onClick={loadPosts}
-          text={loadingMore ? 'Loading...' : 'Load More'}
-          type="secondary"
-          disabled={!paginationRef.current?.hasNextPage || loadingMore}
-        />
-      </Container>
-    </Layout>
+    <>
+      {!allPosts || !allPosts.length ? (
+        <p>No posts found.</p>
+      ) : (
+        <div className="grid lg:grid-cols-2 gap-12">
+          {allPosts.map((post, index) => (
+            <Card
+              key={index}
+              title={post?.title}
+              url={post?.uri}
+              body={post?.excerpt}
+            />
+          ))}
+        </div>
+      )}
+      <Button
+        onClick={loadPosts}
+        text={loadingMore ? 'Loading...' : 'Load More'}
+        type="secondary"
+        disabled={!paginationRef.current?.hasNextPage || loadingMore}
+      />
+    </>
   )
 }
 
 Archive.propTypes = {
-  ...getPagePropTypes('post')
+  ...archivePropTypes
 }
