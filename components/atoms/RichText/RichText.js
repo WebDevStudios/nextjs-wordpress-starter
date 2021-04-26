@@ -14,6 +14,7 @@ import styles from './RichText.module.css'
  * @param {string} props.className       Optional classNames.
  * @param {boolean} props.dropCap        Whether or not there should be a drop cap.
  * @param {string} props.id              Optional element ID.
+ * @param {object} props.inlineStyles    Inline styles.
  * @param {string} props.tag             The type of element to render.
  * @param {string} props.textColor       The text color.
  * @return {Element}                     The RichText component.
@@ -25,6 +26,7 @@ export default function RichText({
   className,
   dropCap,
   id,
+  inlineStyles,
   tag,
   textColor
 }) {
@@ -41,7 +43,10 @@ export default function RichText({
     dangerouslySetInnerHTML: createMarkup(children),
     style: {
       color: textColor ?? 'inherit',
-      'background-color': backgroundColor ?? 'inherit'
+      'background-color': backgroundColor ?? 'inherit',
+      'font-size':
+        inlineStyles?.typography?.fontSize &&
+        `${inlineStyles.typography.fontSize}`
     }
   })
 }
@@ -53,6 +58,7 @@ RichText.propTypes = {
   className: PropTypes.string,
   dropCap: PropTypes.bool,
   id: PropTypes.string,
+  inlineStyles: PropTypes.object,
   tag: PropTypes.string,
   textColor: PropTypes.string
 }

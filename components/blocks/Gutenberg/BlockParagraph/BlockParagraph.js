@@ -15,6 +15,7 @@ import PropTypes from 'prop-types'
  * @param {string} props.anchor          Optional anchor/id.
  * @param {string} props.content         The content of the block.
  * @param {boolean} props.dropCap        Whether the paragraph has a drop cap.
+ * @param {object} props.style           The style attributes (Typography panel).
  * @param {string} props.textColor       The text color.
  * @return {Element}                     The RichText component.
  */
@@ -25,9 +26,9 @@ export default function BlockParagraph({
   className,
   content,
   dropCap,
+  style,
   textColor
 }) {
-  // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
     <RichText
@@ -37,6 +38,7 @@ export default function BlockParagraph({
       dropCap={dropCap}
       textColor={textColor}
       backgroundColor={backgroundColor}
+      inlineStyles={style}
     >
       {content}
     </RichText>
@@ -50,5 +52,6 @@ BlockParagraph.propTypes = {
   className: PropTypes.string,
   content: PropTypes.string,
   dropCap: PropTypes.bool,
+  style: PropTypes.object,
   textColor: PropTypes.string
 }
