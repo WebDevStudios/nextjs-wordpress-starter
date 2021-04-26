@@ -74,7 +74,7 @@
     "hamburger-react": "^2.4.0",
     "next-seo": "^4.24.0",
     "next-sitemap": "^1.6.25",
-    "postcss": "7.0.35",
+    "postcss": "8.2.12",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
