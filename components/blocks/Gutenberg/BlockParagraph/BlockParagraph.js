@@ -13,9 +13,16 @@ import PropTypes from 'prop-types'
  * @param {string} props.align     Optional alignment style.
  * @param {string} props.anchor    Optional anchor/id.
  * @param {string} props.content   The content of the block.
+ * @param {boolean} props.dropCap  Whether the paragraph has a drop cap.
  * @return {Element}               The RichText component.
  */
-export default function BlockParagraph({className, align, anchor, content}) {
+export default function BlockParagraph({
+  className,
+  align,
+  anchor,
+  content,
+  dropCap
+}) {
   // TODO Add settings for unused props in default WP Paragraph Block
   const alignment = !align ? 'left' : align
   return (
@@ -23,6 +30,7 @@ export default function BlockParagraph({className, align, anchor, content}) {
       className={cn(`text-${alignment}`, className)}
       id={anchor}
       tag="p"
+      dropCap={dropCap}
     >
       {content}
     </RichText>
@@ -33,5 +41,6 @@ BlockParagraph.propTypes = {
   align: PropTypes.string,
   anchor: PropTypes.string,
   className: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.string,
+  dropCap: PropTypes.bool
 }
