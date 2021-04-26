@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webserver:
+    build:
+      context: .
+      args:
+        - WORDPRESS_URL=https://cms.nigerianstat.codeforafrica.org/
+        - NEXT_PUBLIC_IMAGE_DOMAINS=cms.nigerianstat.codeforafrica.org
+    ports:
+      - '80:3000'

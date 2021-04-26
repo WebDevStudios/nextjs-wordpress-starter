@@ -35,7 +35,7 @@ export default function GravityForm({
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
       onSubmit={async (values) => {
-        const wpBaseRequest = await fetch('/api/wordpress/getWPUrl')
+        const wpBaseRequest = await fetch(`${process.env.URL}/api/wordpress/getWPUrl`)
         const wpBaseObject = await wpBaseRequest.json()
         const wpBase = wpBaseObject.wpApiUrlBase
 
