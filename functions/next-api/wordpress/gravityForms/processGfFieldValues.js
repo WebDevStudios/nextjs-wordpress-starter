@@ -65,7 +65,7 @@ export default function processGfFieldValues(entryData, fieldData) {
       id: fieldId
     }
 
-    switch (field) {
+    switch (field?.__typename) {
       case 'CheckboxField':
         fieldValue.checkboxValues = []
 
