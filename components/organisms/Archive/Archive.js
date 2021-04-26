@@ -43,22 +43,23 @@ export default function Archive({posts, pagination, postType}) {
     setLoadingMore(false)
   }
 
+  if (!allPosts || !allPosts.length) {
+    return <p>No posts found.</p>
+  }
+
   return (
     <>
-      {!allPosts || !allPosts.length ? (
-        <p>No posts found.</p>
-      ) : (
-        <div className="grid lg:grid-cols-2 gap-12">
-          {allPosts.map((post, index) => (
-            <Card
-              key={index}
-              title={post?.title}
-              url={post?.uri}
-              body={post?.excerpt}
-            />
-          ))}
-        </div>
-      )}
+      <div className="grid lg:grid-cols-2 gap-12">
+        {allPosts.map((post, index) => (
+          <Card
+            key={index}
+            title={post?.title}
+            url={post?.uri}
+            body={post?.excerpt}
+          />
+        ))}
+      </div>
+
       <Button
         onClick={loadPosts}
         text={loadingMore ? 'Loading...' : 'Load More'}
