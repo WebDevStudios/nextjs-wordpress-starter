@@ -10,7 +10,7 @@ import getPagePropTypes from '@/functions/getPagePropTypes'
 import getArchivePosts from '@/functions/next-api/wordpress/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
 // Define route post type.
 const postType = 'post'
@@ -33,17 +33,24 @@ export default function BlogPost({post, archive, posts, pagination}) {
   // Track "load more" button state.
   const [loadingMore, setLoadingMore] = useState(false)
 
+  // Track current pagination object.
+  const paginationRef = useRef(pagination)
+
   /**
    * Load more posts for archive.
    */
   async function loadPosts() {
     setLoadingMore(true)
 
-    const newPosts = await getArchivePosts(postType, pagination?.endCursor)
+    const newPosts = await getArchivePosts(
+      postType,
+      paginationRef.current?.endCursor
+    )
 
     setAllPosts([...allPosts, ...(newPosts?.posts ?? [])])
 
-    // TODO: Update current page to avoid constantly loading page "2".
+    // Update pagination ref.
+    paginationRef.current = newPosts?.pagination
 
     setLoadingMore(false)
   }
@@ -72,7 +79,7 @@ export default function BlogPost({post, archive, posts, pagination}) {
             onClick={loadPosts}
             text={loadingMore ? 'Loading...' : 'Load More'}
             type="secondary"
-            disabled={!pagination.hasNextPage || loadingMore}
+            disabled={!paginationRef.current?.hasNextPage || loadingMore}
           />
         </Container>
       </Layout>
