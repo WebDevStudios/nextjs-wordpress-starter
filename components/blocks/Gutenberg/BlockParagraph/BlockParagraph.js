@@ -8,26 +8,26 @@ import PropTypes from 'prop-types'
  * The core Paragraph block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object}  props                 The component props.
- * @param {string}  props.backgroundColor The background color.
- * @param {string}  props.className       Optional classnames.
- * @param {string}  props.align           Optional alignment style.
- * @param {string}  props.anchor          Optional anchor/id.
- * @param {string}  props.content         The content of the block.
- * @param {boolean} props.dropCap         Whether the paragraph has a drop cap.
- * @param {object}  props.style           The style attributes (Typography panel).
- * @param {string}  props.textColor       The text color.
- * @return {Element}                      The RichText component.
+ * @param {object}  props                    The component props.
+ * @param {string}  props.backgroundColorHex The background color hex value.
+ * @param {string}  props.className          Optional classnames.
+ * @param {string}  props.align              Optional alignment style.
+ * @param {string}  props.anchor             Optional anchor/id.
+ * @param {string}  props.content            The content of the block.
+ * @param {boolean} props.dropCap            Whether the paragraph has a drop cap.
+ * @param {object}  props.style              The style attributes (Typography panel).
+ * @param {string}  props.textColorHex       The text color hex value.
+ * @return {Element}                         The RichText component.
  */
 export default function BlockParagraph({
   align,
   anchor,
-  backgroundColor,
+  backgroundColorHex,
   className,
   content,
   dropCap,
   style,
-  textColor
+  textColorHex
 }) {
   const alignment = !align ? 'left' : align
   return (
@@ -36,8 +36,8 @@ export default function BlockParagraph({
       id={anchor}
       tag="p"
       dropCap={dropCap}
-      textColor={textColor}
-      backgroundColor={backgroundColor}
+      textColor={textColorHex || style?.color?.text || null}
+      backgroundColor={backgroundColorHex || style?.color?.background || null}
       inlineStyles={style}
     >
       {content}
@@ -48,10 +48,10 @@ export default function BlockParagraph({
 BlockParagraph.propTypes = {
   align: PropTypes.string,
   anchor: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  backgroundColorHex: PropTypes.string,
   className: PropTypes.string,
   content: PropTypes.string,
   dropCap: PropTypes.bool,
   style: PropTypes.object,
-  textColor: PropTypes.string
+  textColorHex: PropTypes.string
 }
