@@ -1,5 +1,4 @@
 import Container from '@/components/atoms/Container'
-import {useWordPressContext} from '@/components/common/WordPressProvider'
 import {seoSocialPropTypes} from '@/functions/getPagePropTypes'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
@@ -14,17 +13,17 @@ import styles from './Footer.module.css'
  * @param {object} props           The component attributes as props.
  * @param {object} props.social    Yoast SEO social media data.
  * @param {string} props.siteTitle Yoast SEO site title.
+ * @param {object} props.menu      The footer menu object.
  * @return {Element}               The Footer component.
  */
-export default function Footer({social, siteTitle}) {
-  const {menus} = useWordPressContext()
+export default function Footer({social, siteTitle, menu}) {
   return (
     <footer className={styles.footer}>
       <Container>
-        {!!menus?.footer_menu && (
+        {!!menu && (
           <nav className={styles.footerMenu}>
             <ul>
-              {menus?.footer_menu.map((item, index) => {
+              {menu.map((item, index) => {
                 return (
                   <li key={index}>
                     <Link href={item.path}>
