@@ -43,8 +43,8 @@ export default function RichText({
     dangerouslySetInnerHTML: createMarkup(children),
     style: {
       color: textColor ?? 'inherit',
-      'background-color': backgroundColor ?? 'inherit',
-      'font-size':
+      backgroundColor: backgroundColor ?? 'inherit',
+      fontSize:
         inlineStyles?.typography?.fontSize &&
         `${inlineStyles.typography.fontSize}`
     }
