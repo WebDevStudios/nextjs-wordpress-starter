@@ -10,12 +10,6 @@ import PropTypes from 'prop-types'
  * @return {Element}                The component.
  */
 export default function AcfBlockMediaText({attributes}) {
-  // TODO: Query the DB for the image ID and replace the attributes.data with the correct information.
-  attributes.data = {
-    ...attributes.data,
-    image: {}
-  }
-
   return (
     <>
       {attributes ? (
