@@ -16,11 +16,20 @@ export default async function formatBlockData(blocks) {
   return await Promise.all(
     blocks.map(async (block) => {
       const {name, attributes, innerBlocks} = block
+
       switch (name) {
+        case 'acf/acf-media-text':
+          // Retrieve additional image meta.
+          attributes.data.imageMeta = await getMediaByID(
+            attributes?.data?.image
+          )
+          break
+
         case 'core/image':
           // Retrieve additional image meta.
           attributes.imageMeta = await getMediaByID(attributes?.id)
           break
+
         case 'gravityforms/form':
           // Retrieve form data.
           attributes.formData = await getGfFormById(attributes?.formId)
