@@ -1,5 +1,6 @@
 import Meta from '@/components/common/Meta'
 import {useWordPressContext} from '@/components/common/WordPressProvider'
+import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
@@ -44,7 +45,10 @@ export default function Layout({children, seo, hasJsonLd}) {
         />
       )}
       <Meta />
-      <Header />
+      <Header
+        menu={menus?.primary_menu}
+        search={<AlgoliaSearch useHistory={true} usePlaceholder={true} />}
+      />
       <main id="page-content">{children}</main>
       <Footer
         social={seo?.social}

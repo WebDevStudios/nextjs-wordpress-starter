@@ -13,7 +13,7 @@ import styles from './Navigation.module.css'
  * @param {object} props           Navigation props.
  * @param {Array}  props.menu      Array of menu items.
  * @param {string} props.className Optional classname for the element.
- * @return {Element}                The Navigation component.
+ * @return {Element}               The Navigation component.
  */
 export default function Navigation({menu, className}) {
   const {asPath} = useRouter()
