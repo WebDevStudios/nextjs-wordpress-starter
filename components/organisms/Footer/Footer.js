@@ -40,78 +40,20 @@ export default function Footer({social, siteTitle, menu}) {
 
         <div className={styles.copyright}>
           &copy; {new Date().getFullYear()} {siteTitle}
-          {!!social?.facebook && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.facebook}>
-                <a>Facebook</a>
-              </Link>
-            </>
-          )}
-          {!!social?.instagram && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.instagram}>
-                <a>Instagram</a>
-              </Link>
-            </>
-          )}
-          {!!social?.linkedIn && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.linkedIn}>
-                <a>LinkedIn</a>
-              </Link>
-            </>
-          )}
-          {!!social?.mySpace && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.mySpace}>
-                <a>MySpace</a>
-              </Link>
-            </>
-          )}
-          {!!social?.pinterest && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.pinterest}>
-                <a>Pinterest</a>
-              </Link>
-            </>
-          )}
-          {!!social?.twitter && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.twitter}>
-                <a>Twitter</a>
-              </Link>
-            </>
-          )}
-          {!!social?.wikipedia && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.wikipedia}>
-                <a>Wikipedia</a>
-              </Link>
-            </>
-          )}
-          {!!social?.youTube && (
-            <>
-              {' '}
-              &middot;{' '}
-              <Link href={social.youTube}>
-                <a>Youtube</a>
-              </Link>
-            </>
-          )}
+          {!!social &&
+            Object.entries(social).map(([key, value]) => {
+              if (value) {
+                return (
+                  <>
+                    {' '}
+                    &middot;{' '}
+                    <Link href={value}>
+                      <a>{key}</a>
+                    </Link>
+                  </>
+                )
+              }
+            })}
         </div>
       </Container>
     </footer>
