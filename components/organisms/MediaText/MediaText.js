@@ -1,5 +1,5 @@
 import Button from '@/components/atoms/Button'
-import Image from '@/components/atoms/Image'
+import DisplayImage from '@/components/atoms/Image'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useEffect} from 'react'
@@ -65,9 +65,12 @@ export default function MediaText({
       </div>
       <div className={styles.media}>
         {image && image.url && (
-          <div className={styles.imageWrap}>
-            <Image url={image.url} alt={image.alt} />
-          </div>
+          <DisplayImage
+            className={styles.imageWrap}
+            alt={image.alt}
+            imageMeta={{mediaItemUrl: image.url, altText: image.alt}}
+            nextImageFill={true}
+          />
         )}
       </div>
     </section>
