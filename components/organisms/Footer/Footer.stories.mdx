@@ -9,6 +9,34 @@ Use this to display the footer.
 
 <Canvas>
   <Story name="Component">
-    <Footer />
+    <Footer
+      menu={[
+        {
+          label: 'Home',
+          path: '/',
+          target: null
+        },
+        {
+          label: 'Blog',
+          path: '/blog',
+          target: null
+        },
+        {
+          label: 'About',
+          path: '/about/',
+          target: null
+        },
+        {
+          label: 'Contact',
+          path: '/contact/',
+          target: null
+        },
+        {
+          label: 'Team',
+          path: '/team',
+          target: null
+        }
+      ]}
+    />
   </Story>
 </Canvas>
