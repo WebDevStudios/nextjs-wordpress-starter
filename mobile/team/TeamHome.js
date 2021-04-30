@@ -47,7 +47,6 @@ export default function TeamHome() {
   useEffect(() => {
     const getData = async () => {
       const {apolloClient, ...archiveData} = await getPostTypeArchive('team')
-      console.log(archiveData)
       updateData(archiveData.posts)
     }
     getData()
