@@ -57,7 +57,7 @@
     "apollo-link-rest": "^0.8.0-beta.0",
     "autoprefixer": "9.8.6",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.7.1",
+    "chromatic": "^5.8.0",
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
     "eslint": "^7.25.0",
