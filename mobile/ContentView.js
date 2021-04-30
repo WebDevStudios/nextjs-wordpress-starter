@@ -53,7 +53,6 @@ const processContent = ( blocks ) => {
         return `${ attr.value }`
 
       default:
-        console.log( block )
         return ''
     }
   } )

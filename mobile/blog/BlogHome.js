@@ -16,8 +16,6 @@ const BlogPost = (post) => {
   // TODO - this is a workaround for local. For some reason https served images are not loading
   const featuredImage = postData?.featuredImage?.node?.sourceUrl ? postData?.featuredImage?.node?.sourceUrl.replace( 'https:', 'http:' ) : null
 
-  console.log( postData )
-
   return (
     <>
       { featuredImage && (

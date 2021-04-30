@@ -29,8 +29,6 @@ export default function BlogScreen() {
     getData()
   }, [] )
 
-  console.log( post )
-
   // Handle loading
   if ( null === post ) {
     return (

@@ -9,7 +9,4 @@ defaultConfig.resolver.extraNodeModules = {
   '@/styles': path.resolve( __dirname, 'styles'),
 }
 
-console.log('mico')
-console.log( defaultConfig.resolver.extraNodeModules )
-
 module.exports = defaultConfig

@@ -1,11 +1,11 @@
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import { Provider as PaperProvider } from 'react-native-paper'
-import BlogStack from './mobile/blog/BlogStack'
-import HomeScreen from './mobile/HomeScreen'
-import TeamStack from './mobile/team/TeamStack'
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { Provider as PaperProvider } from 'react-native-paper';
+import BlogStack from './mobile/blog/BlogStack';
+import HomeScreen from './mobile/HomeScreen';
+import TeamStack from './mobile/team/TeamStack';
 
 const Tab = createBottomTabNavigator();
 
