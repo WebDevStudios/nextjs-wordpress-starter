@@ -16,6 +16,8 @@ const BlogPost = (post) => {
   // TODO - this is a workaround for local. For some reason https served images are not loading
   const featuredImage = postData?.featuredImage?.node?.sourceUrl ? postData?.featuredImage?.node?.sourceUrl.replace( 'https:', 'http:' ) : null
 
+  const excerpt = postData?.excerpt ?? postData.excerpt.trim()
+
   return (
     <>
       { featuredImage && (
@@ -26,7 +28,7 @@ const BlogPost = (post) => {
 
       <Title style={ styles.h2 }>{ postData.title }</Title>
 
-      { postData?.excerpt && (
+      { excerpt.length > 0 && (
         <HTMLView stylesheet={styles} addLineBreaks={ null } value={ postData.excerpt.trim() } />
       ) }
 
