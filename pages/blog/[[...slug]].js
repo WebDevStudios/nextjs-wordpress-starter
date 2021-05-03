@@ -1,16 +1,13 @@
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
-import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
-import Card from '@/components/molecules/Card'
 import Comments from '@/components/molecules/Comments'
+import Archive from '@/components/organisms/Archive'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import getArchivePosts from '@/functions/next-api/wordpress/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
-import {useRef, useState} from 'react'
 
 // Define route post type.
 const postType = 'post'
@@ -27,60 +24,11 @@ const postType = 'post'
  * @return {Element}                 The BlogPost component.
  */
 export default function BlogPost({post, archive, posts, pagination}) {
-  // Track all posts, including initial posts and additionally loaded pages.
-  const [allPosts, setAllPosts] = useState(posts)
-
-  // Track "load more" button state.
-  const [loadingMore, setLoadingMore] = useState(false)
-
-  // Track current pagination object.
-  const paginationRef = useRef(pagination)
-
-  /**
-   * Load more posts for archive.
-   */
-  async function loadPosts() {
-    setLoadingMore(true)
-
-    const newPosts = await getArchivePosts(
-      postType,
-      paginationRef.current?.endCursor
-    )
-
-    setAllPosts([...allPosts, ...(newPosts?.posts ?? [])])
-
-    // Update pagination ref.
-    paginationRef.current = newPosts?.pagination
-
-    setLoadingMore(false)
-  }
-
-  // Check for post archive.
-  // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
         <Container>
-          {!allPosts || !allPosts.length ? (
-            <p>No posts found.</p>
-          ) : (
-            <div className="grid lg:grid-cols-2 gap-12">
-              {allPosts.map((post, index) => (
-                <Card
-                  key={index}
-                  title={post?.title}
-                  url={post?.uri}
-                  body={post?.excerpt}
-                />
-              ))}
-            </div>
-          )}
-          <Button
-            onClick={loadPosts}
-            text={loadingMore ? 'Loading...' : 'Load More'}
-            type="secondary"
-            disabled={!paginationRef.current?.hasNextPage || loadingMore}
-          />
+          <Archive posts={posts} postType={postType} pagination={pagination} />
         </Container>
       </Layout>
     )
