@@ -1,12 +1,10 @@
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
-import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
-import Card from '@/components/molecules/Card'
+import Archive from '@/components/organisms/Archive'
 import getPagePropTypes from '@/functions/getPagePropTypes'
-import getArchivePosts from '@/functions/next-api/wordpress/archive/getArchivePosts'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
 
@@ -25,40 +23,11 @@ const postType = 'team'
  * @return {Element}                 The Team component.
  */
 export default function Team({post, archive, posts, pagination}) {
-  /**
-   * Load more posts for archive.
-   */
-  async function loadPosts() {
-    // TODO: use response to display next "page" of posts.
-    await getArchivePosts(postType, pagination?.endCursor)
-  }
-
-  // Check for post archive.
-  // TODO create generic archive component and move this check to `_app.js`.
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
-        <Container className="container py-20">
-          {!posts || !posts.length ? (
-            <p>No posts found.</p>
-          ) : (
-            <div className="grid lg:grid-cols-2 gap-12">
-              {posts.map((post, index) => (
-                <Card
-                  key={index}
-                  title={post?.title}
-                  url={post?.uri}
-                  body={post?.excerpt}
-                />
-              ))}
-            </div>
-          )}
-          <Button
-            onClick={() => loadPosts}
-            text="Load More"
-            type="secondary"
-            disabled={!pagination.hasNextPage}
-          />
+        <Container>
+          <Archive posts={posts} postType={postType} pagination={pagination} />
         </Container>
       </Layout>
     )
