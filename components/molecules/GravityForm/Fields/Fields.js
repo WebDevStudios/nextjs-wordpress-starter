@@ -47,7 +47,8 @@ export default function Fields({fields, formikProps}) {
               fieldToRender = <GfFields.Textarea {...field.node} key={id} />
               break
 
-            case 'fileupload':
+            // TODO: re-add support for FileUploadField once file uploads are supported via WP GraphQL Gravity Forms.
+            /* case 'fileupload':
               fieldToRender = (
                 <GfFields.File
                   {...field.node}
@@ -55,7 +56,7 @@ export default function Fields({fields, formikProps}) {
                   key={id}
                 />
               )
-              break
+              break */
 
             default:
               fieldToRender = (
