@@ -1,8 +1,8 @@
 import WordPressProvider from '@/components/common/WordPressProvider'
+import {useWpApollo} from '@/lib/wordpress/connector'
 import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
-import {useApollo} from 'lib/apolloConfig'
 import {Provider as NextAuthProvider} from 'next-auth/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
@@ -26,7 +26,7 @@ export default function App({Component, pageProps}) {
    *
    * @see https://www.apollographql.com/docs/react/api/react/hooks/#the-apolloprovider-component
    */
-  const apolloClient = useApollo(pageProps)
+  const apolloClient = useWpApollo(pageProps)
 
   const router = useRouter()
 
