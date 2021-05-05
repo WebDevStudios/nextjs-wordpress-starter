@@ -14,13 +14,14 @@ import styles from './GravityForm.module.css'
  * @param {object} props                     The GravityForm block attributes as props.
  * @param {object} props.formData            GravityForm form data.
  * @param {string} props.formData.cssClass   GravityForm form classname.
+ * @param {string} props.formData.description GravityForm form description.
  * @param {object} props.formData.formFields GravityForm form fields.
  * @param {number} props.formData.formId     GravityForm form id.
  * @param {string} props.formData.title      GravityForm form title.
  * @return {Element}                         The GravityForm component.
  */
 export default function GravityForm({
-  formData: {cssClass, formFields, formId, title}
+  formData: {cssClass, description, formFields, formId, title}
 }) {
   // Setup form defaults and validation based on GravityForm field data.
   const fieldData = formFields?.edges
@@ -57,6 +58,7 @@ export default function GravityForm({
       {(formikProps) => (
         <>
           {title && <h2 className={styles.title}>{title}</h2>}
+          {description && <p>{description}</p>}
           {fieldData && <Fields fields={fieldData} formikProps={formikProps} />}
           {!!formFeedback && (
             <div
@@ -73,6 +75,7 @@ export default function GravityForm({
 GravityForm.propTypes = {
   formData: PropTypes.shape({
     cssClass: PropTypes.string,
+    description: PropTypes.string,
     formFields: PropTypes.object,
     formId: PropTypes.number,
     title: PropTypes.string

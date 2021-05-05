@@ -1,0 +1,74 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Archive from './'
+
+<Meta title="Components/Molecules/Archive" component={Archive} />
+
+# Component
+
+Use this to display a post type archive.
+
+<Canvas>
+  <Story name="Component">
+    <Archive
+      post={{
+        seo: {
+          breadcrumbs: [],
+          canonical: 'https://nextjswp.test/blog',
+          title: 'Post Archive - Next.js WordPress Starter',
+          metaDesc: '',
+          metaRobotsNofollow: 'follow',
+          metaRobotsNoindex: 'index',
+          opengraphAuthor: '',
+          opengraphModifiedTime: '2021-01-04T23:00:34+00:00',
+          opengraphPublishedTime: '',
+          opengraphImage: {},
+          siteTitle: 'Next.js WordPress Starter',
+          siteDescription:
+            'Our starter for headless WordPress projects. View the Github repo and read the wiki to learn more.',
+          social: {}
+        }
+      }}
+      posts={[
+        {
+          databaseId: 437,
+          date: '2021-04-23T16:40:39',
+          slug: 'lorem-ipsum-3',
+          uri: '/blog/lorem-ipsum-3/',
+          title: 'Lorem Ipsum 3',
+          status: 'publish',
+          excerpt:
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat [&hellip;]</p>\n',
+          featuredImage: null
+        },
+        {
+          databaseId: 434,
+          date: '2021-04-23T16:38:30',
+          slug: 'lorem-ipsum-2',
+          uri: '/blog/lorem-ipsum-2/',
+          title: 'Lorem Ipsum 2',
+          status: 'publish',
+          excerpt:
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat [&hellip;]</p>\n',
+          featuredImage: null
+        },
+        {
+          databaseId: 431,
+          date: '2021-04-23T16:38:14',
+          slug: 'lorem-ipsum-1',
+          uri: '/blog/lorem-ipsum-1/',
+          title: 'Lorem Ipsum 1',
+          status: 'publish',
+          excerpt:
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat [&hellip;]</p>\n',
+          featuredImage: null
+        }
+      ]}
+      pagination={{
+        startCursor: 'abc123',
+        endCursor: 'xyz890',
+        hasNextPage: true,
+        hasPreviousPage: false
+      }}
+    />
+  </Story>
+</Canvas>

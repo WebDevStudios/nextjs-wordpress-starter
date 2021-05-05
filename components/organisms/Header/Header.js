@@ -9,7 +9,7 @@ import styles from './Header.module.css'
 // TODO: Create Storybook for this component.
 
 /**
- * Render the ImageGallery component.
+ * Render the Header component.
  *
  * @author WebDevStudios
  * @return {Element} The Header component.
