@@ -65,7 +65,7 @@ export default function processGfFieldValues(entryData, fieldData) {
       id: fieldId
     }
 
-    switch (field) {
+    switch (field?.__typename) {
       case 'CheckboxField':
         fieldValue.checkboxValues = []
 
@@ -80,7 +80,7 @@ export default function processGfFieldValues(entryData, fieldData) {
           }
 
           fieldValue.checkboxValues.push({
-            inputId: `${fieldId}.${index + 1}`,
+            inputId: parseFloat(`${fieldId}.${index + 1}`),
             value: choice.value
           })
         })
