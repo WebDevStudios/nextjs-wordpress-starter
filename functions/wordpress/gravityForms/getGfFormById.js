@@ -9,16 +9,13 @@ import queryFormById from '@/lib/wordpress/gravityForms/queryFormById'
  * @return {object}   Post data or error object.
  */
 export default async function getGfFormById(id) {
-  // Determine form global ID.
-  const formId = Buffer.from(`GravityFormsForm:${id}`).toString('base64')
-
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
 
   // Execute query.
   const form = await apolloClient
-    .query({query: queryFormById, variables: {id: formId}})
-    .then((form) => form?.data?.gravityFormsForm ?? null)
+    .query({query: queryFormById, variables: {id}})
+    .then((response) => response?.data?.gravityFormsForm ?? null)
     .catch((error) => {
       return {
         isError: true,
