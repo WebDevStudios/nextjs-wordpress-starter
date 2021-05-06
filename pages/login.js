@@ -7,7 +7,7 @@ import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeS
 import {signIn, useSession} from 'next-auth/client'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 /**
  * Render the Login component.
@@ -16,6 +16,7 @@ import React, {useEffect} from 'react'
  * @return {Element} The Login component.
  */
 export default function Login() {
+  const [errorMessage, setErrorMessage] = useState('')
   const [session] = useSession()
   const router = useRouter()
 
@@ -26,10 +27,30 @@ export default function Login() {
     }
   })
 
+  /**
+   * Submit login form.
+   *
+   * @author WebDevStudios
+   * @param {object} values Field values to submit.
+   */
+  async function submitForm(values) {
+    const {username, password} = values
+    const response = await signIn('wpLogin', {
+      username,
+      password,
+      redirect: false
+    })
+
+    if (response.error) {
+      setErrorMessage(response.error)
+    }
+  }
+
   return (
     <Layout>
       <Container>
         <RichText tag="h1">Login</RichText>
+        {!!errorMessage && <div>{errorMessage}</div>}
         <Form
           className="login-form"
           id="login-form"
@@ -38,16 +59,7 @@ export default function Login() {
             username: '',
             password: ''
           }}
-          onSubmit={async (values, {setSubmitting}) => {
-            const {username, password} = values
-            signIn('wpLogin', {
-              username,
-              password,
-              callbackUrl: '/profile'
-            })
-
-            setSubmitting(false)
-          }}
+          onSubmit={submitForm}
         >
           <Text id="username" label="Username" isRequired type="text" />
           <Text id="password" label="Password" isRequired type="password" />

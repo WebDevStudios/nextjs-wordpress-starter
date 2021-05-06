@@ -79,7 +79,7 @@ const providers = [
       const response = await loginUser(username, password)
 
       if (response.error) {
-        throw `/login?error=${response.errorMessage}`
+        throw new Error(response.errorMessage)
       }
 
       return createUserObj(response)
@@ -106,7 +106,7 @@ const providers = [
       })
 
       if (response.error) {
-        throw `/register?error=${response.errorMessage}`
+        throw new Error(response.errorMessage)
       }
 
       return createUserObj(response)
