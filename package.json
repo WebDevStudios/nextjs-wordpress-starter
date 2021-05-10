@@ -24,6 +24,7 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic",
     "clean": "rimraf .next/",
     "dev": "npm run clean && next dev",
     "develop": "npm dev",
