@@ -79,7 +79,7 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react-instantsearch-dom": "^6.10.3",
+    "react-instantsearch-dom": "^6.11.0",
     "react-is": "^17.0.2",
     "react-syntax-highlighter": "^15.4.3",
     "react-twitter-embed": "^3.0.3",
