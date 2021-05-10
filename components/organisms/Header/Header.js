@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import styles from './Header.module.css'
 
 /**
- * Render the ImageGallery component.
+ * Render the Header component.
  *
  * @author WebDevStudios
  * @param {object}  props        The component attributes as props.

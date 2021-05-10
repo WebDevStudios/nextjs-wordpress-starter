@@ -9,8 +9,8 @@ import insertPostComment from '@/functions/wordpress/comments/insertPostComment'
  */
 export default async function comment(req, res) {
   try {
-    // Retrieve props from request query params.
-    const {author, authorEmail, authorUrl, postId, content, token} = req.query
+    // Retrieve props from request body.
+    const {author, authorEmail, authorUrl, postId, content, token} = req.body
 
     // Basic check to see if the referer matches the host.
     // This is trivially easy to bypass, but it's a first step.
