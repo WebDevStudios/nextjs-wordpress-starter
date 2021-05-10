@@ -52,10 +52,9 @@
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/react": "^6.2.9",
-    "@tailwindcss/postcss7-compat": "^2.1.2",
     "algoliasearch": "^4.9.1",
     "apollo-link-rest": "^0.8.0-beta.0",
-    "autoprefixer": "9.8.6",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.8.0",
     "dayjs": "^1.10.4",
@@ -74,8 +73,8 @@
     "hamburger-react": "^2.4.1",
     "next-seo": "^4.24.0",
     "next-sitemap": "^1.6.57",
-    "postcss": "7.0.35",
-    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss": "^8.2.14",
+    "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.0",
     "prop-types": "^15.7.2",
@@ -88,7 +87,7 @@
     "storybook-css-modules-preset": "^1.1.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2",
+    "tailwindcss": "^2.1.2",
     "yup": "^0.32.9"
   }
 }
