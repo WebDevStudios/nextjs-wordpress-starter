@@ -34,3 +34,4 @@ wpe.json
 
 # storybook
 build-storybook.log
+storybook-static/*
