@@ -7,8 +7,8 @@ import PropTypes from 'prop-types'
  * The core Image block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props The component props.
- * @return {Element}     The Block Image component.
+ * @param  {object}  props The component props.
+ * @return {Element}       The Block Image component.
  */
 export default function BlockImage(props) {
   return <DisplayImage {...props} />

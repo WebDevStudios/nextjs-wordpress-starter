@@ -8,19 +8,19 @@ import styles from './VideoEmbed.module.css'
  * VideoEmbed Block
  *
  * @author WebDevStudios
- * @param {object} props           VideoEmbed component props.
- * @param {string} props.className Optional className.
- * @param {string} props.url       The full URL to the video.
- * @param {string} props.type      The type of video (youtube, vimeo).
- * @param {string} props.caption   Optional caption.
- * @return {Element}               The VideoEmbed component.
+ * @param  {object}  props           VideoEmbed component props.
+ * @param  {string}  props.className Optional className.
+ * @param  {string}  props.url       The full URL to the video.
+ * @param  {string}  props.type      The type of video (youtube, vimeo).
+ * @param  {string}  props.caption   Optional caption.
+ * @return {Element}                 The VideoEmbed component.
  */
 export default function VideoEmbed({className, url, type, caption}) {
   /**
    * Create URL embed for YouTube or Vimeo videos.
    *
-   * @param {string} url The video URL.
-   * @return {string}    Formatted video URL.
+   * @param  {string} url The video URL.
+   * @return {string}     Formatted video URL.
    */
   function createVideoUrl(url) {
     if (!url) {
