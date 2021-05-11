@@ -18,7 +18,7 @@ import styles from './Image.module.css'
  * @param  {object}  props.imageMeta     The image meta.
  * @param  {string}  props.linkClass     The image link class name.
  * @param  {string}  props.linkTarget    The image link target.
- * @param  {bool}    props.nextImageFill Whether next/image should be set to fill or have height/width defined.
+ * @param  {boolean} props.nextImageFill Whether next/image should be set to fill or have height/width defined.
  * @param  {string}  props.rel           The relationship of the linked URL.
  * @param  {string}  props.url           The image src attribute.
  * @return {Element}                     The DisplayImage component.
