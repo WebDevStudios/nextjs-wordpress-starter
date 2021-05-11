@@ -2,8 +2,8 @@
  * Format default SEO data for use in `DefaultSeo` component.
  *
  * @author WebDevStudios
- * @param {object} seoData Fallback SEO data.
- * @return {object}        Formatted SEO data.
+ * @param  {object} seoData Fallback SEO data.
+ * @return {object}         Formatted SEO data.
  */
 export default function formatDefaultSeoData(seoData) {
   const homepage = seoData?.homepageSettings?.frontPage?.seo

@@ -7,12 +7,12 @@ import styles from '../AlgoliaSearch.module.css'
  * Render the History component.
  *
  * @author WebDevStudios
- * @param {object}   props                   The component attributes as props.
- * @param {Function} props.buildSearchUrl    Construct Search URL and navigate user to results.
- * @param {Function} props.clearLocalStorage Delete the localStorage for search results.
- * @param {Array}    props.history           The history of searches.
- * @param {Function} props.searchClick       Click Event for Search Results
- * @return {Element}                         The History component.
+ * @param  {object}   props                   The component attributes as props.
+ * @param  {Function} props.buildSearchUrl    Construct Search URL and navigate user to results.
+ * @param  {Function} props.clearLocalStorage Delete the localStorage for search results.
+ * @param  {Array}    props.history           The history of searches.
+ * @param  {Function} props.searchClick       Click Event for Search Results
+ * @return {Element}                          The History component.
  */
 export default function History({
   buildSearchUrl,
@@ -25,8 +25,8 @@ export default function History({
    *
    * @see https://day.js.org/docs/en/display/from-now
    * @see https://day.js.org/docs/en/plugin/relative-time
-   * @param {string} time The time as a timestamp.
-   * @return {string}     Returns the string of relative time from now.
+   * @param  {string} time The time as a timestamp.
+   * @return {string}      Returns the string of relative time from now.
    */
   function convertDate(time) {
     dayjs.extend(relativeTime)

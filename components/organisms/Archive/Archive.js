@@ -8,11 +8,11 @@ import {useRef, useState} from 'react'
  * Render the Archive component.
  *
  * @author WebDevStudios
- * @param {object} props            The component attributes as props.
- * @param {Array}  props.posts      Array of post data from WordPress.
- * @param {object} props.pagination Archive pagination data from WordPress.
- * @param {string} props.postType   WP post type.
- * @return {Element}                The Archive component.
+ * @param  {object}  props            The component attributes as props.
+ * @param  {Array}   props.posts      Array of post data from WordPress.
+ * @param  {object}  props.pagination Archive pagination data from WordPress.
+ * @param  {string}  props.postType   WP post type.
+ * @return {Element}                  The Archive component.
  */
 export default function Archive({posts, pagination, postType}) {
   // Track all posts, including initial posts and additionally loaded pages.

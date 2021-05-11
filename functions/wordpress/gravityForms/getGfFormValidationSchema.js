@@ -10,8 +10,8 @@ import * as Yup from 'yup'
  *
  * @author WebDevStudios
  * @see https://github.com/jquense/yup#api
- * @param {object} fieldData GravityForm field props.
- * @return {object}          Schema validation for field.
+ * @param  {object} fieldData GravityForm field props.
+ * @return {object}           Schema validation for field.
  */
 function getValidationSchemaByType(fieldData) {
   let schemaGetter = null
@@ -52,8 +52,8 @@ function getValidationSchemaByType(fieldData) {
  * Create validation schema Object for a single field.
  *
  * @author WebDevStudios
- * @param {object} fieldData GravityForm field props.
- * @return {object}          Field validation schema object.
+ * @param  {object} fieldData GravityForm field props.
+ * @return {object}           Field validation schema object.
  */
 function getGfFieldValidationSchema(fieldData) {
   return {
@@ -64,8 +64,8 @@ function getGfFieldValidationSchema(fieldData) {
 /**
  * Create validation schema Object for GravityForm.
  *
- * @param {Array} fields Array of fields.
- * @return {object}      Form validation schema object.
+ * @param  {Array}  fields Array of fields.
+ * @return {object}        Form validation schema object.
  */
 export default function getGfFormValidationSchema(fields) {
   const formValidationSchema = {}

@@ -7,8 +7,8 @@ import styles from './DocTable.module.css'
  *
  * This component is used in documentaion-only stories to display tabular documentation.
  *
- * @param {*} props The DocTable attributes as props.
- * @return {Element} The DocTable component.
+ * @param  {*}       props The DocTable attributes as props.
+ * @return {Element}       The DocTable component.
  */
 function DocTable(props) {
   return (

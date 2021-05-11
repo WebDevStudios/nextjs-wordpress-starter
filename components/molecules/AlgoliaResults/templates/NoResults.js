@@ -5,9 +5,9 @@ import styles from '../AlgoliaResults.module.css'
  * Render the NoResults component.
  *
  * @author WebDevStudios
- * @param {object} props       The component attributes as props.
- * @param {object} props.query The no results data.
- * @return {Element}           The NoResults component.
+ * @param  {object}  props       The component attributes as props.
+ * @param  {object}  props.query The no results data.
+ * @return {Element}             The NoResults component.
  */
 export default function NoResults({query}) {
   return (

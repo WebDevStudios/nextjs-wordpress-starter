@@ -12,9 +12,9 @@ import SearchResults from './templates/SearchResults'
  * Render the AlgoliaResults component.
  *
  * @author WebDevStudios
- * @param {object} props        The component attributes as props.
- * @param {object} props.config Algolia configuration.
- * @return {Element}            The AlgoliaResults component.
+ * @param  {object}  props        The component attributes as props.
+ * @param  {object}  props.config Algolia configuration.
+ * @return {Element}              The AlgoliaResults component.
  */
 export default function AlgoliaResults({config}) {
   const {algolia} = useWordPressContext()

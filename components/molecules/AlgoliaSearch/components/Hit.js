@@ -7,9 +7,9 @@ import searchClick from '../functions/searchClick'
  *
  * @author WebDevStudios
  * @see https://www.algolia.com/doc/api-reference/widgets/hits/react/
- * @param {object} props     The component attributes as props.
- * @param {object} props.hit Renders each hit from the results.
- * @return {Element}         The Hit component.
+ * @param  {object}  props     The component attributes as props.
+ * @param  {object}  props.hit Renders each hit from the results.
+ * @return {Element}           The Hit component.
  */
 export default function Hit({hit}) {
   return (

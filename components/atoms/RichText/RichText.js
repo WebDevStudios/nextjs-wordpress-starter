@@ -7,13 +7,13 @@ import styles from './RichText.module.css'
 /**
  * Render the RichText component.
  *
- * @param {object} props            RichText component props.
- * @param {string} props.attributes Optional element attributes.
- * @param {string} props.children   Child component(s) to render.
- * @param {string} props.className  Optional classNames.
- * @param {string} props.id         Optional element ID.
- * @param {string} props.tag        The type of element to render.
- * @return {Element}                The RichText component.
+ * @param  {object}  props            RichText component props.
+ * @param  {string}  props.attributes Optional element attributes.
+ * @param  {string}  props.children   Child component(s) to render.
+ * @param  {string}  props.className  Optional classNames.
+ * @param  {string}  props.id         Optional element ID.
+ * @param  {string}  props.tag        The type of element to render.
+ * @return {Element}                  The RichText component.
  */
 export default function RichText({attributes, children, className, id, tag}) {
   const tagClassName = tag !== 'div' ? tag : ''

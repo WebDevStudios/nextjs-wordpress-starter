@@ -9,9 +9,9 @@ import PropTypes from 'prop-types'
 /**
  * Merge GravityForm checkbox field data into single Array.
  *
- * @param {Array} checkboxChoices Array of checkbox field input data.
- * @param {Array} inputs          Array of checkbox field input data.
- * @return {Array}                Checkbox data Array with combined Objects.
+ * @param  {Array} checkboxChoices Array of checkbox field input data.
+ * @param  {Array} inputs          Array of checkbox field input data.
+ * @return {Array}                 Checkbox data Array with combined Objects.
  */
 function getMergedCheckboxes(checkboxChoices, inputs) {
   let checkboxes = []
@@ -29,16 +29,16 @@ function getMergedCheckboxes(checkboxChoices, inputs) {
 /**
  * Render GravityForms Checkbox field component.
  *
- * @param {object}        props                 GravityForm Checkbox field as props.
- * @param {Array}         props.checkboxChoices Array of checkbox field input data.
- * @param {string}        props.className       GravityForm field wrapper class.
- * @param {string}        props.description     GravityForm field description.
- * @param {Array}         props.inputs          Array of checkbox field input data.
- * @param {string|number} props.id              GravityForm field id.
- * @param {boolean}       props.isRequired      If input is required.
- * @param {string}        props.label           GravityForm field label.
- * @param {boolean}       props.visibility      GravityForm field visibility.
- * @return {Element}                            The Checkbox component.
+ * @param  {object}        props                 GravityForm Checkbox field as props.
+ * @param  {Array}         props.checkboxChoices Array of checkbox field input data.
+ * @param  {string}        props.className       GravityForm field wrapper class.
+ * @param  {string}        props.description     GravityForm field description.
+ * @param  {Array}         props.inputs          Array of checkbox field input data.
+ * @param  {string|number} props.id              GravityForm field id.
+ * @param  {boolean}       props.isRequired      If input is required.
+ * @param  {string}        props.label           GravityForm field label.
+ * @param  {boolean}       props.visibility      GravityForm field visibility.
+ * @return {Element}                             The Checkbox component.
  */
 export default function Checkbox({
   className,

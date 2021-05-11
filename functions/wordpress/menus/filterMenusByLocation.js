@@ -4,9 +4,9 @@ import formatHeirarchialMenu from './formatHeirarchialMenu'
  * Filter menus array by menu location.
  *
  * @author WebDevStudios
- * @param {Array} menus     The array of WP menus to filter.
- * @param {Array} locations The array of locations for filtering.
- * @return {object}         An object containing the requested locations as individual objects.
+ * @param  {Array}  menus     The array of WP menus to filter.
+ * @param  {Array}  locations The array of locations for filtering.
+ * @return {object}           An object containing the requested locations as individual objects.
  */
 export default function filterMenusByLocation(menus, locations) {
   const data = {}
