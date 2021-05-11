@@ -8,8 +8,8 @@ import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
  * Retrieve data for Frontend-only route (i.e., page does not exist in WordPress).
  *
  * @author WebDevStudios
- * @param {string} route Frontend route.
- * @return {object}      Object containing Apollo client instance and post data or error object.
+ * @param  {string} route Frontend route.
+ * @return {object}       Object containing Apollo client instance and post data or error object.
  */
 export default async function getFrontendPage(route) {
   // Get/create Apollo instance.

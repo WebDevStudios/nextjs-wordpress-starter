@@ -7,9 +7,8 @@ const webpack = require('webpack')
  * @see https://storybook.js.org/docs/react/configure/overview
  */
 module.exports = {
-  reactOptions: {
-    fastRefresh: true,
-    strictMode: true
+  core: {
+    builder: 'webpack5'
   },
   stories: ['../components/**/**/*.stories.@(js|mdx)'],
   addons: [

@@ -11,12 +11,12 @@ const Tweet = dynamic(() => import('@/components/atoms/TwitterEmbed'))
  * The core Embed block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props                  The component properties.
- * @param {string} props.className        Optional classnames.
- * @param {string} props.url              The URL of the video.
- * @param {string} props.caption          Optional caption.
- * @param {string} props.providerNameSlug The type of embed.
- * @return {Element}                      The component to embed.
+ * @param  {object}  props                  The component properties.
+ * @param  {string}  props.className        Optional classnames.
+ * @param  {string}  props.url              The URL of the video.
+ * @param  {string}  props.caption          Optional caption.
+ * @param  {string}  props.providerNameSlug The type of embed.
+ * @return {Element}                        The component to embed.
  */
 export default function BlockEmbed({
   className,

@@ -19,9 +19,9 @@
  * @see https://github.com/harness-software/wp-graphql-gravity-forms#submit-a-form
  *
  * @author WebDevStudios
- * @param {object} entryData GF form entry data.
- * @param {object} fieldData GF form field config.
- * @return {Array}           Formatted GF field values.
+ * @param  {object} entryData GF form entry data.
+ * @param  {object} fieldData GF form field config.
+ * @return {Array}            Formatted GF field values.
  */
 export default function processGfFieldValues(entryData, fieldData) {
   const fieldValues = []

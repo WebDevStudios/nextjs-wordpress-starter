@@ -5,12 +5,12 @@ import {setLocalStorage} from './localStorage'
  * Search Form Submit Handler
  *
  * @author WebDevStudios
- * @param {object}   event          Form submit.
- * @param {Function} setSearchState Callback function to set search state.
- * @param {Array}    searchState    Search state array.
- * @param {string}   storageName    Local storage name.
- * @param {number}   maxLength      Maximum history items to store.
- * @return {string}                 The search term.
+ * @param  {object}   event          Form submit.
+ * @param  {Function} setSearchState Callback function to set search state.
+ * @param  {Array}    searchState    Search state array.
+ * @param  {string}   storageName    Local storage name.
+ * @param  {number}   maxLength      Maximum history items to store.
+ * @return {string}                  The search term.
  */
 export default function searchSubmit(
   event,

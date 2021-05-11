@@ -5,8 +5,8 @@ import queryFormById from '@/lib/wordpress/gravityForms/queryFormById'
  * Retrieve single form by ID.
  *
  * @author WebDevStudios
- * @param {string} id Form ID.
- * @return {object}   Post data or error object.
+ * @param  {string} id Form ID.
+ * @return {object}    Post data or error object.
  */
 export default async function getGfFormById(id) {
   // Get/create Apollo instance.

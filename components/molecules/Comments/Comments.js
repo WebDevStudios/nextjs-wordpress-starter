@@ -10,9 +10,9 @@ import * as Yup from 'yup'
  * Render an individual comment component.
  *
  * @author WebDevStudios
- * @param {object} props         The component attributes as props.
- * @param {Array}  props.comment The comment to display.
- * @return {Element}             The Comment component.
+ * @param  {object}  props         The component attributes as props.
+ * @param  {Array}   props.comment The comment to display.
+ * @return {Element}               The Comment component.
  */
 function SingleComment({comment}) {
   if (!comment) {
@@ -56,10 +56,10 @@ SingleComment.defaultProps = {
  * Render the Comments component.
  *
  * @author WebDevStudios
- * @param {object} props          The component attributes as props.
- * @param {Array}  props.comments The array of comments to display.
- * @param {number} props.postId   The database ID of the post.
- * @return {Element}              The Comments component.
+ * @param  {object}  props          The component attributes as props.
+ * @param  {Array}   props.comments The array of comments to display.
+ * @param  {number}  props.postId   The database ID of the post.
+ * @return {Element}                The Comments component.
  */
 export default function Comments({comments, postId}) {
   const [message, setMessage] = useState('')

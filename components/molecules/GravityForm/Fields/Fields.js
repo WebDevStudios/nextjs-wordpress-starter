@@ -5,10 +5,10 @@ import * as GfFields from '.'
  * Render the Fields component.
  *
  * @author WebDevStudios
- * @param {object} props             The component attributes as props.
- * @param {Array}  props.fields      GravityForm fields data.
- * @param {object} props.formikProps Props available to Formik components.
- * @return {Element}                 The Fields component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {Array}   props.fields      GravityForm fields data.
+ * @param  {object}  props.formikProps Props available to Formik components.
+ * @return {Element}                   The Fields component.
  */
 export default function Fields({fields, formikProps}) {
   return (

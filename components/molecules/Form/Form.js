@@ -7,14 +7,14 @@ import styles from './Form.module.css'
 /**
  * Render Form component.
  *
- * @param {object}           props                  The component attributes as props.
- * @param {Element|Function} props.children         Form children elements.
- * @param {string}           props.className        Form wrapper class.
- * @param {object}           props.formDefaults     Formik default data.
- * @param {string|number}    props.id               Form id.
- * @param {object}           props.validationSchema Yup validation schema object.
- * @param {Function}         props.onSubmit         Function to execute when form is submitted
- * @return {Element}                                The Form component.
+ * @param  {object}           props                  The component attributes as props.
+ * @param  {Element|Function} props.children         Form children elements.
+ * @param  {string}           props.className        Form wrapper class.
+ * @param  {object}           props.formDefaults     Formik default data.
+ * @param  {string|number}    props.id               Form id.
+ * @param  {object}           props.validationSchema Yup validation schema object.
+ * @param  {Function}         props.onSubmit         Function to execute when form is submitted
+ * @return {Element}                                 The Form component.
  */
 export default function Form({
   children,
