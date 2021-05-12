@@ -7,9 +7,9 @@ import cn from 'classnames'
  * Render the Breadcrumbs component.
  *
  * @author WebDevStudios
- * @param {object} props             The component attributes as props.
- * @param {Array}  props.breadcrumbs The breadcrumb array.
- * @return {Element}                 The Breadcrumbs component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {Array}   props.breadcrumbs The breadcrumb array.
+ * @return {Element}                   The Breadcrumbs component.
  */
 export default function Breadcrumbs({breadcrumbs}) {
   return (

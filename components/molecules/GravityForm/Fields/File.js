@@ -11,15 +11,15 @@ import PropTypes from 'prop-types'
 /**
  * Render GravityForms File field component.
  *
- * @param {object}        props               GravityForm Select field as props.
- * @param {string}        props.className     GravityForm field wrapper class.
- * @param {string}        props.description   GravityForm field description.
- * @param {string|number} props.id            GravityForm field id.
- * @param {boolean}       props.isRequired    GravityForm field is required.
- * @param {string}        props.label         GravityForm field label.
- * @param {boolean}       props.visibility    GravityForm visibility option.
- * @param {Function}      props.setFieldValue Formik function to set state.
- * @return {Element}                          The File component.
+ * @param  {object}        props               GravityForm Select field as props.
+ * @param  {string}        props.className     GravityForm field wrapper class.
+ * @param  {string}        props.description   GravityForm field description.
+ * @param  {string|number} props.id            GravityForm field id.
+ * @param  {boolean}       props.isRequired    GravityForm field is required.
+ * @param  {string}        props.label         GravityForm field label.
+ * @param  {boolean}       props.visibility    GravityForm visibility option.
+ * @param  {Function}      props.setFieldValue Formik function to set state.
+ * @return {Element}                           The File component.
  */
 export default function File({
   className,

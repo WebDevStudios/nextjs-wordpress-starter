@@ -2,9 +2,9 @@
  * Helper to retrieve environment-specific var.
  *
  * @author WebDevStudios
- * @param {string}  varName  Environment variable.
- * @param {boolean} isPublic Whether var is public.
- * @return {string}          Env var value.
+ * @param  {string}  varName  Environment variable.
+ * @param  {boolean} isPublic Whether var is public.
+ * @return {string}           Env var value.
  */
 export default function getEnvVar(varName, isPublic = false) {
   const prefix = isPublic ? 'NEXT_PUBLIC_' : ''

@@ -2,8 +2,8 @@
  * Click event for search results
  *
  * @author WebDevStudios
- * @param {object} e The click event.
- * @return {object}  The routed URL.
+ * @param  {object} e The click event.
+ * @return {object}   The routed URL.
  */
 export default function searchClick(e) {
   const target = e.currentTarget

@@ -8,14 +8,14 @@ import cn from 'classnames'
  * Render the Text component.
  *
  * @author WebDevStudios
- * @param {object}  props             The component attributes as props.
- * @param {string}  props.className   Text wrapper className.
- * @param {string}  props.description Text description.
- * @param {string}  props.id          Text input id.
- * @param {string}  props.label       Text input label.
- * @param {boolean} props.isRequired  If input is required.
- * @param {string}  props.type        Text input type.
- * @return {Element}                  The Text component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {string}  props.className   Text wrapper className.
+ * @param  {string}  props.description Text description.
+ * @param  {string}  props.id          Text input id.
+ * @param  {string}  props.label       Text input label.
+ * @param  {boolean} props.isRequired  If input is required.
+ * @param  {string}  props.type        Text input type.
+ * @return {Element}                   The Text component.
  */
 export default function Text({
   className,

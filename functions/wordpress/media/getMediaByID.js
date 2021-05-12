@@ -5,8 +5,8 @@ import queryMediaAttributes from '@/lib/wordpress/media/queryMediaAttributes'
  * Retrieve media details by ID.
  *
  * @author WebDevStudios
- * @param {number} id The media's database ID.
- * @return {object}   Object containing Apollo client instance and post data or error object.
+ * @param  {number} id The media's database ID.
+ * @return {object}    Object containing Apollo client instance and post data or error object.
  */
 export default async function getMediaByID(id) {
   // No ID? Bail...

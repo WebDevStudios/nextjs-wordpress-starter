@@ -22,9 +22,9 @@ const userFields = [
  * `newObj`.
  *
  * @author WebDevStudios
- * @param {object} obj    Original object.
- * @param {object} source Source object where new data is present.
- * @return {object}       A new object containing the original data + new data.
+ * @param  {object} obj    Original object.
+ * @param  {object} source Source object where new data is present.
+ * @return {object}        A new object containing the original data + new data.
  */
 function populateObj(obj, source) {
   let newObj = {...obj}
@@ -44,8 +44,8 @@ function populateObj(obj, source) {
  * on user login or registration.
  *
  * @author WebDevStudios
- * @param {object} response Response from WP GraphQL.
- * @return {object}         User object.
+ * @param  {object} response Response from WP GraphQL.
+ * @return {object}          User object.
  */
 function createUserObj(response) {
   return {

@@ -71,8 +71,8 @@ export const archivePropTypes = {
  * Retrieve basic prop types for a given page.
  *
  * @author WebDevStudios
- * @param {string} postType WP post type.
- * @return {object}         Page prop types.
+ * @param  {string} postType WP post type.
+ * @return {object}          Page prop types.
  */
 export default function getPagePropTypes(postType) {
   // Check if post type is valid.

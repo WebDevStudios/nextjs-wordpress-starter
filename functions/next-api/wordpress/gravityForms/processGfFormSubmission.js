@@ -6,10 +6,10 @@ import processGfFieldValues from './processGfFieldValues'
  * Process GF form submission via Next API.
  *
  * @author WebDevStudios
- * @param {number} formId    GF form ID.
- * @param {object} entryData GF form entry data.
- * @param {object} fieldData GF form field config.
- * @return {object}          Entry ID and confirmation message or error object.
+ * @param  {number} formId    GF form ID.
+ * @param  {object} entryData GF form entry data.
+ * @param  {object} fieldData GF form field config.
+ * @return {object}           Entry ID and confirmation message or error object.
  */
 export default async function processGfFormSubmission(
   formId,

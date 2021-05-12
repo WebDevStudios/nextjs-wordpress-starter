@@ -10,12 +10,12 @@ import {
  * Retrieve single post.
  *
  * @author WebDevStudios
- * @param {string}          postType  WP post type.
- * @param {number | string} id        Post identifier.
- * @param {object}          query     Post retrieval query.
- * @param {object}          variables Query variables.
- * @param {string}          preview   Whether query is for a regular post view (null), a preview check (basic), or full post preview (full).
- * @return {object}                   Object containing Apollo client instance and post data or error object.
+ * @param  {string}          postType  WP post type.
+ * @param  {number | string} id        Post identifier.
+ * @param  {object}          query     Post retrieval query.
+ * @param  {object}          variables Query variables.
+ * @param  {string}          preview   Whether query is for a regular post view (null), a preview check (basic), or full post preview (full).
+ * @return {object}                    Object containing Apollo client instance and post data or error object.
  */
 export default async function processPostTypeQuery(
   postType,
