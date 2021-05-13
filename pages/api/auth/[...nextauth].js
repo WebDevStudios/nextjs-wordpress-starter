@@ -86,7 +86,7 @@ const providers = [
 
       let errorMessage
       if (response.error) {
-        switch ( response.errorMessage ) {
+        switch (response.errorMessage) {
           case LOGIN_ERRORS.INVALID_USERNAME:
             errorMessage = 'Username does not exists in our records.'
             break
