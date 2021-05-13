@@ -7,10 +7,10 @@ import PropTypes from 'prop-types'
  * The core Separator block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props           The component attributes as props.
- * @param {string} props.className Optional classnames.
- * @param {string} props.anchor    Optional anchor/id.
- * @return {Element}               The Separator component.
+ * @param  {object}  props           The component attributes as props.
+ * @param  {string}  props.className Optional classnames.
+ * @param  {string}  props.anchor    Optional anchor/id.
+ * @return {Element}                 The Separator component.
  */
 export default function BlockSeparator({className, anchor}) {
   const isFullWidth =

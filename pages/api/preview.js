@@ -6,9 +6,9 @@ import {postTypes} from '@/lib/wordpress/_config/postTypes'
  * Provide post preview functionality.
  *
  * @author WebDevStudios
- * @param {object} req Instance of http.IncomingMessage.
- * @param {object} res Instance of http.ServerResponse.
- * @return {object} Redirects to appropriate post route on success, returns response error object otherwise.
+ * @param  {object} req Instance of http.IncomingMessage.
+ * @param  {object} res Instance of http.ServerResponse.
+ * @return {object}     Redirects to appropriate post route on success, returns response error object otherwise.
  */
 export default async function preview(req, res) {
   try {

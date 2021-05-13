@@ -13,9 +13,9 @@ const postType = 'page'
  * Render the Search component.
  *
  * @author WebDevStudios
- * @param {object} props      The component attributes as props.
- * @param {object} props.post Post data from WordPress.
- * @return {Element}          The Search component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The Search component.
  */
 export default function Search({post}) {
   const router = useRouter()

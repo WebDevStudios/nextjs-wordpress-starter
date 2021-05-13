@@ -5,8 +5,8 @@ import {initializeWpApollo} from '@/lib/wordpress/connector'
  * Get a new auth token using refresh token.
  *
  * @author WebDevStudios
- * @param {string} refreshToken User refresh token.
- * @return {object}             User data or error object.
+ * @param  {string} refreshToken User refresh token.
+ * @return {object}              User data or error object.
  */
 export default async function refreshAuthToken(refreshToken) {
   const apolloClient = initializeWpApollo()

@@ -5,8 +5,8 @@ import getMediaByID from '@/functions/wordpress/media/getMediaByID'
  * Format and retrieve expanded block data.
  *
  * @author WebDevStudios
- * @param {Array} blocks Basic block data.
- * @return {Array}       Formatted block data.
+ * @param  {Array} blocks Basic block data.
+ * @return {Array}        Formatted block data.
  */
 export default async function formatBlockData(blocks) {
   if (!blocks || !blocks.length) {

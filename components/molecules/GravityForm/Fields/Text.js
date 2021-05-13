@@ -10,17 +10,17 @@ import PropTypes from 'prop-types'
  * Render the GravityForm Text component.
  *
  * @author WebDevStudios
- * @param {object}  props                     GravityForm field props.
- * @param {string}  props.className           Classname string.
- * @param {string}  props.description         GravityForm field description.
- * @param {boolean} props.enablePasswordInput GravityForm password enabled option.
- * @param {string}  props.errorMessage        GravityForm error message option.
- * @param {number}  props.id                  GravityForm unique field id.
- * @param {boolean} props.isRequired          GravityForm isRequired field.
- * @param {string}  props.label               GravityForm field label.
- * @param {string}  props.type                GravityForm field type.
- * @param {boolean} props.visibility          GravityForm visibility option.
- * @return {Element}                          The Text component.
+ * @param  {object}  props                     GravityForm field props.
+ * @param  {string}  props.className           Classname string.
+ * @param  {string}  props.description         GravityForm field description.
+ * @param  {boolean} props.enablePasswordInput GravityForm password enabled option.
+ * @param  {string}  props.errorMessage        GravityForm error message option.
+ * @param  {number}  props.id                  GravityForm unique field id.
+ * @param  {boolean} props.isRequired          GravityForm isRequired field.
+ * @param  {string}  props.label               GravityForm field label.
+ * @param  {string}  props.type                GravityForm field type.
+ * @param  {boolean} props.visibility          GravityForm visibility option.
+ * @return {Element}                           The Text component.
  */
 export default function Text({
   className,
@@ -39,8 +39,8 @@ export default function Text({
   /**
    * Convert type to an HTML input type.
    *
-   * @param {string} type GravityForm field type.
-   * @return {string}     HTML input type.
+   * @param  {string} type GravityForm field type.
+   * @return {string}      HTML input type.
    */
   function modifyFieldType(type) {
     let inputType = type

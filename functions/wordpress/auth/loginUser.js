@@ -5,9 +5,9 @@ import {initializeWpApollo} from '@/lib/wordpress/connector'
  * Log user into WP.
  *
  * @author WebDevStudios
- * @param {string} username Username.
- * @param {string} password User password.
- * @return {object}         User data or error object.
+ * @param  {string} username Username.
+ * @param  {string} password User password.
+ * @return {object}          User data or error object.
  */
 export default async function loginUser(username, password) {
   const apolloClient = initializeWpApollo()

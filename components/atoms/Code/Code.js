@@ -8,11 +8,11 @@ import styles from './Code.module.css'
  * Render the Code component.
  *
  * @author WebDevStudios
- * @param {object} props           The component attributes as props.
- * @param {string} props.className Optional classname.
- * @param {string} props.id        The optional ID.
- * @param {string} props.content   The content for inside the code block.
- * @return {Element}               The Code component.
+ * @param  {object}  props           The component attributes as props.
+ * @param  {string}  props.className Optional classname.
+ * @param  {string}  props.id        The optional ID.
+ * @param  {string}  props.content   The content for inside the code block.
+ * @return {Element}                 The Code component.
  */
 export default function Code({id, className, content}) {
   // Use the className to pass the langauge.
@@ -21,8 +21,8 @@ export default function Code({id, className, content}) {
   /**
    * Replace any `&lt;` and `&gt; encoded HTML.
    *
-   * @param {string} content The content string.
-   * @return {string}        The formatted content string.
+   * @param  {string} content The content string.
+   * @return {string}         The formatted content string.
    */
   function codeFormatter(content) {
     if (!content) {

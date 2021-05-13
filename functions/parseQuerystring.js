@@ -2,9 +2,9 @@
  * Parse a querystring by name.
  *
  * @author WebDevStudios
- * @param {*} path The complete URL path.
- * @param {*} name The name to search.
- * @return {string} The found query value.
+ * @param  {*}      path The complete URL path.
+ * @param  {*}      name The name to search.
+ * @return {string}      The found query value.
  */
 export default function parseQuerystring(path, name) {
   if (!path || !name) {

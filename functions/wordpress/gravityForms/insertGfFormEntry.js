@@ -5,9 +5,9 @@ import mutationInsertFormEntry from '@/lib/wordpress/gravityForms/mutationInsert
  * Submit GF form entry via WP GraphQL.
  *
  * @author WebDevStudios
- * @param {number} formId      GF form ID.
- * @param {object} fieldValues GF form field values.
- * @return {fieldValues}        Entry ID or error object.
+ * @param  {number}      formId      GF form ID.
+ * @param  {object}      fieldValues GF form field values.
+ * @return {fieldValues}             Entry ID or error object.
  */
 export default async function insertGfFormEntry(formId, fieldValues) {
   // Get/create Apollo instance.

@@ -11,14 +11,14 @@ import styles from './GravityForm.module.css'
 /**
  * Render the GravityForm component.
  *
- * @param {object} props                     The GravityForm block attributes as props.
- * @param {object} props.formData            GravityForm form data.
- * @param {string} props.formData.cssClass   GravityForm form classname.
- * @param {string} props.formData.description GravityForm form description.
- * @param {object} props.formData.formFields GravityForm form fields.
- * @param {number} props.formData.formId     GravityForm form id.
- * @param {string} props.formData.title      GravityForm form title.
- * @return {Element}                         The GravityForm component.
+ * @param  {object}  props                      The GravityForm block attributes as props.
+ * @param  {object}  props.formData             GravityForm form data.
+ * @param  {string}  props.formData.cssClass    GravityForm form classname.
+ * @param  {string}  props.formData.description GravityForm form description.
+ * @param  {object}  props.formData.formFields  GravityForm form fields.
+ * @param  {number}  props.formData.formId      GravityForm form id.
+ * @param  {string}  props.formData.title       GravityForm form title.
+ * @return {Element}                            The GravityForm component.
  */
 export default function GravityForm({
   formData: {cssClass, description, formFields, formId, title}

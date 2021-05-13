@@ -8,10 +8,10 @@ import PropTypes from 'prop-types'
  * The core Code block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props             The component properties.
- * @param {object} props.media       Media props.
- * @param {Array}  props.innerBlocks The array of inner blocks to display.
- * @return {Element}                 The Code component.
+ * @param  {object}  props             The component properties.
+ * @param  {object}  props.media       Media props.
+ * @param  {Array}   props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                   The Code component.
  */
 export default function BlockMediaText({media, innerBlocks}) {
   return (

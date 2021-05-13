@@ -14,11 +14,11 @@ import SearchIcon from './SearchIcon'
  * Render the Search component.
  *
  * @author WebDevStudios
- * @param {object}  props            The component attributes as props.
- * @param {string}  props.indexName  The search index name stored in Algolia.
- * @param {string}  props.query      The search query
- * @param {boolean} props.useHistory Whether to display search history.
- * @return {Element}                 The Search component.
+ * @param  {object}  props            The component attributes as props.
+ * @param  {string}  props.indexName  The search index name stored in Algolia.
+ * @param  {string}  props.query      The search query
+ * @param  {boolean} props.useHistory Whether to display search history.
+ * @return {Element}                  The Search component.
  */
 export default function Search({indexName, query, useHistory}) {
   const storageName = indexName // Local Storage Name - set to algolia index.

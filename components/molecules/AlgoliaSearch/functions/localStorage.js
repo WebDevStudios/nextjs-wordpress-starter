@@ -2,10 +2,10 @@
  * Set localStorage for search results.
  *
  * @author WebDevStudios
- * @param {string} name      Local Storage name.
- * @param {string} value     The value to store.
- * @param {number} maxLength Maximum history items to store.
- * @return {Function}        Sets the value of the pair identified by key to value
+ * @param  {string}   name      Local Storage name.
+ * @param  {string}   value     The value to store.
+ * @param  {number}   maxLength Maximum history items to store.
+ * @return {Function}           Sets the value of the pair identified by key to value
  */
 export function setLocalStorage(name, value, maxLength) {
   if (!localStorage) {
@@ -36,8 +36,8 @@ export function setLocalStorage(name, value, maxLength) {
  * Delete the localStorage for search results.
  *
  * @author WebDevStudios
- * @param {any} name Local Storage name.
- * @return {Function} Removes the key/value pair with the given key
+ * @param  {any}      name Local Storage name.
+ * @return {Function}      Removes the key/value pair with the given key
  */
 export function deleteLocalStorage(name) {
   if (!name) {
@@ -50,9 +50,9 @@ export function deleteLocalStorage(name) {
  * Remove duplicate entries from local storage.
  *
  * @author WebDevStudios
- * @param {*} array Potential localStorage items.
- * @param {*} value Potential duplicate items.
- * @return {Array}  The the potential storage.
+ * @param  {*}     array Potential localStorage items.
+ * @param  {*}     value Potential duplicate items.
+ * @return {Array}       The the potential storage.
  */
 function removeStorageDuplicates(array = [], value = '') {
   if (!array || !value) {

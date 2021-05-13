@@ -8,15 +8,15 @@ import styles from './LzbMediaText.module.css'
 /**
  * Render the LzbMediaText component.
  *
- * @param {object}  props           LzbMediaText component props.
- * @param {string}  props.body      The body text.
- * @param {string}  props.className The className.
- * @param {object}  props.ctaText   The cta text.
- * @param {object}  props.ctaUrl    The cta url.
- * @param {object}  props.image     The image object with url and alt text.
- * @param {boolean} props.mediaLeft Whether to show media on the left of the text.
- * @param {string}  props.title     The title.
- * @return {Element}                The LzbMediaText component.
+ * @param  {object}  props           LzbMediaText component props.
+ * @param  {string}  props.body      The body text.
+ * @param  {string}  props.className The className.
+ * @param  {object}  props.ctaText   The cta text.
+ * @param  {object}  props.ctaUrl    The cta url.
+ * @param  {object}  props.image     The image object with url and alt text.
+ * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
+ * @param  {string}  props.title     The title.
+ * @return {Element}                 The LzbMediaText component.
  */
 export default function LzbMediaText({
   body,

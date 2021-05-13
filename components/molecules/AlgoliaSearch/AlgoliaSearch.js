@@ -22,11 +22,11 @@ const Search = dynamic(() => import('./components/Search'), {
  * Render the AlgoliaSearch component.
  *
  * @author WebDevStudios
- * @param {object}  props                The component attributes as props.
- * @param {string}  props.className      The component class.
- * @param {boolean} props.useHistory     Whether to display the history.
- * @param {boolean} props.usePlaceholder Whether to display the placeholder.
- * @return {Element}                     The AlgoliaSearch component.
+ * @param  {object}  props                The component attributes as props.
+ * @param  {string}  props.className      The component class.
+ * @param  {boolean} props.useHistory     Whether to display the history.
+ * @param  {boolean} props.usePlaceholder Whether to display the placeholder.
+ * @return {Element}                      The AlgoliaSearch component.
  */
 export default function AlgoliaSearch({useHistory, usePlaceholder, className}) {
   const router = useRouter()

@@ -3,6 +3,12 @@
     @apply text-center;
   }
 
+  &.dropcap {
+    &::first-letter {
+      @apply float-left mr-4 text-8xl font-bold;
+    }
+  }
+
   /* List Styles */
   &.ul,
   &.ol {
