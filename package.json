@@ -50,7 +50,7 @@
     "@babel/core": "^7.14.2",
     "@next/bundle-analyzer": "^10.2.0",
     "@storybook/addon-a11y": "^6.3.0-alpha.21",
-    "@storybook/addon-essentials": "^6.3.0-alpha.21",
+    "@storybook/addon-essentials": "^6.3.0-alpha.28",
     "@storybook/addon-links": "^6.3.0-alpha.21",
     "@storybook/builder-webpack5": "^6.3.0-alpha.21",
     "@storybook/react": "^6.3.0-alpha.21",
