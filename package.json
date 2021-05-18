@@ -40,15 +40,15 @@
   },
   "dependencies": {
     "next": "latest",
-    "next-auth": "^3.21.1",
+    "next-auth": "^3.23.0",
     "next-connect": "^0.10.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.16",
-    "@arkweid/lefthook": "^0.7.4",
-    "@babel/core": "^7.14.0",
+    "@apollo/client": "^3.3.18",
+    "@arkweid/lefthook": "^0.7.5",
+    "@babel/core": "^7.14.2",
     "@next/bundle-analyzer": "^10.2.0",
     "@storybook/addon-a11y": "^6.3.0-alpha.21",
     "@storybook/addon-essentials": "^6.3.0-alpha.21",
@@ -65,7 +65,7 @@
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^33.3.0",
+    "eslint-plugin-jsdoc": "^34.6.3",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",

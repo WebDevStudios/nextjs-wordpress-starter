@@ -6,7 +6,7 @@ import Form from '@/components/molecules/Form'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
 import {signIn, useSession} from 'next-auth/client'
 import {useRouter} from 'next/router'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 /**
  * Render the Register component.
@@ -15,6 +15,7 @@ import React, {useEffect} from 'react'
  * @return {Element} The Register component.
  */
 export default function Register() {
+  const [errorMessage, setErrorMessage] = useState('')
   const [session] = useSession()
   const router = useRouter()
 
@@ -25,10 +26,33 @@ export default function Register() {
     }
   })
 
+  /**
+   * Submit registration form.
+   *
+   * @author WebDevStudios
+   * @param {object} values Field values to submit.
+   */
+  async function submitForm(values) {
+    const {firstName, lastName, email, password, username} = values
+    const response = await signIn('wpRegister', {
+      firstName,
+      lastName,
+      email,
+      password,
+      username,
+      redirect: false
+    })
+
+    if (response.error) {
+      setErrorMessage(response.error)
+    }
+  }
+
   return (
     <Layout>
       <Container>
         <RichText tag="h1">Register</RichText>
+        {!!errorMessage && <div>{errorMessage}</div>}
         <Form
           className="registration-form"
           id="registration-form"
@@ -40,19 +64,7 @@ export default function Register() {
             password: '',
             username: ''
           }}
-          onSubmit={async (values, {setSubmitting}) => {
-            const {firstName, lastName, email, password, username} = values
-            signIn('wpRegister', {
-              firstName,
-              lastName,
-              email,
-              password,
-              username,
-              callbackUrl: '/profile'
-            })
-
-            setSubmitting(false)
-          }}
+          onSubmit={submitForm}
         >
           <Text id="firstName" label="First Name" isRequired type="text" />
           <Text id="lastName" label="Last Name" isRequired type="text" />
