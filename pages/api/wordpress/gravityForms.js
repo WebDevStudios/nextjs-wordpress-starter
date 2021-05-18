@@ -1,4 +1,13 @@
+// import formidable from 'formidable'
+import gfMultipartFormParser from '@/functions/middleware/gfMultipartFormParser'
 import insertGfFormEntry from '@/functions/wordpress/gravityForms/insertGfFormEntry'
+import nextConnect from 'next-connect'
+
+// Init nextConnect to allow for middleware.
+const gravityFormsHandler = nextConnect()
+
+// Use GF multipart form parser middleware.
+gravityFormsHandler.use(gfMultipartFormParser)
 
 /**
  * Process Gravity Forms form entries.
@@ -7,7 +16,7 @@ import insertGfFormEntry from '@/functions/wordpress/gravityForms/insertGfFormEn
  * @param {object} req Instance of http.IncomingMessage.
  * @param {object} res Instance of http.ServerResponse.
  */
-export default async function gravityForms(req, res) {
+async function gravityForms(req, res) {
   try {
     // Retrieve props from request body.
     const {formId, fieldValues} = req.body
@@ -40,3 +49,15 @@ export default async function gravityForms(req, res) {
       )
   }
 }
+
+// Call our GF handler on POST requests.
+gravityFormsHandler.post(gravityForms)
+
+// Disable the default body parser.
+export const config = {
+  api: {
+    bodyParser: false
+  }
+}
+
+export default gravityFormsHandler
