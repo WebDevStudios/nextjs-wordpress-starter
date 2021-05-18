@@ -49,10 +49,14 @@ function parseFieldValue(value) {
 export default async function gfMultipartFormParser(req, res, next) {
   const contentType = req.headers['content-type']
 
+  // Bail and continue to next middleware or to the route.
+  if (!contentType || contentType.indexOf('multipart/form-data') === -1) {
+    next()
+  }
+
   // Check if content type is multipart form.
   if (contentType && contentType.indexOf('multipart/form-data') !== -1) {
     form.parse(req, (err, fields, files) => {
-      // Bail and continue to next middle or to the route if we encounter an error.
       if (err) {
         next()
       }
@@ -94,8 +98,8 @@ export default async function gfMultipartFormParser(req, res, next) {
 
       // Set content type header back to JSON.
       req.headers['content-type'] = 'application/json'
+
+      next()
     })
   }
-
-  next()
 }
