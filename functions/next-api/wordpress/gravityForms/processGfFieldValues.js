@@ -65,11 +65,16 @@ export default function processGfFieldValues(entryData, fieldData) {
       id: fieldId
     }
 
+    // Skip if empty/undefined value.
+    if (!entryData[fieldName]) {
+      return
+    }
+
     switch (field?.__typename) {
       case 'CheckboxField':
         fieldValue.checkboxValues = []
 
-        if (!entryData[fieldName] || !entryData[fieldName].length) {
+        if (!entryData[fieldName].length) {
           return
         }
 
@@ -91,12 +96,11 @@ export default function processGfFieldValues(entryData, fieldData) {
         fieldValue.value = entryData[fieldName]
         break
 
-      default:
-        // Skip if empty/undefined.
-        if (!entryData[fieldName]) {
-          return
-        }
+      case 'FileUploadField':
+        fieldValue.fileUploadValues = entryData[fieldName]
+        break
 
+      default:
         fieldValue.value = entryData[fieldName]
         break
     }
