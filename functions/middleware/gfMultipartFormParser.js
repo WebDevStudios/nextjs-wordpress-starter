@@ -49,57 +49,54 @@ function parseFieldValue(value) {
 export default async function gfMultipartFormParser(req, res, next) {
   const contentType = req.headers['content-type']
 
-  // Bail and continue to next middleware or to the route.
+  // Bail and continue to next middleware or to the route if content type is not multipart form.
   if (!contentType || contentType.indexOf('multipart/form-data') === -1) {
     next()
   }
 
-  // Check if content type is multipart form.
-  if (contentType && contentType.indexOf('multipart/form-data') !== -1) {
-    form.parse(req, (err, fields, files) => {
-      if (err) {
-        next()
-      }
-
-      // Structure our return data.
-      const data = {
-        formId: 0,
-        fieldValues: []
-      }
-
-      // Iterate through fields to format field data.
-      Object.keys(fields).forEach((fieldName) => {
-        const value = parseFieldValue(fields[fieldName])
-
-        // If not a field, save to top-level of return data (e.g., `formId`).
-        if (!fieldName.includes('field_')) {
-          data[fieldName] = value
-          return
-        }
-
-        // Save all field data to `fieldValues` array.
-        data.fieldValues.push(value)
-      })
-
-      // Iterate through files to format as field data.
-      Object.keys(files).forEach((fieldName) => {
-        const id = parseInt(fieldName.replace('field_', ''), 10)
-
-        // Save to `fieldValues` array in same format as non-file fields.
-        data.fieldValues.push({
-          id,
-          fileUploadValues: files[fieldName]
-        })
-      })
-
-      req.body = {
-        ...data
-      }
-
-      // Set content type header back to JSON.
-      req.headers['content-type'] = 'application/json'
-
+  form.parse(req, (err, fields, files) => {
+    if (err) {
       next()
+    }
+
+    // Structure our return data.
+    const data = {
+      formId: 0,
+      fieldValues: []
+    }
+
+    // Iterate through fields to format field data.
+    Object.keys(fields).forEach((fieldName) => {
+      const value = parseFieldValue(fields[fieldName])
+
+      // If not a field, save to top-level of return data (e.g., `formId`).
+      if (!fieldName.includes('field_')) {
+        data[fieldName] = value
+        return
+      }
+
+      // Save all field data to `fieldValues` array.
+      data.fieldValues.push(value)
     })
-  }
+
+    // Iterate through files to format as field data.
+    Object.keys(files).forEach((fieldName) => {
+      const id = parseInt(fieldName.replace('field_', ''), 10)
+
+      // Save to `fieldValues` array in same format as non-file fields.
+      data.fieldValues.push({
+        id,
+        fileUploadValues: files[fieldName]
+      })
+    })
+
+    req.body = {
+      ...data
+    }
+
+    // Set content type header back to JSON.
+    req.headers['content-type'] = 'application/json'
+
+    next()
+  })
 }
