@@ -71,7 +71,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "formidable": "^1.2.2",
-    "formik": "^2.2.7",
+    "formik": "^2.2.8",
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.1",
