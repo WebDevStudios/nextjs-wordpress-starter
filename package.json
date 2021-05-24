@@ -62,7 +62,7 @@
     "chromatic": "^5.8.3",
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-jsdoc": "^34.8.2",
