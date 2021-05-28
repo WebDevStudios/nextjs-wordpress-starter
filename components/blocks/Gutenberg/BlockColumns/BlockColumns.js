@@ -24,7 +24,11 @@ export default function BlockColumns({options, innerBlocks}) {
         >
           {innerBlocks.map((block, index) => {
             return (
-              <div key={`column-${index}`}>
+              <div
+                key={`column-${index}`}
+                id={block?.attributes?.anchor}
+                className={block?.attributes?.className}
+              >
                 {!!block?.innerBlocks?.length && (
                   <Blocks blocks={block.innerBlocks} />
                 )}
