@@ -40,7 +40,10 @@ function NavigationMenu({menu}) {
             item.children && item.children.length > 0 ? item.children : ''
 
           return (
-            <li key={index}>
+            <li
+              key={index}
+              className={cn(children && children?.length ? 'has-children' : '')}
+            >
               <Link href={item.path}>
                 <a
                   target={item.target ? item.target : '_self'}
