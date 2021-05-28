@@ -20,7 +20,7 @@ The default separator is equal to the container width. To get a full width separ
 
 <Canvas>
   <Story name="Full Width">
-    <Separator fullWidth />
+    <Separator anchor="my-separator" className="custom-separator" fullWidth />
   </Story>
 </Canvas>
 
@@ -34,6 +34,8 @@ export const Template = (args) => <Separator {...args} />
   <Story
     name="Controls"
     args={{
+      anchor: 'my-separator',
+      className: 'custom-separator',
       fullWidth: false
     }}
   >
