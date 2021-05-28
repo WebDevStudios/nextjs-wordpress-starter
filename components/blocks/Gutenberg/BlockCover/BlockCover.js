@@ -17,7 +17,11 @@ export default function BlockCover({media, innerBlocks}) {
   return (
     <>
       {!!media?.url && (
-        <Hero backgroundImage={media} id={media?.anchor}>
+        <Hero
+          backgroundImage={media}
+          id={media?.anchor}
+          className={media?.className}
+        >
           {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
         </Hero>
       )}
@@ -28,6 +32,7 @@ export default function BlockCover({media, innerBlocks}) {
 BlockCover.propTypes = {
   media: PropTypes.shape({
     anchor: PropTypes.string,
+    className: PropTypes.string,
     url: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(
