@@ -27,42 +27,41 @@ function NavigationMenu({menu}) {
 
   return (
     <>
-      {!!menu & !!menu?.length &&
-        menu.map((item, index) => {
-          // Check for session-specific menu items.
-          if ((loading || isGuest) && item.path === '/profile') {
-            return
-          } else if ((loading || !isGuest) && item.path === '/login') {
-            return
-          }
+      {menu.map((item, index) => {
+        // Check for session-specific menu items.
+        if ((loading || isGuest) && item.path === '/profile') {
+          return
+        } else if ((loading || !isGuest) && item.path === '/login') {
+          return
+        }
 
-          const children =
-            item.children && item.children.length > 0 ? item.children : ''
+        const children =
+          item.children && item.children.length > 0 ? item.children : ''
 
-          return (
-            <li
-              key={index}
-              className={cn(children && children?.length ? 'has-children' : '')}
-            >
-              <Link href={item.path}>
-                <a
-                  target={item.target ? item.target : '_self'}
-                  className={cn(
-                    'nav-item',
-                    isLinkActive(asPath, item.path) && styles.active
-                  )}
-                >
-                  {item.label}
-                </a>
-              </Link>
-              {!!children && !!children.length && (
-                <ul>
-                  <NavigationMenu menu={children} />
-                </ul>
-              )}
-            </li>
-          )
-        })}
+        return (
+          <li
+            key={index}
+            className={cn(children && children?.length ? 'has-children' : '')}
+          >
+            <Link href={item.path}>
+              <a
+                target={item.target ? item.target : '_self'}
+                className={cn(
+                  'nav-item',
+                  isLinkActive(asPath, item.path) && styles.active
+                )}
+              >
+                {item.label}
+              </a>
+            </Link>
+            {!!children && !!children.length && (
+              <ul>
+                <NavigationMenu menu={children} />
+              </ul>
+            )}
+          </li>
+        )
+      })}
     </>
   )
 }
