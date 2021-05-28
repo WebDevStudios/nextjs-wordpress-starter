@@ -19,7 +19,7 @@
     }
 
     &.columns-3 {
-      @apply grid-cols-4;
+      @apply grid-cols-3;
     }
 
     &.columns-4 {
