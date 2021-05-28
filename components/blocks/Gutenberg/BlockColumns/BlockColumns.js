@@ -9,17 +9,17 @@ import PropTypes from 'prop-types'
  *
  * @author WebDevStudios
  * @param  {object}  props             The component properties.
- * @param  {object}  props.options     Option props object.
+ * @param  {object}  props.columns     Option props object.
  * @param  {object}  props.innerBlocks The array of inner blocks to display.
  * @return {Element}                   The Columns component.
  */
-export default function BlockColumns({options, innerBlocks}) {
+export default function BlockColumns({columns, innerBlocks}) {
   return (
     <>
       {!!innerBlocks?.length && (
         <Columns
-          id={options?.anchor}
-          className={options?.className}
+          id={columns?.anchor}
+          className={columns?.className}
           columnCount={innerBlocks?.length}
         >
           {innerBlocks.map((block, index) => {
@@ -42,7 +42,7 @@ export default function BlockColumns({options, innerBlocks}) {
 }
 
 BlockColumns.propTypes = {
-  options: PropTypes.shape({
+  columns: PropTypes.shape({
     anchor: PropTypes.string,
     className: PropTypes.string
   }),
