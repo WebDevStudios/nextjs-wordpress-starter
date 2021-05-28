@@ -1,4 +1,4 @@
-import Image from '@/components/atoms/Image'
+import DisplayImage from '@/components/atoms/Image'
 import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
@@ -31,11 +31,13 @@ export default function ImageGallery({
           <div className={cn(styles.wrap, styles[`columns-${columns}`])}>
             {images.map((image, index) => {
               return (
-                <Image
+                <DisplayImage
+                  className={styles.imageWrap}
                   key={index}
-                  url={image.url}
                   alt={image.alt}
                   id={image.id}
+                  imageMeta={{mediaItemUrl: image.url, altText: image.alt}}
+                  nextImageFill={true}
                 />
               )
             })}
