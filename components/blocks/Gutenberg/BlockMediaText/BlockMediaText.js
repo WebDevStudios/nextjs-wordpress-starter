@@ -18,6 +18,7 @@ export default function BlockMediaText({media, innerBlocks}) {
     <>
       {!!media && innerBlocks?.length && (
         <MediaText
+          id={media?.anchor}
           className={media?.className}
           mediaLeft={media?.mediaPosition === 'left' ? true : false}
           image={{url: media?.mediaUrl, alt: media?.mediaAlt}}

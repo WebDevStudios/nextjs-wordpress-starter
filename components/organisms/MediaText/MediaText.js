@@ -13,6 +13,7 @@ import styles from './MediaText.module.css'
  * @param  {Element} props.children  The child elements.
  * @param  {string}  props.className The className.
  * @param  {object}  props.cta       The cta object with text and url strings.
+ * @param  {string}  props.id        Optional element ID.
  * @param  {object}  props.image     The image object with url and alt text.
  * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
  * @param  {string}  props.title     The title.
@@ -23,6 +24,7 @@ export default function MediaText({
   children,
   className,
   cta,
+  id,
   image,
   mediaLeft,
   title
@@ -37,6 +39,7 @@ export default function MediaText({
 
   return (
     <section
+      id={id}
       className={cn(
         styles.mediaText,
         mediaLeft ? styles.mediaLeft : null,
@@ -86,6 +89,7 @@ MediaText.propTypes = {
     url: PropTypes.string,
     icon: PropTypes.string
   }),
+  id: PropTypes.string,
   image: PropTypes.shape({
     url: PropTypes.string,
     alt: PropTypes.string
