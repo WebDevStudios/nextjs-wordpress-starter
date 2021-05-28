@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
@@ -15,8 +16,10 @@ import styles from './Code.module.css'
  * @return {Element}                 The Code component.
  */
 export default function Code({id, className, content}) {
-  // Use the className to pass the langauge.
-  const language = className ? className : 'javascript'
+  const classNames = className.length ? className.split(' ') : []
+
+  // Use the first entry in className to pass the langauge.
+  const language = classNames.length ? classNames.shift() : 'javascript'
 
   /**
    * Replace any `&lt;` and `&gt; encoded HTML.
@@ -36,7 +39,10 @@ export default function Code({id, className, content}) {
   return (
     <>
       {!!content && (
-        <div id={id ? id : null} className={styles.code}>
+        <div
+          id={id ? id : null}
+          className={cn(styles.code, classNames.join(' '))}
+        >
           <SyntaxHighlighter style={tomorrow} language={language}>
             {codeFormatter(content)}
           </SyntaxHighlighter>
