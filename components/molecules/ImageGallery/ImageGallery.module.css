@@ -37,6 +37,16 @@
     & > div {
       @apply self-center;
     }
+
+    & .imageWrap {
+      @apply relative h-0 w-full;
+
+      padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
+    }
+
+    & img {
+      @apply absolute top-0 left-0 w-full h-full object-cover;
+    }
   }
 
   & .caption {
