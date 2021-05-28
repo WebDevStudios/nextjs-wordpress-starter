@@ -16,10 +16,10 @@ import styles from './Code.module.css'
  * @return {Element}                 The Code component.
  */
 export default function Code({id, className, content}) {
-  const classNames = className.length ? className.split(' ') : []
+  const classNames = className?.length ? className.split(' ') : []
 
   // Use the first entry in className to pass the langauge.
-  const language = classNames.length ? classNames.shift() : 'javascript'
+  const language = classNames?.length ? classNames.shift() : 'javascript'
 
   /**
    * Replace any `&lt;` and `&gt; encoded HTML.
