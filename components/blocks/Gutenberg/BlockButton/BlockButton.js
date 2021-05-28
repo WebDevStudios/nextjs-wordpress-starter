@@ -7,14 +7,14 @@ import PropTypes from 'prop-types'
  * The core Button block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props            The component properties.
- * @param {string} props.anchor     Optional anchor/id.
- * @param {string} props.className  Optional classnames.
- * @param {string} props.linkTarget The target for the link.
- * @param {string} props.rel        The rel attribute for the link.
- * @param {string} props.text       The link label.
- * @param {string} props.url        The link for the button.
- * @return {Element} The Button component.
+ * @param  {object}  props            The component properties.
+ * @param  {string}  props.anchor     Optional anchor/id.
+ * @param  {string}  props.className  Optional classnames.
+ * @param  {string}  props.linkTarget The target for the link.
+ * @param  {string}  props.rel        The rel attribute for the link.
+ * @param  {string}  props.text       The link label.
+ * @param  {string}  props.url        The link for the button.
+ * @return {Element}                  The Button component.
  */
 export default function BlockButton({
   anchor,

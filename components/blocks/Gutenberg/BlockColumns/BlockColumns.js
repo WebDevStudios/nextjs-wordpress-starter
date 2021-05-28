@@ -8,10 +8,10 @@ import PropTypes from 'prop-types'
  * The core Columns block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props             The component properties.
- * @param {object} props.options     Option props object.
- * @param {object} props.innerBlocks The array of inner blocks to display.
- * @return {Element}                 The Columns component.
+ * @param  {object}  props             The component properties.
+ * @param  {object}  props.options     Option props object.
+ * @param  {object}  props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                   The Columns component.
  */
 export default function BlockColumns({options, innerBlocks}) {
   return (

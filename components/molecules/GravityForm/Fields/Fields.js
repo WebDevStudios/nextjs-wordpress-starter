@@ -5,10 +5,10 @@ import * as GfFields from '.'
  * Render the Fields component.
  *
  * @author WebDevStudios
- * @param {object} props             The component attributes as props.
- * @param {Array}  props.fields      GravityForm fields data.
- * @param {object} props.formikProps Props available to Formik components.
- * @return {Element}                 The Fields component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {Array}   props.fields      GravityForm fields data.
+ * @param  {object}  props.formikProps Props available to Formik components.
+ * @return {Element}                   The Fields component.
  */
 export default function Fields({fields, formikProps}) {
   return (
@@ -47,8 +47,7 @@ export default function Fields({fields, formikProps}) {
               fieldToRender = <GfFields.Textarea {...field.node} key={id} />
               break
 
-            // TODO: re-add support for FileUploadField once file uploads are supported via WP GraphQL Gravity Forms.
-            /* case 'fileupload':
+            case 'fileupload':
               fieldToRender = (
                 <GfFields.File
                   {...field.node}
@@ -56,7 +55,7 @@ export default function Fields({fields, formikProps}) {
                   key={id}
                 />
               )
-              break */
+              break
 
             default:
               fieldToRender = (

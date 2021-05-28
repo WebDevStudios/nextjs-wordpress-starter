@@ -4,6 +4,12 @@ import registerUser from '@/functions/wordpress/auth/registerUser'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
+const LOGIN_ERRORS = {
+  INVALID_USERNAME: 'invalid_username',
+  INCORRECT_PASSWORD: 'incorrect_password',
+  INVALID_EMAIL: 'invalid_email'
+}
+
 const userFields = [
   'accessToken',
   'userId',
@@ -22,9 +28,9 @@ const userFields = [
  * `newObj`.
  *
  * @author WebDevStudios
- * @param {object} obj    Original object.
- * @param {object} source Source object where new data is present.
- * @return {object}       A new object containing the original data + new data.
+ * @param  {object} obj    Original object.
+ * @param  {object} source Source object where new data is present.
+ * @return {object}        A new object containing the original data + new data.
  */
 function populateObj(obj, source) {
   let newObj = {...obj}
@@ -44,8 +50,8 @@ function populateObj(obj, source) {
  * on user login or registration.
  *
  * @author WebDevStudios
- * @param {object} response Response from WP GraphQL.
- * @return {object}         User object.
+ * @param  {object} response Response from WP GraphQL.
+ * @return {object}          User object.
  */
 function createUserObj(response) {
   return {
@@ -78,8 +84,23 @@ const providers = [
       const {username, password} = credentials
       const response = await loginUser(username, password)
 
+      let errorMessage
       if (response.error) {
-        throw `/login?error=${response.errorMessage}`
+        switch (response.errorMessage) {
+          case LOGIN_ERRORS.INVALID_USERNAME:
+            errorMessage = 'Username does not exists in our records.'
+            break
+          case LOGIN_ERRORS.INCORRECT_PASSWORD:
+            errorMessage = 'Incorrect password.'
+            break
+          case LOGIN_ERRORS.INVALID_EMAIL:
+            errorMessage = 'Email address does not exists in our records.'
+            break
+          default:
+            errorMessage = 'Error occured during login. Please try again.'
+            break
+        }
+        throw new Error(errorMessage)
       }
 
       return createUserObj(response)
@@ -106,7 +127,7 @@ const providers = [
       })
 
       if (response.error) {
-        throw `/register?error=${response.errorMessage}`
+        throw new Error(response.errorMessage)
       }
 
       return createUserObj(response)

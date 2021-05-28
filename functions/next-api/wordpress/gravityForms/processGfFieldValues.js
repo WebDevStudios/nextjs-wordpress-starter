@@ -17,11 +17,10 @@
  * - TimeField
  *
  * @see https://github.com/harness-software/wp-graphql-gravity-forms#submit-a-form
- *
  * @author WebDevStudios
- * @param {object} entryData GF form entry data.
- * @param {object} fieldData GF form field config.
- * @return {Array}           Formatted GF field values.
+ * @param  {object} entryData GF form entry data.
+ * @param  {object} fieldData GF form field config.
+ * @return {Array}            Formatted GF field values.
  */
 export default function processGfFieldValues(entryData, fieldData) {
   const fieldValues = []
@@ -65,11 +64,16 @@ export default function processGfFieldValues(entryData, fieldData) {
       id: fieldId
     }
 
+    // Skip if empty/undefined value.
+    if (!entryData[fieldName]) {
+      return
+    }
+
     switch (field?.__typename) {
       case 'CheckboxField':
         fieldValue.checkboxValues = []
 
-        if (!entryData[fieldName] || !entryData[fieldName].length) {
+        if (!entryData[fieldName].length) {
           return
         }
 
@@ -91,12 +95,11 @@ export default function processGfFieldValues(entryData, fieldData) {
         fieldValue.value = entryData[fieldName]
         break
 
-      default:
-        // Skip if empty/undefined.
-        if (!entryData[fieldName]) {
-          return
-        }
+      case 'FileUploadField':
+        fieldValue.fileUploadValues = entryData[fieldName]
+        break
 
+      default:
         fieldValue.value = entryData[fieldName]
         break
     }

@@ -11,10 +11,10 @@ import styles from './Footer.module.css'
  * Render the Footer component.
  *
  * @author WebDevStudios
- * @param {object} props           The component attributes as props.
- * @param {object} props.social    Yoast SEO social media data.
- * @param {string} props.siteTitle Yoast SEO site title.
- * @return {Element}               The Footer component.
+ * @param  {object}  props           The component attributes as props.
+ * @param  {object}  props.social    Yoast SEO social media data.
+ * @param  {string}  props.siteTitle Yoast SEO site title.
+ * @return {Element}                 The Footer component.
  */
 export default function Footer({social, siteTitle}) {
   const {menus} = useWordPressContext()

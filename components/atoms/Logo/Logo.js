@@ -5,10 +5,10 @@ import React from 'react'
  * Render the Logo component.
  *
  * @author WebDevStudios
- * @param {object} props           Logo props.
- * @param {string} props.className Optional classname for the element.
- * @param {Array}  props.type      Type or style of the logo.
- * @return {Element}               The Logo component.
+ * @param  {object}  props           Logo props.
+ * @param  {string}  props.className Optional classname for the element.
+ * @param  {Array}   props.type      Type or style of the logo.
+ * @return {Element}                 The Logo component.
  */
 export default function Logo({className, type}) {
   // prettier-ignore

@@ -7,14 +7,14 @@ import styles from './Select.module.css'
  * Render the Select component.
  *
  * @author WebDevStudios
- * @param {object}  props             The component attributes as props.
- * @param {string}  props.className   Select wrapper className.
- * @param {string}  props.description Select description.
- * @param {string}  props.label       Select input label.
- * @param {string}  props.id          Select input id.
- * @param {boolean} props.isRequired  If input is required.
- * @param {Array}   props.options     Array of input options objects.
- * @return {Element}                  The Select component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {string}  props.className   Select wrapper className.
+ * @param  {string}  props.description Select description.
+ * @param  {string}  props.label       Select input label.
+ * @param  {string}  props.id          Select input id.
+ * @param  {boolean} props.isRequired  If input is required.
+ * @param  {Array}   props.options     Array of input options objects.
+ * @return {Element}                   The Select component.
  */
 export default function Select({
   className,

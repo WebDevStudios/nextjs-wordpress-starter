@@ -4,12 +4,12 @@ import {postTypes} from '@/lib/wordpress/_config/postTypes'
  * Format archive SEO data.
  *
  * @author WebDevStudios
- * @param {string} postType     WP post type.
- * @param {object} postsPageSeo WP posts page SEO data.
- * @param {object} defaultSeo   Formatted default SEO data.
- * @param {object} fallbackSeo  Fallback (hard-coded) archive SEO data.
- * @param {object} archiveSeo   Dynamic archive SEO data.
- * @return {object}             Formatted archive SEO data.
+ * @param  {string} postType     WP post type.
+ * @param  {object} postsPageSeo WP posts page SEO data.
+ * @param  {object} defaultSeo   Formatted default SEO data.
+ * @param  {object} fallbackSeo  Fallback (hard-coded) archive SEO data.
+ * @param  {object} archiveSeo   Dynamic archive SEO data.
+ * @return {object}              Formatted archive SEO data.
  */
 export default function formatArchiveSeoData(
   postType,
