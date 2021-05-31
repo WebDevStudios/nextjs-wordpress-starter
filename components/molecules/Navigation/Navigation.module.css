@@ -1,12 +1,11 @@
 .navigation {
-  & > ul {
+  & > ul.menu {
     @apply flex flex-wrap justify-center;
 
+    /* Top level navigation items */
     & > li {
-      @apply relative mx-8 mb-2;
-
       & a {
-        @apply block;
+        @apply flex flex-nowrap items-center w-full py-1 px-5;
 
         &:hover,
         &:focus {
@@ -18,34 +17,66 @@
         }
       }
 
-      &:hover,
-      &:focus-within {
-        & > ul {
-          @apply block;
+      &.hasChildren {
+        & > a {
+          @apply pr-2;
+        }
+
+        & .arrow {
+          @apply w-4 h-4 ml-2 flex items-center justify-center opacity-30 transform rotate-90;
         }
       }
 
       @screen lg {
         &:last-child {
-          @apply mr-0 mb-0;
+          & > a {
+            @apply pr-0;
+          }
         }
       }
     }
 
-    /* Nested ul / Drop Menu */
-    & ul {
-      @apply hidden absolute left-0 z-50 p-2 shadow-sm rounded border;
+    & li {
+      @apply relative;
 
-      top: 100%;
-      width: 220px;
-      background-color: #fff;
+      &:hover,
+      &:focus-within {
+        & > ul {
+          @apply opacity-100 visible;
+        }
+      }
+    }
+
+    /* Nested ul / Drop menu */
+    & ul.subMenu {
+      @apply opacity-0 invisible absolute left-0 top-full z-50 py-2 px-3 rounded border transition-all duration-150 ease-linear bg-white;
+
+      width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
       & > li {
-        @apply text-sm;
+        @apply text-sm flex flex-nowrap w-full items-center border-t border-opacity-5;
+
+        &:first-of-type {
+          @apply border-none;
+        }
 
         & > a {
-          @apply p-2;
+          @apply py-2 px-1;
         }
+
+        &.hasChildren {
+          & > a {
+            & > .arrow {
+              @apply rotate-0 ml-auto -mr-1;
+            }
+          }
+        }
+      }
+
+      /* 3rd Level */
+      & ul {
+        @apply top-0 left-full;
       }
     }
   }

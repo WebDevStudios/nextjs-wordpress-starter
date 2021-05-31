@@ -41,21 +41,25 @@ function NavigationMenu({menu}) {
         return (
           <li
             key={index}
-            className={cn(children && children?.length ? 'has-children' : '')}
+            className={cn(
+              children && children?.length ? styles.hasChildren : ''
+            )}
           >
             <Link href={item.path}>
               <a
                 target={item.target ? item.target : '_self'}
-                className={cn(
-                  'nav-item',
-                  isLinkActive(asPath, item.path) && styles.active
-                )}
+                className={cn(isLinkActive(asPath, item.path) && styles.active)}
               >
                 {item.label}
+                {children && children?.length && <Arrow />}
               </a>
             </Link>
+
             {!!children && !!children.length && (
-              <ul>
+              <ul
+                className={cn(styles.subMenu, styles[`subMenu${index + 1}`])}
+                id={index}
+              >
                 <NavigationMenu menu={children} />
               </ul>
             )}
@@ -84,7 +88,7 @@ export default function Navigation({menu, className}) {
     <>
       {!!menu?.length && (
         <nav className={cn(styles.navigation, className)}>
-          <ul>
+          <ul className={styles.menu}>
             <NavigationMenu menu={menu} />
           </ul>
         </nav>
@@ -96,4 +100,25 @@ export default function Navigation({menu, className}) {
 Navigation.propTypes = {
   className: PropTypes.string,
   menu: PropTypes.arrayOf(PropTypes.object)
+}
+
+/**
+ * Render the Sub menu arrow component.
+ *
+ * @author WebDevStudios
+ * @return {object} The Arrow component.
+ */
+function Arrow() {
+  return (
+    <span role="button" className={styles.arrow}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 0l12 12-12 12z" />
+      </svg>
+    </span>
+  )
 }
