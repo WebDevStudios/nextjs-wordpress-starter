@@ -9,12 +9,12 @@ import styles from './Quote.module.css'
  * The core Quote block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props           The component properties.
- * @param {string} props.value     The quote content of the block.
- * @param {string} props.citation  The optional author citation.
- * @param {string} props.id        Optional anchor/id.
- * @param {string} props.className Optional classnames.
- * @return {Element}               The Quote component.
+ * @param  {object}  props           The component properties.
+ * @param  {string}  props.value     The quote content of the block.
+ * @param  {string}  props.citation  The optional author citation.
+ * @param  {string}  props.id        Optional anchor/id.
+ * @param  {string}  props.className Optional classnames.
+ * @return {Element}                 The Quote component.
  */
 export default function Quote({value, citation, id, className}) {
   return (

@@ -7,13 +7,13 @@ import PropTypes from 'prop-types'
  * The core Image Gallery block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props           The component props.
- * @param {string} props.anchor    The anchor/id of the block.
- * @param {string} props.caption   The image caption.
- * @param {string} props.className The image class.
- * @param {number} props.columns   The amount of columns.
- * @param {Array}  props.images    The array of images.
- * @return {Element}               The ImageGallery component.
+ * @param  {object}  props           The component props.
+ * @param  {string}  props.anchor    The anchor/id of the block.
+ * @param  {string}  props.caption   The image caption.
+ * @param  {string}  props.className The image class.
+ * @param  {number}  props.columns   The amount of columns.
+ * @param  {Array}   props.images    The array of images.
+ * @return {Element}                 The ImageGallery component.
  */
 export default function BlockImageGallery({
   anchor,

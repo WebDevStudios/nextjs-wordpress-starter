@@ -11,11 +11,11 @@ import PropTypes from 'prop-types'
  * Render the Layout component.
  *
  * @author WebDevStudios
- * @param {object}  props           The component attributes as props.
- * @param {any}     props.children  Child component(s) to render.
- * @param {object}  props.seo       Yoast SEO data from WordPress.
- * @param {boolean} props.hasJsonLd Whether to render BlogJsonLd component.
- * @return {Element}                The Layout component.
+ * @param  {object}  props           The component attributes as props.
+ * @param  {any}     props.children  Child component(s) to render.
+ * @param  {object}  props.seo       Yoast SEO data from WordPress.
+ * @param  {boolean} props.hasJsonLd Whether to render BlogJsonLd component.
+ * @return {Element}                 The Layout component.
  */
 export default function Layout({children, seo, hasJsonLd}) {
   const {menus} = useWordPressContext()

@@ -4,17 +4,15 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './Footer.module.css'
 
-// TODO: Create Storybook for this component.
-
 /**
  * Render the Footer component.
  *
- * @author WebDevStudios
- * @param {object} props           The component attributes as props.
- * @param {object} props.social    Yoast SEO social media data.
- * @param {string} props.siteTitle Yoast SEO site title.
- * @param {object} props.menu      The footer menu object.
- * @return {Element}               The Footer component.
+ * @author                           WebDevStudios
+ * @param  {object}  props           The component attributes as props.
+ * @param  {object}  props.social    Yoast SEO social media data.
+ * @param  {object}  props.menu      Arrary of menu items.
+ * @param  {string}  props.siteTitle Yoast SEO site title.
+ * @return {Element}                 The Footer component.
  */
 export default function Footer({social, siteTitle, menu}) {
   return (

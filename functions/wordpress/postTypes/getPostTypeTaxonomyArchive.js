@@ -9,15 +9,15 @@ import {postTypes} from '@/lib/wordpress/_config/postTypes'
  * Retrieve post taxnomy archive.
  *
  * @author WebDevStudios
- * @param {string}  taxonomy   WP taxonomy type slug.
- * @param {string}  taxonomyId WP taxonomy term slug.
- * @param {string}  postType   WP post type.
- * @param {string}  orderBy    Order by: field.
- * @param {string}  order      Order by: direction.
- * @param {string}  cursor     Start/end cursor for pagination.
- * @param {boolean} getNext    Whether to retrieve next set of posts (true) or previous set (false).
- * @param {number}  perPage    Number of posts per page.
- * @return {object}            Object containing Apollo client instance and post archive data or error object.
+ * @param  {string}  taxonomy   WP taxonomy type slug.
+ * @param  {string}  taxonomyId WP taxonomy term slug.
+ * @param  {string}  postType   WP post type.
+ * @param  {string}  orderBy    Order by: field.
+ * @param  {string}  order      Order by: direction.
+ * @param  {string}  cursor     Start/end cursor for pagination.
+ * @param  {boolean} getNext    Whether to retrieve next set of posts (true) or previous set (false).
+ * @param  {number}  perPage    Number of posts per page.
+ * @return {object}             Object containing Apollo client instance and post archive data or error object.
  */
 export default async function getPostTypeTaxonomyArchive(
   taxonomy,

@@ -5,8 +5,8 @@ import {icons} from './icons'
 /**
  * Convert icon size to px taking rem into account.
  *
- * @param {string} size The icon size.
- * @return {string} The size in px.
+ * @param  {string} size The icon size.
+ * @return {string}      The size in px.
  */
 function sizeToPx(size) {
   const sizeToRem = {
@@ -21,14 +21,14 @@ function sizeToPx(size) {
 /**
  * Render the Icon component.
  *
- * @param {object}  props            The component attributes as props.
- * @param {boolean} props.ariaHidden If aria-hidden is true.
- * @param {string}  props.className  Icon className.
- * @param {string}  props.icon       Icon svg.
- * @param {string}  props.size       Icon size.
- * @param {string}  props.style      Icon style variation.
- * @param {string}  props.title      Icon title.
- * @return {Element}                 The Icon component.
+ * @param  {object}  props            The component attributes as props.
+ * @param  {boolean} props.ariaHidden If aria-hidden is true.
+ * @param  {string}  props.className  Icon className.
+ * @param  {string}  props.icon       Icon svg.
+ * @param  {string}  props.size       Icon size.
+ * @param  {string}  props.style      Icon style variation.
+ * @param  {string}  props.title      Icon title.
+ * @return {Element}                  The Icon component.
  */
 export default function Icon({
   ariaHidden,

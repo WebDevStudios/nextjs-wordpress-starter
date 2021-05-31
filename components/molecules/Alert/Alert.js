@@ -7,12 +7,12 @@ import styles from './Alert.module.css'
 /**
  * Render the Alert component.
  *
- * @param {object} props           Alert component props.
- * @param {string} props.body      Alert message.
- * @param {string} props.className Optional classNames.
- * @param {string} props.icon      Icon to use.
- * @param {string} props.type      The type of alert.
- * @return {Element}               The Alert component.
+ * @param  {object}  props           Alert component props.
+ * @param  {string}  props.body      Alert message.
+ * @param  {string}  props.className Optional classNames.
+ * @param  {string}  props.icon      Icon to use.
+ * @param  {string}  props.type      The type of alert.
+ * @return {Element}                 The Alert component.
  */
 export default function Alert({body, className, icon, type}) {
   return (

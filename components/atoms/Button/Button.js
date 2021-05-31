@@ -8,11 +8,11 @@ import styles from './Button.module.css'
 /**
  * Render the common inner part of the button component.
  *
- * @param {object}  props          The props object.
- * @param {string}  props.icon     Optional icon.
- * @param {boolean} props.iconOnly Whether this button is an icon only.
- * @param {string}  props.text     Button text or aria-label.
- * @return {Element}               The inside of the Button component.
+ * @param  {object}  props          The props object.
+ * @param  {string}  props.icon     Optional icon.
+ * @param  {boolean} props.iconOnly Whether this button is an icon only.
+ * @param  {string}  props.text     Button text or aria-label.
+ * @return {Element}                The inside of the Button component.
  */
 function ButtonInner({icon, iconOnly, text}) {
   return (
@@ -32,22 +32,22 @@ ButtonInner.propTypes = {
 }
 
 /**
- * @param {object}   props             The props object.
- * @param {string}   props.attributes  Optional attributes to add to the button.
- * @param {string}   props.tag         The wrapper tag.
- * @param {string}   props.className   Optional classNames.
- * @param {boolean}  props.disabled    Whether the button is disabled.
- * @param {boolean}  props.fluid       Whether the button should be full width.
- * @param {string}   props.icon        Icon to render inside the button.
- * @param {boolean}  props.iconOnly    Whether this button should render as an icon only button.
- * @param {string}   props.iconLeft    Whether to render the icon on the left.
- * @param {Function} props.onClick     Button onClick function.
- * @param {string}   props.size        Button size.
- * @param {string}   props.text        Button text.
- * @param {string}   props.type        Button type.
- * @param {string}   props.url         Button link url.
- * @param {boolean}  props.urlExternal Whether the url on this button links to an external site.
- * @return {Element}                   The button component.
+ * @param  {object}   props             The props object.
+ * @param  {string}   props.attributes  Optional attributes to add to the button.
+ * @param  {string}   props.tag         The wrapper tag.
+ * @param  {string}   props.className   Optional classNames.
+ * @param  {boolean}  props.disabled    Whether the button is disabled.
+ * @param  {boolean}  props.fluid       Whether the button should be full width.
+ * @param  {string}   props.icon        Icon to render inside the button.
+ * @param  {boolean}  props.iconOnly    Whether this button should render as an icon only button.
+ * @param  {string}   props.iconLeft    Whether to render the icon on the left.
+ * @param  {Function} props.onClick     Button onClick function.
+ * @param  {string}   props.size        Button size.
+ * @param  {string}   props.text        Button text.
+ * @param  {string}   props.type        Button type.
+ * @param  {string}   props.url         Button link url.
+ * @param  {boolean}  props.urlExternal Whether the url on this button links to an external site.
+ * @return {Element}                    The button component.
  */
 export default function Button({
   attributes,
