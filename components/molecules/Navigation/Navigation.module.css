@@ -47,12 +47,12 @@
       }
     }
 
-    /* Nested ul / Drop menu */
+    /* Sub Menu / Drop Menus */
     & ul.subMenu {
-      @apply opacity-0 invisible absolute left-0 top-full z-50 py-2 px-3 rounded border transition-all duration-150 ease-linear bg-white;
+      @apply opacity-0 invisible absolute left-1 top-full z-50 p-2 rounded transition-all duration-150 ease-linear bg-white border;
 
       width: 180px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.075);
 
       & > li {
         @apply text-sm flex flex-nowrap w-full items-center border-t border-opacity-5;
@@ -62,7 +62,7 @@
         }
 
         & > a {
-          @apply py-2 px-1;
+          @apply p-2;
         }
 
         &.hasChildren {
@@ -77,6 +77,11 @@
       /* 3rd Level */
       & ul {
         @apply top-0 left-full;
+
+        /* Hide 4th level + */
+        & ul {
+          @apply hidden;
+        }
       }
     }
   }
