@@ -39,7 +39,7 @@
     "wpe-build": "next build"
   },
   "dependencies": {
-    "next": "10.2.2",
+    "next": "10.2.3",
     "next-auth": "^3.23.3",
     "next-connect": "^0.10.1",
     "react": "17.0.2",
