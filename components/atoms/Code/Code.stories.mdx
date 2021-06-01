@@ -10,7 +10,10 @@ Use this component to display a code block.
 
 <Canvas>
   <Story name="Component">
-    <Code content="<p>this is a code block!</p>" />
+    <Code
+      content="<p>this is a code block!</p>"
+      className="html custom-class"
+    />
   </Story>
 </Canvas>
 
@@ -25,7 +28,7 @@ export const Template = (args) => <Code {...args} />
     name="Controls"
     args={{
       content: '<p>this is a code block!</p>',
-      className: 'html'
+      className: 'html custom-class'
     }}
   >
     {Template.bind({})}

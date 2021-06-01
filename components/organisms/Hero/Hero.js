@@ -14,6 +14,7 @@ import styles from './Hero.module.css'
  * @param  {any}     props.children        InnerBlocks.
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
+ * @param  {string}  props.id              Optional element ID.
  * @param  {string}  props.subtitle        Text for the subtitle.
  * @param  {string}  props.title           Text for the title.
  * @return {Element}                       The Hero component.
@@ -25,11 +26,13 @@ export default function Hero({
   children,
   ctaText,
   ctaUrl,
+  id,
   subtitle,
   title
 }) {
   return (
     <section
+      id={id}
       className={cn(styles.hero, className)}
       style={{
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
@@ -65,6 +68,7 @@ Hero.propTypes = {
   children: PropTypes.any,
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
+  id: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string
 }
