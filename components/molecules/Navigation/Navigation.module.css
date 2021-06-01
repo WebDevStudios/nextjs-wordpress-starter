@@ -77,11 +77,6 @@
       /* 3rd Level */
       & ul {
         @apply top-0 left-full;
-
-        /* Hide 4th level + */
-        & ul {
-          @apply hidden;
-        }
       }
     }
   }
