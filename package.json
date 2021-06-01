@@ -57,7 +57,7 @@
     "@storybook/react": "^6.3.0-alpha.36",
     "algoliasearch": "^4.9.1",
     "apollo-link-rest": "^0.8.0-beta.0",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.8.3",
     "dayjs": "^1.10.5",
