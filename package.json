@@ -52,7 +52,7 @@
     "@next/bundle-analyzer": "^10.2.2",
     "@storybook/addon-a11y": "^6.3.0-alpha.36",
     "@storybook/addon-essentials": "^6.3.0-alpha.36",
-    "@storybook/addon-links": "^6.3.0-alpha.36",
+    "@storybook/addon-links": "^6.3.0-beta.6",
     "@storybook/builder-webpack5": "^6.3.0-alpha.36",
     "@storybook/react": "^6.3.0-alpha.36",
     "algoliasearch": "^4.9.1",
