@@ -9,7 +9,7 @@ import styles from './Navigation.module.css'
 /**
  * Render the Navigation component.
  *
- * @author WebDevStudios
+ * @author                           WebDevStudios
  * @param  {object}  props           Navigation props.
  * @param  {Array}   props.menu      Array of menu items.
  * @param  {string}  props.className Optional classname for the element.
