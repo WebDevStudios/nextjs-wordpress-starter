@@ -7,22 +7,32 @@ import PropTypes from 'prop-types'
  * The core Button block from Gutenberg.
  *
  * @author WebDevStudios
- * @param  {object}  props            The component properties.
- * @param  {string}  props.anchor     Optional anchor/id.
- * @param  {string}  props.className  Optional classnames.
- * @param  {string}  props.linkTarget The target for the link.
- * @param  {string}  props.rel        The rel attribute for the link.
- * @param  {string}  props.text       The link label.
- * @param  {string}  props.url        The link for the button.
- * @return {Element}                  The Button component.
+ * @param  {object}  props                    The component properties.
+ * @param  {string}  props.anchor             Optional anchor/id.
+ * @param  {string}  props.backgroundColorHex The background color hex value.
+ * @param  {number}  props.borderRadius       The border radius in pixels.
+ * @param  {string}  props.className          Optional classnames.
+ * @param  {string}  props.linkTarget         The target for the link.
+ * @param  {string}  props.rel                The rel attribute for the link.
+ * @param  {object}  props.style              The style attributes.
+ * @param  {string}  props.text               The link label.
+ * @param  {string}  props.textColorHex       The text color hex value.
+ * @param  {string}  props.url                The link for the button.
+ * @param  {number}  props.width              The width in percent.
+ * @return {Element}                          The Button component.
  */
 export default function BlockButton({
   anchor,
+  backgroundColorHex,
+  borderRadius,
   className,
   linkTarget,
   rel,
+  style,
   text,
-  url
+  textColorHex,
+  url,
+  width
 }) {
   return (
     <Button
@@ -41,9 +51,14 @@ export default function BlockButton({
 
 BlockButton.propTypes = {
   anchor: PropTypes.string,
+  backgroundColorHex: PropTypes.string,
+  border: PropTypes.number,
   className: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
+  style: PropTypes.object,
   text: PropTypes.string,
-  url: PropTypes.string
+  textColorHex: PropTypes.string,
+  url: PropTypes.string,
+  width: PropTypes.number
 }
