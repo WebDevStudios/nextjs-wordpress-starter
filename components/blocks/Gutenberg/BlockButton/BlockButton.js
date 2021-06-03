@@ -34,17 +34,30 @@ export default function BlockButton({
   url,
   width
 }) {
+  // Determine background and text colors, using stylelint-accepted const names.
+  const backgroundcolor =
+    backgroundColorHex || style?.color?.background || 'inherit'
+  const textcolor = textColorHex || style?.color?.text || 'inherit'
+
+  // Create style object for button.
+  const buttonStyle = {
+    background: style?.color?.gradient || 'inherit',
+    backgroundColor: backgroundcolor,
+    color: textcolor
+  }
+
   return (
     <Button
-      className={className}
-      text={text}
-      url={url}
-      urlExternal={true}
       attributes={{
         id: anchor || null,
         target: linkTarget || null,
         rel: rel || null
       }}
+      className={className}
+      style={buttonStyle}
+      text={text}
+      url={url}
+      urlExternal={true}
     />
   )
 }
