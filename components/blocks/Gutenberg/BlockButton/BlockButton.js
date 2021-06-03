@@ -48,6 +48,12 @@ export default function BlockButton({
     width: width ? `${width}%` : 'auto'
   }
 
+  // Extract button style.
+  const styleOutline = className.includes('is-style-outline')
+
+  // Remove styles from className.
+  className.replace('is-style-outline', '').replace('is-style-fill', '')
+
   return (
     <Button
       attributes={{
@@ -57,6 +63,7 @@ export default function BlockButton({
       }}
       className={className}
       style={buttonStyle}
+      styleOutline={styleOutline}
       text={text}
       url={url}
       urlExternal={true}
