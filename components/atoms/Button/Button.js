@@ -149,7 +149,8 @@ Button.propTypes = {
     background: PropTypes.string,
     backgroundColor: PropTypes.string,
     borderRadius: PropTypes.string,
-    color: PropTypes.string
+    color: PropTypes.string,
+    width: PropTypes.string
   }),
   tag: PropTypes.string,
   text: PropTypes.string.isRequired,

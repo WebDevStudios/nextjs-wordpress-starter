@@ -44,7 +44,8 @@ export default function BlockButton({
     background: style?.color?.gradient || 'inherit',
     backgroundColor: backgroundcolor,
     borderRadius: `${borderRadius}px`,
-    color: textcolor
+    color: textcolor,
+    width: width ? `${width}%` : 'auto'
   }
 
   return (
