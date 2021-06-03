@@ -16,13 +16,13 @@ import {initializeWpApollo} from '@/lib/wordpress/connector'
  * with this query.
  *
  * @author WebDevStudios
- * @param {string} token       Logged-in user auth token.
- * @param {number} postId      Database ID for the post being commented on.
- * @param {string} content     Content of the comment.
- * @param {string} author      Name of the comment author.
- * @param {string} authorEmail Email for the comment author.
- * @param {string} authorUrl   URL/website for the comment author.
- * @return {object}            Comment data or error object.
+ * @param  {string} token       Logged-in user auth token.
+ * @param  {number} postId      Database ID for the post being commented on.
+ * @param  {string} content     Content of the comment.
+ * @param  {string} author      Name of the comment author.
+ * @param  {string} authorEmail Email for the comment author.
+ * @param  {string} authorUrl   URL/website for the comment author.
+ * @return {object}             Comment data or error object.
  */
 export default async function insertPostComment(
   token,

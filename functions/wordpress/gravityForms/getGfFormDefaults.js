@@ -3,8 +3,8 @@ import getGfFieldId from '@/functions/wordpress/gravityForms/getGfFieldId'
 /**
  * Assign default values for GravityForm Checkboxes.
  *
- * @param {Array} checkboxes Array of checkbox data Objects.
- * @return {Array}           Array of isSelected checkbox values.
+ * @param  {Array} checkboxes Array of checkbox data Objects.
+ * @return {Array}            Array of isSelected checkbox values.
  */
 function getCheckboxDefaults(checkboxes) {
   let checkboxDefault = []
@@ -28,8 +28,8 @@ function getCheckboxDefaults(checkboxes) {
 /**
  * Assign default values for GravityForm Select.
  *
- * @param {Array} options Array of select option data Objects.
- * @return {string}       Select option value that is selected.
+ * @param  {Array}  options Array of select option data Objects.
+ * @return {string}         Select option value that is selected.
  */
 function getSelectDefaults(options) {
   let selectDefault = ''
@@ -54,8 +54,8 @@ function getSelectDefaults(options) {
  * Match field type with a default value.
  *
  * @author WebDevStudios
- * @param {object} fieldData GravityForm field props.
- * @return {any}             Field default value.
+ * @param  {object} fieldData GravityForm field props.
+ * @return {any}              Field default value.
  */
 function getFieldDefaultByType(fieldData) {
   // Setup field data default
@@ -80,8 +80,8 @@ function getFieldDefaultByType(fieldData) {
 /**
  * Map field GravityForm ids and defaults to Object.
  *
- * @param {Array} fields Array of fields.
- * @return {object}      Default field values.
+ * @param  {Array}  fields Array of fields.
+ * @return {object}        Default field values.
  */
 export default function getGfFormDefaults(fields) {
   const formDefaults = {}

@@ -8,23 +8,27 @@ import PropTypes from 'prop-types'
  * The core Columns block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props             The component properties.
- * @param {object} props.options     Option props object.
- * @param {object} props.innerBlocks The array of inner blocks to display.
- * @return {Element}                 The Columns component.
+ * @param  {object}  props             The component properties.
+ * @param  {object}  props.columns     Option props object.
+ * @param  {object}  props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                   The Columns component.
  */
-export default function BlockColumns({options, innerBlocks}) {
+export default function BlockColumns({columns, innerBlocks}) {
   return (
     <>
       {!!innerBlocks?.length && (
         <Columns
-          id={options?.anchor}
-          className={options?.className}
+          id={columns?.anchor}
+          className={columns?.className}
           columnCount={innerBlocks?.length}
         >
           {innerBlocks.map((block, index) => {
             return (
-              <div key={`column-${index}`}>
+              <div
+                key={`column-${index}`}
+                id={block?.attributes?.anchor}
+                className={block?.attributes?.className}
+              >
                 {!!block?.innerBlocks?.length && (
                   <Blocks blocks={block.innerBlocks} />
                 )}
@@ -38,7 +42,7 @@ export default function BlockColumns({options, innerBlocks}) {
 }
 
 BlockColumns.propTypes = {
-  options: PropTypes.shape({
+  columns: PropTypes.shape({
     anchor: PropTypes.string,
     className: PropTypes.string
   }),

@@ -1,4 +1,5 @@
 import Form from '@/components/molecules/Form'
+import processGfFormSubmission from '@/functions/next-api/wordpress/gravityForms/processGfFormSubmission'
 import getGfFormDefaults from '@/functions/wordpress/gravityForms/getGfFormDefaults'
 import getGfFormValidationSchema from '@/functions/wordpress/gravityForms/getGfFormValidationSchema'
 import cn from 'classnames'
@@ -10,24 +11,41 @@ import styles from './GravityForm.module.css'
 /**
  * Render the GravityForm component.
  *
- * @param {object} props                      The GravityForm block attributes as props.
- * @param {object} props.formData             GravityForm form data.
- * @param {string} props.formData.cssClass    GravityForm form classname.
- * @param {string} props.formData.description GravityForm form description.
- * @param {object} props.formData.fields      GravityForm form fields.
- * @param {number} props.formData.formId      GravityForm form id.
- * @param {string} props.formData.title       GravityForm form title.
- * @return {Element}                          The GravityForm component.
+ * @param  {object}  props                      The GravityForm block attributes as props.
+ * @param  {object}  props.formData             GravityForm form data.
+ * @param  {string}  props.formData.cssClass    GravityForm form classname.
+ * @param  {string}  props.formData.description GravityForm form description.
+ * @param  {object}  props.formData.formFields  GravityForm form fields.
+ * @param  {number}  props.formData.formId      GravityForm form id.
+ * @param  {string}  props.formData.title       GravityForm form title.
+ * @return {Element}                            The GravityForm component.
  */
 export default function GravityForm({
-  formData: {cssClass, description, fields, formId, title}
+  formData: {cssClass, description, formFields, formId, title}
 }) {
   // Setup form defaults and validation based on GravityForm field data.
-  const fieldData = fields?.edges
+  const fieldData = formFields?.edges
   const formValidationSchema = getGfFormValidationSchema(fieldData)
   const fieldDefaults = getGfFormDefaults(fieldData)
 
   const [formFeedback, setFeedback] = useState(false)
+
+  /**
+   * Handle form submission.
+   *
+   * @author WebDevStudios
+   * @param {object} values Form values.
+   */
+  async function handleFormSubmission(values) {
+    const response = await processGfFormSubmission(formId, values, formFields)
+
+    if (response?.error) {
+      setFeedback(response.errorMessage)
+      return
+    }
+
+    setFeedback(response.confirmationMessage)
+  }
 
   return (
     <Form
@@ -35,53 +53,7 @@ export default function GravityForm({
       formDefaults={fieldDefaults}
       id={formId && `gform-${formId}`}
       validationSchema={formValidationSchema}
-      onSubmit={async (values) => {
-        const wpBaseRequest = await fetch('/api/wordpress/getWPUrl')
-        const wpBaseObject = await wpBaseRequest.json()
-        const wpBase = wpBaseObject.wpApiUrlBase
-
-        const formApiUrl = `${wpBase}wp-json/gf/v2/forms/${formId}/submissions`
-        const formData = new FormData()
-        const formKeys = Object.keys(values)
-
-        formData.append('form_id', formId)
-
-        formKeys.forEach((key) => {
-          let fieldName = key.replaceAll('-', '_')
-          if (fieldName.endsWith('_filedata')) {
-            fieldName = fieldName.slice(0, -9)
-          }
-          fieldName = fieldName.replaceAll('field_', 'input_')
-
-          switch (typeof values[key]) {
-            case 'undefined':
-              break
-            case 'object':
-              if (values[key] instanceof Array) {
-                values[key].forEach((arrayFieldValue, index) => {
-                  formData.append(`${fieldName}_${index + 1}`, arrayFieldValue)
-                })
-              } else {
-                formData.append(fieldName, values[key])
-              }
-              break
-            default:
-              formData.append(fieldName, values[key])
-              break
-          }
-        })
-
-        fetch(formApiUrl, {
-          method: 'POST',
-          mimeType: 'multipart/form-data',
-          body: formData
-        })
-          .then((response) => response.json())
-          .then((feedback) => setFeedback(feedback.confirmation_message))
-          .catch((error) => {
-            setFeedback(`Error in form submission: ${error.message}`)
-          })
-      }}
+      onSubmit={handleFormSubmission}
     >
       {(formikProps) => (
         <>
@@ -104,7 +76,7 @@ GravityForm.propTypes = {
   formData: PropTypes.shape({
     cssClass: PropTypes.string,
     description: PropTypes.string,
-    fields: PropTypes.object,
+    formFields: PropTypes.object,
     formId: PropTypes.number,
     title: PropTypes.string
   })

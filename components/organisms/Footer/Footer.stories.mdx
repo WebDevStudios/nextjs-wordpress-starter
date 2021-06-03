@@ -1,0 +1,52 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Footer from './'
+
+<Meta title="Components/Molecules/Footer" component={Footer} />
+
+# Component
+
+Use this to display the footer.
+
+<Canvas>
+  <Story name="Component">
+    <Footer
+      menu={[
+        {
+          label: 'Home',
+          path: '/',
+          target: null
+        },
+        {
+          label: 'Blog',
+          path: '/blog',
+          target: null
+        },
+        {
+          label: 'About',
+          path: '/about/',
+          target: null
+        },
+        {
+          label: 'Contact',
+          path: '/contact/',
+          target: null
+        },
+        {
+          label: 'Team',
+          path: '/team',
+          target: null
+        }
+      ]}
+      social={{
+        facebook: 'https://www.facebook.com/webdevstudios',
+        instagram: 'https://instagram.com/webdevstudios',
+        linkedIn: 'https://www.linkedin.com/company/webdevstudios-llc-/',
+        mySpace: '',
+        pinterest: '',
+        twitter: 'https://twitter.com/webdevstudios',
+        wikipedia: '',
+        youTube: ''
+      }}
+    />
+  </Story>
+</Canvas>

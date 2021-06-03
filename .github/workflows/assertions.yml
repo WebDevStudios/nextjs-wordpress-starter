@@ -33,10 +33,10 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Install dependencies
-        run: npm i --legacy-peer-deps --ignore-scripts --no-fund --no-audit --quiet
+        run: npm ci
 
       - name: Lint JavaScript
-        run: npx eslint ./ --config=.eslintrc.js --no-color --env-info
+        run: npx eslint '**/*.{js,jsx,ts,tsx}' --config=.eslintrc.js
 
       - name: Lint CSS
-        run: npx stylelint '**/*.css' --config=stylelint.config.js --no-color --version
+        run: npx stylelint '**/*.{css,scss}' --config=stylelint.config.js

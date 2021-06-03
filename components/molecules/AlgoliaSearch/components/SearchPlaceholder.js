@@ -8,10 +8,10 @@ import SearchIcon from './SearchIcon'
  * Note: the `Search` component is loaded using Dynamic Imports.
  *
  * @author WebDevStudios
- * @param {object}   props               The component attributes as props.
- * @param {Function} props.toggleAlgolia Toggle the Search component.
- * @param {string}   props.query         The search query.
- * @return {Element} The SearchPlaceholder component.
+ * @param  {object}   props               The component attributes as props.
+ * @param  {Function} props.toggleAlgolia Toggle the Search component.
+ * @param  {string}   props.query         The search query.
+ * @return {Element}                      The SearchPlaceholder component.
  */
 export default function SearchPlaceholder({toggleAlgolia, query}) {
   return (

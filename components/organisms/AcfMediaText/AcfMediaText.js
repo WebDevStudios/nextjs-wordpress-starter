@@ -9,16 +9,16 @@ import styles from './AcfMediaText.module.css'
 /**
  * Render the AcfMediaText component.
  *
- * @param {object}  props           AcfMediaText component props.
- * @param {string}  props.body      The body text.
- * @param {string}  props.className The className.
- * @param {object}  props.ctaText   The cta text.
- * @param {object}  props.ctaUrl    The cta url.
- * @param {object}  props.image     The image ID.
- * @param {object}  props.imageMeta The image object with url and details.
- * @param {boolean} props.mediaLeft Whether to show media on the left of the text.
- * @param {string}  props.title     The title.
- * @return {Element}                The AcfMediaText component.
+ * @param  {object}  props           AcfMediaText component props.
+ * @param  {string}  props.body      The body text.
+ * @param  {string}  props.className The className.
+ * @param  {object}  props.ctaText   The cta text.
+ * @param  {object}  props.ctaUrl    The cta url.
+ * @param  {object}  props.image     The image ID.
+ * @param  {object}  props.imageMeta The image object with url and details.
+ * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
+ * @param  {string}  props.title     The title.
+ * @return {Element}                 The AcfMediaText component.
  */
 export default function AcfMediaText({
   body,

@@ -8,16 +8,20 @@ import PropTypes from 'prop-types'
  * The core Columns block from Gutenberg.
  *
  * @author WebDevStudios
- * @param {object} props             The component properties.
- * @param {object} props.media       Media props object.
- * @param {Array}  props.innerBlocks The array of inner blocks to display.
- * @return {Element}                 The Cover component.
+ * @param  {object}  props             The component properties.
+ * @param  {object}  props.media       Media props object.
+ * @param  {Array}   props.innerBlocks The array of inner blocks to display.
+ * @return {Element}                   The Cover component.
  */
 export default function BlockCover({media, innerBlocks}) {
   return (
     <>
       {!!media?.url && (
-        <Hero backgroundImage={media} id={media?.anchor}>
+        <Hero
+          backgroundImage={media}
+          id={media?.anchor}
+          className={media?.className}
+        >
           {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
         </Hero>
       )}
@@ -28,6 +32,7 @@ export default function BlockCover({media, innerBlocks}) {
 BlockCover.propTypes = {
   media: PropTypes.shape({
     anchor: PropTypes.string,
+    className: PropTypes.string,
     url: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(

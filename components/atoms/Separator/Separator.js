@@ -7,24 +7,26 @@ import styles from './Separator.module.css'
  * Render the Separator component.
  *
  * @author WebDevStudios
- * @param {object}  props           The component properties.
- * @param {string}  props.className Optional classname.
- * @param {boolean} props.fullWidth Is this a fullwidth block.
- * @return {Element}                The Separator component.
+ * @param  {object}  props           The component properties.
+ * @param  {string}  props.anchor    Optional anchor/id.
+ * @param  {string}  props.className Optional classname.
+ * @param  {boolean} props.fullWidth Is this a fullwidth block.
+ * @return {Element}                 The Separator component.
  */
-export default function Separator({className, fullWidth}) {
+export default function Separator({anchor, className, fullWidth}) {
   return (
     <>
       {fullWidth ? (
-        <hr className={cn(styles.separator, className)} />
+        <hr id={anchor} className={cn(styles.separator, className)} />
       ) : (
-        <hr className={cn(styles.separator, className)} />
+        <hr id={anchor} className={cn(styles.separator, className)} />
       )}
     </>
   )
 }
 
 Separator.propTypes = {
+  anchor: PropTypes.string,
   className: PropTypes.string,
   fullWidth: PropTypes.bool.isRequired
 }

@@ -11,9 +11,9 @@ const postType = 'page'
  * Render the HomePage component.
  *
  * @author WebDevStudios
- * @param {object} props      The component attributes as props.
- * @param {object} props.post Post data from WordPress.
- * @return {Element}          The HomePage component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The HomePage component.
  */
 export default function HomePage({post}) {
   const {seo, ...postData} = post

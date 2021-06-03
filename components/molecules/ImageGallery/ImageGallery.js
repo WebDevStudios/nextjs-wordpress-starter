@@ -1,4 +1,4 @@
-import Image from '@/components/atoms/Image'
+import DisplayImage from '@/components/atoms/Image'
 import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
@@ -9,13 +9,13 @@ import styles from './ImageGallery.module.css'
  * Render the ImageGallery component.
  *
  * @author WebDevStudios
- * @param {object} props           The component properties.
- * @param {string} props.anchor    The anchor/id of the block.
- * @param {string} props.caption   The image caption.
- * @param {string} props.className The image class.
- * @param {number} props.columns   The amount of columns.
- * @param {Array}  props.images    The array of images.
- * @return {Element}               The ImageGallery component.
+ * @param  {object}  props           The component properties.
+ * @param  {string}  props.anchor    The anchor/id of the block.
+ * @param  {string}  props.caption   The image caption.
+ * @param  {string}  props.className The image class.
+ * @param  {number}  props.columns   The amount of columns.
+ * @param  {Array}   props.images    The array of images.
+ * @return {Element}                 The ImageGallery component.
  */
 export default function ImageGallery({
   anchor,
@@ -31,11 +31,13 @@ export default function ImageGallery({
           <div className={cn(styles.wrap, styles[`columns-${columns}`])}>
             {images.map((image, index) => {
               return (
-                <Image
+                <DisplayImage
+                  className={styles.imageWrap}
                   key={index}
-                  url={image.url}
                   alt={image.alt}
                   id={image.id}
+                  imageMeta={{mediaItemUrl: image.url, altText: image.alt}}
+                  nextImageFill={true}
                 />
               )
             })}
