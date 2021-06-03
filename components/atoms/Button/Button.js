@@ -148,6 +148,7 @@ Button.propTypes = {
   style: PropTypes.shape({
     background: PropTypes.string,
     backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.string,
     color: PropTypes.string
   }),
   tag: PropTypes.string,

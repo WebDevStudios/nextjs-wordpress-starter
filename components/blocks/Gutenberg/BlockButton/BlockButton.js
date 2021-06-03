@@ -43,6 +43,7 @@ export default function BlockButton({
   const buttonStyle = {
     background: style?.color?.gradient || 'inherit',
     backgroundColor: backgroundcolor,
+    borderRadius: `${borderRadius}px`,
     color: textcolor
   }
 
@@ -65,7 +66,7 @@ export default function BlockButton({
 BlockButton.propTypes = {
   anchor: PropTypes.string,
   backgroundColorHex: PropTypes.string,
-  border: PropTypes.number,
+  borderRadius: PropTypes.number,
   className: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
