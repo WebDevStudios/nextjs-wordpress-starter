@@ -42,6 +42,7 @@ ButtonInner.propTypes = {
  * @param  {string}   props.iconLeft    Whether to render the icon on the left.
  * @param  {Function} props.onClick     Button onClick function.
  * @param  {string}   props.size        Button size.
+ * @param  {object}   props.style       Custom button styles.
  * @param  {string}   props.tag         The wrapper tag.
  * @param  {string}   props.text        Button text.
  * @param  {string}   props.type        Button type.
@@ -59,6 +60,7 @@ export default function Button({
   iconLeft,
   onClick,
   size,
+  style,
   tag,
   text,
   type,
@@ -82,6 +84,7 @@ export default function Button({
         href={url}
         className={buttonClassNames}
         aria-label={text}
+        style={style}
         {...attributes}
       >
         <ButtonInner
@@ -93,7 +96,12 @@ export default function Button({
       </a>
     ) : (
       <NextLink href={url}>
-        <a className={buttonClassNames} aria-label={text} {...attributes}>
+        <a
+          className={buttonClassNames}
+          aria-label={text}
+          style={style}
+          {...attributes}
+        >
           <ButtonInner
             icon={icon}
             iconOnly={iconOnly}
@@ -113,7 +121,8 @@ export default function Button({
           'aria-label': text,
           onClick,
           ...attributes,
-          disabled
+          disabled,
+          style
         },
         <ButtonInner
           icon={icon}
@@ -136,6 +145,11 @@ Button.propTypes = {
   iconLeft: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  style: PropTypes.shape({
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string
+  }),
   tag: PropTypes.string,
   text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['primary', 'secondary']),
