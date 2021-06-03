@@ -49,10 +49,11 @@ export default function BlockButton({
   }
 
   // Extract button style.
-  const styleOutline = className.includes('is-style-outline')
+  const styleOutline = className && className.includes('is-style-outline')
 
   // Remove styles from className.
-  className.replace('is-style-outline', '').replace('is-style-fill', '')
+  className &&
+    className.replace('is-style-outline', '').replace('is-style-fill', '')
 
   return (
     <Button
