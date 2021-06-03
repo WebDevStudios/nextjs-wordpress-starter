@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/tests/e2e/test_wordpress
 
 # next.js
 /.next/
@@ -30,6 +31,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.test
 wpe.json
 
 # storybook
