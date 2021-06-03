@@ -34,7 +34,6 @@ ButtonInner.propTypes = {
 /**
  * @param  {object}   props             The props object.
  * @param  {string}   props.attributes  Optional attributes to add to the button.
- * @param  {string}   props.tag         The wrapper tag.
  * @param  {string}   props.className   Optional classNames.
  * @param  {boolean}  props.disabled    Whether the button is disabled.
  * @param  {boolean}  props.fluid       Whether the button should be full width.
@@ -43,6 +42,7 @@ ButtonInner.propTypes = {
  * @param  {string}   props.iconLeft    Whether to render the icon on the left.
  * @param  {Function} props.onClick     Button onClick function.
  * @param  {string}   props.size        Button size.
+ * @param  {string}   props.tag         The wrapper tag.
  * @param  {string}   props.text        Button text.
  * @param  {string}   props.type        Button type.
  * @param  {string}   props.url         Button link url.
@@ -51,7 +51,6 @@ ButtonInner.propTypes = {
  */
 export default function Button({
   attributes,
-  tag,
   className,
   disabled,
   fluid,
@@ -60,6 +59,7 @@ export default function Button({
   iconLeft,
   onClick,
   size,
+  tag,
   text,
   type,
   url,
