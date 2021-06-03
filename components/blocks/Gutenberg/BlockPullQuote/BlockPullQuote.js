@@ -8,13 +8,13 @@ import PropTypes from 'prop-types'
  *
  * @author WebDevStudios
  * @param  {object}  props           The component props.
- * @param  {string}  props.value     The quote content of the block.
- * @param  {string}  props.citation  The optional author citation.
  * @param  {string}  props.anchor    Optional anchor/id.
+ * @param  {string}  props.citation  The optional author citation.
  * @param  {string}  props.className Optional classnames.
+ * @param  {string}  props.value     The quote content of the block.
  * @return {Element}                 The Quote component.
  */
-export default function BlockPullQuote({value, citation, anchor, className}) {
+export default function BlockPullQuote({anchor, citation, className, value}) {
   return (
     <PullQuote
       id={anchor}
@@ -26,8 +26,8 @@ export default function BlockPullQuote({value, citation, anchor, className}) {
 }
 
 BlockPullQuote.propTypes = {
-  value: PropTypes.string,
-  citation: PropTypes.string,
   anchor: PropTypes.string,
-  className: PropTypes.string
+  citation: PropTypes.string,
+  className: PropTypes.string,
+  value: PropTypes.string
 }
