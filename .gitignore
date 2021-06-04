@@ -8,6 +8,7 @@
 # testing
 /coverage
 /tests/e2e/test_wordpress
+seed_wds.sql
 
 # next.js
 /.next/
