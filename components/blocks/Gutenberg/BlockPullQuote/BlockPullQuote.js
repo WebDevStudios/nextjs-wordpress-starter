@@ -18,18 +18,16 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.value           The quote content of the block.
  * @return {Element}                       The Quote component.
  */
-export default function BlockPullQuote(props) {
-  const {
-    anchor,
-    citation,
-    className,
-    customMainColor,
-    customTextColor,
-    mainColorHex,
-    textColorHex,
-    value
-  } = props
-
+export default function BlockPullQuote({
+  anchor,
+  citation,
+  className,
+  customMainColor,
+  customTextColor,
+  mainColorHex,
+  textColorHex,
+  value
+}) {
   // Determine background and text colors, using stylelint-accepted const names.
   const backgroundcolor = mainColorHex || customMainColor || 'inherit'
   const textcolor = textColorHex || customTextColor || 'inherit'
