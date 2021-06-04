@@ -2,7 +2,7 @@
   @apply mb-8;
 
   &.horizontal {
-    @apply flex;
+    @apply flex flex-wrap;
   }
 
   &.center {
