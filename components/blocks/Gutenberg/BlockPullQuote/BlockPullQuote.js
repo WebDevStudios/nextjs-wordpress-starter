@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.className       Optional classnames.
  * @param  {string}  props.customMainColor The custom background color.
  * @param  {string}  props.customTextColor The custom text color.
- * @param  {string}  props.mainColorHex The background color hex value.
+ * @param  {string}  props.mainColorHex    The background color hex value.
  * @param  {string}  props.textColorHex    The text color hex value.
  * @param  {string}  props.value           The quote content of the block.
  * @return {Element}                       The Quote component.
@@ -38,6 +38,20 @@ export default function BlockPullQuote(props) {
   const pullQuoteStyle = {
     backgroundColor: backgroundcolor,
     color: textcolor
+  }
+
+  // Extract pullquote style.
+  const styleSolid = className && className.includes('is-style-solid-color')
+
+  // Remove styles from className.
+  className &&
+    className
+      .replace('is-style-solid-color', '')
+      .replace('is-style-default', '')
+
+  // Remove background for default style.
+  if (!styleSolid) {
+    pullQuoteStyle.backgroundColor = 'inherit'
   }
 
   return (
