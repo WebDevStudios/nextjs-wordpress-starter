@@ -11,14 +11,18 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.className Optional classnames.
  * @param  {string}  props.anchor    Optional anchor/id.
  * @param  {string}  props.content   The content of the block.
+ * @param  {object}  props.style     The style attributes (Typography panel).
  * @return {Element}                 The Code component.
  */
-export default function BlockCode({anchor, className, content}) {
-  return <Code className={className} id={anchor} content={content} />
+export default function BlockCode({anchor, className, content, style}) {
+  return (
+    <Code className={className} id={anchor} content={content} style={style} />
+  )
 }
 
 BlockCode.propTypes = {
   anchor: PropTypes.string,
   content: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.object
 }
