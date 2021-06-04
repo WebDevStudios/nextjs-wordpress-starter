@@ -11,20 +11,32 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.anchor          Optional anchor/id.
  * @param  {string}  props.citation        The optional author citation.
  * @param  {string}  props.className       Optional classnames.
+ * @param  {string}  props.customMainColor The custom background color.
  * @param  {string}  props.customTextColor The custom text color.
+ * @param  {string}  props.mainColorHex The background color hex value.
  * @param  {string}  props.textColorHex    The text color hex value.
  * @param  {string}  props.value           The quote content of the block.
  * @return {Element}                       The Quote component.
  */
 export default function BlockPullQuote(props) {
-  const {anchor, citation, className, customTextColor, textColorHex, value} =
-    props
+  const {
+    anchor,
+    citation,
+    className,
+    customMainColor,
+    customTextColor,
+    mainColorHex,
+    textColorHex,
+    value
+  } = props
 
   // Determine background and text colors, using stylelint-accepted const names.
+  const backgroundcolor = mainColorHex || customMainColor || 'inherit'
   const textcolor = textColorHex || customTextColor || 'inherit'
 
   // Create style object for pullquote.
   const pullQuoteStyle = {
+    backgroundColor: backgroundcolor,
     color: textcolor
   }
 
@@ -43,7 +55,9 @@ BlockPullQuote.propTypes = {
   anchor: PropTypes.string,
   citation: PropTypes.string,
   className: PropTypes.string,
+  customMainColor: PropTypes.string,
   customTextColor: PropTypes.string,
+  mainColorHex: PropTypes.string,
   textColorHex: PropTypes.string,
   value: PropTypes.string
 }

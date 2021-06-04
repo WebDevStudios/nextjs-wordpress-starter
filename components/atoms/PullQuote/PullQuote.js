@@ -45,6 +45,7 @@ PullQuote.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   style: PropTypes.shape({
+    backgroundColor: PropTypes.string,
     color: PropTypes.string
   }),
   value: PropTypes.string
