@@ -58,10 +58,11 @@ wait_on({resources: [`tcp:localhost:8020`]})
   })
   .then(() => {
     // Install composer dependencies.
-    // TODO Support for the general public soon.
+    // TODO Support for WDS org.
     execSync('composer self-update --1 && composer install', {
       stdio: [0, 1, 2],
-      cwd: path.resolve(__dirname, 'test_wordpress/wp-content')
+      cwd: path.resolve(__dirname, 'test_wordpress/wp-content'),
+      env: {...process.env, COMPOSER: 'composer-public.json'}
     })
   })
   // TODO - Add this once `seed.sql` is ready.
