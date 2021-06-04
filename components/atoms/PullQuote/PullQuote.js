@@ -11,14 +11,19 @@ import styles from './PullQuote.module.css'
  * @param  {string}  props.citation  The optional author citation.
  * @param  {string}  props.className Optional classnames.
  * @param  {string}  props.id        Optional anchor/id.
+ * @param  {object}  props.style     Custom pullquote styles.
  * @param  {string}  props.value     The pull quote content of the block.
  * @return {Element}                 The PullQuote component.
  */
-export default function PullQuote({citation, className, id, value}) {
+export default function PullQuote({citation, className, id, style, value}) {
   return (
     <>
       {!!value && (
-        <figure id={id ? id : null} className={cn(styles.pullquote, className)}>
+        <figure
+          id={id ? id : null}
+          className={cn(styles.pullquote, className)}
+          style={style}
+        >
           <blockquote>
             <div className={styles.content}>
               <RichText tag="div">{value}</RichText>
@@ -39,5 +44,8 @@ PullQuote.propTypes = {
   citation: PropTypes.string,
   className: PropTypes.string,
   id: PropTypes.string,
+  style: PropTypes.shape({
+    color: PropTypes.string
+  }),
   value: PropTypes.string
 }
