@@ -32,26 +32,27 @@ ButtonInner.propTypes = {
 }
 
 /**
- * @param  {object}   props             The props object.
- * @param  {string}   props.attributes  Optional attributes to add to the button.
- * @param  {string}   props.tag         The wrapper tag.
- * @param  {string}   props.className   Optional classNames.
- * @param  {boolean}  props.disabled    Whether the button is disabled.
- * @param  {boolean}  props.fluid       Whether the button should be full width.
- * @param  {string}   props.icon        Icon to render inside the button.
- * @param  {boolean}  props.iconOnly    Whether this button should render as an icon only button.
- * @param  {string}   props.iconLeft    Whether to render the icon on the left.
- * @param  {Function} props.onClick     Button onClick function.
- * @param  {string}   props.size        Button size.
- * @param  {string}   props.text        Button text.
- * @param  {string}   props.type        Button type.
- * @param  {string}   props.url         Button link url.
- * @param  {boolean}  props.urlExternal Whether the url on this button links to an external site.
- * @return {Element}                    The button component.
+ * @param  {object}   props              The props object.
+ * @param  {string}   props.attributes   Optional attributes to add to the button.
+ * @param  {string}   props.className    Optional classNames.
+ * @param  {boolean}  props.disabled     Whether the button is disabled.
+ * @param  {boolean}  props.fluid        Whether the button should be full width.
+ * @param  {string}   props.icon         Icon to render inside the button.
+ * @param  {boolean}  props.iconOnly     Whether this button should render as an icon only button.
+ * @param  {string}   props.iconLeft     Whether to render the icon on the left.
+ * @param  {Function} props.onClick      Button onClick function.
+ * @param  {string}   props.size         Button size.
+ * @param  {object}   props.style        Custom button styles.
+ * @param  {boolean}  props.styleOutline Whether this button has the outline style.
+ * @param  {string}   props.tag          The wrapper tag.
+ * @param  {string}   props.text         Button text.
+ * @param  {string}   props.type         Button type.
+ * @param  {string}   props.url          Button link url.
+ * @param  {boolean}  props.urlExternal  Whether the url on this button links to an external site.
+ * @return {Element}                     The button component.
  */
 export default function Button({
   attributes,
-  tag,
   className,
   disabled,
   fluid,
@@ -60,6 +61,9 @@ export default function Button({
   iconLeft,
   onClick,
   size,
+  style,
+  styleOutline,
+  tag,
   text,
   type,
   url,
@@ -73,7 +77,8 @@ export default function Button({
     fluid && styles.fluid,
     disabled && styles.disabled,
     styles[size],
-    styles[type]
+    styles[type],
+    styleOutline && styles.styleOutline
   )
 
   if (url) {
@@ -82,6 +87,7 @@ export default function Button({
         href={url}
         className={buttonClassNames}
         aria-label={text}
+        style={style}
         {...attributes}
       >
         <ButtonInner
@@ -93,7 +99,12 @@ export default function Button({
       </a>
     ) : (
       <NextLink href={url}>
-        <a className={buttonClassNames} aria-label={text} {...attributes}>
+        <a
+          className={buttonClassNames}
+          aria-label={text}
+          style={style}
+          {...attributes}
+        >
           <ButtonInner
             icon={icon}
             iconOnly={iconOnly}
@@ -113,7 +124,8 @@ export default function Button({
           'aria-label': text,
           onClick,
           ...attributes,
-          disabled
+          disabled,
+          style
         },
         <ButtonInner
           icon={icon}
@@ -136,6 +148,14 @@ Button.propTypes = {
   iconLeft: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  style: PropTypes.shape({
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.string,
+    color: PropTypes.string,
+    width: PropTypes.string
+  }),
+  styleOutline: PropTypes.bool,
   tag: PropTypes.string,
   text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['primary', 'secondary']),

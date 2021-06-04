@@ -62,4 +62,9 @@
       @apply m-0;
     }
   }
+
+  /* STYLES */
+  &.styleOutline {
+    border: 2px solid;
+  }
 }
