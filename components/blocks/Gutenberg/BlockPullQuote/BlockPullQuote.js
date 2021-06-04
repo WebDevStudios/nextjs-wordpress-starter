@@ -60,6 +60,7 @@ export default function BlockPullQuote(props) {
       className={className}
       id={anchor}
       style={pullQuoteStyle}
+      styleSolid={styleSolid}
       value={value}
     />
   )
