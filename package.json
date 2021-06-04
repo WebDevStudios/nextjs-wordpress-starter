@@ -42,7 +42,8 @@
     "e2e:up": "docker-compose up -d",
     "e2e:down": "docker-compose down",
     "e2e:build": "cross-env NODE_ENV=test next build",
-    "e2e:start": "cross-env NODE_ENV=test next start"
+    "e2e:start": "cross-env NODE_ENV=test next start",
+    "e2e:export_sql": "node ./tests/e2e/exportSql.js"
   },
   "dependencies": {
     "next": "10.2.3",
