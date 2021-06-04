@@ -8,13 +8,13 @@ import styles from './PullQuote.module.css'
  *
  * @author WebDevStudios
  * @param  {object}  props           The component properties.
- * @param  {string}  props.value     The pull quote content of the block.
  * @param  {string}  props.citation  The optional author citation.
- * @param  {string}  props.id        Optional anchor/id.
  * @param  {string}  props.className Optional classnames.
+ * @param  {string}  props.id        Optional anchor/id.
+ * @param  {string}  props.value     The pull quote content of the block.
  * @return {Element}                 The PullQuote component.
  */
-export default function PullQuote({value, citation, id, className}) {
+export default function PullQuote({citation, className, id, value}) {
   return (
     <>
       {!!value && (
@@ -36,8 +36,8 @@ export default function PullQuote({value, citation, id, className}) {
 }
 
 PullQuote.propTypes = {
-  id: PropTypes.string,
+  citation: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.string,
-  citation: PropTypes.string
+  id: PropTypes.string,
+  value: PropTypes.string
 }
