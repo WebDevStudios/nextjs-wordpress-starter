@@ -8,4 +8,10 @@
   & figcaption {
     @apply font-bold;
   }
+
+  &.styleSolid {
+    & .wrap {
+      @apply max-w-60 text-left mr-auto ml-auto;
+    }
+  }
 }
