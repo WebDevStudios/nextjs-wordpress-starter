@@ -66,9 +66,9 @@ wait_on({resources: [`tcp:localhost:8020`]})
     })
   })
   // TODO - Add this once `seed.sql` is ready.
-  // .then(() => {
-  //   wpCli('db import seed.sql')
-  // })
+  .then(() => {
+    wpCli('db import seed.sql')
+  })
   .then(() => {
     wpCli('rewrite structure "/blog/%postname%/"')
   })
