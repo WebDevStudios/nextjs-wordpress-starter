@@ -83,7 +83,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "next-seo": "^4.24.0",
-    "next-sitemap": "^1.6.99",
+    "next-sitemap": "^1.6.105",
     "postcss": "^8.3.0",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "^6.7.0",
