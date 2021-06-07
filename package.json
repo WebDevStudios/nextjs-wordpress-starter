@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "next": "10.2.3",
-    "next-auth": "^3.24.0",
+    "next-auth": "^3.25.0",
     "next-connect": "^0.10.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
