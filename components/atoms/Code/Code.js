@@ -13,9 +13,10 @@ import styles from './Code.module.css'
  * @param  {string}  props.className Optional classname.
  * @param  {string}  props.id        The optional ID.
  * @param  {string}  props.content   The content for inside the code block.
+ * @param  {object}  props.style     The inline styles.
  * @return {Element}                 The Code component.
  */
-export default function Code({id, className, content}) {
+export default function Code({id, className, content, style}) {
   const classNames = className?.length ? className.split(' ') : []
 
   // Use the first entry in className to pass the langauge.
@@ -36,12 +37,17 @@ export default function Code({id, className, content}) {
     return code.replace(/&gt;/g, '>')
   }
 
+  const fontsize = style?.typography?.fontSize
+
   return (
     <>
       {!!content && (
         <div
           id={id ? id : null}
           className={cn(styles.code, classNames.join(' '))}
+          style={{
+            fontSize: fontsize
+          }}
         >
           <SyntaxHighlighter style={tomorrow} language={language}>
             {codeFormatter(content)}
@@ -55,5 +61,10 @@ export default function Code({id, className, content}) {
 Code.propTypes = {
   id: PropTypes.string,
   content: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.shape({
+    typography: PropTypes.shape({
+      fontSize: PropTypes.string
+    })
+  })
 }

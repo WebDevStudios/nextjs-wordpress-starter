@@ -7,28 +7,47 @@ import styles from './PullQuote.module.css'
  * PullQuote Block
  *
  * @author WebDevStudios
- * @param  {object}  props           The component properties.
- * @param  {string}  props.value     The pull quote content of the block.
- * @param  {string}  props.citation  The optional author citation.
- * @param  {string}  props.id        Optional anchor/id.
- * @param  {string}  props.className Optional classnames.
- * @return {Element}                 The PullQuote component.
+ * @param  {object}  props            The component properties.
+ * @param  {string}  props.citation   The optional author citation.
+ * @param  {string}  props.className  Optional classnames.
+ * @param  {string}  props.id         Optional anchor/id.
+ * @param  {object}  props.style      Custom pullquote styles.
+ * @param  {boolean} props.styleSolid Whether this pullquote has the solid style.
+ * @param  {string}  props.value      The pull quote content of the block.
+ * @return {Element}                  The PullQuote component.
  */
-export default function PullQuote({value, citation, id, className}) {
+export default function PullQuote({
+  citation,
+  className,
+  id,
+  style,
+  styleSolid,
+  value
+}) {
   return (
     <>
       {!!value && (
-        <figure id={id ? id : null} className={cn(styles.pullquote, className)}>
-          <blockquote>
-            <div className={styles.content}>
-              <RichText tag="div">{value}</RichText>
-            </div>
-          </blockquote>
-          {!!citation && (
-            <figcaption className={styles.cite}>
-              ~ <RichText tag="span">{citation}</RichText>
-            </figcaption>
+        <figure
+          id={id ? id : null}
+          className={cn(
+            styles.pullquote,
+            className,
+            styleSolid && styles.styleSolid
           )}
+          style={style}
+        >
+          <div className={styles.wrap}>
+            <blockquote>
+              <div className={styles.content}>
+                <RichText tag="div">{value}</RichText>
+              </div>
+            </blockquote>
+            {!!citation && (
+              <figcaption className={styles.cite}>
+                ~ <RichText tag="span">{citation}</RichText>
+              </figcaption>
+            )}
+          </div>
         </figure>
       )}
     </>
@@ -36,8 +55,13 @@ export default function PullQuote({value, citation, id, className}) {
 }
 
 PullQuote.propTypes = {
-  id: PropTypes.string,
+  citation: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.string,
-  citation: PropTypes.string
+  id: PropTypes.string,
+  style: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string
+  }),
+  styleSolid: PropTypes.bool,
+  value: PropTypes.string
 }
