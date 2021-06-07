@@ -81,7 +81,7 @@
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.3",
+    "jest": "^27.0.4",
     "next-seo": "^4.24.0",
     "next-sitemap": "^1.6.99",
     "postcss": "^8.3.0",
