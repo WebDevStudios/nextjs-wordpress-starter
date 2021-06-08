@@ -9,11 +9,11 @@ import PropTypes from 'prop-types'
  *
  * @author WebDevStudios
  * @param  {object}  props             The component properties.
- * @param  {object}  props.media       Media props.
  * @param  {Array}   props.innerBlocks The array of inner blocks to display.
+ * @param  {object}  props.media       Media props.
  * @return {Element}                   The Code component.
  */
-export default function BlockMediaText({media, innerBlocks}) {
+export default function BlockMediaText({innerBlocks, media}) {
   return (
     <>
       {!!media && innerBlocks?.length && (
@@ -31,27 +31,27 @@ export default function BlockMediaText({media, innerBlocks}) {
 }
 
 BlockMediaText.propTypes = {
+  innerBlocks: PropTypes.arrayOf(
+    PropTypes.shape({
+      attributes: PropTypes.object,
+      name: PropTypes.string
+    })
+  ),
   media: PropTypes.shape({
     anchor: PropTypes.string,
     caption: PropTypes.string,
     className: PropTypes.string,
     href: PropTypes.string,
-    linkTarget: PropTypes.string,
     linkClass: PropTypes.string,
-    rel: PropTypes.string,
-    sizeSlug: PropTypes.string,
+    linkTarget: PropTypes.string,
     mediaAlt: PropTypes.string,
     mediaId: PropTypes.number,
+    mediaPosition: PropTypes.string,
     mediaType: PropTypes.string,
     mediaUrl: PropTypes.string,
-    mediaPosition: PropTypes.string
-  }),
-  innerBlocks: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      attributes: PropTypes.object
-    })
-  )
+    rel: PropTypes.string,
+    sizeSlug: PropTypes.string
+  })
 }
 BlockMediaText.defaultProps = {
   media: PropTypes.shape({
