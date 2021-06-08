@@ -14,14 +14,49 @@ import PropTypes from 'prop-types'
  * @return {Element}                   The Code component.
  */
 export default function BlockMediaText({innerBlocks, media}) {
+  /* eslint-disable no-unused-vars */
+  const {
+    anchor,
+    backgroundColorHex,
+    caption,
+    className,
+    href,
+    linkClass,
+    linkTarget,
+    mediaAlt,
+    mediaId,
+    mediaPosition,
+    mediaType,
+    mediaUrl,
+    rel,
+    sizeSlug,
+    style,
+    textColorHex
+  } = media
+  /* eslint-enable no-unused-vars */
+
+  // Determine background and text colors, using stylelint-accepted const names.
+  const backgroundcolor =
+    backgroundColorHex || style?.color?.background || 'inherit'
+  const textcolor = textColorHex || style?.color?.text || 'inherit'
+
+  // Create style object for button.
+  const mediaTextStyle = {
+    background: style?.color?.gradient || 'inherit',
+    backgroundColor: backgroundcolor,
+    color: textcolor
+    // width: width ? `${width}%` : 'auto'
+  }
+
   return (
     <>
       {!!media && innerBlocks?.length && (
         <MediaText
-          id={media?.anchor}
-          className={media?.className}
-          mediaLeft={media?.mediaPosition === 'left' ? true : false}
-          image={{url: media?.mediaUrl, alt: media?.mediaAlt}}
+          className={className}
+          id={anchor}
+          image={{url: mediaUrl, alt: mediaAlt}}
+          mediaLeft={mediaPosition === 'left' ? true : false}
+          style={mediaTextStyle}
         >
           <Blocks blocks={innerBlocks} />
         </MediaText>
@@ -39,6 +74,7 @@ BlockMediaText.propTypes = {
   ),
   media: PropTypes.shape({
     anchor: PropTypes.string,
+    backgroundColorHex: PropTypes.string,
     caption: PropTypes.string,
     className: PropTypes.string,
     href: PropTypes.string,
@@ -50,7 +86,9 @@ BlockMediaText.propTypes = {
     mediaType: PropTypes.string,
     mediaUrl: PropTypes.string,
     rel: PropTypes.string,
-    sizeSlug: PropTypes.string
+    sizeSlug: PropTypes.string,
+    style: PropTypes.object,
+    textColorHex: PropTypes.string
   })
 }
 BlockMediaText.defaultProps = {
