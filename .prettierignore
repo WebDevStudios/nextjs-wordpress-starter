@@ -1,4 +1,8 @@
-.next
-dist
-node_modules
-*.min.*
+!/.*.js
+*.min.js
+.*cache
+.next/
+build/
+dist/
+node_modules/
+public/
