@@ -15,6 +15,7 @@ import styles from './MediaText.module.css'
  * @param  {object}  props.cta               The cta object with text and url strings.
  * @param  {string}  props.id                Optional element ID.
  * @param  {object}  props.image             The image object with url and alt text.
+ * @param  {boolean} props.imageFill         Whether to crop image to fill.
  * @param  {boolean} props.mediaLeft         Whether to show media on the left of the text.
  * @param  {boolean} props.stackOnMobile     Whether to stack media and text on mobile.
  * @param  {object}  props.style             Custom media text styles.
@@ -29,6 +30,7 @@ export default function MediaText({
   cta,
   id,
   image,
+  imageFill,
   mediaLeft,
   stackOnMobile,
   style,
@@ -52,7 +54,8 @@ export default function MediaText({
         className,
         !stackOnMobile ? styles.noStack : null,
         verticalAlignment === 'top' ? styles.alignTop : null,
-        verticalAlignment === 'bottom' ? styles.alignBottom : null
+        verticalAlignment === 'bottom' ? styles.alignBottom : null,
+        imageFill ? styles.imageFill : null
       )}
       style={style}
     >
@@ -104,6 +107,7 @@ MediaText.propTypes = {
     url: PropTypes.string,
     alt: PropTypes.string
   }),
+  imageFill: PropTypes.bool,
   mediaLeft: PropTypes.bool,
   stackOnMobile: PropTypes.bool,
   style: PropTypes.shape({
