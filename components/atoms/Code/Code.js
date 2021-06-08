@@ -37,7 +37,16 @@ export default function Code({id, className, content, style}) {
     return code.replace(/&gt;/g, '>')
   }
 
-  const fontsize = style?.typography?.fontSize
+  const prismProps = {style: tomorrow, customStyle: style, language: language}
+
+  // Add color to code tag props if custom color provided.
+  if (style?.color) {
+    prismProps.codeTagProps = {
+      style: {
+        color: 'inherit'
+      }
+    }
+  }
 
   return (
     <>
@@ -45,11 +54,9 @@ export default function Code({id, className, content, style}) {
         <div
           id={id ? id : null}
           className={cn(styles.code, classNames.join(' '))}
-          style={{
-            fontSize: fontsize
-          }}
+          style={style}
         >
-          <SyntaxHighlighter style={tomorrow} language={language}>
+          <SyntaxHighlighter {...prismProps}>
             {codeFormatter(content)}
           </SyntaxHighlighter>
         </div>
@@ -63,8 +70,9 @@ Code.propTypes = {
   content: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.shape({
-    typography: PropTypes.shape({
-      fontSize: PropTypes.string
-    })
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string,
+    fontSize: PropTypes.string
   })
 }
