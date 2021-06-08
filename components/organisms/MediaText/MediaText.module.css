@@ -55,4 +55,16 @@
       }
     }
   }
+
+  &.alignTop {
+    & .text {
+      @apply justify-start;
+    }
+  }
+
+  &.alignBottom {
+    & .text {
+      @apply justify-end;
+    }
+  }
 }

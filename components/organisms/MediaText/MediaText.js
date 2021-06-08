@@ -8,18 +8,19 @@ import styles from './MediaText.module.css'
 /**
  * Render the MediaText component.
  *
- * @param  {object}  props               MediaText component props.
- * @param  {string}  props.body          The body text.
- * @param  {Element} props.children      The child elements.
- * @param  {string}  props.className     The className.
- * @param  {object}  props.cta           The cta object with text and url strings.
- * @param  {string}  props.id            Optional element ID.
- * @param  {object}  props.image         The image object with url and alt text.
- * @param  {boolean} props.mediaLeft     Whether to show media on the left of the text.
- * @param  {boolean} props.stackOnMobile Whether to stack media and text on mobile.
- * @param  {object}  props.style         Custom media text styles.
- * @param  {string}  props.title         The title.
- * @return {Element}                     The MediaText component.
+ * @param  {object}  props                   MediaText component props.
+ * @param  {string}  props.body              The body text.
+ * @param  {Element} props.children          The child elements.
+ * @param  {string}  props.className         The className.
+ * @param  {object}  props.cta               The cta object with text and url strings.
+ * @param  {string}  props.id                Optional element ID.
+ * @param  {object}  props.image             The image object with url and alt text.
+ * @param  {boolean} props.mediaLeft         Whether to show media on the left of the text.
+ * @param  {boolean} props.stackOnMobile     Whether to stack media and text on mobile.
+ * @param  {object}  props.style             Custom media text styles.
+ * @param  {string}  props.title             The title.
+ * @param  {string}  props.verticalAlignment Vertical alignment of text.
+ * @return {Element}                         The MediaText component.
  */
 export default function MediaText({
   body,
@@ -31,7 +32,8 @@ export default function MediaText({
   mediaLeft,
   stackOnMobile,
   style,
-  title
+  title,
+  verticalAlignment
 }) {
   useEffect(() => {
     if ((children && title) || (children && body) || (children && cta)) {
@@ -48,7 +50,9 @@ export default function MediaText({
         styles.mediaText,
         mediaLeft ? styles.mediaLeft : null,
         className,
-        !stackOnMobile ? styles.noStack : null
+        !stackOnMobile ? styles.noStack : null,
+        verticalAlignment === 'top' ? styles.alignTop : null,
+        verticalAlignment === 'bottom' ? styles.alignBottom : null
       )}
       style={style}
     >
@@ -107,7 +111,8 @@ MediaText.propTypes = {
     backgroundColor: PropTypes.string,
     color: PropTypes.string
   }),
-  title: PropTypes.string
+  title: PropTypes.string,
+  verticalAlignment: PropTypes.string
 }
 
 MediaText.defaultProps = {

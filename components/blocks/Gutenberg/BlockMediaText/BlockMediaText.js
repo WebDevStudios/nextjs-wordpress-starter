@@ -33,7 +33,8 @@ export default function BlockMediaText({innerBlocks, media}) {
     rel,
     sizeSlug,
     style,
-    textColorHex
+    textColorHex,
+    verticalAlignment
   } = media
   /* eslint-enable no-unused-vars */
 
@@ -61,6 +62,7 @@ export default function BlockMediaText({innerBlocks, media}) {
           mediaWidth={mediaWidth}
           style={mediaTextStyle}
           stackOnMobile={isStackedOnMobile}
+          verticalAlignment={verticalAlignment}
         >
           <Blocks blocks={innerBlocks} />
         </MediaText>
@@ -94,7 +96,8 @@ BlockMediaText.propTypes = {
     rel: PropTypes.string,
     sizeSlug: PropTypes.string,
     style: PropTypes.object,
-    textColorHex: PropTypes.string
+    textColorHex: PropTypes.string,
+    verticalAlignment: PropTypes.string
   })
 }
 BlockMediaText.defaultProps = {
