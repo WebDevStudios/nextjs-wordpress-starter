@@ -16,6 +16,7 @@ import styles from './MediaText.module.css'
  * @param  {string}  props.id        Optional element ID.
  * @param  {object}  props.image     The image object with url and alt text.
  * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
+ * @param  {object}  props.style     Custom media text styles.
  * @param  {string}  props.title     The title.
  * @return {Element}                 The MediaText component.
  */
@@ -27,6 +28,7 @@ export default function MediaText({
   id,
   image,
   mediaLeft,
+  style,
   title
 }) {
   useEffect(() => {
@@ -45,6 +47,7 @@ export default function MediaText({
         mediaLeft ? styles.mediaLeft : null,
         className
       )}
+      style={style}
     >
       <div className={styles.text}>
         {children ? (
@@ -95,6 +98,11 @@ MediaText.propTypes = {
     alt: PropTypes.string
   }),
   mediaLeft: PropTypes.bool,
+  style: PropTypes.shape({
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string
+  }),
   title: PropTypes.string
 }
 
