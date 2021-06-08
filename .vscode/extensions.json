@@ -1,11 +1,23 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
-    "editorconfig.editorconfig",
+    "DavidAnson.vscode-markdownlint",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "clinyong.vscode-css-modules",
+    "coenraads.bracket-pair-colorizer-2",
     "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "graphql.vscode-graphql",
+    "gruntfuggly.todo-tree",
+    "mikestead.dotenv",
+    "naumovs.color-highlight",
+    "nucllear.vscode-extension-auto-import",
     "silvenon.mdx",
-    "stylelint.vscode-stylelint",
     "snipsnapdev.snipsnap-vscode",
-    "bradlc.vscode-tailwindcss"
+    "stylelint.vscode-stylelint",
+    "zignd.html-css-class-completion"
   ]
 }
