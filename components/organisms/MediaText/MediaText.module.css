@@ -4,10 +4,14 @@
   & .text,
   & .media {
     @apply col-span-6 flex flex-col items-start justify-center;
+
+    grid-row: 1;
   }
 
   & .text {
     @apply items-start pl-8 pr-8;
+
+    grid-column: 1;
 
     & .title {
       @apply mb-8;
@@ -19,6 +23,8 @@
   }
 
   & .media {
+    grid-column: 2;
+
     & .imageWrap {
       @apply relative h-0 w-full bg-opacity-20 mb-0;
 
@@ -32,11 +38,13 @@
 
   &.mediaLeft {
     & .media {
-      grid-row-start: 1;
+      grid-column: 1;
     }
 
     & .text {
       @apply items-end;
+
+      grid-column: 2;
 
       & .body {
         @apply text-right;

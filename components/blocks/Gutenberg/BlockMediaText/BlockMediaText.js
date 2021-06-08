@@ -45,7 +45,8 @@ export default function BlockMediaText({innerBlocks, media}) {
   const mediaTextStyle = {
     background: style?.color?.gradient || 'inherit',
     backgroundColor: backgroundcolor,
-    color: textcolor
+    color: textcolor,
+    gridTemplateColumns: `1fr ${mediaWidth}%`
   }
 
   return (
