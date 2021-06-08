@@ -8,17 +8,18 @@ import styles from './MediaText.module.css'
 /**
  * Render the MediaText component.
  *
- * @param  {object}  props           MediaText component props.
- * @param  {string}  props.body      The body text.
- * @param  {Element} props.children  The child elements.
- * @param  {string}  props.className The className.
- * @param  {object}  props.cta       The cta object with text and url strings.
- * @param  {string}  props.id        Optional element ID.
- * @param  {object}  props.image     The image object with url and alt text.
- * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
- * @param  {object}  props.style     Custom media text styles.
- * @param  {string}  props.title     The title.
- * @return {Element}                 The MediaText component.
+ * @param  {object}  props            MediaText component props.
+ * @param  {string}  props.body       The body text.
+ * @param  {Element} props.children   The child elements.
+ * @param  {string}  props.className  The className.
+ * @param  {object}  props.cta        The cta object with text and url strings.
+ * @param  {string}  props.id         Optional element ID.
+ * @param  {object}  props.image      The image object with url and alt text.
+ * @param  {boolean} props.mediaLeft  Whether to show media on the left of the text.
+ * @param  {number}  props.mediaWidth The media width in percent.
+ * @param  {object}  props.style      Custom media text styles.
+ * @param  {string}  props.title      The title.
+ * @return {Element}                  The MediaText component.
  */
 export default function MediaText({
   body,
@@ -28,6 +29,7 @@ export default function MediaText({
   id,
   image,
   mediaLeft,
+  mediaWidth,
   style,
   title
 }) {
@@ -39,6 +41,10 @@ export default function MediaText({
     }
   })
 
+  // Calculate media and text widths in percent.
+  const mediawidth = `${mediaWidth ?? 50}%`
+  const textwidth = `${100 - (mediaWidth ?? 50)}%`
+
   return (
     <section
       id={id}
@@ -49,7 +55,7 @@ export default function MediaText({
       )}
       style={style}
     >
-      <div className={styles.text}>
+      <div className={styles.text} style={{width: textwidth}}>
         {children ? (
           children
         ) : (
@@ -69,7 +75,7 @@ export default function MediaText({
           </>
         )}
       </div>
-      <div className={styles.media}>
+      <div className={styles.media} style={{width: mediawidth}}>
         {image && image.url && (
           <DisplayImage
             className={styles.imageWrap}
@@ -98,6 +104,7 @@ MediaText.propTypes = {
     alt: PropTypes.string
   }),
   mediaLeft: PropTypes.bool,
+  mediaWidth: PropTypes.number,
   style: PropTypes.shape({
     background: PropTypes.string,
     backgroundColor: PropTypes.string,
