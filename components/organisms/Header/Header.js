@@ -9,10 +9,10 @@ import styles from './Header.module.css'
  * Render the Header component.
  *
  * @author WebDevStudios
- * @param {object}  props        The component attributes as props.
- * @param {object}  props.menu   The header menu object.
- * @param {Element} props.search The search component.
- * @return {Element}             The Header component.
+ * @param  {object}  props        The component attributes as props.
+ * @param  {object}  props.menu   The header menu object.
+ * @param  {Element} props.search The search component.
+ * @return {Element}              The Header component.
  */
 export default function Header({menu, search}) {
   return (
