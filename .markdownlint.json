@@ -1,6 +1,6 @@
 {
   "MD003": {"style": "atx"},
-  "MD007": {"indent": 4},
+  "MD007": {"indent": 2},
   "default": true,
   "line-length": false,
   "no-duplicate-heading": false,
