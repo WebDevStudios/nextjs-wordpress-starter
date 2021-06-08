@@ -27,6 +27,7 @@ export default function BlockMediaText({innerBlocks, media}) {
     mediaId,
     mediaPosition,
     mediaType,
+    mediaWidth,
     mediaUrl,
     rel,
     sizeSlug,
@@ -45,7 +46,6 @@ export default function BlockMediaText({innerBlocks, media}) {
     background: style?.color?.gradient || 'inherit',
     backgroundColor: backgroundcolor,
     color: textcolor
-    // width: width ? `${width}%` : 'auto'
   }
 
   return (
@@ -56,6 +56,7 @@ export default function BlockMediaText({innerBlocks, media}) {
           id={anchor}
           image={{url: mediaUrl, alt: mediaAlt}}
           mediaLeft={mediaPosition === 'left' ? true : false}
+          mediaWidth={mediaWidth}
           style={mediaTextStyle}
         >
           <Blocks blocks={innerBlocks} />
@@ -84,6 +85,7 @@ BlockMediaText.propTypes = {
     mediaId: PropTypes.number,
     mediaPosition: PropTypes.string,
     mediaType: PropTypes.string,
+    mediaWidth: PropTypes.number,
     mediaUrl: PropTypes.string,
     rel: PropTypes.string,
     sizeSlug: PropTypes.string,
