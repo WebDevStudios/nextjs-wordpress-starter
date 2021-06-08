@@ -7,7 +7,7 @@
   }
 
   & .text {
-    @apply items-start ml-8 mr-8;
+    @apply items-start pl-8 pr-8;
 
     & .title {
       @apply mb-8;
