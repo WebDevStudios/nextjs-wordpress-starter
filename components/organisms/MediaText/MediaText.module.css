@@ -1,5 +1,5 @@
 .mediaText {
-  @apply md:grid md:grid-cols-12 mb-12;
+  @apply md:grid md:grid-cols-12 mb-12 rounded;
 
   &.noStack {
     @apply grid grid-cols-12;
@@ -30,13 +30,13 @@
     grid-column: 2;
 
     & .imageWrap {
-      @apply relative h-0 w-full bg-opacity-20 mb-0;
+      @apply relative h-0 w-full rounded bg-opacity-20 mb-0;
 
       padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
     }
 
     & img {
-      @apply absolute top-0 left-0 w-full h-full object-cover rounded-none;
+      @apply absolute top-0 left-0 w-full h-full object-cover rounded;
     }
   }
 
