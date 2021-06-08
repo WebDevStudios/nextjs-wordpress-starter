@@ -1,6 +1,10 @@
 .mediaText {
   @apply md:grid md:grid-cols-12 mb-12;
 
+  &.noStack {
+    @apply grid grid-cols-12;
+  }
+
   & .text,
   & .media {
     @apply col-span-6 flex flex-col items-start justify-center;

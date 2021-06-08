@@ -21,6 +21,7 @@ export default function BlockMediaText({innerBlocks, media}) {
     caption,
     className,
     href,
+    isStackedOnMobile,
     linkClass,
     linkTarget,
     mediaAlt,
@@ -59,6 +60,7 @@ export default function BlockMediaText({innerBlocks, media}) {
           mediaLeft={mediaPosition === 'left' ? true : false}
           mediaWidth={mediaWidth}
           style={mediaTextStyle}
+          stackOnMobile={isStackedOnMobile}
         >
           <Blocks blocks={innerBlocks} />
         </MediaText>
@@ -80,6 +82,7 @@ BlockMediaText.propTypes = {
     caption: PropTypes.string,
     className: PropTypes.string,
     href: PropTypes.string,
+    isStackedOnMobile: PropTypes.bool,
     linkClass: PropTypes.string,
     linkTarget: PropTypes.string,
     mediaAlt: PropTypes.string,

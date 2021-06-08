@@ -8,17 +8,18 @@ import styles from './MediaText.module.css'
 /**
  * Render the MediaText component.
  *
- * @param  {object}  props           MediaText component props.
- * @param  {string}  props.body      The body text.
- * @param  {Element} props.children  The child elements.
- * @param  {string}  props.className The className.
- * @param  {object}  props.cta       The cta object with text and url strings.
- * @param  {string}  props.id        Optional element ID.
- * @param  {object}  props.image     The image object with url and alt text.
- * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
- * @param  {object}  props.style     Custom media text styles.
- * @param  {string}  props.title     The title.
- * @return {Element}                 The MediaText component.
+ * @param  {object}  props               MediaText component props.
+ * @param  {string}  props.body          The body text.
+ * @param  {Element} props.children      The child elements.
+ * @param  {string}  props.className     The className.
+ * @param  {object}  props.cta           The cta object with text and url strings.
+ * @param  {string}  props.id            Optional element ID.
+ * @param  {object}  props.image         The image object with url and alt text.
+ * @param  {boolean} props.mediaLeft     Whether to show media on the left of the text.
+ * @param  {boolean} props.stackOnMobile Whether to stack media and text on mobile.
+ * @param  {object}  props.style         Custom media text styles.
+ * @param  {string}  props.title         The title.
+ * @return {Element}                     The MediaText component.
  */
 export default function MediaText({
   body,
@@ -28,6 +29,7 @@ export default function MediaText({
   id,
   image,
   mediaLeft,
+  stackOnMobile,
   style,
   title
 }) {
@@ -45,7 +47,8 @@ export default function MediaText({
       className={cn(
         styles.mediaText,
         mediaLeft ? styles.mediaLeft : null,
-        className
+        className,
+        !stackOnMobile ? styles.noStack : null
       )}
       style={style}
     >
@@ -98,6 +101,7 @@ MediaText.propTypes = {
     alt: PropTypes.string
   }),
   mediaLeft: PropTypes.bool,
+  stackOnMobile: PropTypes.bool,
   style: PropTypes.shape({
     background: PropTypes.string,
     backgroundColor: PropTypes.string,
