@@ -35,8 +35,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint JavaScript
-        run: npx eslint '**/*.{js,jsx,ts,tsx}' --config=.eslintrc.js
+      - name: Lint scripts
+        run: npx eslint '**/*.{js,ts,jsx,tsx}' --config=.eslintrc.js
 
-      - name: Lint CSS
-        run: npx stylelint '**/*.{css,scss}' --config=stylelint.config.js
+      - name: Lint styles
+        run: npx stylelint '**/*.{css,scss}' --config=.stylelintrc.js
+
+      - name: Lint markdown
+        run: npx markdownlint '**/*.md' --config=.markdownlint.json
