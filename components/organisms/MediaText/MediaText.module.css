@@ -13,7 +13,7 @@
   }
 
   & .text {
-    @apply items-start pl-8 pr-8;
+    @apply items-start p-8;
 
     grid-column: 1;
 
