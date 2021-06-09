@@ -46,13 +46,15 @@ export default function BlockMediaText({innerBlocks, media}) {
     backgroundColorHex || style?.color?.background || 'inherit'
   const textcolor = textColorHex || style?.color?.text || 'inherit'
   const background = gradientHex || style?.color?.gradient || 'inherit'
+  const gridtemplatecolumns =
+    mediaPosition === 'left' ? `${mediaWidth}% 1fr` : `1fr ${mediaWidth}%`
 
   // Create style object for button.
   const mediaTextStyle = {
     background: background,
     backgroundColor: backgroundcolor,
     color: textcolor,
-    gridTemplateColumns: `1fr ${mediaWidth}%`
+    gridTemplateColumns: gridtemplatecolumns
   }
 
   const newFocalPoint = {}
