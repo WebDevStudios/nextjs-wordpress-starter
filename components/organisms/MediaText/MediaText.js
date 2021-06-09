@@ -55,7 +55,7 @@ export default function MediaText({
         !stackOnMobile ? styles.noStack : null,
         verticalAlignment === 'top' ? styles.alignTop : null,
         verticalAlignment === 'bottom' ? styles.alignBottom : null,
-        imageFill ? styles.imageFill : null
+        imageFill && image?.url ? styles.imageFill : null
       )}
       style={style}
     >
@@ -79,7 +79,12 @@ export default function MediaText({
           </>
         )}
       </div>
-      <div className={styles.media}>
+      <div
+        className={styles.media}
+        style={{
+          backgroundImage: `url(${image?.url || ''})`
+        }}
+      >
         {image && image.url && (
           <DisplayImage
             className={styles.imageWrap}
