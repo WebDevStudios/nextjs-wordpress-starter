@@ -47,6 +47,13 @@ export default function MediaText({
     }
   })
 
+  const imageFillStyle = !imageFill
+    ? null
+    : {
+        backgroundImage: `url(${image?.url || ''})`,
+        backgroundPosition: `${focalPoint.x} ${focalPoint.y}`
+      }
+
   return (
     <section
       id={id}
@@ -81,13 +88,7 @@ export default function MediaText({
           </>
         )}
       </div>
-      <div
-        className={styles.media}
-        style={{
-          backgroundImage: `url(${image?.url || ''})`,
-          backgroundPosition: `${focalPoint.x} ${focalPoint.y}`
-        }}
-      >
+      <div className={styles.media} style={imageFillStyle}>
         {image && image.url && (
           <DisplayImage
             className={styles.imageWrap}
