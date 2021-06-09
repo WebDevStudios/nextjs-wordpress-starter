@@ -21,6 +21,7 @@ export default function BlockMediaText({innerBlocks, media}) {
     caption,
     className,
     focalPoint,
+    gradientHex,
     href,
     imageFill,
     isStackedOnMobile,
@@ -47,7 +48,7 @@ export default function BlockMediaText({innerBlocks, media}) {
 
   // Create style object for button.
   const mediaTextStyle = {
-    background: style?.color?.gradient || 'inherit',
+    background: gradientHex || style?.color?.gradient || 'inherit',
     backgroundColor: backgroundcolor,
     color: textcolor,
     gridTemplateColumns: `1fr ${mediaWidth}%`
@@ -102,6 +103,7 @@ BlockMediaText.propTypes = {
       x: PropTypes.string,
       y: PropTypes.string
     }),
+    gradientHex: PropTypes.string,
     href: PropTypes.string,
     imageFill: PropTypes.bool,
     isStackedOnMobile: PropTypes.bool,
