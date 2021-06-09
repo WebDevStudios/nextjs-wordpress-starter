@@ -20,6 +20,7 @@ export default function BlockMediaText({innerBlocks, media}) {
     backgroundColorHex,
     caption,
     className,
+    focalPoint,
     href,
     imageFill,
     isStackedOnMobile,
@@ -52,11 +53,23 @@ export default function BlockMediaText({innerBlocks, media}) {
     gridTemplateColumns: `1fr ${mediaWidth}%`
   }
 
+  const newFocalPoint = {}
+
+  // Convert focal point values to percent.
+  if (imageFill) {
+    const x = parseFloat(focalPoint?.x || '.5') ?? 0.5
+    const y = parseFloat(focalPoint?.y || '.5') ?? 0.5
+
+    newFocalPoint.x = `${x * 100}%`
+    newFocalPoint.y = `${y * 100}%`
+  }
+
   return (
     <>
       {!!media && innerBlocks?.length && (
         <MediaText
           className={className}
+          focalPoint={newFocalPoint}
           id={anchor}
           image={{url: mediaUrl, alt: mediaAlt}}
           imageFill={imageFill}
@@ -85,6 +98,10 @@ BlockMediaText.propTypes = {
     backgroundColorHex: PropTypes.string,
     caption: PropTypes.string,
     className: PropTypes.string,
+    focalPoint: PropTypes.shape({
+      x: PropTypes.string,
+      y: PropTypes.string
+    }),
     href: PropTypes.string,
     imageFill: PropTypes.bool,
     isStackedOnMobile: PropTypes.bool,

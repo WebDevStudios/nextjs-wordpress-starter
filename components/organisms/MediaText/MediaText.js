@@ -13,6 +13,7 @@ import styles from './MediaText.module.css'
  * @param  {Element} props.children          The child elements.
  * @param  {string}  props.className         The className.
  * @param  {object}  props.cta               The cta object with text and url strings.
+ * @param  {object}  props.focalPoint        The focal point coordinates for the image fill setting.
  * @param  {string}  props.id                Optional element ID.
  * @param  {object}  props.image             The image object with url and alt text.
  * @param  {boolean} props.imageFill         Whether to crop image to fill.
@@ -28,6 +29,7 @@ export default function MediaText({
   children,
   className,
   cta,
+  focalPoint,
   id,
   image,
   imageFill,
@@ -82,7 +84,8 @@ export default function MediaText({
       <div
         className={styles.media}
         style={{
-          backgroundImage: `url(${image?.url || ''})`
+          backgroundImage: `url(${image?.url || ''})`,
+          backgroundPosition: `${focalPoint.x} ${focalPoint.y}`
         }}
       >
         {image && image.url && (
@@ -106,6 +109,10 @@ MediaText.propTypes = {
     text: PropTypes.string,
     url: PropTypes.string,
     icon: PropTypes.string
+  }),
+  focalPoint: PropTypes.shape({
+    x: PropTypes.string,
+    y: PropTypes.string
   }),
   id: PropTypes.string,
   image: PropTypes.shape({
