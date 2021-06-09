@@ -71,7 +71,7 @@
 
   &.imageFill {
     & .media {
-      @apply h-full max-w-full;
+      @apply h-full max-w-full rounded;
 
       min-height: 16rem;
 
