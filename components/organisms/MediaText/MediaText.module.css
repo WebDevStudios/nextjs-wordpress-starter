@@ -58,13 +58,15 @@
   }
 
   &.alignTop {
-    & .text {
+    & .text,
+    & .media {
       @apply justify-start;
     }
   }
 
   &.alignBottom {
-    & .text {
+    & .text,
+    & .media {
       @apply justify-end;
     }
   }
@@ -72,8 +74,6 @@
   &.imageFill {
     & .media {
       @apply h-full max-w-full rounded;
-
-      min-height: 16rem;
 
       & .imageWrap {
         @apply pt-0;
