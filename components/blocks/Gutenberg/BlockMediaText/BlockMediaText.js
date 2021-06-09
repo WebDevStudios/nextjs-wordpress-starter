@@ -45,10 +45,11 @@ export default function BlockMediaText({innerBlocks, media}) {
   const backgroundcolor =
     backgroundColorHex || style?.color?.background || 'inherit'
   const textcolor = textColorHex || style?.color?.text || 'inherit'
+  const background = gradientHex || style?.color?.gradient || 'inherit'
 
   // Create style object for button.
   const mediaTextStyle = {
-    background: gradientHex || style?.color?.gradient || 'inherit',
+    background: background,
     backgroundColor: backgroundcolor,
     color: textcolor,
     gridTemplateColumns: `1fr ${mediaWidth}%`
