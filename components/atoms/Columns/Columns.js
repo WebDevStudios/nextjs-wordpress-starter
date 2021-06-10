@@ -38,7 +38,23 @@ export default function Columns({
       )}
       style={style}
     >
-      {children && children}
+      {!!children &&
+        !!children?.length &&
+        React.Children.map(children, (column) => {
+          // Create copy of child column to add custom classes.
+          const newColumn = React.cloneElement(column, {
+            className: cn(
+              column?.className,
+              styles?.column,
+              column?.props?.style?.background ||
+                column?.props?.style?.backgroundColor
+                ? styles.hasBackground
+                : null
+            )
+          })
+
+          return newColumn
+        })}
     </div>
   )
 }

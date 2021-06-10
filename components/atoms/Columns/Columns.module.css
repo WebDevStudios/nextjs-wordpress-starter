@@ -26,13 +26,13 @@
   }
 
   &.alignCenter {
-    & > * {
+    & .column {
       @apply justify-center;
     }
   }
 
   &.alignBottom {
-    & > * {
+    & .column {
       @apply justify-end;
     }
   }
@@ -41,7 +41,11 @@
     @apply p-8;
   }
 
-  & > * {
+  & .column {
     @apply flex flex-col;
+
+    &.hasBackground {
+      @apply p-4;
+    }
   }
 }
