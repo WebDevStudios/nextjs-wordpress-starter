@@ -31,7 +31,10 @@ export default function Columns({
         columnCount && styles[`columns-${columnCount}`],
         className,
         verticalAlignment === 'center' ? styles.alignCenter : null,
-        verticalAlignment === 'bottom' ? styles.alignBottom : null
+        verticalAlignment === 'bottom' ? styles.alignBottom : null,
+        style?.background || style?.backgroundColor
+          ? styles.hasBackground
+          : null
       )}
       style={style}
     >

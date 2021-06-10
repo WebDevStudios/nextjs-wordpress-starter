@@ -37,6 +37,10 @@
     }
   }
 
+  &.hasBackground {
+    @apply p-8;
+  }
+
   & > * {
     @apply flex flex-col;
   }
