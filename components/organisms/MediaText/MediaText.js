@@ -8,26 +8,36 @@ import styles from './MediaText.module.css'
 /**
  * Render the MediaText component.
  *
- * @param  {object}  props           MediaText component props.
- * @param  {string}  props.body      The body text.
- * @param  {Element} props.children  The child elements.
- * @param  {string}  props.className The className.
- * @param  {object}  props.cta       The cta object with text and url strings.
- * @param  {string}  props.id        Optional element ID.
- * @param  {object}  props.image     The image object with url and alt text.
- * @param  {boolean} props.mediaLeft Whether to show media on the left of the text.
- * @param  {string}  props.title     The title.
- * @return {Element}                 The MediaText component.
+ * @param  {object}  props                   MediaText component props.
+ * @param  {string}  props.body              The body text.
+ * @param  {Element} props.children          The child elements.
+ * @param  {string}  props.className         The className.
+ * @param  {object}  props.cta               The cta object with text and url strings.
+ * @param  {object}  props.focalPoint        The focal point coordinates for the image fill setting.
+ * @param  {string}  props.id                Optional element ID.
+ * @param  {object}  props.image             The image object with url and alt text.
+ * @param  {boolean} props.imageFill         Whether to crop image to fill.
+ * @param  {boolean} props.mediaLeft         Whether to show media on the left of the text.
+ * @param  {boolean} props.stackOnMobile     Whether to stack media and text on mobile.
+ * @param  {object}  props.style             Custom media text styles.
+ * @param  {string}  props.title             The title.
+ * @param  {string}  props.verticalAlignment Vertical alignment of text.
+ * @return {Element}                         The MediaText component.
  */
 export default function MediaText({
   body,
   children,
   className,
   cta,
+  focalPoint,
   id,
   image,
+  imageFill,
   mediaLeft,
-  title
+  stackOnMobile,
+  style,
+  title,
+  verticalAlignment
 }) {
   useEffect(() => {
     if ((children && title) || (children && body) || (children && cta)) {
@@ -37,14 +47,26 @@ export default function MediaText({
     }
   })
 
+  const imageFillStyle = !imageFill
+    ? null
+    : {
+        backgroundImage: `url(${image?.url || ''})`,
+        backgroundPosition: `${focalPoint.x} ${focalPoint.y}`
+      }
+
   return (
     <section
       id={id}
       className={cn(
         styles.mediaText,
         mediaLeft ? styles.mediaLeft : null,
-        className
+        className,
+        !stackOnMobile ? styles.noStack : null,
+        verticalAlignment === 'top' ? styles.alignTop : null,
+        verticalAlignment === 'bottom' ? styles.alignBottom : null,
+        imageFill && image?.url ? styles.imageFill : null
       )}
+      style={style}
     >
       <div className={styles.text}>
         {children ? (
@@ -66,7 +88,7 @@ export default function MediaText({
           </>
         )}
       </div>
-      <div className={styles.media}>
+      <div className={styles.media} style={imageFillStyle}>
         {image && image.url && (
           <DisplayImage
             className={styles.imageWrap}
@@ -89,13 +111,25 @@ MediaText.propTypes = {
     url: PropTypes.string,
     icon: PropTypes.string
   }),
+  focalPoint: PropTypes.shape({
+    x: PropTypes.string,
+    y: PropTypes.string
+  }),
   id: PropTypes.string,
   image: PropTypes.shape({
     url: PropTypes.string,
     alt: PropTypes.string
   }),
+  imageFill: PropTypes.bool,
   mediaLeft: PropTypes.bool,
-  title: PropTypes.string
+  stackOnMobile: PropTypes.bool,
+  style: PropTypes.shape({
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string
+  }),
+  title: PropTypes.string,
+  verticalAlignment: PropTypes.string
 }
 
 MediaText.defaultProps = {
