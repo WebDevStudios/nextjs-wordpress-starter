@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Contributing <!-- omit in toc -->
 
 ## Introduction

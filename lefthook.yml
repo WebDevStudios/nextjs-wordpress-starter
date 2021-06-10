@@ -8,7 +8,10 @@ pre-commit:
       run: npx eslint {staged_files} --config=.eslintrc.js --fix
     stylelint:
       glob: '*.{css,scss}'
-      run: npx stylelint {staged_files} --config=stylelint.config.js --fix
+      run: npx stylelint {staged_files} --config=.stylelintrc.js --fix
     prettier:
       glob: '*.{md,html,json,yml}'
-      run: npx prettier  {staged_files} --config=prettier.config.js --write
+      run: npx prettier {staged_files} --config=.prettierrc.js --write
+    markdown:
+      glob: '*.md'
+      run: npx markdownlint {staged_files} --config=.markdownlint.json --fix

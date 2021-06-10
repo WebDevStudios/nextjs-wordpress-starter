@@ -1,8 +1,6 @@
-!/.*.js
-*.min.js
-.*cache
+*.min.*
 .next/
-build/
 dist/
 node_modules/
 public/
+components/
