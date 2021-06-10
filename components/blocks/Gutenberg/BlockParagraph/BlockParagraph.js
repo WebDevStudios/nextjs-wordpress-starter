@@ -44,7 +44,7 @@ export default function BlockParagraph({
       id={anchor}
       tag="p"
       dropCap={dropCap}
-      inlineStyles={paragraphStyle}
+      style={paragraphStyle}
     >
       {content}
     </RichText>
