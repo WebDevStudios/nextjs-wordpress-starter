@@ -24,4 +24,20 @@
   &.columns-6 {
     @apply grid-cols-6;
   }
+
+  &.alignCenter {
+    & > * {
+      @apply justify-center;
+    }
+  }
+
+  &.alignBottom {
+    & > * {
+      @apply justify-end;
+    }
+  }
+
+  & > * {
+    @apply flex flex-col;
+  }
 }
