@@ -12,6 +12,7 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.backgroundColorHex The background color hex value.
  * @param  {string}  props.className          Optional classnames.
  * @param  {string}  props.content            The content of the block.
+ * @param  {string}  props.gradientHex        The background gradient hex value.
  * @param  {object}  props.style              The style attributes (Typography panel).
  * @param  {string}  props.textColorHex       The text color hex value.
  * @return {Element}                          The Code component.
@@ -21,6 +22,7 @@ export default function BlockCode({
   backgroundColorHex,
   className,
   content,
+  gradientHex,
   style,
   textColorHex
 }) {
@@ -28,6 +30,7 @@ export default function BlockCode({
   const backgroundcolor = backgroundColorHex || style?.color?.background
   const textcolor = textColorHex || style?.color?.text
   const fontsize = style?.typography?.fontSize
+  const background = gradientHex || style?.color?.gradient
 
   // Create style object for code.
   const codeStyle = {}
@@ -46,6 +49,9 @@ export default function BlockCode({
   if (fontsize) {
     codeStyle.fontSize = fontsize
   }
+  if (background) {
+    codeStyle.background = background
+  }
 
   return (
     <Code
@@ -62,6 +68,7 @@ BlockCode.propTypes = {
   backgroundColorHex: PropTypes.string,
   content: PropTypes.string,
   className: PropTypes.string,
+  gradientHex: PropTypes.string,
   style: PropTypes.object,
   textColorHex: PropTypes.string
 }
