@@ -14,14 +14,29 @@ import PropTypes from 'prop-types'
  * @return {Element}                   The Cover component.
  */
 export default function BlockCover({media, innerBlocks}) {
+  /* eslint-disable no-unused-vars */
+  const {
+    align,
+    anchor,
+    backgroundType,
+    className,
+    contentPosition,
+    customGradient,
+    dimRatio,
+    gradientHex,
+    hasParallax,
+    isRepeated,
+    minHeight,
+    overlayColorHex,
+    style,
+    url
+  } = media
+  /* eslint-enable no-unused-vars */
+
   return (
     <>
-      {!!media?.url && (
-        <Hero
-          backgroundImage={media}
-          id={media?.anchor}
-          className={media?.className}
-        >
+      {!!url && (
+        <Hero backgroundImage={media} id={anchor} className={className}>
           {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
         </Hero>
       )}
@@ -31,8 +46,19 @@ export default function BlockCover({media, innerBlocks}) {
 
 BlockCover.propTypes = {
   media: PropTypes.shape({
+    align: PropTypes.string,
     anchor: PropTypes.string,
+    backgroundType: PropTypes.string,
     className: PropTypes.string,
+    contentPosition: PropTypes.string,
+    customGradient: PropTypes.string,
+    dimRatio: PropTypes.number,
+    gradientHex: PropTypes.string,
+    hasParallax: PropTypes.bool,
+    isRepeated: PropTypes.bool,
+    minHeight: PropTypes.number,
+    overlayColorHex: PropTypes.string,
+    style: PropTypes.object,
     url: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(
