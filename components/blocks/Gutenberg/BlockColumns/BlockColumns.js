@@ -21,7 +21,8 @@ export default function BlockColumns({columns, innerBlocks}) {
     className,
     gradientHex,
     style,
-    textColorHex
+    textColorHex,
+    verticalAlignment
   } = columns
 
   const columnsStyle = getBlockStyles({
@@ -39,6 +40,7 @@ export default function BlockColumns({columns, innerBlocks}) {
           className={className}
           columnCount={innerBlocks?.length}
           style={columnsStyle}
+          verticalAlignment={verticalAlignment}
         >
           {innerBlocks.map(({attributes, innerBlocks}, index) => {
             const columnStyle = getBlockStyles({
@@ -72,7 +74,8 @@ BlockColumns.propTypes = {
     className: PropTypes.string,
     gradientHex: PropTypes.string,
     style: PropTypes.object,
-    textColorHex: PropTypes.string
+    textColorHex: PropTypes.string,
+    verticalAlignment: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
