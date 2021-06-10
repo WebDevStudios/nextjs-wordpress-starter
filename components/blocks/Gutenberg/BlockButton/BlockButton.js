@@ -1,4 +1,5 @@
 import Button from '@/components/atoms/Button'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
@@ -36,20 +37,16 @@ export default function BlockButton({
   url,
   width
 }) {
-  // Determine background and text colors, using stylelint-accepted const names.
-  const backgroundcolor =
-    backgroundColorHex || style?.color?.background || 'inherit'
-  const textcolor = textColorHex || style?.color?.text || 'inherit'
-  const background = gradientHex || style?.color?.gradient || 'inherit'
+  const buttonStyle = getBlockStyles({
+    backgroundColorHex,
+    gradientHex,
+    textColorHex,
+    width,
+    style
+  })
 
-  // Create style object for button.
-  const buttonStyle = {
-    background: background,
-    backgroundColor: backgroundcolor,
-    borderRadius: `${borderRadius}px`,
-    color: textcolor,
-    width: width ? `${width}%` : 'auto'
-  }
+  // Add additional styles.
+  buttonStyle.borderRadius = `${borderRadius}px`
 
   // Extract button style.
   const styleOutline = className && className.includes('is-style-outline')
