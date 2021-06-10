@@ -76,8 +76,8 @@ BlockColumns.propTypes = {
   }),
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
-      attributes: PropTypes.object
+      block: PropTypes.object,
+      index: PropTypes.number
     })
   )
 }
