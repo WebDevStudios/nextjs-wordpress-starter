@@ -12,6 +12,7 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.backgroundColorHex The background color hex value.
  * @param  {number}  props.borderRadius       The border radius in pixels.
  * @param  {string}  props.className          Optional classnames.
+ * @param  {string}  props.gradientHex        The background gradient hex value.
  * @param  {string}  props.linkTarget         The target for the link.
  * @param  {string}  props.rel                The rel attribute for the link.
  * @param  {object}  props.style              The style attributes.
@@ -26,6 +27,7 @@ export default function BlockButton({
   backgroundColorHex,
   borderRadius,
   className,
+  gradientHex,
   linkTarget,
   rel,
   style,
@@ -38,10 +40,11 @@ export default function BlockButton({
   const backgroundcolor =
     backgroundColorHex || style?.color?.background || 'inherit'
   const textcolor = textColorHex || style?.color?.text || 'inherit'
+  const background = gradientHex || style?.color?.gradient || 'inherit'
 
   // Create style object for button.
   const buttonStyle = {
-    background: style?.color?.gradient || 'inherit',
+    background: background,
     backgroundColor: backgroundcolor,
     borderRadius: `${borderRadius}px`,
     color: textcolor,
@@ -77,6 +80,7 @@ BlockButton.propTypes = {
   backgroundColorHex: PropTypes.string,
   borderRadius: PropTypes.number,
   className: PropTypes.string,
+  gradientHex: PropTypes.string,
   linkTarget: PropTypes.string,
   rel: PropTypes.string,
   style: PropTypes.object,
