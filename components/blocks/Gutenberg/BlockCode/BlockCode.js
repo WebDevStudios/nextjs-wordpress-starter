@@ -1,4 +1,5 @@
 import Code from '@/components/atoms/Code'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
@@ -26,32 +27,12 @@ export default function BlockCode({
   style,
   textColorHex
 }) {
-  // Determine background and text colors, and font size, using stylelint-accepted const names.
-  const backgroundcolor = backgroundColorHex || style?.color?.background
-  const textcolor = textColorHex || style?.color?.text
-  const fontsize = style?.typography?.fontSize
-  const background = gradientHex || style?.color?.gradient
-
-  // Create style object for code.
-  const codeStyle = {}
-
-  // Only add custom styles if set.
-  if (style?.color?.gradient) {
-    codeStyle.background = style.color.gradient
-  }
-  if (backgroundcolor) {
-    codeStyle.backgroundColor = backgroundcolor
-  }
-  if (textcolor) {
-    codeStyle.color = textcolor
-    codeStyle['code[class*="language-"]'] = textcolor
-  }
-  if (fontsize) {
-    codeStyle.fontSize = fontsize
-  }
-  if (background) {
-    codeStyle.background = background
-  }
+  const codeStyle = getBlockStyles({
+    backgroundColorHex,
+    gradientHex,
+    textColorHex,
+    style
+  })
 
   return (
     <Code
