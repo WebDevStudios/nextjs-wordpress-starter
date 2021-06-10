@@ -20,11 +20,16 @@ export default function getBlockStyles({
   // Determine styles, using stylelint-accepted const names.
   const background = gradientHex || style?.color?.gradient
   const backgroundcolor = backgroundColorHex || style?.color?.background
+  const fontsize = style?.typography?.fontSize
   const textcolor = textColorHex || style?.color?.text
 
-  // Only add styles if set
+  // Only add styles if set.
   if (background) {
     blockStyle.background = background
+  }
+
+  if (fontsize) {
+    blockStyle.fontSize = fontsize
   }
 
   if (backgroundcolor) {
