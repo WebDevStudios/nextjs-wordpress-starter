@@ -32,7 +32,7 @@ export default function getBlockStyles({
   }
 
   if (textcolor) {
-    blockStyle.textColor = textcolor
+    blockStyle.color = textcolor
   }
 
   return blockStyle
