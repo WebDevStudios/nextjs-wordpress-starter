@@ -49,7 +49,7 @@ export default function BlockMediaText({innerBlocks, media}) {
   const gridtemplatecolumns =
     mediaPosition === 'left' ? `${mediaWidth}% 1fr` : `1fr ${mediaWidth}%`
 
-  // Create style object for button.
+  // Create style object for block.
   const mediaTextStyle = {
     background: background,
     backgroundColor: backgroundcolor,
