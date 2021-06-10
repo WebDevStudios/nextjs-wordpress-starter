@@ -1,5 +1,6 @@
 import Columns from '@/components/atoms/Columns'
 import Blocks from '@/components/molecules/Blocks'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
@@ -23,18 +24,12 @@ export default function BlockColumns({columns, innerBlocks}) {
     textColorHex
   } = columns
 
-  // Determine background and text colors, using stylelint-accepted const names.
-  const backgroundcolor =
-    backgroundColorHex || style?.color?.background || 'inherit'
-  const textcolor = textColorHex || style?.color?.text || 'inherit'
-  const background = gradientHex || style?.color?.gradient || 'inherit'
-
-  // Create style object for block.
-  const columnsStyle = {
-    background: background,
-    backgroundColor: backgroundcolor,
-    color: textcolor
-  }
+  const columnsStyle = getBlockStyles({
+    backgroundColorHex,
+    gradientHex,
+    textColorHex,
+    style
+  })
 
   return (
     <>
