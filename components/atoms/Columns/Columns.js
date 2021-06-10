@@ -11,9 +11,10 @@ import styles from './Columns.module.css'
  * @param  {string}  props.className   Optional className.
  * @param  {string}  props.columnCount Total number of columns.
  * @param  {object}  props.children    React children.
+ * @param  {object}  props.style       Custom columns styles.
  * @return {Element}                   The Columns component.
  */
-export default function Columns({id, className, columnCount, children}) {
+export default function Columns({id, className, columnCount, children, style}) {
   return (
     <div
       id={id || null}
@@ -22,6 +23,7 @@ export default function Columns({id, className, columnCount, children}) {
         columnCount && styles[`columns-${columnCount}`],
         className
       )}
+      style={style}
     >
       {children && children}
     </div>
@@ -32,7 +34,12 @@ Columns.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   columnCount: PropTypes.number,
-  children: PropTypes.node
+  children: PropTypes.node,
+  style: PropTypes.shape({
+    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string
+  })
 }
 Columns.defaultProps = {
   columnCount: 3

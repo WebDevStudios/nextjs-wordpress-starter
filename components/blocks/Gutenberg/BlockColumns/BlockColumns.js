@@ -14,13 +14,36 @@ import PropTypes from 'prop-types'
  * @return {Element}                   The Columns component.
  */
 export default function BlockColumns({columns, innerBlocks}) {
+  const {
+    anchor,
+    backgroundColorHex,
+    className,
+    gradientHex,
+    style,
+    textColorHex
+  } = columns
+
+  // Determine background and text colors, using stylelint-accepted const names.
+  const backgroundcolor =
+    backgroundColorHex || style?.color?.background || 'inherit'
+  const textcolor = textColorHex || style?.color?.text || 'inherit'
+  const background = gradientHex || style?.color?.gradient || 'inherit'
+
+  // Create style object for block.
+  const columnsStyle = {
+    background: background,
+    backgroundColor: backgroundcolor,
+    color: textcolor
+  }
+
   return (
     <>
       {!!innerBlocks?.length && (
         <Columns
-          id={columns?.anchor}
-          className={columns?.className}
+          id={anchor}
+          className={className}
           columnCount={innerBlocks?.length}
+          style={columnsStyle}
         >
           {innerBlocks.map((block, index) => {
             return (
@@ -44,7 +67,11 @@ export default function BlockColumns({columns, innerBlocks}) {
 BlockColumns.propTypes = {
   columns: PropTypes.shape({
     anchor: PropTypes.string,
-    className: PropTypes.string
+    backgroundColorHex: PropTypes.string,
+    className: PropTypes.string,
+    gradientHex: PropTypes.string,
+    style: PropTypes.object,
+    textColorHex: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
