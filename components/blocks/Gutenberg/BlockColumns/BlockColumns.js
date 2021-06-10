@@ -40,16 +40,22 @@ export default function BlockColumns({columns, innerBlocks}) {
           columnCount={innerBlocks?.length}
           style={columnsStyle}
         >
-          {innerBlocks.map((block, index) => {
+          {innerBlocks.map(({attributes, innerBlocks}, index) => {
+            const columnStyle = getBlockStyles({
+              backgroundColorHex: attributes?.backgroundColorHex,
+              gradientHex: attributes?.gradientHex,
+              textColorHex: attributes?.textColorHex,
+              style: attributes?.style
+            })
+
             return (
               <div
                 key={`column-${index}`}
-                id={block?.attributes?.anchor}
-                className={block?.attributes?.className}
+                id={attributes?.anchor}
+                className={attributes?.className}
+                style={columnStyle}
               >
-                {!!block?.innerBlocks?.length && (
-                  <Blocks blocks={block.innerBlocks} />
-                )}
+                {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
               </div>
             )
           })}
