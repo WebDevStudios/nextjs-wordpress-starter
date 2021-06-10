@@ -6,6 +6,7 @@
  * @param  {string} styles.backgroundColorHex The background color hex value.
  * @param  {string} styles.gradientHex        The background gradient hex value.
  * @param  {string} styles.textColorHex       The text color hex value.
+ * @param  {number} styles.width              The width in percent.
  * @param  {object} styles.style              The style attributes.
  * @return {object}                           The formatted style object.
  */
@@ -13,6 +14,7 @@ export default function getBlockStyles({
   backgroundColorHex,
   gradientHex,
   textColorHex,
+  width,
   style
 }) {
   const blockStyle = {}
@@ -38,6 +40,10 @@ export default function getBlockStyles({
 
   if (textcolor) {
     blockStyle.color = textcolor
+  }
+
+  if (width) {
+    blockStyle.width = width ? `${width}%` : 'auto'
   }
 
   return blockStyle
