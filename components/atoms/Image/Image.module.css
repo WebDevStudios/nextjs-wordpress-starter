@@ -14,6 +14,6 @@
   }
 
   & .imageFill {
-    object-fit: cover;
+    @apply object-cover rounded;
   }
 }
