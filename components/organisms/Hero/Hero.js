@@ -14,9 +14,10 @@ import styles from './Hero.module.css'
  * @param  {any}     props.children        InnerBlocks.
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
+ * @param  {boolean} props.hasOverlay      Whether hero has overlay.
  * @param  {string}  props.id              Optional element ID.
- * @param  {string}  props.overlayColor    The overlay color or gradient.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
+ * @param  {object}  props.style           Custom hero styles.
  * @param  {string}  props.subtitle        Text for the subtitle.
  * @param  {string}  props.title           Text for the title.
  * @return {Element}                       The Hero component.
@@ -28,13 +29,14 @@ export default function Hero({
   children,
   ctaText,
   ctaUrl,
+  hasOverlay,
   id,
-  overlayColor,
-  overlayOpacity,
+  overlayOpacity = 0.5,
+  style,
   subtitle,
   title
 }) {
-  const style = backgroundImage?.url
+  const heroStyle = backgroundImage?.url
     ? {
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
         '--image-url': `url(${backgroundImage.url})`,
@@ -43,18 +45,20 @@ export default function Hero({
       }
     : {}
 
-  // Add overlay.
-  if (overlayColor) {
-    style.backgroundColor = overlayColor
-  }
+  // Rename to stylelint-accepted const name.
+  const overlayopacity = overlayOpacity
 
   return (
-    <section id={id} className={cn(styles.hero, className)} style={style}>
-      {!!overlayColor && (
-        <div
-          className={styles.overlay}
-          style={{opacity: overlayOpacity ?? 0.5}}
-        ></div>
+    <section
+      id={id}
+      className={cn(styles.hero, className)}
+      style={{
+        ...style,
+        ...heroStyle
+      }}
+    >
+      {!!hasOverlay && (
+        <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
       )}
       <div className={styles.content}>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
@@ -83,9 +87,10 @@ Hero.propTypes = {
   children: PropTypes.any,
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
+  hasOverlay: PropTypes.bool,
   id: PropTypes.string,
-  overlayColor: PropTypes.string,
   overlayOpacity: PropTypes.number,
+  style: PropTypes.object,
   subtitle: PropTypes.string,
   title: PropTypes.string
 }
