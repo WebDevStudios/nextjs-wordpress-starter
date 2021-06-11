@@ -1,4 +1,5 @@
 import RichText from '@/components/atoms/RichText'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -30,15 +31,20 @@ export default function BlockParagraph({
   textColorHex
 }) {
   const alignment = !align ? 'left' : align
+
+  const paragraphStyle = getBlockStyles({
+    backgroundColorHex,
+    textColorHex,
+    style
+  })
+
   return (
     <RichText
       className={cn(`text-${alignment}`, className)}
       id={anchor}
       tag="p"
       dropCap={dropCap}
-      textColor={textColorHex || style?.color?.text || null}
-      backgroundColor={backgroundColorHex || style?.color?.background || null}
-      inlineStyles={style}
+      style={paragraphStyle}
     >
       {content}
     </RichText>

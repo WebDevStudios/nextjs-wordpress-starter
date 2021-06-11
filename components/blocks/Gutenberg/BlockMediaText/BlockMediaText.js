@@ -1,5 +1,6 @@
 import Blocks from '@/components/molecules/Blocks'
 import MediaText from '@/components/organisms/MediaText'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
@@ -40,22 +41,17 @@ export default function BlockMediaText({innerBlocks, media}) {
     verticalAlignment
   } = media
   /* eslint-enable no-unused-vars */
+  const mediaTextStyle = getBlockStyles({
+    backgroundColorHex,
+    gradientHex,
+    textColorHex,
+    style
+  })
 
-  // Determine background and text colors, using stylelint-accepted const names.
-  const backgroundcolor =
-    backgroundColorHex || style?.color?.background || 'inherit'
-  const textcolor = textColorHex || style?.color?.text || 'inherit'
-  const background = gradientHex || style?.color?.gradient || 'inherit'
+  // Add additional styles.
   const gridtemplatecolumns =
     mediaPosition === 'left' ? `${mediaWidth}% 1fr` : `1fr ${mediaWidth}%`
-
-  // Create style object for button.
-  const mediaTextStyle = {
-    background: background,
-    backgroundColor: backgroundcolor,
-    color: textcolor,
-    gridTemplateColumns: gridtemplatecolumns
-  }
+  mediaTextStyle.gridTemplateColumns = gridtemplatecolumns
 
   const newFocalPoint = {}
 
