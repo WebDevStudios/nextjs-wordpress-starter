@@ -14,7 +14,6 @@ import styles from './Hero.module.css'
  * @param  {any}     props.children        InnerBlocks.
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
- * @param  {boolean} props.hasOverlay      Whether hero has overlay.
  * @param  {string}  props.id              Optional element ID.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
  * @param  {object}  props.style           Custom hero styles.
@@ -29,7 +28,6 @@ export default function Hero({
   children,
   ctaText,
   ctaUrl,
-  hasOverlay,
   id,
   overlayOpacity = 0.5,
   style,
@@ -57,9 +55,7 @@ export default function Hero({
         ...heroStyle
       }}
     >
-      {!!hasOverlay && (
-        <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
-      )}
+      <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
       <div className={styles.content}>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <h1 className={styles.title}>{title}</h1>
@@ -98,7 +94,6 @@ Hero.propTypes = {
   children: PropTypes.any,
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
-  hasOverlay: PropTypes.bool,
   id: PropTypes.string,
   overlayOpacity: PropTypes.number,
   style: PropTypes.object,

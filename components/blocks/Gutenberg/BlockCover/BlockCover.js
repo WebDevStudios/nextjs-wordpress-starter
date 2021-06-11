@@ -33,36 +33,33 @@ export default function BlockCover({media, innerBlocks}) {
   } = media
   /* eslint-enable no-unused-vars */
 
+  const overlayColor = overlayColorHex || '#000000'
   const overlayGradient = customGradient || gradientHex
   const overlayOpacity = url ? dimRatio / 100 : 1
-
-  const hasOverlay = overlayColorHex || overlayGradient ? true : false
-
-  const backgroundImage = {
-    url
-  }
 
   // Add custom styles for Hero.
   const coverStyle = {}
 
-  if (overlayColorHex) {
-    coverStyle.backgroundColor = overlayColorHex
+  if (overlayColor && !overlayGradient) {
+    coverStyle.backgroundColor = overlayColor
   }
 
   if (overlayGradient) {
     coverStyle.background = overlayGradient
   }
 
-  if (!url && !hasOverlay) {
+  // Only proceed if we're provided a media URL or a user-selected overlay color/gradient.
+  if (!url && !overlayColorHex && !overlayGradient) {
     return null
   }
 
+  const hasFilter = !!url && !!style?.color?.duotone
+
   return (
     <Hero
-      backgroundImage={backgroundImage}
+      backgroundImage={!hasFilter && url ? {url} : null}
       className={className}
       id={anchor}
-      hasOverlay={hasOverlay}
       overlayOpacity={overlayOpacity}
       style={coverStyle}
     >
