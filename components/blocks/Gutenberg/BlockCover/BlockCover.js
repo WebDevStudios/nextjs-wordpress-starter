@@ -33,10 +33,23 @@ export default function BlockCover({media, innerBlocks}) {
   } = media
   /* eslint-enable no-unused-vars */
 
+  const overlayColor = overlayColorHex || customGradient || gradientHex
+  const overlayOpacity = url ? dimRatio / 100 : 1
+
+  const backgroundImage = {
+    url
+  }
+
   return (
     <>
-      {!!url && (
-        <Hero backgroundImage={media} id={anchor} className={className}>
+      {(!!url || !!overlayColor) && (
+        <Hero
+          backgroundImage={backgroundImage}
+          className={className}
+          id={anchor}
+          overlayColor={overlayColor}
+          overlayOpacity={overlayOpacity}
+        >
           {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
         </Hero>
       )}
