@@ -122,7 +122,13 @@ export default function Hero({
           ...heroStyle
         }}
       >
-        <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
+        <div
+          className={cn(
+            styles.overlay,
+            !backgroundImage?.url ? styles.overlayOnly : null
+          )}
+          style={{opacity: overlayopacity}}
+        ></div>
         <div className={styles.content}>
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
           <h1 className={styles.title}>{title}</h1>

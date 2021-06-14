@@ -34,6 +34,10 @@
 
     background-color: inherit;
     z-index: 5;
+
+    &.overlayOnly {
+      z-index: auto;
+    }
   }
 
   & .filterImage {
