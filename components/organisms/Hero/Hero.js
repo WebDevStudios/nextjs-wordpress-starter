@@ -138,18 +138,16 @@ export default function Hero({
           />
         )}
       </div>
-      {!!children &&
-        !!children?.length &&
-        React.Children.map(children, (child) => {
-          // Create copy of child element to add custom classes.
-          const newChild = !child
-            ? child
-            : React.cloneElement(child, {
-                className: cn(child?.className, styles?.child)
-              })
 
-          return newChild
-        })}
+      {hasFilter && (
+        <DisplayImage
+          url={backgroundImage?.url}
+          nextImageFill={true}
+          style={{filter: `url(#${filterId})`}}
+        />
+      )}
+
+      {children}
     </section>
   )
 }
