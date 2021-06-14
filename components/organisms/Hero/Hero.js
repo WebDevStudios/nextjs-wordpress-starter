@@ -130,6 +130,12 @@ export default function Hero({
             : null,
           contentAlign && contentAlign.indexOf('bottom') === 0
             ? styles.contentAlignBottom
+            : null,
+          contentAlign && contentAlign.indexOf('left') > -1
+            ? styles.contentAlignLeft
+            : null,
+          contentAlign && contentAlign.indexOf('right') > -1
+            ? styles.contentAlignRight
             : null
         )}
         style={{

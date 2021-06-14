@@ -29,6 +29,14 @@
     @apply justify-end;
   }
 
+  &.contentAlignLeft {
+    @apply items-start;
+  }
+
+  &.contentAlignRight {
+    @apply items-end;
+  }
+
   & .content {
     @apply z-10 relative;
 
