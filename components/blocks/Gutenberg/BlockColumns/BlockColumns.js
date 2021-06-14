@@ -1,5 +1,6 @@
 import Columns from '@/components/atoms/Columns'
 import Blocks from '@/components/molecules/Blocks'
+import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
@@ -14,24 +15,49 @@ import PropTypes from 'prop-types'
  * @return {Element}                   The Columns component.
  */
 export default function BlockColumns({columns, innerBlocks}) {
+  const {
+    anchor,
+    backgroundColorHex,
+    className,
+    gradientHex,
+    style,
+    textColorHex,
+    verticalAlignment
+  } = columns
+
+  const columnsStyle = getBlockStyles({
+    backgroundColorHex,
+    gradientHex,
+    textColorHex,
+    style
+  })
+
   return (
     <>
       {!!innerBlocks?.length && (
         <Columns
-          id={columns?.anchor}
-          className={columns?.className}
+          id={anchor}
+          className={className}
           columnCount={innerBlocks?.length}
+          style={columnsStyle}
+          verticalAlignment={verticalAlignment}
         >
-          {innerBlocks.map((block, index) => {
+          {innerBlocks.map(({attributes, innerBlocks}, index) => {
+            const columnStyle = getBlockStyles({
+              backgroundColorHex: attributes?.backgroundColorHex,
+              gradientHex: attributes?.gradientHex,
+              textColorHex: attributes?.textColorHex,
+              style: attributes?.style
+            })
+
             return (
               <div
                 key={`column-${index}`}
-                id={block?.attributes?.anchor}
-                className={block?.attributes?.className}
+                id={attributes?.anchor}
+                className={attributes?.className}
+                style={columnStyle}
               >
-                {!!block?.innerBlocks?.length && (
-                  <Blocks blocks={block.innerBlocks} />
-                )}
+                {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
               </div>
             )
           })}
@@ -44,12 +70,17 @@ export default function BlockColumns({columns, innerBlocks}) {
 BlockColumns.propTypes = {
   columns: PropTypes.shape({
     anchor: PropTypes.string,
-    className: PropTypes.string
+    backgroundColorHex: PropTypes.string,
+    className: PropTypes.string,
+    gradientHex: PropTypes.string,
+    style: PropTypes.object,
+    textColorHex: PropTypes.string,
+    verticalAlignment: PropTypes.string
   }),
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
-      attributes: PropTypes.object
+      block: PropTypes.object,
+      index: PropTypes.number
     })
   )
 }
