@@ -16,7 +16,6 @@ import {useEffect, useState} from 'react'
  * @return {Element}                   The Cover component.
  */
 export default function BlockCover({media, innerBlocks}) {
-  /* eslint-disable no-unused-vars */
   const {
     align,
     anchor,
@@ -34,7 +33,6 @@ export default function BlockCover({media, innerBlocks}) {
     style,
     url
   } = media
-  /* eslint-enable no-unused-vars */
 
   const overlayColor = overlayColorHex || '#000000'
   const overlayGradient = customGradient || gradientHex
