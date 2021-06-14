@@ -21,6 +21,14 @@
     @apply mr-0;
   }
 
+  &.contentAlignTop {
+    @apply justify-start;
+  }
+
+  &.contentAlignBottom {
+    @apply justify-end;
+  }
+
   & .content {
     @apply z-10 relative;
 

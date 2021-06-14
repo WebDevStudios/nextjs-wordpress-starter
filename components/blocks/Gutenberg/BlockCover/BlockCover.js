@@ -82,6 +82,7 @@ export default function BlockCover({media, innerBlocks}) {
   return (
     <Hero
       align={align}
+      contentAlign={contentPosition}
       backgroundImage={{url}}
       className={className}
       duotone={style?.color?.duotone}

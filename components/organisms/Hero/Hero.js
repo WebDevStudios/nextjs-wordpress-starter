@@ -64,6 +64,7 @@ DuotoneFilter.propTypes = {
  * @param  {string}  props.body            Text for the body.
  * @param  {string}  props.className       The className.
  * @param  {any}     props.children        InnerBlocks.
+ * @param  {string}  props.contentAlign    The alignment of the component content.
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
  * @param  {Array}   props.duotone         Array of duotone color values.
@@ -80,6 +81,7 @@ export default function Hero({
   body,
   className,
   children,
+  contentAlign,
   ctaText,
   ctaUrl,
   duotone,
@@ -122,7 +124,13 @@ export default function Hero({
           styles.hero,
           className,
           align === 'left' ? styles.alignLeft : null,
-          align === 'right' ? styles.alignRight : null
+          align === 'right' ? styles.alignRight : null,
+          contentAlign && contentAlign.indexOf('top') === 0
+            ? styles.contentAlignTop
+            : null,
+          contentAlign && contentAlign.indexOf('bottom') === 0
+            ? styles.contentAlignBottom
+            : null
         )}
         style={{
           ...style,
@@ -175,6 +183,7 @@ Hero.propTypes = {
   body: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.any,
+  contentAlign: PropTypes.string,
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
   duotone: PropTypes.array,
