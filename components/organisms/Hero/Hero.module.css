@@ -46,6 +46,10 @@
     min-height: 100vh;
   }
 
+  &.repeat {
+    @apply bg-repeat bg-auto;
+  }
+
   & .content {
     @apply z-10 relative;
 

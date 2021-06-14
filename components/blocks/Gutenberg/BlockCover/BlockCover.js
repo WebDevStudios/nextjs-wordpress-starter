@@ -99,6 +99,7 @@ export default function BlockCover({media, innerBlocks}) {
       fullHeight={minHeight === 100 && minHeightUnit === 'vh'}
       id={anchor}
       overlayOpacity={overlayOpacity}
+      repeat={isRepeated}
       style={coverStyle}
     >
       {!!newInnerBlocks?.length && <Blocks blocks={newInnerBlocks} />}

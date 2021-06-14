@@ -73,6 +73,7 @@ DuotoneFilter.propTypes = {
  * @param  {boolean} props.fullHeight      Whether hero is full height.
  * @param  {string}  props.id              Optional element ID.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
+ * @param  {boolean} props.repeat          Whether background is repeated.
  * @param  {object}  props.style           Custom hero styles.
  * @param  {string}  props.subtitle        Text for the subtitle.
  * @param  {string}  props.title           Text for the title.
@@ -93,6 +94,7 @@ export default function Hero({
   fullHeight,
   id,
   overlayOpacity = 0.5,
+  repeat,
   style,
   subtitle,
   title
@@ -109,7 +111,7 @@ export default function Hero({
   // Rename to stylelint-accepted const name.
   const overlayopacity = overlayOpacity
 
-  const hasFilter = !!backgroundImage?.url && !!duotone && !fixed
+  const hasFilter = !!backgroundImage?.url && !!duotone && !fixed && !repeat
 
   // Generate unique ID for filter.
   const filterKey = Math.random().toString(36).substr(2, 9)
@@ -156,7 +158,8 @@ export default function Hero({
             ? styles.contentAlignRight
             : null,
           fixed ? styles.fixed : null,
-          fullHeight ? styles.fullHeight : null
+          fullHeight ? styles.fullHeight : null,
+          repeat ? styles.repeat : null
         )}
         style={{
           ...style,
@@ -219,6 +222,7 @@ Hero.propTypes = {
   fullHeight: PropTypes.bool,
   id: PropTypes.string,
   overlayOpacity: PropTypes.number,
+  repeat: PropTypes.bool,
   style: PropTypes.object,
   subtitle: PropTypes.string,
   title: PropTypes.string
