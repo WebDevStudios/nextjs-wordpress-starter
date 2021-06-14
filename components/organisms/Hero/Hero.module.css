@@ -9,6 +9,19 @@
   background: linear-gradient(var(--image-tint-color), var(--image-tint-color)), var(--image-url) center center, var(--image-fallback-color);
   background-size: cover;
 
+  &.alignLeft,
+  &.alignRight {
+    @apply w-1/2;
+  }
+
+  &.alignLeft {
+    @apply ml-0;
+  }
+
+  &.alignRight {
+    @apply mr-0;
+  }
+
   & .content {
     @apply z-10 relative;
 

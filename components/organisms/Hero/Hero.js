@@ -59,6 +59,7 @@ DuotoneFilter.propTypes = {
  * Render the Hero component.
  *
  * @param  {object}  props                 Hero component props.
+ * @param  {string}  props.align           The alignment of the hero component.
  * @param  {string}  props.backgroundImage The background image object.
  * @param  {string}  props.body            Text for the body.
  * @param  {string}  props.className       The className.
@@ -74,6 +75,7 @@ DuotoneFilter.propTypes = {
  * @return {Element}                       The Hero component.
  */
 export default function Hero({
+  align,
   backgroundImage,
   body,
   className,
@@ -116,7 +118,12 @@ export default function Hero({
       )}
       <section
         id={id}
-        className={cn(styles.hero, className)}
+        className={cn(
+          styles.hero,
+          className,
+          align === 'left' ? styles.alignLeft : null,
+          align === 'right' ? styles.alignRight : null
+        )}
         style={{
           ...style,
           ...heroStyle
@@ -163,6 +170,7 @@ export default function Hero({
 }
 
 Hero.propTypes = {
+  align: PropTypes.string,
   backgroundImage: PropTypes.object,
   body: PropTypes.string,
   className: PropTypes.string,
