@@ -92,7 +92,7 @@ export default function Hero({
     ? {
         // These css custom properties are used inside the css module file to set the card's background image, tint overlay, and fallback bg color.
         '--image-url': `url(${backgroundImage.url})`,
-        '--image-tint-color': `#00000020`,
+        '--image-tint-color': `#00000000`,
         '--image-fallback-color': `#000`
       }
     : {}
