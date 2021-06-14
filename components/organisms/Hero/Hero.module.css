@@ -36,7 +36,9 @@
     z-index: 5;
   }
 
-  & .child {
-    @apply relative z-10;
+  & .filter {
+    @apply hidden absolute overflow-hidden;
+
+    left: -9999px;
   }
 }
