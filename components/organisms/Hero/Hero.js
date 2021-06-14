@@ -68,6 +68,7 @@ DuotoneFilter.propTypes = {
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
  * @param  {Array}   props.duotone         Array of duotone color values.
+ * @param  {boolean} props.fixed           Whether the background is fixed (parallax).
  * @param  {object}  props.focalPoint      The focal point coordinates for the image.
  * @param  {boolean} props.fullHeight      Whether hero is full height.
  * @param  {string}  props.id              Optional element ID.
@@ -87,6 +88,7 @@ export default function Hero({
   ctaText,
   ctaUrl,
   duotone,
+  fixed,
   focalPoint,
   fullHeight,
   id,
@@ -107,7 +109,7 @@ export default function Hero({
   // Rename to stylelint-accepted const name.
   const overlayopacity = overlayOpacity
 
-  const hasFilter = !!backgroundImage?.url && !!duotone
+  const hasFilter = !!backgroundImage?.url && !!duotone && !fixed
 
   // Generate unique ID for filter.
   const filterKey = Math.random().toString(36).substr(2, 9)
@@ -153,6 +155,7 @@ export default function Hero({
           contentAlign && contentAlign.indexOf('right') > -1
             ? styles.contentAlignRight
             : null,
+          fixed ? styles.fixed : null,
           fullHeight ? styles.fullHeight : null
         )}
         style={{
@@ -208,6 +211,7 @@ Hero.propTypes = {
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
   duotone: PropTypes.array,
+  fixed: PropTypes.bool,
   focalPoint: PropTypes.shape({
     x: PropTypes.string,
     y: PropTypes.string

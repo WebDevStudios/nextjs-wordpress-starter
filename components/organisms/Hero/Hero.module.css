@@ -38,6 +38,10 @@
     @apply items-end;
   }
 
+  &.fixed {
+    @apply bg-fixed;
+  }
+
   &.fullHeight {
     min-height: 100vh;
   }

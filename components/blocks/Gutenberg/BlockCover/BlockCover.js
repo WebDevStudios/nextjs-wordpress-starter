@@ -94,6 +94,7 @@ export default function BlockCover({media, innerBlocks}) {
       backgroundImage={{url}}
       className={className}
       duotone={style?.color?.duotone}
+      fixed={hasParallax}
       focalPoint={newFocalPoint}
       fullHeight={minHeight === 100 && minHeightUnit === 'vh'}
       id={anchor}
