@@ -68,6 +68,7 @@ DuotoneFilter.propTypes = {
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
  * @param  {Array}   props.duotone         Array of duotone color values.
+ * @param  {object}  props.focalPoint      The focal point coordinates for the image.
  * @param  {boolean} props.fullHeight      Whether hero is full height.
  * @param  {string}  props.id              Optional element ID.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
@@ -86,6 +87,7 @@ export default function Hero({
   ctaText,
   ctaUrl,
   duotone,
+  focalPoint,
   fullHeight,
   id,
   overlayOpacity = 0.5,
@@ -113,6 +115,14 @@ export default function Hero({
 
   const filterStyle = {
     filter: `url(#${filterId})`
+  }
+
+  // Conditionally apply focal point.
+  if (focalPoint) {
+    const focalPointStyle = `${focalPoint.x} ${focalPoint.y}`
+
+    heroStyle.backgroundPosition = focalPointStyle
+    filterStyle.objectPosition = focalPointStyle
   }
 
   return (
@@ -198,6 +208,10 @@ Hero.propTypes = {
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
   duotone: PropTypes.array,
+  focalPoint: PropTypes.shape({
+    x: PropTypes.string,
+    y: PropTypes.string
+  }),
   fullHeight: PropTypes.bool,
   id: PropTypes.string,
   overlayOpacity: PropTypes.number,

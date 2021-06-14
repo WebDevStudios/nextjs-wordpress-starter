@@ -1,5 +1,6 @@
 import Blocks from '@/components/molecules/Blocks'
 import Hero from '@/components/organisms/Hero'
+import formatFocalPoint from '@/functions/formatFocalPoint'
 import PropTypes from 'prop-types'
 import {useEffect, useState} from 'react'
 
@@ -19,11 +20,11 @@ export default function BlockCover({media, innerBlocks}) {
   const {
     align,
     anchor,
-    backgroundType,
     className,
     contentPosition,
     customGradient,
     dimRatio,
+    focalPoint,
     gradientHex,
     hasParallax,
     isRepeated,
@@ -53,6 +54,8 @@ export default function BlockCover({media, innerBlocks}) {
   if (minHeight && minHeightUnit !== 'vh') {
     coverStyle.minHeight = `${minHeight}px`
   }
+
+  const newFocalPoint = formatFocalPoint(focalPoint)
 
   const [newInnerBlocks, setInnerBlocks] = useState()
 
@@ -91,6 +94,7 @@ export default function BlockCover({media, innerBlocks}) {
       backgroundImage={{url}}
       className={className}
       duotone={style?.color?.duotone}
+      focalPoint={newFocalPoint}
       fullHeight={minHeight === 100 && minHeightUnit === 'vh'}
       id={anchor}
       overlayOpacity={overlayOpacity}
@@ -105,11 +109,14 @@ BlockCover.propTypes = {
   media: PropTypes.shape({
     align: PropTypes.string,
     anchor: PropTypes.string,
-    backgroundType: PropTypes.string,
     className: PropTypes.string,
     contentPosition: PropTypes.string,
     customGradient: PropTypes.string,
     dimRatio: PropTypes.number,
+    focalPoint: PropTypes.shape({
+      x: PropTypes.string,
+      y: PropTypes.string
+    }),
     gradientHex: PropTypes.string,
     hasParallax: PropTypes.bool,
     isRepeated: PropTypes.bool,
