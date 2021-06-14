@@ -48,6 +48,31 @@ export default function BlockCover({media, innerBlocks}) {
     coverStyle.background = overlayGradient
   }
 
+  const [newInnerBlocks, setInnerBlocks] = useState()
+
+  // Add extra class(es) to inner blocks on initial load.
+  useEffect(() => {
+    setInnerBlocks(
+      !innerBlocks?.length
+        ? []
+        : innerBlocks.map((block) => {
+            const classes = (block?.attributes?.className ?? '').split(' ')
+
+            // Extra check to only add class once.
+            if (classes.includes('relative')) {
+              return block
+            }
+
+            block.attributes = {
+              ...block?.attributes,
+              className: `${block?.attributes?.className || ''} relative`
+            }
+
+            return block
+          })
+    )
+  }, [innerBlocks])
+
   // Only proceed if we're provided a media URL or a user-selected overlay color/gradient.
   if (!url && !overlayColorHex && !overlayGradient) {
     return null
@@ -63,7 +88,7 @@ export default function BlockCover({media, innerBlocks}) {
       overlayOpacity={overlayOpacity}
       style={coverStyle}
     >
-      {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
+      {!!newInnerBlocks?.length && <Blocks blocks={newInnerBlocks} />}
     </Hero>
   )
 }
