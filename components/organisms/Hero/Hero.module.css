@@ -35,10 +35,17 @@
     background-color: inherit;
     z-index: 5;
   }
+
+  & .filterImage {
+    @apply absolute inset-0 box-border p-0 m-auto block w-0 h-0 min-w-full max-w-full min-h-full max-h-full object-cover;
+
+    border: medium none;
+  }
 }
 
 .filter {
-  @apply hidden absolute overflow-hidden;
+  @apply absolute overflow-hidden;
 
   left: -9999px;
+  visibility: hidden;
 }

@@ -1,5 +1,4 @@
 import Button from '@/components/atoms/Button'
-import DisplayImage from '@/components/atoms/Image'
 import convertHextoRgb from '@/functions/convertHextoRgb'
 import extractRgbValues from '@/functions/extractRgbValues'
 import cn from 'classnames'
@@ -107,14 +106,7 @@ export default function Hero({
   const filterId = `duotone-filter-${filterKey}`
 
   return (
-    <section
-      id={id}
-      className={cn(styles.hero, className)}
-      style={{
-        ...style,
-        ...heroStyle
-      }}
-    >
+    <>
       {hasFilter && (
         <DuotoneFilter
           className={styles.filter}
@@ -122,33 +114,45 @@ export default function Hero({
           id={filterId}
         />
       )}
-      <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
-      <div className={styles.content}>
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        <h1 className={styles.title}>{title}</h1>
-        {body && <p className={styles.body}>{body}</p>}
-        {ctaText && ctaUrl && (
-          <Button
-            className={styles.button}
-            url={ctaUrl}
-            text={ctaText}
-            icon="arrowRight"
-            type="primary"
-            size="md"
+      <section
+        id={id}
+        className={cn(styles.hero, className)}
+        style={{
+          ...style,
+          ...heroStyle
+        }}
+      >
+        <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
+        <div className={styles.content}>
+          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          <h1 className={styles.title}>{title}</h1>
+          {body && <p className={styles.body}>{body}</p>}
+          {ctaText && ctaUrl && (
+            <Button
+              className={styles.button}
+              url={ctaUrl}
+              text={ctaText}
+              icon="arrowRight"
+              type="primary"
+              size="md"
+            />
+          )}
+        </div>
+
+        {hasFilter && (
+          <img
+            alt=""
+            className={styles.filterImage}
+            src={backgroundImage?.url}
+            style={{
+              filter: `url(#${filterId})`
+            }}
           />
         )}
-      </div>
 
-      {hasFilter && (
-        <DisplayImage
-          url={backgroundImage?.url}
-          nextImageFill={true}
-          style={{filter: `url(#${filterId})`}}
-        />
-      )}
-
-      {children}
-    </section>
+        {children}
+      </section>
+    </>
   )
 }
 
