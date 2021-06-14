@@ -35,10 +35,10 @@
     background-color: inherit;
     z-index: 5;
   }
+}
 
-  & .filter {
-    @apply hidden absolute overflow-hidden;
+.filter {
+  @apply hidden absolute overflow-hidden;
 
-    left: -9999px;
-  }
+  left: -9999px;
 }
