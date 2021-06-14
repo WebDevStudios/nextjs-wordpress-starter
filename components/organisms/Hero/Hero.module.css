@@ -1,5 +1,5 @@
 .hero {
-  @apply mb-8 container px-32 rounded relative text-white flex items-center justify-center flex-col;
+  @apply mb-8 container rounded relative text-white flex items-center justify-center flex-col p-8;
 
   min-height: 22rem;
 
