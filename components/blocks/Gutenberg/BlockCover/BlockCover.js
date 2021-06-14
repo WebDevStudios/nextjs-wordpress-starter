@@ -74,7 +74,7 @@ export default function BlockCover({media, innerBlocks}) {
 
             block.attributes = {
               ...block?.attributes,
-              className: `${block?.attributes?.className || ''} relative`
+              className: `${block?.attributes?.className || ''} relative z-10`
             }
 
             return block
