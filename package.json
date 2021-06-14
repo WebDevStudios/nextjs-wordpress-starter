@@ -65,7 +65,7 @@
     "autoprefixer": "^10.2.6",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.9.0",
+    "chromatic": "^5.9.1",
     "dayjs": "^1.10.5",
     "deepmerge": "^4.2.2",
     "eslint": "^7.28.0",
