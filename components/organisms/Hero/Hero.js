@@ -137,10 +137,10 @@ export default function Hero({
           style={{opacity: overlayopacity}}
         ></div>
         <div className={styles.content}>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-          <h1 className={styles.title}>{title}</h1>
-          {body && <p className={styles.body}>{body}</p>}
-          {ctaText && ctaUrl && (
+          {!!subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          {!!title && <h1 className={styles.title}>{title}</h1>}
+          {!!body && <p className={styles.body}>{body}</p>}
+          {!!ctaText && ctaUrl && (
             <Button
               className={styles.button}
               url={ctaUrl}
