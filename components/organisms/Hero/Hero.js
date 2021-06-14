@@ -111,6 +111,10 @@ export default function Hero({
   const filterKey = Math.random().toString(36).substr(2, 9)
   const filterId = `duotone-filter-${filterKey}`
 
+  const filterStyle = {
+    filter: `url(#${filterId})`
+  }
+
   return (
     <>
       {hasFilter && (
@@ -174,9 +178,7 @@ export default function Hero({
             alt=""
             className={styles.filterImage}
             src={backgroundImage?.url}
-            style={{
-              filter: `url(#${filterId})`
-            }}
+            style={filterStyle}
           />
         )}
 
