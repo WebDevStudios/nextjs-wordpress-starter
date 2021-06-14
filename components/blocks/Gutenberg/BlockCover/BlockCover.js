@@ -78,11 +78,9 @@ export default function BlockCover({media, innerBlocks}) {
     return null
   }
 
-  const hasFilter = !!url && !!style?.color?.duotone
-
   return (
     <Hero
-      backgroundImage={!hasFilter && url ? {url} : null}
+      backgroundImage={{url}}
       className={className}
       id={anchor}
       overlayOpacity={overlayOpacity}
