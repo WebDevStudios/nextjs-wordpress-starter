@@ -37,6 +37,10 @@
     @apply items-end;
   }
 
+  &.fullHeight {
+    min-height: 100vh;
+  }
+
   & .content {
     @apply z-10 relative;
 

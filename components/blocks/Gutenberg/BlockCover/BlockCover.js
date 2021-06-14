@@ -28,6 +28,7 @@ export default function BlockCover({media, innerBlocks}) {
     hasParallax,
     isRepeated,
     minHeight,
+    minHeightUnit,
     overlayColorHex,
     style,
     url
@@ -86,6 +87,7 @@ export default function BlockCover({media, innerBlocks}) {
       backgroundImage={{url}}
       className={className}
       duotone={style?.color?.duotone}
+      fullHeight={minHeight === 100 && minHeightUnit === 'vh'}
       id={anchor}
       overlayOpacity={overlayOpacity}
       style={coverStyle}
@@ -108,6 +110,7 @@ BlockCover.propTypes = {
     hasParallax: PropTypes.bool,
     isRepeated: PropTypes.bool,
     minHeight: PropTypes.number,
+    minHeightUnit: PropTypes.string,
     overlayColorHex: PropTypes.string,
     style: PropTypes.object,
     url: PropTypes.string

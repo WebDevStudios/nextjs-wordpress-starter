@@ -68,6 +68,7 @@ DuotoneFilter.propTypes = {
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
  * @param  {Array}   props.duotone         Array of duotone color values.
+ * @param  {boolean} props.fullHeight      Whether hero is full height.
  * @param  {string}  props.id              Optional element ID.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
  * @param  {object}  props.style           Custom hero styles.
@@ -85,6 +86,7 @@ export default function Hero({
   ctaText,
   ctaUrl,
   duotone,
+  fullHeight,
   id,
   overlayOpacity = 0.5,
   style,
@@ -136,7 +138,8 @@ export default function Hero({
             : null,
           contentAlign && contentAlign.indexOf('right') > -1
             ? styles.contentAlignRight
-            : null
+            : null,
+          fullHeight ? styles.fullHeight : null
         )}
         style={{
           ...style,
@@ -193,6 +196,7 @@ Hero.propTypes = {
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
   duotone: PropTypes.array,
+  fullHeight: PropTypes.bool,
   id: PropTypes.string,
   overlayOpacity: PropTypes.number,
   style: PropTypes.object,
