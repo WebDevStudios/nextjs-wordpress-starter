@@ -33,6 +33,7 @@
     @apply absolute left-0 right-0 bottom-0 top-0 rounded;
 
     background-color: inherit;
+    z-index: 5;
   }
 
   & .child {
