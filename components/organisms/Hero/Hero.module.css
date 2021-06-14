@@ -1,8 +1,7 @@
 .hero {
-  @apply mb-8 container px-32 rounded relative text-white flex items-center justify-center;
+  @apply mb-8 container px-32 rounded relative text-white flex items-center justify-center flex-col;
 
-  padding-top: 9.125rem;
-  padding-bottom: 9.5rem;
+  min-height: 22rem;
 
   /* The card background uses css custom properties that are set inline in the component. */
   /* stylelint-disable-line comment-empty-line-before */ /* prettier-ignore */
