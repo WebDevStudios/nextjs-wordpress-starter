@@ -1,6 +1,7 @@
 import Blocks from '@/components/molecules/Blocks'
 import Hero from '@/components/organisms/Hero'
 import PropTypes from 'prop-types'
+import {useEffect, useState} from 'react'
 
 /**
  * Cover Block
@@ -82,6 +83,7 @@ export default function BlockCover({media, innerBlocks}) {
     <Hero
       backgroundImage={{url}}
       className={className}
+      duotone={style?.color?.duotone}
       id={anchor}
       overlayOpacity={overlayOpacity}
       style={coverStyle}
