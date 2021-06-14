@@ -50,6 +50,10 @@ export default function BlockCover({media, innerBlocks}) {
     coverStyle.background = overlayGradient
   }
 
+  if (minHeight && minHeightUnit !== 'vh') {
+    coverStyle.minHeight = `${minHeight}px`
+  }
+
   const [newInnerBlocks, setInnerBlocks] = useState()
 
   // Add extra class(es) to inner blocks on initial load.
