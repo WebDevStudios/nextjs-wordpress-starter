@@ -1,8 +1,60 @@
 import Button from '@/components/atoms/Button'
+import DisplayImage from '@/components/atoms/Image'
+import convertHextoRgb from '@/functions/convertHextoRgb'
+import extractRgbValues from '@/functions/extractRgbValues'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './Hero.module.css'
+
+/**
+ * Render the DuotoneFilter component.
+ *
+ * @author WebDevStudios
+ * @param  {object}  props           Component props.
+ * @param  {string}  props.className The className.
+ * @param  {Array}   props.duotone   Array of duotone color values.
+ * @param  {string}  props.id        Unique filter ID.
+ * @return {Element}                 The DuotoneFilter component.
+ */
+function DuotoneFilter({className, duotone, id}) {
+  const rgbValues =
+    duotone?.length &&
+    duotone.map((color) =>
+      color.indexOf('#') !== -1
+        ? convertHextoRgb(color)
+        : extractRgbValues(color)
+    )
+
+  // Calculate R, G, B decimal values.
+  const rValues = rgbValues.map((color) => color[0] / 255)
+  const gValues = rgbValues.map((color) => color[1] / 255)
+  const bValues = rgbValues.map((color) => color[2] / 255)
+
+  return (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id={id}>
+          <feColorMatrix
+            type="matrix"
+            values=".299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 0 0 0 1 0"
+          ></feColorMatrix>
+          <feComponentTransfer colorInterpolationFilters="sRGB">
+            <feFuncR type="table" tableValues={rValues.join(' ')}></feFuncR>
+            <feFuncG type="table" tableValues={gValues.join(' ')}></feFuncG>
+            <feFuncB type="table" tableValues={bValues.join(' ')}></feFuncB>
+          </feComponentTransfer>
+        </filter>
+      </defs>
+    </svg>
+  )
+}
+
+DuotoneFilter.propTypes = {
+  className: PropTypes.string,
+  duotone: PropTypes.array,
+  id: PropTypes.string
+}
 
 /**
  * Render the Hero component.
@@ -14,6 +66,7 @@ import styles from './Hero.module.css'
  * @param  {any}     props.children        InnerBlocks.
  * @param  {object}  props.ctaText         The cta text.
  * @param  {object}  props.ctaUrl          The cta url.
+ * @param  {Array}   props.duotone         Array of duotone color values.
  * @param  {string}  props.id              Optional element ID.
  * @param  {number}  props.overlayOpacity  The overlay opacity as a float.
  * @param  {object}  props.style           Custom hero styles.
@@ -28,6 +81,7 @@ export default function Hero({
   children,
   ctaText,
   ctaUrl,
+  duotone,
   id,
   overlayOpacity = 0.5,
   style,
@@ -46,6 +100,12 @@ export default function Hero({
   // Rename to stylelint-accepted const name.
   const overlayopacity = overlayOpacity
 
+  const hasFilter = !!backgroundImage?.url && !!duotone
+
+  // Generate unique ID for filter.
+  const filterKey = Math.random().toString(36).substr(2, 9)
+  const filterId = `duotone-filter-${filterKey}`
+
   return (
     <section
       id={id}
@@ -55,6 +115,13 @@ export default function Hero({
         ...heroStyle
       }}
     >
+      {hasFilter && (
+        <DuotoneFilter
+          className={styles.filter}
+          duotone={duotone}
+          id={filterId}
+        />
+      )}
       <div className={styles.overlay} style={{opacity: overlayopacity}}></div>
       <div className={styles.content}>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
@@ -94,6 +161,7 @@ Hero.propTypes = {
   children: PropTypes.any,
   ctaText: PropTypes.string,
   ctaUrl: PropTypes.string,
+  duotone: PropTypes.array,
   id: PropTypes.string,
   overlayOpacity: PropTypes.number,
   style: PropTypes.object,
