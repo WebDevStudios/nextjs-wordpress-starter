@@ -31,14 +31,14 @@ export default function ImageGallery({
           <div className={cn(styles.wrap, styles[`columns-${columns}`])}>
             {images.map((image, index) => {
               return (
-                <DisplayImage
-                  className={styles.imageWrap}
-                  key={index}
-                  alt={image.alt}
-                  id={image.id}
-                  imageMeta={{mediaItemUrl: image.url, altText: image.alt}}
-                  nextImageFill={true}
-                />
+                <div key={index} className={styles.imageWrap}>
+                  <DisplayImage
+                    alt={image.alt}
+                    id={image.id}
+                    url={image.url}
+                    nextImageFill={true}
+                  />
+                </div>
               )
             })}
           </div>
