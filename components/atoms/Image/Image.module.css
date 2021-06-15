@@ -8,4 +8,12 @@
   & .caption {
     @apply text-center text-xs pt-4;
   }
+
+  &.hasImageFill {
+    @apply mb-0;
+  }
+
+  & .imageFill {
+    @apply object-cover rounded;
+  }
 }
