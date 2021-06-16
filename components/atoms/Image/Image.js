@@ -68,6 +68,7 @@ export default function DisplayImage(props) {
       imageProps.width = imageSize?.width
     }
 
+    // eslint-disable-next-line
     return <Image {...imageProps} />
   }
 
