@@ -32,7 +32,7 @@
     "format": "npx prettier  '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --config=.prettierrc.js --write || true",
     "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:css": "npx stylelint '**/*.css' --config=.stylelintrc.js --fix || true",
-    "lint:js": "npx eslint '**/*.{js,jsx,ts,tsx}' --config=.eslintrc.js --fix || true",
+    "lint:js": "next lint",
     "lint:md": "npx markdownlint '**/*.md' --config=.markdownlint.json --fix",
     "postbuild": "next-sitemap",
     "start": "next start",
