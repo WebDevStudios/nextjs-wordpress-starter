@@ -1,5 +1,6 @@
 import Blocks from '@/components/molecules/Blocks'
 import MediaText from '@/components/organisms/MediaText'
+import formatFocalPoint from '@/functions/formatFocalPoint'
 import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
@@ -53,16 +54,7 @@ export default function BlockMediaText({innerBlocks, media}) {
     mediaPosition === 'left' ? `${mediaWidth}% 1fr` : `1fr ${mediaWidth}%`
   mediaTextStyle.gridTemplateColumns = gridtemplatecolumns
 
-  const newFocalPoint = {}
-
-  // Convert focal point values to percent.
-  if (imageFill) {
-    const x = parseFloat(focalPoint?.x || '.5') ?? 0.5
-    const y = parseFloat(focalPoint?.y || '.5') ?? 0.5
-
-    newFocalPoint.x = `${x * 100}%`
-    newFocalPoint.y = `${y * 100}%`
-  }
+  const newFocalPoint = imageFill ? formatFocalPoint(focalPoint) : {}
 
   return (
     <>

@@ -68,7 +68,12 @@ export default function DisplayImage(props) {
       imageProps.width = imageSize?.width
     }
 
-    return <Image {...imageProps} />
+    return (
+      <Image
+        {...imageProps}
+        className={cn(props?.nextImageFill ? styles.imageFill : null)}
+      />
+    )
   }
 
   /**
@@ -134,7 +139,8 @@ export default function DisplayImage(props) {
         className={cn(
           styles.image,
           props?.className,
-          props?.id ? `image-${props?.id}` : ''
+          props?.id ? `image-${props?.id}` : '',
+          props?.nextImageFill ? styles.hasImageFill : null
         )}
       >
         {props?.href ? (
