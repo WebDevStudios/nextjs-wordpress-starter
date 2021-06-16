@@ -6,6 +6,7 @@ import {ApolloProvider} from '@apollo/client'
 import {Provider as NextAuthProvider} from 'next-auth/client'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
+import Link from 'next/link'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
 import {useEffect, useState} from 'react'
@@ -89,8 +90,9 @@ export default function App({Component, pageProps}) {
                 // TODO -- abstract this to a component.
                 <p>
                   This page is a preview.{' '}
-                  <a href="/api/exit-preview">Click here</a> to exit preview
-                  mode.
+                  <Link href="/api/exit-preview">
+                    <a>Exit preview mode</a>
+                  </Link>
                 </p>
               )}
               <Component {...componentProps} />

@@ -193,6 +193,7 @@ const options = {
   callbacks
 }
 
+// eslint-disable-next-line
 export default (req, res) => {
   return NextAuth(req, res, options)
 }
