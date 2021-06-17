@@ -41,7 +41,6 @@ Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki
 - Apollo Client
 - Atomic Design
 - CSS Modules
-- Chromatic
 - ESLint
 - Formik
 - Incremental Static Regeneration
