@@ -11,27 +11,27 @@ import React from 'react'
  *
  * @author WebDevStudios
  * @param  {object}  props                    The component props.
- * @param  {string}  props.align              Optional alignment style.
  * @param  {string}  props.anchor             Optional anchor/id.
  * @param  {string}  props.backgroundColorHex The background color hex value.
  * @param  {string}  props.className          Optional classnames.
  * @param  {string}  props.content            The content of the block.
  * @param  {string}  props.level              The heading level.
  * @param  {object}  props.style              The style attributes.
+ * @param  {string}  props.textAlign          Optional alignment style.
  * @param  {string}  props.textColorHex       The text color hex value.
  * @return {Element}                          The RichText component.
  */
 export default function BlockHeadings({
-  align,
   anchor,
   backgroundColorHex,
   className,
   content,
   level,
   style,
+  textAlign,
   textColorHex
 }) {
-  const alignment = !align ? 'left' : align
+  const alignment = !textAlign ? 'left' : textAlign
   const headingStyle = getBlockStyles({backgroundColorHex, textColorHex, style})
 
   return (
@@ -47,12 +47,12 @@ export default function BlockHeadings({
 }
 
 BlockHeadings.propTypes = {
-  align: PropTypes.string,
   anchor: PropTypes.string,
   backgroundColorHex: PropTypes.string,
   className: PropTypes.string,
   content: PropTypes.string,
   level: PropTypes.number,
   style: PropTypes.object,
+  textAlign: PropTypes.string,
   textColorHex: PropTypes.string
 }
