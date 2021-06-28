@@ -54,7 +54,7 @@
     "@storybook/addon-a11y": "^6.3.0-rc.5",
     "@storybook/addon-essentials": "^6.3.0-rc.5",
     "@storybook/addon-links": "^6.3.0-rc.5",
-    "@storybook/builder-webpack5": "^6.3.0-rc.5",
+    "@storybook/builder-webpack5": "^6.3.0",
     "@storybook/manager-webpack5": "^6.3.0-rc.5",
     "@storybook/react": "^6.3.0-rc.5",
     "@testing-library/jest-dom": "^5.14.1",
