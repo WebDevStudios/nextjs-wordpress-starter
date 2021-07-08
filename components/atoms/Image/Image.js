@@ -69,6 +69,7 @@ export default function DisplayImage(props) {
     }
 
     return (
+      // eslint-disable-next-line
       <Image
         {...imageProps}
         className={cn(props?.nextImageFill ? styles.imageFill : null)}

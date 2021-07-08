@@ -5,13 +5,13 @@ pre-commit:
   commands:
     eslint:
       glob: '*.{js,jsx,ts,tsx}'
-      run: npx eslint {staged_files} --config=.eslintrc.js --fix
+      run: npx eslint {staged_files} --fix
     stylelint:
       glob: '*.{css,scss}'
-      run: npx stylelint {staged_files} --config=.stylelintrc.js --fix
+      run: npx stylelint {staged_files} --fix
     prettier:
       glob: '*.{md,html,json,yml}'
-      run: npx prettier {staged_files} --config=.prettierrc.js --write
+      run: npx prettier {staged_files} --write
     markdown:
       glob: '*.md'
-      run: npx markdownlint {staged_files} --config=.markdownlint.json --fix
+      run: npx markdownlint {staged_files} --fix
