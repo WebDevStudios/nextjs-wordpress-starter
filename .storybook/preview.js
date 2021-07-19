@@ -1,20 +1,8 @@
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
-import {addDecorator} from '@storybook/react'
+import {RouterContext} from 'next/dist/next-server/lib/router-context'
 import * as nextImage from 'next/image'
-import {withNextRouter} from 'storybook-addon-next-router'
 import '../styles/demo.css'
 import '../styles/index.css'
-
-/**
- * Enable Next.js <Link /> component usage.
- *
- * @see https://storybook.js.org/addons/storybook-addon-next-router
- */
-addDecorator(
-  withNextRouter({
-    path: '/'
-  })
-)
 
 /**
  * Enable Next.js <Image /> component usage.
@@ -69,6 +57,9 @@ const customViewports = {
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
+  nextRouter: {
+    Provider: RouterContext.Provider
+  },
   viewport: {
     viewports: {
       ...customViewports,

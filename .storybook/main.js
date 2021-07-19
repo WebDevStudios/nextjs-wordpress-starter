@@ -15,7 +15,8 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-links',
-    'storybook-css-modules-preset'
+    'storybook-css-modules-preset',
+    'storybook-addon-apollo-client'
   ],
   webpackFinal: async (config) => {
     // Enable @ symbol aliases.
