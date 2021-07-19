@@ -93,7 +93,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "react-twitter-embed": "^3.0.3",
     "rimraf": "^3.0.2",
-    "storybook-addon-next-router": "^2.0.4",
+    "storybook-addon-next-router": "^3.0.5",
     "storybook-css-modules-preset": "^1.1.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
