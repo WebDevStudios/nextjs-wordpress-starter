@@ -23,6 +23,7 @@ export default function getBlockStyles({
   const background = gradientHex || style?.color?.gradient
   const backgroundcolor = backgroundColorHex || style?.color?.background
   const fontsize = style?.typography?.fontSize
+  const fontweight = style?.typography?.fontWeight
   const textcolor = textColorHex || style?.color?.text
 
   // Only add styles if set.
@@ -30,12 +31,16 @@ export default function getBlockStyles({
     blockStyle.background = background
   }
 
+  if (backgroundcolor) {
+    blockStyle.backgroundColor = backgroundcolor
+  }
+
   if (fontsize) {
     blockStyle.fontSize = fontsize
   }
 
-  if (backgroundcolor) {
-    blockStyle.backgroundColor = backgroundcolor
+  if (fontweight) {
+    blockStyle.fontWeight = fontweight
   }
 
   if (textcolor) {
