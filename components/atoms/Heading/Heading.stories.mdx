@@ -53,8 +53,9 @@ export const Template = (args) => <Heading {...args}>{args.children}</Heading>
   <Story
     name="Controls"
     args={{
-      tag: 'h1',
-      children: 'This is a heading'
+      alignment: 'center',
+      children: 'This is a heading',
+      tag: 'h1'
     }}
   >
     {Template.bind({})}
