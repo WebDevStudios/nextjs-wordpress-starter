@@ -31,12 +31,15 @@ export default function BlockHeadings({
   textAlign,
   textColorHex
 }) {
-  const alignment = !textAlign ? 'left' : textAlign
   const headingStyle = getBlockStyles({backgroundColorHex, textColorHex, style})
 
   return (
     <Heading
-      className={cn(className, `text-${alignment}`)}
+      className={cn(
+        className,
+        textAlign === 'right' ? 'text-right' : null,
+        textAlign === 'center' ? 'text-center' : null
+      )}
       id={anchor}
       style={headingStyle}
       tag={'h' + level}
