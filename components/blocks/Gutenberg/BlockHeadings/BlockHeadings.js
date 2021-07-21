@@ -37,8 +37,9 @@ export default function BlockHeadings({
     <Heading
       className={cn(
         className,
-        textAlign === 'right' ? 'text-right' : null,
-        textAlign === 'center' ? 'text-center' : null
+        textAlign === 'center' ? 'text-center' : null,
+        !textAlign || textAlign === 'left' ? 'text-left' : null,
+        textAlign === 'right' ? 'text-right' : null
       )}
       id={anchor}
       style={headingStyle}
