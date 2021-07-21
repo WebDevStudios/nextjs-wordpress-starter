@@ -1,0 +1,9 @@
+.heading {
+  &.center {
+    @apply text-center;
+  }
+
+  &.right {
+    @apply text-right;
+  }
+}
