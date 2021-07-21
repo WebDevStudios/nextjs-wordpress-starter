@@ -1,14 +1,11 @@
 import createMarkup from '@/functions/createMarkup'
-import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './Heading.module.css'
 
 /**
  * Render the Heading component.
  *
  * @param  {object}  props           The props object.
- * @param  {string}  props.alignment The text alignment.
  * @param  {string}  props.children  The elements or text you'd like to render inside the heading.
  * @param  {string}  props.className The optional classname.
  * @param  {string}  props.id        The optional ID.
@@ -16,24 +13,10 @@ import styles from './Heading.module.css'
  * @param  {string}  props.tag       The tag name you'd like the heading to render as.
  * @return {Element}                 The Heading element.
  */
-export default function Heading({
-  alignment,
-  children,
-  className,
-  id,
-  style,
-  tag
-}) {
-  const newClassName = cn(
-    className,
-    styles.heading,
-    alignment === 'right' ? styles.right : null,
-    alignment === 'center' ? styles.center : null
-  )
-
+export default function Heading({children, className, id, style, tag}) {
   if (typeof children === 'string') {
     return React.createElement(tag, {
-      className: newClassName,
+      className,
       id,
       style,
       dangerouslySetInnerHTML: createMarkup(children)
@@ -42,7 +25,7 @@ export default function Heading({
     return React.createElement(
       tag,
       {
-        className: newClassName,
+        className,
         id,
         style
       },
@@ -52,7 +35,6 @@ export default function Heading({
 }
 
 Heading.propTypes = {
-  alignment: PropTypes.oneOf(['center', 'left', 'right']),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   className: PropTypes.string,
   id: PropTypes.string,
