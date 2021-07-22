@@ -33,11 +33,13 @@ export default function Table({id, head, body, foot, caption, className}) {
                             <RichText
                               tag="th"
                               key={index}
-                              className={
-                                cell?.align !== ''
-                                  ? `text-${cell.align}`
-                                  : 'text-left'
-                              }
+                              className={cn(
+                                cell?.align === 'center' ? 'text-center' : null,
+                                !cell?.align || cell.align === 'left'
+                                  ? 'text-left'
+                                  : null,
+                                cell?.align === 'right' ? 'text-right' : null
+                              )}
                             >
                               {cell.content}
                             </RichText>
