@@ -90,7 +90,7 @@
     "prop-types": "^15.7.2",
     "react-instantsearch-dom": "^6.12.0",
     "react-is": "^17.0.2",
-    "react-syntax-highlighter": "^15.4.3",
+    "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3",
     "rimraf": "^3.0.2",
     "storybook-addon-next-router": "^3.0.5",
