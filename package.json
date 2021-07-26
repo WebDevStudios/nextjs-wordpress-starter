@@ -51,7 +51,7 @@
     "@arkweid/lefthook": "^0.7.6",
     "@babel/core": "^7.14.6",
     "@next/bundle-analyzer": "^11.0.1",
-    "@storybook/addon-a11y": "^6.3.4",
+    "@storybook/addon-a11y": "^6.3.5",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
     "@storybook/builder-webpack5": "^6.3.4",
