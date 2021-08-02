@@ -83,7 +83,7 @@
     "markdownlint-cli": "^0.28.1",
     "next-seo": "^4.26.0",
     "next-sitemap": "^1.6.140",
-    "postcss": "^8.3.5",
+    "postcss": "^8.3.6",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
