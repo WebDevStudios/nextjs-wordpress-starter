@@ -42,13 +42,13 @@ export default function Footer({social, siteTitle, menu}) {
             Object.entries(social).map(([key, value]) => {
               if (value) {
                 return (
-                  <>
+                  <span key={key}>
                     {' '}
                     &middot;{' '}
                     <Link href={value}>
                       <a>{key}</a>
                     </Link>
-                  </>
+                  </span>
                 )
               }
             })}
