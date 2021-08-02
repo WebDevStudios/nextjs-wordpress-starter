@@ -1,4 +1,4 @@
-import RichText from '@/components/atoms/RichText'
+import Heading from '@/components/atoms/Heading'
 import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
@@ -31,18 +31,22 @@ export default function BlockHeadings({
   textAlign,
   textColorHex
 }) {
-  const alignment = !textAlign ? 'left' : textAlign
   const headingStyle = getBlockStyles({backgroundColorHex, textColorHex, style})
 
   return (
-    <RichText
-      className={cn(`text-${alignment}`, className)}
+    <Heading
+      className={cn(
+        className,
+        textAlign === 'center' ? 'text-center' : null,
+        !textAlign || textAlign === 'left' ? 'text-left' : null,
+        textAlign === 'right' ? 'text-right' : null
+      )}
       id={anchor}
-      tag={'h' + level}
       style={headingStyle}
+      tag={'h' + level}
     >
       {content}
-    </RichText>
+    </Heading>
   )
 }
 

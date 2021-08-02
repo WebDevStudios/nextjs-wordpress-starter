@@ -30,8 +30,6 @@ export default function BlockParagraph({
   style,
   textColorHex
 }) {
-  const alignment = !align ? 'left' : align
-
   const paragraphStyle = getBlockStyles({
     backgroundColorHex,
     textColorHex,
@@ -40,7 +38,12 @@ export default function BlockParagraph({
 
   return (
     <RichText
-      className={cn(`text-${alignment}`, className)}
+      className={cn(
+        className,
+        align === 'center' ? 'text-center' : null,
+        !align || align === 'left' ? 'text-left' : null,
+        align === 'right' ? 'text-right' : null
+      )}
       id={anchor}
       tag="p"
       dropCap={dropCap}

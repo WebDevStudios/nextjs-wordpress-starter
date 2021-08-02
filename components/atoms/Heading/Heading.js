@@ -9,14 +9,16 @@ import React from 'react'
  * @param  {string}  props.children  The elements or text you'd like to render inside the heading.
  * @param  {string}  props.className The optional classname.
  * @param  {string}  props.id        The optional ID.
+ * @param  {object}  props.style     The style attributes.
  * @param  {string}  props.tag       The tag name you'd like the heading to render as.
  * @return {Element}                 The Heading element.
  */
-export default function Heading({children, className, id, tag}) {
+export default function Heading({children, className, id, style, tag}) {
   if (typeof children === 'string') {
     return React.createElement(tag, {
       className,
       id,
+      style,
       dangerouslySetInnerHTML: createMarkup(children)
     })
   } else {
@@ -24,7 +26,8 @@ export default function Heading({children, className, id, tag}) {
       tag,
       {
         className,
-        id
+        id,
+        style
       },
       children
     )
@@ -35,6 +38,7 @@ Heading.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   className: PropTypes.string,
   id: PropTypes.string,
+  style: PropTypes.object,
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 }
 
