@@ -80,7 +80,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "markdownlint": "^0.23.1",
-    "markdownlint-cli": "^0.27.1",
+    "markdownlint-cli": "^0.28.1",
     "next-seo": "^4.26.0",
     "next-sitemap": "^1.6.140",
     "postcss": "^8.3.5",
