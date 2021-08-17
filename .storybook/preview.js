@@ -1,5 +1,4 @@
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
-import {RouterContext} from 'next/dist/next-server/lib/router-context'
 import * as nextImage from 'next/image'
 import '../styles/demo.css'
 import '../styles/index.css'
@@ -57,9 +56,6 @@ const customViewports = {
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
-  nextRouter: {
-    Provider: RouterContext.Provider
-  },
   viewport: {
     viewports: {
       ...customViewports,
