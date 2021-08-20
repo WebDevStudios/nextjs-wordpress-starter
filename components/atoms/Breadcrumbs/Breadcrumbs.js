@@ -1,7 +1,7 @@
+import cn from 'classnames'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './Breadcrumbs.module.css'
-import cn from 'classnames'
 
 /**
  * Render the Breadcrumbs component.
