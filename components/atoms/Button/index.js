@@ -1,1 +1,1 @@
-export {default} from './Button'
+export {ButtonInner, default} from './Button'
