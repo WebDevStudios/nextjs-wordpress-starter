@@ -7,9 +7,7 @@ test('render Separator with anchor, and className props', () => {
     className: 'test-cls'
   }
 
-  const {container, debug} = render(<Separator {...props} />)
-
-  debug()
+  const {container} = render(<Separator {...props} />)
 
   expect(container.firstElementChild).toHaveClass('test-cls')
   expect(container.firstElementChild).toHaveAttribute('id', 'test-anchor')
