@@ -71,7 +71,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsdoc": "^36.0.7",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "formidable": "^1.2.2",
     "formik": "^2.2.9",
     "graphql": "^15.5.1",
