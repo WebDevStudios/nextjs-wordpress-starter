@@ -14,7 +14,7 @@ import styles from './Button.module.css'
  * @param  {string}  props.text     Button text or aria-label.
  * @return {Element}                The inside of the Button component.
  */
-function ButtonInner({icon, iconOnly, text}) {
+export function ButtonInner({icon, iconOnly, text}) {
   return (
     <>
       {!iconOnly && <span className={styles.text}>{text}</span>}
