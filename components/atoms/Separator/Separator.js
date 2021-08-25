@@ -15,13 +15,14 @@ import styles from './Separator.module.css'
  */
 export default function Separator({anchor, className, fullWidth}) {
   return (
-    <>
-      {fullWidth ? (
-        <hr id={anchor} className={cn(styles.separator, className)} />
-      ) : (
-        <hr id={anchor} className={cn(styles.separator, className)} />
+    <hr
+      id={anchor}
+      className={cn(
+        styles.separator,
+        !fullWidth && styles.containerWidth,
+        className
       )}
-    </>
+    />
   )
 }
 
