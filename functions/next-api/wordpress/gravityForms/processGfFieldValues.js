@@ -95,6 +95,7 @@ export default function processGfFieldValues(entryData, fieldData) {
             value: entryData[fieldName],
             confirmationValue: entryData[fieldName]
           }
+        break
 
       case 'FileUploadField':
         fieldValue.fileUploadValues = entryData[fieldName]
