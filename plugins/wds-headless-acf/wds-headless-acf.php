@@ -33,3 +33,4 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivation_callback' )
 require_once 'inc/tgm/tgm.php';
 
 require_once 'inc/acf.php';
+require_once 'inc/acf-blocks.php';
