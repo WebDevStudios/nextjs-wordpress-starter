@@ -47,7 +47,7 @@ jobs:
         run: echo '${{ secrets.COMPOSER_AUTH }}' > $GITHUB_WORKSPACE/auth.json
 
   test:
-    needs: workspace_setup
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Test ${{ matrix.plugins }}
