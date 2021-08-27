@@ -30,6 +30,25 @@ function register_required_plugins() {
 			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
 			'required' => true,
 		],
+		[
+			'name'     => 'WPGraphQL for Advanced Custom Fields',
+			'slug'     => 'wp-graphql-acf',
+			'source'   => 'https://github.com/wp-graphql/wp-graphql-acf/archive/develop.zip',
+			'required' => true,
+		],
+
+		// Plugins from the WordPress Plugin Repository.
+		[
+			'name'        => 'Advanced Custom Fields',
+			'slug'        => 'advanced-custom-fields',
+			'is_callable' => 'acf',
+			'required'    => true,
+		],
+		[
+			'name'     => 'WPGraphQL',
+			'slug'     => 'wp-graphql',
+			'required' => true,
+		],
 	];
 
 	// Configuration settings.

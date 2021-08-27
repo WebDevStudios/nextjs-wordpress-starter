@@ -30,6 +30,18 @@ function register_required_plugins() {
 			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
 			'required' => true,
 		],
+
+		// Plugins from the WordPress Plugin Repository.
+		[
+			'name'     => 'WP Search with Algolia',
+			'slug'     => 'wp-search-with-algolia',
+			'required' => true,
+		],
+		[
+			'name'     => 'WPGraphQL',
+			'slug'     => 'wp-graphql',
+			'required' => true,
+		],
 	];
 
 	// Configuration settings.

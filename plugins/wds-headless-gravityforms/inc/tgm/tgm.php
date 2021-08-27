@@ -30,6 +30,13 @@ function register_required_plugins() {
 			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
 			'required' => true,
 		],
+
+		// Plugins from the WordPress Plugin Repository.
+		[
+			'name'     => 'WPGraphQL',
+			'slug'     => 'wp-graphql',
+			'required' => true,
+		],
 	];
 
 	// Configuration settings.

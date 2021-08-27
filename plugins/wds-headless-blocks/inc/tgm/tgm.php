@@ -30,6 +30,18 @@ function register_required_plugins() {
 			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
 			'required' => true,
 		],
+
+		// Plugins from the WordPress Plugin Repository.
+		[
+			'name'     => 'Gutenberg Block Manager',
+			'slug'     => 'block-manager',
+			'required' => true,
+		],
+		[
+			'name'     => 'WPGraphQL',
+			'slug'     => 'wp-graphql',
+			'required' => true,
+		],
 	];
 
 	// Configuration settings.

@@ -30,6 +30,24 @@ function register_required_plugins() {
 			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
 			'required' => true,
 		],
+
+		// Plugins from the WordPress Plugin Repository.
+		[
+			'name'        => 'WordPress SEO by Yoast',
+			'slug'        => 'wordpress-seo',
+			'is_callable' => 'wpseo_init',
+			'required'    => true,
+		],
+		[
+			'name'     => 'WPGraphQL',
+			'slug'     => 'wp-graphql',
+			'required' => true,
+		],
+		[
+			'name'     => 'WPGraphQL Yoast SEO Addon',
+			'slug'     => 'add-wpgraphql-seo',
+			'required' => true,
+		],
 	];
 
 	// Configuration settings.
