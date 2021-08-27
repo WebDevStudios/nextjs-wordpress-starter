@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WDS Headless (Core)
- * Plugin URI: https://github.com/WebDevStudios/wds-headless-wordpress
+ * Plugin URI: https://github.com/WebDevStudios/nextjs-wordpress-starter
  * Description: This plugin supports the JAMStack-powered frontend.
  * Author: WebDevStudios <contact@webdevstudios.com>
  * Author URI: https://webdevstudios.com
