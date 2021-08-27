@@ -3,8 +3,8 @@
  * Silence is golden.
  *
  * @author WebDevStudios
- * @package wds-headless-theme
- * @since 1.0
+ * @package WDS_Headless_Core
+ * @since 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
