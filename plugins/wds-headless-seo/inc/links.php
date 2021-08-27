@@ -17,7 +17,7 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
  * Replace Site URL JAMStack URL as needed.
  *
  * @author WebDevStudios
- * @since  1.0
+ * @since  1.0.0
  * @param  array $breadcrumbs Yoast SEO breadcrumbs.
  * @return array              Filtered breadcrumbs.
  */
