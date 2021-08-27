@@ -90,11 +90,11 @@ export default function processGfFieldValues(entryData, fieldData) {
         })
         break
 
-        case 'EmailField':
-          fieldValue.emailValues = {
-            value: entryData[fieldName],
-            confirmationValue: entryData[fieldName]
-          }
+      case 'EmailField':
+        fieldValue.emailValues = {
+          value: entryData[fieldName],
+          confirmationValue: entryData[fieldName]
+        }
         break
 
       case 'FileUploadField':
