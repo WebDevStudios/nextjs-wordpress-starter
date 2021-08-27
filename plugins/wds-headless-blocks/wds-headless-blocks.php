@@ -33,3 +33,4 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivation_callback' )
 require_once 'inc/tgm/tgm.php';
 
 require_once 'inc/block-manager.php';
+require_once 'inc/blocks.php';
