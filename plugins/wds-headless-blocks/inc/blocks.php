@@ -30,3 +30,24 @@ function block_category( $categories, $post ) {
 	);
 }
 add_filter( 'block_categories', __NAMESPACE__ . '\block_category', 10, 2 );
+
+/**
+ * Customize block support.
+ *
+ * @author WebDevStudios
+ * @since 1.0.0
+ */
+function customize_block_support() {
+	// Reset available font size presets to only "normal" (16px).
+	add_theme_support(
+		'editor-font-sizes',
+		[
+			[
+				'name' => 'Normal',
+				'size' => 16,
+				'slug' => 'normal',
+			],
+		]
+	);
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\customize_block_support' );
