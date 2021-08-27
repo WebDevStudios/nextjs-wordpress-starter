@@ -1,0 +1,26 @@
+{
+  "name": "webdevstudios/headless-blocks",
+  "description": "WDS Headless extension customizing Gutenberg block functionality.",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "WebDevStudios",
+      "email": "contact@webdevstudios.com"
+    }
+  ],
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "wp-coding-standards/wpcs": "^2.3"
+  },
+  "scripts": {
+    "format": "./vendor/bin/phpcbf --standard=.phpcs.xml ./ --report=summary,source",
+    "lint": "./vendor/bin/phpcs --standard=.phpcs.xml ./ --report=summary,source"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    }
+  }
+}
