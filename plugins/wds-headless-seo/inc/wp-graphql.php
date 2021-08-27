@@ -16,7 +16,7 @@ use WPSEO_Options;
  * Add archive SEO field to CPT archive queries in GraphQL.
  *
  * @author WebDevStudios
- * @since 1.0
+ * @since 1.0.0
  * @return void
  */
 function register_archive_seo() {
