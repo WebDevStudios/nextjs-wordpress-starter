@@ -57,10 +57,11 @@ return (
 PurgeCSS will remove unused classes in order to optimize the size of CSS files. PurgeCSS looks for the full class name in your source files. As long as the full class name exists, it will not be purged. As a general rule of thumb, do not use string interpolation.
 
 ```jsx
-return(
-    <>
-        <div className={ styles[props.color]}>...</div>                      // This will not work
-        <div className={ props.color === 'blue' && styles.blue }>...</div>   // This will work
-    </>
+return (
+  <>
+    <div className={styles[props.color]}>...</div> // This will not work
+    <div className={props.color === 'blue' && styles.blue}>...</div> // This will
+    work
+  </>
 )
 ```

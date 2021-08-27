@@ -2,7 +2,7 @@
 
 Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of coffee because following these steps will take 20-30 minutes.
 
-> ****Note: The following instructions assume you'll be standing up a fresh local.****
+> \***\*Note: The following instructions assume you'll be standing up a fresh local.\*\***
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -48,7 +48,7 @@ Using [Local's user interface](https://localwp.com/), follow the instructions to
 
 - NGINX or Apache
 - PHP 7.4 or 8
-- MySQL 5 or 8 
+- MySQL 5 or 8
 
 ![screenshot](https://dl.dropbox.com/s/1hkfo6ncdlepf82/Screen%20Shot%202021-02-17%20at%2015.10.42.png?dl=0)
 
@@ -246,7 +246,7 @@ Next.js:
 
 ```js
 // .env
-WORDPRESS_PREVIEW_SECRET="ANY_RANDOM_STRING"
+WORDPRESS_PREVIEW_SECRET = 'ANY_RANDOM_STRING'
 ```
 
 ## Next Steps

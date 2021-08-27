@@ -53,7 +53,7 @@ The `GravityForm` component itself uses the `Form` component from
 rendered from components in the `Fields` folder with the components being chosen in the
 `Fields` component itself.
 
-[Formik]: https://formik.org/docs/overview
+[formik]: https://formik.org/docs/overview
 
 If a field does not have a corresponding component, a message will be displayed on the
 frontend. Create a new component and add it to the `Fields` component.
@@ -72,7 +72,7 @@ to the potential presence of a file upload field. The process works as follows:
 6. If the form was submitted successfully, the success message from Gravity Forms is
    shown. This can include rich HTML.
 
-[FormData]: https://developer.mozilla.org/en-US/docs/Web/API/FormData
+[formdata]: https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
 Ideally, this should just work. Check the [Backend Setup](#backend-setup) section first
 if issues arise.

@@ -12,4 +12,4 @@ The current WordPress install is using a theme to power headless-oriented functi
 
 Check out our [headless theme](https://github.com/WebDevStudios/wds-headless-wordpress/tree/main/themes/wds_headless) on Github.
 
-*Note: This theme will be changing into its own stand-alone product (or plugin) in the near future.*
+_Note: This theme will be changing into its own stand-alone product (or plugin) in the near future._

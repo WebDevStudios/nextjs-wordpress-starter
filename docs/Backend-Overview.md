@@ -15,7 +15,7 @@ the `/public/api` folder are executed on the Next.js "server" where the
 frontend is hosted, giving them access to all the environment variables
 available to the build process.
 
-```
+```bash
 /-----------\
 | WordPress |
 \-----------/
@@ -46,11 +46,11 @@ The basic steps for creating a feature using dynamic data are:
 
 1. Create a [Next.js API Route][njs] that will handle the request to WordPress.
    This page can and should use functions available to a normal Next.js page,
-	 including using functions in `/lib/wordpress`.
+   including using functions in `/lib/wordpress`.
 2. Add the new API route to `wpDataEndpoints` in `/lib/wordpress/connector.js`
 3. Create a new GraphQL query and corresponding function in
    `/lib/frontend/wp`. Follow the other features there as an example, particularly
-	 the use of `@rest()` in the GraphQL query
+   the use of `@rest()` in the GraphQL query
 4. Use this frontend function in the actual displayed page.
 
 [njs]: https://nextjs.org/docs/api-routes/introduction

@@ -63,7 +63,7 @@ npm run dev
 
 ![screenshot](https://dl.dropbox.com/s/wqsqtc2pnj8pv2v/Screen%20Shot%202021-02-17%20at%2015.32.46.png?dl=0)
 
-It'll take a few seconds to compile, and then you can view the frontend at <http://localhost:3000>  You did it! 👏🏻
+It'll take a few seconds to compile, and then you can view the frontend at <http://localhost:3000> You did it! 👏🏻
 
 ![screenshot](https://dl.dropbox.com/s/pa3ru8gv6pama8y/Screen%20Shot%202021-02-17%20at%2015.26.30.png?dl=0)
 
