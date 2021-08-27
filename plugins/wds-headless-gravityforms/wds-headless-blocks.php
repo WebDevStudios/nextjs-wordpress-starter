@@ -28,3 +28,6 @@ define( 'WDS_HEADLESS_GRAVITYFORMS_VERSION', '1.0.0' );
 // Register de/activation hooks.
 register_activation_hook( __FILE__, __NAMESPACE__ . '\activation_callback' );
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivation_callback' );
+
+// Load TGM Plugin Activation.
+require_once 'inc/tgm/tgm.php';
