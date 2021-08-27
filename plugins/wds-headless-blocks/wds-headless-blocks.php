@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WDS Headless (Blocks)
  * Plugin URI: https://github.com/WebDevStudios/nextjs-wordpress-starter
- * Description: WDS Headless extension with additional Gutenberg block customizations.
+ * Description: WDS Headless extension handling Gutenberg block functionality.
  * Author: WebDevStudios <contact@webdevstudios.com>
  * Author URI: https://webdevstudios.com
  * Version: 1.0.0

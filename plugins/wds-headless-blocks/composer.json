@@ -1,6 +1,6 @@
 {
   "name": "webdevstudios/headless-blocks",
-  "description": "WDS Headless extension customizing Gutenberg block functionality.",
+  "description": "WDS Headless extension handling Gutenberg block functionality.",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "authors": [
