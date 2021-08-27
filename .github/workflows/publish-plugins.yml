@@ -1,4 +1,4 @@
-name: Deploy to wdunderscores.com
+name: Publish WordPress Plugins
 
 on:
   push:
@@ -8,12 +8,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  workspace_setup:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         php-versions: ['7.4']
+        plugins:
+          [
+            'wds-headless-acf',
+            'wds-headless-algolia',
+            'wds-headless-blocks',
+            'wds-headless-core',
+            'wds-headless-gravityforms',
+            'wds-headless-seo'
+          ]
 
     steps:
       - name: Checkout repository
@@ -37,23 +46,37 @@ jobs:
       - name: Authorize Composer with WDS packagist
         run: echo '${{ secrets.COMPOSER_AUTH }}' > $GITHUB_WORKSPACE/auth.json
 
-      - name: WDS Headless Core
+  test:
+    needs: workspace_setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test ${{ matrix.plugins }}
         run: |
-          cd plugins/wds-headless-core
+          cd ~/plugins/${{ matrix.plugins }}
           composer install --quiet
 
       - name: Lint
         run: composer run lint
 
-      - name: Bundle
-        run: zip -r wds-headless-core.zip * -x node_modules/\* -x vendor/\* -x .git/\*
+  bundle:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bundle ${{ matrix.plugins }}
+        run: |
+          cd ~/plugins/${{ matrix.plugins }}
+          zip * -r -x node_modules/\* -x vendor/\* -x .git/\* -O ../${{ matrix.plugins }}.zip
 
+  publish:
+    needs: bundle
+    runs-on: ubuntu-latest
+    steps:
       - name: Publish to public server
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: './'
+          SOURCE: './plugins/*.zip'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_PATH }}
