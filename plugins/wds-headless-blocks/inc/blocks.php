@@ -15,10 +15,9 @@ namespace WDS_Headless_Blocks;
  * @author WebDevStudios
  * @since 1.0.0
  * @param array  $categories Current block categories.
- * @param object $post       WP Post object.
  * @return array             Filtered block categories.
  */
-function block_category( $categories, $post ) {
+function block_category( $categories ) {
 	return array_merge(
 		$categories,
 		[
@@ -29,7 +28,7 @@ function block_category( $categories, $post ) {
 		]
 	);
 }
-add_filter( 'block_categories', __NAMESPACE__ . '\block_category', 10, 2 );
+add_filter( 'block_categories_all', __NAMESPACE__ . '\block_category' );
 
 /**
  * Customize block support.
