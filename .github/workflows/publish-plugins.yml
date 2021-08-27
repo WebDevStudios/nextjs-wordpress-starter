@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  workspace_setup:
+  setup:
     runs-on: ubuntu-latest
 
     strategy:
@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: Test ${{ matrix.plugins }}
         run: |
-          cd ~/plugins/${{ matrix.plugins }}
+          cd plugins/${{ matrix.plugins }}
           composer install --quiet
 
       - name: Lint
@@ -64,7 +64,7 @@ jobs:
     steps:
       - name: Bundle ${{ matrix.plugins }}
         run: |
-          cd ~/plugins/${{ matrix.plugins }}
+          cd plugins/${{ matrix.plugins }}
           zip * -r -x node_modules/\* -x vendor/\* -x .git/\* -O ../${{ matrix.plugins }}.zip
 
   publish:
