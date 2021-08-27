@@ -4,6 +4,7 @@
   "MD026": {"punctuation": ".,;!。，；：！"},
   "default": true,
   "line-length": false,
+  "no-emphasis-as-heading": false,
   "no-duplicate-heading": false,
   "no-hard-tabs": false,
   "no-inline-html": false,
