@@ -31,3 +31,5 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivation_callback' )
 
 // Load TGM Plugin Activation.
 require_once 'inc/tgm/tgm.php';
+
+require_once 'inc/block-manager.php';
