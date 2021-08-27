@@ -1,0 +1,12 @@
+{
+  "MD003": {"style": "atx"},
+  "MD007": {"indent": 2},
+  "MD026": {"punctuation": ".,;!。，；：！"},
+  "default": true,
+  "line-length": false,
+  "no-duplicate-heading": false,
+  "no-hard-tabs": false,
+  "no-inline-html": false,
+  "ol-prefix": false,
+  "whitespace": false
+}

@@ -3,7 +3,7 @@ name: Publish Storybook
 on:
   push:
     branches:
-      - main
+      - canary
 
   workflow_dispatch:
 
@@ -39,7 +39,9 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd packages/next
+          npm ci
 
       - name: Build Storybook
         run: npm run build-storybook

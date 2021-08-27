@@ -2,7 +2,7 @@ name: Assertions
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [canary, main, develop]
 
   workflow_dispatch:
 
@@ -40,11 +40,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint scripts
-        run: npx eslint '**/*.{js,ts,jsx,tsx}'
-
-      - name: Lint styles
-        run: npx stylelint '**/*.{css,scss}'
-
-      - name: Lint markdown
-        run: npx markdownlint '**/*.md'
+      - name: Lint
+        run: npm run lint

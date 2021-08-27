@@ -3,12 +3,6 @@
 pre-commit:
   parallel: true
   commands:
-    eslint:
-      glob: '*.{js,jsx,ts,tsx}'
-      run: npx eslint {staged_files} --fix
-    stylelint:
-      glob: '*.{css,scss}'
-      run: npx stylelint {staged_files} --fix
     prettier:
       glob: '*.{md,html,json,yml}'
       run: npx prettier {staged_files} --write

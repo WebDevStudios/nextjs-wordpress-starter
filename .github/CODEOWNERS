@@ -1,5 +1,3 @@
 # Code Owners
 # https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
-*             @gregrickaby
-components/*  @itsamoreh @gregrickaby
-api/*         @ravewebdev @gregrickaby
+*             @gregrickaby @ravewebdev

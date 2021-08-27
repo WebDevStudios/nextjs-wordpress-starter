@@ -1,4 +1,6 @@
 *.min.*
-.github/
 .next/
+dist/
 node_modules/
+public/
+components/
