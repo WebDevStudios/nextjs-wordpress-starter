@@ -11,10 +11,10 @@ import * as Yup from 'yup'
  *
  * @author WebDevStudios
  * @param  {object}  props         The component attributes as props.
- * @param  {Array}   props.comment The comment to display.
+ * @param  {object}  props.comment The comment to display.
  * @return {Element}               The Comment component.
  */
-function SingleComment({comment}) {
+export function SingleComment({comment}) {
   if (!comment) {
     return ''
   }
