@@ -17,7 +17,8 @@
     "dev": "npm run dev --workspace=@webdevstudios/next",
     "format": "npm run format --workspace=@webdevstudios/next",
     "lint": "npm run lint --workspace=@webdevstudios/next",
-    "start": "npm run start --workspace=@webdevstudios/next"
+    "start": "npm run start --workspace=@webdevstudios/next",
+    "test": "npm run test --workspace=@webdevstudios/next"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
