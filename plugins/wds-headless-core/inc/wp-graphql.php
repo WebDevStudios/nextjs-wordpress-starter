@@ -24,7 +24,7 @@ function add_homepage_settings_query() {
 	register_graphql_object_type(
 		'HomepageSettings',
 		[
-			'description' => esc_html__( 'Front and posts archive page data', 'wds' ),
+			'description' => esc_html__( 'Front and posts archive page data', 'wds-headless-core' ),
 			'fields'      => [
 				'frontPage' => [ 'type' => 'Page' ],
 				'postsPage' => [ 'type' => 'Page' ],
@@ -37,7 +37,7 @@ function add_homepage_settings_query() {
 		'homepageSettings',
 		[
 			'type'        => 'HomepageSettings',
-			'description' => esc_html__( 'Returns front and posts archive page data', 'wds' ),
+			'description' => esc_html__( 'Returns front and posts archive page data', 'wds-headless-core' ),
 			'resolve'     => function( $source, array $args, \WPGraphQL\AppContext $context ) {
 				global $wpdb;
 
@@ -151,25 +151,25 @@ function filter_registration_errors( \WP_Error $errors ) {
 	foreach ( $errors->get_error_codes() as $error_code ) {
 		switch ( $error_code ) {
 			case 'empty_username':
-				$error_msg = esc_html__( 'Please enter a username.', 'wds' );
+				$error_msg = esc_html__( 'Please enter a username.', 'wds-headless-core' );
 				break;
 			case 'invalid_username':
-				$error_msg = esc_html__( 'This username is invalid because it uses illegal characters. Please enter a valid username.', 'wds' );
+				$error_msg = esc_html__( 'This username is invalid because it uses illegal characters. Please enter a valid username.', 'wds-headless-core' );
 				break;
 			case 'username_exists':
-				$error_msg = esc_html__( 'This username is already registered. Please choose another one.', 'wds' );
+				$error_msg = esc_html__( 'This username is already registered. Please choose another one.', 'wds-headless-core' );
 				break;
 			case 'empty_email':
-				$error_msg = esc_html__( 'Please enter your email address.', 'wds' );
+				$error_msg = esc_html__( 'Please enter your email address.', 'wds-headless-core' );
 				break;
 			case 'invalid_email':
-				$error_msg = esc_html__( 'Please enter a valid email address.', 'wds' );
+				$error_msg = esc_html__( 'Please enter a valid email address.', 'wds-headless-core' );
 				break;
 			case 'email_exists':
-				$error_msg = esc_html__( 'This username is already registered. Please choose another one.', 'wds' );
+				$error_msg = esc_html__( 'This username is already registered. Please choose another one.', 'wds-headless-core' );
 				break;
 			default:
-				$error_msg = esc_html__( 'Registration failed. Please contact the admin.', 'wds' );
+				$error_msg = esc_html__( 'Registration failed. Please contact the admin.', 'wds-headless-core' );
 				break;
 		}
 		$new_errors_obj->add( $error_code, $error_msg );
