@@ -10,10 +10,6 @@
 
 namespace WDS_Headless_GravityForms;
 
-if ( ! class_exists( 'WPGraphQL' ) || ! class_exists( 'GFCommon' ) ) {
-	return;
-}
-
 use GFAsyncUpload;
 use GFCommon;
 use GFForms;

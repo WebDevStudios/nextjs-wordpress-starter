@@ -20,7 +20,7 @@ use WPSEO_Options;
  * @return void
  */
 function register_archive_seo() {
-	if ( ! class_exists( 'WPGraphQL' ) || ! class_exists( 'WPSEO_Options' ) ) {
+	if ( ! class_exists( 'WPSEO_Options' ) ) {
 		return;
 	}
 

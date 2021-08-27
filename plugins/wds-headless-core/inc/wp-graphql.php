@@ -10,10 +10,6 @@
 
 namespace WDS_Headless_Core;
 
-if ( ! class_exists( 'WPGraphQL' ) ) {
-	return;
-}
-
 /**
  * Add query to GraphQL to retrieve homepage settings.
  *
