@@ -14,7 +14,7 @@ namespace WDS_Headless_Blocks;
  *
  * @author WebDevStudios
  * @since 1.0.0
- * @param array  $categories Current block categories.
+ * @param array $categories Current block categories.
  * @return array             Filtered block categories.
  */
 function block_category( $categories ) {
