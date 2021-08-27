@@ -9,9 +9,9 @@ import styles from './Table.module.css'
  * @author WebDevStudios
  * @param  {object}  props           The component properties.
  * @param  {string}  props.id        Optional anchor/id.
- * @param  {string}  props.head      The optional table head array.
- * @param  {string}  props.body      The table body array.
- * @param  {string}  props.foot      The optional table foorter array.
+ * @param  {Array}   props.head      The optional table head array.
+ * @param  {Array}   props.body      The table body array.
+ * @param  {Array}   props.foot      The optional table foorter array.
  * @param  {string}  props.caption   Optional table caption.
  * @param  {string}  props.className Optional classnames.
  * @return {Element}                 The Table component.
