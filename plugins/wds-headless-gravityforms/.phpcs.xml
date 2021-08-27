@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards">
+	<description>Apply WordPress Coding Standards</description>
+
+	<!-- Set the memory limit to 256M.
+		 For most standard PHP configurations, this means the memory limit will temporarily be raised.
+		 Ref: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#specifying-phpini-settings
+	-->
+	<ini name="memory_limit" value="256M"/>
+
+	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
+	<arg name="cache"/>
+
+	<!-- Strip the filepaths down to the relevant bit. -->
+	<arg name="basepath" value="./"/>
+
+	<!-- Check up to 20 files simultaneously. -->
+	<arg name="parallel" value="20"/>
+
+	<!-- Show sniff codes in all reports. -->
+	<arg value="ps"/>
+
+	<!-- Use WordPress "Extra" Coding Standards. -->
+	<rule ref="WordPress-Extra">
+		<!-- Allow array short syntax. -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<!-- Allow short prefixes. -->
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+	</rule>
+
+	<!-- Use WordPress "Docs" Coding Standards. -->
+	<rule ref="WordPress-Docs" />
+
+	<!-- Use WordPress PHP Compatibility. -->
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- WordPress Core currently supports PHP 7.4+. -->
+	<config name="testVersion" value="7.4"/>
+
+	<!-- Only sniff PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<!-- Only sniff the theme. -->
+	<file>themes/wds_headless</file>
+
+	<!-- Don't sniff the following directories or file types. -->
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/tgm/*</exclude-pattern>
+</ruleset>
