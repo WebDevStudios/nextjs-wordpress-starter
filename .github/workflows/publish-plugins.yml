@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup:
+  test_build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -36,39 +36,30 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
 
-      - name: Cache Composer dependencies
+      - name: Cache Composer packages
+        id: composer-cache
         uses: actions/cache@v2
         with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.OS }}-composer-
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-
 
-      - name: Authorize Composer with WDS packagist
-        run: echo '${{ secrets.COMPOSER_AUTH }}' > $GITHUB_WORKSPACE/auth.json
-
-  test:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test ${{ matrix.plugins }}
+      - name: Install ${{ matrix.plugins }}
         run: |
           cd plugins/${{ matrix.plugins }}
-          composer install --quiet
+          composer validate --strict
+          composer install --prefer-dist --no-progress
 
       - name: Lint
-        run: composer run lint
+        run: composer run-script lint
 
-  bundle:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - name: Bundle ${{ matrix.plugins }}
         run: |
-          cd plugins/${{ matrix.plugins }}
-          zip * -r -x node_modules/\* -x vendor/\* -x .git/\* -O ../${{ matrix.plugins }}.zip
+          cd plugins
+          zip ${{ matrix.plugins }}.zip ${{ matrix.plugins }} -r -x node_modules/\* -x vendor/\* -x .git/\* -O ../${{ matrix.plugins }}
 
   publish:
-    needs: bundle
+    needs: test_build
     runs-on: ubuntu-latest
     steps:
       - name: Publish to public server
@@ -76,7 +67,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: './plugins/*.zip'
+          SOURCE: 'plugins/*.zip'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_PATH }}
