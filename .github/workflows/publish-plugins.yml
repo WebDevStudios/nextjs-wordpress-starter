@@ -46,17 +46,21 @@ jobs:
 
       - name: Install ${{ matrix.plugins }}
         run: |
+          mkdir dist
           cd plugins/${{ matrix.plugins }}
           composer validate --strict
           composer install --prefer-dist --no-progress
 
       - name: Lint
-        run: composer run-script lint
+        run: |
+          cd plugins/${{ matrix.plugins }}
+          composer run-script lint
 
       - name: Bundle ${{ matrix.plugins }}
         run: |
-          cd plugins
-          zip ${{ matrix.plugins }}.zip ${{ matrix.plugins }} -r -x node_modules/\* -x vendor/\* -x .git/\* -O ../${{ matrix.plugins }}
+          cd plugins/${{ matrix.plugins }}
+          zip ${{ matrix.plugins }}.zip * -r -x node_modules/\* -x vendor/\* -x .git/\*
+          mv ${{ matrix.plugins }}.zip ../dist
 
   publish:
     needs: test_build
@@ -67,7 +71,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'plugins/*.zip'
+          SOURCE: 'dist/.'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_PATH }}
