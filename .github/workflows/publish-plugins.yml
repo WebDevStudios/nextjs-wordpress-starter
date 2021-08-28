@@ -36,37 +36,38 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
 
-      - name: Cache Composer packages
-        id: composer-cache
+      - name: Cache packages
         uses: actions/cache@v2
         with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-php-
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.OS }}-composer-
 
-      - name: Install ${{ matrix.plugins }}
+      - name: Create /dist
+        run: mkdir dist
+
+      - name: Validate composer.json
         run: |
-          mkdir dist
           cd plugins/${{ matrix.plugins }}
           composer validate --strict
+
+      - name: Install packages
+        run: |
+          cd plugins/${{ matrix.plugins }}
           composer install --prefer-dist --no-progress
 
-      - name: Lint
+      - name: Lint plugin
         run: |
           cd plugins/${{ matrix.plugins }}
           composer run-script lint
 
-      - name: Bundle ${{ matrix.plugins }}
+      - name: Bundle plugin
         run: |
           cd plugins/${{ matrix.plugins }}
           zip ${{ matrix.plugins }}.zip * -r -x node_modules/\* -x vendor/\* -x .git/\*
           mv ${{ matrix.plugins }}.zip ../dist
 
-  publish:
-    needs: test_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish to public server
+      - name: Publish plugin
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
