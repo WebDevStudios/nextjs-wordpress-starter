@@ -1,4 +1,4 @@
-name: Publish WordPress Plugins
+name: Deploy WordPress Plugins
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_build_publish:
+  deploy-plugins:
     runs-on: ubuntu-latest
 
     strategy:

@@ -8,7 +8,7 @@ on:
       - 'packages/next/package.json'
 
 jobs:
-  test_build_publish:
+  publish-npm:
     runs-on: ubuntu-latest
 
     strategy:
