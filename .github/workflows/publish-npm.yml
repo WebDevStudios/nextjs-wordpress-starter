@@ -1,13 +1,14 @@
 name: Publish NPM Packages
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - canary
     paths:
       - 'packages/next/package.json'
 
 jobs:
-  publish-npm:
+  test_build_publish:
     runs-on: ubuntu-latest
 
     strategy:
