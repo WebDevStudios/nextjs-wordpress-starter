@@ -3,7 +3,7 @@ name: Publish Storybook
 on:
   push:
     branches:
-      - canary
+      - main
 
   workflow_dispatch:
 
