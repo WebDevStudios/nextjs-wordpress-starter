@@ -65,14 +65,14 @@ jobs:
         run: |
           cd plugins/${{ matrix.plugins }}
           zip ${{ matrix.plugins }}.zip * -r -x node_modules/\* -x vendor/\* -x .git/\*
-          mv ${{ matrix.plugins }}.zip ../dist
+          mv ${{ matrix.plugins }}.zip ../../dist
 
       - name: Publish plugin
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'plugins/dist/${{ matrix.plugins }}.zip'
+          SOURCE: 'dist/${{ matrix.plugins }}.zip'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_PATH }}
