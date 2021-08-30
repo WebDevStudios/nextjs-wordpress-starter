@@ -4,7 +4,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.(scss|css)$': 'identity-obj-proxy',
     '^@/components(.*)$': '<rootDir>/components$1',
-    '^@/functions(.*)$': '<rootDir>/functions$1'
+    '^@/functions(.*)$': '<rootDir>/functions$1',
+    '^@/lib(.*)$': '<rootDir>/lib$1'
   },
   testMatch: ['**/tests/jest/**/*.js?(x)'],
   testEnvironment: 'jsdom'
