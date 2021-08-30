@@ -8,7 +8,7 @@ Next.js has robust support for ENV variables. ENV variables are for storing sens
 
 ## .env.sample
 
-This project contains a sample .env file. It's recommended that you [add ENV variables to your hosting environment](/docs/docs/frontend/env-variables-and-vercel), such as Vercel and pull them down vs. maintaining a local copy.
+This project contains a sample .env file. It's recommended that you [add ENV variables to your hosting environment](/docs/frontend/env-variables-and-vercel), such as Vercel and pull them down vs. maintaining a local copy.
 
 ## List of ENV variables
 
@@ -74,4 +74,4 @@ Eventually, you'll need to add your ENV Variables to your host. The host needs t
 
 List of hosts:
 
-- [Vercel](/docs/docs/frontend/env-variables-and-vercel)
+- [Vercel](/docs/frontend/env-variables-and-vercel)

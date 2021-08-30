@@ -13,4 +13,4 @@ We also use pre-commit hooks to prevent "bad commits" from being checked in.
 
 ## VS Code Support
 
-Check out the [recommended VSCode extensions](/docs/docs/other/recommended-extensions) to help enable real-time linting.
+Check out the [recommended VSCode extensions](/docs/other/recommended-extensions) to help enable real-time linting.

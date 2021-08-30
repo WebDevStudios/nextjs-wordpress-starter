@@ -6,7 +6,7 @@ This document will explain how to enable Algolia in the NextJS application.
 
 ## API Connection
 
-Algolia integration relies on three [ENV Vars](/docs/docs/frontend/env-variables) to populate required Algolia variables. These variables are required to access and maintain the connection to Algolia.
+Algolia integration relies on three [ENV Vars](/docs/frontend/env-variables) to populate required Algolia variables. These variables are required to access and maintain the connection to Algolia.
 
 - **Index Name**: This is the full name of the index to search and pull records from.
 - **Application ID**: This is your unique application identifier. It's used to identify you when using Algolia's API.

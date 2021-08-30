@@ -2,7 +2,7 @@
 title: Menus
 ---
 
-WordPress [Navigation Menus](/docs/docs/backend/menus) are accessed in NextJS using React [Context](https://reactjs.org/docs/context.html).
+WordPress [Navigation Menus](/docs/backend/menus) are accessed in NextJS using React [Context](https://reactjs.org/docs/context.html).
 
 ## MenuContext
 

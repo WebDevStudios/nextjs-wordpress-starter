@@ -32,7 +32,7 @@ define('HEADLESS_FRONTEND_URL', 'https://mywebsite.com');
 
 ## PREVIEW_SECRET_TOKEN
 
-The `PREVIEW_SECRET_TOKEN` is so Next.js can authenticate with WordPress in order to show post and page previews. It can be any random string, as long as it matches the `WORDPRESS_PREVIEW_SECRET` [ENV variable](/docs/docs/frontend/env-variables#list-of-env-variables) on the frontend.
+The `PREVIEW_SECRET_TOKEN` is so Next.js can authenticate with WordPress in order to show post and page previews. It can be any random string, as long as it matches the `WORDPRESS_PREVIEW_SECRET` [ENV variable](/docs/frontend/env-variables#list-of-env-variables) on the frontend.
 
 ```php
 // Any random string

@@ -9,7 +9,7 @@ module.exports = {
     description: 'WebDevStudios Next.js WordPress Framework'
   },
   url: 'https://webdevstudios.github.io',
-  baseUrl: '/docs/',
+  baseUrl: '/nextjs-wordpress-starter/',
   organizationName: 'webdevstudios',
   projectName: 'nextjs-wordpress-starter',
   trailingSlash: false,

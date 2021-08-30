@@ -37,8 +37,8 @@ Here are the files you'll find in each component directory:
 
 Learn more about each file:
 
-[JS](/docs/docs/frontend/component-js)
+[JS](/docs/frontend/component-js)
 
-[CSS Module](/docs/docs/frontend/component-css-module)
+[CSS Module](/docs/frontend/component-css-module)
 
-[Story](/docs/docs/storybook/index)
+[Story](/docs/storybook/index)

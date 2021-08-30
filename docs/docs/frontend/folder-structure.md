@@ -57,7 +57,7 @@ APIs in the project. There is a folder for each distinct API with a
   endpoints. More on this setup is in the [Overview][ov] section.
 - `algolia`: for communicating with the Algolia search API.
 
-[ov]: /docs/docs/backend/index
+[ov]: /docs/backend/index
 
 Within the folders, files are organized by feature. A typical feature will
 have a GraphQL query and a function to handle calling that query. That

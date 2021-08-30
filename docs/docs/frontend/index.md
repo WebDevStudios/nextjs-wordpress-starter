@@ -46,7 +46,7 @@ cp .env.sample .env
 
 **Step 3: Add your credentials and save the file**
 
-Learn more about configuring in the [ENV Var documentation](/docs/docs/frontend/env-variables).
+Learn more about configuring in the [ENV Var documentation](/docs/frontend/env-variables).
 
 ## Start the Development Server
 

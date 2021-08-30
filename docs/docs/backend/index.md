@@ -81,7 +81,7 @@ composer self-update --1 && COMPOSER=composer-public.json composer install
 
 Members of the public can use all normal composer commands, but they all must be prefixed with `COMPOSER=composer-public.json`. Functionality for ACF and GravityForms will be reduced or absent.
 
-Learn more about [working with Composer](/docs/docs/learn/manage-plugins-with-composer).
+Learn more about [working with Composer](/docs/learn/manage-plugins-with-composer).
 
 #### Activate all the plugins
 
@@ -114,7 +114,7 @@ define( 'PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
 define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', 'your-secret-token' );
 ```
 
-Learn more about setting up [wp-config.php](/docs/docs/backend/wp-config).
+Learn more about setting up [wp-config.php](/docs/backend/wp-config).
 
 ### Step 6: Create Pages
 
@@ -173,7 +173,7 @@ The frontend will need to authenticate with WordPress for some things, luckily, 
 2. Enter a name, e.g, `nextjs-wordpress-starter`
 3. `Click --> Add New Application Password`
 
-Copy and paste the password into a safe location. You will need to add both your **WordPress username** and Application password to the `.env` file for the frontend. Learn more about [ENV Variables](/docs/docs/frontend/env-variables).
+Copy and paste the password into a safe location. You will need to add both your **WordPress username** and Application password to the `.env` file for the frontend. Learn more about [ENV Variables](/docs/frontend/env-variables).
 
 ![screenshot](/img/screenshot-set-application-password.png)
 
@@ -230,4 +230,4 @@ WORDPRESS_PREVIEW_SECRET = 'ANY_RANDOM_STRING'
 
 ## Next Steps
 
-Now that WordPress is ready, head on over and set up the [Frontend](/docs/docs/frontend/index) to continue.
+Now that WordPress is ready, head on over and set up the [Frontend](/docs/frontend/index) to continue.

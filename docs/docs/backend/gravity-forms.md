@@ -65,5 +65,5 @@ to the potential presence of a file upload field. The process works as follows:
 
 [formdata]: https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
-Ideally, this should just work. Check the [Backend Setup](/docs/docs/backend/index) section first
+Ideally, this should just work. Check the [Backend Setup](/docs/backend/index) section first
 if issues arise.
