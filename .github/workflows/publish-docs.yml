@@ -1,0 +1,60 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - canary
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ github.token }}
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_PRIVATE_KEY }}
+
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Use NPM 7
+        run: npm i -g npm@latest
+
+      - name: Setup Git
+        run: |
+          git config --global user.email ${{ secrets.GIT_USER_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USER_NAME }}
+
+      - name: Cache Node dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.OS }}-node-
+
+      - name: Build
+        run: npm ci
+
+      - name: Test
+        run: |
+          npm run lint:docs
+
+      - name: Publish
+        env:
+          USE_SSH: true
+          GIT_USER: ${{ secrets.GIT_USER_NAME }}
+        run: npm run build:docs

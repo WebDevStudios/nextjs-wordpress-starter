@@ -35,3 +35,6 @@ wpe.json
 # storybook
 build-storybook.log
 storybook-static/*
+
+# docusaurus
+.docusaurus
