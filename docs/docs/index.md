@@ -27,6 +27,6 @@ WebDevStudios is committed to open-source technologies and welcomes feedback via
 
 ## Next steps
 
-Head on over to the [Backend Setup](/backend/index) doc to get started!
+Head on over to the [Backend Setup](/docs/docs/backend/index) doc to get started!
 
 ---
