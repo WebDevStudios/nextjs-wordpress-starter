@@ -33,7 +33,7 @@ module.exports = {
           type: 'doc',
           docId: 'index',
           position: 'left',
-          label: 'Getting Started'
+          label: 'Docs'
         },
         {
           href: 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
