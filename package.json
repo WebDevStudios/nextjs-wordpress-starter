@@ -96,7 +96,7 @@
     "storybook-css-modules-preset": "^1.1.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "tailwindcss": "^2.2.7",
+    "tailwindcss": "^2.2.8",
     "yup": "^0.32.9"
   }
 }
