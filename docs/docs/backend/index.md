@@ -173,7 +173,7 @@ The frontend will need to authenticate with WordPress for some things, luckily, 
 2. Enter a name, e.g, `nextjs-wordpress-starter`
 3. `Click --> Add New Application Password`
 
-Copy and paste the password into a safe location. You will need to add both your **WordPress username** and Application password to the `.env` file for the frontend. Learn more about [ENV Variables](h/docs/docs/frontend/env-variables).
+Copy and paste the password into a safe location. You will need to add both your **WordPress username** and Application password to the `.env` file for the frontend. Learn more about [ENV Variables](/docs/docs/frontend/env-variables).
 
 ![screenshot](/img/screenshot-set-application-password.png)
 
