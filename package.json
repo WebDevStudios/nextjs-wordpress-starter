@@ -1,22 +1,24 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/core",
-      "packages/next"
-    ]
-  },
+  "workspaces": [
+    "docs",
+    "packages/core",
+    "packages/next"
+  ],
   "engines": {
     "node": "14",
     "npm": "7"
   },
   "scripts": {
     "build": "npm run build --workspace=@webdevstudios/next",
+    "build:docs": "npm run publish --workspace=@webdevstudios/docs",
     "clean": "npm run clean --workspace=@webdevstudios/next",
     "dev": "npm run dev --workspace=@webdevstudios/next",
+    "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
     "format": "npm run format --workspace=@webdevstudios/next",
     "lint": "npm run lint --workspace=@webdevstudios/next",
+    "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
     "start": "npm run start --workspace=@webdevstudios/next",
     "test": "npm run test --workspace=@webdevstudios/next"
   },
