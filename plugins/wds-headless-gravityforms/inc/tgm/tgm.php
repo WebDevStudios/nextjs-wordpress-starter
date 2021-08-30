@@ -27,7 +27,7 @@ function register_required_plugins() {
 		[
 			'name'     => 'WDS Headless Core',
 			'slug'     => 'wds-headless-core',
-			'source'   => 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-core.zip',
 			'required' => true,
 		],
 
