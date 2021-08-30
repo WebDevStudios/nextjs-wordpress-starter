@@ -78,7 +78,7 @@
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.6",
+    "jest": "^27.1.0",
     "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
     "next-seo": "^4.26.0",
