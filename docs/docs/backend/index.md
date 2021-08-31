@@ -172,34 +172,11 @@ Copy and paste the password into a safe location. You will need to add both your
 
 ## Setup WP Search with Algolia (Optional)
 
-Before you can complete this step, you need to sign-up for a free account at [Algolia.com](https://www.algolia.com/).
+See the [WDS Headless Algolia documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/algolia).
 
-After you sign up for an account, create a new "app" and then click on "API Keys".
+## Setup Gravity Forms (Optional)
 
-![screenshot](/img/screenshot-setup-algolia-account.png)
-
-Copy your API keys into the WP Search w/ Algolia Settings Page:
-
-`Algolia Search --> Settings`
-
-![screenshot](/img/screenshot-set-algolia-creds.png)
-
-You can name the `Index name prefix` whatever you'd like.
-
-### Push Content to Algolia
-
-1. Navigate to `Algolia Search --> Search Page`
-2. Click the blue button to `"Re-index search page records"`
-
-![screenshot](/img/screenshot-set-algolia-creds.png)
-
-## Setup Gravity **Forms**
-
-You need to enable the Gravity Forms REST-API:
-
-`Forms --> Settings --> REST API --> Check "Enabled"`
-
-![screenshot](/img/screenshot-setup-gravity-forms.png)
+See the [WDS Headless Gravity Forms documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/gravity-forms).
 
 ## Enable Previews
 
