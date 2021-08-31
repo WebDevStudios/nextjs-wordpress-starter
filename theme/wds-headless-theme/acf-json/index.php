@@ -4,7 +4,7 @@
  *
  * @author WebDevStudios
  * @package wds-headless-theme
- * @since 1.0
+ * @since 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
