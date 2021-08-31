@@ -21,6 +21,39 @@ function wds_register_required_plugins() {
 
 	$plugins = [
 
+    // WDS Headless plugins.
+		[
+			'name'     => 'WDS Headless Core',
+			'slug'     => 'wds-headless-core',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-core.zip',
+			'required' => true,
+		],
+    [
+			'name'     => 'WDS Headless ACF',
+			'slug'     => 'wds-headless-acf',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-acf.zip',
+		],
+    [
+			'name'     => 'WDS Headless Algolia',
+			'slug'     => 'wds-headless-algolia',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip',
+		],
+    [
+			'name'     => 'WDS Headless Blocks',
+			'slug'     => 'wds-headless-blocks',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-blocks.zip',
+		],
+    [
+			'name'     => 'WDS Headless Gravity Forms',
+			'slug'     => 'wds-headless-gravityforms',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-gravityforms.zip',
+		],
+    [
+			'name'     => 'WDS Headless SEO',
+			'slug'     => 'wds-headless-seo',
+			'source'   => 'https://nextjs.wpengine.com/downloads/wds-headless-seo.zip',
+		],
+
 		// Plugins from the WordPress Plugin Repository.
 		[
 			'name'        => 'Advanced Custom Fields',
