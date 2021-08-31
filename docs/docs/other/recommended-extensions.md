@@ -2,7 +2,7 @@
 title: Recommended Extensions
 ---
 
-These extensions will make your life easier.
+These VS Code extensions will make your life easier.
 
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
