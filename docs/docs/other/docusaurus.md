@@ -4,7 +4,7 @@ title: Docusaurus
 
 The documentation website is powered by [Docusaurus](https://docusaurus.io/) and served from Github Pages.
 
-## Content Workflow
+## Adding or Updating Documentation
 
 1. Create a new branch off `canary` (e.g,. `feature/my-doc-update`)
 2. From the root of the project, run `npm run dev:docs` to start a local server
@@ -12,7 +12,9 @@ The documentation website is powered by [Docusaurus](https://docusaurus.io/) and
 4. Commit your changes and push to Github
 5. Open a Pull Request and mark it as ready for review
 
-## NPM Scripts
+## Local Development
+
+### NPM Scripts
 
 You can run the following commands from the root of the project:
 
@@ -24,7 +26,7 @@ You can run the following commands from the root of the project:
 | `npm run serve:docs `  | Serve a statically generated version of the docs locally  |
 | `npm run publish:docs` | Publish the docs to Github Pages (used by Github Actions) |
 
-## Github Actions
+### Github Actions
 
 This repo uses a [Github Action](https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/.github/workflows) which automatically publishes changes to Github Pages.
 
@@ -38,7 +40,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 Copy the public key and add it to `Github Repo --> Settings --> Deploy Keys`. The Private Key will be added as an ENV variable (see below).
 
-### ENV Variables
+#### ENV Variables
 
 The following ENV variables are required by `npm run publish:docs` command. They must be added to `Github Repo --> Settings --> Secrets --> Actions`
 
