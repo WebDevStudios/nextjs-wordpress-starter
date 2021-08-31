@@ -14,7 +14,7 @@ Before you get started, make sure you have the following dependencies installed 
 - [Local WP](https://localwp.com/)
 - [Composer](https://getcomposer.org/) v1
 
-You will also need the following premium WordPress plugins:
+You may also want the following premium WordPress plugins:
 
 - [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
 - [Gravity Forms](https://www.gravityforms.com/)
@@ -31,63 +31,56 @@ Using [Local's user interface](https://localwp.com/), follow the instructions to
 
 ![screenshot](/img/screenshot-local-by-flywheel.png)
 
-### Step 2: Clone the [WDS Headless WordPress repo](https://github.com/WebDevStudios/wds-headless-wordpress)
+### Step 2: Install plugins and theme
 
-You'll need to change directories into your new WordPress install, remove `wp-content`, and clone the repo.
+There are **two** possible ways to install plugins, via WP Admin or Composer.
 
-> Note: This step will erase the `/wp-content` directory and replace it with the contents of our repo. If you're using a fresh install, this is fine. If not, make sure you have a backup of your data!
+#### Option 1: Via WP Admin
 
-```bash
-rm -rf wp-content && git clone https://github.com/WebDevStudios/wds-headless-wordpress.git wp-content
-```
+1. Download the WDS Headless theme and plugins:
 
-### Step 3: Activate the WDS Headless theme
+   - [WDS Headless Theme](https://nextjs.wpengine.com/downloads/wds-headless-theme.zip)
+   - WDS Headless Plugins:
+     - [WDS Headless Core](https://nextjs.wpengine.com/downloads/wds-headless-core.zip) (Required)
+     - [WDS Headless Blocks](https://nextjs.wpengine.com/downloads/wds-headless-blocks.zip) (Recommended, for additional Gutenberg editor customizations)
+     - [WDS Headless ACF](https://nextjs.wpengine.com/downloads/wds-headless-acf.zip) (Optional, only if using Advanced Custom Fields – some functionality requires premium version)
+     - [WDS Headless Algolia](https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip) (Optional, only if using WP Search with Algolia)
+     - [WDS Headless Gravity Forms](https://nextjs.wpengine.com/downloads/wds-headless-gravityforms.zip) (Optional, only if using Gravity Forms)
+     - [WDS Headless SEO](https://nextjs.wpengine.com/downloads/wds-headless-seo.zip) (Optional, only if using Yoast SEO)
 
-`Appearance --> Themes --> WDS Headless --> Activate`
+2. Upload and activate the WDS Headless Theme (Appearance > Themes > Add New > Upload Theme > select `wds-headless-theme.zip`)
 
-![screenshot](/img/screenshot-headless-theme.png)
+3. Upload and activate the WDS Headless plugins (Plugins > Add New > Upload Plugin > select plugin `.zip` file)
 
-### Step 4: Install Plugins
-
-There are **two** possible ways to install plugins, via TGM Plugin Activation or Composer.
-
-#### Option 1: With TGM Plugin Activation
-
-The TGM library can install most of the WordPress plugins needed in a single click.
-
-After activating the theme, Click --> `Begin installing Plugins`
+4. Once the WDS Headless theme and plugin(s) are activated, the TGM library can install most of the additional plugins that are required or recommended, in a single click. After activation, Click `Begin installing Plugins`
 
 ![screenshot](/img/screenshot-tgm-theme.png)
 
-#### Option 2: With Composer
+#### Option 2: Via Composer
 
-Instead of using the TGM library, you can use Composer to download all WordPress plugins. Make sure you're in the `/wp-content` directory:
+1. Change directories into your new WordPress install's `wp-content` directory then create a `composer.json` file, using the [WDS Headless Starter Composer setup as an example](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/243686e8bb1957a57a8d7bdb341c8ca452786754/composer.json).
 
 ```bash
-cd wp-content
+cd wp-content && touch composer.json
 ```
 
-Because WDS relies heavy on commercial plugins like ACF Pro and Gravity Forms, we have split the installation in two, one for WebDevStudios team members:
+> Note: The WDS Headless `composer.json` contains dependencies that are premium WP plugins. If you intend to use these plugins, you will need to either update the package paths to point to your own package locations or install those plugins via WP admin. Remove any dependencies from your `composer.json` that you will not be using or do not have access to.
+
+Learn more about [working with Composer](/docs/learn/manage-plugins-with-composer).
+
+2. Install plugins and themes:
 
 ```bash
 composer self-update --1 && composer install
 ```
 
-And one for the general public:
+3. Activate all plugins via WP admin or [WP CLI](https://wp-cli.org/):
 
 ```bash
-composer self-update --1 && COMPOSER=composer-public.json composer install
+wp plugin activate --all
 ```
 
-Members of the public can use all normal composer commands, but they all must be prefixed with `COMPOSER=composer-public.json`. Functionality for ACF and GravityForms will be reduced or absent.
-
-Learn more about [working with Composer](/docs/learn/manage-plugins-with-composer).
-
-#### Activate all the plugins
-
-![screenshot](/img/screenshot-activate-all-plugins.png)
-
-#### Update WP GraphQL Gutenberg
+#### Update WP GraphQL Gutenberg Block Registry
 
 In order for WP GraphQL Gutenberg plugin to create `blockJSON`, you'll need to click this button to update the block registry:
 
@@ -95,7 +88,7 @@ In order for WP GraphQL Gutenberg plugin to create `blockJSON`, you'll need to c
 
 ![screenshot](/img/screenshot-activate-graphql-gutenberg.png)
 
-### Step 5: Configure `wp-config.php`
+### Step 3: Configure `wp-config.php`
 
 The follow constants needs to be in `wp-config.php`:
 
@@ -116,7 +109,7 @@ define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', 'your-secret-token' );
 
 Learn more about setting up [wp-config.php](/docs/backend/wp-config).
 
-### Step 6: Create Pages
+### Step 4: Create Pages
 
 You will need to create three pages:
 
@@ -126,7 +119,7 @@ You will need to create three pages:
 2. Blog
 3. 404
 
-### Step 7: Set Page Options
+### Step 5: Set Page Options
 
 Set static pages:
 
@@ -144,7 +137,7 @@ You should now see your Homepage, Blog, and 404 page like so:
 
 ![screenshot](/img/screenshot-set-404-page-2.png)
 
-### Step 8: Set Permalinks
+### Step 6: Set Permalinks
 
 `Settings --> Permalinks --> Custom Structure`
 
@@ -152,7 +145,7 @@ The custom structure needs to be: `/blog/%postname%/`
 
 ![screenshot](/img/screenshot-set-permalinks.png)
 
-### Step 9: Set Menus
+### Step 7: Set Menus
 
 You'll need to create at least one menu, `Primary`. Additionally, you can create a Mobile and Footer menu.
 
@@ -177,7 +170,7 @@ Copy and paste the password into a safe location. You will need to add both your
 
 ![screenshot](/img/screenshot-set-application-password.png)
 
-## Setup WP Search with Algolia
+## Setup WP Search with Algolia (Optional)
 
 Before you can complete this step, you need to sign-up for a free account at [Algolia.com](https://www.algolia.com/).
 
