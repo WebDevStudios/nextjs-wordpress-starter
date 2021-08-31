@@ -14,22 +14,20 @@ Before you get started, make sure you have the following dependencies installed 
 
 ## Install
 
-**Step 1: Clone the repo**
+**Step 1: Clone the frontend framework with `create-next-app`**
 
 ```bash
-git clone git@github.com:WebDevStudios/nextjs-wordpress-starter.git
+npx create-next-app \
+    -e https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary \
+    --example-path packages/next \
+    --use-npm \
+    nextjs-wordpress-starter
 ```
 
 **Step 2: Change directories**
 
 ```bash
 cd nextjs-wordpress-starter
-```
-
-**Step 3: Install dependencies**
-
-```bash
-npm i --legacy-peer-deps
 ```
 
 ## Setup ENV Variables
