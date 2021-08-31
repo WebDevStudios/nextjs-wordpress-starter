@@ -1,0 +1,38 @@
+name: Publish WordPress Theme
+
+on:
+  push:
+    branches:
+      - canary
+
+  workflow_dispatch:
+
+jobs:
+  publish-theme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ github.token }}
+
+      - name: Create /dist
+        run: mkdir dist
+
+      - name: Bundle theme
+        run: |
+          cd theme/wds-headless-theme
+          zip wds-headless-theme.zip * -r
+          mv wds-headless-theme.zip ../../dist
+
+      - name: Publish theme
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          ARGS: '-v -a -z --delete'
+          SOURCE: 'dist/wds-headless-theme.zip'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_PATH }}
+          EXCLUDE: '.git/,node_modules/,vendor/'
