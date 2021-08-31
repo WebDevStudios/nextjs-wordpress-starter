@@ -1,0 +1,26 @@
+{
+	"global": {
+		"settings": {
+			"typography": {
+				"customFontSize": false,
+				"customLineHeight": false,
+				"dropCap": false,
+				"fontSizes": []
+			},
+			"color": {
+				"custom": false,
+				"customGradient": false,
+				"gradients": [],
+				"palette": []
+			}
+		}
+	},
+	"core/paragraph": {
+		"settings": {
+			"color": {
+				"custom": false,
+				"customGradient": false
+			}
+		}
+	}
+}

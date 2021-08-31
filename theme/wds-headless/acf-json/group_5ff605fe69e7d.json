@@ -1,0 +1,66 @@
+{
+    "key": "group_5ff605fe69e7d",
+    "title": "Team Member Profile",
+    "fields": [
+        {
+            "key": "field_5ff60614fcf6c",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Team Member's Title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ff60796fcf74",
+            "label": "Location",
+            "name": "location",
+            "type": "text",
+            "instructions": "City, State",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "teamMemberProfile",
+    "modified": 1613529504
+}
