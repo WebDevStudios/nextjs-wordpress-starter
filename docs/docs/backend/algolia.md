@@ -4,6 +4,10 @@ title: Algolia
 
 This document will explain how to enable Algolia in the NextJS application.
 
+## Plugin
+
+Install the WDS Headless Algolia plugin by uploading [wds-headless-algolia.zip](https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/243686e8bb1957a57a8d7bdb341c8ca452786754/composer.json#L33).
+
 ## API Connection
 
 Algolia integration relies on three [ENV Vars](/docs/frontend/env-variables) to populate required Algolia variables. These variables are required to access and maintain the connection to Algolia.
