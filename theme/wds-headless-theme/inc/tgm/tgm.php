@@ -4,7 +4,7 @@
  *
  * @author WebDevStudios
  * @package wds-headless-theme
- * @since 1.0
+ * @since 1.0.0
  */
 
 // Require primary TGM class.
@@ -15,7 +15,7 @@ require_once 'class-tgm-plugin-activation.php';
  *
  * @see http://tgmpluginactivation.com/configuration/
  * @author WebDevStudios
- * @since 1.0
+ * @since 1.0.0
  */
 function wds_register_required_plugins() {
 
