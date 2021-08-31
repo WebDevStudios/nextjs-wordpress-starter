@@ -22,7 +22,7 @@ jobs:
 
       - name: Bundle theme
         run: |
-          cd theme/wds-headless
+          cd theme/wds-headless-theme
           zip wds-headless-theme.zip * -r
           mv wds-headless-theme.zip ../../dist
 
