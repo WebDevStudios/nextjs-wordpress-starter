@@ -3,9 +3,9 @@ sidebar_position: 1
 title: Setup
 ---
 
-Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of coffee because following these steps will take 20-30 minutes.
+Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of ☕️ because following these steps will take 20-30 minutes.
 
-> \***\*Note: The following instructions assume you'll be standing up a fresh local.\*\***
+> The following instructions assume you'll be standing up a fresh local.
 
 ## Dependencies
 

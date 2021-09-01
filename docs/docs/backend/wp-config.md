@@ -4,12 +4,6 @@ title: wp-config.php
 
 There are three constants required in `wp-config.php` to help the Next.js work with WordPress.
 
-## Table of Contents <!-- omit in toc -->
-
-- [HEADLESS_FRONTEND_URL](#headless_frontend_url)
-- [PREVIEW_SECRET_TOKEN](#preview_secret_token)
-- [GRAPHQL_JWT_AUTH_SECRET_KEY](#graphql_jwt_auth_secret_key)
-
 ## HEADLESS_FRONTEND_URL
 
 The `HEADLESS_FRONTEND_URL` constant will forward users in the WordPress dashboard to the Next.js frontend when clicking certain links, like Preview.
