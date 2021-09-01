@@ -23,7 +23,7 @@ Before getting started, please [view the documentation](https://webdevstudios.gi
 
 ## Submitting Issues and Feature Requests
 
-Before submitting an issue or making a feature request, please search for existing [issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) or look at our [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
+Before submitting an issue or making a feature request, please search for existing [issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues).
 
 If you do file an issue, be sure to fill out the report completely!
 
