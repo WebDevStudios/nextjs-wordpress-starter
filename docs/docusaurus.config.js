@@ -3,10 +3,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Next.js WordPress Framework',
-  tagline: 'WebDevStudios Next.js WordPress Framework',
+  title: 'Next.js WordPress Starter',
+  tagline: 'WebDevStudios Next.js WordPress Starter',
   customFields: {
-    description: 'WebDevStudios Next.js WordPress Framework'
+    description: 'WebDevStudios Next.js WordPress Starter'
   },
   url: 'https://webdevstudios.github.io',
   baseUrl: '/nextjs-wordpress-starter/',
@@ -18,7 +18,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themeConfig: {
     navbar: {
-      title: 'Next.js WordPress Framework',
+      title: 'Next.js WordPress Starter',
       logo: {
         alt: 'WebDevStudios Logo',
         src: 'img/wds-logo-60x60.png'
@@ -76,7 +76,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Next.js WordPress Framework from WebDevStudios`
+      copyright: `Next.js WordPress Starter from WebDevStudios`
     },
     prism: {
       theme: lightCodeTheme,
