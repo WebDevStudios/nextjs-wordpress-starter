@@ -1,5 +1,5 @@
 ---
-title: WP Graphql
+title: WP GraphQL
 ---
 
 This describes the use of GraphQL and the [WP GraphQL plugin](https://www.wpgraphql.com/).
