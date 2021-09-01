@@ -20,10 +20,6 @@ With this framework, **we've figured out the "hard stuff"** and placed the sum o
 
 Visit <https://webdevstudios.github.io/nextjs-wordpress-starter> to view the full documentation.
 
-## Community
-
-If you have questions or ideas, please share them on [GitHub Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
-
 ## Contributing
 
 There are many ways to [contribute](/CONTRIBUTING.md) to this project:

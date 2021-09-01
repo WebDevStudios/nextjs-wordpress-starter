@@ -18,10 +18,6 @@ At WebDevStudios we believe that **WordPress is so much more than a blog**-- and
 
 With this framework, **we've figured out the "hard stuff"** and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.
 
-## Community
-
-If you have questions or ideas, please share them on [GitHub Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions).
-
 ## Contributing
 
 There are many ways to [contribute](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/CONTRIBUTING.md) to this project:
