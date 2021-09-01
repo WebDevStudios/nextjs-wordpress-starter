@@ -64,11 +64,11 @@ There are **two** possible ways to install plugins, via WP Admin or Composer.
 cd wp-content && touch composer.json
 ```
 
-> Note: The WDS Headless `composer.json` contains dependencies that are premium WP plugins. If you intend to use these plugins, you will need to either update the package paths to point to your own package locations or install those plugins via WP admin. Remove any dependencies from your `composer.json` that you will not be using or do not have access to.
+> The WDS Headless `composer.json` contains dependencies that are premium WP plugins. If you intend to use these plugins, you will need to either update the package paths to point to your own package locations or install those plugins via WP admin. Remove any dependencies from your `composer.json` that you will not be using or do not have access to.
 
 Learn more about [working with Composer](/docs/learn/manage-plugins-with-composer).
 
-2. Install plugins and themes:
+1. Install plugins and themes:
 
 ```bash
 composer self-update --1 && composer install
