@@ -20,13 +20,13 @@ jobs:
       - name: Create /dist
         run: mkdir dist
 
-      - name: Bundle theme
+      - name: Bundle
         run: |
           cd theme/wds-headless-theme
           zip wds-headless-theme.zip * -r
           mv wds-headless-theme.zip ../../dist
 
-      - name: Publish theme
+      - name: Publish
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}

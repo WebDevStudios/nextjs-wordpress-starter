@@ -56,18 +56,18 @@ jobs:
           cd plugins/${{ matrix.plugins }}
           composer install --prefer-dist --no-progress
 
-      - name: Lint plugin
+      - name: Lint
         run: |
           cd plugins/${{ matrix.plugins }}
           composer run-script lint
 
-      - name: Bundle plugin
+      - name: Bundle
         run: |
           cd plugins/${{ matrix.plugins }}
           zip ${{ matrix.plugins }}.zip * -r -x node_modules/\* -x vendor/\* -x .git/\*
           mv ${{ matrix.plugins }}.zip ../../dist
 
-      - name: Publish plugin
+      - name: Publish
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}

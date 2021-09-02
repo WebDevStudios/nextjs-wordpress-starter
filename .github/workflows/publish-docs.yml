@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  publish-docs:
     runs-on: ubuntu-latest
 
     strategy:
@@ -43,13 +43,16 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.OS }}-node-
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-      - name: Install
+      - name: Install dependencies
         run: npm ci
 
-      - name: Test
+      - name: Lint
         run: npm run lint:docs
 
       - name: Publish
