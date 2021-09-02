@@ -7,8 +7,8 @@
     "packages/next"
   ],
   "engines": {
-    "node": "14",
-    "npm": "7"
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
   },
   "scripts": {
     "build": "npm run build --workspace=@webdevstudios/next",
@@ -17,7 +17,7 @@
     "dev": "npm run dev --workspace=@webdevstudios/next",
     "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
     "format": "npm run format --workspace=@webdevstudios/next",
-    "lint": "npm run lint --workspace=@webdevstudios/next",
+    "lint": "npm run lint --workspace=@webdevstudios/next --workspace=@webdevstudios/docs",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
     "start": "npm run start --workspace=@webdevstudios/next",
     "test": "npm run test --workspace=@webdevstudios/next"
