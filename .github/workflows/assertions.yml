@@ -28,7 +28,7 @@ jobs:
       - name: Use NPM 7
         run: npm i -g npm@latest
 
-      - name: Pre Cache dependencies
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: ~/.npm
