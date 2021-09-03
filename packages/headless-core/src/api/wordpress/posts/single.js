@@ -18,6 +18,7 @@ export function singlePostFragment({postFields}) {
           nickname
         }
       }
+      blocksJSON
       categories {
         edges {
           node {
