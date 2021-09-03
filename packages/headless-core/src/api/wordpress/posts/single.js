@@ -7,9 +7,9 @@ import {singleMenuFragment} from '../menus'
  * Create single post data fragment.
  *
  * @author WebDevStudios
- * @param  {object} options    Optional fragment configuration.
- * @param  {string} postFields Additional post fields, as template literal, to be included in fragment.
- * @return {DocumentNode}      Single post data fragment.
+ * @param  {object} options            Optional fragment configuration.
+ * @param  {string} options.postFields Additional post fields, as template literal, to be included in fragment.
+ * @return {DocumentNode}              Single post data fragment.
  */
 export function singlePostFragment({postFields}) {
   return gql`
@@ -66,9 +66,10 @@ export function singlePostFragment({postFields}) {
  * Create query to retrieve post by specified identifier.
  *
  * @author WebDevStudios
- * @param  {object} options Optional query configuration.
- * @param  {string} postFields Additional post fields, as template literal, to be included in post fragment.
- * @param  {string} rootFields Additional root-level fields, as template literal, to be included in query.
+ * @param  {object} options            Optional query configuration.
+ * @param  {string} options.postFields Additional post fields, as template literal, to be included in post fragment.
+ * @param  {string} options.rootFields Additional root-level fields, as template literal, to be included in query.
+ * @return {DocumentNode}              Single post query.
  */
 export function queryPostById({rootFields = null, postFields = null}) {
   const queryPostById = gql`

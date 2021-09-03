@@ -7,9 +7,9 @@ import {singleMenuFragment} from '../menus'
  * Create single page data fragment.
  *
  * @author WebDevStudios
- * @param  {object} options    Optional fragment configuration.
- * @param  {string} pageFields Additional page fields, as template literal, to be included in fragment.
- * @return {DocumentNode}      Single page data fragment.
+ * @param  {object} options            Optional fragment configuration.
+ * @param  {string} options.pageFields Additional page fields, as template literal, to be included in fragment.
+ * @return {DocumentNode}              Single page data fragment.
  */
 export function singlePageFragment({pageFields}) {
   return gql`
@@ -43,9 +43,10 @@ export function singlePageFragment({pageFields}) {
  * Create query to retrieve page by specified identifier.
  *
  * @author WebDevStudios
- * @param  {object} options Optional query configuration.
- * @param  {string} pageFields Additional page fields, as template literal, to be included in page fragment.
- * @param  {string} rootFields Additional root-level fields, as template literal, to be included in query.
+ * @param  {object} options            Optional query configuration.
+ * @param  {string} options.pageFields Additional page fields, as template literal, to be included in page fragment.
+ * @param  {string} options.rootFields Additional root-level fields, as template literal, to be included in query.
+ * @return {DocumentNode}              Single page query.
  */
 export function queryPageById({rootFields = null, pageFields = null}) {
   const queryPageById = gql`

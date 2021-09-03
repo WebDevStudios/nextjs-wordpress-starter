@@ -5,9 +5,9 @@ import isString from 'lodash/isString'
  * Create archive post data fragment.
  *
  * @author WebDevStudios
- * @param  {object} options    Optional fragment configuration.
- * @param  {string} postFields Additional post fields, as template literal, to be included in fragment.
- * @return {DocumentNode}      Archive post data fragment.
+ * @param  {object} options            Optional fragment configuration.
+ * @param  {string} options.postFields Additional post fields, as template literal, to be included in fragment.
+ * @return {DocumentNode}              Archive post data fragment.
  */
 export function archivePostFragment({postFields}) {
   return gql`
