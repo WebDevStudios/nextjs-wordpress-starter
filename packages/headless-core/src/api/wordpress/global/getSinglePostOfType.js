@@ -11,6 +11,7 @@ import {parseMenus} from '../menus'
  * @param  {object}          query     Post retrieval query.
  * @param  {object}          variables Query variables.
  * @param  {string}          preview   Whether query is for a regular post view (null), a preview check (basic), or full post preview (full).
+ * @param  {object}          client    Apollo client instance.
  * @return {object}                    Object containing Apollo client instance and post data or error object.
  */
 export async function getSinglePostOfType(
