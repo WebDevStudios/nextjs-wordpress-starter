@@ -1,5 +1,6 @@
 import {gql} from '@apollo/client'
 import isString from 'lodash/isString'
+import {singleCommentFragment} from '../comments'
 import {getSinglePostOfType} from '../global'
 import {singleMenuFragment} from '../menus'
 
@@ -58,6 +59,7 @@ export function singlePostFragment({postFields}) {
       title
       uri
       ${isString(postFields) ? postFields : ''}
+      ${singleCommentFragment}
     }
   `
 }
