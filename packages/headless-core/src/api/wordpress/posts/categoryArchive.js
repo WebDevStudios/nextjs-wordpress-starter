@@ -1,6 +1,7 @@
 import {gql} from '@apollo/client'
 import isString from 'lodash/isString'
 import {getPostOfTypeTaxonomyArchive} from '../global'
+import {singleMenuFragment} from '../menus'
 import {archivePostFragment} from './archive'
 
 /**
