@@ -1,5 +1,6 @@
 import {gql} from '@apollo/client'
 import isString from 'lodash/isString'
+import {getPostOfTypeTaxonomyArchive} from '../global'
 import {archivePostFragment} from './archive'
 
 /**
@@ -61,4 +62,44 @@ export function queryPostCategoryArchive({
     ${archivePostFragment({postFields})}
     ${singleMenuFragment}
   `
+}
+
+/**
+ * Retrieve post category archive.
+ *
+ * @author WebDevStudios
+ * @param  {string}  categoryId WP category slug.
+ * @param  {string}  orderBy    Order by: field.
+ * @param  {string}  order      Order by: direction.
+ * @param  {string}  cursor     Start/end cursor for pagination.
+ * @param  {boolean} getNext    Whether to retrieve next set of posts (true) or previous set (false).
+ * @param  {number}  perPage    Number of posts per page.
+ * @param  {object}  options    Optional query configuration.
+ * @param  {object}  client     Apollo client instance.
+ * @return {object}             Object containing Apollo client instance and post archive data or error object.
+ */
+export function getPostCategoryArchive(
+  categoryId,
+  orderBy = 'DATE',
+  order = 'DESC',
+  cursor = null,
+  getNext = true,
+  perPage = 10,
+  options = {},
+  client = null
+) {
+  const query = queryPostCategoryArchive(options)
+
+  return getPostOfTypeTaxonomyArchive(
+    'category',
+    categoryId,
+    'post',
+    query,
+    orderBy,
+    order,
+    cursor,
+    getNext,
+    perPage,
+    client
+  )
 }
