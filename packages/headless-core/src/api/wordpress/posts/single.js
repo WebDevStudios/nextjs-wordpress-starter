@@ -5,13 +5,11 @@ import isString from 'lodash/isString'
  * Create single post data fragment.
  *
  * @author WebDevStudios
- * @param  {object} options     Optional fragment configuration.
- * @param  {string} otherFields Additional fields, as template literal, to be included in fragment.
- * @return {DocumentNode}       Single post data fragment.
+ * @param  {object} options    Optional fragment configuration.
+ * @param  {string} postFields Additional post fields, as template literal, to be included in fragment.
+ * @return {DocumentNode}      Single post data fragment.
  */
-export function singlePostFragment({otherFields}) {
-  const fields = otherFields && isString(otherFields) ? otherFields : ''
-
+export function singlePostFragment({postFields}) {
   return gql`
     fragment SinglePostFields on Post {
       author {
@@ -56,7 +54,7 @@ export function singlePostFragment({otherFields}) {
       }
       title
       uri
-      ${fields}
+      ${isString(postFields) ? postFields : ''}
     }
   `
 }
