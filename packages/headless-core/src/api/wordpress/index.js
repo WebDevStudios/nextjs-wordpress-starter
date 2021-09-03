@@ -1,4 +1,5 @@
 export * from './auth'
+export * from './blocks'
 export * from './client'
 export * from './comments'
 export * from './config'
