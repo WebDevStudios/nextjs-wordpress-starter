@@ -1,5 +1,6 @@
 import {gql} from '@apollo/client'
 import isString from 'lodash/isString'
+import {singleMenuFragment} from '../menus'
 
 /**
  * Create single post data fragment.
@@ -58,4 +59,36 @@ export function singlePostFragment({postFields}) {
       ${isString(postFields) ? postFields : ''}
     }
   `
+}
+
+/**
+ * Create query to retrieve post by specified identifier.
+ *
+ * @author WebDevStudios
+ * @param  {object} options Optional query configuration.
+ * @param  {string} postFields Additional post fields, as template literal, to be included in post fragment.
+ * @param  {string} rootFields Additional root-level fields, as template literal, to be included in query.
+ */
+export function queryPostById({rootFields = null, postFields = null}) {
+  const queryPostById = gql`
+    query GET_POST_BY_ID(
+      $id: ID!
+      $idType: PostIdType = SLUG
+      $imageSize: MediaItemSizeEnum = LARGE
+    ) {
+      menus {
+        nodes {
+          ...SingleMenuFields
+        }
+      }
+      ${isString(rootFields) ? rootFields : ''}
+      post(id: $id, idType: $idType) {
+        ...SinglePostFields
+      }
+    }
+    ${singlePostFragment({postFields})}
+    ${singleMenuFragment}
+  `
+
+  return queryPostById
 }
