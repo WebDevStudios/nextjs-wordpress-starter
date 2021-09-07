@@ -28,7 +28,7 @@ export const queryMediaItem = gql`
  * @param  {object} client Apollo client instance.
  * @return {object}        Object containing Apollo client instance and post data or error object.
  */
-export default async function getMediaItem(id, client = null) {
+export async function getMediaItem(id, client = null) {
   // Bail if no ID provided.
   if (!id) {
     return {}

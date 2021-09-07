@@ -7,7 +7,7 @@ import getMediaItem from '../media/single'
  * @param  {Array} blocks Basic block data.
  * @return {Array}        Formatted block data.
  */
-export default async function parseBlocks(blocks) {
+export async function parseBlocks(blocks) {
   if (!blocks || !blocks.length) {
     return []
   }
