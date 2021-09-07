@@ -35,6 +35,7 @@
   "devDependencies": {
     "@apollo/client": "^3.4.8",
     "deepmerge": "^4.2.2",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-syntax-highlighter": "^15.4.4"
   }
 }
