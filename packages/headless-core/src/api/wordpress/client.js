@@ -26,7 +26,7 @@ export function createWpApolloClient(auth = false) {
   return new ApolloClient({
     ssrMode: false,
     link: new HttpLink({
-      uri: `${wpApiUrlBase}/${wpApiGraphQlEndpoint}`,
+      uri: `${wpApiUrlBase}/${wpApiGraphQlEndpoint || 'graphql'}`,
       credentials: '',
       headers: {
         authorization: auth ? `Basic ${wpAuthorization}` : ''
