@@ -1,0 +1,7 @@
+.separator {
+  @apply w-full border-b my-8;
+
+  &.containerWidth {
+    @apply container;
+  }
+}
