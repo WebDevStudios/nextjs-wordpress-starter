@@ -73,7 +73,7 @@ export function singlePostFragment({postFields}) {
  * @param  {string} options.rootFields Additional root-level fields, as template literal, to be included in query.
  * @return {DocumentNode}              Single post query.
  */
-export function queryPostById({rootFields = null, postFields = null}) {
+export function queryPostById({postFields = null, rootFields = null}) {
   const queryPostById = gql`
     query GET_POST_BY_ID(
       $id: ID!

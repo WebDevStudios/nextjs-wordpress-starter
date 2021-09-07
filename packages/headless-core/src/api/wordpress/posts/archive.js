@@ -41,7 +41,7 @@ export function archivePostFragment({postFields}) {
  * @param  {string} options.rootFields Additional root-level fields, as template literal, to be included in query.
  * @return {DocumentNode}              Post archive query.
  */
-export function queryPostArchive({rootFields = null, postFields = null}) {
+export function queryPostArchive({postFields = null, rootFields = null}) {
   return gql`
     query GET_POST_ARCHIVE(
       $first: Int

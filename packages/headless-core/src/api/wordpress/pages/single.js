@@ -48,7 +48,7 @@ export function singlePageFragment({pageFields}) {
  * @param  {string} options.rootFields Additional root-level fields, as template literal, to be included in query.
  * @return {DocumentNode}              Single page query.
  */
-export function queryPageById({rootFields = null, pageFields = null}) {
+export function queryPageById({pageFields = null, rootFields = null}) {
   const queryPageById = gql`
     query GET_POST_BY_ID(
       $id: ID!
