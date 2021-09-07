@@ -54,7 +54,7 @@ export async function getSinglePostOfType(
       // Retrieve post data.
       const post =
         postData?.[postType] ?? // Dynamic posts.
-        postData?.additionalSettings?.additionalSettings?.[postType] // Settings custom page.
+        postData?.headlessConfig?.additionalSettings?.[postType] // Settings custom page.
 
       // Set error props if data not found.
       if (!post) {
