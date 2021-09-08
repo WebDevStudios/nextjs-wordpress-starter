@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:latest
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    # For compatibility with PHP versions that don't support the caching_sha2_password auth plugin used in MySQL 8.0.
+    command: --default-authentication-plugin=mysql_native_password
+
+  wordpress:
+    image: wordpress:latest
+    depends_on:
+      - mysql
+    ports:
+      - '8020:80'
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress_env:/var/www/html
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./theme:/var/www/html/wp-content/themes
+
+  cli:
+    image: wordpress:cli
+    user: '33:33'
+    depends_on:
+      - mysql
+      - wordpress
+    volumes_from:
+      - wordpress
+    links:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    # The init directive ensures the command runs with a PID > 1, so Ctrl+C works correctly.
+    init: true
+
+volumes:
+  mysql_data: {}
