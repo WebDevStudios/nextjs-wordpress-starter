@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
+import {RichText} from '../../../components'
 import {getBlockStyles} from '../../../utils'
-import {RichText} from '../../atoms/RichText'
 
 /**
  * Paragraph Block

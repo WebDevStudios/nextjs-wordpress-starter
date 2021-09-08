@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import {DisplayImage} from '../../atoms/Image'
-import {RichText} from '../../atoms/RichText'
+import {DisplayImage, RichText} from '../../../components'
 import styles from './ImageGallery.module.css'
 
 /**

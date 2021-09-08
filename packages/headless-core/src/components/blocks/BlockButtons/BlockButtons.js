@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import {Blocks} from '../../molecules/Blocks'
-import {ButtonGroup} from '../../molecules/ButtonGroup'
+import {Blocks, ButtonGroup} from '../../../components'
 
 /**
  * Buttons Block
