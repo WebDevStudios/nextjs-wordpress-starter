@@ -5,6 +5,13 @@ module.exports = {
     node: true,
     es6: true
   },
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
   extends: [
     'eslint:recommended',
     'plugin:jsdoc/recommended',

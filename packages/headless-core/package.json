@@ -18,7 +18,7 @@
     "WebDevStudios"
   ],
   "scripts": {
-    "build": "npm run clean && npx esbuild 'src/index.js' --bundle --loader:.js=jsx --outfile='dist/out.js'",
+    "build": "npm run clean && npx esbuild 'src/index.mjs' --bundle --loader:.js=jsx --outfile='dist/out.js'",
     "clean": "npx rimraf dist/",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
     "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
@@ -42,5 +42,6 @@
     "prop-types": "^15.7.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3"
-  }
+  },
+  "type": "module"
 }
