@@ -1,6 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
-  "version": "1.0.0-canary.1",
+  "version": "1.0.0-canary.2",
   "description": "Next.js WordPress Framework",
   "homepage": "https://webdevstudios.github.io/nextjs-wordpress-starter/",
   "repository": {
@@ -17,6 +17,7 @@
     "API",
     "WebDevStudios"
   ],
+  "type": "module",
   "main": "src/index.mjs",
   "scripts": {
     "build": "npm run clean && npx esbuild 'src/index.mjs' --bundle --loader:.js=jsx --outfile='dist/out.js'",
@@ -43,6 +44,5 @@
     "prop-types": "^15.7.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3"
-  },
-  "type": "module"
+  }
 }
