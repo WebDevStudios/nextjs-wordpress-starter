@@ -11,20 +11,28 @@
     "npm": "7"
   },
   "scripts": {
-    "build": "npm run build --workspace=@webdevstudios/next",
+    "build": "npm run build --workspace=@webdevstudios/headless-core",
     "build:docs": "npm run publish --workspace=@webdevstudios/docs",
-    "clean": "npm run clean --workspace=@webdevstudios/next",
-    "dev": "npm run dev --workspace=@webdevstudios/next",
+    "clean": "npm run clean --workspace=@webdevstudios/headless-core",
+    "dev": "npm run dev --workspace=@webdevstudios/headless-core",
     "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
-    "format": "npm run format --workspace=@webdevstudios/next",
-    "lint": "npm run lint --workspace=@webdevstudios/next",
+    "format": "npm run format --workspace=@webdevstudios/headless-core",
+    "lint": "npm run lint --workspace=@webdevstudios/headless-core",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
-    "start": "npm run start --workspace=@webdevstudios/next",
-    "test": "npm run test --workspace=@webdevstudios/next"
+    "start": "npm run start --workspace=@webdevstudios/headless-core",
+    "test": "npm run test --workspace=@webdevstudios/headless-core"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
