@@ -1,3 +1,4 @@
+import {gql} from '@apollo/client'
 import {initializeWpApollo} from '../client'
 
 // Query: retrieve media item data.
