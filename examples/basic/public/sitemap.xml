@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://nextjs-wordpress-starter.vercel.app</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.856Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/login</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.856Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/profile</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.856Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/register</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/search</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/404</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/profile</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/register</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/login</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/search</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/jim-byrom</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/greg-rickaby</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/cristina-holt</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/jodie-riccelli</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/brad-williams</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/april-williams</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/team/lisa-sabin-wilson</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/about/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/404-not-found</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/about</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/contact</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/post-archive</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/blog/top-blog-posts-from-2020</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/blog/tis-the-season-for-five-for-the-future</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/blog/yet-another-blog-post</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+<url><loc>https://nextjs-wordpress-starter.vercel.app/en-US/blog/hello-world</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2021-05-10T12:45:56.857Z</lastmod></url>
+</urlset>

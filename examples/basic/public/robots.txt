@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nextjs-wordpress-starter.vercel.app/
+
+# Sitemaps
+Sitemap: https://nextjs-wordpress-starter.vercel.app/sitemap.xml
