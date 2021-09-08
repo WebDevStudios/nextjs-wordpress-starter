@@ -1,6 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
-  "version": "1.0.0-canary.2",
+  "version": "1.0.0-canary.3",
   "description": "Next.js WordPress Framework",
   "homepage": "https://webdevstudios.github.io/nextjs-wordpress-starter/",
   "repository": {
@@ -30,19 +30,19 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "next": "11.1.2",
-    "next-auth": "3.29.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
     "@apollo/client": "^3.4.10",
     "apollo-link-rest": "^0.8.0-beta.0",
     "deepmerge": "^4.2.2",
     "graphql": "^15.5.1",
     "graphql-anywhere": "^4.2.7",
-    "prop-types": "^15.7.2",
+    "next": "11.1.2",
+    "next-auth": "3.29.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3"
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2"
   }
 }
