@@ -1,0 +1,43 @@
+{
+  "name": "@webdevstudios/headless-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js WordPress Framework",
+  "author": "WebDevStudios <contact@webdevstudios.com>",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "next.js",
+    "wordpress"
+  ],
+  "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/packages/headless-core"
+  },
+  "bugs": {
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
+  },
+  "engines": {
+    "node": "14",
+    "npm": "7"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build",
+    "clean": "npm run clean",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "next": ">=11.0.0",
+    "next-auth": "^3.28.0",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@apollo/client": "^3.4.8",
+    "deepmerge": "^4.2.2",
+    "prop-types": "^15.7.2",
+    "react-syntax-highlighter": "^15.4.4",
+    "react-twitter-embed": "^3.0.3"
+  }
+}

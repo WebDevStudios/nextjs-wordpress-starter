@@ -1,0 +1,100 @@
+.hero {
+  @apply mb-8 container rounded relative text-white flex items-center justify-center flex-col p-8;
+
+  min-height: 22rem;
+
+  /* The card background uses css custom properties that are set inline in the component. */
+  /* stylelint-disable-line comment-empty-line-before */ /* prettier-ignore */
+  background: linear-gradient(var(--image-tint-color), var(--image-tint-color)), var(--image-url) center center, var(--image-fallback-color);
+  background-size: cover;
+  background-position: 50%;
+
+  &.alignLeft,
+  &.alignRight {
+    @apply w-1/2;
+  }
+
+  &.alignLeft {
+    @apply ml-0;
+  }
+
+  &.alignRight {
+    @apply mr-0;
+  }
+
+  &.contentAlignTop {
+    @apply justify-start;
+  }
+
+  &.contentAlignBottom {
+    @apply justify-end;
+  }
+
+  &.contentAlignLeft {
+    @apply items-start;
+  }
+
+  &.contentAlignRight {
+    @apply items-end;
+  }
+
+  &.fixed {
+    @apply bg-fixed;
+  }
+
+  &.fullHeight {
+    min-height: 100vh;
+  }
+
+  &.repeat {
+    @apply bg-repeat bg-auto;
+  }
+
+  & .content {
+    @apply z-10 relative;
+
+    & .subtitle {
+      @apply text-sm opacity-80 mb-2 text-white;
+    }
+
+    & .title {
+      @apply font-bold text-xl mb-4 text-white;
+    }
+
+    & .body {
+      @apply text-white;
+    }
+
+    & .body + .button {
+      @apply mt-16;
+    }
+  }
+
+  & .overlay {
+    @apply absolute left-0 right-0 bottom-0 top-0 rounded;
+
+    background-color: inherit;
+    z-index: 5;
+
+    &.overlayOnly {
+      z-index: auto;
+    }
+  }
+
+  & .filterImage {
+    @apply absolute inset-0 box-border p-0 m-auto block w-0 h-0 min-w-full max-w-full min-h-full max-h-full object-cover;
+
+    border: medium none;
+  }
+
+  & > p {
+    @apply mt-4;
+  }
+}
+
+.filter {
+  @apply absolute overflow-hidden;
+
+  left: -9999px;
+  visibility: hidden;
+}

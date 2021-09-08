@@ -1,0 +1,55 @@
+.gallery {
+  @apply mb-8;
+
+  & img {
+    @apply w-full object-cover;
+
+    height: 200px;
+  }
+
+  & .wrap {
+    @apply grid grid-cols-4 gap-2;
+
+    &.columns-1 {
+      @apply grid-cols-1;
+    }
+
+    &.columns-2 {
+      @apply grid-cols-2;
+    }
+
+    &.columns-3 {
+      @apply grid-cols-3;
+    }
+
+    &.columns-4 {
+      @apply grid-cols-4;
+    }
+
+    &.columns-5 {
+      @apply grid-cols-5;
+    }
+
+    &.columns-6 {
+      @apply grid-cols-6;
+    }
+
+    & > div {
+      @apply self-center;
+    }
+
+    & .imageWrap {
+      @apply relative h-0 w-full;
+
+      padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
+    }
+
+    & img {
+      @apply absolute top-0 left-0 w-full h-full object-cover;
+    }
+  }
+
+  & .caption {
+    @apply text-center text-xs pt-4;
+  }
+}

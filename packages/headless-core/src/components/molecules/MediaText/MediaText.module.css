@@ -1,0 +1,91 @@
+.mediaText {
+  @apply md:grid md:grid-cols-12 mb-12 rounded;
+
+  &.noStack {
+    @apply grid grid-cols-12;
+  }
+
+  & .text,
+  & .media {
+    @apply col-span-6 flex flex-col items-start justify-center;
+
+    grid-row: 1;
+  }
+
+  & .text {
+    @apply items-start p-8;
+
+    grid-column: 1;
+
+    & .title {
+      @apply mb-8;
+    }
+
+    & .body {
+      @apply mb-24;
+    }
+  }
+
+  & .media {
+    grid-column: 2;
+
+    & .imageWrap {
+      @apply relative h-0 w-full rounded bg-opacity-20 mb-0;
+
+      padding-top: 67.58%; /* Aspect ratio box - https://css-tricks.com/aspect-ratio-boxes */
+    }
+
+    & img {
+      @apply absolute top-0 left-0 w-full h-full object-cover rounded;
+    }
+  }
+
+  &.mediaLeft {
+    & .media {
+      grid-column: 1;
+    }
+
+    & .text {
+      @apply items-end;
+
+      grid-column: 2;
+
+      & .body {
+        @apply text-right;
+      }
+    }
+  }
+
+  &.alignTop {
+    & .text,
+    & .media {
+      @apply justify-start;
+    }
+  }
+
+  &.alignBottom {
+    & .text,
+    & .media {
+      @apply justify-end;
+    }
+  }
+
+  &.imageFill {
+    & .media {
+      @apply h-full max-w-full rounded;
+
+      min-height: 15.5rem;
+
+      & .imageWrap {
+        @apply pt-0;
+      }
+
+      & img {
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        width: 1px;
+      }
+    }
+  }
+}

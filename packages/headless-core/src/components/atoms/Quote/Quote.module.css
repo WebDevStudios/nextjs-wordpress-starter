@@ -1,0 +1,15 @@
+.quote {
+  @apply mb-8 p-6 px-10 border-l;
+
+  & blockquote {
+    @apply mb-8;
+
+    & p {
+      @apply text-xl mb-0;
+    }
+  }
+
+  & figcaption {
+    @apply font-bold;
+  }
+}
