@@ -17,6 +17,7 @@
     "API",
     "WebDevStudios"
   ],
+  "main": "src/index.mjs",
   "scripts": {
     "build": "npm run clean && npx esbuild 'src/index.mjs' --bundle --loader:.js=jsx --outfile='dist/out.js'",
     "clean": "npx rimraf dist/",
