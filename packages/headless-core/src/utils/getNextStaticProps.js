@@ -52,11 +52,7 @@ export async function getNextStaticProps(
   /* -- Handle post archive display. -- */
   if (params?.archive) {
     const {apolloClient, ...archiveData} = await getPostArchive(
-      null,
-      null,
-      null,
-      null,
-      null,
+      {},
       options,
       client
     )

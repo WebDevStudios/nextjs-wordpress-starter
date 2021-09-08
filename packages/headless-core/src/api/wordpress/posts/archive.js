@@ -87,21 +87,24 @@ export function queryPostArchive({postFields = null, rootFields = null}) {
  * Retrieve post archive.
  *
  * @author WebDevStudios
- * @param  {string}  orderBy Order by: field.
- * @param  {string}  order   Order by: direction.
- * @param  {string}  cursor  Start/end cursor for pagination.
- * @param  {boolean} getNext Whether to retrieve next set of posts (true) or previous set (false).
- * @param  {number}  perPage Number of posts per page.
- * @param  {object}  options Optional query configuration.
- * @param  {object}  client  Apollo client instance.
- * @return {object}          Object containing Apollo client instance and post archive data or error object.
+ * @param  {object}  pagination         Pagination/where args.
+ * @param  {string}  pagination.cursor  Start/end cursor for pagination.
+ * @param  {string}  pagination.orderBy Order by: field.
+ * @param  {string}  pagination.order   Order by: direction.
+ * @param  {boolean} pagination.getNext Whether to retrieve next set of posts (true) or previous set (false).
+ * @param  {number}  pagination.perPage Number of posts per page.
+ * @param  {object}  options            Optional query configuration.
+ * @param  {object}  client             Apollo client instance.
+ * @return {object}                     Object containing Apollo client instance and post archive data or error object.
  */
 export async function getPostArchive(
-  orderBy = 'DATE',
-  order = 'DESC',
-  cursor = null,
-  getNext = true,
-  perPage = 10,
+  {
+    cursor = null,
+    orderBy = 'DATE',
+    order = 'DESC',
+    getNext = true,
+    perPage = 10
+  } = {},
   options = {},
   client = null
 ) {
