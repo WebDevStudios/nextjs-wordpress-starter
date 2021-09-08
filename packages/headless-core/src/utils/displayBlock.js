@@ -16,13 +16,13 @@ export function displayBlock(block, index) {
   switch (name) {
     case 'core/button':
       const BlockButton = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockButton')
+        import('../components/blocks/BlockButton')
       )
       return <BlockButton {...attributes} key={index} />
 
     case 'core/buttons':
       const BlockButtons = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockButtons')
+        import('../components/blocks/BlockButtons')
       )
       return (
         <BlockButtons
@@ -34,14 +34,12 @@ export function displayBlock(block, index) {
 
     case 'core/code':
     case 'core/preformatted':
-      const BlockCode = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockCode')
-      )
+      const BlockCode = dynamic(() => import('../components/blocks/BlockCode'))
       return <BlockCode {...attributes} key={index} />
 
     case 'core/columns':
       const BlockColumns = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockColumns')
+        import('../components/blocks/BlockColumns')
       )
       return (
         <BlockColumns
@@ -53,7 +51,7 @@ export function displayBlock(block, index) {
 
     case 'core/cover':
       const BlockCover = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockCover')
+        import('../components/blocks/BlockCover')
       )
       return (
         <BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
@@ -61,37 +59,35 @@ export function displayBlock(block, index) {
 
     case 'core/embed':
       const BlockEmbed = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockEmbed')
+        import('../components/blocks/BlockEmbed')
       )
       return <BlockEmbed {...attributes} key={index} />
 
     case 'core/gallery':
       const BlockImageGallery = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockImageGallery')
+        import('../components/blocks/BlockImageGallery')
       )
       return <BlockImageGallery {...attributes} key={index} />
 
     case 'core/heading':
       const BlockHeadings = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockHeadings')
+        import('../components/blocks/BlockHeadings')
       )
       return <BlockHeadings {...attributes} key={index} />
 
     case 'core/image':
       const BlockImage = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockImage')
+        import('../components/blocks/BlockImage')
       )
       return <BlockImage {...attributes} key={index} />
 
     case 'core/list':
-      const BlockList = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockList')
-      )
+      const BlockList = dynamic(() => import('../components/blocks/BlockList'))
       return <BlockList {...attributes} key={index} />
 
     case 'core/media-text':
       const BlockMediaText = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockMediaText')
+        import('../components/blocks/BlockMediaText')
       )
       return (
         <BlockMediaText
@@ -103,37 +99,37 @@ export function displayBlock(block, index) {
 
     case 'core/paragraph':
       const BlockParagraph = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockParagraph')
+        import('../components/blocks/BlockParagraph')
       )
       return <BlockParagraph {...attributes} key={index} />
 
     case 'core/pullquote':
       const BlockPullQuote = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockPullQuote')
+        import('../components/blocks/BlockPullQuote')
       )
       return <BlockPullQuote {...attributes} key={index} />
 
     case 'core/quote':
       const BlockQuote = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockQuote')
+        import('../components/blocks/BlockQuote')
       )
       return <BlockQuote {...attributes} key={index} />
 
     case 'core/separator':
       const BlockSeparator = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockSeparator')
+        import('../components/blocks/BlockSeparator')
       )
       return <BlockSeparator {...attributes} key={index} />
 
     case 'core/spacer':
       const BlockSpacer = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockSpacer')
+        import('../components/blocks/BlockSpacer')
       )
       return <BlockSpacer {...attributes} key={index} />
 
     case 'core/table':
       const BlockTable = dynamic(() =>
-        import('../components/blocks/Gutenberg/BlockTable')
+        import('../components/blocks/BlockTable')
       )
       return <BlockTable {...attributes} key={index} />
 
