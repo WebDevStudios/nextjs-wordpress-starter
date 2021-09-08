@@ -1,15 +1,15 @@
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
-import trimEnd from 'lodash/trimEnd';
-import trimStart from 'lodash/trimStart';
+import isObject from 'lodash/isObject'
+import isString from 'lodash/isString'
+import trimEnd from 'lodash/trimEnd'
+import trimStart from 'lodash/trimStart'
 
 // Init WordPress config var.
 let wpConfig = {
-  wpApiUrlBase = '/'
+  wpApiUrlBase: '/'
 }
 
 // Track whether config has been set.
-let configSet = false;
+let configSet = false
 
 /**
  * Normalize and clean up WP config properties.
@@ -25,7 +25,7 @@ export function normalizeConfig(config) {
     let value = config[key]
 
     if (!isString(value)) {
-      return;
+      return
     }
 
     // Trim excess whitespace.
@@ -61,14 +61,16 @@ export function normalizeConfig(config) {
 export function wordpressConfig(config = null) {
   // Throw error if no config is passed and no config has yet been set.
   if (!configSet || !config || !isObject(config)) {
-    throw new Error('Headless WordPress configuration must be set at the root level of your application by calling `wordpressConfig` with a valid config object.')
+    throw new Error(
+      'Headless WordPress configuration must be set at the root level of your application by calling `wordpressConfig` with a valid config object.'
+    )
   }
 
   if (!isObject(config)) {
     return wpConfig
   }
 
-  configSet = true;
+  configSet = true
   wpConfig = normalizeConfig(config)
 
   return wpConfig

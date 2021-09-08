@@ -19,7 +19,7 @@ export function parseMenus(menus, locations = null) {
     return []
   }
 
-  const menus = menus?.nodes ?? []
+  const menuNodes = menus?.nodes ?? []
   const parsedMenus = {}
 
   // Filter and format menus by locations.
@@ -28,7 +28,7 @@ export function parseMenus(menus, locations = null) {
     const locationName = location.replace(/-/g, '_').toUpperCase()
 
     // Find menus with matching locations.
-    const matches = menus.filter((menu) => {
+    const matches = menuNodes.filter((menu) => {
       const menuLocations = menu?.locations ?? []
 
       return menuLocations.includes(locationName)
