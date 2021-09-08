@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useEffect} from 'react'
-import {Button} from '../../atoms/Button'
-import {DisplayImage} from '../../atoms/Image'
+import {Button, DisplayImage} from '../../../components'
 import styles from './MediaText.module.css'
 
 /**

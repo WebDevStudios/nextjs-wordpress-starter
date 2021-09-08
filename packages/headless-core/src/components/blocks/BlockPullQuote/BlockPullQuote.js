@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {PullQuote} from '../../atoms/PullQuote'
+import {PullQuote} from '../../../components'
 
 /**
  * Pull Quote Block

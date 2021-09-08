@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Separator} from '../../atoms/Separator'
+import {Separator} from '../../../components'
 
 /**
  * Separator Block

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {DisplayImage} from '../../atoms/Image'
+import {DisplayImage} from '../../../components'
 
 /**
  * Image Block

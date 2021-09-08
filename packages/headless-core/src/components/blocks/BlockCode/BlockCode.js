@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
+import {Code} from '../../../components'
 import {getBlockStyles} from '../../../utils'
-import {Code} from '../../atoms/Code'
 
 /**
  * Code Block

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {RichText} from '../../atoms/RichText'
+import {RichText} from '../../../components'
 
 /**
  * List Block
