@@ -38,3 +38,15 @@ storybook-static/*
 
 # docusaurus
 .docusaurus
+
+# WP Default files
+plugins/akismet
+plugins/hello.php
+plugins/index.php
+theme/twentynineteen
+theme/twentytwenty
+theme/twentytwentyone
+theme/index.php
+
+# Docker WP env
+wordpress_env
