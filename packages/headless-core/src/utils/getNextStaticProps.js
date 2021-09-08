@@ -1,5 +1,6 @@
+import {getPostArchive} from '../api'
 import {addApolloState} from '../api/client'
-import {getGlobalData, getPostOfTypeArchive} from '../api/wordpress/global'
+import {getGlobalData} from '../api/wordpress/global'
 import {getPage} from '../api/wordpress/pages/single'
 import {getPostCategoryArchive} from '../api/wordpress/posts/categoryArchive'
 import {getPost} from '../api/wordpress/posts/single'
@@ -50,7 +51,15 @@ export async function getNextStaticProps(
 
   /* -- Handle post archive display. -- */
   if (params?.archive) {
-    const {apolloClient, ...archiveData} = await getPostOfTypeArchive(postType)
+    const {apolloClient, ...archiveData} = await getPostArchive(
+      null,
+      null,
+      null,
+      null,
+      null,
+      options,
+      client
+    )
 
     return addApolloState(apolloClient, {
       props: {
