@@ -64,7 +64,7 @@ export async function getNextStaticProps(
   /* -- Handle post taxonomy archive display. -- */
   if (params?.category) {
     // Retrieve category slug (last item in category array).
-    const categorySlug = [...params.category].pop()
+    const categorySlug = [...params.uri].pop()
     const {apolloClient, ...categoryArchiveData} = await getPostCategoryArchive(
       categorySlug
     )
@@ -78,7 +78,7 @@ export async function getNextStaticProps(
     })
   } else if (params?.tag) {
     const {apolloClient, ...tagArchiveData} = await getPostTagArchive(
-      params.tag
+      params.uri
     )
 
     return addApolloState(apolloClient, {
