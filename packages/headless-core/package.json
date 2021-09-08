@@ -1,7 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
   "version": "1.0.0",
-  "private": true,
   "description": "Next.js WordPress Framework",
   "author": "WebDevStudios <contact@webdevstudios.com>",
   "scripts": {
