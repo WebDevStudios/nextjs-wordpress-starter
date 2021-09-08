@@ -1,5 +1,6 @@
+import {getPostArchive} from '../api'
 import {addApolloState} from '../api/client'
-import {getGlobalData, getPostOfTypeArchive} from '../api/wordpress/global'
+import {getGlobalData} from '../api/wordpress/global'
 import {getPage} from '../api/wordpress/pages/single'
 import {getPostCategoryArchive} from '../api/wordpress/posts/categoryArchive'
 import {getPost} from '../api/wordpress/posts/single'
@@ -50,7 +51,11 @@ export async function getNextStaticProps(
 
   /* -- Handle post archive display. -- */
   if (params?.archive) {
-    const {apolloClient, ...archiveData} = await getPostOfTypeArchive(postType)
+    const {apolloClient, ...archiveData} = await getPostArchive(
+      {},
+      options,
+      client
+    )
 
     return addApolloState(apolloClient, {
       props: {
@@ -64,7 +69,7 @@ export async function getNextStaticProps(
   /* -- Handle post taxonomy archive display. -- */
   if (params?.category) {
     // Retrieve category slug (last item in category array).
-    const categorySlug = [...params.category].pop()
+    const categorySlug = [...params.uri].pop()
     const {apolloClient, ...categoryArchiveData} = await getPostCategoryArchive(
       categorySlug
     )
@@ -78,7 +83,7 @@ export async function getNextStaticProps(
     })
   } else if (params?.tag) {
     const {apolloClient, ...tagArchiveData} = await getPostTagArchive(
-      params.tag
+      params.uri
     )
 
     return addApolloState(apolloClient, {
