@@ -7,7 +7,6 @@ node_modules
 
 # testing
 /overage
-packages/**/dist
 
 # next.js
 .next
