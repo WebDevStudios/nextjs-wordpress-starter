@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 // Basic prop types for a post of any post type.
 export const postPropTypes = {
   post: PropTypes.shape({
