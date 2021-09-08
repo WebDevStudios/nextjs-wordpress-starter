@@ -38,6 +38,7 @@
     "apollo-link-rest": "^0.8.0-beta.0",
     "deepmerge": "^4.2.2",
     "graphql": "^15.5.1",
+    "graphql-anywhere": "^4.2.7",
     "prop-types": "^15.7.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3"
