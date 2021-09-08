@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {getBlockStyles} from '../../../utils'
-import Columns from '../../atoms/Columns'
-import Blocks from '../../molecules/Blocks'
+import {Columns} from '../../atoms/Columns'
+import {Blocks} from '../../molecules/Blocks'
 
 /**
  * Columns Block

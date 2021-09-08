@@ -15,13 +15,13 @@ export function displayBlock(block, index) {
 
   switch (name) {
     case 'core/button':
-      const BlockButton = dynamic(() =>
+      const {BlockButton} = dynamic(() =>
         import('../components/blocks/BlockButton')
       )
       return <BlockButton {...attributes} key={index} />
 
     case 'core/buttons':
-      const BlockButtons = dynamic(() =>
+      const {BlockButtons} = dynamic(() =>
         import('../components/blocks/BlockButtons')
       )
       return (
@@ -34,11 +34,13 @@ export function displayBlock(block, index) {
 
     case 'core/code':
     case 'core/preformatted':
-      const BlockCode = dynamic(() => import('../components/blocks/BlockCode'))
+      const {BlockCode} = dynamic(() =>
+        import('../components/blocks/BlockCode')
+      )
       return <BlockCode {...attributes} key={index} />
 
     case 'core/columns':
-      const BlockColumns = dynamic(() =>
+      const {BlockColumns} = dynamic(() =>
         import('../components/blocks/BlockColumns')
       )
       return (
@@ -50,7 +52,7 @@ export function displayBlock(block, index) {
       )
 
     case 'core/cover':
-      const BlockCover = dynamic(() =>
+      const {BlockCover} = dynamic(() =>
         import('../components/blocks/BlockCover')
       )
       return (
@@ -58,35 +60,37 @@ export function displayBlock(block, index) {
       )
 
     case 'core/embed':
-      const BlockEmbed = dynamic(() =>
+      const {BlockEmbed} = dynamic(() =>
         import('../components/blocks/BlockEmbed')
       )
       return <BlockEmbed {...attributes} key={index} />
 
     case 'core/gallery':
-      const BlockImageGallery = dynamic(() =>
+      const {BlockImageGallery} = dynamic(() =>
         import('../components/blocks/BlockImageGallery')
       )
       return <BlockImageGallery {...attributes} key={index} />
 
     case 'core/heading':
-      const BlockHeadings = dynamic(() =>
+      const {BlockHeadings} = dynamic(() =>
         import('../components/blocks/BlockHeadings')
       )
       return <BlockHeadings {...attributes} key={index} />
 
     case 'core/image':
-      const BlockImage = dynamic(() =>
+      const {BlockImage} = dynamic(() =>
         import('../components/blocks/BlockImage')
       )
       return <BlockImage {...attributes} key={index} />
 
     case 'core/list':
-      const BlockList = dynamic(() => import('../components/blocks/BlockList'))
+      const {BlockList} = dynamic(() =>
+        import('../components/blocks/BlockList')
+      )
       return <BlockList {...attributes} key={index} />
 
     case 'core/media-text':
-      const BlockMediaText = dynamic(() =>
+      const {BlockMediaText} = dynamic(() =>
         import('../components/blocks/BlockMediaText')
       )
       return (
@@ -98,37 +102,37 @@ export function displayBlock(block, index) {
       )
 
     case 'core/paragraph':
-      const BlockParagraph = dynamic(() =>
+      const {BlockParagraph} = dynamic(() =>
         import('../components/blocks/BlockParagraph')
       )
       return <BlockParagraph {...attributes} key={index} />
 
     case 'core/pullquote':
-      const BlockPullQuote = dynamic(() =>
+      const {BlockPullQuote} = dynamic(() =>
         import('../components/blocks/BlockPullQuote')
       )
       return <BlockPullQuote {...attributes} key={index} />
 
     case 'core/quote':
-      const BlockQuote = dynamic(() =>
+      const {BlockQuote} = dynamic(() =>
         import('../components/blocks/BlockQuote')
       )
       return <BlockQuote {...attributes} key={index} />
 
     case 'core/separator':
-      const BlockSeparator = dynamic(() =>
+      const {BlockSeparator} = dynamic(() =>
         import('../components/blocks/BlockSeparator')
       )
       return <BlockSeparator {...attributes} key={index} />
 
     case 'core/spacer':
-      const BlockSpacer = dynamic(() =>
+      const {BlockSpacer} = dynamic(() =>
         import('../components/blocks/BlockSpacer')
       )
       return <BlockSpacer {...attributes} key={index} />
 
     case 'core/table':
-      const BlockTable = dynamic(() =>
+      const {BlockTable} = dynamic(() =>
         import('../components/blocks/BlockTable')
       )
       return <BlockTable {...attributes} key={index} />

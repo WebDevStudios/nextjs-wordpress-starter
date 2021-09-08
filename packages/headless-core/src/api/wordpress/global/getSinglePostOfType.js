@@ -1,4 +1,4 @@
-import parseBlocks from '../blocks/parseBlocks'
+import {parseBlocks} from '../blocks/parseBlocks'
 import {createWpApolloClient, initializeWpApollo} from '../client'
 import {parseMenus} from '../menus'
 

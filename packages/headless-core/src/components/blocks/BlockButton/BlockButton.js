@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {getBlockStyles} from '../../../utils'
-import Button from '../../atoms/Button'
+import {Button} from '../../atoms/Button'
 
 /**
  * Button Block

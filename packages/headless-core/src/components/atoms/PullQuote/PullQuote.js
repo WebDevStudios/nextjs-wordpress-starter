@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import RichText from '../RichText'
+import {RichText} from '../RichText'
 import styles from './PullQuote.module.css'
 
 /**

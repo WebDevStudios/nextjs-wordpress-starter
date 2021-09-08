@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic'
 import PropTypes from 'prop-types'
 import React, {useEffect, useState} from 'react'
-import VideoEmbed from '../../atoms/VideoEmbed'
+import {VideoEmbed} from '../../atoms/VideoEmbed'
 
-const Tweet = dynamic(() => import('../../atoms/TwitterEmbed'))
+const {Tweet} = dynamic(() => import('../../atoms/TwitterEmbed'))
 
 /**
  * Embed Block

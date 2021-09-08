@@ -1,4 +1,4 @@
-import getMediaItem from '../media/single'
+import {getMediaItem} from '../media/single'
 
 /**
  * Parse and format expanded block data.
