@@ -90,9 +90,9 @@ export async function getNextStaticProps(
     })
   }
 
-  /* -- Handle frontend pages. -- */
-  if (params?.frontendPage) {
-    const page = params.frontendPage
+  /* -- Handle headless config pages. -- */
+  if (params?.configPage) {
+    const page = params.configPage
     const {apolloClient, ...pageData} = await getHeadlessConfigPage(
       page,
       options,
