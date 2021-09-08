@@ -25,6 +25,7 @@
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "wait-on": "^6.0.0"
   }
 }
