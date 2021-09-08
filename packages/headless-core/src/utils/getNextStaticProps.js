@@ -4,6 +4,7 @@ import {getPage} from '../api/wordpress/pages/single'
 import {getPostCategoryArchive} from '../api/wordpress/posts/categoryArchive'
 import {getPost} from '../api/wordpress/posts/single'
 import {getPostTagArchive} from '../api/wordpress/posts/tagArchive'
+import {getHeadlessConfigPage} from '../api/wordpress/settings/headlessConfig'
 
 /**
  * Retrieve static props by post type.
@@ -89,7 +90,34 @@ export async function getNextStaticProps(
     })
   }
 
-  /* -- Handle individual posts. -- */
+  /* -- Handle frontend pages. -- */
+  if (params?.frontendPage) {
+    const page = params.frontendPage
+    const {apolloClient, ...pageData} = await getHeadlessConfigPage(
+      page,
+      options,
+      client
+    )
+
+    // Display 404 error page if error encountered.
+    if (pageData.error && page !== 'error404Page') {
+      return {
+        notFound: true
+      }
+    }
+
+    // Remove error prop.
+    delete pageData?.error
+
+    return addApolloState(apolloClient, {
+      props: {
+        ...pageData
+      },
+      revalidate
+    })
+  }
+
+  /* -- Handle dynamic posts. -- */
 
   // Return 404 page if post type not supported.
   if (!['page', 'post'].includes(postType)) {
@@ -101,7 +129,7 @@ export async function getNextStaticProps(
   // Handle catch-all routes.
   const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
 
-  /* -- Handle dynamic posts. -- */
+  // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
 
   // Check if preview mode is active and valid for current post (preview and post IDs or slugs match).
