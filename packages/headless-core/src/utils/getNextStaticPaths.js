@@ -90,7 +90,7 @@ export async function getNextStaticPaths(
 
     response.paths.push({
       params: {
-        [taxonomy]: uri.splice(taxonomyIndex + 1)
+        uri: uri.splice(taxonomyIndex + 1)
       }
     })
 
