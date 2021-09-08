@@ -38,3 +38,6 @@ storybook-static/*
 
 # docusaurus
 .docusaurus
+
+# bundles
+dist/
