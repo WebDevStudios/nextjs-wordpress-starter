@@ -1,5 +1,5 @@
-import Table from '@/components/atoms/Table'
 import PropTypes from 'prop-types'
+import Table from '../../atoms/Table'
 
 /**
  * Paragraph Block

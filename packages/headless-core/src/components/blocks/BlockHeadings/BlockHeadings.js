@@ -1,8 +1,8 @@
-import Heading from '@/components/atoms/Heading'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {getBlockStyles} from '../../../utils'
+import Heading from '../../atoms/Heading'
 
 /**
  * Headings Block

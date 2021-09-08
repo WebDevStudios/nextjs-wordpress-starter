@@ -1,7 +1,7 @@
-import Blocks from '@/components/molecules/Blocks'
-import MediaText from '@/components/molecules/MediaText'
 import PropTypes from 'prop-types'
 import {formatFocalPoint, getBlockStyles} from '../../../utils'
+import Blocks from '../../molecules/Blocks'
+import MediaText from '../../molecules/MediaText'
 
 /**
  * Code Block

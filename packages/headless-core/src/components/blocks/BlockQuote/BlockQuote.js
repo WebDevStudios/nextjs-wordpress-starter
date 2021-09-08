@@ -1,5 +1,5 @@
-import Quote from '@/components/atoms/Quote'
 import PropTypes from 'prop-types'
+import Quote from '../../atoms/Quote'
 
 /**
  * Quote Block

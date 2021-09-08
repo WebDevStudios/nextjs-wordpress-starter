@@ -1,7 +1,7 @@
-import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import RichText from '../RichText'
 import styles from './VideoEmbed.module.css'
 
 /**

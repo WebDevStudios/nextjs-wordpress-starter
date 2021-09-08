@@ -1,6 +1,6 @@
-import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
+import RichText from '../RichText'
 import styles from './Table.module.css'
 
 /**

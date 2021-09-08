@@ -1,5 +1,5 @@
-import Spacer from '@/components/atoms/Spacer'
 import PropTypes from 'prop-types'
+import Spacer from '../../atoms/Spacer'
 
 /**
  * Spacer Block

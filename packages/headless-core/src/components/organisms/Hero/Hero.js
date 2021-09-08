@@ -1,8 +1,8 @@
-import Button from '@/components/atoms/Button'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {convertHextoRgb, extractRgbValues} from '../../../utils'
+import Button from '../../atoms/Button'
 import styles from './Hero.module.css'
 
 /**

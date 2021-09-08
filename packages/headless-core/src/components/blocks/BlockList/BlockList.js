@@ -1,5 +1,5 @@
-import RichText from '@/components/atoms/RichText'
 import PropTypes from 'prop-types'
+import RichText from '../../atoms/RichText'
 
 /**
  * List Block

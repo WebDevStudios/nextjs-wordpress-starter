@@ -1,7 +1,7 @@
-import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import Image from 'next/image'
 import {PropTypes} from 'prop-types'
+import RichText from '../RichText'
 import styles from './Image.module.css'
 
 /**

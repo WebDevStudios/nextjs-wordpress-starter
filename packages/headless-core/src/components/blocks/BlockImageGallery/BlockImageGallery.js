@@ -1,5 +1,5 @@
-import ImageGallery from '@/components/molecules/ImageGallery'
 import PropTypes from 'prop-types'
+import ImageGallery from '../../molecules/ImageGallery'
 
 /**
  * Image Gallery block

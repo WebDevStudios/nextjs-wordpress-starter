@@ -1,8 +1,8 @@
-import Button from '@/components/atoms/Button'
-import DisplayImage from '@/components/atoms/Image'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React, {useEffect} from 'react'
+import Button from '../../atoms/Button'
+import DisplayImage from '../../atoms/Image'
 import styles from './MediaText.module.css'
 
 /**

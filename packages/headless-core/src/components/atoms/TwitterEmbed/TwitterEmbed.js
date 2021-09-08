@@ -1,7 +1,7 @@
-import RichText from '@/components/atoms/RichText'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import {TwitterTweetEmbed} from 'react-twitter-embed'
+import RichText from '../RichText'
 import styles from './TwitterEmbed.module.css'
 
 /**

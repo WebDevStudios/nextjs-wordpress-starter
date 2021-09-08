@@ -1,8 +1,8 @@
-import Blocks from '@/components/molecules/Blocks'
-import Hero from '@/components/organisms/Hero'
 import PropTypes from 'prop-types'
 import {useEffect, useState} from 'react'
 import {formatFocalPoint} from '../../../utils'
+import Blocks from '../../molecules/Blocks'
+import Hero from '../../organisms/Hero'
 
 /**
  * Cover Block

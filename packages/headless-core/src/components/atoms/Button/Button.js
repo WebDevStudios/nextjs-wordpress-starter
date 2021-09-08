@@ -1,8 +1,8 @@
-import Icon from '@/components/atoms/Icon'
 import cn from 'classnames'
 import NextLink from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Icon from '../Icon'
 import styles from './Button.module.css'
 
 /**

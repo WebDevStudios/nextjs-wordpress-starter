@@ -1,6 +1,6 @@
-import Blocks from '@/components/molecules/Blocks'
-import ButtonGroup from '@/components/molecules/ButtonGroup'
 import PropTypes from 'prop-types'
+import Blocks from '../../molecules/Blocks'
+import ButtonGroup from '../../molecules/ButtonGroup'
 
 /**
  * Buttons Block
