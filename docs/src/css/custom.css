@@ -39,3 +39,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .button:hover {
   background-color: var(--ifm-color-primary-darker);
 }
+
+blockquote {
+  background-color: #faffd0;
+  color: black;
+  padding: 0.75rem 1.125rem;
+}
