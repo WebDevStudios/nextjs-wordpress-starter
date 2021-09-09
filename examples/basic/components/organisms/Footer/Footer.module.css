@@ -1,0 +1,24 @@
+.footer {
+  @apply border-t;
+
+  & .footerMenu {
+    & > ul {
+      @apply flex flex-wrap justify-center mb-8;
+
+      & > li {
+        @apply mx-8 mb-2;
+      }
+    }
+  }
+
+  & a {
+    &:hover,
+    &:focus {
+      @apply underline;
+    }
+  }
+
+  & .copyright {
+    @apply text-center text-xs;
+  }
+}

@@ -1,0 +1,11 @@
+.containerW {
+  @apply container;
+
+  &.paddingTop {
+    @apply pt-12;
+  }
+
+  &.paddingBtm {
+    @apply pb-12;
+  }
+}
