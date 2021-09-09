@@ -41,3 +41,6 @@ storybook-static/*
 
 # bundles
 dist/
+
+# packages
+packages/**/package-lock.json
