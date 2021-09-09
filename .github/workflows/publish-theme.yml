@@ -42,7 +42,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'themes/wds-headless-theme'
+          SOURCE: 'theme/wds-headless-theme'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.THEME_PATH }}
