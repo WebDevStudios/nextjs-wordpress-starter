@@ -91,7 +91,7 @@ export default function displayBlock(block, index) {
     case 'core/embed':
       return <BlockEmbed {...attributes} key={index} />
     case 'core/media-text':
-      return <BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockMediaText {...attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/button':
       return <BlockButton {...attributes} key={index} />
     case 'core/buttons':
