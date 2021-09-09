@@ -7,3 +7,5 @@ There are two environments, the backend (WordPress) and the frontend (Next.js). 
 
 1. [Backend setup docs](/docs/backend/index)
 2. [Frontend setup docs](/docs/frontend/index)
+
+> NOTE: This is prerelease software. We will 💯 introduce breaking changes.
