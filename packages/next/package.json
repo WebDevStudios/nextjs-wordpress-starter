@@ -61,7 +61,7 @@
     "@testing-library/react": "^12.0.0",
     "algoliasearch": "^4.10.4",
     "apollo-link-rest": "^0.8.0-beta.0",
-    "autoprefixer": "^10.3.2",
+    "autoprefixer": "^10.3.4",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "dayjs": "^1.10.6",
