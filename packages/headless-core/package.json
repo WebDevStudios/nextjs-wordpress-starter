@@ -1,6 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
-  "version": "1.0.0-canary.10",
+  "version": "1.0.0-canary.11",
   "description": "Next.js WordPress Framework",
   "homepage": "https://webdevstudios.github.io/nextjs-wordpress-starter/",
   "repository": {
@@ -17,8 +17,12 @@
     "API",
     "WebDevStudios"
   ],
+  "type": "module",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "exports": {
-    ".": "./src/index.js",
+    ".": "./src/index.mjs",
     "./api": {
       "default": "./src/api/index.js"
     },
@@ -26,11 +30,8 @@
       "default": "./dist/cjs/index.js"
     },
     "./utils": {
-      "default": "./src/utils/index.js"
+      "default": "./src/utils/index.mjs"
     }
-  },
-  "engines": {
-    "node": ">=14.0.0"
   },
   "scripts": {
     "build": "npm run clean && node ../../scripts/build-core.js",
