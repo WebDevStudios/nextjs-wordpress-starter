@@ -19,6 +19,7 @@
     "lint": "npm run lint --workspace=@webdevstudios/legacy-nextjs-wordpress-starter --workspace=@webdevstudios/docs",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
     "start": "npm run start --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
+    "storybook": "npm run storybook --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
     "test": "npm run test --workspace=@webdevstudios/legacy-nextjs-wordpress-starter"
   },
   "devDependencies": {
