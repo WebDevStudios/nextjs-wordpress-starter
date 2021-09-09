@@ -1,6 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
-  "version": "1.0.0-canary.5",
+  "version": "1.0.0-canary.6",
   "description": "Next.js WordPress Framework",
   "homepage": "https://webdevstudios.github.io/nextjs-wordpress-starter/",
   "repository": {
@@ -17,10 +17,12 @@
     "API",
     "WebDevStudios"
   ],
-  "type": "module",
-  "main": "src/index.mjs",
+  "main": "dist/headless-core.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
-    "build": "npm run clean && npx esbuild 'src/index.mjs' --bundle --loader:.js=jsx --outfile='dist/out.js'",
+    "build": "npm run clean && npx esbuild 'src/index.js' --bundle --loader:.js=jsx --minify --outfile='dist/headless-core.js'",
     "clean": "npx rimraf dist/",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
     "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
@@ -29,20 +31,24 @@
     "lint:md": "npx markdownlint '**/*.md' --fix || true",
     "prepublish": "npm run build"
   },
+  "peerDependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "dependencies": {
     "@apollo/client": "^3.4.10",
     "apollo-link-rest": "^0.8.0-beta.0",
     "deepmerge": "^4.2.2",
     "graphql": "^15.5.1",
     "graphql-anywhere": "^4.2.7",
-    "next": "11.1.2",
     "next-auth": "3.29.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3"
   },
   "devDependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
