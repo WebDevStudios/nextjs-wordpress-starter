@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {Blocks, Columns} from '../../../components'
-import {getBlockStyles} from '../../../utils'
+import {getBlockStyles} from '../../../utils/index.mjs'
 
 /**
  * Columns Block

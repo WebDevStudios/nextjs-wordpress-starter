@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {Button} from '../../../components'
-import {getBlockStyles} from '../../../utils'
+import {getBlockStyles} from '../../../utils/index.mjs'
 
 /**
  * Button Block

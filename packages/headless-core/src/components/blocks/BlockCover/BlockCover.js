@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {useEffect, useState} from 'react'
 import {Blocks, Hero} from '../../../components'
-import {formatFocalPoint} from '../../../utils'
+import {formatFocalPoint} from '../../../utils/index.mjs'
 
 /**
  * Cover Block

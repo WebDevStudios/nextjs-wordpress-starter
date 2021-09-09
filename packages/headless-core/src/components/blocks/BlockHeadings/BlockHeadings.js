@@ -2,7 +2,7 @@ import cn from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {Heading} from '../../../components'
-import {getBlockStyles} from '../../../utils'
+import {getBlockStyles} from '../../../utils/index.mjs'
 
 /**
  * Headings Block

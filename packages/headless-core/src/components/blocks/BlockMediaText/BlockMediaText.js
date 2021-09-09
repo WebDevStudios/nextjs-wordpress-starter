@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {Blocks, MediaText} from '../../../components'
-import {formatFocalPoint, getBlockStyles} from '../../../utils'
+import {formatFocalPoint, getBlockStyles} from '../../../utils/index.mjs'
 
 /**
  * Code Block

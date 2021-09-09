@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import {RichText} from '../../../components'
-import {getBlockStyles} from '../../../utils'
+import {getBlockStyles} from '../../../utils/index.mjs'
 
 /**
  * Paragraph Block
