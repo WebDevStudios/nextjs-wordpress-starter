@@ -77,3 +77,11 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_PATH }}
           EXCLUDE: '.git/,node_modules/,vendor/'
+
+      - name: Install on Prod
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          script: cd sites/nextjs && wp plugin install ${{ secrets.REMOTE_PATH }}/${{ matrix.plugins }}.zip --activate
