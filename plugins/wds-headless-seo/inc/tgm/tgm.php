@@ -10,7 +10,7 @@
 namespace WDS_Headless_SEO;
 
 // Require primary TGM class.
-require_once 'class-tgm-plugin-activation.php';
+require_once WDS_HEADLESS_SEO_PLUGIN_DIR . 'inc/tgm/class-tgm-plugin-activation.php';
 
 /**
  * List of required plugins.

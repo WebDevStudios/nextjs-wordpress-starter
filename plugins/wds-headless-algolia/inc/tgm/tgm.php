@@ -10,7 +10,7 @@
 namespace WDS_Headless_Algolia;
 
 // Require primary TGM class.
-require_once 'class-tgm-plugin-activation.php';
+require_once WDS_HEADLESS_ALGOLIA_PLUGIN_DIR . 'inc/tgm/class-tgm-plugin-activation.php';
 
 /**
  * List of required plugins.
