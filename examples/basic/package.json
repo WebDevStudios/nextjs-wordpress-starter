@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@webdevstudios/headless-core": "latest",
+    "@webdevstudios/headless-core": "next",
     "next": "11.1.2",
     "next-auth": "^3.28.0",
     "react": "17.0.2",
