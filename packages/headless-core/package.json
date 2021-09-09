@@ -17,7 +17,18 @@
     "API",
     "WebDevStudios"
   ],
-  "main": "dist/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./api": {
+      "default": "./src/api/index.js"
+    },
+    "./components": {
+      "default": "./dist/cjs/index.js"
+    },
+    "./utils": {
+      "default": "./src/utils/index.js"
+    }
+  },
   "engines": {
     "node": ">=14.0.0"
   },
