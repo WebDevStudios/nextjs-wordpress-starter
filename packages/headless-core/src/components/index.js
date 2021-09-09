@@ -1,4 +1,5 @@
 export * from './atoms'
 export * from './blocks'
+export * from './displayBlock'
 export * from './molecules'
 export * from './organisms'
