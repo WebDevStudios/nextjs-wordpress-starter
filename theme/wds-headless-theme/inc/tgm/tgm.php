@@ -8,7 +8,7 @@
  */
 
 // Require primary TGM class.
-require_once 'class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
 
 /**
  * List of required plugins.
