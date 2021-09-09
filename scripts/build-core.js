@@ -1,18 +1,18 @@
 const esbuild = require('esbuild')
 
+/**
+ * Compile to CommonJS.
+ */
 esbuild
   .build({
-    entryPoints: ['../../packages/headless-core/src/index.js'],
-    outdir: 'dist',
     bundle: true,
-    sourcemap: false,
-    minify: false,
+    entryPoints: ['../../packages/headless-core/src/components/index.js'],
     minifyWhitespace: true,
-    splitting: false,
-    platform: 'node',
-    target: 'node14',
     loader: {
       '.js': 'jsx'
-    }
+    },
+    outdir: 'dist/cjs/',
+    platform: 'node',
+    target: 'node14'
   })
   .catch(() => process.exit(1))
