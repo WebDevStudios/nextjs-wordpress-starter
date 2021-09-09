@@ -12,9 +12,9 @@ Use this component to display a image.
   <Story name="Component">
     <DisplayImage
       alt="Image alt text"
-      height="480"
+      height={480}
       url="https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg"
-      width="640"
+      width={640}
     />
   </Story>
 </Canvas>
@@ -28,10 +28,10 @@ Add a link to the image using the `href` prop.
     <DisplayImage
       alt="Image alt text"
       caption="This is the image caption"
-      height="480"
+      height={480}
       href="https://webdevstudios.com"
       url="https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg"
-      width="640"
+      width={640}
     />
   </Story>
 </Canvas>
@@ -48,10 +48,9 @@ export const Template = (args) => <DisplayImage {...args} />
     args={{
       alt: 'A screenshot of the codebase.',
       caption: 'A screenshot of the codebase.',
-      height: '480',
-      url:
-        'https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg',
-      width: '640'
+      height: 480,
+      url: 'https://nextjs.wpengine.com/wp-content/uploads/2021/02/nextjs-wordpress-starter.jpg',
+      width: 640
     }}
   >
     {Template.bind({})}

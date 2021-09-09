@@ -12,7 +12,9 @@ import styles from './Image.module.css'
  * @param  {string}  props.alt           The image alt attribute.
  * @param  {string}  props.anchor        The image anchor.
  * @param  {string}  props.caption       The image caption.
+ * @param  {any}     props.children      React children.
  * @param  {string}  props.className     The image class name.
+ * @param  {number}  props.height        The image height.
  * @param  {string}  props.href          A link wrapping the image.
  * @param  {number}  props.id            The image id.
  * @param  {object}  props.imageMeta     The image meta.
@@ -21,13 +23,14 @@ import styles from './Image.module.css'
  * @param  {boolean} props.nextImageFill Whether next/image should be set to fill or have height/width defined.
  * @param  {string}  props.rel           The relationship of the linked URL.
  * @param  {string}  props.url           The image src attribute.
+ * @param  {number}  props.width         The image width.
  * @return {Element}                     The DisplayImage component.
  */
 export default function DisplayImage(props) {
   // Set the image size.
   const imageSize = {
-    height: props?.imageMeta?.mediaDetails?.height ?? props?.height,
-    width: props?.imageMeta?.mediaDetails?.width ?? props?.width
+    height: props?.height ?? props?.imageMeta?.mediaDetails?.height,
+    width: props?.width ?? props?.imageMeta?.mediaDetails?.width
   }
 
   // Set the image src.
@@ -179,7 +182,7 @@ DisplayImage.propTypes = {
   caption: PropTypes.string,
   children: PropTypes.any,
   className: PropTypes.string,
-  height: PropTypes.string,
+  height: PropTypes.number,
   href: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMeta: PropTypes.shape({
@@ -196,5 +199,5 @@ DisplayImage.propTypes = {
   nextImageFill: PropTypes.bool,
   rel: PropTypes.string,
   url: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.number
 }
