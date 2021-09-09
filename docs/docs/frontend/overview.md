@@ -1,5 +1,6 @@
 ---
 title: Architecture
+sidebar_position: 2
 ---
 
 This describes how information is passed to and from the frontend, through Next.js,
