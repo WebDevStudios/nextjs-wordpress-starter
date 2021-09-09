@@ -50,13 +50,19 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd docs
+          npm ci
 
       - name: Lint
-        run: npm run lint:docs
+        run: |
+          cd docs
+          npm run lint
 
       - name: Publish
         env:
           USE_SSH: true
           GIT_USER: ${{ secrets.GIT_USER_NAME }}
-        run: npm run build:docs
+        run: |
+          cd docs
+          npm run publish
