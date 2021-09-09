@@ -84,6 +84,4 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          script: |
-            cd sites/nextjs
-            wp plugin install ${{ secrets.REMOTE_PATH }}/${{ matrix.plugins }}.zip --activate
+          script: cd sites/nextjs && wp plugin install ${{ secrets.REMOTE_PATH }}/${{ matrix.plugins }}.zip --activate
