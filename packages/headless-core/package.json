@@ -1,6 +1,6 @@
 {
   "name": "@webdevstudios/headless-core",
-  "version": "1.0.0-canary.6",
+  "version": "1.0.0-canary.7",
   "description": "Next.js WordPress Framework",
   "homepage": "https://webdevstudios.github.io/nextjs-wordpress-starter/",
   "repository": {
@@ -17,12 +17,12 @@
     "API",
     "WebDevStudios"
   ],
-  "main": "dist/headless-core.js",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "npm run clean && npx esbuild 'src/index.js' --bundle --loader:.js=jsx --minify --outfile='dist/headless-core.js'",
+    "build": "npm run clean && node ../../scripts/build-core.js",
     "clean": "npx rimraf dist/",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
     "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
