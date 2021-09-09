@@ -18,20 +18,20 @@ With this framework, **we've figured out the "hard stuff" and placed the sum of 
 
 There are two environments, the backend (WordPress) and the frontend (Next.js). Each environment has its own setup instructions.
 
-1. [Backend setup docs](/docs/backend/index)
-2. [Frontend setup docs](/docs/frontend/index)
+1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/index)
+2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend/index)
 
 ## Documentation
 
-Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/> to view all the documentation.
+Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/docs/index> to view all the documentation.
 
 ## Contributing
 
 There are many ways to [contribute](/CONTRIBUTING.md) to this project:
 
-- [Discuss open issues](/issues) to help define the future of the project
+- Discuss [open issues](/issues) to help define the future of the project
 - [Submit bugs](/issues) and help verify fixes
-- Review and discuss [pull requests](pulls)
+- Review and discuss [pull requests](/pulls)
 - Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
 
 ## License
