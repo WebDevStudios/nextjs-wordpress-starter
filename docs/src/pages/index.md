@@ -2,11 +2,9 @@
 title: WebDevStudios Next.js WordPress Starter
 ---
 
-A starter for headless WordPress projects.
-
 [![This is a banner for the WebDevStudios NextJS Starter that says, "Start your Headless WordPress project with the industry experts," and includes the WebDevStudios logo and URL, which is WebDevStudios dot com](https://nextjs.wpengine.com/wp-content/uploads/2021/06/WDS-GitHub-Banner.png)](https://webdevstudios.com/solutions/wordpress-headless-cms/)
 
----
+**A headless starter for WordPress powered by Next.js**
 
 > NOTE: This is prerelease software. We will 💯 introduce breaking changes.
 
@@ -16,7 +14,11 @@ Querying a REST-API or GraphQL endpoint and looping over blog posts is where mos
 
 At WebDevStudios we believe that **WordPress is so much more than a blog**-- and our clients require support for things like: SEO, menus, forms, previews, search, comments, authentication, custom post types, custom fields, etc...
 
-With this framework, **we've figured out the "hard stuff"** and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.
+With this framework, **we've figured out the "hard stuff" and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.**
+
+## Next Steps
+
+Head on over to the [Getting Started](/docs/index) doc to learn more.
 
 ## Contributing
 
@@ -30,3 +32,5 @@ There are many ways to [contribute](https://github.com/WebDevStudios/nextjs-word
 ## License
 
 This is free software, and released under the terms of the [GNU General Public License version 2](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/LICENSE.md) or any later version. Please note, that other packages or libraries may be released under different licenses.
+
+---
