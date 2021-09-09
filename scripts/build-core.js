@@ -6,10 +6,11 @@ esbuild
     outdir: 'dist',
     bundle: true,
     sourcemap: false,
-    minify: true,
+    minify: false,
+    minifyWhitespace: true,
     splitting: false,
-    format: 'esm',
-    target: ['esnext'],
+    platform: 'node',
+    target: 'node14',
     loader: {
       '.js': 'jsx'
     }
