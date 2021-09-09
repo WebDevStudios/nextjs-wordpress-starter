@@ -3,7 +3,6 @@
   "private": true,
   "workspaces": [
     "docs",
-    "packages/next",
     "packages/headless-core"
   ],
   "engines": {
