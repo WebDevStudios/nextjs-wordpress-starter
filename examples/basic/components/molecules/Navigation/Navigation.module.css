@@ -1,0 +1,83 @@
+.navigation {
+  & > ul.menu {
+    @apply flex flex-wrap justify-center;
+
+    /* Top level navigation items */
+    & > li {
+      & a {
+        @apply flex flex-nowrap items-center w-full py-1 px-5;
+
+        &:hover,
+        &:focus {
+          @apply underline;
+        }
+
+        &.active {
+          @apply font-bold underline;
+        }
+      }
+
+      &.hasChildren {
+        & > a {
+          @apply pr-2;
+        }
+
+        & .arrow {
+          @apply w-4 h-4 ml-2 flex items-center justify-center opacity-30 transform rotate-90;
+        }
+      }
+
+      @screen lg {
+        &:last-child {
+          & > a {
+            @apply pr-0;
+          }
+        }
+      }
+    }
+
+    & li {
+      @apply relative;
+
+      &:hover,
+      &:focus-within {
+        & > ul {
+          @apply opacity-100 visible;
+        }
+      }
+    }
+
+    /* Sub Menu / Drop Menus */
+    & ul.subMenu {
+      @apply opacity-0 invisible absolute left-1 top-full z-50 p-2 rounded transition-all duration-150 ease-linear bg-white border;
+
+      width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.075);
+
+      & > li {
+        @apply text-sm flex flex-nowrap w-full items-center border-t border-opacity-5;
+
+        &:first-of-type {
+          @apply border-none;
+        }
+
+        & > a {
+          @apply p-2;
+        }
+
+        &.hasChildren {
+          & > a {
+            & > .arrow {
+              @apply rotate-0 ml-auto -mr-1;
+            }
+          }
+        }
+      }
+
+      /* 3rd Level */
+      & ul {
+        @apply top-0 left-full;
+      }
+    }
+  }
+}
