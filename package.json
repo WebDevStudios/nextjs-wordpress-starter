@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
+    "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.4.0"
   }
 }
