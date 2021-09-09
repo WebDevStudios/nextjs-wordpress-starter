@@ -19,7 +19,7 @@ Before you get started, make sure you have the following dependencies installed 
 ```bash
 npx create-next-app \
     -e https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary \
-    --example-path packages/next \
+    --example-path packages/legacy-nextjs-wordpress-starter \
     --use-npm \
     nextjs-wordpress-starter
 ```
