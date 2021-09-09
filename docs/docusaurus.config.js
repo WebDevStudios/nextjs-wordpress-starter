@@ -25,15 +25,30 @@ module.exports = {
       },
       items: [
         {
-          href: '/',
-          label: 'Home',
-          position: 'left'
-        },
-        {
           type: 'doc',
           docId: 'index',
           position: 'left',
-          label: 'Docs'
+          label: 'Documentation'
+        },
+        {
+          label: 'Blog',
+          href: 'https://webdevstudios.com/blog/',
+          position: 'right'
+        },
+        {
+          label: 'Careers',
+          href: 'https://webdevstudios.com/careers',
+          position: 'right'
+        },
+        {
+          label: 'LinkedIn',
+          href: 'https://www.linkedin.com/company/webdevstudios-llc-/',
+          position: 'right'
+        },
+        {
+          label: 'Twitter',
+          href: 'https://twitter.com/webdevstudios',
+          position: 'right'
         },
         {
           href: 'https://github.com/WebDevStudios/nextjs-wordpress-starter',
@@ -44,38 +59,6 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'GitHub Discussions',
-              href: 'https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions'
-            }
-          ]
-        },
-        {
-          title: 'WebDevStudios',
-          items: [
-            {
-              label: 'Blog',
-              href: 'https://webdevstudios.com/blog/'
-            },
-            {
-              label: 'Careers',
-              href: 'https://webdevstudios.com/careers'
-            },
-            {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/webdevstudios-llc-/'
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/webdevstudios'
-            }
-          ]
-        }
-      ],
       copyright: `Next.js WordPress Starter from WebDevStudios`
     },
     prism: {
