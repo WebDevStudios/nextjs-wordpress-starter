@@ -14,10 +14,6 @@ const singleTeamFragment = gql`
     ${seoPostFields}
     ${authorPostFields}
     ${featuredImagePostFields}
-    teamMemberProfile {
-      location
-      title
-    }
   }
 `
 
