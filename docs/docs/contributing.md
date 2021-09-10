@@ -8,34 +8,36 @@ There are many ways to contribute to this project:
 - [Submit bugs](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/issues) and help verify fixes
 - Review and discuss [pull requests](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/pulls)
 - Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
+- Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
 ## Monorepo Folder Structure
 
 This project is a monorepo, which makes it easier to develop all the different codebases in a central location. The folder structure looks like:
 
 ```text
+├── backend
+|  ├── plugins
+|  |  ├── wds-headless-acf
+|  |  ├── wds-headless-algolia
+|  |  ├── wds-headless-blocks
+|  |  ├── wds-headless-core
+|  |  ├── wds-headless-gravityforms
+|  |  └── wds-headless-seo
+|  └── themes
+|     └── wds-headless-theme
 ├── docs
+├── frontend
 ├── packages
-|  └── nextjs-wordpress-starter
-├── plugins
-|  ├── wds-headless-acf
-|  ├── wds-headless-algolia
-|  ├── wds-headless-blocks
-|  ├── wds-headless-core
-|  ├── wds-headless-gravityforms
-|  └── wds-headless-seo
 ├── scripts
-├── tests
-└── theme
-   └── wds-headless-theme
+└── tests
 ```
 
-- **/docs**: The documentation for this project, powered by [Docusaurus](https://docusaurus.io/).
-- **/packages**: Currently, this holds the codebase for the [Next.js powered frontend](/docs/frontend/folder-structure). _In the future this will house our NPM packages._
-- **/plugins**: WordPress plugins necessary to support advanced headless functionality.
+- **/backend**: The folder that contains all WordPress plugins and theme.
+- **/docs**: The documentation for this project, powered by [Docusaurus](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus).
+- **/frontend**: Currently, this holds the codebase for the [Next.js powered frontend](/docs/frontend/folder-structure).
+- **/packages**: In the future this will house our NPM packages.
 - **/scripts**: In the future this will house build scripts.
 - **/tests**: In the future this will house tests.
-- **/theme**: A minimal WordPress theme which helps support turning WordPress into a headless CMS.
 
 ## Submitting Issues and Feature Requests
 
