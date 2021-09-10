@@ -8,17 +8,24 @@ import PropTypes from 'prop-types'
  * The core Buttons block from Gutenberg.
  *
  * @author WebDevStudios
- * @param  {object}  props             The component properties.
- * @param  {object}  props.options     Option props object.
- * @param  {Array}   props.innerBlocks The array of inner blocks to display.
- * @return {Element}                   The Buttons component.
+ * @param  {object}  props                      The component properties.
+ * @param  {string}  props.anchor               Optional anchor/id.
+ * @param  {string}  props.contentJustification The justification of the buttons.
+ * @param  {Array}   props.innerBlocks          The array of inner blocks to display.
+ * @param  {string}  props.orientation          The orientation of buttons.
+ * @return {Element}                            The Buttons component.
  */
-export default function BlockButtons({options, innerBlocks}) {
+export default function BlockButtons({
+  anchor,
+  contentJustification,
+  innerBlocks,
+  orientation
+}) {
   return (
     <ButtonGroup
-      id={options?.anchor}
-      orientation={options?.orientation}
-      contentJustification={options?.contentJustification}
+      id={anchor}
+      orientation={orientation}
+      contentJustification={contentJustification}
     >
       {!!innerBlocks?.length && <Blocks blocks={innerBlocks} />}
     </ButtonGroup>
@@ -26,17 +33,15 @@ export default function BlockButtons({options, innerBlocks}) {
 }
 
 BlockButtons.propTypes = {
-  options: PropTypes.shape({
-    anchor: PropTypes.string,
-    contentJustification: PropTypes.string,
-    orientation: PropTypes.string
-  }),
+  anchor: PropTypes.string,
+  contentJustification: PropTypes.string,
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       attributes: PropTypes.object
     })
-  )
+  ),
+  orientation: PropTypes.string
 }
 
 BlockButtons.defaultProps = {

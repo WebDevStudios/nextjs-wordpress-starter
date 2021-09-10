@@ -95,7 +95,7 @@ export default function displayBlock(block, index) {
     case 'core/button':
       return <BlockButton {...attributes} key={index} />
     case 'core/buttons':
-      return <BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
+      return <BlockButtons {...attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/columns':
       return <BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
     case 'core/cover':
