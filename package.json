@@ -12,11 +12,9 @@
   "scripts": {
     "build": "npm run build --workspace=@webdevstudios/nextjs-wordpress-starter",
     "build:docs": "npm run publish --workspace=@webdevstudios/docs",
-    "clean": "npm run clean --workspace=@webdevstudios/nextjs-wordpress-starter",
     "dev": "npm run dev --workspace=@webdevstudios/nextjs-wordpress-starter",
     "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
-    "format": "npm run format --workspace=@webdevstudios/nextjs-wordpress-starter",
-    "lint": "npm run lint --workspace=@webdevstudios/nextjs-wordpress-starter --workspace=@webdevstudios/docs",
+    "lint": "npm run lint --workspace=@webdevstudios/nextjs-wordpress-starter",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
     "start": "npm run start --workspace=@webdevstudios/nextjs-wordpress-starter",
     "storybook": "npm run storybook --workspace=@webdevstudios/nextjs-wordpress-starter",
@@ -24,8 +22,17 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
+    "esbuild": "^0.12.25",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.4.0"
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
