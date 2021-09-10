@@ -4,11 +4,11 @@
  * @author WebDevStudios
  * @param  {*}      path The complete URL path.
  * @param  {*}      name The name to search.
- * @return {string}      The found query value.
+ * @return {string}      The found query value or empty string.
  */
 export default function parseQuerystring(path, name) {
   if (!path || !name) {
-    return false
+    return ''
   }
   name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]')
   var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
