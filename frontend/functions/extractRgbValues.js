@@ -8,12 +8,11 @@
  */
 export default function extractRgbValues(rgbString) {
   const rgbValues = rgbString.match(
-    /rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/
+    /rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?/
   )
 
-  // Remove first element (original RGB string) and last element (undefined).
+  // Remove first element (original RGB string).
   rgbValues.shift()
-  rgbValues.pop()
 
   return rgbValues
 }
