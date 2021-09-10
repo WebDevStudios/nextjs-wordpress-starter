@@ -1,6 +1,6 @@
 {
-  "name": "webdevstudios/nextjs-wordpress",
-  "description": "A WordPress backend to power a Next.js frontend.",
+  "name": "webdevstudios/nextjs-wordpress-starter",
+  "description": "Next.js WordPress Starter",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "authors": [
