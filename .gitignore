@@ -41,3 +41,6 @@ storybook-static/*
 
 # composer
 vendor
+
+# vercel
+.vercel
