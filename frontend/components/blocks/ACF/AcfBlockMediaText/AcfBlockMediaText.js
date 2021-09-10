@@ -5,15 +5,15 @@ import PropTypes from 'prop-types'
  * Handle the AcfBlockMediaText block.
  *
  * @author WebDevStudios
- * @param  {object}  props            The props.
- * @param  {object}  props.attributes The attributes object.
- * @return {Element}                  The component.
+ * @param  {object}  props      The props.
+ * @param  {object}  props.data The block attribute data.
+ * @return {Element}            The component.
  */
-export default function AcfBlockMediaText({attributes}) {
+export default function AcfBlockMediaText({data}) {
   return (
     <>
-      {attributes ? (
-        <AcfMediaText {...attributes.data} />
+      {data ? (
+        <AcfMediaText {...data} />
       ) : (
         'There was a problem with attributes in AcfBlockMediaText.js.'
       )}
@@ -22,5 +22,22 @@ export default function AcfBlockMediaText({attributes}) {
 }
 
 AcfBlockMediaText.propTypes = {
-  attributes: PropTypes.object
+  data: PropTypes.shape({
+    body: PropTypes.string,
+    className: PropTypes.string,
+    ctaText: PropTypes.string,
+    ctaUrl: PropTypes.string,
+    image: PropTypes.number,
+    imageMeta: PropTypes.shape({
+      altText: PropTypes.string,
+      mediaItemUrl: PropTypes.string,
+      mediaDetails: PropTypes.shape({
+        height: PropTypes.number,
+        sizes: PropTypes.array,
+        width: PropTypes.number
+      })
+    }),
+    mediaLeft: PropTypes.bool,
+    title: PropTypes.string
+  })
 }

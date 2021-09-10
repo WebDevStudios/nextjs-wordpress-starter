@@ -123,7 +123,7 @@ export default function displayBlock(block, index) {
     case 'lazyblock/hero':
       return <LzbBlockHero {...attributes} key={index} />
     case 'acf/acf-media-text':
-      return <AcfBlockMediaText attributes={attributes} key={index} />
+      return <AcfBlockMediaText {...attributes} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }
