@@ -7,8 +7,10 @@
  */
 export default function formatFocalPoint(focalPoint) {
   const newFocalPoint = {}
-  const x = parseFloat(focalPoint?.x || '.5') ?? 0.5
-  const y = parseFloat(focalPoint?.y || '.5') ?? 0.5
+  let x = focalPoint?.x
+  let y = focalPoint?.y
+  x = parseFloat(x && !isNaN(x) ? x : '.5') ?? 0.5
+  y = parseFloat(y && !isNaN(y) ? y : '.5') ?? 0.5
 
   newFocalPoint.x = `${x * 100}%`
   newFocalPoint.y = `${y * 100}%`
