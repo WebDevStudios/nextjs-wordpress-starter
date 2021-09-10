@@ -41,5 +41,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      - name: Lint Frontend
         run: npm run lint
+
+      - name: Lint Docs
+        run: npm run lint:docs
