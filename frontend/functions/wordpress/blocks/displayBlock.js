@@ -117,7 +117,7 @@ export default function displayBlock(block, index) {
     case 'core/spacer':
       return <BlockSpacer {...attributes} key={index} />
     case 'gravityforms/form':
-      return <BlockGravityForm attributes={attributes} key={index} />
+      return <BlockGravityForm {...attributes} key={index} />
     case 'lazyblock/mediatext':
       return <LzbBlockMediaText attributes={attributes} key={index} />
     case 'lazyblock/hero':
