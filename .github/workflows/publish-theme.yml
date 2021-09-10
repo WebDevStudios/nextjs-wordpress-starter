@@ -37,10 +37,21 @@ jobs:
           TARGET: ${{ secrets.REMOTE_PATH }}
           EXCLUDE: '.git/,node_modules/,vendor/'
 
-      - name: Install on Prod
+      - name: Install
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          ARGS: '-v -a -z --delete'
+          SOURCE: 'theme/wds-headless-theme'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.THEME_PATH }}
+          EXCLUDE: '.git/,node_modules/,vendor/'
+
+      - name: Activate
         uses: appleboy/ssh-action@v0.1.4
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          script: cd sites/nextjs && wp theme install ${{ secrets.REMOTE_PATH }}/wds-headless-theme.zip --activate --force
+          script: wp theme activate wds-headless-theme

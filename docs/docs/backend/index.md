@@ -12,7 +12,7 @@ Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of â˜
 Before you get started, make sure you have the following dependencies installed on your computer:
 
 - [Local WP](https://localwp.com/)
-- [Composer](https://getcomposer.org/) v1
+- [Composer](https://getcomposer.org/)
 
 You may also want the following premium WordPress plugins:
 

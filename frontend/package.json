@@ -1,5 +1,5 @@
 {
-  "name": "@webdevstudios/legacy-nextjs-wordpress-starter",
+  "name": "@webdevstudios/nextjs-wordpress-starter",
   "version": "1.0.0",
   "private": true,
   "description": "Next.js WordPress Framework",
@@ -12,7 +12,7 @@
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/packages/legacy-nextjs-wordpress-starter"
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/frontend"
   },
   "bugs": {
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
