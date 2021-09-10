@@ -2,7 +2,7 @@
   "name": "@webdevstudios/nextjs-wordpress-starter",
   "version": "1.0.0",
   "private": true,
-  "description": "Next.js WordPress Framework",
+  "description": "Next.js WordPress Starter",
   "author": "WebDevStudios <contact@webdevstudios.com>",
   "license": "GPL-2.0-or-later",
   "keywords": [
@@ -43,7 +43,7 @@
     "@apollo/client": "^3.4.10",
     "algoliasearch": "^4.10.5",
     "apollo-link-rest": "^0.8.0-beta.0",
-    "dayjs": "^1.10.6",
+    "dayjs": "^1.10.7",
     "deepmerge": "^4.2.2",
     "formidable": "^1.2.2",
     "formik": "^2.2.9",
@@ -61,7 +61,7 @@
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3",
     "rimraf": "^3.0.2",
-    "tailwindcss": "^2.2.14",
+    "tailwindcss": "^2.2.15",
     "yup": "^0.32.9"
   },
   "devDependencies": {
