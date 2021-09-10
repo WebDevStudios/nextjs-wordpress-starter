@@ -3,24 +3,24 @@
   "private": true,
   "workspaces": [
     "docs",
-    "packages/legacy-nextjs-wordpress-starter"
+    "frontend"
   ],
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "build": "npm run build --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
+    "build": "npm run build --workspace=@webdevstudios/nextjs-wordpress-starter",
     "build:docs": "npm run publish --workspace=@webdevstudios/docs",
-    "clean": "npm run clean --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
-    "dev": "npm run dev --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
+    "clean": "npm run clean --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "dev": "npm run dev --workspace=@webdevstudios/nextjs-wordpress-starter",
     "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
-    "format": "npm run format --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
-    "lint": "npm run lint --workspace=@webdevstudios/legacy-nextjs-wordpress-starter --workspace=@webdevstudios/docs",
+    "format": "npm run format --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "lint": "npm run lint --workspace=@webdevstudios/nextjs-wordpress-starter --workspace=@webdevstudios/docs",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
-    "start": "npm run start --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
-    "storybook": "npm run storybook --workspace=@webdevstudios/legacy-nextjs-wordpress-starter",
-    "test": "npm run test --workspace=@webdevstudios/legacy-nextjs-wordpress-starter"
+    "start": "npm run start --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "storybook": "npm run storybook --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "test": "npm run test --workspace=@webdevstudios/nextjs-wordpress-starter"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
