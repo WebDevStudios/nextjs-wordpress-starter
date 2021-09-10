@@ -33,6 +33,7 @@ There are many ways to [contribute](/CONTRIBUTING.md) to this project:
 - [Submit bugs](/issues) and help verify fixes
 - Review and discuss [pull requests](/pulls)
 - Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
+- Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
 ## License
 
