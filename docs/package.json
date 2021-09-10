@@ -9,7 +9,7 @@
     "docusaurus": "docusaurus",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,mdx,html,css,scss,json,yml}' --config '../.prettierrc.js' --write || true",
     "lint": "npm run format && npm run lint:md",
-    "lint:md": "npx markdownlint 'docs/docs/**/*.md' --config '../.markdownlint.json' --fix",
+    "lint:md": "npx markdownlint 'docs/**/*.md' --config '../.markdownlint.json' --fix",
     "publish": "docusaurus deploy",
     "serve": "docusaurus serve",
     "start": "npm run clear && docusaurus start",
