@@ -119,7 +119,7 @@ export default function displayBlock(block, index) {
     case 'gravityforms/form':
       return <BlockGravityForm {...attributes} key={index} />
     case 'lazyblock/mediatext':
-      return <LzbBlockMediaText attributes={attributes} key={index} />
+      return <LzbBlockMediaText {...attributes} key={index} />
     case 'lazyblock/hero':
       return <LzbBlockHero attributes={attributes} key={index} />
     case 'acf/acf-media-text':
