@@ -121,7 +121,7 @@ export default function displayBlock(block, index) {
     case 'lazyblock/mediatext':
       return <LzbBlockMediaText {...attributes} key={index} />
     case 'lazyblock/hero':
-      return <LzbBlockHero attributes={attributes} key={index} />
+      return <LzbBlockHero {...attributes} key={index} />
     case 'acf/acf-media-text':
       return <AcfBlockMediaText attributes={attributes} key={index} />
     default:
