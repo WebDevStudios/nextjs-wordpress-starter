@@ -48,24 +48,24 @@ jobs:
 
       - name: Validate composer.json
         run: |
-          cd plugins/${{ matrix.plugins }}
+          cd backend/plugins/${{ matrix.plugins }}
           composer validate --strict
 
       - name: Install dependencies
         run: |
-          cd plugins/${{ matrix.plugins }}
+          cd backend/plugins/${{ matrix.plugins }}
           composer install --prefer-dist --no-progress
 
       - name: Lint
         run: |
-          cd plugins/${{ matrix.plugins }}
+          cd backend/plugins/${{ matrix.plugins }}
           composer run-script lint
 
       - name: Bundle
         run: |
-          cd plugins/${{ matrix.plugins }}
+          cd backend/plugins/${{ matrix.plugins }}
           zip ${{ matrix.plugins }}.zip * -r -x node_modules/\* -x vendor/\* -x .git/\*
-          mv ${{ matrix.plugins }}.zip ../../dist
+          mv ${{ matrix.plugins }}.zip ../../../dist
 
       - name: Publish
         uses: easingthemes/ssh-deploy@v2
@@ -83,7 +83,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'plugins/${{ matrix.plugins }}'
+          SOURCE: 'backend/plugins/${{ matrix.plugins }}'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.PLUGIN_PATH }}

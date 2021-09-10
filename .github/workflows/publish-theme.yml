@@ -22,9 +22,9 @@ jobs:
 
       - name: Bundle
         run: |
-          cd theme/wds-headless-theme
+          cd backend/themes/wds-headless-theme
           zip wds-headless-theme.zip * -r
-          mv wds-headless-theme.zip ../../dist
+          mv wds-headless-theme.zip ../../../dist
 
       - name: Publish
         uses: easingthemes/ssh-deploy@v2
@@ -42,7 +42,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'theme/wds-headless-theme'
+          SOURCE: 'backend/themes/wds-headless-theme'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.THEME_PATH }}
