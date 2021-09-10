@@ -5,43 +5,46 @@ import getBlockStyles from '@/functions/wordpress/blocks/getBlockStyles'
 import PropTypes from 'prop-types'
 
 /**
- * Code Block
+ * Media & Text Block
  *
- * The core Code block from Gutenberg.
+ * The core Media & Text block from Gutenberg.
  *
  * @author WebDevStudios
- * @param  {object}  props             The component properties.
- * @param  {Array}   props.innerBlocks The array of inner blocks to display.
- * @param  {object}  props.media       Media props.
- * @return {Element}                   The Code component.
+ * @param  {object}  props                    The component properties.
+ * @param  {string}  props.anchor             Optional anchor/id.
+ * @param  {string}  props.backgroundColorHex The background color
+ * @param  {string}  props.className          The image class name.
+ * @param  {object}  props.focalPoint         The focal point coordinates for the image.
+ * @param  {string}  props.gradientHex        The background gradient hex value.
+ * @param  {boolean} props.imageFill          Whether to crop image to fill.
+ * @param  {Array}   props.innerBlocks        The array of inner blocks to display.
+ * @param  {boolean} props.isStackedOnMobile  Whether to stack media and text on mobile.
+ * @param  {string}  props.mediaAlt           The image alt attribute.
+ * @param  {string}  props.mediaPosition      The image position relative to the text.
+ * @param  {string}  props.mediaUrl           The media URL.
+ * @param  {number}  props.mediaWidth         The image width.
+ * @param  {object}  props.style              The style attributes.
+ * @param  {string}  props.textColorHex       The text color hex value.
+ * @param  {string}  props.verticalAlignment  Vertical alignment of text.
+ * @return {Element}                          The Media & Text component.
  */
-export default function BlockMediaText({innerBlocks, media}) {
-  /* eslint-disable no-unused-vars */
-  const {
-    anchor,
-    backgroundColorHex,
-    caption,
-    className,
-    focalPoint,
-    gradientHex,
-    href,
-    imageFill,
-    isStackedOnMobile,
-    linkClass,
-    linkTarget,
-    mediaAlt,
-    mediaId,
-    mediaPosition,
-    mediaType,
-    mediaWidth,
-    mediaUrl,
-    rel,
-    sizeSlug,
-    style,
-    textColorHex,
-    verticalAlignment
-  } = media
-  /* eslint-enable no-unused-vars */
+export default function BlockMediaText({
+  anchor,
+  backgroundColorHex,
+  className,
+  focalPoint,
+  gradientHex,
+  imageFill,
+  innerBlocks,
+  isStackedOnMobile,
+  mediaAlt,
+  mediaPosition,
+  mediaUrl,
+  mediaWidth,
+  style,
+  textColorHex,
+  verticalAlignment
+}) {
   const mediaTextStyle = getBlockStyles({
     backgroundColorHex,
     gradientHex,
@@ -58,7 +61,7 @@ export default function BlockMediaText({innerBlocks, media}) {
 
   return (
     <>
-      {!!media && innerBlocks?.length && (
+      {!!mediaUrl && innerBlocks?.length && (
         <MediaText
           className={className}
           focalPoint={newFocalPoint}
@@ -79,40 +82,31 @@ export default function BlockMediaText({innerBlocks, media}) {
 }
 
 BlockMediaText.propTypes = {
+  anchor: PropTypes.string,
+  backgroundColorHex: PropTypes.string,
+  className: PropTypes.string,
+  focalPoint: PropTypes.shape({
+    x: PropTypes.string,
+    y: PropTypes.string
+  }),
+  gradientHex: PropTypes.string,
+  imageFill: PropTypes.bool,
   innerBlocks: PropTypes.arrayOf(
     PropTypes.shape({
       attributes: PropTypes.object,
       name: PropTypes.string
     })
   ),
-  media: PropTypes.shape({
-    anchor: PropTypes.string,
-    backgroundColorHex: PropTypes.string,
-    caption: PropTypes.string,
-    className: PropTypes.string,
-    focalPoint: PropTypes.shape({
-      x: PropTypes.string,
-      y: PropTypes.string
-    }),
-    gradientHex: PropTypes.string,
-    href: PropTypes.string,
-    imageFill: PropTypes.bool,
-    isStackedOnMobile: PropTypes.bool,
-    linkClass: PropTypes.string,
-    linkTarget: PropTypes.string,
-    mediaAlt: PropTypes.string,
-    mediaId: PropTypes.number,
-    mediaPosition: PropTypes.string,
-    mediaType: PropTypes.string,
-    mediaWidth: PropTypes.number,
-    mediaUrl: PropTypes.string,
-    rel: PropTypes.string,
-    sizeSlug: PropTypes.string,
-    style: PropTypes.object,
-    textColorHex: PropTypes.string,
-    verticalAlignment: PropTypes.string
-  })
+  isStackedOnMobile: PropTypes.bool,
+  mediaAlt: PropTypes.string,
+  mediaPosition: PropTypes.string,
+  mediaUrl: PropTypes.string,
+  mediaWidth: PropTypes.number,
+  style: PropTypes.object,
+  textColorHex: PropTypes.string,
+  verticalAlignment: PropTypes.string
 }
+
 BlockMediaText.defaultProps = {
   media: PropTypes.shape({
     mediaPosition: 'left'

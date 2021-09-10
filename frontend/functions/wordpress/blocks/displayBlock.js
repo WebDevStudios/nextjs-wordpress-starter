@@ -81,49 +81,78 @@ export default function displayBlock(block, index) {
 
   // prettier-ignore
   switch (name) {
-    case 'core/quote':
-      return <BlockQuote {...attributes} key={index} />
-    case 'core/pullquote':
-      return <BlockPullQuote {...attributes} key={index} />
+    /* -- CORE BLOCKS -- */
+
+    case 'core/button':
+      return <BlockButton {...attributes} key={index} />
+
+    case 'core/buttons':
+      return <BlockButtons {...attributes} innerBlocks={innerBlocks} key={index} />
+
     case 'core/code':
     case 'core/preformatted':
       return <BlockCode {...attributes} key={index} />
+
+    case 'core/columns':
+      return <BlockColumns {...attributes} innerBlocks={innerBlocks} key={index} />
+
+    case 'core/cover':
+      return <BlockCover {...attributes} innerBlocks={innerBlocks} key={index} />
+
     case 'core/embed':
       return <BlockEmbed {...attributes} key={index} />
-    case 'core/media-text':
-      return <BlockMediaText media={attributes} innerBlocks={innerBlocks} key={index} />
-    case 'core/button':
-      return <BlockButton {...attributes} key={index} />
-    case 'core/buttons':
-      return <BlockButtons options={attributes} innerBlocks={innerBlocks} key={index} />
-    case 'core/columns':
-      return <BlockColumns columns={attributes} innerBlocks={innerBlocks} key={index} />
-    case 'core/cover':
-      return <BlockCover media={attributes} innerBlocks={innerBlocks} key={index} />
-    case 'core/heading':
-      return <BlockHeadings {...attributes} key={index} />
-    case 'core/image':
-      return <BlockImage {...attributes} key={index} />
+
     case 'core/gallery':
       return <BlockImageGallery {...attributes} key={index} />
-    case 'core/table':
-      return <BlockTable {...attributes} key={index} />
+
+    case 'core/heading':
+      return <BlockHeadings {...attributes} key={index} />
+
+    case 'core/image':
+      return <BlockImage {...attributes} key={index} />
+
     case 'core/list':
       return <BlockList {...attributes} key={index} />
+
+    case 'core/media-text':
+      return <BlockMediaText {...attributes} innerBlocks={innerBlocks} key={index} />
+
     case 'core/paragraph':
       return <BlockParagraph {...attributes} key={index} />
+
+    case 'core/pullquote':
+      return <BlockPullQuote {...attributes} key={index} />
+
+    case 'core/quote':
+        return <BlockQuote {...attributes} key={index} />
+
     case 'core/separator':
       return <BlockSeparator {...attributes} key={index} />
+
     case 'core/spacer':
       return <BlockSpacer {...attributes} key={index} />
-    case 'gravityforms/form':
-      return <BlockGravityForm attributes={attributes} key={index} />
-    case 'lazyblock/mediatext':
-      return <LzbBlockMediaText attributes={attributes} key={index} />
-    case 'lazyblock/hero':
-      return <LzbBlockHero attributes={attributes} key={index} />
+
+    case 'core/table':
+      return <BlockTable {...attributes} key={index} />
+
+    /* -- ACF BLOCKS -- */
+
     case 'acf/acf-media-text':
-      return <AcfBlockMediaText attributes={attributes} key={index} />
+      return <AcfBlockMediaText {...attributes} key={index} />
+
+    /* -- GRAVITY FORMS BLOCKS -- */
+
+    case 'gravityforms/form':
+      return <BlockGravityForm {...attributes} key={index} />
+
+    /* -- LAZY BLOCKS -- */
+
+    case 'lazyblock/hero':
+      return <LzbBlockHero {...attributes} key={index} />
+
+    case 'lazyblock/mediatext':
+      return <LzbBlockMediaText {...attributes} key={index} />
+
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }

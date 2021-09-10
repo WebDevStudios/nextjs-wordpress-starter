@@ -8,17 +8,17 @@ import styles from './ButtonGroup.module.css'
  *
  * @author WebDevStudios
  * @param  {object}  props                      The component properties.
+ * @param  {Element} props.children             The children props to render.
+ * @param  {string}  props.contentJustification The justification of the buttons.
  * @param  {string}  props.id                   The id of the block.
  * @param  {string}  props.orientation          The orientation of buttons.
- * @param  {string}  props.contentJustification The justification of the buttons.
- * @param  {Element} props.children             The children props to render.
  * @return {Element}                            The ButtonGroup component.
  */
 export default function ButtonGroup({
-  id,
-  orientation,
+  children,
   contentJustification,
-  children
+  id,
+  orientation
 }) {
   return (
     <>
@@ -37,8 +37,8 @@ export default function ButtonGroup({
 }
 
 ButtonGroup.propTypes = {
-  id: PropTypes.string,
-  orientation: PropTypes.string,
+  children: PropTypes.element,
   contentJustification: PropTypes.string,
-  children: PropTypes.element
+  id: PropTypes.string,
+  orientation: PropTypes.string
 }
