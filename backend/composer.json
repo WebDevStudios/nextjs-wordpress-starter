@@ -14,10 +14,6 @@
       "type": "composer",
       "url": "https://wpackagist.org/"
     },
-    "wds-satis": {
-      "type": "composer",
-      "url": "https://packages.wdslab.com/"
-    },
     "wds-headless-acf": {
       "type": "package",
       "package": {
@@ -122,42 +118,22 @@
     }
   },
   "require": {
-    "deliciousbrains-plugin/wp-migrate-db-pro": "^2.0",
-    "deliciousbrains-plugin/wp-migrate-db-pro-cli": "^1.4",
-    "deliciousbrains-plugin/wp-migrate-db-pro-media-files": "^2.0",
     "dre1080/wp-graphql-upload": "^0.1",
     "harness-software/wp-graphql-gravity-forms": "^0.4",
     "pristas-peter/wp-graphql-gutenberg": "^0.3",
-    "wds/wds-headless-acf": "^1.0.0",
-    "wds/wds-headless-algolia": "^1.0.0",
-    "wds/wds-headless-blocks": "^1.0.0",
-    "wds/wds-headless-core": "^1.0.0",
-    "wds/wds-headless-gravityforms": "^1.0.0",
-    "wds/wds-headless-seo": "^1.0.0",
-    "wds/wds-headless-theme": "^1.0.0",
-    "webdevstudios/advanced-custom-fields-pro": "^5.9",
-    "webdevstudios/gravityforms": "^2.5",
-    "webdevstudios/mu-autoload": "^1.0",
-    "webdevstudios/sso-addon": "^1.0",
-    "webdevstudios/wordpress-seo-premium": "^15.9",
+    "wds/wds-headless-acf": "^1.0",
+    "wds/wds-headless-algolia": "^1.0",
+    "wds/wds-headless-blocks": "^1.0",
+    "wds/wds-headless-core": "^1.0",
+    "wds/wds-headless-gravityforms": "^1.0",
+    "wds/wds-headless-seo": "^1.0",
+    "wds/wds-headless-theme": "^1.0",
     "wp-graphql/wp-graphql-acf": "^0.4",
     "wp-graphql/wp-graphql-jwt-authentication": "^0.4",
-    "wpackagist-plugin/add-wpgraphql-seo": "^4.14",
-    "wpackagist-plugin/block-manager": "^1.2",
+    "wpackagist-plugin/add-wpgraphql-seo": "^4.15",
     "wpackagist-plugin/custom-post-type-ui": "^1.9",
-    "wpackagist-plugin/gutenberg": "^11.0",
-    "wpackagist-plugin/lazy-blocks": "^2.3",
-    "wpackagist-plugin/wp-graphql": "^1.5",
+    "wpackagist-plugin/wordpress-seo": "^17.1",
+    "wpackagist-plugin/wp-graphql": "^1.6",
     "wpackagist-plugin/wp-search-with-algolia": "^2.0"
-  },
-  "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-    "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "wp-cli/wp-cli-bundle": "^2.5",
-    "wp-coding-standards/wpcs": "^2.3"
-  },
-  "scripts": {
-    "format": "./vendor/bin/phpcbf --standard=.phpcs.xml --report=summary,source",
-    "lint": "./vendor/bin/phpcs --standard=.phpcs.xml --report=summary,source"
   }
 }
