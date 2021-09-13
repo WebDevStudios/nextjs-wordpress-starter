@@ -64,19 +64,12 @@ wp plugin activate --all
 The follow constants needs to be in `wp-config.php`:
 
 ```php
-// The URL of the Next.js WordPress Starter.
 define( 'HEADLESS_FRONTEND_URL', 'http://localhost:3000/' );
-```
-
-```php
-// Any random string.
 define( 'PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
+define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', 'ANY_RANDOM_STRING' );
 ```
 
-```php
-// https://www.wpgraphql.com/extenstion-plugins/wpgraphql-jwt-authentication/
-define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', 'your-secret-token' );
-```
+> To generate a random strings, we recommend using the [WordPress Salt Generator](https://api.wordpress.org/secret-key/1.1/salt/). Just copy and paste any of the generated strings into the constants above.
 
 Learn more about setting up [wp-config.php](/docs/backend/wp-config).
 
@@ -84,9 +77,9 @@ Learn more about setting up [wp-config.php](/docs/backend/wp-config).
 
 ### Step 4: Create Pages
 
-You will need to create three pages:
+In the WordPress Dashboard, navigate to `Pages -> Add New`
 
-`Pages -> Add New`
+Create three blank pages named:
 
 1. Homepage
 2. Blog
@@ -98,15 +91,11 @@ There's nothing else needed for this step.
 
 ### Step 5: Set Page Options
 
-Set static pages:
-
-`Settings -> Reading -> "Your homepage displays"`
+In the WordPress Dashboard, navigate to `Settings -> Reading -> "Your homepage displays"` and set static pages for Homepage and Posts page:
 
 ![screenshot](/img/screenshot-set-page-options.png)
 
-Set the custom 404 page:
-
-`Headless Config -> Options`
+Now navigate to `Headless Config -> Options` and set the custom 404 page:
 
 ![screenshot](/img/screenshot-set-404-page.png)
 
@@ -118,9 +107,15 @@ You should now see your Homepage, Blog, and 404 page like so:
 
 ### Step 6: Set Permalinks
 
-`Settings -> Permalinks -> Custom Structure`
+In the WordPress Dashboard, navigate to `Settings -> Permalinks -> Custom Structure`
 
-The custom structure needs to be: `/blog/%postname%/`
+1. Enter the follow structure:
+
+```text
+/blog/%postname%
+```
+
+2. Save the settings.
 
 ![screenshot](/img/screenshot-set-permalinks.png)
 
@@ -128,9 +123,7 @@ The custom structure needs to be: `/blog/%postname%/`
 
 ### Step 7: Set Menus
 
-You'll need to create at least one menu, `Primary`. Additionally, you can create a Mobile and Footer menu.
-
-`Appearance -> Menus`
+You'll need to create at least one menu, `Primary`. Additionally, you can create a Mobile and Footer menu. In the WordPress Dashboard, navigate to `Appearance -> Menus`
 
 1. Menu Name: `Primary`
 2. Display location: `Primary Menu`
