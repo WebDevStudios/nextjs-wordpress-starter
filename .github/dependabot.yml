@@ -13,7 +13,7 @@ updates:
       day: 'monday'
 
   - package-ecosystem: 'npm'
-    directory: '/packages/next/'
+    directory: '/frontend'
     schedule:
       interval: 'weekly'
       day: 'monday'
