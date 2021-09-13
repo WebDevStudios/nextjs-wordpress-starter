@@ -47,11 +47,3 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.THEME_PATH }}
           EXCLUDE: '.git/,node_modules/,vendor/'
-
-      - name: Activate
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          script: wp theme activate wds-headless-theme
