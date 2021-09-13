@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
-    "esbuild": "^0.12.25",
+    "esbuild": "^0.12.27",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.4.0",
@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "rimraf": "^3.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
