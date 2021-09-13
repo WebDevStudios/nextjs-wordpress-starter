@@ -29,8 +29,5 @@ define( 'WDS_HEADLESS_SEO_VERSION', '1.0.0' );
 register_activation_hook( __FILE__, __NAMESPACE__ . '\activation_callback' );
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivation_callback' );
 
-// Load TGM Plugin Activation.
-require_once 'inc/tgm/tgm.php';
-
 require_once 'inc/links.php';
 require_once 'inc/wp-graphql.php';
