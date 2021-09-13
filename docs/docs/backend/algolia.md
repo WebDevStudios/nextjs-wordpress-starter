@@ -29,7 +29,7 @@ You can name the `Index name prefix` whatever you'd like.
 
 ### WDS Headless Algolia Plugin
 
-Install the WDS Headless Algolia plugin by uploading [wds-headless-algolia.zip](https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/243686e8bb1957a57a8d7bdb341c8ca452786754/composer.json#L33).
+Install the WDS Headless Algolia plugin by uploading [wds-headless-algolia.zip](https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/backend/composer.json#L29).
 
 ## Frontend
 
