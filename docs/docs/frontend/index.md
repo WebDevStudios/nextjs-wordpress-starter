@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Setup
+title: Frontend Setup
 ---
 
 The following steps will stand up a local install of Next.js.
