@@ -133,10 +133,14 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd frontend
+          npm i
 
       - name: Build
-        run: npm run build-storybook
+        run: |
+          cd frontend
+          npm run build-storybook
 
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@4.1.5
@@ -189,7 +193,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd docs
-          npm install
+          npm i
 
       - name: Lint
         run: |
@@ -203,46 +207,3 @@ jobs:
         run: |
           cd docs
           npm run publish
-
-  publish-to-wpe-prod:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        php-versions: ['7.4']
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          token: ${{ github.token }}
-
-      - name: Setup PHP ${{ matrix.php-versions }}
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-versions }}
-          tools: composer:v2
-
-      - name: Cache Composer dependencies
-        uses: actions/cache@v2
-        with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.OS }}-composer-
-
-      - name: Authorize Composer with WDS packagist server
-        run: echo '${{ secrets.COMPOSER_AUTH }}' > $GITHUB_WORKSPACE/auth.json
-
-      - name: Install dependencies
-        run: composer install
-
-      - name: Rsync to dev
-        uses: easingthemes/ssh-deploy@v2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: '-v -a -z --delete'
-          SOURCE: './'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_PATH }}
-          EXCLUDE: '.git*,.env,composer.json,composer.lock,auth.json,package.json,package-lock.json,node_modules/,/uploads/,/upgrade/,/advanced-cache.php,/object-cache.php,/debug.log,/mysql.sql,/mu-plugins/mu-plugin.php,/mu-plugins/wpengine-common/,/mu-plugins/wpe-wp-sign-on-plugin.php,/mu-plugins/wpe-wp-sign-on-plugin/,/mu-plugins/slt-force-strong-passwords.php,/mu-plugins/force-strong-passwords/,/mu-plugins/wpengine-security-auditor.php,/mu-plugins/wpe-elasticpress-autosuggest-logger/'
