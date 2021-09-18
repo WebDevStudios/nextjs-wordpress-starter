@@ -53,11 +53,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-        cd frontend
-        npm i
-        cd ..
-        composer install
-        npm i
+          cd frontend
+          npm i
+          cd ..
+          composer install
+          npm i
 
       - name: Lint Frontend
         run: npm run lint
