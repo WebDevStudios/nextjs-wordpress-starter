@@ -35,3 +35,9 @@ blockquote code {
 blockquote a {
   color: var(--ifm-color-primary-dark);
 }
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
