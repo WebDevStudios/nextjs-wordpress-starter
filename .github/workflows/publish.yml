@@ -183,5 +183,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: frontend/storybook-staic
+          folder: frontend/storybook-static
           target-folder: storybook
