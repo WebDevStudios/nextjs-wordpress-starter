@@ -42,7 +42,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.OS }}-composer-
 
-      - name: Cache dependencies
+      - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -57,17 +57,17 @@ jobs:
           cd frontend
           npm i
           cd ..
-          composer install
           npm i
+          composer install
+
+      - name: Lint Backend
+        run: composer run-script lint
 
       - name: Lint Frontend
         run: npm run lint
 
-      - name: Lint Docs
-        run: npm run lint:docs
-
-      - name: Run Tests
+      - name: Run Frontend Tests
         run: npm run test
 
-      - name: Lint Backend
-        run: composer run-script lint
+      - name: Lint Docs
+        run: npm run lint:docs
