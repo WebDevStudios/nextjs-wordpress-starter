@@ -4,7 +4,9 @@
 
 **A headless starter for WordPress powered by Next.js**
 
-Demo: <https://nextjs-wordpress-starter.vercel.app/>
+- Next.js Demo: <https://nextjs-wordpress-starter.vercel.app/>
+- Storybook: <https://webdevstudios.github.io/nextjs-wordpress-starter/storybook/>
+- Documentation: <https://webdevstudios.github.io/nextjs-wordpress-starter/>
 
 ## Introduction
 
