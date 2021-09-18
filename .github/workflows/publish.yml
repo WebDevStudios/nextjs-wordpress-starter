@@ -187,5 +187,5 @@ jobs:
           SOURCE: 'frontend/storybook-static'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
           REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
-          TARGET: '~/sites/nextjsdevstart/storybook/'
+          TARGET: '~/sites/nextjsdevstart/'
           EXCLUDE: '.git/,node_modules/,vendor/'
