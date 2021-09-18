@@ -36,7 +36,6 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "wpe-build": "next build",
     "test:jest": "jest"
   },
   "dependencies": {
