@@ -9,7 +9,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:jsdoc/recommended',
     'plugin:jest/recommended',
-    'next',
     'prettier'
   ],
   settings: {

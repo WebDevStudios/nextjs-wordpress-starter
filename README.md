@@ -1,67 +1,40 @@
 # Next.js WordPress Starter
 
-A Next.js starter for headless WordPress projects. <https://nextjs-wordpress-starter.vercel.app>
-
 [![This is a banner for the WebDevStudios NextJS Starter that says, "Start your Headless WordPress project with the industry experts," and includes the WebDevStudios logo and URL, which is WebDevStudios dot com](https://nextjs.wpengine.com/wp-content/uploads/2021/06/WDS-GitHub-Banner.png)](https://webdevstudios.com/solutions/wordpress-headless-cms/)
 
----
+**A headless starter for WordPress powered by Next.js**
+
+Demo: <https://nextjs-wordpress-starter.vercel.app/>
+
+## Introduction
+
+Querying a REST-API or GraphQL endpoint and looping over blog posts is where many tutorials about _"headless WordPress"_ stop. You'd be hard pressed to find a deep-dive into advanced functionality because: **headless WordPress is hard**.
+
+At WebDevStudios we believe that **WordPress is so much more than a blog**-- and our clients require support for things like: SEO, menus, forms, previews, search, comments, authentication, custom post types, custom fields, etc...
+
+With this framework, **we've figured out the "hard stuff" and placed the sum of our knowledge into something both the community and our future projects could use as a jumping off point.**
 
 ## Getting Started
 
-Our [Github Wiki](https://github.com/WebDevStudios/nextjs-wordpress-starter/wiki) contains all of the documentation necessary to stand up a local install. You could also browse the codebase with [Github1s](https://github1s.com/WebDevStudios/nextjs-wordpress-starter).
+There are two environments, the backend (WordPress) and the frontend (Next.js). Each environment has its own setup instructions.
 
----
+1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/index)
+2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend/index)
 
-## Supported WordPress Features
+## Documentation
 
-- Advanced Custom Fields Pro
-- Algolia Search
-- Application Passwords
-- Archives
-- Comments
-- Content Blocks
-  - ACF Blocks
-  - Gutenberg
-  - Lazy Blocks
-- Custom 404 page
-- Frontend Login/Registration
-- Gravity Forms
-- Menus
-- Pages
-- Post Types
-- Posts
-- Previews
-- WordPress SEO (Yoast)
+Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/docs/index> to view all the documentation.
 
----
+## Contributing
 
-## Frontend Features
+There are many ways to [contribute](/CONTRIBUTING.md) to this project:
 
-- Algolia Search
-- Apollo Client
-- Atomic Design
-- CSS Modules
-- ESLint
-- Formik
-- Incremental Static Regeneration
-- JSDocs
-- NextAuth
-- Next/Image Support
-- PostCSS
-- Prettier
-- SEO
-- Sitemaps
-- Static Generation
-- Storybook
-- Stylelint
-- TailwindCSS
+- Discuss [open issues](/issues) to help define the future of the project
+- [Submit bugs](/issues) and help verify fixes
+- Review and discuss [pull requests](/pulls)
+- Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
+- Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
----
+## License
 
-## Contributing :octocat:
-
-WebDevStudios is committed to open-source technologies and welcomes feedback via [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions). We're also accepting contributions from the community. Learn how to [contribute to this project](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/CONTRIBUTING.md).
-
-The Next.js WordPress Starter is free software, and is released under the terms of the GNU General Public License version 2 or any later version. See [LICENSE.md](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/LICENSE.md) for complete license.
-
-Stay safe! 🍻
+This is free software, and released under the terms of the [GNU General Public License version 2](/LICENSE.md) or any later version. Please note, that other packages or libraries may be released under different licenses.

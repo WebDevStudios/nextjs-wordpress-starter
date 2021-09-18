@@ -2,7 +2,7 @@ Closes #
 
 ### Description
 
-What does your feature do? Give some context...
+What does your Pull Request do? Give some context...
 
 ### Screenshot
 

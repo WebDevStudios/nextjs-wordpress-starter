@@ -1,0 +1,12 @@
+{
+  "name": "webdevstudios/headless-gravityforms",
+  "description": "WDS Headless extension handling Gravity Forms functionality.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "WebDevStudios",
+      "email": "contact@webdevstudios.com"
+    }
+  ]
+}
