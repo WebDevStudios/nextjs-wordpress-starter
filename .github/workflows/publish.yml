@@ -42,23 +42,12 @@ jobs:
       - name: Publish
         uses: easingthemes/ssh-deploy@v2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY_DEV }}
           ARGS: '-v -a -z --delete'
           SOURCE: 'dist/${{ matrix.plugins }}.zip'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
           TARGET: ${{ secrets.REMOTE_PATH }}
-          EXCLUDE: '.git/,node_modules/,vendor/'
-
-      - name: Install
-        uses: easingthemes/ssh-deploy@v2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          ARGS: '-v -a -z --delete'
-          SOURCE: 'backend/plugins/${{ matrix.plugins }}'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.PLUGIN_PATH }}
           EXCLUDE: '.git/,node_modules/,vendor/'
 
   publish-theme:
@@ -82,72 +71,13 @@ jobs:
       - name: Publish
         uses: easingthemes/ssh-deploy@v2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY_DEV }}
           ARGS: '-v -a -z --delete'
           SOURCE: 'dist/wds-headless-theme.zip'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
           TARGET: ${{ secrets.REMOTE_PATH }}
           EXCLUDE: '.git/,node_modules/,vendor/'
-
-      - name: Install
-        uses: easingthemes/ssh-deploy@v2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          ARGS: '-v -a -z --delete'
-          SOURCE: 'backend/themes/wds-headless-theme'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.THEME_PATH }}
-          EXCLUDE: '.git/,node_modules/,vendor/'
-
-  publish-storybook:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          token: ${{ github.token }}
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.0
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Use NPM 7
-        run: npm i -g npm@latest
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: |
-          cd frontend
-          npm i
-
-      - name: Build
-        run: |
-          cd frontend
-          npm run build-storybook
-
-      - name: Publish
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          branch: gh-pages
-          folder: storybook/storybook-static
-          target-folder: storybook
 
   publish-docs:
     runs-on: ubuntu-latest
@@ -207,3 +137,51 @@ jobs:
         run: |
           cd docs
           npm run publish
+
+  publish-storybook:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ github.token }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Use NPM 7
+        run: npm i -g npm@latest
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm i
+
+      - name: Build
+        run: |
+          cd frontend
+          npm run build-storybook
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: storybook/storybook-static
+          target-folder: storybook
