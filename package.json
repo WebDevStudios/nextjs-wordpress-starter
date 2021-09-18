@@ -18,7 +18,7 @@
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
     "start": "npm run start --workspace=@webdevstudios/nextjs-wordpress-starter",
     "storybook": "npm run storybook --workspace=@webdevstudios/nextjs-wordpress-starter",
-    "test": "npm run test --workspace=@webdevstudios/nextjs-wordpress-starter"
+    "test": "npm run test:jest --workspace=@webdevstudios/nextjs-wordpress-starter"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",

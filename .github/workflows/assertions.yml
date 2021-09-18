@@ -28,6 +28,19 @@ jobs:
       - name: Use NPM 7
         run: npm i -g npm@latest
 
+      - name: Setup PHP ${{ matrix.php-versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2, phpcs
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.OS }}-composer-
+
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -39,10 +52,21 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm install
+        run: |
+        cd frontend
+        npm i
+        cd ..
+        composer install
+        npm i
 
       - name: Lint Frontend
         run: npm run lint
 
       - name: Lint Docs
         run: npm run lint:docs
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Lint Backend
+        run: composer run-script lint
