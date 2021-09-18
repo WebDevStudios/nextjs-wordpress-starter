@@ -47,7 +47,7 @@ jobs:
           SOURCE: 'dist/${{ matrix.plugins }}.zip'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
           REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
-          TARGET: ${{ secrets.REMOTE_PATH }}
+          TARGET: ${{ secrets.REMOTE_PATH_DEV }}
           EXCLUDE: '.git/,node_modules/,vendor/'
 
   publish-theme:
@@ -76,7 +76,7 @@ jobs:
           SOURCE: 'dist/wds-headless-theme.zip'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
           REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
-          TARGET: ${{ secrets.REMOTE_PATH }}
+          TARGET: ${{ secrets.REMOTE_PATH_DEV }}
           EXCLUDE: '.git/,node_modules/,vendor/'
 
   publish-docs:
