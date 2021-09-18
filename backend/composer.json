@@ -22,7 +22,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-acf.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-acf.zip"
         }
       }
     },
@@ -34,7 +34,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-algolia.zip"
         }
       }
     },
@@ -46,7 +46,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-blocks.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-blocks.zip"
         }
       }
     },
@@ -58,7 +58,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-core.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-core.zip"
         }
       }
     },
@@ -70,7 +70,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-gravityforms.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-gravityforms.zip"
         }
       }
     },
@@ -82,7 +82,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-seo.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-seo.zip"
         }
       }
     },
@@ -94,7 +94,7 @@
         "version": "1.0.0",
         "dist": {
           "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-theme.zip"
+          "url": "https://nextjsdev.wpengine.com/downloads/wds-headless-theme.zip"
         }
       }
     }
