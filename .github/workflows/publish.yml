@@ -130,7 +130,7 @@ jobs:
           cd docs
           npm run lint
 
-      - name: Publish
+      - name: Publish to Github Pages
         env:
           USE_SSH: true
           GIT_USER: ${{ secrets.GIT_USER_NAME }}
@@ -178,15 +178,10 @@ jobs:
         run: |
           cd frontend
           npm run build-storybook
-          mv storybook-static storybook
 
-      - name: Publish
-        uses: easingthemes/ssh-deploy@v2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY_DEV }}
-          ARGS: '-v -a -z --delete'
-          SOURCE: 'frontend/storybook'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
-          TARGET: '~/sites/nextjsdevstart/'
-          EXCLUDE: '.git/,node_modules/,vendor/'
+      - name: Publish to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: frontend/storybook-staic
+          target-folder: storybook
