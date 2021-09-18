@@ -178,13 +178,14 @@ jobs:
         run: |
           cd frontend
           npm run build-storybook
+          mv storybook-static ../dist/storybook
 
       - name: Publish
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY_DEV }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'frontend/storybook-static'
+          SOURCE: 'dist/storybook'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
           REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
           TARGET: '~/sites/nextjsdevstart/'
