@@ -184,7 +184,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY_DEV }}
           ARGS: '-v -a -z --delete'
-          SOURCE: 'storybook/storybook-static'
+          SOURCE: 'frontend/storybook-static'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_DEV }}
           REMOTE_USER: ${{ secrets.REMOTE_USER_DEV }}
           TARGET: '~/sites/nextjsdevstart/storybook/'

@@ -8,7 +8,7 @@ This document will explain how to enable Gravity Forms with the Next.js Starter.
 
 ### WDS Headless Gravity Forms Plugin
 
-Install the WDS Headless Gravity Forms plugin by uploading [wds-headless-gravityforms.zip](https://nextjs.wpengine.com/downloads/wds-headless-gravityforms.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/backend/composer.json#L65).
+Install the WDS Headless Gravity Forms plugin by uploading [wds-headless-gravityforms.zip](https://nextjsdevstart.wpengine.com/downloads/wds-headless-gravityforms.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/backend/composer.json#L65).
 
 ### Enable the Gravity Forms REST API
 
