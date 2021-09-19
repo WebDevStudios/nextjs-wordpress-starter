@@ -5,13 +5,13 @@ const PluginList = [
   {
     title: 'WDS Headless Theme',
     description: 'Supports the JAMStack-powered front-end and extensions.',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-theme.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-theme.zip'
   },
   {
     title: 'WDS Headless Core',
     description:
       'A WordPress plugin which helps turn WordPress into a Headless CMS.',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-core.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-core.zip'
   }
 ]
 
@@ -19,27 +19,27 @@ const ExtensionsList = [
   {
     title: 'ACF',
     description: '',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-acf.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-acf.zip'
   },
   {
     title: 'Algolia',
     description: '',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-algolia.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-algolia.zip'
   },
   {
     title: 'Blocks',
     description: '',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-blocks.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-blocks.zip'
   },
   {
     title: 'Gravity Forms',
     description: '',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-gravityforms.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-gravityforms.zip'
   },
   {
     title: 'Yoast SEO',
     description: '',
-    url: 'https://nextjsdev.wpengine.com/downloads/wds-headless-seo.zip'
+    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-seo.zip'
   }
 ]
 
