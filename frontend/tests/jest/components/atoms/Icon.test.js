@@ -13,7 +13,8 @@ test('render Icon with ariaHidden, className, and icon props', () => {
     ariaHidden: false,
     className: 'icon-cls-test',
     icon: 'award',
-    size: 'sm'
+    size: 'sm',
+    title: 'award'
   }
 
   const {container} = render(<Icon {...props} />)
@@ -51,7 +52,8 @@ test('render Icon with icon, size, and style-line props', () => {
   const props = {
     icon: 'volumeUp',
     size: 'lg',
-    style: 'line'
+    style: 'line',
+    title: 'volume up'
   }
 
   const expectedSize = sizeToPx('lg').toString()
@@ -71,7 +73,8 @@ test('render Icon with icon, size, and style-line props', () => {
 test('render Icon with icon, and style-fill props', () => {
   const props = {
     icon: 'unlock',
-    style: 'fill'
+    style: 'fill',
+    title: 'unlock'
   }
 
   const {container} = render(<Icon {...props} />)
