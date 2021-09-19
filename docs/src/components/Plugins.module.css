@@ -1,0 +1,10 @@
+.plugins {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

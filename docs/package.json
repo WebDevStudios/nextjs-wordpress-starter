@@ -34,5 +34,17 @@
     "markdownlint-cli": "^0.28.1",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
