@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import React from 'react'
 import styles from './Plugins.module.css'
 
@@ -46,7 +45,7 @@ const ExtensionsList = [
 
 function Card({title, description, url}) {
   return (
-    <div className="col padding-vert--lg">
+    <div className="col padding-horiz--md padding-vert--lg">
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
@@ -62,13 +61,13 @@ export default function Plugins() {
   return (
     <section className={styles.plugins}>
       <div className="container">
-        <div className="row">
+        <div className={styles.row}>
           <div className="col text--center">
             <h2>WordPress Themes and Plugins</h2>
             <p>Help turn WordPress into a Headless CMS.</p>
           </div>
 
-          <div className={clsx('row')}>
+          <div className={styles.row}>
             {PluginList.map((props, index) => (
               <Card key={index} {...props} />
             ))}
@@ -77,13 +76,12 @@ export default function Plugins() {
       </div>
 
       <div className="container padding-vert--lg">
-        <div className="row">
-          <div className="col text--center">
+        <div className={styles.row}>
+          <div className="text--center">
             <h3>Extensions</h3>
             <p>Helpful addons that extend WDS Headless Core</p>
           </div>
-
-          <div className="row">
+          <div className={styles.row}>
             {ExtensionsList.map((props, index) => (
               <Card key={index} {...props} />
             ))}
