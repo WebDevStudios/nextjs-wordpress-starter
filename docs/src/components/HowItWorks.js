@@ -13,12 +13,12 @@ export default function HowItWorks() {
               <source
                 type="image/webp"
                 media="(max-width: 1023px)"
-                srcset="img/nextjs-wordpress-starter-frontend-backend-graphic-vertical.webp"
+                srcSet="img/nextjs-wordpress-starter-frontend-backend-graphic-vertical.webp"
               />
               <source
                 type="image/webp"
                 media="(min-width: 1024px)"
-                srcset="img/nextjs-wordpress-starter-frontend-backend-graphic.webp"
+                srcSet="img/nextjs-wordpress-starter-frontend-backend-graphic.webp"
               />
               <img
                 alt="how it all works"

@@ -5,6 +5,17 @@
   overflow: hidden;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.buttons > * + * {
+  margin-left: 2rem;
+}
+
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;

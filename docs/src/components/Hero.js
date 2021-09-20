@@ -20,6 +20,15 @@ export default function Hero() {
           >
             Get Started
           </Link>
+          <a href="https://github.com/webdevstudios/nextjs-wordpress-starter/">
+            <img
+              alt="Github stars"
+              height="20"
+              loading="eager"
+              src="https://img.shields.io/github/stars/webdevstudios/nextjs-wordpress-starter.svg?style=social&label=Stars&cache=Seconds=3600"
+              width="82"
+            />
+          </a>
         </div>
       </div>
     </section>
