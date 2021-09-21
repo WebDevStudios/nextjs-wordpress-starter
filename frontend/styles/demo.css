@@ -20,7 +20,7 @@ body {
   & ol,
   & p {
     & a {
-      @apply text-blue-500 underline;
+      @apply text-blue-700 underline;
 
       &:hover,
       &:focus {
