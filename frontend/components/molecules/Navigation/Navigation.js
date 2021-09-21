@@ -7,6 +7,31 @@ import PropTypes from 'prop-types'
 import styles from './Navigation.module.css'
 
 /**
+ * Render the Sub menu arrow component.
+ *
+ * @author WebDevStudios
+ * @return {object} The Arrow component.
+ */
+function Arrow() {
+  return (
+    <span
+      role="button"
+      className={styles.arrow}
+      aria-label="expand the dropdown menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 0l12 12-12 12z" />
+      </svg>
+    </span>
+  )
+}
+
+/**
  * Render the NavigationMenu component.
  *
  * Recursively displays a menu and its children.
@@ -100,25 +125,4 @@ export default function Navigation({menu, className}) {
 Navigation.propTypes = {
   className: PropTypes.string,
   menu: PropTypes.arrayOf(PropTypes.object)
-}
-
-/**
- * Render the Sub menu arrow component.
- *
- * @author WebDevStudios
- * @return {object} The Arrow component.
- */
-function Arrow() {
-  return (
-    <span role="button" className={styles.arrow}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="10"
-        height="10"
-        viewBox="0 0 24 24"
-      >
-        <path d="M6 0l12 12-12 12z" />
-      </svg>
-    </span>
-  )
 }

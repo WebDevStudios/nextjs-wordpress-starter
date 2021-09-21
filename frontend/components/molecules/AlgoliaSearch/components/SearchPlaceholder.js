@@ -32,14 +32,18 @@ export default function SearchPlaceholder({toggleAlgolia, query}) {
         >
           <span>Click to start searching</span>
         </div>
+        <label htmlFor="search" className="sr-only">
+          Enter search term
+        </label>
         <input
+          id="search"
+          placeholder="Enter search term"
+          readOnly
           tabIndex="-1"
           type="search"
           value={query}
-          placeholder="Enter search term..."
-          readOnly
         />
-        <button type="button" tabIndex="-1" disabled>
+        <button aria-label="click to search" disabled tabIndex="-1">
           <SearchIcon />
         </button>
       </div>

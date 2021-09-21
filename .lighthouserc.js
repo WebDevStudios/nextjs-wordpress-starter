@@ -9,7 +9,10 @@ module.exports = {
       preset: 'lighthouse:no-pwa',
       assertions: {
         'csp-xss': 'off',
-        'is-crawlable': 'off'
+        'is-crawlable': 'off',
+        'legacy-javascript': 'off',
+        'unused-javascript': 'warn',
+        'uses-responsive-images': 'warn'
       }
     }
   }
