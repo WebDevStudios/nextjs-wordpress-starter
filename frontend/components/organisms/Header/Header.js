@@ -25,7 +25,7 @@ export default function Header({menu, search}) {
           {search && <div className={styles.search}>{search}</div>}
           <div className={styles.navigation}>
             <Link href="/">
-              <a>
+              <a aria-label="click to go home">
                 <Logo className={styles.logo} type="dark" />
               </a>
             </Link>
