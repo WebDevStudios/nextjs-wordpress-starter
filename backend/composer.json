@@ -120,7 +120,7 @@
   "require": {
     "dre1080/wp-graphql-upload": "^0.1",
     "harness-software/wp-graphql-gravity-forms": "^0.4",
-    "pristas-peter/wp-graphql-gutenberg": "^0.3",
+    "pristas-peter/wp-graphql-gutenberg": "^0.7",
     "wds/wds-headless-acf": "^1.0",
     "wds/wds-headless-algolia": "^1.0",
     "wds/wds-headless-blocks": "^1.0",
