@@ -75,6 +75,13 @@ function extend_gf_submission_resolver( array $fields ) {
 				// Upload file and retrieve upload data.
 				$upload = handle_file_upload( $file, $target );
 
+				error_log(print_r([
+					'test',
+					$file,
+					$target,
+					$upload,
+				], true));
+
 				// If error occurs, skip field.
 				if ( ! $upload ) {
 					$field['value'] = '';
