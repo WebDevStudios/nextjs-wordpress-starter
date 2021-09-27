@@ -172,16 +172,6 @@ function handle_file_upload( array $file, array $target = null ) {
 		$file['name'] = $proper_filename;
 	}
 
-	error_log(print_r([
-		'test',
-		$target,
-		$wp_filetype,
-		$proper_filename,
-		$type,
-		$ext,
-		current_user_can( 'unfiltered_upload' ),
-	], true));
-
 	// Return error if file type not allowed.
 	if ( ( ! $type || ! $ext ) && ! current_user_can( 'unfiltered_upload' ) ) {
 		return call_user_func_array( 'wp_handle_upload_error', array( &$file, esc_html__( 'Sorry, this file type is not permitted for security reasons.', 'wds-headless-gravityforms' ) ) );
@@ -193,6 +183,14 @@ function handle_file_upload( array $file, array $target = null ) {
 
 	// Move the file to the GF uploads dir.
 	$new_file = $target['path'] . "/{$filename}";
+
+	error_log(print_r([
+		'test',
+		$type,
+		$filename,
+		$new_file,
+		copy( $file['tmp_name'], $new_file ),
+	], true));
 
 	// Use copy and unlink because rename breaks streams.
 	// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- duplicating default WP Core functionality.
