@@ -80,7 +80,7 @@ function extend_gf_submission_resolver( array $fields ) {
 				], true));
 
 				// If error occurs, skip field.
-				if ( ! $upload ) {
+				if ( ! $upload || ! $upload['url'] ) {
 					$field['value'] = '';
 
 					return $field;
