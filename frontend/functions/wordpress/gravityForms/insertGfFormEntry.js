@@ -20,7 +20,7 @@ export default async function insertGfFormEntry(formId, fieldValues) {
   }
 
   // Convert File objects to be accepted on WP side.
-  fieldValues = fieldValues.map((field) => {
+  const newFieldValues = fieldValues.map((field) => {
     if (!field?.fileUploadValues) {
       return field
     }
@@ -38,7 +38,7 @@ export default async function insertGfFormEntry(formId, fieldValues) {
   // Determine query variables.
   const variables = {
     formId,
-    fieldValues
+    fieldValues: newFieldValues
   }
 
   // Execute query.

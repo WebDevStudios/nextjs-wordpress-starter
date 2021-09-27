@@ -5,7 +5,7 @@
  * Description: WDS Headless extension handling Gutenberg block functionality.
  * Author: WebDevStudios <contact@webdevstudios.com>
  * Author URI: https://webdevstudios.com
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 5.6
  * Requires PHP: 7.4
  * License: GPL-2
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define constants.
 define( 'WDS_HEADLESS_BLOCKS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WDS_HEADLESS_BLOCKS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WDS_HEADLESS_BLOCKS_VERSION', '1.0.0' );
+define( 'WDS_HEADLESS_BLOCKS_VERSION', '1.0.1' );
 
 // Register de/activation hooks.
 register_activation_hook( __FILE__, __NAMESPACE__ . '\activation_callback' );

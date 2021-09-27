@@ -91,8 +91,10 @@ export default function processGfFieldValues(entryData, fieldData) {
         break
 
       case 'EmailField':
-        // TODO: As of WP GraphQL Gravity Forms v.0.4.1, this is accurate, but it appears it may be changing to a nested version in the next release: fieldValue.emailValues = { value, confirmationValue }.
-        fieldValue.value = entryData[fieldName]
+        fieldValue.emailValues = {
+          value: entryData[fieldName],
+          confirmationValue: entryData[fieldName]
+        }
         break
 
       case 'FileUploadField':

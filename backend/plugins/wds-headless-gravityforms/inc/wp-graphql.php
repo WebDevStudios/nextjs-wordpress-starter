@@ -76,7 +76,7 @@ function extend_gf_submission_resolver( array $fields ) {
 				$upload = handle_file_upload( $file, $target );
 
 				// If error occurs, skip field.
-				if ( ! $upload ) {
+				if ( ! $upload || ! $upload['url'] ) {
 					$field['value'] = '';
 
 					return $field;
