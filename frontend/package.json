@@ -60,7 +60,7 @@
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3",
     "rimraf": "^3.0.2",
-    "tailwindcss": "^2.2.15",
+    "tailwindcss": "^2.2.16",
     "yup": "^0.32.9"
   },
   "devDependencies": {
