@@ -76,9 +76,6 @@ function extend_gf_submission_resolver( array $fields ) {
 				$upload = handle_file_upload( $file, $target );
 
 				error_log(print_r([
-					'test',
-					$file,
-					$target,
 					$upload,
 				], true));
 
@@ -174,6 +171,16 @@ function handle_file_upload( array $file, array $target = null ) {
 	if ( $proper_filename ) {
 		$file['name'] = $proper_filename;
 	}
+
+	error_log(print_r([
+		'test',
+		$target,
+		$wp_filetype,
+		$proper_filename,
+		$type,
+		$ext,
+		current_user_can( 'unfiltered_upload' ),
+	], true));
 
 	// Return error if file type not allowed.
 	if ( ( ! $type || ! $ext ) && ! current_user_can( 'unfiltered_upload' ) ) {
