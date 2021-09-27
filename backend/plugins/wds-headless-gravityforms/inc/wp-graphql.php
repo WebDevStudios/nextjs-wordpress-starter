@@ -75,10 +75,6 @@ function extend_gf_submission_resolver( array $fields ) {
 				// Upload file and retrieve upload data.
 				$upload = handle_file_upload( $file, $target );
 
-				error_log(print_r([
-					$upload,
-				], true));
-
 				// If error occurs, skip field.
 				if ( ! $upload || ! $upload['url'] ) {
 					$field['value'] = '';
@@ -183,14 +179,6 @@ function handle_file_upload( array $file, array $target = null ) {
 
 	// Move the file to the GF uploads dir.
 	$new_file = $target['path'] . "/{$filename}";
-
-	error_log(print_r([
-		'test',
-		$type,
-		$filename,
-		$new_file,
-		copy( $file['tmp_name'], $new_file ),
-	], true));
 
 	// Use copy and unlink because rename breaks streams.
 	// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- duplicating default WP Core functionality.
