@@ -2,19 +2,24 @@
 title: Gravity Forms
 ---
 
-This document will explain how to enable Gravity Forms with the Next.js Starter.
+This document will explain how to enable Gravity Forms with the Next.js WordPress Starter.
 
-## Backend
+## Prerequisites
 
-### WDS Headless Gravity Forms Plugin
+You will need to have the following WordPress plugins installed:
 
-Install the WDS Headless Gravity Forms plugin by uploading [wds-headless-gravityforms.zip](https://nextjsdevstart.wpengine.com/downloads/wds-headless-gravityforms.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/backend/composer.json#L65).
+- [Gravity Forms](https://www.gravityforms.com/)
+- [WDS Headless Gravity Forms](https://packagist.org/packages/webdevstudios/wds-headless-gravityforms)
+
+> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend/index#step-2-install-theme-and-plugins).
+
+## Backend Setup
 
 ### Enable the Gravity Forms REST API
 
 The Gravity Forms REST API must be enabled separately from the WordPress REST API.
 
-1. Under "Forms", click "Settings.
+1. Under "Forms", click "Settings".
 2. Click "REST API", then click the "Enable" checkbox
 
 ![screenshot](/img/screenshot-setup-gravity-forms.png)
@@ -32,7 +37,7 @@ If you get an error involving `Access-Control-Allow-Origin` or "The string did n
 
 The Gravity Forms submission process requires the Javascript frontend to be able to access the WordPress API directly. It will not work if WordPress is behind a firewall or otherwise restricted in access.
 
-## Frontend
+## Frontend Setup
 
 ### Using Gravity Forms
 

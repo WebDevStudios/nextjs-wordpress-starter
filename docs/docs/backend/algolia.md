@@ -2,9 +2,21 @@
 title: Algolia
 ---
 
-This document will explain how to enable Algolia with the Next.js Starter.
+This document will explain how to enable Algolia with the Next.js Wordpress Starter.
 
-## Backend
+## Prerequisites
+
+You will need to have the following WordPress plugins installed:
+
+- [An account with Algolia](https://www.algolia.com/)
+- [WP Search with Algolia](https://wordpress.org/plugins/wp-search-with-algolia/)
+- [WDS Headless Algolia](https://packagist.org/packages/webdevstudios/wds-headless-algolia)
+
+> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend/index#step-2-install-theme-and-plugins).
+
+## Backend Setup
+
+### Create an account with Algolia
 
 Before you can complete this step, you need to sign-up for a free account at [Algolia.com](https://www.algolia.com/).
 
@@ -12,13 +24,15 @@ After you sign up for an account, create a new "app" and then click on "API Keys
 
 ![screenshot](/img/screenshot-setup-algolia-account.png)
 
-Copy your API keys into the WP Search w/ Algolia Settings Page:
+### Configure credentials
+
+Copy your API keys into the WP Search with Algolia Settings Page:
 
 `Algolia Search --> Settings`
 
 ![screenshot](/img/screenshot-set-algolia-creds.png)
 
-You can name the `Index name prefix` whatever you'd like.
+You can name the _Index name prefix_ to whatever you'd like.
 
 ### Push Content to Algolia
 
@@ -27,11 +41,7 @@ You can name the `Index name prefix` whatever you'd like.
 
 ![screenshot](/img/screenshot-set-algolia-creds.png)
 
-### WDS Headless Algolia Plugin
-
-Install the WDS Headless Algolia plugin by uploading [wds-headless-algolia.zip](https://nextjsdevstart.wpengine.com/downloads/wds-headless-algolia.zip) or as a [Composer dependency](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/backend/composer.json#L29).
-
-## Frontend
+## Frontend Setup
 
 ### API Connection
 

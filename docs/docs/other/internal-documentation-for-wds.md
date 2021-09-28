@@ -2,15 +2,7 @@
 title: Internal Documentation for WDS
 ---
 
-The following information pertains to internal tools and workflows required to maintain this Starter.
-
-## WDS Headless WordPress
-
-There is a Github repo for WordPress. This repo manages plugins and the headless theme. Future projects should probably mimic this setup:
-
-<https://github.com/WebDevStudios/wds-headless-wordpress>
-
-**Note: There is no frontend for WordPress**-- but it is running a headless theme which houses `/acf-json` and other headless-related functions.
+The following information pertains to internal tools and workflows required to maintain the Next.js WordPress Starter project.
 
 ## WP Engine
 
