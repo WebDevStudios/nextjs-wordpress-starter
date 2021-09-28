@@ -13,90 +13,6 @@
     "wppackagist": {
       "type": "composer",
       "url": "https://wpackagist.org/"
-    },
-    "wds-headless-acf": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-acf",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-acf.zip"
-        }
-      }
-    },
-    "wds-headless-algolia": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-algolia",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-algolia.zip"
-        }
-      }
-    },
-    "wds-headless-blocks": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-blocks",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-blocks.zip"
-        }
-      }
-    },
-    "wds-headless-core": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-core",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-core.zip"
-        }
-      }
-    },
-    "wds-headless-gravityforms": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-gravityforms",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-gravityforms.zip"
-        }
-      }
-    },
-    "wds-headless-seo": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-seo",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-seo.zip"
-        }
-      }
-    },
-    "wds-headless-theme": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-theme",
-        "name": "wds/wds-headless-theme",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjsdevstart.wpengine.com/downloads/wds-headless-theme.zip"
-        }
-      }
     }
   },
   "extra": {
@@ -121,18 +37,18 @@
     "dre1080/wp-graphql-upload": "^0.1",
     "harness-software/wp-graphql-gravity-forms": "^0.4",
     "pristas-peter/wp-graphql-gutenberg": "^0.3",
-    "wds/wds-headless-acf": "^1.0",
-    "wds/wds-headless-algolia": "^1.0",
-    "wds/wds-headless-blocks": "^1.0",
-    "wds/wds-headless-core": "^1.0",
-    "wds/wds-headless-gravityforms": "^1.0",
-    "wds/wds-headless-seo": "^1.0",
-    "wds/wds-headless-theme": "^1.0",
+    "webdevstudios/wds-headless-acf": "dev-main",
+    "webdevstudios/wds-headless-algolia": "dev-main",
+    "webdevstudios/wds-headless-blocks": "dev-main",
+    "webdevstudios/wds-headless-core": "dev-main",
+    "webdevstudios/wds-headless-gravityforms": "dev-main",
+    "webdevstudios/wds-headless-seo": "dev-main",
+    "webdevstudios/wds-headless-theme": "dev-main",
     "wp-graphql/wp-graphql-acf": "^0.4",
     "wp-graphql/wp-graphql-jwt-authentication": "^0.4",
     "wpackagist-plugin/add-wpgraphql-seo": "^4.15",
     "wpackagist-plugin/custom-post-type-ui": "^1.9",
-    "wpackagist-plugin/wordpress-seo": "^17.1",
+    "wpackagist-plugin/wordpress-seo": "^17.2",
     "wpackagist-plugin/wp-graphql": "^1.6",
     "wpackagist-plugin/wp-search-with-algolia": "^2.0"
   }
