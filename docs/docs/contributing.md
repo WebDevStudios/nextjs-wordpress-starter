@@ -15,16 +15,8 @@ There are many ways to contribute to this project:
 This project is a monorepo, which makes it easier to develop all the different codebases in a central location. The folder structure looks like:
 
 ```text
+nextjs-wordpress-starter
 ├── backend
-|  ├── plugins
-|  |  ├── wds-headless-acf
-|  |  ├── wds-headless-algolia
-|  |  ├── wds-headless-blocks
-|  |  ├── wds-headless-core
-|  |  ├── wds-headless-gravityforms
-|  |  └── wds-headless-seo
-|  └── themes
-|     └── wds-headless-theme
 ├── docs
 ├── frontend
 ├── packages
@@ -32,7 +24,7 @@ This project is a monorepo, which makes it easier to develop all the different c
 └── tests
 ```
 
-- **/backend**: The folder that contains all WordPress plugins and theme.
+- **/backend**: The folder that contains a `composer.json` file which points at the WordPress plugins and theme.
 - **/docs**: The documentation for this project, powered by [Docusaurus](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus).
 - **/frontend**: Currently, this holds the codebase for the [Next.js powered frontend](/docs/frontend/folder-structure).
 - **/packages**: In the future this will house our NPM packages.
