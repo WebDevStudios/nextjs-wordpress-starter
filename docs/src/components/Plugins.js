@@ -19,7 +19,7 @@ const ExtensionsList = [
   {
     title: 'ACF',
     description: '',
-    url: '(https://github.com/WebDevStudios/wds-headless-acf'
+    url: 'https://github.com/WebDevStudios/wds-headless-acf'
   },
   {
     title: 'Algolia',
