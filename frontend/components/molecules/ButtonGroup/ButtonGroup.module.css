@@ -1,0 +1,19 @@
+.buttonGroup {
+  @apply mb-8;
+
+  &.horizontal {
+    @apply flex flex-wrap;
+  }
+
+  &.vertical {
+    @apply flex flex-col;
+  }
+
+  &.center {
+    @apply justify-center items-center;
+  }
+
+  &.right {
+    @apply justify-end items-end;
+  }
+}

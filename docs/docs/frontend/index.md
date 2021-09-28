@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Setup
+title: Frontend Setup
 ---
 
 The following steps will stand up a local install of Next.js.
@@ -19,7 +19,7 @@ Before you get started, make sure you have the following dependencies installed 
 ```bash
 npx create-next-app \
     -e https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary \
-    --example-path packages/next \
+    --example-path frontend \
     --use-npm \
     nextjs-wordpress-starter
 ```

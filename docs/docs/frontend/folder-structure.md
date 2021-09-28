@@ -1,25 +1,33 @@
 ---
 title: Folder Structure
+sidebar_position: 3
 ---
 
-This describes the folder layout of the Next.js WordPress starter. For more
-on how a Next.js project is set up, [the Next.js documentation][njsd] is
-a great place to start.
+This describes the folder layout of the Next.js WordPress starter:
 
-[njsd]: https://nextjs.org/docs/getting-started
+```text
+├── .storybook
+├── components
+|  ├── atoms
+|  ├── blocks
+|  ├── common
+|  ├── documentation
+|  ├── molecules
+|  └── organisms
+├── functions
+├── lib
+├── pages
+|  ├── api
+|  ├── blog
+|  └── team
+├── public
+├── styles
+└── tests
+```
 
-## `pages` and `public`
+## `.storybook`
 
-These are the folders essential to Next.js. The `public` folder contains
-static files meant to be copied directly to the deployed server. The
-`pages` folder contains files that are processed by Next.js according
-to their name.
-
-On the surface level, `index.js` will correspond to `/` in the deployed
-website, `search.js` to `/search`, and so on. Files in brackets, such
-as `[slug].js`, are dynamically interpreted by Next.js. For example,
-a post titled "Example post" will be mapped by `/blog/[[slug]].js`
-to `/blog/example-post` in the finished website.
+This folder holds the configuration for [Storybook](/docs/storybook/index).
 
 ## `components`
 
@@ -69,3 +77,23 @@ In the `wordpress` folder, there are two folders worth pointing out:
   multiple places.
 - `_global` contains functions that are not tied to particular features,
   especially ones used in the creation of pages.
+
+For more on how a Next.js project is set up, the Next.js [documentation](https://nextjs.org/docs/getting-started) is
+a great place to start.
+
+## `pages` and `public`
+
+These are the folders essential to Next.js. The `public` folder contains
+static files meant to be copied directly to the deployed server. The
+`pages` folder contains files that are processed by Next.js according
+to their name.
+
+On the surface level, `index.js` will correspond to `/` in the deployed
+website, `search.js` to `/search`, and so on. Files in brackets, such
+as `[slug].js`, are dynamically interpreted by Next.js. For example,
+a post titled "Example post" will be mapped by `/blog/[[slug]].js`
+to `/blog/example-post` in the finished website.
+
+## `tests`
+
+This folder contains the Jest tests for the frontend.

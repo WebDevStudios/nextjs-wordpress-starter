@@ -1,6 +1,6 @@
 {
-  "name": "webdevstudios/nextjs-wordpress",
-  "description": "A WordPress backend to power a Next.js frontend.",
+  "name": "webdevstudios/nextjs-wordpress-starter",
+  "description": "",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "authors": [
@@ -9,152 +9,16 @@
       "email": "contact@webdevstudios.com"
     }
   ],
-  "repositories": {
-    "wppackagist": {
-      "type": "composer",
-      "url": "https://wpackagist.org/"
-    },
-    "wds-satis": {
-      "type": "composer",
-      "url": "https://packages.wdslab.com/"
-    },
-    "wds-headless-acf": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-acf",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-acf.zip"
-        }
-      }
-    },
-    "wds-headless-algolia": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-algolia",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-algolia.zip"
-        }
-      }
-    },
-    "wds-headless-blocks": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-blocks",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-blocks.zip"
-        }
-      }
-    },
-    "wds-headless-core": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-core",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-core.zip"
-        }
-      }
-    },
-    "wds-headless-gravityforms": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-gravityforms",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-gravityforms.zip"
-        }
-      }
-    },
-    "wds-headless-seo": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-plugin",
-        "name": "wds/wds-headless-seo",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-seo.zip"
-        }
-      }
-    },
-    "wds-headless-theme": {
-      "type": "package",
-      "package": {
-        "type": "wordpress-theme",
-        "name": "wds/wds-headless-theme",
-        "version": "1.0.0",
-        "dist": {
-          "type": "zip",
-          "url": "https://nextjs.wpengine.com/downloads/wds-headless-theme.zip"
-        }
-      }
-    }
-  },
-  "extra": {
-    "installer-paths": {
-      "plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ],
-      "mu-plugins/{$name}/": [
-        "type:wordpress-muplugin"
-      ],
-      "themes/{$name}/": [
-        "type:wordpress-theme"
-      ]
-    }
-  },
   "config": {
     "platform": {
       "php": "7.4"
     }
   },
-  "require": {
-    "deliciousbrains-plugin/wp-migrate-db-pro": "^2.0",
-    "deliciousbrains-plugin/wp-migrate-db-pro-cli": "^1.4",
-    "deliciousbrains-plugin/wp-migrate-db-pro-media-files": "^2.0",
-    "dre1080/wp-graphql-upload": "^0.1",
-    "harness-software/wp-graphql-gravity-forms": "^0.4",
-    "pristas-peter/wp-graphql-gutenberg": "^0.3",
-    "wds/wds-headless-acf": "^1.0.0",
-    "wds/wds-headless-algolia": "^1.0.0",
-    "wds/wds-headless-blocks": "^1.0.0",
-    "wds/wds-headless-core": "^1.0.0",
-    "wds/wds-headless-gravityforms": "^1.0.0",
-    "wds/wds-headless-seo": "^1.0.0",
-    "wds/wds-headless-theme": "^1.0.0",
-    "webdevstudios/advanced-custom-fields-pro": "^5.9",
-    "webdevstudios/gravityforms": "^2.5",
-    "webdevstudios/mu-autoload": "^1.0",
-    "webdevstudios/sso-addon": "^1.0",
-    "webdevstudios/wordpress-seo-premium": "^15.9",
-    "wp-graphql/wp-graphql-acf": "^0.4",
-    "wp-graphql/wp-graphql-jwt-authentication": "^0.4",
-    "wpackagist-plugin/add-wpgraphql-seo": "^4.14",
-    "wpackagist-plugin/block-manager": "^1.2",
-    "wpackagist-plugin/custom-post-type-ui": "^1.9",
-    "wpackagist-plugin/gutenberg": "^11.0",
-    "wpackagist-plugin/lazy-blocks": "^2.3",
-    "wpackagist-plugin/wp-graphql": "^1.5",
-    "wpackagist-plugin/wp-search-with-algolia": "^2.0"
-  },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-    "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "wp-cli/wp-cli-bundle": "^2.5",
-    "wp-coding-standards/wpcs": "^2.3"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "phpcompatibility/phpcompatibility-wp": "^2.1.1",
+    "wp-cli/wp-cli-bundle": "^2.5.0",
+    "wp-coding-standards/wpcs": "^2.3.0"
   },
   "scripts": {
     "format": "./vendor/bin/phpcbf --standard=.phpcs.xml --report=summary,source",

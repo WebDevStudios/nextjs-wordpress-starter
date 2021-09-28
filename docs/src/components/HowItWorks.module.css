@@ -1,0 +1,8 @@
+.howItWorks {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 4rem 0;
+}
+
+.howItWorks__img {
+  margin: 2rem 0;
+}

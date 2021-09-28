@@ -9,7 +9,7 @@
     "docusaurus": "docusaurus",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,mdx,html,css,scss,json,yml}' --config '../.prettierrc.js' --write || true",
     "lint": "npm run format && npm run lint:md",
-    "lint:md": "npx markdownlint '**/*.md' --config '../.markdownlint.json' --fix",
+    "lint:md": "npx markdownlint 'docs/**/*.md' --config '../.markdownlint.json' --fix",
     "publish": "docusaurus deploy",
     "serve": "docusaurus serve",
     "start": "npm run clear && docusaurus start",
@@ -18,8 +18,8 @@
     "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.5",
-    "@docusaurus/preset-classic": "2.0.0-beta.5",
+    "@docusaurus/core": "2.0.0-beta.6",
+    "@docusaurus/preset-classic": "2.0.0-beta.6",
     "@mdx-js/react": "^1.6.22",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -30,6 +30,21 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
+    "markdownlint": "^0.24.0",
+    "markdownlint-cli": "^0.28.1",
+    "prettier": "^2.4.1",
     "prop-types": "^15.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

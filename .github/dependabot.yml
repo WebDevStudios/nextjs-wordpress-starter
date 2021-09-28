@@ -1,6 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: 'github-actions'
+
+  - package-ecosystem: 'composer'
     directory: '/'
     schedule:
       interval: 'weekly'
@@ -13,7 +15,7 @@ updates:
       day: 'monday'
 
   - package-ecosystem: 'npm'
-    directory: '/packages/next/'
+    directory: '/frontend'
     schedule:
       interval: 'weekly'
       day: 'monday'

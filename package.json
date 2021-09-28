@@ -3,32 +3,40 @@
   "private": true,
   "workspaces": [
     "docs",
-    "packages/core",
-    "packages/next"
+    "frontend"
   ],
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "build": "npm run build --workspace=@webdevstudios/next",
+    "build": "npm run build --workspace=@webdevstudios/nextjs-wordpress-starter",
     "build:docs": "npm run publish --workspace=@webdevstudios/docs",
-    "clean": "npm run clean --workspace=@webdevstudios/next",
-    "dev": "npm run dev --workspace=@webdevstudios/next",
+    "dev": "npm run dev --workspace=@webdevstudios/nextjs-wordpress-starter",
     "dev:docs": "npm run dev --workspace=@webdevstudios/docs",
     "env:down": "docker-compose down",
     "env:up": "docker-compose up -d",
     "env:install": "node ./scripts/env/install.js",
     "format": "npm run format --workspace=@webdevstudios/next",
-    "lint": "npm run lint --workspace=@webdevstudios/next --workspace=@webdevstudios/docs",
+    "lint": "npm run lint --workspace=@webdevstudios/nextjs-wordpress-starter",
     "lint:docs": "npm run lint --workspace=@webdevstudios/docs",
-    "start": "npm run start --workspace=@webdevstudios/next",
-    "test": "npm run test --workspace=@webdevstudios/next"
+    "start": "npm run start --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "storybook": "npm run storybook --workspace=@webdevstudios/nextjs-wordpress-starter",
+    "test": "npm run test:jest --workspace=@webdevstudios/nextjs-wordpress-starter"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "markdownlint": "^0.24.0",
     "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.3.2",
-    "wait-on": "^6.0.0"
+    "wait-on": "^6.0.0",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }

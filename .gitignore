@@ -50,3 +50,9 @@ theme/index.php
 
 # Docker WP env
 wordpress_env
+
+# composer
+vendor
+
+# vercel
+.vercel

@@ -12,6 +12,7 @@ jobs:
 
     strategy:
       matrix:
+        php-versions: ['7.4']
         node-version: [14.x]
 
     steps:
@@ -28,7 +29,20 @@ jobs:
       - name: Use NPM 7
         run: npm i -g npm@latest
 
-      - name: Cache dependencies
+      - name: Setup PHP ${{ matrix.php-versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2, phpcs
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.OS }}-composer-
+
+      - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -39,7 +53,21 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd frontend
+          npm i
+          cd ..
+          npm i
+          composer install
 
-      - name: Lint
+      - name: Lint Backend
+        run: composer run-script lint
+
+      - name: Lint Frontend
         run: npm run lint
+
+      - name: Run Frontend Tests
+        run: npm run test
+
+      - name: Lint Docs
+        run: npm run lint:docs

@@ -1,0 +1,26 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    branches: canary
+
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ github.token }}
+
+      - name: Run Lighthouse Tests
+        uses: treosh/lighthouse-ci-action@v8
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        with:
+          configPath: ./.lighthouserc.js
+          uploadArtifacts: true
+          temporaryPublicStorage: true

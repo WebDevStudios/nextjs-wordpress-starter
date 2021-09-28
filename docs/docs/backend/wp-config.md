@@ -1,5 +1,6 @@
 ---
 title: wp-config.php
+sidebar_position: 2
 ---
 
 There are three constants required in `wp-config.php` to help the Next.js work with WordPress.
