@@ -4,14 +4,14 @@ import styles from './Plugins.module.css'
 const PluginList = [
   {
     title: 'WDS Headless Theme',
-    description: 'Supports the JAMStack-powered front-end and extensions.',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-theme.zip'
+    description: 'Supports the JAMStack-powered frontend app.',
+    url: 'https://github.com/WebDevStudios/wds-headless-theme'
   },
   {
     title: 'WDS Headless Core',
     description:
-      'A WordPress plugin which helps turn WordPress into a Headless CMS.',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-core.zip'
+      'A WordPress plugin which turns WordPress into a Headless CMS.',
+    url: 'https://github.com/WebDevStudios/wds-headless-core'
   }
 ]
 
@@ -19,27 +19,27 @@ const ExtensionsList = [
   {
     title: 'ACF',
     description: '',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-acf.zip'
+    url: '(https://github.com/WebDevStudios/wds-headless-acf'
   },
   {
     title: 'Algolia',
     description: '',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-algolia.zip'
+    url: 'https://github.com/WebDevStudios/wds-headless-algolia'
   },
   {
     title: 'Blocks',
     description: '',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-blocks.zip'
+    url: 'https://github.com/WebDevStudios/wds-headless-blocks'
   },
   {
     title: 'Gravity Forms',
     description: '',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-gravityforms.zip'
+    url: 'https://github.com/WebDevStudios/wds-headless-gravityforms'
   },
   {
-    title: 'Yoast SEO',
+    title: 'WordPress SEO',
     description: '',
-    url: 'https://nextjsdevstart.wpengine.com/downloads/wds-headless-seo.zip'
+    url: 'https://github.com/WebDevStudios/wds-headless-seo'
   }
 ]
 
@@ -50,7 +50,7 @@ function Card({title, description, url}) {
         <h3>{title}</h3>
         <p>{description}</p>
         <a href={url} className="button button--primary">
-          Download (.zip)
+          View on GitHub
         </a>
       </div>
     </div>
