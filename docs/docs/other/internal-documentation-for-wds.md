@@ -4,6 +4,21 @@ title: Internal Documentation for WDS
 
 The following information pertains to internal tools and workflows required to maintain the Next.js WordPress Starter project.
 
+## All Github Repositories
+
+- [Next.js WordPress Starter](https://github.com/WebDevStudios/nextjs-wordpress-starter)
+- [WDS Headless ACF](https://github.com/WebDevStudios/wds-headless-acf)
+- [WDS Headless Algolia](https://github.com/WebDevStudios/wds-headless-algolia)
+- [WDS Headless Blocks](https://github.com/WebDevStudios/wds-headless-blocks)
+- [WDS Headless Core](https://github.com/WebDevStudios/wds-headless-core)
+- [WDS Headless Gravity Forms](https://github.com/WebDevStudios/wds-headless-gravityforms)
+- [WDS Headless SEO](https://github.com/WebDevStudios/wds-headless-seo)
+- [WDS Headless Theme](https://github.com/WebDevStudios/wds-headless-theme)
+
+## Packagist
+
+All WordPress plugins and the theme are available on [Packagist](https://packagist.org/packages/webdevstudios/).
+
 ## WP Engine
 
 There are 2 WordPress environments on WP Engine:
