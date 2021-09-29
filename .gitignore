@@ -40,13 +40,13 @@ storybook-static/*
 .docusaurus
 
 # WP Default files
-plugins/akismet
-plugins/hello.php
-plugins/index.php
-theme/twentynineteen
-theme/twentytwenty
-theme/twentytwentyone
-theme/index.php
+backend/plugins/akismet
+backend/plugins/hello.php
+backend/plugins/index.php
+backend/themes/twentynineteen
+backend/themes/twentytwenty
+backend/themes/twentytwentyone
+backend/themes/index.php
 
 # Docker WP env
 wordpress_env

@@ -28,8 +28,8 @@ services:
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - ./wordpress_env:/var/www/html
-      - ./plugins:/var/www/html/wp-content/plugins
-      - ./theme:/var/www/html/wp-content/themes
+      - ./backend/plugins:/var/www/html/wp-content/plugins
+      - ./backend/themes:/var/www/html/wp-content/themes
 
   cli:
     image: wordpress:cli
