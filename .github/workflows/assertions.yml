@@ -58,10 +58,6 @@ jobs:
           npm i
           cd ..
           npm i
-          composer install
-
-      - name: Lint Backend
-        run: composer run-script lint
 
       - name: Lint Frontend
         run: npm run lint

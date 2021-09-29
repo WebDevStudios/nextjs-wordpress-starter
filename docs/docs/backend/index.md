@@ -33,11 +33,11 @@ Create a new WordPress install. We recommend the following settings:
 
 ---
 
-### Step 2: Install Theme and Plugins
+### Step 2: Install Plugins and Theme
 
 Now that you've got a local WordPress install, it's time to turn it into a Headless CMS!
 
-1. In your terminal, change directories into your new WordPress install's `/wp-content` directory then download our [`composer.json`](https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json).
+1. In your terminal, change directories to your new WordPress install's `/wp-content` directory, then download our [`composer.json`](https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json).
 
 ```bash
 cd wp-content && curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json
@@ -51,10 +51,14 @@ composer install
 
 3. Install both premium plugins: [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) and [Gravity Forms](https://www.gravityforms.com/).
 
-4. Activate all plugins in the WP Dashboard or use [WP CLI](https://wp-cli.org/):
+4. Activate all plugins and theme in the WP Dashboard or use [WP CLI](https://wp-cli.org/):
 
 ```bash
 wp plugin activate --all
+```
+
+```bash
+wp theme activate wds-headless-theme
 ```
 
 ---
