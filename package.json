@@ -21,10 +21,10 @@
     "test": "npm run test:jest --workspace=@webdevstudios/nextjs-wordpress-starter"
   },
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.6",
+    "@arkweid/lefthook": "^0.7.7",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-jest": "^24.5.2",
     "eslint-plugin-jsdoc": "^36.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "markdownlint": "^0.24.0",
