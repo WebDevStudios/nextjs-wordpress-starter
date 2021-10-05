@@ -2,8 +2,7 @@
 module.exports = {
   ci: {
     collect: {
-      numberOfRuns: 3,
-      url: ['https://nextjs-wordpress-starter-develop.vercel.app/']
+      numberOfRuns: 3
     },
     assert: {
       preset: 'lighthouse:no-pwa',
