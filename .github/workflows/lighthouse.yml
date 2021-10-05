@@ -4,6 +4,8 @@ on:
   issue_comment:
     types: [edited]
 
+  workflow_dispatch:
+
 jobs:
   generate_lighthouse_audit:
     timeout-minutes: 30
