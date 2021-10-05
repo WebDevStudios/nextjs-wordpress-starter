@@ -77,7 +77,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.1",
     "autoprefixer": "^10.3.6",
-    "babel-jest": "^27.2.2",
+    "babel-jest": "^27.2.4",
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
