@@ -65,7 +65,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.6",
+    "@arkweid/lefthook": "^0.7.7",
     "@babel/core": "^7.15.5",
     "@next/bundle-analyzer": "^11.1.2",
     "@storybook/addon-a11y": "^6.3.8",
