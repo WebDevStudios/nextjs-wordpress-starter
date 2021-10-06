@@ -28,7 +28,7 @@ WORDPRESS_URL="https://nextjs.wpengine.com/"
 ```
 
 ```text
-# This needs to match the WORDPRESS_PREVIEW_SECRET constant in wp-config.php. It can be any random string of text.
+# This needs to match the PREVIEW_SECRET_TOKEN constant in wp-config.php. It can be any random string of text.
 WORDPRESS_PREVIEW_SECRET="ANY_RANDOM_STRING_OF_TEXT"
 ```
 

@@ -174,7 +174,7 @@ See the [WDS Headless Gravity Forms documentation](https://webdevstudios.github.
 
 ## Enable Previews
 
-To enable previews, you'll need both a `WORDPRESS_PREVIEW_SECRET` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in the frontend `.env` file.
+To enable previews, you'll need both a `PREVIEW_SECRET_TOKEN` constant in `wp-config.php` and `WORDPRESS_PREVIEW_SECRET` ENV variable in the frontend `.env` file.
 
 **The token can be any random string, as long as they match in both locations!**
 
@@ -182,7 +182,7 @@ WordPress:
 
 ```php
 // wp-config.php
-define('WORDPRESS_PREVIEW_SECRET', 'ANY_RANDOM_STRING');
+define('PREVIEW_SECRET_TOKEN', 'ANY_RANDOM_STRING');
 ```
 
 Next.js:
