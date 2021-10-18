@@ -18,8 +18,8 @@
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
   },
   "engines": {
-    "node": "14",
-    "npm": "7"
+    "node": ">=14.0.0",
+    "npm": ">=8.0.0"
   },
   "scripts": {
     "build": "next build",
