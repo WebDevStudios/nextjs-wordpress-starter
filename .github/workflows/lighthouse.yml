@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Add comment to PR
         id: loading_comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v1
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.issue.number }}
@@ -65,7 +65,7 @@ jobs:
              core.setOutput("comment", comment);
       - name: Add comment to PR
         id: comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v1
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.issue.number }}
