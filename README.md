@@ -1,6 +1,6 @@
 # Next.js WordPress Starter
 
-[![This is a banner for the WebDevStudios NextJS Starter that says, "Start your Headless WordPress project with the industry experts," and includes the WebDevStudios logo and URL, which is WebDevStudios dot com](https://nextjs.wpengine.com/wp-content/uploads/2021/06/WDS-GitHub-Banner.png)](https://webdevstudios.com/solutions/wordpress-headless-cms/)
+[![WebDevStudios. Your Success is Our Mission.](https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png)](https://webdevstudios.com/contact/)
 
 **A headless starter for WordPress powered by Next.js**
 
