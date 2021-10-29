@@ -28,7 +28,7 @@
     "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:css": "npx stylelint '**/*.css' --fix || true",
     "lint:js": "next lint",
-    "lint:md": "npx markdownlint '**/*.md' --fix",
+    "lint:md": "npx markdownlint '**/*.md' --fix || true",
     "postbuild": "next-sitemap",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
