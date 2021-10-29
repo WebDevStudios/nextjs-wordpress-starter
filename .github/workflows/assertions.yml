@@ -44,15 +44,21 @@ jobs:
           npm i
 
       - name: Lint Docs
-        run: npm run lint
+        run: |
+          cd docs
+          npm run lint
 
       - name: Install Frontend
         run: |
-          cd ../frontend
+          cd frontend
           npm i
 
       - name: Lint Frontend
-        run: npm run lint
+        run: |
+          cd frontend
+          npm run lint
 
       - name: Run Frontend Tests
-        run: npm run test
+        run: |
+          cd frontend
+          npm run test
