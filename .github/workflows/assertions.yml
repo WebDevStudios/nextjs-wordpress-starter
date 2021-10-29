@@ -38,10 +38,16 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install dependencies
+      - name: Install Docs
         run: |
           cd docs
           npm i
+
+      - name: Lint Docs
+        run: npm run lint
+
+      - name: Install Frontend
+        run: |
           cd ../frontend
           npm i
 
@@ -50,8 +56,3 @@ jobs:
 
       - name: Run Frontend Tests
         run: npm run test
-
-      - name: Lint Docs
-        run: |
-          cd ../docs
-          npm run lint
