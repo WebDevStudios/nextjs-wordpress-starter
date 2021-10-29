@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Use NPM 7
+      - name: Update NPM
         run: npm i -g npm@latest
 
       - name: Cache NPM dependencies
@@ -46,7 +46,7 @@ jobs:
       - name: Lint Docs
         run: |
           cd docs
-          npm run lint
+          npx markdownlint 'docs/**/*.md'
 
       - name: Install Frontend
         run: |
@@ -56,9 +56,11 @@ jobs:
       - name: Lint Frontend
         run: |
           cd frontend
-          npm run lint
+          npx stylelint '**/*.css'
+          npx markdownlint '**/*.md'
+          npx eslint '**/.{js,jsx}'
 
       - name: Run Frontend Tests
         run: |
           cd frontend
-          npm run test
+          npm run test:jest
