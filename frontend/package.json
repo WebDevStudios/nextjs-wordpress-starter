@@ -17,10 +17,6 @@
   "bugs": {
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
   },
-  "engines": {
-    "node": "14",
-    "npm": "7"
-  },
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",

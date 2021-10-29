@@ -30,7 +30,7 @@ jobs:
         id: lighthouse_audit
         uses: treosh/lighthouse-ci-action@v3
         with:
-          configPath: ./.lighthouserc.js
+          configPath: ../.lighthouserc.js
           urls: |
             ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
           uploadArtifacts: true

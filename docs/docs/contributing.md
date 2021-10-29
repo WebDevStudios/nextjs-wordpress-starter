@@ -16,7 +16,6 @@ This project is a monorepo, which makes it easier to develop all the different c
 
 ```text
 nextjs-wordpress-starter
-├── backend
 ├── docs
 ├── frontend
 ├── packages
@@ -24,7 +23,6 @@ nextjs-wordpress-starter
 └── tests
 ```
 
-- **/backend**: The folder that contains a `composer.json` file which points at the WordPress plugins and theme.
 - **/docs**: The documentation for this project, powered by [Docusaurus](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus).
 - **/frontend**: Currently, this holds the codebase for the [Next.js powered frontend](/docs/frontend/folder-structure).
 - **/packages**: In the future this will house our NPM packages.
@@ -50,11 +48,9 @@ If you do file an issue, be sure to fill out the issue report completely!
 
 ### Code Linting
 
-This project has several rulesets and uses ESLint, Prettier, and Stylelint to enforce standards.
+This project has several rulesets and uses ESLint, Prettier, and Stylelint to enforce standards. In addition to real-time linting, you could run the following commands in your terminal.
 
-In addition to real-time linting, you could run the following commands in your terminal.
-
-> These commands are also used in a pre-commit hook.
+First change directories into either `/frontend` or `/docs`
 
 Lint your code:
 
@@ -67,6 +63,8 @@ Format your code:
 ```bash
 npm run format
 ```
+
+> These commands are also used in a pre-commit hook.
 
 ### Tips to help your PR get approved
 
@@ -81,7 +79,7 @@ npm run format
 
 ## Storybook
 
-To work with Storybook on your Local, run the following command:
+To work with Storybook on your Local, change directories into `/frontend` and run the following command:
 
 ```bash
 npm run storybook
