@@ -58,7 +58,7 @@ jobs:
           cd frontend
           npx stylelint '**/*.css'
           npx markdownlint '**/*.md'
-          npx eslint '**/.{js,jsx}'
+          npx eslint '**/*.js'
 
       - name: Run Frontend Tests
         run: |
