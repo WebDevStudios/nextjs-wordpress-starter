@@ -52,7 +52,7 @@
       @apply opacity-0 invisible absolute left-1 top-full z-50 p-2 rounded transition-all duration-150 ease-linear bg-white border;
 
       width: 180px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.075);
+      box-shadow: 0 4px 8px rgb(0 0 0 / 7.5%);
 
       & > li {
         @apply text-sm flex flex-nowrap w-full items-center border-t border-opacity-5;
