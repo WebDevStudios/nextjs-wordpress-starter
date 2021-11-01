@@ -29,7 +29,7 @@
       &::-webkit-search-cancel-button,
       &::-webkit-search-results-button,
       &::-webkit-search-results-decoration {
-        -webkit-appearance: none;
+        appearance: none;
       }
     }
 
