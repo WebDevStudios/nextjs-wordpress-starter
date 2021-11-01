@@ -46,7 +46,7 @@
     "deepmerge": "^4.2.2",
     "formidable": "^1.2.2",
     "formik": "^2.2.9",
-    "graphql": "^15.6.0",
+    "graphql": "^16.0.0",
     "graphql-anywhere": "^4.2.7",
     "hamburger-react": "^2.4.1",
     "next": "11.1.2",
