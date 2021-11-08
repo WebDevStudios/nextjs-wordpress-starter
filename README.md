@@ -1,6 +1,6 @@
 # Next.js WordPress Starter
 
-[![WebDevStudios. Your Success is Our Mission.](https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png)](https://webdevstudios.com/contact/)
+[![WebDevStudios. Your Success is Our Mission.](https://nextjsdevstart.wpengine.com/wp-content/uploads/2021/09/WDS-GitHub-Banner.webp)](https://webdevstudios.com/contact/)
 
 **A headless starter for WordPress powered by Next.js**
 
