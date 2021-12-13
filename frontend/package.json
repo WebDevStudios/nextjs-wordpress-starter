@@ -51,7 +51,7 @@
     "next-seo": "^4.28.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-instantsearch-dom": "^6.15.0",
+    "react-instantsearch-dom": "^6.17.0",
     "react-is": "^17.0.2",
     "react-syntax-highlighter": "^15.4.4",
     "react-twitter-embed": "^3.0.3",
