@@ -48,7 +48,7 @@ export default function getBlockStyles({
   }
 
   if (width) {
-    blockStyle.width = width ? `${width}%` : 'auto'
+    blockStyle.width = width ? `${width}` : 'auto'
   }
 
   return blockStyle
