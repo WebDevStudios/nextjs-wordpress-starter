@@ -20,6 +20,7 @@ import PropTypes from 'prop-types'
  * @param  {string}  props.text               The link label.
  * @param  {string}  props.textColorHex       The text color hex value.
  * @param  {string}  props.url                The link for the button.
+ * @param  {boolean} props.urlExternal        Whether link is external.
  * @param  {number}  props.width              The width in percent.
  * @return {Element}                          The Button component.
  */
@@ -35,6 +36,7 @@ export default function BlockButton({
   text,
   textColorHex,
   url,
+  urlExternal,
   width
 }) {
   const buttonStyle = getBlockStyles({
@@ -67,7 +69,7 @@ export default function BlockButton({
       styleOutline={styleOutline}
       text={text}
       url={url}
-      urlExternal={true}
+      urlExternal={urlExternal}
     />
   )
 }
@@ -84,5 +86,6 @@ BlockButton.propTypes = {
   text: PropTypes.string,
   textColorHex: PropTypes.string,
   url: PropTypes.string,
+  urlExternal: PropTypes.bool,
   width: PropTypes.number
 }
