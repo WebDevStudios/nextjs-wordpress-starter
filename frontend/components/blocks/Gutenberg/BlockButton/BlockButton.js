@@ -48,7 +48,9 @@ export default function BlockButton({
   })
 
   // Add additional styles.
-  buttonStyle.borderRadius = `${borderRadius}px`
+  if (borderRadius) {
+    buttonStyle.borderRadius = `${borderRadius}px`
+  }
 
   // Extract button style.
   const styleOutline = className && className.includes('is-style-outline')
