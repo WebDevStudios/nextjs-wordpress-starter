@@ -27,15 +27,6 @@ const queryTeamById = gql`
     ${defaultPageData}
     team(id: $id, idType: $idType) {
       ...SingleTeamFields
-      revisions(first: 1, where: {orderby: {field: DATE, order: DESC}}) {
-        edges {
-          node {
-            ${globalPostFields}
-            blocksJSON
-            excerpt
-          }
-        }
-      }
     }
   }
   ${singleTeamFragment}
