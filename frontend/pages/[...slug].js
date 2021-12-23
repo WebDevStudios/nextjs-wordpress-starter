@@ -2,6 +2,7 @@ import Container from '@/components/atoms/Container'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
+import Archive from '@/components/organisms/Archive'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
@@ -13,11 +14,24 @@ const postType = 'page'
  * Render the Page component.
  *
  * @author WebDevStudios
- * @param  {object}  props      The component attributes as props.
- * @param  {object}  props.post Post data from WordPress.
- * @return {Element}            The Page component.
+ * @param  {object}  props            The component attributes as props.
+ * @param  {boolean} props.archive    Whether displaying single post (false) or archive (true).
+ * @param  {object}  props.pagination Archive pagination data from WordPress.
+ * @param  {object}  props.post       Post data from WordPress.
+ * @param  {Array}   props.posts      Array of post data from WordPress.
+ * @return {Element}                  The Page component.
  */
-export default function Page({post}) {
+export default function Page({archive, pagination, post, posts}) {
+  if (archive) {
+    return (
+      <Layout seo={{...post?.seo}}>
+        <Container>
+          <Archive posts={posts} postType="post" pagination={pagination} />
+        </Container>
+      </Layout>
+    )
+  }
+
   return (
     <Layout seo={{...post?.seo}}>
       <Container>
