@@ -2,13 +2,13 @@
  * Get formatted block styles.
  *
  * @author WebDevStudios
- * @param  {object} styles                    Various block custom and preset styles.
- * @param  {string} styles.backgroundColorHex The background color hex value.
- * @param  {string} styles.gradientHex        The background gradient hex value.
- * @param  {string} styles.textColorHex       The text color hex value.
- * @param  {number} styles.width              The width in percent.
- * @param  {object} styles.style              The style attributes.
- * @return {object}                           The formatted style object.
+ * @param  {object}          styles                    Various block custom and preset styles.
+ * @param  {string}          styles.backgroundColorHex The background color hex value.
+ * @param  {string}          styles.gradientHex        The background gradient hex value.
+ * @param  {string}          styles.textColorHex       The text color hex value.
+ * @param  {number | string} styles.width              The block width.
+ * @param  {object}          styles.style              The style attributes.
+ * @return {object}                                    The formatted style object.
  */
 export default function getBlockStyles({
   backgroundColorHex,
@@ -48,7 +48,13 @@ export default function getBlockStyles({
   }
 
   if (width) {
-    blockStyle.width = width ? `${width}` : 'auto'
+    if (isNaN(width)) {
+      // If width is not a number, return full string.
+      blockStyle.width = width
+    } else {
+      // If width is a number, return as percent.
+      blockStyle.width = `${width}%`
+    }
   }
 
   return blockStyle
