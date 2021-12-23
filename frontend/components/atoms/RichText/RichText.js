@@ -36,7 +36,7 @@ export default function RichText({
       className
     ),
     id: id || null,
-    dangerouslySetInnerHTML: createMarkup(children ?? ''),
+    dangerouslySetInnerHTML: createMarkup(children || ''),
     style: style
   })
 }
