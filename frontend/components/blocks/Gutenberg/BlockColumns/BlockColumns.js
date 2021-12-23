@@ -28,15 +28,13 @@ export default function BlockColumns({
   innerBlocks,
   style,
   textColorHex,
-  verticalAlignment,
-  width,
+  verticalAlignment
 }) {
   const columnsStyle = getBlockStyles({
     backgroundColorHex,
     gradientHex,
     textColorHex,
-    style,
-    width
+    style
   })
 
   return (
@@ -54,7 +52,8 @@ export default function BlockColumns({
               backgroundColorHex: attributes?.backgroundColorHex,
               gradientHex: attributes?.gradientHex,
               textColorHex: attributes?.textColorHex,
-              style: attributes?.style
+              style: attributes?.style,
+              width: attributes?.width || '50%'
             })
 
             return (
@@ -87,6 +86,5 @@ BlockColumns.propTypes = {
   ),
   style: PropTypes.object,
   textColorHex: PropTypes.string,
-  verticalAlignment: PropTypes.string,
-  width: PropTypes.string
+  verticalAlignment: PropTypes.string
 }
