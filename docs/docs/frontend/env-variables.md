@@ -68,6 +68,11 @@ NEXT_PUBLIC_IMAGE_DOMAINS="nextjs.wpengine.com, nextjsdevstart.wpengine.com, nex
 NEXTAUTH_URL="https://nextjs.wpengine.com/"
 ```
 
+```text
+# Your WordPress GraphQL endpoint (optional, will default to "graphql" if not provided).
+WORDPRESS_GRAPHQL_ENDPOINT="graphql"
+```
+
 ## Add ENV Variables to Frontend Hosting
 
 Eventually, you'll need to add your ENV Variables to your host. The host needs these variables in order to run a build.
