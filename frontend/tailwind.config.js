@@ -1,11 +1,9 @@
 // https://tailwindcss.com/docs/installation#create-your-configuration-file
 module.exports = {
-  purge: {
-    content: [
-      './components/**/*.{js,ts,jsx,tsx,mdx}',
-      './pages/**/*.{js,ts,jsx,tsx}'
-    ]
-  },
+  content: [
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx}'
+  ],
   darkMode: 'media',
   theme: {
     extend: {
