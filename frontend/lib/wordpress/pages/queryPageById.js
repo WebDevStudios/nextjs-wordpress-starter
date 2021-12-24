@@ -28,6 +28,15 @@ const queryPageById = gql`
     page(id: $id, idType: $idType) {
       ...SinglePageFields
       isPostsPage
+      revisions(first: 1, where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            ${globalPostFields}
+            blocksJSON
+            excerpt
+          }
+        }
+      }
     }
   }
   ${singlePageFragment}

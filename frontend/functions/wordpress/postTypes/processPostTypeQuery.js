@@ -58,7 +58,7 @@ export default async function processPostTypeQuery(
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
       // Retrieve post data.
-      const post =
+      let post =
         postData?.[postType] ?? // Dynamic posts.
         postData?.additionalSettings?.additionalSettings?.[postType] // Settings custom page.
 
@@ -68,6 +68,22 @@ export default async function processPostTypeQuery(
         response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
 
         return null
+      }
+
+      // Retrieve revision post data if viewing full preview.
+      if (preview === 'full' && post?.revisions?.edges?.[0]?.node) {
+        post = {
+          ...post,
+          ...post.revisions.edges[0].node
+        }
+      }
+
+      // Remove original revision data from return.
+      if (post?.revisions?.edges?.length) {
+        post = {
+          ...post,
+          revisions: null
+        }
       }
 
       return post
