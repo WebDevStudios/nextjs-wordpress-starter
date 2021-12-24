@@ -22,12 +22,12 @@ jobs:
           token: ${{ github.token }}
 
       - name: Setup SSH agent
-        uses: webfactory/ssh-agent@v0.5.3
+        uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_PRIVATE_KEY }}
 
       - name: Setup Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.5.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -81,7 +81,7 @@ jobs:
           token: ${{ github.token }}
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.5.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -109,7 +109,7 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Github Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
           branch: gh-pages
           folder: frontend/storybook-static
