@@ -154,6 +154,23 @@ export default async function getPostTypeStaticProps(
     isCurrentPostPreview ? 'full' : null
   )
 
+  // Check if dealing with posts page.
+  if (postType === 'page' && postData?.post?.isPostsPage) {
+    // Override page content with post archive.
+    const {apolloClient: archiveApolloClient, ...archiveData} =
+      await getPostTypeArchive('post')
+
+    // Merge in query results as Apollo state.
+    return addApolloState(archiveApolloClient, {
+      props: {
+        ...archiveData,
+        ...sharedProps,
+        archive: true
+      },
+      revalidate
+    })
+  }
+
   const props = {
     ...postData,
     ...sharedProps,

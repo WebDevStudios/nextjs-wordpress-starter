@@ -4,7 +4,6 @@ import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
 import Comments from '@/components/molecules/Comments'
-import Archive from '@/components/organisms/Archive'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
@@ -16,24 +15,11 @@ const postType = 'post'
  * Render the BlogPost component.
  *
  * @author WebDevStudios
- * @param  {object}  props            The component attributes as props.
- * @param  {object}  props.post       Post data from WordPress.
- * @param  {boolean} props.archive    Whether displaying single post (false) or archive (true).
- * @param  {Array}   props.posts      Array of post data from WordPress.
- * @param  {object}  props.pagination Archive pagination data from WordPress.
- * @return {Element}                  The BlogPost component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The BlogPost component.
  */
-export default function BlogPost({post, archive, posts, pagination}) {
-  if (archive) {
-    return (
-      <Layout seo={{...post?.seo}}>
-        <Container>
-          <Archive posts={posts} postType={postType} pagination={pagination} />
-        </Container>
-      </Layout>
-    )
-  }
-
+export default function BlogPost({post}) {
   return (
     <Layout seo={{...post?.seo}} hasJsonLd={true}>
       <Container>
