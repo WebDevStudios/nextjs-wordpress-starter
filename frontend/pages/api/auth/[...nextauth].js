@@ -190,7 +190,8 @@ const options = {
   pages,
   session,
   jwt,
-  callbacks
+  callbacks,
+  secret: process.env.NEXTAUTH_SECRET
 }
 
 // eslint-disable-next-line
