@@ -44,7 +44,7 @@ export default async function processGfFormSubmission(
       }
     })
     .then((response) => {
-      const {entryId, confirmationMessage} = response?.data?.formEntry
+      const {entryId, confirmationMessage} = response.data.formEntry
 
       if (!entryId) {
         return {
