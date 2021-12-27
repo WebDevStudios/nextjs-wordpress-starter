@@ -4,7 +4,7 @@ import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
-import {signIn, useSession} from 'next-auth/client'
+import {signIn, useSession} from 'next-auth/react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React, {useEffect, useState} from 'react'
@@ -17,7 +17,7 @@ import React, {useEffect, useState} from 'react'
  */
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState('')
-  const [session] = useSession()
+  const {data: session} = useSession()
   const router = useRouter()
 
   // Redirect to Profile page if user already logged in.

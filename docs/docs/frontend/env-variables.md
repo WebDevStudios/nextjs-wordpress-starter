@@ -64,8 +64,8 @@ NEXT_PUBLIC_IMAGE_DOMAINS="nextjs.wpengine.com, nextjsdevstart.wpengine.com, nex
 ```
 
 ```text
-# Your WordPress URL.
-NEXTAUTH_URL="https://nextjs.wpengine.com/"
+# Your Frontend URL.
+NEXTAUTH_URL="https://nextjs-wordpress-starter.vercel.app/"
 ```
 
 ```text

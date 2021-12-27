@@ -1,13 +1,13 @@
 import Navigation from '@/components/molecules/Navigation'
 import {render} from '@testing-library/react'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 import {useRouter} from 'next/router'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn()
 }))
 
-jest.mock('next-auth/client', () => ({
+jest.mock('next-auth/react', () => ({
   useSession: jest.fn()
 }))
 
@@ -58,7 +58,9 @@ test('Navigation menu for guests should not have Profile', () => {
   useRouter.mockImplementation(() => ({
     asPath: '/'
   }))
-  useSession.mockImplementation(() => [null, false])
+  useSession.mockImplementation(() => {
+    return {data: false, status: false}
+  })
   const {getAllByRole} = render(<Navigation menu={mockMenuObject} />)
   const menuItems = getAllByRole('link')
 
@@ -93,7 +95,12 @@ test('Navigation menu for logged user should show profile and not login', () => 
   useRouter.mockImplementation(() => ({
     asPath: '/'
   }))
-  useSession.mockImplementation(() => [mockedUser, false])
+  useSession.mockImplementation(() => {
+    return {
+      data: mockedUser,
+      status: false
+    }
+  })
 
   const {getAllByRole} = render(<Navigation menu={mockMenuObject} />)
   const menuItems = getAllByRole('link')
