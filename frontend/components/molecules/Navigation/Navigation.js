@@ -42,7 +42,7 @@ function Arrow() {
  * @return {Element}            The NavigationMenu component.
  */
 function NavigationMenu({menu}) {
-  const {asPath} = useRouter()
+  const {asPath} = useRouter() ?? {}
   const {data: session, status} = useSession()
   const loading = status === 'loading'
   const isGuest = !loading && !session?.user?.accessToken
