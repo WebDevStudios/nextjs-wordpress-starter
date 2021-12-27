@@ -1,6 +1,6 @@
 import isLinkActive from '@/functions/isLinkActive'
 import cn from 'classnames'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'

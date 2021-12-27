@@ -1,7 +1,7 @@
 import Text from '@/components/atoms/Inputs/Text'
 import Form from '@/components/molecules/Form'
 import processPostComment from '@/functions/next-api/wordpress/comments/processPostComment'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import * as Yup from 'yup'

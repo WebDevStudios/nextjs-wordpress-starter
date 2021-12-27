@@ -1,13 +1,13 @@
 import Navigation from '@/components/molecules/Navigation'
 import {render} from '@testing-library/react'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 import {useRouter} from 'next/router'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn()
 }))
 
-jest.mock('next-auth/client', () => ({
+jest.mock('next-auth/react', () => ({
   useSession: jest.fn()
 }))
 

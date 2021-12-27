@@ -1,12 +1,12 @@
 import Comments, {SingleComment} from '@/components/molecules/Comments'
 import {render} from '@testing-library/react'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 
 jest.mock('@/functions/next-api/wordpress/comments/processPostComment', () =>
   jest.fn()
 )
 
-jest.mock('next-auth/client')
+jest.mock('next-auth/react')
 
 test('render SingleComment with comment without author url props', () => {
   const props = {

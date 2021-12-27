@@ -2,7 +2,7 @@ import loginUser from '@/functions/wordpress/auth/loginUser'
 import refreshAuthToken from '@/functions/wordpress/auth/refreshAuthToken'
 import registerUser from '@/functions/wordpress/auth/registerUser'
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 const LOGIN_ERRORS = {
   INVALID_USERNAME: 'invalid_username',
@@ -67,7 +67,7 @@ function createUserObj(response) {
 }
 
 const providers = [
-  Providers.Credentials({
+  CredentialsProvider({
     id: 'wpLogin',
     name: 'Login',
     credentials: {
@@ -106,7 +106,7 @@ const providers = [
       return createUserObj(response)
     }
   }),
-  Providers.Credentials({
+  CredentialsProvider({
     id: 'wpRegister',
     name: 'Register',
     credentials: {
