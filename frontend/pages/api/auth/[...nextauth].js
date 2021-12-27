@@ -148,7 +148,7 @@ const jwt = {
 }
 
 const callbacks = {
-  async jwt(token, user) {
+  async jwt({token, user}) {
     const token_exp = parseInt(token?.token_exp, 10)
 
     // Get seconds elapsed.
@@ -175,12 +175,12 @@ const callbacks = {
 
     return populateObj(token, user)
   },
-  async session(session, token) {
+  async session({session, token}) {
     session.user = populateObj(session.user, token)
 
     return session
   },
-  async redirect(url) {
+  async redirect({url}) {
     return url
   }
 }
