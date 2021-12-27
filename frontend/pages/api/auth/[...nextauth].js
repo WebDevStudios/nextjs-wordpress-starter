@@ -140,7 +140,7 @@ const pages = {
 }
 
 const session = {
-  jwt: true
+  strategy: 'jwt'
 }
 
 const jwt = {
