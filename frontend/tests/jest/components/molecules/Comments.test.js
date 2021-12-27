@@ -59,7 +59,7 @@ test('render SingleComment with comment with author url props', () => {
 })
 
 test('render Comment form', () => {
-  useSession.mockReturnValue([false, false])
+  useSession.mockReturnValue({data: false, status: false})
 
   const props = {
     comments: [
@@ -92,12 +92,12 @@ test('render Comment form', () => {
 })
 
 test('render logged User Comment form', () => {
-  useSession.mockReturnValue([
-    {
+  useSession.mockReturnValue({
+    data: {
       user: 1
     },
-    false
-  ])
+    status: false
+  })
 
   const props = {
     comments: [

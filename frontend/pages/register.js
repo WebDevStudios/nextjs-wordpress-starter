@@ -16,7 +16,7 @@ import React, {useEffect, useState} from 'react'
  */
 export default function Register() {
   const [errorMessage, setErrorMessage] = useState('')
-  const [session] = useSession()
+  const {data: session} = useSession()
   const router = useRouter()
 
   // Redirect to Profile page if user already logged in.

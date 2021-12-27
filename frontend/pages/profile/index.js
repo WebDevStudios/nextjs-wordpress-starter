@@ -13,7 +13,8 @@ import React, {useEffect} from 'react'
  * @return {Element} The Profile component.
  */
 export default function Profile() {
-  const [session, loading] = useSession()
+  const {data: session, status} = useSession()
+  const loading = status === 'loading'
   const router = useRouter()
 
   // @TODO - Possibly create a model for User.

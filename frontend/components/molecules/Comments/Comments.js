@@ -64,7 +64,8 @@ SingleComment.defaultProps = {
 export default function Comments({comments, postId}) {
   const [message, setMessage] = useState('')
   const [postedComment, setPostedComment] = useState(false)
-  const [session, loading] = useSession()
+  const {data: session, status} = useSession()
+  const loading = status === 'loading'
 
   // Avoid flash if loading.
   if (loading) {

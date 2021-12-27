@@ -43,7 +43,8 @@ function Arrow() {
  */
 function NavigationMenu({menu}) {
   const {asPath} = useRouter()
-  const [session, loading] = useSession()
+  const {data: session, status} = useSession()
+  const loading = status === 'loading'
   const isGuest = !loading && !session?.user?.accessToken
 
   if (!menu || !menu?.length) {
