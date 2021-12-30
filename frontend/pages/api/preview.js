@@ -55,7 +55,7 @@ export default async function preview(req, res) {
 
     // Redirect to post dynamic route.
     res.redirect(
-      post.slug
+      post.slug && post.uri && post.uri.indexOf('?page_id=') === -1
         ? post.uri
         : `${baseRoute ? `/${baseRoute}` : ''}/${post.databaseId}`
     )
