@@ -56,7 +56,7 @@ export default function Plugins() {
   return (
     <section className={styles.plugins}>
       <div className="container">
-        <div className={styles.row}>
+        <div className="col">
           <div className="col text--center">
             <h2>WordPress Themes and Plugins</h2>
             <p>Help turn WordPress into a Headless CMS.</p>
@@ -71,11 +71,12 @@ export default function Plugins() {
       </div>
 
       <div className="container padding-vert--lg">
-        <div className={styles.row}>
-          <div className="text--center">
+        <div className="col">
+          <div className="col text--center">
             <h3>Extensions</h3>
             <p>Helpful addons that extend WDS Headless Core</p>
           </div>
+
           <div className={styles.row}>
             {ExtensionsList.map((props, index) => (
               <Card key={index} {...props} />
