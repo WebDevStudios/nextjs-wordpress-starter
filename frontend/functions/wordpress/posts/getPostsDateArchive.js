@@ -4,6 +4,7 @@ import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import queryPostsDateArchive from '@/lib/wordpress/posts/queryPostsDateArchive'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
+import dayjs from 'dayjs'
 
 /**
  * Retrieve posts date-based archive.
@@ -102,6 +103,22 @@ export default async function getPostsDateArchive(
           data?.archiveSeo
         )
       }
+
+      // Set archive title.
+      let formattedDate = ''
+      let title = ''
+
+      if (day && month && year) {
+        formattedDate = dayjs(`${year}-${month}-${day}`).format('MMMM D, YYYY')
+        title = `Day: ${formattedDate}`
+      } else if (month && year) {
+        formattedDate = dayjs(`${year}-${month}`).format('MMMM YYYY')
+        title = `Month: ${formattedDate}`
+      } else {
+        title = `Year: ${year}`
+      }
+
+      response.post.title = title
 
       // Extract pagination data.
       response.pagination = data.pageInfo
