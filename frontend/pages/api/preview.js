@@ -46,7 +46,8 @@ export default async function preview(req, res) {
       post: {
         id: post.databaseId,
         slug: post.slug,
-        status: post.status
+        status: post.status,
+        uri: post.uri
       }
     })
 
