@@ -85,14 +85,14 @@ test('render Button with attributes, disabled, icon, iconOnly, size, styleOutlin
     size: 'sm',
     styleOutline: true,
     text: 'Outlined button',
-    url: '/blog/lorem-ipsum'
+    url: '/2020/07/01/lorem-ipsum'
   }
 
   const {container} = render(<Button {...props} />)
 
   expect(container.firstElementChild).toHaveAttribute(
     'href',
-    '/blog/lorem-ipsum'
+    '/2020/07/01/lorem-ipsum'
   )
   expect(container.firstElementChild).toHaveAttribute('aria-expanded', 'true')
   expect(container.firstElementChild).toHaveAttribute('aria-hidden', 'false')
