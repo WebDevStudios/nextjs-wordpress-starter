@@ -6,7 +6,7 @@ export const postTypes = {
   },
   post: {
     pluralName: 'posts',
-    route: 'blog'
+    route: ''
   },
   team: {
     pluralName: 'teams',
