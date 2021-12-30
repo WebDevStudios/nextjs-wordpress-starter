@@ -30,7 +30,7 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "markdownlint": "^0.24.0",
+    "markdownlint": "^0.25.0",
     "markdownlint-cli": "^0.30.0",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.0"
