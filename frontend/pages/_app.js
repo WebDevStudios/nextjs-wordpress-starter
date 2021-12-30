@@ -7,9 +7,8 @@ import {SessionProvider as NextAuthProvider} from 'next-auth/react'
 import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import 'tailwindcss/tailwind.css'
 
 /**
