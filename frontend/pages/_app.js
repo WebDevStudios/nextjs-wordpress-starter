@@ -29,17 +29,6 @@ export default function App({Component, pageProps}) {
    */
   const apolloClient = useWpApollo(pageProps)
 
-  const router = useRouter()
-
-  // Redirect from WP blog archive to FE posts archive.
-  useEffect(() => {
-    if (!pageProps?.post?.isPostsPage) {
-      return
-    }
-
-    router.push('/blog')
-  }, [pageProps, router])
-
   // Check for errors.
   const error = pageProps?.error
   let errorMessage = pageProps?.errorMessage ?? 'An unknown error occurred.'
