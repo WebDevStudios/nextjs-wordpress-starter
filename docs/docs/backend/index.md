@@ -111,12 +111,12 @@ You should now see your Homepage, Blog, and 404 page like so:
 
 ### Step 6: Set Permalinks
 
-In the WordPress Dashboard, navigate to `Settings -> Permalinks -> Custom Structure`
+In the WordPress Dashboard, navigate to `Settings -> Permalinks`
 
-1. Enter the follow structure:
+1. Select the `Day and name` structure:
 
 ```text
-/blog/%postname%
+/%year%/%monthnum%/%day%/%postname%/
 ```
 
 2. Save the settings.
