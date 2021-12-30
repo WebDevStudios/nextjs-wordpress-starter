@@ -77,30 +77,6 @@ export default async function getPostTypeStaticProps(
     })
   }
 
-  /* -- Handle taxonomy archives. -- */
-  if (
-    Object.keys(archiveQuerySeo).includes(postType) &&
-    params.slug.length > 1
-  ) {
-    const taxonomy = params.slug.shift() // First "slug" piece is taxonomy type.
-    const taxonomySlug = params.slug.pop() // Last "slug" piece is the lowest-level taxonomy term slug.
-
-    const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
-      taxonomy,
-      taxonomySlug
-    )
-
-    // Merge in query results as Apollo state.
-    return addApolloState(apolloClient, {
-      props: {
-        ...archiveData,
-        ...sharedProps,
-        archive: true
-      },
-      revalidate
-    })
-  }
-
   /* -- Handle individual posts. -- */
 
   // Handle catch-all routes.
