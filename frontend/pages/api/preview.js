@@ -54,7 +54,9 @@ export default async function preview(req, res) {
 
     // Redirect to post dynamic route.
     res.redirect(
-      `${baseRoute ? `/${baseRoute}` : ''}/${post.slug || post.databaseId}`
+      post.slug
+        ? post.uri
+        : `${baseRoute ? `/${baseRoute}` : ''}/${post.databaseId}`
     )
   } catch (error) {
     return res.status(error?.status || 401).json({
