@@ -10,21 +10,23 @@ import styles from './Card.module.css'
 /**
  * Render the Card component.
  *
- * @param  {object}  props            Card component props.
- * @param  {string}  props.body       Card body text.
- * @param  {string}  props.buttonText The text for the cta button.
- * @param  {string}  props.className  Optional classNames.
- * @param  {object}  props.image      The image object.
- * @param  {string}  props.meta       The card metadata string.
- * @param  {string}  props.timestamp  The card timestamp.
- * @param  {string}  props.title      The card title.
- * @param  {string}  props.url        The url.
- * @return {Element}                  The Card component.
+ * @param  {object}  props              Card component props.
+ * @param  {string}  props.body         Card body text.
+ * @param  {string}  props.buttonText   The text for the cta button.
+ * @param  {string}  props.className    Optional classNames.
+ * @param  {string}  props.headingLevel The heading tag.
+ * @param  {object}  props.image        The image object.
+ * @param  {string}  props.meta         The card metadata string.
+ * @param  {string}  props.timestamp    The card timestamp.
+ * @param  {string}  props.title        The card title.
+ * @param  {string}  props.url          The url.
+ * @return {Element}                    The Card component.
  */
 export default function Card({
   body,
   buttonText,
   className,
+  headingLevel,
   image,
   meta,
   timestamp,
@@ -51,7 +53,9 @@ export default function Card({
           (url ? (
             <Link href={url}>
               <a>
-                <Heading className={styles.title}>{title}</Heading>
+                <Heading className={styles.title} tag={headingLevel}>
+                  {title}
+                </Heading>
               </a>
             </Link>
           ) : (
