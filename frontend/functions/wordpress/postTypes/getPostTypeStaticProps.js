@@ -132,15 +132,15 @@ export default async function getPostTypeStaticProps(
   /* -- Handle dynamic posts. -- */
 
   // Get post identifier (ID or slug).
-  const postId = Number.isInteger(Number(slug))
-    ? Number(slug)
-    : slug.replace(/^\/|\/$/g, '')
+  const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
 
   // Check if preview mode is active and valid for current post (preview and post IDs or slugs match).
   const isCurrentPostPreview =
     preview &&
     (postId === previewData?.post?.id ||
-      postId === previewData?.post?.uri?.replace(/^\/|\/$/g, ''))
+      // Compare URIs with leading and trailing slashes stripped.
+      postId.replace(/^\/|\/$/g, '') ===
+        previewData?.post?.uri?.replace(/^\/|\/$/g, ''))
 
   // Check if viewing a draft post.
   const isDraft = isCurrentPostPreview && 'draft' === previewData?.post?.status
