@@ -11,7 +11,6 @@ Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of â˜
 
 Make sure you have the following dependencies:
 
-- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
 - [Composer](https://getcomposer.org/)
 - [Gravity Forms](https://www.gravityforms.com/)
 - [Local WP](https://localwp.com/) (or Docker or VVV or whatever you prefer as a WordPress development tool)
