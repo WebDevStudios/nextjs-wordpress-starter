@@ -87,7 +87,7 @@
     "next-sitemap": "^1.6.203",
     "postcss": "^8.4.5",
     "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-preset-env": "^7.1.0",
+    "postcss-preset-env": "^7.2.0",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.0",
     "sharp": "^0.29.3",
