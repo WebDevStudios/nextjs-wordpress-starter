@@ -23,9 +23,7 @@ export default async function getHeadlessConfigPage(page) {
       seo: {
         title: `${headlessConfigPageQuerySeo[page]?.title ?? ''} - ${
           data.defaultSeo?.openGraph?.siteName ?? ''
-        }`,
-        description: headlessConfigPageQuerySeo[page]?.description ?? '',
-        canonical: `${data.defaultSeo?.openGraph?.url ?? ''}/${page}`
+        }`
       }
     }
   }
