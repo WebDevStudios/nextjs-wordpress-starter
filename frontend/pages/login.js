@@ -13,9 +13,11 @@ import React, {useEffect, useState} from 'react'
  * Render the Login component.
  *
  * @author WebDevStudios
- * @return {Element} The Login component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The Login component.
  */
-export default function Login() {
+export default function Login({post}) {
   const [errorMessage, setErrorMessage] = useState('')
   const {data: session} = useSession()
   const router = useRouter()
@@ -47,7 +49,7 @@ export default function Login() {
   }
 
   return (
-    <Layout>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <RichText tag="h1">Login</RichText>
         {!!errorMessage && <div>{errorMessage}</div>}
