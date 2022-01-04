@@ -20,17 +20,9 @@ export const seoSocialPropTypes = {
 export const seoPropTypes = {
   seo: PropTypes.shape({
     breadcrumbs: PropTypes.array,
-    canonical: PropTypes.string,
-    description: PropTypes.string,
+    fullHead: PropTypes.string,
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
-    opengraphAuthor: PropTypes.string,
-    opengraphModifiedTime: PropTypes.string,
-    opengraphPublishedTime: PropTypes.string,
-    opengraphImage: PropTypes.shape({
-      altText: PropTypes.string,
-      sourceUrl: PropTypes.string
-    }),
     siteTitle: PropTypes.string,
     siteDescription: PropTypes.string,
     title: PropTypes.string,
