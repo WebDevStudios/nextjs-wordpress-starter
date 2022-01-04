@@ -4,7 +4,6 @@ import AlgoliaSearch from '@/components/molecules/AlgoliaSearch'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
 import {seoPropTypes} from '@/functions/getPagePropTypes'
-import {BlogJsonLd, NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 
 /**
