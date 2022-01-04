@@ -11,7 +11,6 @@ Turning WordPress into a Headless CMS isn't straightforward, so grab a cup of â˜
 
 Make sure you have the following dependencies:
 
-- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
 - [Composer](https://getcomposer.org/)
 - [Gravity Forms](https://www.gravityforms.com/)
 - [Local WP](https://localwp.com/) (or Docker or VVV or whatever you prefer as a WordPress development tool)
@@ -49,7 +48,7 @@ cd wp-content && curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-
 composer install
 ```
 
-3. Install both premium plugins: [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) and [Gravity Forms](https://www.gravityforms.com/).
+3. Install premium plugin: [Gravity Forms](https://www.gravityforms.com/).
 
 4. Activate all plugins and theme in the WP Dashboard or use [WP CLI](https://wp-cli.org/):
 
@@ -99,7 +98,7 @@ In the WordPress Dashboard, navigate to `Settings -> Reading -> "Your homepage d
 
 ![screenshot](/img/screenshot-set-page-options.png)
 
-Now navigate to `Headless Config -> Options` and set the custom 404 page:
+Now navigate to `Settings -> Headless Config -> Custom Page Options` and set the custom 404 page:
 
 ![screenshot](/img/screenshot-set-404-page.png)
 

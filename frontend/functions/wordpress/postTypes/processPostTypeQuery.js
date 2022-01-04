@@ -60,7 +60,7 @@ export default async function processPostTypeQuery(
       // Retrieve post data.
       let post =
         postData?.[postType] ?? // Dynamic posts.
-        postData?.additionalSettings?.additionalSettings?.[postType] // Settings custom page.
+        postData?.headlessConfig?.additionalSettings?.[postType] // Settings custom page.
 
       // Set error props if data not found.
       if (!post) {

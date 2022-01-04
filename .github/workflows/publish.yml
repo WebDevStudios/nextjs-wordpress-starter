@@ -27,7 +27,7 @@ jobs:
           ssh-private-key: ${{ secrets.GH_PAGES_PRIVATE_KEY }}
 
       - name: Setup Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -81,7 +81,7 @@ jobs:
           token: ${{ github.token }}
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ matrix.node-version }}
 
