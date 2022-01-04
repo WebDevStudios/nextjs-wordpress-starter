@@ -11,7 +11,6 @@ export default function formatDefaultSeoData(seoData) {
 
   return {
     title: homepage?.title ?? '',
-    description: homepage?.metaDesc ?? '',
     noIndex: 'index' !== homepage?.metaRobotsNoindex,
     noFollow: 'follow' !== homepage?.metaRobotsNofollow,
     openGraph: {
