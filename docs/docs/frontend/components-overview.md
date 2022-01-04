@@ -41,4 +41,4 @@ Learn more about each file:
 
 [CSS Module](/docs/frontend/component-css-module)
 
-[Story](/docs/storybook/index)
+[Story](/docs/storybook)

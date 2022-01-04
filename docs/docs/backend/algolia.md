@@ -12,7 +12,7 @@ You will need to have the following WordPress plugins installed:
 - [WP Search with Algolia](https://wordpress.org/plugins/wp-search-with-algolia/)
 - [WDS Headless Algolia](https://packagist.org/packages/webdevstudios/wds-headless-algolia)
 
-> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend/index#step-2-install-theme-and-plugins).
+> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend#step-2-install-theme-and-plugins).
 
 ## Backend Setup
 

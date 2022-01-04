@@ -18,6 +18,6 @@ With this framework, **we've figured out the "hard stuff" and placed the sum of 
 
 ## Next Steps
 
-Head on over to the [Getting Started](/docs/index) doc to learn more.
+Head on over to the [Getting Started](/docs) doc to learn more.
 
 > NOTE: This is prerelease software. We will 💯 introduce breaking changes.

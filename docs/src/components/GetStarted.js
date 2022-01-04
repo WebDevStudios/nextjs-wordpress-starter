@@ -11,10 +11,7 @@ export default function GetStarted() {
             <h2>Next Steps</h2>
             <p>Ready to start building headless WordPress websites?</p>
             <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--lg"
-                to="/docs/index"
-              >
+              <Link className="button button--secondary button--lg" to="/docs">
                 Get Started
               </Link>
             </div>

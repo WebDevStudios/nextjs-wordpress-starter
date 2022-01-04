@@ -11,7 +11,7 @@ You will need to have the following WordPress plugins installed:
 - [Gravity Forms](https://www.gravityforms.com/)
 - [WDS Headless Gravity Forms](https://packagist.org/packages/webdevstudios/wds-headless-gravityforms)
 
-> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend/index#step-2-install-theme-and-plugins).
+> These plugins should have been installed when you ran `composer install` during the initial [Backend Setup](/docs/backend#step-2-install-theme-and-plugins).
 
 ## Backend Setup
 
@@ -64,5 +64,5 @@ The process required to successfully submit a Gravity Form is a little complicat
 
 [formdata]: https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
-Ideally, this should just work. Check the [Backend Setup](/docs/backend/index) section first
+Ideally, this should just work. Check the [Backend Setup](/docs/backend) section first
 if issues arise.
