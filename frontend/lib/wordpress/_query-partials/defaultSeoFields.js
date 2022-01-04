@@ -15,7 +15,7 @@ const defaultSeoFields = `
     openGraph {
       defaultImage {
         altText
-        sourceUrl(size: THUMBNAIL)
+        sourceUrl
       }
     }
     social {
