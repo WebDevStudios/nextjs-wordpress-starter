@@ -104,8 +104,6 @@ export default async function getPostTypeStaticProps(
       day ?? null
     )
 
-    console.log(archiveData)
-
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
       props: {
