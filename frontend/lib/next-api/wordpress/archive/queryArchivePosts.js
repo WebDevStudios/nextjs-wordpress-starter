@@ -6,12 +6,18 @@ const queryArchivePosts = gql`
   query GET_ARCHIVE_POSTS(
     $postType: String!
     $cursor: String!
+    $year: Int
+    $month: Int
+    $day: Int
     $orderBy: String = DATE
     $order: String = DESC
   ) {
     archive(
       postType: $postType
       cursor: $cursor
+      year: $year
+      month: $month
+      day: $day
       orderBy: $orderBy
       order: $order
     ) @rest(type: "Archive", path: "${nextApiRoutes.wordpress.archive}?{args}") {
