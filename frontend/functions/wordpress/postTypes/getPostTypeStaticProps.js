@@ -1,3 +1,4 @@
+import getPostsDateArchive from '@/functions/wordpress/posts/getPostsDateArchive'
 import getFrontendPage from '@/functions/wordpress/postTypes/getFrontendPage'
 import getHeadlessConfigPage from '@/functions/wordpress/postTypes/getHeadlessConfigPage'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
@@ -6,7 +7,6 @@ import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
-import getPostsDateArchive from '../posts/getPostsDateArchive'
 
 /**
  * Retrieve static props by post type.
