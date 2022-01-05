@@ -31,7 +31,7 @@ export default async function getPostsDateArchive(
   order = 'DESC',
   cursor = null,
   getNext = true,
-  perPage = 9,
+  perPage = 10,
   exclude = []
 ) {
   // Get/create Apollo instance.
