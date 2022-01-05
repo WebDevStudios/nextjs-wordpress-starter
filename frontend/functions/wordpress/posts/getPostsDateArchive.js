@@ -1,9 +1,8 @@
 import getMenus from '@/functions/wordpress/menus/getMenus'
-import formatArchiveSeoData from '@/functions/wordpress/seo/formatArchiveSeoData'
 import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData'
+import formatManualSeoMeta from '@/functions/wordpress/seo/formatManualSeoMeta'
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import queryPostsDateArchive from '@/lib/wordpress/posts/queryPostsDateArchive'
-import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import dayjs from 'dayjs'
 
 /**
@@ -68,7 +67,13 @@ export default async function getPostsDateArchive(
   await apolloClient
     .query({query: queryPostsDateArchive, variables})
     .then((archive) => {
-      const {homepageSettings, siteSeo, menus, ...archiveData} = archive.data
+      const {
+        generalSettings,
+        homepageSettings,
+        siteSeo,
+        menus,
+        ...archiveData
+      } = archive.data
 
       // Retrieve menus.
       response.menus = getMenus(menus)
@@ -93,32 +98,33 @@ export default async function getPostsDateArchive(
       // Flatten posts array to include inner node post data.
       response.posts = data.edges.map((post) => post.node)
 
-      // Attempt to use posts page for blog, default to custom SEO.
-      response.post = {
-        seo: formatArchiveSeoData(
-          postType,
-          homepageSettings?.postsPage?.seo,
-          response.defaultSeo,
-          archiveQuerySeo?.[postType],
-          data?.archiveSeo
-        )
-      }
-
-      // Set archive title.
+      // Set archive title, route.
       let formattedDate = ''
       let title = ''
+      let route = ''
 
       if (day && month && year) {
         formattedDate = dayjs(`${year}-${month}-${day}`).format('MMMM D, YYYY')
         title = `Day: ${formattedDate}`
+        route = `${year}/${month}/${day}`
       } else if (month && year) {
         formattedDate = dayjs(`${year}-${month}`).format('MMMM YYYY')
         title = `Month: ${formattedDate}`
+        route = `${year}/${month}`
       } else {
+        formattedDate = year
         title = `Year: ${year}`
+        route = `${year}`
       }
 
-      response.post.title = title
+      // Determine SEO.
+      response.post = {
+        seo: formatManualSeoMeta(formattedDate, route, {
+          generalSettings,
+          siteSeo
+        }),
+        title
+      }
 
       // Extract pagination data.
       response.pagination = data.pageInfo
