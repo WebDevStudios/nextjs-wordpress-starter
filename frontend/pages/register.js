@@ -12,9 +12,11 @@ import React, {useEffect, useState} from 'react'
  * Render the Register component.
  *
  * @author WebDevStudios
- * @return {Element} The Register component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The Register component.
  */
-export default function Register() {
+export default function Register({post}) {
   const [errorMessage, setErrorMessage] = useState('')
   const {data: session} = useSession()
   const router = useRouter()
@@ -49,7 +51,7 @@ export default function Register() {
   }
 
   return (
-    <Layout>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <RichText tag="h1">Register</RichText>
         {!!errorMessage && <div>{errorMessage}</div>}

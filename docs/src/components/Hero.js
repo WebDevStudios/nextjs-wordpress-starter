@@ -14,10 +14,7 @@ export default function Hero() {
           Build headless websites with this starter from WebDevStudios
         </p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/index"
-          >
+          <Link className="button button--secondary button--lg" to="/docs">
             Get Started
           </Link>
           <a href="https://github.com/webdevstudios/nextjs-wordpress-starter/">

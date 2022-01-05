@@ -5,17 +5,10 @@ const seoPostFields = `
       text
       url
     }
-    canonical
-    title
-    metaDesc
+    fullHead
     metaRobotsNofollow
     metaRobotsNoindex
-    opengraphAuthor
-    opengraphModifiedTime
-    opengraphPublishedTime
-    opengraphImage {
-      sourceUrl(size: LARGE)
-    }
+    title
   }
 `
 

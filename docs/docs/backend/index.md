@@ -195,4 +195,4 @@ WORDPRESS_PREVIEW_SECRET = 'ANY_RANDOM_STRING'
 
 ## Next Steps
 
-Now that WordPress is ready, head on over and set up the [Frontend](/docs/frontend/index) to continue.
+Now that WordPress is ready, head on over and set up the [Frontend](/docs/frontend) to continue.
