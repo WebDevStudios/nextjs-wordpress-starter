@@ -49,7 +49,16 @@ export default function Page({
       <Layout seo={{...post?.seo}}>
         <Container>
           <RichText tag="h1">{post?.title}</RichText>
-          <Archive posts={posts} postType="post" pagination={pagination} />
+          <Archive
+            date={{
+              day,
+              month,
+              year
+            }}
+            posts={posts}
+            postType="post"
+            pagination={pagination}
+          />
         </Container>
       </Layout>
     )
