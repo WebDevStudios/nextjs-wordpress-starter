@@ -59,13 +59,14 @@ export default function Archive({posts, pagination, postType}) {
           />
         ))}
       </div>
-
-      <Button
-        onClick={loadPosts}
-        text={loadingMore ? 'Loading...' : 'Load More'}
-        type="secondary"
-        disabled={!paginationRef.current?.hasNextPage || loadingMore}
-      />
+      {paginationRef.current?.hasNextPage && (
+        <Button
+          onClick={loadPosts}
+          text={loadingMore ? 'Loading...' : 'Load More'}
+          type="secondary"
+          disabled={loadingMore}
+        />
+      )}
     </>
   )
 }
