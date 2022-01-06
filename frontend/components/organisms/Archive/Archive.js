@@ -14,16 +14,20 @@ import {useRef, useState} from 'react'
  * @param  {string}  props.date.day   Date query: day.
  * @param  {string}  props.date.month Date query: month.
  * @param  {string}  props.date.year  Date query: year.
- * @param  {Array}   props.posts      Array of post data from WordPress.
  * @param  {object}  props.pagination Archive pagination data from WordPress.
+ * @param  {Array}   props.posts      Array of post data from WordPress.
  * @param  {string}  props.postType   WP post type.
+ * @param  {string}  props.taxonomy   WP taxonomy type slug.
+ * @param  {string}  props.term       The manually-selected term.
  * @return {Element}                  The Archive component.
  */
 export default function Archive({
   date: {day, month, year} = {},
   posts,
   pagination,
-  postType
+  postType,
+  taxonomy,
+  term
 }) {
   // Track all posts, including initial posts and additionally loaded pages.
   const [allPosts, setAllPosts] = useState(posts)
@@ -43,7 +47,8 @@ export default function Archive({
     const newPosts = await getArchivePosts(
       postType,
       paginationRef.current?.endCursor,
-      {day, month, year}
+      {day, month, year},
+      {taxonomy, term}
     )
 
     setAllPosts([...allPosts, ...(newPosts?.posts ?? [])])
@@ -88,5 +93,7 @@ Archive.propTypes = {
     day: PropTypes.string,
     month: PropTypes.string,
     year: PropTypes.string
-  })
+  }),
+  taxonomy: PropTypes.string,
+  term: PropTypes.string
 }
