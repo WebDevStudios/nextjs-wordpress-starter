@@ -87,7 +87,7 @@ npm run storybook
 
 Stories are written in `.mdx` and should be placed next to the component.
 
-[Learn how to write stories for this starter](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/storybook/index).
+[Learn how to write stories for this starter](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/storybook).
 
 ---
 

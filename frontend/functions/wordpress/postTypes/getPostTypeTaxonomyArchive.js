@@ -104,17 +104,6 @@ export default async function getPostTypeTaxonomyArchive(
       // Flatten posts array to include inner node post data.
       response.posts = posts.map((post) => post.node)
 
-      // Use final breadcrumb as alternative canonical URL.
-      const breadcrumb =
-        archiveSeo?.breadcrumbs &&
-        archiveSeo.breadcrumbs.length > 0 &&
-        archiveSeo.breadcrumbs.slice(-1)[0]?.url
-
-      // Manually create fallback taxonomy canonical URL.
-      const fallback = `${response.defaultSeo?.openGraph?.url ?? ''}/${
-        postTypes?.[postType]?.route
-      }/${taxonomy}/${taxonomyId}`
-
       // Structure archive SEO.
       response.post = {
         seo: {
@@ -122,8 +111,6 @@ export default async function getPostTypeTaxonomyArchive(
           title:
             archiveSeo?.title ??
             `${taxonomyId} - ${response.defaultSeo?.openGraph?.siteName ?? ''}`,
-          metaDesc: archiveSeo?.metaDesc ?? '',
-          canonical: archiveSeo?.canonical ?? breadcrumb ?? fallback,
           metaRobotsNofollow: archiveSeo?.metaRobotsNofollow ?? 'follow',
           metaRobotsNoindex: archiveSeo?.metaRobotsNoindex ?? 'index'
         }

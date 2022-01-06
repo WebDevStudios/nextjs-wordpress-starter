@@ -34,7 +34,7 @@ export default function Team({post, archive, posts, pagination}) {
   }
 
   return (
-    <Layout seo={{...post?.seo}} hasJsonLd={true}>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (

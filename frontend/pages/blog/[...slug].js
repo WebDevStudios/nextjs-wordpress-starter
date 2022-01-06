@@ -21,7 +21,7 @@ const postType = 'post'
  */
 export default function BlogPost({post}) {
   return (
-    <Layout seo={{...post?.seo}} hasJsonLd={true}>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (

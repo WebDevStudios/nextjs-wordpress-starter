@@ -10,9 +10,11 @@ import React, {useEffect} from 'react'
  * Render the Profile component.
  *
  * @author WebDevStudios
- * @return {Element} The Profile component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The Profile component.
  */
-export default function Profile() {
+export default function Profile({post}) {
   const {data: session, status} = useSession()
   const loading = status === 'loading'
   const router = useRouter()
@@ -46,7 +48,7 @@ export default function Profile() {
   user.lastName && fullName.push(user.lastName)
 
   return (
-    <Layout>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <RichText tag="h1">Profile</RichText>
         {loading ? (

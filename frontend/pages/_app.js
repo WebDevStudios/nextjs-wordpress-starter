@@ -4,7 +4,6 @@ import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {SessionProvider as NextAuthProvider} from 'next-auth/react'
-import {DefaultSeo} from 'next-seo'
 import Error from 'next/error'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
@@ -85,7 +84,6 @@ export default function App({Component, pageProps}) {
             <Error statusCode={500} title={errorMessage} />
           ) : (
             <>
-              {!!defaultSeoData && <DefaultSeo {...defaultSeoData} />}
               {!!preview && (
                 // TODO -- abstract this to a component.
                 <p>
