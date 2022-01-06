@@ -9,6 +9,8 @@ const queryArchivePosts = gql`
     $year: Int
     $month: Int
     $day: Int
+    $taxonomy: String
+    $term: ID
     $orderBy: String = DATE
     $order: String = DESC
   ) {
@@ -18,6 +20,8 @@ const queryArchivePosts = gql`
       year: $year
       month: $month
       day: $day
+      taxonomy: $taxonomy
+      term: $term
       orderBy: $orderBy
       order: $order
     ) @rest(type: "Archive", path: "${nextApiRoutes.wordpress.archive}?{args}") {
