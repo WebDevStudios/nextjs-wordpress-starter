@@ -4,6 +4,7 @@ import queryPostsByCategory from '@/lib/wordpress/categories/queryPostsByCategor
 import {initializeWpApollo} from '@/lib/wordpress/connector'
 import queryPostsByTag from '@/lib/wordpress/tags/queryPostsByTag'
 import {postTypes} from '@/lib/wordpress/_config/postTypes'
+import {taxonomies} from '@/lib/wordpress/_config/taxonomies'
 
 /**
  * Retrieve post taxnomy archive.
@@ -113,7 +114,10 @@ export default async function getPostTypeTaxonomyArchive(
             `${taxonomyId} - ${response.defaultSeo?.openGraph?.siteName ?? ''}`,
           metaRobotsNofollow: archiveSeo?.metaRobotsNofollow ?? 'follow',
           metaRobotsNoindex: archiveSeo?.metaRobotsNoindex ?? 'index'
-        }
+        },
+        title: `${
+          taxonomies?.[taxonomy]?.label ? `${taxonomies[taxonomy].label}: ` : ''
+        }${data?.name || ''}`
       }
 
       // Extract pagination data.
