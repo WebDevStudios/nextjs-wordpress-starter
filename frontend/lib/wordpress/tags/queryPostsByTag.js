@@ -21,6 +21,7 @@ const queryPostsByTag = gql`
   ) {
     ${defaultPageData}
     tag(id: $id, idType: $idType) {
+      name
       ${seoPostFields}
       ${archivePosts}
     }
