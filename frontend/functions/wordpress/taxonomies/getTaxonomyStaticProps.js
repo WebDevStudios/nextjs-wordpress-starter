@@ -34,12 +34,7 @@ export default async function getTaxonomyStaticProps(
     const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
       taxonomy,
       taxonomySlug,
-      postType,
-      'DATE',
-      'DESC',
-      null,
-      true,
-      9
+      postType
     )
 
     // Merge in query results as Apollo state.
