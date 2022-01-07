@@ -35,32 +35,33 @@ export default async function getTaxonomyStaticPaths(taxonomy) {
   const apolloClient = initializeWpApollo()
 
   // Execute query.
-  const terms = await apolloClient.query({query})
+  const terms = await apolloClient
+    .query({query})
+    .then((response) => response?.data?.[pluralName]?.edges ?? [])
+    .catch(() => [])
 
   // Process paths.
-  const paths = !terms?.data?.[pluralName]?.edges
-    ? []
-    : terms.data[pluralName].edges
-        .map((post) => {
-          // Trim leading and trailing slashes then split into array on inner slashes.
-          const slug = post.node.uri.replace(/^\/|\/$/g, '').split('/')
+  const paths = terms
+    .map((post) => {
+      // Trim leading and trailing slashes then split into array on inner slashes.
+      const slug = post.node.uri.replace(/^\/|\/$/g, '').split('/')
 
-          // Remove path prefix from slug.
-          const routePrefix = taxonomies?.[taxonomy]?.route
-          const prefixIndex = routePrefix ? slug.indexOf(routePrefix) : -1
+      // Remove path prefix from slug.
+      const routePrefix = taxonomies?.[taxonomy]?.route
+      const prefixIndex = routePrefix ? slug.indexOf(routePrefix) : -1
 
-          if (prefixIndex > -1) {
-            slug.splice(prefixIndex, 1)
-          }
+      if (prefixIndex > -1) {
+        slug.splice(prefixIndex, 1)
+      }
 
-          return {
-            params: {
-              slug
-            }
-          }
-        })
-        // Filter out certain posts with custom routes (e.g., homepage).
-        .filter((post) => !!post.params.slug.join('/').length)
+      return {
+        params: {
+          slug
+        }
+      }
+    })
+    // Filter out certain posts with custom routes (e.g., homepage).
+    .filter((post) => !!post.params.slug.join('/').length)
 
   return {
     paths,
