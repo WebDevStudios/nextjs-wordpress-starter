@@ -1,11 +1,10 @@
+import getPostsDateArchive from '@/functions/wordpress/posts/getPostsDateArchive'
 import getFrontendPage from '@/functions/wordpress/postTypes/getFrontendPage'
 import getHeadlessConfigPage from '@/functions/wordpress/postTypes/getHeadlessConfigPage'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
-import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
 import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
-import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
 
@@ -77,17 +76,32 @@ export default async function getPostTypeStaticProps(
     })
   }
 
-  /* -- Handle taxonomy archives. -- */
-  if (
-    Object.keys(archiveQuerySeo).includes(postType) &&
-    params.slug.length > 1
-  ) {
-    const taxonomy = params.slug.shift() // First "slug" piece is taxonomy type.
-    const taxonomySlug = params.slug.pop() // Last "slug" piece is the lowest-level taxonomy term slug.
+  /* -- Handle date-based archives. -- */
+  const year =
+    Array.isArray(params?.slug) &&
+    params?.slug?.[0] &&
+    !isNaN(params?.slug?.[0]) &&
+    parseInt(params?.slug?.[0], 10)
+  const month =
+    year &&
+    Array.isArray(params?.slug) &&
+    params?.slug?.[1] &&
+    !isNaN(params?.slug?.[1]) &&
+    parseInt(params?.slug?.[1], 10)
+  const day =
+    month &&
+    Array.isArray(params?.slug) &&
+    params?.slug?.[2] &&
+    !isNaN(params?.slug?.[2]) &&
+    parseInt(params?.slug?.[2], 10)
+  const isDateArchive = postType === 'page' && (year || month || day)
 
-    const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
-      taxonomy,
-      taxonomySlug
+  if (isDateArchive) {
+    const {apolloClient, ...archiveData} = await getPostsDateArchive(
+      postType,
+      year ?? null,
+      month ?? null,
+      day ?? null
     )
 
     // Merge in query results as Apollo state.
@@ -95,7 +109,10 @@ export default async function getPostTypeStaticProps(
       props: {
         ...archiveData,
         ...sharedProps,
-        archive: true
+        dateArchive: true,
+        year: params?.slug?.[0] ?? null,
+        month: params?.slug?.[1] ?? null,
+        day: params?.slug?.[2] ?? null
       },
       revalidate
     })

@@ -23,7 +23,7 @@ export default async function getPostTypeStaticPaths(postType) {
   const isHierarchical = isHierarchicalPostType(postType)
 
   // Determine path field based on hierarchy.
-  const pathField = isHierarchical ? 'uri' : 'slug'
+  const pathField = isHierarchical || postType === 'post' ? 'uri' : 'slug'
 
   // Construct query based on post type.
   const query = gql`
@@ -52,6 +52,18 @@ export default async function getPostTypeStaticPaths(postType) {
           // Trim leading and trailing slashes then split into array on inner slashes.
           const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
 
+          // Handle year/month/date slug format for posts.
+          if (postType === 'post') {
+            return {
+              params: {
+                year: slug?.shift() || '', // [0]
+                month: slug?.shift() || '', // [1]
+                day: slug?.shift() || '', // [2]
+                slug: slug?.shift() || '' // [3]
+              }
+            }
+          }
+
           return {
             params: {
               slug
@@ -59,7 +71,11 @@ export default async function getPostTypeStaticPaths(postType) {
           }
         })
         // Filter out certain posts with custom routes (e.g., homepage).
-        .filter((post) => !!post.params.slug.join('/').length)
+        .filter((post) =>
+          Array.isArray(post.params.slug)
+            ? !!post.params.slug.join('/').length
+            : !!post.params.slug.length
+        )
 
   return {
     paths,

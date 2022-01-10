@@ -6,6 +6,7 @@ import Archive from '@/components/organisms/Archive'
 import getPagePropTypes from '@/functions/getPagePropTypes'
 import getPostTypeStaticPaths from '@/functions/wordpress/postTypes/getPostTypeStaticPaths'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
+import {PropTypes} from 'prop-types'
 
 // Define route post type.
 const postType = 'page'
@@ -14,19 +15,50 @@ const postType = 'page'
  * Render the Page component.
  *
  * @author WebDevStudios
- * @param  {object}  props            The component attributes as props.
- * @param  {boolean} props.archive    Whether displaying single post (false) or archive (true).
- * @param  {object}  props.pagination Archive pagination data from WordPress.
- * @param  {object}  props.post       Post data from WordPress.
- * @param  {Array}   props.posts      Array of post data from WordPress.
- * @return {Element}                  The Page component.
+ * @param  {object}  props              The component attributes as props.
+ * @param  {boolean} props.archive      Whether displaying single post (false) or archive (true).
+ * @param  {boolean} props.dateArchive  Whether displaying single post (false) or date-based archive (true).
+ * @param  {string}  props.day          Date query: day.
+ * @param  {string}  props.month        Date query: month.
+ * @param  {object}  props.pagination   Archive pagination data from WordPress.
+ * @param  {object}  props.post         Post data from WordPress.
+ * @param  {Array}   props.posts        Array of post data from WordPress.
+ * @param  {string}  props.year         Date query: year.
+ * @return {Element}                    The Page component.
  */
-export default function Page({archive, pagination, post, posts}) {
+export default function Page({
+  archive,
+  dateArchive,
+  day,
+  month,
+  pagination,
+  post,
+  posts,
+  year
+}) {
   if (archive) {
     return (
       <Layout seo={{...post?.seo}}>
         <Container>
           <Archive posts={posts} postType="post" pagination={pagination} />
+        </Container>
+      </Layout>
+    )
+  } else if (dateArchive) {
+    return (
+      <Layout seo={{...post?.seo}}>
+        <Container>
+          <RichText tag="h1">{post?.title}</RichText>
+          <Archive
+            date={{
+              day,
+              month,
+              year
+            }}
+            posts={posts}
+            postType="post"
+            pagination={pagination}
+          />
         </Container>
       </Layout>
     )
@@ -69,5 +101,9 @@ export async function getStaticProps({params, preview, previewData}) {
 }
 
 Page.propTypes = {
-  ...getPagePropTypes(postType)
+  ...getPagePropTypes(postType),
+  dateArchive: PropTypes.bool,
+  day: PropTypes.string,
+  month: PropTypes.string,
+  year: PropTypes.string
 }

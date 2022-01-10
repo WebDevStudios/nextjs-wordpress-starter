@@ -24,6 +24,7 @@ test('render Card with body, className, meta, and title props', () => {
 test('render Card with body, timestamp, title, and url props', () => {
   const props = {
     body: '<p>Nullam fringilla, metus a convallis euismod, erat mauris luctus quam, ut fringilla ipsum mauris at sapien.</p>',
+    headingLevel: 'h1',
     timestamp: 'May 29, 2021',
     title: 'Lorem ipsum',
     url: '/blog'

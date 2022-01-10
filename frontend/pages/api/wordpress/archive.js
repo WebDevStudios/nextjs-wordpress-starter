@@ -1,3 +1,4 @@
+import getPostsDateArchive from '@/functions/wordpress/posts/getPostsDateArchive'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 
 /**
@@ -12,12 +13,26 @@ export default async function archive(req, res) {
     // Retrieve props from request query params.
     const {
       postType,
+      day = null,
+      month = null,
+      year = null,
       orderBy = 'DATE',
       order = 'DESC',
       cursor = null
     } = req.query
 
-    const postsData = await getPostTypeArchive(postType, orderBy, order, cursor)
+    const postsData =
+      postType === 'post' && !isNaN(year)
+        ? await getPostsDateArchive(
+            postType,
+            !isNaN(parseInt(year, 10)) ? parseInt(year, 10) : null,
+            !isNaN(parseInt(month, 10)) ? parseInt(month, 10) : null,
+            !isNaN(parseInt(day, 10)) ? parseInt(day, 10) : null,
+            orderBy,
+            order,
+            cursor
+          )
+        : await getPostTypeArchive(postType, orderBy, order, cursor)
 
     // Check for errors.
     if (postsData.error) {

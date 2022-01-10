@@ -6,9 +6,8 @@ import {ApolloProvider} from '@apollo/client'
 import {SessionProvider as NextAuthProvider} from 'next-auth/react'
 import Error from 'next/error'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import 'tailwindcss/tailwind.css'
 
 /**
@@ -27,17 +26,6 @@ export default function App({Component, pageProps}) {
    * @see https://www.apollographql.com/docs/react/api/react/hooks/#the-apolloprovider-component
    */
   const apolloClient = useWpApollo(pageProps)
-
-  const router = useRouter()
-
-  // Redirect from WP blog archive to FE posts archive.
-  useEffect(() => {
-    if (!pageProps?.post?.isPostsPage) {
-      return
-    }
-
-    router.push('/blog')
-  }, [pageProps, router])
 
   // Check for errors.
   const error = pageProps?.error
