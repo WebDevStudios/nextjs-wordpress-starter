@@ -20,8 +20,8 @@ With this framework, **we've figured out the "hard stuff" and placed the sum of 
 
 There are two environments, the backend (WordPress) and the frontend (Next.js). Each environment has its own setup instructions.
 
-1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/index)
-2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend/index)
+1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/)
+2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend/)
 
 ## Documentation
 
