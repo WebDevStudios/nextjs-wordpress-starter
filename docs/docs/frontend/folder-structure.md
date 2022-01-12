@@ -18,7 +18,7 @@ This describes the folder layout of the Next.js WordPress starter:
 ├── lib
 ├── pages
 |  ├── api
-|  ├── blog
+|  ├── profile
 |  └── team
 ├── public
 ├── styles
@@ -90,9 +90,9 @@ to their name.
 
 On the surface level, `index.js` will correspond to `/` in the deployed
 website, `search.js` to `/search`, and so on. Files in brackets, such
-as `[slug].js`, are dynamically interpreted by Next.js. For example,
-a post titled "Example post" will be mapped by `/blog/[[slug]].js`
-to `/blog/example-post` in the finished website.
+as `[...slug].js`, are dynamically interpreted by Next.js. For example,
+a page titled "Example page" will be mapped by `/[...slug].js`
+to `/example-page` in the finished website.
 
 ## `tests`
 

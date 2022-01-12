@@ -25,7 +25,9 @@ export default function formatArchiveSeoData(
   return {
     title:
       archiveSeo?.title ??
-      `${fallbackSeo?.title} - ${defaultSeo?.openGraph?.siteName ?? ''}`,
+      `${fallbackSeo?.title ? `${fallbackSeo.title} -` : ''}${
+        defaultSeo?.openGraph?.siteName ?? ''
+      }`,
     metaRobotsNofollow: archiveSeo?.metaRobotsNofollow ?? 'follow',
     metaRobotsNoindex: archiveSeo?.metaRobotsNoindex ?? 'index'
   }

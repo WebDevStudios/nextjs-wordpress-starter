@@ -14,7 +14,7 @@ test('render Breadcrumbs', () => {
       },
       {
         text: 'Lorem Ipsum',
-        url: 'http://localhost:3000/blog/lorem-ipsum'
+        url: 'http://localhost:3000/2020/07/01/lorem-ipsum'
       }
     ]
   }
@@ -44,7 +44,7 @@ test('render Breadcrumbs', () => {
 
   expect(lists[2].querySelector('a')).toHaveAttribute(
     'href',
-    'http://localhost:3000/blog/lorem-ipsum'
+    'http://localhost:3000/2020/07/01/lorem-ipsum'
   )
   expect(lists[2]).toHaveTextContent('Lorem Ipsum')
 })
