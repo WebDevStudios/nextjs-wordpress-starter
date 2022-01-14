@@ -62,10 +62,9 @@ export default async function processPostTypeQuery(
         postData?.[postType] ?? // Dynamic posts.
         postData?.headlessConfig?.additionalSettings?.[postType] // Settings custom page.
 
-      // Set error props if data not found.
+      // Set notFound prop if post data missing.
       if (!post) {
-        response.error = true
-        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
+        response.notFound = true
 
         return null
       }

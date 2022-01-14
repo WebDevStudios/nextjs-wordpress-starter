@@ -167,7 +167,7 @@ export default async function getPostTypeStaticProps(
   const idType = isDraft ? 'DATABASE_ID' : 'SLUG'
 
   // Retrieve post data.
-  const {apolloClient, error, errorMessage, ...postData} =
+  const {apolloClient, error, errorMessage, notFound, ...postData} =
     await getPostTypeById(
       postType,
       id,
@@ -200,10 +200,15 @@ export default async function getPostTypeStaticProps(
     preview: isCurrentPostPreview
   }
 
-  // Fallback to empty props if homepage not set in WP.
-  if ('/' === slug && error) {
+  if ('/' === slug && notFound === true) {
+    // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
+  } else if (notFound) {
+    // Return 404 if any other page is not found.
+    return {
+      notFound: true
+    }
   }
 
   // Merge in query results as Apollo state.
