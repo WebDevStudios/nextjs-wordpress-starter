@@ -2,7 +2,7 @@
 title: Custom Post Types
 ---
 
-Our Next.js starter supports Custom Post Types. Use the example queries and handling for [posts](https://nextjs-wordpress-starter.vercel.app/post-archive/) as a starting point.
+Our Next.js starter supports Custom Post Types. Follow the [Example](custom-post-types#example) below as a starting point.
 
 ## Workflow
 
