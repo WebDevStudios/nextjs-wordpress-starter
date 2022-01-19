@@ -21,6 +21,7 @@ const queryPostsByCategory = gql`
   ) {
     ${defaultPageData}
     category(id: $id, idType: $idType) {
+      name
       ${seoPostFields}
       ${archivePosts}
     }
