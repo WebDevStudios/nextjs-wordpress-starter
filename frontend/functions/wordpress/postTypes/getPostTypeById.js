@@ -2,7 +2,6 @@ import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchic
 import processPostTypeQuery from '@/functions/wordpress/postTypes/processPostTypeQuery'
 import queryPageById from '@/lib/wordpress/pages/queryPageById'
 import queryPostById from '@/lib/wordpress/posts/queryPostById'
-import queryTeamById from '@/lib/wordpress/teams/queryTeamById'
 
 /**
  * Retrieve single post by specified identifier.
@@ -23,8 +22,7 @@ export default async function getPostTypeById(
   // Define single post query based on post type.
   const postTypeQuery = {
     page: queryPageById,
-    post: queryPostById,
-    team: queryTeamById
+    post: queryPostById
   }
 
   // Check if post type is hierarchical.
