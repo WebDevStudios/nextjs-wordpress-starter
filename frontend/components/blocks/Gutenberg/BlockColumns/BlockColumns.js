@@ -52,7 +52,8 @@ export default function BlockColumns({
               backgroundColorHex: attributes?.backgroundColorHex,
               gradientHex: attributes?.gradientHex,
               textColorHex: attributes?.textColorHex,
-              style: attributes?.style
+              style: attributes?.style,
+              width: attributes?.width || '50%'
             })
 
             return (

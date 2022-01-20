@@ -1,5 +1,4 @@
 // Export the blocks.
-export {default as AcfBlockMediaText} from './ACF/AcfBlockMediaText'
 export {default as BlockButton} from './Gutenberg/BlockButton'
 export {default as BlockButtons} from './Gutenberg/BlockButtons'
 export {default as BlockCode} from './Gutenberg/BlockCode'

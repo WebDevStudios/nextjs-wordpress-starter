@@ -2,7 +2,7 @@ import loginUser from '@/functions/wordpress/auth/loginUser'
 import refreshAuthToken from '@/functions/wordpress/auth/refreshAuthToken'
 import registerUser from '@/functions/wordpress/auth/registerUser'
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 const LOGIN_ERRORS = {
   INVALID_USERNAME: 'invalid_username',
@@ -67,7 +67,7 @@ function createUserObj(response) {
 }
 
 const providers = [
-  Providers.Credentials({
+  CredentialsProvider({
     id: 'wpLogin',
     name: 'Login',
     credentials: {
@@ -106,7 +106,7 @@ const providers = [
       return createUserObj(response)
     }
   }),
-  Providers.Credentials({
+  CredentialsProvider({
     id: 'wpRegister',
     name: 'Register',
     credentials: {
@@ -140,7 +140,7 @@ const pages = {
 }
 
 const session = {
-  jwt: true
+  strategy: 'jwt'
 }
 
 const jwt = {
@@ -148,7 +148,7 @@ const jwt = {
 }
 
 const callbacks = {
-  async jwt(token, user) {
+  async jwt({token, user}) {
     const token_exp = parseInt(token?.token_exp, 10)
 
     // Get seconds elapsed.
@@ -175,12 +175,12 @@ const callbacks = {
 
     return populateObj(token, user)
   },
-  async session(session, token) {
+  async session({session, token}) {
     session.user = populateObj(session.user, token)
 
     return session
   },
-  async redirect(url) {
+  async redirect({url}) {
     return url
   }
 }
@@ -190,7 +190,8 @@ const options = {
   pages,
   session,
   jwt,
-  callbacks
+  callbacks,
+  secret: process.env.NEXTAUTH_SECRET
 }
 
 // eslint-disable-next-line

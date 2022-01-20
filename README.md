@@ -1,6 +1,6 @@
 # Next.js WordPress Starter
 
-[![This is a banner for the WebDevStudios NextJS Starter that says, "Start your Headless WordPress project with the industry experts," and includes the WebDevStudios logo and URL, which is WebDevStudios dot com](https://nextjs.wpengine.com/wp-content/uploads/2021/06/WDS-GitHub-Banner.png)](https://webdevstudios.com/solutions/wordpress-headless-cms/)
+[![WebDevStudios. Your Success is Our Mission.](https://nextjsdevstart.wpengine.com/wp-content/uploads/2021/09/WDS-GitHub-Banner.webp)](https://webdevstudios.com/contact/)
 
 **A headless starter for WordPress powered by Next.js**
 
@@ -20,12 +20,12 @@ With this framework, **we've figured out the "hard stuff" and placed the sum of 
 
 There are two environments, the backend (WordPress) and the frontend (Next.js). Each environment has its own setup instructions.
 
-1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend/index)
-2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend/index)
+1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend)
+2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend)
 
 ## Documentation
 
-Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/docs/index> to view all the documentation.
+Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/docs> to view all the documentation.
 
 ## Contributing
 

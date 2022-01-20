@@ -24,8 +24,13 @@ export default async function preview(req, res) {
       throw new Error('Invalid token')
     }
 
+    // Ensure first letter of post type is lowercase to match GraphQL.
+    const postType = post_type
+      ? post_type.charAt(0).toLowerCase() + post_type.slice(1)
+      : ''
+
     const {post, error, errorMessage} = await getPostTypeById(
-      post_type,
+      postType,
       id,
       'DATABASE_ID',
       'basic'
@@ -41,15 +46,18 @@ export default async function preview(req, res) {
       post: {
         id: post.databaseId,
         slug: post.slug,
-        status: post.status
+        status: post.status,
+        uri: post.uri
       }
     })
 
-    const baseRoute = postTypes?.[post_type]?.route ?? ''
+    const baseRoute = postTypes?.[postType]?.route ?? ''
 
     // Redirect to post dynamic route.
     res.redirect(
-      `${baseRoute ? `/${baseRoute}` : ''}/${post.slug || post.databaseId}`
+      post.slug && post.uri && post.uri.indexOf('?page_id=') === -1
+        ? post.uri
+        : `${baseRoute ? `/${baseRoute}` : ''}/${post.databaseId}`
     )
   } catch (error) {
     return res.status(error?.status || 401).json({

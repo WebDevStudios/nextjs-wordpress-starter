@@ -1,11 +1,10 @@
+import getPostsDateArchive from '@/functions/wordpress/posts/getPostsDateArchive'
 import getFrontendPage from '@/functions/wordpress/postTypes/getFrontendPage'
 import getHeadlessConfigPage from '@/functions/wordpress/postTypes/getHeadlessConfigPage'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
-import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
 import {algoliaIndexName} from '@/lib/algolia/connector'
 import {addApolloState} from '@/lib/apolloConfig'
-import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
 
@@ -77,17 +76,32 @@ export default async function getPostTypeStaticProps(
     })
   }
 
-  /* -- Handle taxonomy archives. -- */
-  if (
-    Object.keys(archiveQuerySeo).includes(postType) &&
-    params.slug.length > 1
-  ) {
-    const taxonomy = params.slug.shift() // First "slug" piece is taxonomy type.
-    const taxonomySlug = params.slug.pop() // Last "slug" piece is the lowest-level taxonomy term slug.
+  /* -- Handle date-based archives. -- */
+  const year =
+    Array.isArray(params?.slug) &&
+    params?.slug?.[0] &&
+    !isNaN(params?.slug?.[0]) &&
+    parseInt(params?.slug?.[0], 10)
+  const month =
+    year &&
+    Array.isArray(params?.slug) &&
+    params?.slug?.[1] &&
+    !isNaN(params?.slug?.[1]) &&
+    parseInt(params?.slug?.[1], 10)
+  const day =
+    month &&
+    Array.isArray(params?.slug) &&
+    params?.slug?.[2] &&
+    !isNaN(params?.slug?.[2]) &&
+    parseInt(params?.slug?.[2], 10)
+  const isDateArchive = postType === 'page' && (year || month || day)
 
-    const {apolloClient, ...archiveData} = await getPostTypeTaxonomyArchive(
-      taxonomy,
-      taxonomySlug
+  if (isDateArchive) {
+    const {apolloClient, ...archiveData} = await getPostsDateArchive(
+      postType,
+      year ?? null,
+      month ?? null,
+      day ?? null
     )
 
     // Merge in query results as Apollo state.
@@ -95,7 +109,10 @@ export default async function getPostTypeStaticProps(
       props: {
         ...archiveData,
         ...sharedProps,
-        archive: true
+        dateArchive: true,
+        year: params?.slug?.[0] ?? null,
+        month: params?.slug?.[1] ?? null,
+        day: params?.slug?.[2] ?? null
       },
       revalidate
     })
@@ -137,7 +154,10 @@ export default async function getPostTypeStaticProps(
   // Check if preview mode is active and valid for current post (preview and post IDs or slugs match).
   const isCurrentPostPreview =
     preview &&
-    (postId === previewData?.post?.id || postId === previewData?.post?.slug)
+    (postId === previewData?.post?.id ||
+      // Compare URIs with leading and trailing slashes stripped.
+      postId.replace(/^\/|\/$/g, '') ===
+        previewData?.post?.uri?.replace(/^\/|\/$/g, ''))
 
   // Check if viewing a draft post.
   const isDraft = isCurrentPostPreview && 'draft' === previewData?.post?.status
@@ -147,28 +167,45 @@ export default async function getPostTypeStaticProps(
   const idType = isDraft ? 'DATABASE_ID' : 'SLUG'
 
   // Retrieve post data.
-  const {apolloClient, error, ...postData} = await getPostTypeById(
-    postType,
-    id,
-    idType,
-    isCurrentPostPreview ? 'full' : null
-  )
+  const {apolloClient, error, errorMessage, notFound, ...postData} =
+    await getPostTypeById(
+      postType,
+      id,
+      idType,
+      isCurrentPostPreview ? 'full' : null
+    )
+
+  // Check if dealing with posts page.
+  if (postType === 'page' && postData?.post?.isPostsPage) {
+    // Override page content with post archive.
+    const {apolloClient: archiveApolloClient, ...archiveData} =
+      await getPostTypeArchive('post')
+
+    // Merge in query results as Apollo state.
+    return addApolloState(archiveApolloClient, {
+      props: {
+        ...archiveData,
+        ...sharedProps,
+        archive: true
+      },
+      revalidate
+    })
+  }
 
   const props = {
     ...postData,
     ...sharedProps,
     error,
+    errorMessage,
     preview: isCurrentPostPreview
   }
 
-  // Fallback to empty props if homepage not set in WP.
-  if ('/' === slug && error) {
+  if ('/' === slug && notFound === true) {
+    // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
-  }
-
-  // Display 404 error page if error encountered.
-  if (props.error) {
+  } else if (notFound) {
+    // Return 404 if any other page is not found.
     return {
       notFound: true
     }

@@ -1,12 +1,12 @@
 import Comments, {SingleComment} from '@/components/molecules/Comments'
 import {render} from '@testing-library/react'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 
 jest.mock('@/functions/next-api/wordpress/comments/processPostComment', () =>
   jest.fn()
 )
 
-jest.mock('next-auth/client')
+jest.mock('next-auth/react')
 
 test('render SingleComment with comment without author url props', () => {
   const props = {
@@ -59,7 +59,7 @@ test('render SingleComment with comment with author url props', () => {
 })
 
 test('render Comment form', () => {
-  useSession.mockReturnValue([false, false])
+  useSession.mockReturnValue({data: false, status: false})
 
   const props = {
     comments: [
@@ -92,12 +92,12 @@ test('render Comment form', () => {
 })
 
 test('render logged User Comment form', () => {
-  useSession.mockReturnValue([
-    {
+  useSession.mockReturnValue({
+    data: {
       user: 1
     },
-    false
-  ])
+    status: false
+  })
 
   const props = {
     comments: [

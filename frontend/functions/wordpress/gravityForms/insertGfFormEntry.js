@@ -48,7 +48,7 @@ export default async function insertGfFormEntry(formId, fieldValues) {
       variables
     })
     .then((entryData) => {
-      const {entryId, entry} = entryData?.data?.submitGravityFormsForm
+      const {entryId, entry} = entryData.data.submitGravityFormsForm
 
       // Set error props if data not found.
       if (!entryId) {

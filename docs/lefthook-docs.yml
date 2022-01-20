@@ -1,0 +1,11 @@
+# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  parallel: true
+  commands:
+    formatting:
+      glob: '*.{js,jsx,ts,tsx,md,mdx,html,css,scss,json,yml}'
+      run: npx prettier {staged_files} --write
+    lintmarkdown:
+      glob: '*.{md}'
+      run: npx markdownlint-cli {staged_files} --fix

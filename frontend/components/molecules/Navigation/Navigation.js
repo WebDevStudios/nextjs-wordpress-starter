@@ -1,6 +1,6 @@
 import isLinkActive from '@/functions/isLinkActive'
 import cn from 'classnames'
-import {useSession} from 'next-auth/client'
+import {useSession} from 'next-auth/react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import PropTypes from 'prop-types'
@@ -42,8 +42,9 @@ function Arrow() {
  * @return {Element}            The NavigationMenu component.
  */
 function NavigationMenu({menu}) {
-  const {asPath} = useRouter()
-  const [session, loading] = useSession()
+  const {asPath} = useRouter() ?? {}
+  const {data: session, status} = useSession()
+  const loading = status === 'loading'
   const isGuest = !loading && !session?.user?.accessToken
 
   if (!menu || !menu?.length) {

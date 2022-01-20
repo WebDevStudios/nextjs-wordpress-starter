@@ -32,6 +32,15 @@ const queryPostById = gql`
     ${defaultPageData}
     post(id: $id, idType: $idType) {
       ...SinglePostFields
+      revisions(first: 1, where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            ${globalPostFields}
+            blocksJSON
+            excerpt
+          }
+        }
+      }
     }
   }
   ${singlePostFragment}

@@ -9,10 +9,12 @@ import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPa
  * @return {object}      Object containing Apollo client instance and post data or error object.
  */
 export default async function getHeadlessConfigPage(page) {
-  // Retrieve page query.
-  const query = headlessConfigPageQuerySeo?.[page]?.query ?? null
+  // Retrieve page config.
+  const config = headlessConfigPageQuerySeo?.[page]
+  const query = config?.query ?? null
+  const type = config?.type || 'page'
 
-  const data = await processPostTypeQuery('page', page, query)
+  const data = await processPostTypeQuery(type, page, query)
 
   // Add custom SEO if missing.
   if (!data?.post?.seo) {
@@ -21,9 +23,7 @@ export default async function getHeadlessConfigPage(page) {
       seo: {
         title: `${headlessConfigPageQuerySeo[page]?.title ?? ''} - ${
           data.defaultSeo?.openGraph?.siteName ?? ''
-        }`,
-        description: headlessConfigPageQuerySeo[page]?.description ?? '',
-        canonical: `${data.defaultSeo?.openGraph?.url ?? ''}/${page}`
+        }`
       }
     }
   }

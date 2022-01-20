@@ -1,5 +1,6 @@
 import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
 import Header from './'
+import {SessionProvider as NextAuthProvider} from 'next-auth/react'
 
 <Meta title="Components/Organisms/Header" component={Header} />
 
@@ -9,91 +10,93 @@ Use this to display the header.
 
 <Canvas>
   <Story name="Component">
-    <Header
-      menu={[
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDozMQ==',
-          parentId: null,
-          label: 'Home',
-          path: '/',
-          target: null,
-          title: null,
-          children: []
-        },
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDoyMjE=',
-          parentId: null,
-          label: 'About',
-          path: '/about/',
-          target: null,
-          title: null,
-          children: [
-            {
-              __typename: 'MenuItem',
-              id: 'cG9zdDozODE=',
-              parentId: 'cG9zdDoyMjE=',
-              label: 'Careers',
-              path: '/about/careers/',
-              target: null,
-              title: null,
-              children: []
-            },
-            {
-              __typename: 'MenuItem',
-              id: 'cG9zdDozMTE=',
-              parentId: 'cG9zdDoyMjE=',
-              label: 'Team',
-              path: '/team',
-              target: null,
-              title: null,
-              children: []
-            }
-          ]
-        },
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDoyOTQ=',
-          parentId: null,
-          label: 'Blog',
-          path: '/blog',
-          target: null,
-          title: null,
-          children: []
-        },
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDoyMTc=',
-          parentId: null,
-          label: 'Contact',
-          path: '/contact/',
-          target: null,
-          title: null,
-          children: []
-        },
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDo0MDA=',
-          parentId: null,
-          label: 'Log In',
-          path: '/login',
-          target: null,
-          title: null,
-          children: []
-        },
-        {
-          __typename: 'MenuItem',
-          id: 'cG9zdDo0MDE=',
-          parentId: null,
-          label: 'Profile',
-          path: '/profile',
-          target: null,
-          title: null,
-          children: []
-        }
-      ]}
-    />
+    <NextAuthProvider session={{}}>
+      <Header
+        menu={[
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDozMQ==',
+            parentId: null,
+            label: 'Home',
+            path: '/',
+            target: null,
+            title: null,
+            children: []
+          },
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDoyMjE=',
+            parentId: null,
+            label: 'About',
+            path: '/about/',
+            target: null,
+            title: null,
+            children: [
+              {
+                __typename: 'MenuItem',
+                id: 'cG9zdDozODE=',
+                parentId: 'cG9zdDoyMjE=',
+                label: 'Careers',
+                path: '/about/careers/',
+                target: null,
+                title: null,
+                children: []
+              },
+              {
+                __typename: 'MenuItem',
+                id: 'cG9zdDozMTE=',
+                parentId: 'cG9zdDoyMjE=',
+                label: 'Team',
+                path: '/team',
+                target: null,
+                title: null,
+                children: []
+              }
+            ]
+          },
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDoyOTQ=',
+            parentId: null,
+            label: 'Blog',
+            path: '/blog',
+            target: null,
+            title: null,
+            children: []
+          },
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDoyMTc=',
+            parentId: null,
+            label: 'Contact',
+            path: '/contact/',
+            target: null,
+            title: null,
+            children: []
+          },
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDo0MDA=',
+            parentId: null,
+            label: 'Log In',
+            path: '/login',
+            target: null,
+            title: null,
+            children: []
+          },
+          {
+            __typename: 'MenuItem',
+            id: 'cG9zdDo0MDE=',
+            parentId: null,
+            label: 'Profile',
+            path: '/profile',
+            target: null,
+            title: null,
+            children: []
+          }
+        ]}
+      />
+    </NextAuthProvider>
   </Story>
 </Canvas>
 
@@ -103,46 +106,48 @@ Use the search prop to pass the search component to the header.
 
 <Canvas>
   <Story name="Search">
-    <Header
-      search={<input type="text" name="search" placeholder="Search" />}
-      menu={[
-        {
-          parentId: null,
-          label: 'Home',
-          path: '/'
-        },
-        {
-          label: 'About',
-          path: '/about/',
-          children: [
-            {
-              label: 'Careers',
-              path: '/about/careers/',
-              title: null
-            },
-            {
-              label: 'Team',
-              path: '/team'
-            }
-          ]
-        },
-        {
-          label: 'Blog',
-          path: '/blog'
-        },
-        {
-          label: 'Contact',
-          path: '/contact/'
-        },
-        {
-          label: 'Log In',
-          path: '/login'
-        },
-        {
-          label: 'Profile',
-          path: '/profile'
-        }
-      ]}
-    />
+    <NextAuthProvider session={{}}>
+      <Header
+        search={<input type="text" name="search" placeholder="Search" />}
+        menu={[
+          {
+            parentId: null,
+            label: 'Home',
+            path: '/'
+          },
+          {
+            label: 'About',
+            path: '/about/',
+            children: [
+              {
+                label: 'Careers',
+                path: '/about/careers/',
+                title: null
+              },
+              {
+                label: 'Team',
+                path: '/team'
+              }
+            ]
+          },
+          {
+            label: 'Blog',
+            path: '/blog'
+          },
+          {
+            label: 'Contact',
+            path: '/contact/'
+          },
+          {
+            label: 'Log In',
+            path: '/login'
+          },
+          {
+            label: 'Profile',
+            path: '/profile'
+          }
+        ]}
+      />
+    </NextAuthProvider>
   </Story>
 </Canvas>

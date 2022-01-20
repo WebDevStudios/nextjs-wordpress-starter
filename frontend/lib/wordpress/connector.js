@@ -3,8 +3,11 @@ import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
 import {useMemo} from 'react'
 
 // Define env vars.
-export const wpApiUrlBase = process.env.WORDPRESS_URL
+export const wpApiUrlBase =
+  process.env.WORDPRESS_URL?.replace(/\/?$/, '/') || '/'
 export const wpPreviewSecret = process.env.WORDPRESS_PREVIEW_SECRET
+export const graphQlEndpoint =
+  process.env.WORDPRESS_GRAPHQL_ENDPOINT || 'graphql'
 const wpAppUser = process.env.WORDPRESS_APPLICATION_USERNAME
 const wpAppPass = process.env.WORDPRESS_APPLICATION_PASSWORD
 
@@ -27,7 +30,7 @@ export function createWpApolloClient(auth = false) {
   return new ApolloClient({
     ssrMode: false,
     link: new HttpLink({
-      uri: `${wpApiUrlBase}graphql`,
+      uri: `${wpApiUrlBase}${graphQlEndpoint}`,
       credentials: '',
       headers: {
         authorization: auth ? `Basic ${wpAuthorization}` : ''

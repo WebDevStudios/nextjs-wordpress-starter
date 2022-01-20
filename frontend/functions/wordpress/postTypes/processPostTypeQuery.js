@@ -58,16 +58,31 @@ export default async function processPostTypeQuery(
       response.defaultSeo = formatDefaultSeoData({homepageSettings, siteSeo})
 
       // Retrieve post data.
-      const post =
+      let post =
         postData?.[postType] ?? // Dynamic posts.
-        postData?.additionalSettings?.additionalSettings?.[postType] // Settings custom page.
+        postData?.headlessConfig?.additionalSettings?.[postType] // Settings custom page.
 
-      // Set error props if data not found.
+      // Set notFound prop if post data missing.
       if (!post) {
-        response.error = true
-        response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
+        response.notFound = true
 
         return null
+      }
+
+      // Retrieve revision post data if viewing full preview.
+      if (preview === 'full' && post?.revisions?.edges?.[0]?.node) {
+        post = {
+          ...post,
+          ...post.revisions.edges[0].node
+        }
+      }
+
+      // Remove original revision data from return.
+      if (post?.revisions?.edges?.length) {
+        post = {
+          ...post,
+          revisions: null
+        }
       }
 
       return post

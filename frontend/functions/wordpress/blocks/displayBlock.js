@@ -64,9 +64,6 @@ const LzbBlockMediaText = dynamic(() =>
 const LzbBlockHero = dynamic(() =>
   import('@/components/blocks/LazyBlocks/LzbBlockHero')
 )
-const AcfBlockMediaText = dynamic(() =>
-  import('@/components/blocks/ACF/AcfBlockMediaText')
-)
 
 /**
  * Decide which block component to display.
@@ -134,11 +131,6 @@ export default function displayBlock(block, index) {
 
     case 'core/table':
       return <BlockTable {...attributes} key={index} />
-
-    /* -- ACF BLOCKS -- */
-
-    case 'acf/acf-media-text':
-      return <AcfBlockMediaText {...attributes} key={index} />
 
     /* -- GRAVITY FORMS BLOCKS -- */
 

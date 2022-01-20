@@ -2,11 +2,11 @@
 title: Menus
 ---
 
-WordPress [Navigation Menus](https://developer.wordpress.org/themes/functionality/navigation-menus/) are fully supported in the NextJS starter.
+WordPress [Navigation Menus](https://developer.wordpress.org/themes/functionality/navigation-menus/) are fully supported in the Next.js WordPress Starter.
 
 ## Registering Menus
 
-Register nav menus like you would in any other WordPress environment. Menu items and hierarchy will be returned and accessed in NextJS using React [Context](https://reactjs.org/docs/context.html).
+Register nav menus like you would in any other WordPress environment. Menu items and hierarchy will be returned and accessed in Next.js using React [Context](https://reactjs.org/docs/context.html).
 
 ```php
 /**

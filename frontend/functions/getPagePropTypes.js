@@ -1,6 +1,7 @@
 import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchicalPostType'
 import isValidPostType from '@/functions/wordpress/postTypes/isValidPostType'
 import PropTypes from 'prop-types'
+import isValidTaxonomy from './wordpress/taxonomies/isValidTaxonomy'
 
 // Yoast SEO social prop types.
 export const seoSocialPropTypes = {
@@ -20,17 +21,9 @@ export const seoSocialPropTypes = {
 export const seoPropTypes = {
   seo: PropTypes.shape({
     breadcrumbs: PropTypes.array,
-    canonical: PropTypes.string,
-    description: PropTypes.string,
+    fullHead: PropTypes.string,
     metaRobotsIndex: PropTypes.string,
     metaRobotsFollow: PropTypes.string,
-    opengraphAuthor: PropTypes.string,
-    opengraphModifiedTime: PropTypes.string,
-    opengraphPublishedTime: PropTypes.string,
-    opengraphImage: PropTypes.shape({
-      altText: PropTypes.string,
-      sourceUrl: PropTypes.string
-    }),
     siteTitle: PropTypes.string,
     siteDescription: PropTypes.string,
     title: PropTypes.string,
@@ -68,19 +61,19 @@ export const archivePropTypes = {
 }
 
 /**
- * Retrieve basic prop types for a given page.
+ * Retrieve basic prop types for a given route.
  *
  * @author WebDevStudios
- * @param  {string} postType WP post type.
- * @return {object}          Page prop types.
+ * @param  {string} type WP post/taxonomy type.
+ * @return {object}      Page prop types.
  */
-export default function getPagePropTypes(postType) {
-  // Check if post type is valid.
-  if (!isValidPostType(postType)) {
+export default function getPagePropTypes(type) {
+  // Check if post type / taxonomy is valid.
+  if (!isValidPostType(type) || isValidTaxonomy(type)) {
     return null
   }
 
-  const hasArchive = !isHierarchicalPostType(postType)
+  const hasArchive = !isHierarchicalPostType(type) || isValidTaxonomy(type)
 
   return {
     ...postPropTypes,

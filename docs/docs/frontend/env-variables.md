@@ -23,12 +23,12 @@ NODE_TLS_REJECT_UNAUTHORIZED="0"
 ```
 
 ```text
-# Your WordPress URL.
+# Your WordPress URL (with or without trailing slash).
 WORDPRESS_URL="https://nextjs.wpengine.com/"
 ```
 
 ```text
-# This needs to match the WORDPRESS_PREVIEW_SECRET constant in wp-config.php. It can be any random string of text.
+# This needs to match the PREVIEW_SECRET_TOKEN constant in wp-config.php. It can be any random string of text.
 WORDPRESS_PREVIEW_SECRET="ANY_RANDOM_STRING_OF_TEXT"
 ```
 
@@ -64,8 +64,13 @@ NEXT_PUBLIC_IMAGE_DOMAINS="nextjs.wpengine.com, nextjsdevstart.wpengine.com, nex
 ```
 
 ```text
-# Your WordPress URL.
-NEXTAUTH_URL="https://nextjs.wpengine.com/"
+# Your Frontend URL.
+NEXTAUTH_URL="https://nextjs-wordpress-starter.vercel.app/"
+```
+
+```text
+# Your WordPress GraphQL endpoint (optional, will default to "graphql" if not provided).
+WORDPRESS_GRAPHQL_ENDPOINT="graphql"
 ```
 
 ## Add ENV Variables to Frontend Hosting

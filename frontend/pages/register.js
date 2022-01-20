@@ -4,7 +4,7 @@ import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Form from '@/components/molecules/Form'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
-import {signIn, useSession} from 'next-auth/client'
+import {signIn, useSession} from 'next-auth/react'
 import {useRouter} from 'next/router'
 import React, {useEffect, useState} from 'react'
 
@@ -12,11 +12,13 @@ import React, {useEffect, useState} from 'react'
  * Render the Register component.
  *
  * @author WebDevStudios
- * @return {Element} The Register component.
+ * @param  {object}  props      The component attributes as props.
+ * @param  {object}  props.post Post data from WordPress.
+ * @return {Element}            The Register component.
  */
-export default function Register() {
+export default function Register({post}) {
   const [errorMessage, setErrorMessage] = useState('')
-  const [session] = useSession()
+  const {data: session} = useSession()
   const router = useRouter()
 
   // Redirect to Profile page if user already logged in.
@@ -49,7 +51,7 @@ export default function Register() {
   }
 
   return (
-    <Layout>
+    <Layout seo={{...post?.seo}}>
       <Container>
         <RichText tag="h1">Register</RichText>
         {!!errorMessage && <div>{errorMessage}</div>}

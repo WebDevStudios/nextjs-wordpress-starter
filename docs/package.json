@@ -7,9 +7,9 @@
     "clear": "docusaurus clear",
     "dev": "npm run clear && docusaurus start",
     "docusaurus": "docusaurus",
-    "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,mdx,html,css,scss,json,yml}' --config '../.prettierrc.js' --write || true",
+    "format": "npx prettier '**/*.{js,jsx,ts,tsx,md,mdx,html,css,scss,json,yml}' --write || true",
     "lint": "npm run format && npm run lint:md",
-    "lint:md": "npx markdownlint 'docs/**/*.md' --config '../.markdownlint.json' --fix",
+    "lint:md": "npx markdownlint 'docs/**/*.md' --fix || true",
     "publish": "docusaurus deploy",
     "serve": "docusaurus serve",
     "start": "npm run clear && docusaurus start",
@@ -18,10 +18,10 @@
     "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.6",
-    "@docusaurus/preset-classic": "2.0.0-beta.6",
+    "@docusaurus/core": "2.0.0-beta.14",
+    "@docusaurus/preset-classic": "2.0.0-beta.14",
     "@mdx-js/react": "^1.6.22",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.2.0",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^1.2.1",
@@ -30,10 +30,10 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "markdownlint": "^0.24.0",
-    "markdownlint-cli": "^0.28.1",
-    "prettier": "^2.4.1",
-    "prop-types": "^15.7.2"
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.30.0",
+    "prettier": "^2.5.1",
+    "prop-types": "^15.8.1"
   },
   "browserslist": {
     "production": [

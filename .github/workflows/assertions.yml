@@ -12,7 +12,6 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['7.4']
         node-version: [14.x]
 
     steps:
@@ -22,25 +21,12 @@ jobs:
           token: ${{ github.token }}
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Use NPM 7
+      - name: Update NPM
         run: npm i -g npm@latest
-
-      - name: Setup PHP ${{ matrix.php-versions }}
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-versions }}
-          tools: composer:v2, phpcs
-
-      - name: Cache Composer dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.OS }}-composer-
 
       - name: Cache NPM dependencies
         uses: actions/cache@v2
@@ -52,22 +38,29 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install dependencies
+      - name: Install Docs
+        run: |
+          cd docs
+          npm i
+
+      - name: Lint Docs
+        run: |
+          cd docs
+          npx markdownlint 'docs/**/*.md'
+
+      - name: Install Frontend
         run: |
           cd frontend
           npm i
-          cd ..
-          npm i
-          composer install
-
-      - name: Lint Backend
-        run: composer run-script lint
 
       - name: Lint Frontend
-        run: npm run lint
+        run: |
+          cd frontend
+          npx stylelint '**/*.css'
+          npx markdownlint '**/*.md'
+          npx eslint '**/*.js'
 
       - name: Run Frontend Tests
-        run: npm run test
-
-      - name: Lint Docs
-        run: npm run lint:docs
+        run: |
+          cd frontend
+          npx jest
