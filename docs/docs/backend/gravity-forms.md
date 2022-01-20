@@ -22,7 +22,7 @@ The Gravity Forms REST API must be enabled separately from the WordPress REST AP
 1. Under "Forms", click "Settings".
 2. Click "REST API", then click the "Enable" checkbox
 
-![screenshot](/img/screenshot-setup-gravity-forms.png)
+![screenshot of setting gravity forms rest api](/img/screenshot-setup-gravity-forms.png)
 
 ### Turn off error displays
 
@@ -41,7 +41,7 @@ The Gravity Forms submission process requires the Javascript frontend to be able
 
 ### Using Gravity Forms
 
-To display a Gravity Form, simply use the Gravity Form block. The Next.js starter will pull the information from GraphQL and render the form.
+To display a Gravity Form, simply use the Gravity Form block in the WordPress block editor. The Next.js starter will pull the information from GraphQL and render the form.
 
 The Gravity Form block component is a simple wrapper around the `GravityForm` component found in `components/molecules/GravityForm`. Both are designed to work with information from GraphQL.
 

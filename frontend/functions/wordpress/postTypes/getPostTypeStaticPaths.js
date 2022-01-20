@@ -42,40 +42,41 @@ export default async function getPostTypeStaticPaths(postType) {
   const apolloClient = initializeWpApollo()
 
   // Execute query.
-  const posts = await apolloClient.query({query})
+  const posts = await apolloClient
+    .query({query})
+    .then((response) => response?.data?.[pluralName]?.edges ?? [])
+    .catch(() => [])
 
   // Process paths.
-  const paths = !posts?.data?.[pluralName]?.edges
-    ? []
-    : posts.data[pluralName].edges
-        .map((post) => {
-          // Trim leading and trailing slashes then split into array on inner slashes.
-          const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
+  const paths = posts
+    .map((post) => {
+      // Trim leading and trailing slashes then split into array on inner slashes.
+      const slug = post.node[pathField].replace(/^\/|\/$/g, '').split('/')
 
-          // Handle year/month/date slug format for posts.
-          if (postType === 'post') {
-            return {
-              params: {
-                year: slug?.shift() || '', // [0]
-                month: slug?.shift() || '', // [1]
-                day: slug?.shift() || '', // [2]
-                slug: slug?.shift() || '' // [3]
-              }
-            }
+      // Handle year/month/date slug format for posts.
+      if (postType === 'post') {
+        return {
+          params: {
+            year: slug?.shift() || '', // [0]
+            month: slug?.shift() || '', // [1]
+            day: slug?.shift() || '', // [2]
+            slug: slug?.shift() || '' // [3]
           }
+        }
+      }
 
-          return {
-            params: {
-              slug
-            }
-          }
-        })
-        // Filter out certain posts with custom routes (e.g., homepage).
-        .filter((post) =>
-          Array.isArray(post.params.slug)
-            ? !!post.params.slug.join('/').length
-            : !!post.params.slug.length
-        )
+      return {
+        params: {
+          slug
+        }
+      }
+    })
+    // Filter out certain posts with custom routes (e.g., homepage).
+    .filter((post) =>
+      Array.isArray(post.params.slug)
+        ? !!post.params.slug.join('/').length
+        : !!post.params.slug.length
+    )
 
   return {
     paths,

@@ -23,7 +23,7 @@ NODE_TLS_REJECT_UNAUTHORIZED="0"
 ```
 
 ```text
-# Your WordPress URL.
+# Your WordPress URL (with or without trailing slash).
 WORDPRESS_URL="https://nextjs.wpengine.com/"
 ```
 

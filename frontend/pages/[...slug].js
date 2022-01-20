@@ -15,16 +15,16 @@ const postType = 'page'
  * Render the Page component.
  *
  * @author WebDevStudios
- * @param  {object}  props              The component attributes as props.
- * @param  {boolean} props.archive      Whether displaying single post (false) or archive (true).
- * @param  {boolean} props.dateArchive  Whether displaying single post (false) or date-based archive (true).
- * @param  {string}  props.day          Date query: day.
- * @param  {string}  props.month        Date query: month.
- * @param  {object}  props.pagination   Archive pagination data from WordPress.
- * @param  {object}  props.post         Post data from WordPress.
- * @param  {Array}   props.posts        Array of post data from WordPress.
- * @param  {string}  props.year         Date query: year.
- * @return {Element}                    The Page component.
+ * @param  {object}  props             The component attributes as props.
+ * @param  {boolean} props.archive     Whether displaying single post (false) or archive (true).
+ * @param  {boolean} props.dateArchive Whether displaying single post (false) or date-based archive (true).
+ * @param  {string}  props.day         Date query: day.
+ * @param  {string}  props.month       Date query: month.
+ * @param  {object}  props.pagination  Archive pagination data from WordPress.
+ * @param  {object}  props.post        Post data from WordPress.
+ * @param  {Array}   props.posts       Array of post data from WordPress.
+ * @param  {string}  props.year        Date query: year.
+ * @return {Element}                   The Page component.
  */
 export default function Page({
   archive,

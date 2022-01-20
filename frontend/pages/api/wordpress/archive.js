@@ -1,5 +1,6 @@
 import getPostsDateArchive from '@/functions/wordpress/posts/getPostsDateArchive'
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
+import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
 
 /**
  * Load more posts for an archive.
@@ -16,23 +17,41 @@ export default async function archive(req, res) {
       day = null,
       month = null,
       year = null,
+      taxonomy = '',
+      term = '',
       orderBy = 'DATE',
       order = 'DESC',
       cursor = null
     } = req.query
 
-    const postsData =
-      postType === 'post' && !isNaN(year)
-        ? await getPostsDateArchive(
-            postType,
-            !isNaN(parseInt(year, 10)) ? parseInt(year, 10) : null,
-            !isNaN(parseInt(month, 10)) ? parseInt(month, 10) : null,
-            !isNaN(parseInt(day, 10)) ? parseInt(day, 10) : null,
-            orderBy,
-            order,
-            cursor
-          )
-        : await getPostTypeArchive(postType, orderBy, order, cursor)
+    let postsData = {}
+
+    // Retrieve post data based on optional params.
+    if (taxonomy && term) {
+      // Taxonomy archive.
+      postsData = await getPostTypeTaxonomyArchive(
+        taxonomy,
+        term,
+        postType,
+        orderBy,
+        order,
+        cursor
+      )
+    } else if (postType === 'post' && !isNaN(year)) {
+      // Date archive.
+      postsData = await getPostsDateArchive(
+        postType,
+        !isNaN(parseInt(year, 10)) ? parseInt(year, 10) : null,
+        !isNaN(parseInt(month, 10)) ? parseInt(month, 10) : null,
+        !isNaN(parseInt(day, 10)) ? parseInt(day, 10) : null,
+        orderBy,
+        order,
+        cursor
+      )
+    } else {
+      // Standard archive.
+      postsData = await getPostTypeArchive(postType, orderBy, order, cursor)
+    }
 
     // Check for errors.
     if (postsData.error) {

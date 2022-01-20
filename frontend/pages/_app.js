@@ -4,11 +4,11 @@ import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {SessionProvider as NextAuthProvider} from 'next-auth/react'
-import Error from 'next/error'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import {useState} from 'react'
 import 'tailwindcss/tailwind.css'
+import Custom500 from './500'
 
 /**
  * Render the App component.
@@ -69,7 +69,7 @@ export default function App({Component, pageProps}) {
       <ApolloProvider client={apolloClient}>
         <WordPressProvider value={wp}>
           {error ? (
-            <Error statusCode={500} title={errorMessage} />
+            <Custom500 errorMessage={errorMessage} post={componentProps.post} />
           ) : (
             <>
               {!!preview && (

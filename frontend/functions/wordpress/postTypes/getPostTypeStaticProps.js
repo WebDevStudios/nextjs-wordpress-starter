@@ -167,12 +167,13 @@ export default async function getPostTypeStaticProps(
   const idType = isDraft ? 'DATABASE_ID' : 'SLUG'
 
   // Retrieve post data.
-  const {apolloClient, error, ...postData} = await getPostTypeById(
-    postType,
-    id,
-    idType,
-    isCurrentPostPreview ? 'full' : null
-  )
+  const {apolloClient, error, errorMessage, notFound, ...postData} =
+    await getPostTypeById(
+      postType,
+      id,
+      idType,
+      isCurrentPostPreview ? 'full' : null
+    )
 
   // Check if dealing with posts page.
   if (postType === 'page' && postData?.post?.isPostsPage) {
@@ -195,17 +196,16 @@ export default async function getPostTypeStaticProps(
     ...postData,
     ...sharedProps,
     error,
+    errorMessage,
     preview: isCurrentPostPreview
   }
 
-  // Fallback to empty props if homepage not set in WP.
-  if ('/' === slug && error) {
+  if ('/' === slug && notFound === true) {
+    // Fallback to empty props if homepage not set in WP.
     props.post = null
     props.error = false
-  }
-
-  // Display 404 error page if error encountered.
-  if (props.error) {
+  } else if (notFound) {
+    // Return 404 if any other page is not found.
     return {
       notFound: true
     }
