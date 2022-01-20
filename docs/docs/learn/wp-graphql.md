@@ -156,7 +156,6 @@ installed to do just this:
 
 - Add WPGraphQL SEO (for Yoast SEO)
 - WP GraphQL Gutenberg (adds the full JSON objects for individual blocks)
-- WPGraphQL for Advanced Custom Fields (adds meta fields from ACF)
 - WPGraphQL for Gravity Forms
 - WPGraphQL Tax Query
 
