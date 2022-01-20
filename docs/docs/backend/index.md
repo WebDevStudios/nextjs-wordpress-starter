@@ -28,7 +28,7 @@ Create a new WordPress install. We recommend the following settings:
 - MySQL 5.7+
 - Enable SSL certificate
 
-![screenshot](/img/screenshot-local-by-flywheel.png)
+![screenshot of local wp](/img/screenshot-local-by-flywheel.png)
 
 ---
 
@@ -39,7 +39,7 @@ Now that you've got a local WordPress install, it's time to turn it into a Headl
 1. In your terminal, change directories to your new WordPress install's `/wp-content` directory, then download our [`composer.json`](https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json).
 
 ```bash
-cd wp-content && curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json
+curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json
 ```
 
 2. Install free plugins and the theme:
@@ -120,7 +120,7 @@ In the WordPress Dashboard, navigate to `Settings -> Permalinks`
 
 2. Save the settings.
 
-![screenshot](/img/screenshot-set-permalinks.png)
+![screenshot of saving the settings](/img/screenshot-set-permalinks.png)
 
 ---
 
@@ -133,7 +133,7 @@ You'll need to create at least one menu, `Primary`. Additionally, you can create
 3. Click "Save Menu"
 4. Add menu items as needed
 
-![screenshot](/img/screenshot-set-menus.png)
+![screenshot of setting the menu](/img/screenshot-set-menus.png)
 
 ## Plugins Setup
 
@@ -143,11 +143,11 @@ In order for the WP GraphQL Gutenberg plugin to create `blockJSON`, you'll need 
 
 `GraphQL Gutenberg -> Update`
 
-![screenshot](/img/screenshot-activate-graphql-gutenberg.png)
+![screenshot of updating graphql gutenberg](/img/screenshot-activate-graphql-gutenberg.png)
 
 ### Application Password
 
-The frontend will need to authenticate with WordPress for some things, luckily, we can use the new [Application Passwords](https://make.wordpress.org/core/2020/11/05/application-passwords-integration-guide/) that come with WordPress 5.6+
+The frontend will need to authenticate with WordPress, we can use [Application Passwords](https://make.wordpress.org/core/2020/11/05/application-passwords-integration-guide/).
 
 1. `Users -> Profile -> Scroll to the bottom`
 2. Enter a name, e.g, `nextjs-wordpress-starter`
@@ -155,7 +155,7 @@ The frontend will need to authenticate with WordPress for some things, luckily, 
 
 Copy and paste the password into a safe location. You will need to add both your **WordPress username** and Application password to the `.env` file for the frontend. Learn more about [ENV Variables](/docs/frontend/env-variables).
 
-![screenshot](/img/screenshot-set-application-password.png)
+![screenshot of setting application password](/img/screenshot-set-application-password.png)
 
 ---
 
