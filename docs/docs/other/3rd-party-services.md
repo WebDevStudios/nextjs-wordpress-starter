@@ -29,4 +29,3 @@ Vercel has a generous free tier and offers support for both serverless functions
 <https://wpengine.com>
 
 We're a partner with WP Engine and love their managed WordPress hosting options. That said, while hosting your headless WordPress install on WP Engine is recommended, it is not required.
-
