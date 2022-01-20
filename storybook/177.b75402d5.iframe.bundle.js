@@ -1,0 +1,1 @@
+(self.webpackChunk_webdevstudios_nextjs_wordpress_starter=self.webpackChunk_webdevstudios_nextjs_wordpress_starter||[]).push([[177],{"?6eb0":()=>{}}]);
