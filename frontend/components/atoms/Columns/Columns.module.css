@@ -1,5 +1,5 @@
 .columns {
-  @apply flex flex-row gap-8;
+  @apply flex flex-col md:flex-row gap-8;
 
   &.alignCenter {
     & .column {
