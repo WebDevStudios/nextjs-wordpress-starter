@@ -49,6 +49,7 @@ jobs:
       - name: Lint Frontend
         run: |
           cd frontend
+          npm i --legacy-peer-deps
           npx stylelint '**/*.css'
           npx markdownlint '**/*.md'
           npx eslint '**/*.js'
