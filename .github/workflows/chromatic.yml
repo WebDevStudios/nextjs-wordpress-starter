@@ -42,7 +42,7 @@ jobs:
         run: npm i --legacy-peer-deps
 
       - name: Publish to Chromatic
-      - uses: chromaui/action@v1
+        uses: chromaui/action@v1
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
