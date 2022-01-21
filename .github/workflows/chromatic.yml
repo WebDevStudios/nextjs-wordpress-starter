@@ -1,4 +1,4 @@
-name: Assertions
+name: Chromatic
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  chromatic:
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,10 +15,11 @@ jobs:
         node-version: ["lts/*"]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
         with:
           token: ${{ github.token }}
+          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -42,22 +43,13 @@ jobs:
         run: |
           cd frontend
           npm i --legacy-peer-deps
-          cd ../docs
-          npm i --legacy-peer-deps
 
-      - name: Lint Docs
-        run: |
-          cd docs
-          npx markdownlint 'docs/**/*.md'
-
-      - name: Lint Frontend
-        run: |
-          cd frontend
-          npx stylelint '**/*.css'
-          npx markdownlint '**/*.md'
-          npx eslint '**/*.js'
-
-      - name: Run Frontend Tests
-        run: |
-          cd frontend
-          npx jest
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ github.token }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: frontend
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
+          skip: "dependabot/**"
