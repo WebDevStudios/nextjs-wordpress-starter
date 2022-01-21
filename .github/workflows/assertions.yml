@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: ["lts/*"]
 
     steps:
       - name: Checkout repository
@@ -21,14 +21,14 @@ jobs:
           token: ${{ github.token }}
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.5.1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Update NPM
         run: npm i -g npm@latest
 
-      - name: Cache NPM dependencies
+      - name: Cache NPM Dependencies
         uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -38,20 +38,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install Docs
-        run: |
-          cd docs
-          npm i
+      - name: Install Dependencies
+        run: npm i --legacy-peer-deps
 
       - name: Lint Docs
         run: |
           cd docs
           npx markdownlint 'docs/**/*.md'
-
-      - name: Install Frontend
-        run: |
-          cd frontend
-          npm i
 
       - name: Lint Frontend
         run: |
