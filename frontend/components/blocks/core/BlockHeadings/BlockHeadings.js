@@ -15,7 +15,7 @@ import React from 'react'
  * @param  {string}  props.backgroundColorHex The background color hex value.
  * @param  {string}  props.className          Optional classnames.
  * @param  {string}  props.content            The content of the block.
- * @param  {string}  props.level              The heading level.
+ * @param  {number}  props.level              The heading level.
  * @param  {object}  props.style              The style attributes.
  * @param  {string}  props.textAlign          Optional alignment style.
  * @param  {string}  props.textColorHex       The text color hex value.
