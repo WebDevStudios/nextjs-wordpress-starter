@@ -92,7 +92,7 @@
     "prop-types": "^15.8.1",
     "sharp": "^0.29.3",
     "storybook-css-modules-preset": "^1.1.1",
-    "stylelint": "^14.2.0",
+    "stylelint": "^14.3.0",
     "stylelint-config-standard": "^24.0.0"
   }
 }
