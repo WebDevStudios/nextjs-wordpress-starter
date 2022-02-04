@@ -11,7 +11,9 @@
     }
   }
 
-  & input {
-    @apply rounded block relative text-black outline-1 outline-black outline;
+  & input,
+  & select,
+  & textarea {
+    @apply rounded block relative text-black outline-1 outline-black outline mb-4;
   }
 }
