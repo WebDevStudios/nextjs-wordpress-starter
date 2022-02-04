@@ -13,7 +13,20 @@ import withFormik from 'storybook-formik'
 Use this to display a Formik input with label and error messaging.
 
 <Canvas>
-  <Story name="Component">
+  <Story name="Input">
     <Input label="Text Input" name="text" />
+  </Story>
+</Canvas>
+
+# Type
+
+Use the `type` prop to change the input to any HTML input type.
+
+<Canvas>
+  <Story name="Type">
+    <Input label="Text Input" name="text" />
+    <Input label="Email Input" name="email" type="email" />
+    <Input label="URL Input" name="url" type="url" />
+    <Input label="Date Input" name="url" type="date" />
   </Story>
 </Canvas>
