@@ -1,7 +1,12 @@
 import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
 import Input from './'
+import withFormik from 'storybook-formik'
 
-<Meta title="Components/Atoms/Input" component={Input} />
+<Meta
+  title="Components/Atoms/Input"
+  component={Input}
+  decorators={[withFormik]}
+/>
 
 # Component
 
