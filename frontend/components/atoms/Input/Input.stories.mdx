@@ -47,3 +47,23 @@ Use the `as` prop to change the HTML element to be rendered (defaults to `input`
     <Input as="textarea" label="Textarea" name="textarea" />
   </Story>
 </Canvas>
+
+## Controls
+
+Play around with `<Input />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-input--controls).
+
+export const Template = (args) => <Input {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      as: 'input',
+      label: 'Text Input',
+      name: 'text',
+      type: 'text'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
