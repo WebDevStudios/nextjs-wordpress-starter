@@ -30,3 +30,20 @@ Use the `type` prop to change the input to any HTML input type.
     <Input label="Date Input" name="url" type="date" />
   </Story>
 </Canvas>
+
+# As
+
+Use the `as` prop to change the HTML element to be rendered (defaults to `input`). See the Formik `<Field />` [docs](https://formik.org/docs/api/field#as) for available options.
+
+<Canvas>
+  <Story name="As">
+    <Input label="Input" name="text" />
+    <Input as="select" label="Select" name="select">
+      <option>-- select --</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Input>
+    <Input as="textarea" label="Textarea" name="textarea" />
+  </Story>
+</Canvas>
