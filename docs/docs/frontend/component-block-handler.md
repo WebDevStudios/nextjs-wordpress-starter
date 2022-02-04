@@ -6,23 +6,38 @@ These components take in Gutenberg block attributes, further process the data if
 
 ## Example
 
-Here is the block handler for a Hero block created with Lazy Blocks. Because the `backgroundImage` is a url formatted JSON string, we need to decode and parse it as JSON for the Hero component. The block handler component is a good place to do this.
+Here is the block handler for the core heading block (`BlockHeadings.js`).
+The design system component `Heading.js` needs a string for it's `tag` prop. However, WordPress is sending a number attribute called `level`.
+
+The block handler component is a great place to address this mismatch.
 
 ```js
-export default function LzbBlockHero({attributes}) {
-  attributes = {
-    ...attributes,
-    backgroundImage: JSON.parse(decodeURIComponent(attributes.backgroundImage))
-  }
+export default function BlockHeadings({
+  anchor,
+  backgroundColorHex,
+  className,
+  content,
+  level,
+  style,
+  textAlign,
+  textColorHex
+}) {
+  const headingStyle = getBlockStyles({backgroundColorHex, textColorHex, style})
 
   return (
-    <>
-      {attributes ? (
-        <Hero {...attributes} />
-      ) : (
-        'There was a problem with attributes in BlockHero.js.'
+    <Heading
+      className={cn(
+        className,
+        textAlign === 'center' ? 'text-center' : null,
+        !textAlign || textAlign === 'left' ? 'text-left' : null,
+        textAlign === 'right' ? 'text-right' : null
       )}
-    </>
+      id={anchor}
+      style={headingStyle}
+      tag={'h' + level}
+    >
+      {content}
+    </Heading>
   )
 }
 ```

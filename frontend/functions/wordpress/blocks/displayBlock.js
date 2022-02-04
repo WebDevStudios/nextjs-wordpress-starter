@@ -4,67 +4,6 @@ import PropTypes from 'prop-types'
 // Import WP blocks using Next Dynamic Imports
 // @see https://nextjs.org/docs/advanced-features/dynamic-import
 
-const BlockQuote = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockQuote')
-)
-const BlockPullQuote = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockPullQuote')
-)
-const BlockCode = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockCode')
-)
-const BlockEmbed = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockEmbed')
-)
-const BlockMediaText = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockMediaText')
-)
-const BlockButton = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockButton')
-)
-const BlockButtons = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockButtons')
-)
-const BlockColumns = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockColumns')
-)
-const BlockCover = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockCover')
-)
-const BlockHeadings = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockHeadings')
-)
-const BlockImage = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockImage')
-)
-const BlockImageGallery = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockImageGallery')
-)
-const BlockTable = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockTable')
-)
-const BlockList = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockList')
-)
-const BlockParagraph = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockParagraph')
-)
-const BlockSeparator = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockSeparator')
-)
-const BlockSpacer = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockSpacer')
-)
-const BlockGravityForm = dynamic(() =>
-  import('@/components/blocks/Gutenberg/BlockGravityForm')
-)
-const LzbBlockMediaText = dynamic(() =>
-  import('@/components/blocks/LazyBlocks/LzbBlockMediaText')
-)
-const LzbBlockHero = dynamic(() =>
-  import('@/components/blocks/LazyBlocks/LzbBlockHero')
-)
-
 /**
  * Decide which block component to display.
  *
@@ -79,71 +18,97 @@ export default function displayBlock(block, index) {
   // prettier-ignore
   switch (name) {
     /* -- CORE BLOCKS -- */
-
-    case 'core/button':
+    case 'core/button': {
+      const BlockButton = dynamic(() => import('@/components/blocks/core/BlockButton'))
       return <BlockButton {...attributes} key={index} />
+    }
 
-    case 'core/buttons':
+    case 'core/buttons': {
+      const BlockButtons = dynamic(() => import('@/components/blocks/core/BlockButtons'))
       return <BlockButtons {...attributes} innerBlocks={innerBlocks} key={index} />
+    }
 
     case 'core/code':
-    case 'core/preformatted':
+    case 'core/preformatted': {
+      const BlockCode = dynamic(() => import('@/components/blocks/core/BlockCode'))
       return <BlockCode {...attributes} key={index} />
+    }
 
-    case 'core/columns':
+    case 'core/columns': {
+      const BlockColumns = dynamic(() => import('@/components/blocks/core/BlockColumns'))
       return <BlockColumns {...attributes} innerBlocks={innerBlocks} key={index} />
+    }
 
-    case 'core/cover':
+    case 'core/cover': {
+      const BlockCover = dynamic(() => import('@/components/blocks/core/BlockCover'))
       return <BlockCover {...attributes} innerBlocks={innerBlocks} key={index} />
+    }
 
-    case 'core/embed':
+    case 'core/embed': {
+      const BlockEmbed = dynamic(() => import('@/components/blocks/core/BlockEmbed'))
       return <BlockEmbed {...attributes} key={index} />
+    }
 
-    case 'core/gallery':
+    case 'core/gallery': {
+      const BlockImageGallery = dynamic(() => import('@/components/blocks/core/BlockImageGallery'))
       return <BlockImageGallery {...attributes} key={index} />
+    }
 
-    case 'core/heading':
+    case 'core/heading': {
+      const BlockHeadings = dynamic(() => import('@/components/blocks/core/BlockHeadings'))
       return <BlockHeadings {...attributes} key={index} />
+    }
 
-    case 'core/image':
+    case 'core/image': {
+      const BlockImage = dynamic(() => import('@/components/blocks/core/BlockImage'))
       return <BlockImage {...attributes} key={index} />
+    }
 
-    case 'core/list':
+    case 'core/list': {
+      const BlockList = dynamic(() => import('@/components/blocks/core/BlockList'))
       return <BlockList {...attributes} key={index} />
+    }
 
-    case 'core/media-text':
+    case 'core/media-text': {
+      const BlockMediaText = dynamic(() => import('@/components/blocks/core/BlockMediaText'))
       return <BlockMediaText {...attributes} innerBlocks={innerBlocks} key={index} />
+    }
 
-    case 'core/paragraph':
+    case 'core/paragraph': {
+      const BlockParagraph = dynamic(() => import('@/components/blocks/core/BlockParagraph'))
       return <BlockParagraph {...attributes} key={index} />
+    }
 
-    case 'core/pullquote':
+    case 'core/pullquote': {
+      const BlockPullQuote = dynamic(() => import('@/components/blocks/core/BlockPullQuote'))
       return <BlockPullQuote {...attributes} key={index} />
+    }
 
-    case 'core/quote':
-        return <BlockQuote {...attributes} key={index} />
+    case 'core/quote': {
+      const BlockQuote = dynamic(() => import('@/components/blocks/core/BlockQuote'))
+      return <BlockQuote {...attributes} key={index} />
+    }
 
-    case 'core/separator':
+    case 'core/separator': {
+      const BlockSeparator = dynamic(() => import('@/components/blocks/core/BlockSeparator'))
       return <BlockSeparator {...attributes} key={index} />
+    }
 
-    case 'core/spacer':
+    case 'core/spacer': {
+      const BlockSpacer = dynamic(() => import('@/components/blocks/core/BlockSpacer'))
       return <BlockSpacer {...attributes} key={index} />
+    }
 
-    case 'core/table':
+    case 'core/table': {
+      const BlockTable = dynamic(() => import('@/components/blocks/core/BlockTable'))
       return <BlockTable {...attributes} key={index} />
+    }
 
     /* -- GRAVITY FORMS BLOCKS -- */
-
-    case 'gravityforms/form':
+    case 'gravityforms/form': {
+      const BlockGravityForm = dynamic(() => import('@/components/blocks/core/BlockGravityForm'))
       return <BlockGravityForm {...attributes} key={index} />
-
-    /* -- LAZY BLOCKS -- */
-
-    case 'lazyblock/hero':
-      return <LzbBlockHero {...attributes} key={index} />
-
-    case 'lazyblock/mediatext':
-      return <LzbBlockMediaText {...attributes} key={index} />
+    }
 
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>

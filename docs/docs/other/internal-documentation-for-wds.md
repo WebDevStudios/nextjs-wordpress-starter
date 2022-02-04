@@ -7,7 +7,6 @@ The following information pertains to internal tools and workflows required to m
 ## All Github Repositories
 
 - [Next.js WordPress Starter](https://github.com/WebDevStudios/nextjs-wordpress-starter)
-- [WDS Headless ACF](https://github.com/WebDevStudios/wds-headless-acf)
 - [WDS Headless Algolia](https://github.com/WebDevStudios/wds-headless-algolia)
 - [WDS Headless Blocks](https://github.com/WebDevStudios/wds-headless-blocks)
 - [WDS Headless Core](https://github.com/WebDevStudios/wds-headless-core)

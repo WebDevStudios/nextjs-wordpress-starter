@@ -50,33 +50,6 @@ like this:
   },
   "categories": [13208, 13213],
   "tags": [13204],
-  "acf": {
-    "blog_hero_image": {
-      "ID": 23428,
-      "id": 23428,
-      "filename": "nextjs-wordpress-1000-page-website.jpg",
-      "filesize": 199991,
-      "url": "https://webdevstudios.com/wp-content/uploads/2021/03/nextjs-wordpress-1000-page-website.jpg",
-      "link": "https://webdevstudios.com/2021/03/09/next-js-headless-wordpress/nextjs-wordpress-1000-page-website/",
-      "alt": "This is a photograph from the Electric Mile Drive Thru light Rave at the Santa Anita Race Track, Arcadia, California. It is a series of colorfully lit grids.",
-      "width": 1920,
-      "height": 720,
-      "sizes": {
-        "thumbnail": "https://webdevstudios.com/wp-content/uploads/2021/03/nextjs-wordpress-1000-page-website-150x150.jpg",
-        "thumbnail-width": 150,
-        "thumbnail-height": 150,
-        "medium": "https://webdevstudios.com/wp-content/uploads/2021/03/nextjs-wordpress-1000-page-website-300x113.jpg",
-        "medium-width": 300,
-        "medium-height": 113,
-        "medium_large": "https://webdevstudios.com/wp-content/uploads/2021/03/nextjs-wordpress-1000-page-website-768x288.jpg",
-        "medium_large-width": 768,
-        "medium_large-height": 288,
-        "large": "https://webdevstudios.com/wp-content/uploads/2021/03/nextjs-wordpress-1000-page-website-1024x384.jpg",
-        "large-width": 850,
-        "large-height": 319
-      }
-    }
-  },
   "jetpack_featured_media_url": "",
   "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v15.9.2 - https://yoast.com/wordpress/plugins/seo/ -->...<!-- / Yoast SEO Premium plugin. -->",
   "amp_validity": null,
@@ -183,7 +156,6 @@ installed to do just this:
 
 - Add WPGraphQL SEO (for Yoast SEO)
 - WP GraphQL Gutenberg (adds the full JSON objects for individual blocks)
-- WPGraphQL for Advanced Custom Fields (adds meta fields from ACF)
 - WPGraphQL for Gravity Forms
 - WPGraphQL Tax Query
 
