@@ -18,6 +18,22 @@ async function validateEmail(value) {
 }
 
 /**
+ * Validate number input.
+ *
+ * @author                WebDevStudios
+ * @param  {string} value Input value.
+ * @return {string}       Error message, if error encountered.
+ */
+async function validateNumber(value) {
+  return await Yup.number('Please provide a valid number')
+    .validate(value)
+    .then(() => null)
+    .catch((error) => {
+      return error.message
+    })
+}
+
+/**
  * Validate URL input.
  *
  * @author                WebDevStudios
@@ -49,6 +65,9 @@ export default function getTypeValidation(type) {
   switch (type) {
     case 'email':
       return validateEmail
+
+    case 'number':
+      return validateNumber
 
     case 'url':
       return validateUrl
