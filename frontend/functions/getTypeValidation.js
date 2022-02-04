@@ -9,7 +9,7 @@ import * as Yup from 'yup'
  */
 async function validateEmail(value) {
   return await Yup.string()
-    .email('Please provide a valid email')
+    .email('Your email address must be properly formatted: email@example.com')
     .validate(value)
     .then(() => null)
     .catch((error) => {
@@ -25,7 +25,7 @@ async function validateEmail(value) {
  * @return {string}       Error message, if error encountered.
  */
 async function validateNumber(value) {
-  return await Yup.number('Please provide a valid number')
+  return await Yup.number('Your number input must be a valid number')
     .validate(value)
     .then(() => null)
     .catch((error) => {
@@ -42,7 +42,7 @@ async function validateNumber(value) {
  */
 async function validateUrl(value) {
   return await Yup.string()
-    .url('Please provide a valid URL')
+    .url('Your website address must be properly formatted: https://example.com')
     .validate(value)
     .then(() => null)
     .catch((error) => {
