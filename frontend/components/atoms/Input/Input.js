@@ -16,7 +16,11 @@ import styles from './Input.module.css'
  */
 export default function Input({label, ...passThruProps}) {
   const [field] = useField(passThruProps)
-  const {id, name, type, validate} = passThruProps
+  const {id, name, required, type, validate} = passThruProps
+
+  if (!name?.length) {
+    return null
+  }
 
   // Add type-based validation if no other validation provided.
   const newValidate = validate ?? getTypeValidation(type)
@@ -28,7 +32,7 @@ export default function Input({label, ...passThruProps}) {
   }
 
   return (
-    <div className={cn(styles.input)}>
+    <div className={cn(styles.input, required && styles.required)}>
       <label className={styles.label} htmlFor={id || name}>
         {label}
       </label>
