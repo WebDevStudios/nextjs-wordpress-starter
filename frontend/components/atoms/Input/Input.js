@@ -15,20 +15,20 @@ import styles from './Input.module.css'
  * @return {Element}                     The Input component.
  */
 export default function Input({label, ...passThruProps}) {
-  const [field] = useField(passThruProps)
-  const {id, name, required, type, validate} = passThruProps
-
-  if (!name?.length) {
-    return null
-  }
+  const {id, name, required, type = 'text', validate} = passThruProps
 
   // Add type-based validation if no other validation provided.
   const newValidate = validate ?? getTypeValidation(type)
 
   const fieldProps = {
-    ...field,
     ...passThruProps,
     validate: newValidate
+  }
+
+  const [field] = useField(fieldProps)
+
+  if (!name?.length) {
+    return null
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Input({label, ...passThruProps}) {
       <label className={styles.label} htmlFor={id || name}>
         {label}
       </label>
-      <Field {...fieldProps} />
+      <Field {...field} {...fieldProps} />
       <p className={styles.error}>
         <ErrorMessage name={name} />
       </p>
