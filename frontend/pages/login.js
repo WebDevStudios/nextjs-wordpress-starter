@@ -1,13 +1,14 @@
 import Container from '@/components/atoms/Container'
-import Text from '@/components/atoms/Inputs/Text'
+import Input from '@/components/atoms/Input'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
-import Form from '@/components/molecules/Form'
 import getPostTypeStaticProps from '@/functions/wordpress/postTypes/getPostTypeStaticProps'
+import {Form, Formik} from 'formik'
 import {signIn, useSession} from 'next-auth/react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React, {useEffect, useState} from 'react'
+import * as Yup from 'yup'
 
 /**
  * Render the Login component.
@@ -53,19 +54,48 @@ export default function Login({post}) {
       <Container>
         <RichText tag="h1">Login</RichText>
         {!!errorMessage && <div>{errorMessage}</div>}
-        <Form
-          className="login-form"
-          id="login-form"
-          title="Login"
-          formDefaults={{
+
+        <Formik
+          initialValues={{
             username: '',
             password: ''
           }}
-          onSubmit={submitForm}
+          validationSchema={Yup.object().shape({
+            username: Yup.string().required('Your username is required.'),
+            password: Yup.string().required('Your password is required.')
+          })}
+          onSubmit={async (values, actions) => {
+            actions.setSubmitting(true)
+            await submitForm(values)
+            actions.setSubmitting(false)
+          }}
         >
-          <Text id="username" label="Username" isRequired type="text" />
-          <Text id="password" label="Password" isRequired type="password" />
-        </Form>
+          {({isSubmitting, isValid}) => (
+            <Form id="login-form" title="Login">
+              <Input
+                id="username"
+                label="Username"
+                name="username"
+                placeholder="Username"
+                required
+              />
+
+              <Input
+                id="password"
+                label="Password"
+                name="password"
+                placeholder="Password"
+                required
+                type="password"
+              />
+
+              <button type="submit" disabled={isSubmitting || !isValid}>
+                {isSubmitting ? 'Logging In' : 'Log In'}
+              </button>
+            </Form>
+          )}
+        </Formik>
+
         <Link href="/register">
           <a>Create an Account</a>
         </Link>
