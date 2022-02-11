@@ -154,25 +154,18 @@ export default function Comments({comments, postId}) {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={
-          !session
-            ? // If not logged in...
-              Yup.object().shape({
-                author: Yup.string().required('Your name is required.'),
-                authorEmail: Yup.string().required(
-                  'Your email address is required.'
-                ),
-                content: Yup.string().required(
-                  'Please write a comment before submitting.'
-                )
-              })
-            : // If logged in...
-              Yup.object().shape({
-                content: Yup.string().required(
-                  'Please write a comment before submitting.'
-                )
-              })
-        }
+        validationSchema={Yup.object().shape({
+          // Validate user fields if not logged in.
+          ...(!session && {
+            author: Yup.string().required('Your name is required.'),
+            authorEmail: Yup.string().required(
+              'Your email address is required.'
+            )
+          }),
+          content: Yup.string().required(
+            'Please write a comment before submitting.'
+          )
+        })}
         onSubmit={(values, actions) => {
           actions.setSubmitting(true)
           handlePostComment(values)
