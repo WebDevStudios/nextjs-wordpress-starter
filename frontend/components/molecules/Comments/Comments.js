@@ -107,8 +107,10 @@ export default function Comments({comments, postId}) {
     }
 
     if (response.comment) {
+      const authorName = response.comment?.author?.node?.name || 'user'
+
       setPostedComment(response.comment)
-      setMessage(`Thank you, ${author}! Your comment has been published.`)
+      setMessage(`Thank you, ${authorName}! Your comment has been published.`)
     }
   }
 
