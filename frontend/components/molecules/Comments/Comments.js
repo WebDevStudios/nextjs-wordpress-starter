@@ -1,10 +1,12 @@
-import Text from '@/components/atoms/Inputs/Text'
-import Form from '@/components/molecules/Form'
+import Input from '@/components/atoms/Input'
 import processPostComment from '@/functions/next-api/wordpress/comments/processPostComment'
+import cn from 'classnames'
+import {Form, Formik} from 'formik'
 import {useSession} from 'next-auth/react'
 import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import * as Yup from 'yup'
+import styles from './Comments.module.css'
 
 /**
  * Render an individual comment component.
@@ -76,11 +78,9 @@ export default function Comments({comments, postId}) {
    * Handle post comment submission.
    *
    * @author WebDevStudios
-   * @param {object}   values                Form values.
-   * @param {object}   actions               Formik form actions.
-   * @param {Function} actions.setSubmitting Toggle form submitting state.
+   * @param {object} values Form values.
    */
-  async function handlePostComment(values, {setSubmitting}) {
+  async function handlePostComment(values) {
     const {
       author = null,
       authorEmail = null,
@@ -99,7 +99,6 @@ export default function Comments({comments, postId}) {
 
     if (response.error) {
       setMessage(response.errorMessage)
-      setSubmitting(false)
       return
     }
 
@@ -109,13 +108,12 @@ export default function Comments({comments, postId}) {
 
     if (response.comment) {
       setPostedComment(response.comment)
+      setMessage(`Thank you, ${author}! Your comment has been published.`)
     }
-
-    setSubmitting(false)
   }
 
-  // Determine form defaults.
-  const formDefaults = !session
+  // Set form field default values.
+  const initialValues = !session
     ? {
         author: '',
         authorEmail: '',
@@ -127,48 +125,126 @@ export default function Comments({comments, postId}) {
       }
 
   return (
-    <>
+    <section>
       <h3>Comments</h3>
       {
-        // If there are comments, loop over and display.
-        !!comments?.length &&
-          comments.map((comment, index) => (
-            <SingleComment comment={comment.node} key={index} />
-          ))
+        // If user has a previously appoved comment, display it immediately.
+        !!postedComment && (
+          <SingleComment comment={postedComment} key="posted-comment" />
+        )
       }
 
-      {!!postedComment && (
-        <SingleComment comment={postedComment} key="posted-comment" />
-      )}
+      {
+        // If there are comments, loop over and display.
+        !!comments?.length && (
+          <ol className={styles.commentList}>
+            {comments.map((comment, index) => (
+              <SingleComment comment={comment.node} key={index} />
+            ))}
+          </ol>
+        )
+      }
 
-      <Form
-        className="comment-form"
-        id="comment-form"
-        title="Add a comment"
-        formDefaults={formDefaults}
+      {
+        // If there is a message, display it.
+        !!message && <div>{message}</div>
+      }
+
+      <Formik
+        initialValues={initialValues}
         validationSchema={
           !session
-            ? Yup.object().shape({
-                author: Yup.string().required('This field is required.'),
-                authorEmail: Yup.string().required('This field is required.')
+            ? // If not logged in...
+              Yup.object().shape({
+                author: Yup.string().required('Your name is required.'),
+                authorEmail: Yup.string().required(
+                  'Your email address is required.'
+                ),
+                content: Yup.string().required(
+                  'Please write a comment before submitting.'
+                )
               })
-            : null
+            : // If logged in...
+              Yup.object().shape({
+                content: Yup.string().required(
+                  'Please write a comment before submitting.'
+                )
+              })
         }
-        onSubmit={handlePostComment}
+        onSubmit={(values, actions) => {
+          actions.setSubmitting(true)
+          handlePostComment(values)
+          actions.resetForm()
+          actions.setSubmitting(false)
+        }}
       >
-        {!!message && <div>{message}</div>}
+        {({isSubmitting, isValid}) => (
+          <Form
+            className={styles.commentForm}
+            id="comment-form"
+            title="Add a comment"
+          >
+            {
+              // Don't render author fields if user is logged in.
+              !session && (
+                <>
+                  <Input
+                    className={styles.field}
+                    id="author"
+                    label="Your Name"
+                    name="author"
+                    placeholder="Your Name"
+                    required
+                  />
 
-        {!session && (
-          <>
-            <Text id="author" label="Author" isRequired type="text" />
-            <Text id="authorEmail" label="Email" isRequired type="email" />
-            <Text id="authorUrl" label="Website" type="url" />
-          </>
+                  <Input
+                    className={styles.field}
+                    id="authorEmail"
+                    label="Your Email"
+                    name="authorEmail"
+                    placeholder="Your Email"
+                    required
+                    type="email"
+                  />
+
+                  <Input
+                    className={styles.field}
+                    id="authorUrl"
+                    label="Your Website URL"
+                    name="authorUrl"
+                    placeholder="Your Website URL"
+                    type="url"
+                  />
+                </>
+              )
+            }
+
+            <Input
+              as="textarea"
+              className={cn(styles.field, styles.textarea)}
+              id="content"
+              label="Your Comment"
+              name="content"
+              required
+              placeholder="Your Comment"
+            />
+
+            <p className={styles.description}>
+              Basic HTML tags such as{' '}
+              <span className={styles.code}>&lt;strong&gt;</span>,{' '}
+              <span className={styles.code}>&lt;em&gt;</span>,{' '}
+              <span className={styles.code}>&lt;pre&gt;</span>,{' '}
+              <span className={styles.code}>&lt;code&gt;</span>, are allowed.
+              Press enter twice to create a new paragraph.
+            </p>
+
+            <button type="submit" disabled={isSubmitting || !isValid}>
+              {isSubmitting ? 'Submitting' : 'Submit'}
+            </button>
+          </Form>
         )}
-
-        <Text id="content" label="Comment" isRequired type="text" />
-      </Form>
-    </>
+      </Formik>
+    </section>
   )
 }
 
