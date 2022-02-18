@@ -88,6 +88,10 @@ export default function GravityForm({
                     type = 'text'
                     break
 
+                  case 'website':
+                    type = 'url'
+                    break
+
                   default:
                     type = field.node.type
                     break
