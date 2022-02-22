@@ -12,7 +12,7 @@
   "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/frontend"
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/main/frontend"
   },
   "bugs": {
     "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"

@@ -6,7 +6,7 @@ The documentation website is powered by [Docusaurus](https://docusaurus.io/) and
 
 ## Adding or Updating Documentation
 
-1. Create a new branch off `canary` (e.g,. `feature/my-doc-update`)
+1. Create a new branch off `main` (e.g,. `feature/my-doc-update`)
 2. From the root of the project, run `npm run dev:docs` to start a local server
 3. Add or edit markdown files in the `docs/` directory
 4. Commit your changes and push to Github
@@ -28,7 +28,7 @@ You can run the following commands from the root of the project:
 
 ### Github Actions
 
-This repo uses a [Github Action](https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/.github/workflows) which automatically publishes changes to Github Pages.
+This repo uses a [Github Action](https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/main/.github/workflows) which automatically publishes changes to Github Pages.
 
 ### Key Pair
 

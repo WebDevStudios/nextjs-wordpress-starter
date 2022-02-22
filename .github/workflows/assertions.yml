@@ -2,7 +2,7 @@ name: Assertions
 
 on:
   pull_request:
-    branches: canary
+    branches: main
 
   workflow_dispatch:
 

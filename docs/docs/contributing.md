@@ -4,9 +4,9 @@ title: Contributing
 
 There are many ways to contribute to this project:
 
-- Discuss [open issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/issues) to help define the future of the project
-- [Submit bugs](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/issues) and help verify fixes
-- Review and discuss [pull requests](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/pulls)
+- Discuss [open issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/issues) to help define the future of the project
+- [Submit bugs](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/issues) and help verify fixes
+- Review and discuss [pull requests](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/pulls)
 - Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
 - Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
@@ -39,11 +39,11 @@ If you do file an issue, be sure to fill out the issue report completely!
 
 ### Git Workflow
 
-1. Create a `feature` branch off `canary`
+1. Create a `feature` branch off `main`
 2. Work locally adhering to coding standards
 3. When your `feature` has been tested, open a Pull Request (PR) and fill out the PR template
 4. Your PR must pass assertions and deploy successfully
-5. After peer review, the PR will be merged back into `canary`
+5. After peer review, the PR will be merged back into `main`
 6. Repeat ♻️
 
 ### Code Linting

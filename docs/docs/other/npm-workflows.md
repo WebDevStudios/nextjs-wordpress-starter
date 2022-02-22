@@ -52,7 +52,7 @@ Follow the prompts and enter your username, password, and two-factor authenticat
 
 ### Bump the version
 
-Open the `package.json` file and bump the `version` number. For example, if the current version is `1.0.0-canary.1`, then the next version will be `1.0.0-canary.2`.
+Open the `package.json` file and bump the `version` number. For example, if the current version is `1.0.0-main.1`, then the next version will be `1.0.0-main.2`.
 
 ### Publish a Release
 
@@ -72,10 +72,10 @@ npm publish --tag=next --access=public
 
 ### Unpublish a Release
 
-If something goes wrong with the release, you can unpublish it. For example, if `1.0.0-canary.2` is not working the following will remove it from NPM's registry:
+If something goes wrong with the release, you can unpublish it. For example, if `1.0.0-main.2` is not working the following will remove it from NPM's registry:
 
 ```bash
-npm unpublish @webdevstudios/headless-core@1.0.0-canary.2
+npm unpublish @webdevstudios/headless-core@1.0.0-main.2
 ```
 
 [Learn more about NPM unpublish](https://docs.npmjs.com/cli/v7/commands/npm-unpublish).

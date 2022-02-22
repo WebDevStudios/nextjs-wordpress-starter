@@ -36,10 +36,10 @@ Create a new WordPress install. We recommend the following settings:
 
 Now that you've got a local WordPress install, it's time to turn it into a Headless CMS!
 
-1. In your terminal, change directories to your new WordPress install's `/wp-content` directory, then download our [`composer.json`](https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json).
+1. In your terminal, change directories to your new WordPress install's `/wp-content` directory, then download our [`composer.json`](https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/main/backend/composer.json).
 
 ```bash
-curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/canary/backend/composer.json
+curl -O https://raw.githubusercontent.com/WebDevStudios/nextjs-wordpress-starter/main/backend/composer.json
 ```
 
 2. Install free plugins and the theme:

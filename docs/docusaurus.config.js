@@ -73,7 +73,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/',
+            'https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true
         },
