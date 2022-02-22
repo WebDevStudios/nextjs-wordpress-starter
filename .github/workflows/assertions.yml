@@ -25,7 +25,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm i --legacy-peer-deps
-          cd ../docs
+          cd docs
           npm i --legacy-peer-deps
 
       - name: Lint Docs
