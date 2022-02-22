@@ -31,7 +31,7 @@ jobs:
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: frontend
+          workingDir: /
           exitZeroOnChanges: true
           exitOnceUploaded: true
           skip: 'dependabot/**'
