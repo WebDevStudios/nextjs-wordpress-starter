@@ -15,7 +15,7 @@ updates:
       day: 'monday'
 
   - package-ecosystem: 'npm'
-    directory: '/frontend'
+    directory: '/docs'
     schedule:
       interval: 'weekly'
       day: 'monday'
