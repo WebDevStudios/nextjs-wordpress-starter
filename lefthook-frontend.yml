@@ -11,7 +11,7 @@ pre-commit:
       run: npx stylelint {staged_files} --fix
     lintjavascript:
       glob: '*.{js,ts,tsx}'
-      run: next lint {staged_files} --fix
+      run: npx eslint {staged_files} --fix
     lintmarkdown:
       glob: '*.{md}'
       run: npx markdownlint-cli {staged_files} --fix

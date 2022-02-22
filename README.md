@@ -2,7 +2,7 @@
 
 [![WebDevStudios. Your Success is Our Mission.](https://nextjsdevstart.wpengine.com/wp-content/uploads/2021/09/WDS-GitHub-Banner.webp)](https://webdevstudios.com/contact/)
 
-**A headless starter for WordPress powered by Next.js**
+A headless starter for WordPress powered by Next.js
 
 - Next.js Demo: <https://nextjs-wordpress-starter.vercel.app/>
 - Storybook: <https://webdevstudios.github.io/nextjs-wordpress-starter/storybook/>
