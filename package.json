@@ -1,11 +1,102 @@
 {
-  "name": "root",
+  "name": "@webdevstudios/nextjs-wordpress-starter",
+  "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "docs",
-    "frontend"
+  "description": "Next.js WordPress Starter",
+  "author": "WebDevStudios <contact@webdevstudios.com>",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "next.js",
+    "wordpress"
   ],
+  "homepage": "https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary/frontend"
+  },
+  "bugs": {
+    "url": "https://github.com/WebDevStudios/nextjs-wordpress-starter/issues"
+  },
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
+  "scripts": {
+    "analyze": "ANALYZE=true npm run build",
+    "build": "next build",
+    "build-storybook": "build-storybook",
+    "clean": "rimraf .next/",
+    "dev": "npm run clean && next dev",
+    "develop": "npm dev",
+    "export": "next export",
+    "format": "npx prettier  '**/*.{js,jsx,ts,tsx,md,html,css,scss,json,yml}' --write || true",
+    "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
+    "lint:css": "npx stylelint '**/*.css' --fix || true",
+    "lint:js": "npx eslint '**/*.{js,ts,jsx,tsx}' --fix || true && next lint",
+    "lint:md": "npx markdownlint '**/*.md' --fix || true",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "storybook": "start-storybook -p 6006",
+    "test:jest": "jest"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.9",
+    "@next/bundle-analyzer": "^12.1.0",
+    "algoliasearch": "^4.12.1",
+    "apollo-link-rest": "^0.8.0",
+    "dayjs": "^1.10.7",
+    "deepmerge": "^4.2.2",
+    "formidable": "^2.0.1",
+    "formik": "^2.2.9",
+    "graphql": "^16.3.0",
+    "graphql-anywhere": "^4.2.7",
+    "html-react-parser": "^1.4.8",
+    "next": "12.1.0",
+    "next-auth": "^4.2.1",
+    "next-connect": "^0.12.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-instantsearch-dom": "^6.22.0",
+    "react-is": "^17.0.2",
+    "react-syntax-highlighter": "^15.4.5",
+    "react-twitter-embed": "^4.0.4",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.0.23",
+    "yup": "^0.32.11"
+  },
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.7"
+    "@arkweid/lefthook": "^0.7.7",
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-a11y": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.3",
+    "autoprefixer": "^10.4.2",
+    "babel-jest": "^27.5.1",
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.9.0",
+    "eslint-config-next": "^12.1.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-jsdoc": "^37.9.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1",
+    "next-sitemap": "^2.4.6",
+    "postcss": "^8.4.6",
+    "postcss-flexbugs-fixes": "5.0.2",
+    "postcss-preset-env": "^7.4.1",
+    "prettier": "^2.5.1",
+    "prop-types": "^15.8.1",
+    "sharp": "^0.30.1",
+    "storybook-css-modules-preset": "^1.1.1",
+    "stylelint": "^14.5.2",
+    "stylelint-config-standard": "^25.0.0"
   }
 }

@@ -1,4 +1,9 @@
 !/.*.js
 *.min.js
 .*cache
+.next/
+build/
+dist/
+docs/
 node_modules/
+public/

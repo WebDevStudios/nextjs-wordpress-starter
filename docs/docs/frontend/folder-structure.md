@@ -6,6 +6,7 @@ sidebar_position: 3
 This describes the folder layout of the Next.js WordPress starter:
 
 ```text
+├── __tests__
 ├── .storybook
 ├── components
 |  ├── atoms
@@ -22,7 +23,6 @@ This describes the folder layout of the Next.js WordPress starter:
 |  └── team
 ├── public
 ├── styles
-└── tests
 ```
 
 ## `.storybook`
@@ -94,6 +94,6 @@ as `[...slug].js`, are dynamically interpreted by Next.js. For example,
 a page titled "Example page" will be mapped by `/[...slug].js`
 to `/example-page` in the finished website.
 
-## `tests`
+## `__tests__`
 
 This folder contains the Jest tests for the frontend.

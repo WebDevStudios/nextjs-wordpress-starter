@@ -2,7 +2,10 @@
 *.min.js
 .*cache
 .next/
+__tests__/
+backend/
 build/
 dist/
+docs/
 node_modules/
 public/

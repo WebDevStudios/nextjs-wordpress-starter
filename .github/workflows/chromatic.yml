@@ -10,10 +10,6 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: ["lts/*"]
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -21,28 +17,14 @@ jobs:
           token: ${{ github.token }}
           fetch-depth: 0
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Update NPM
-        run: npm i -g npm@latest
-
-      - name: Cache NPM Dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: |
-          cd frontend
-          npm i --legacy-peer-deps
+        run: npm i --legacy-peer-deps
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -52,4 +34,4 @@ jobs:
           workingDir: frontend
           exitZeroOnChanges: true
           exitOnceUploaded: true
-          skip: "dependabot/**"
+          skip: 'dependabot/**'

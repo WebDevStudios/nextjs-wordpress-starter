@@ -9,15 +9,17 @@ The following steps will stand up a local install of Next.js.
 
 Before you get started, make sure you have the following dependencies installed on your computer:
 
-- [Node 14](https://nodejs.org/en/)
-- [NPM 7](https://nodejs.org/en/)
+- [Node 16](https://nodejs.org/en/)
+- [NPM 8](https://nodejs.org/en/)
+
+> If you run into issues with NPM installing, try using `npm i --legacy-peer-deps` instead.
 
 ## Install
 
 **Step 1: Clone the frontend framework with `create-next-app`**
 
 ```bash
-npx create-next-app -e https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary --example-path frontend --use-npm nextjs-wordpress-starter
+npx create-next-app -e https://github.com/WebDevStudios/nextjs-wordpress-starter/tree/canary --use-npm nextjs-wordpress-starter
 ```
 
 **Step 2: Change directories**
@@ -30,7 +32,7 @@ cd nextjs-wordpress-starter
 
 ENV variables are like constants in `wp-config.php`. They're required in order for things like authentication with WordPress and other 3rd party services.
 
-**Step 1: Copy the [sample ENV file](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/.env.sample):**
+**Step 1: Copy the [sample ENV file](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/canary/.env.sample):**
 
 ```bash
 cp .env.sample .env

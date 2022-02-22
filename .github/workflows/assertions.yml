@@ -10,37 +10,20 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: ["lts/*"]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           token: ${{ github.token }}
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Update NPM
-        run: npm i -g npm@latest
-
-      - name: Cache NPM Dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: Install Dependencies
         run: |
-          cd frontend
           npm i --legacy-peer-deps
           cd ../docs
           npm i --legacy-peer-deps
@@ -48,16 +31,12 @@ jobs:
       - name: Lint Docs
         run: |
           cd docs
-          npx markdownlint 'docs/**/*.md'
+          npm run lint
 
       - name: Lint Frontend
         run: |
-          cd frontend
-          npx stylelint '**/*.css'
-          npx markdownlint '**/*.md'
-          npx eslint '**/*.js'
+          npm run lint
 
       - name: Run Frontend Tests
         run: |
-          cd frontend
-          npx jest
+          npm run test:jest

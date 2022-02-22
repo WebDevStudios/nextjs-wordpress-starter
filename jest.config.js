@@ -6,7 +6,7 @@ module.exports = {
     '^@/components(.*)$': '<rootDir>/components$1',
     '^@/functions(.*)$': '<rootDir>/functions$1'
   },
-  testMatch: ['**/tests/jest/**/*.js?(x)'],
+  testMatch: ['**/__tests__/jest/**/*.js?(x)'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', {presets: ['next/babel']}]

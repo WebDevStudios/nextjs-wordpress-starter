@@ -1,6 +1,0 @@
-*.min.*
-.next/
-dist/
-node_modules/
-public/
-components/

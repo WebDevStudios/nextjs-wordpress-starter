@@ -11,10 +11,6 @@ jobs:
   publish-docs:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -26,28 +22,16 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_PRIVATE_KEY }}
 
-      - name: Setup Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.5.1
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Use NPM 7
-        run: npm i -g npm@latest
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: Setup Git
         run: |
           git config --global user.email ${{ secrets.GIT_USER_EMAIL }}
           git config --global user.name ${{ secrets.GIT_USER_NAME }}
-
-      - name: Cache Node dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - name: Install dependencies
         run: |
@@ -70,33 +54,17 @@ jobs:
   publish-storybook:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           token: ${{ github.token }}
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.5.1
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Use NPM 7
-        run: npm i -g npm@latest
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: Install dependencies
         run: |

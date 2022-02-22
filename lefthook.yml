@@ -1,5 +1,5 @@
 # https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
 
 extends:
-  - ./frontend/lefthook-frontend.yml
+  - ./lefthook-frontend.yml
   - ./docs/lefthook-docs.yml
