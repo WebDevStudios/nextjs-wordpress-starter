@@ -46,12 +46,9 @@ test('render SingleComment with comment with author url props', () => {
   }
 
   const {container} = render(<SingleComment {...props} />)
-
   const author = container.querySelector('h4').querySelector('a')
-
   expect(author).toHaveAttribute('href', 'https://example.com')
   expect(author).toHaveTextContent('Jane')
-
   expect(container.querySelector('h4')).toHaveTextContent('June. 18, 2021')
   expect(container).toHaveTextContent(
     'Praesent sem lorem, interdum sit amet congue sit amet, faucibus eget dui.'
@@ -81,13 +78,11 @@ test('render Comment form', () => {
   }
 
   const {container} = render(<Comments {...props} />)
-
   const commentForm = container.querySelector('#comment-form')
-
   expect(commentForm.querySelector('input#author')).not.toBeNull()
   expect(commentForm.querySelector('input#authorEmail')).not.toBeNull()
   expect(commentForm.querySelector('input#authorUrl')).not.toBeNull()
-  expect(commentForm.querySelector('input#content')).not.toBeNull()
+  expect(commentForm.querySelector('textarea#content')).not.toBeNull()
   expect(commentForm.querySelector('button[type="submit"]')).not.toBeNull()
 })
 
@@ -119,13 +114,12 @@ test('render logged User Comment form', () => {
   }
 
   const {container} = render(<Comments {...props} />)
-
   const commentForm = container.querySelector('#comment-form')
 
   // Author, author email, and author url fields should not be present if User is logged.
   expect(commentForm.querySelector('input#author')).toBeNull()
   expect(commentForm.querySelector('input#authorEmail')).toBeNull()
   expect(commentForm.querySelector('input#authorUrl')).toBeNull()
-  expect(commentForm.querySelector('input#content')).not.toBeNull()
+  expect(commentForm.querySelector('textarea#content')).not.toBeNull()
   expect(commentForm.querySelector('button[type="submit"]')).not.toBeNull()
 })
