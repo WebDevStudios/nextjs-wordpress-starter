@@ -29,7 +29,7 @@ export default function BlogPost({post}) {
           )}
           <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
-          <Comments comments={post?.comments?.edges} postId={post.databaseId} />
+          <Comments comments={post?.comments} postId={post?.databaseId} />
         </article>
       </Container>
     </Layout>

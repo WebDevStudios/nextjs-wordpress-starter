@@ -1,6 +1,10 @@
 import Input from '@/components/atoms/Input'
 import processPostComment from '@/functions/next-api/wordpress/comments/processPostComment'
+import sanitizeComment from '@/functions/sanitizeComment'
 import cn from 'classnames'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import {Form, Formik} from 'formik'
 import {useSession} from 'next-auth/react'
 import PropTypes from 'prop-types'
@@ -14,35 +18,69 @@ import styles from './Comments.module.css'
  * @author WebDevStudios
  * @param  {object}  props         The component attributes as props.
  * @param  {object}  props.comment The comment to display.
+ * @param  {number}  props.depth   The current depth of nesting.
  * @return {Element}               The Comment component.
  */
-export function SingleComment({comment}) {
+export function SingleComment({comment, depth = 0}) {
+  // No comment? Bail...
   if (!comment) {
     return ''
   }
+
+  // Load the timezone plugin.
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+
   const {content, date, author} = comment
-  const {name, url} = author.node
-  let nameElement = <span>{name}</span>
-  if (url) {
-    nameElement = (
-      <a href={url} rel="nofollow noreferrer" target="_blank">
-        {name}
-      </a>
-    )
-  }
+  const {gravatarUrl, name, url} = author.node
+
   return (
-    <>
-      <h4>
-        {nameElement}
-        {` at ${date}`}
-      </h4>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: content
-        }}
-      />
-      <hr />
-    </>
+    <li
+      id={`comment-${comment?.databaseId}`}
+      className={cn(styles.comment, depth % 2 && styles.odd)}
+    >
+      <article>
+        <header className={styles.author}>
+          <img
+            alt={name}
+            height="52"
+            loading="lazy"
+            src={gravatarUrl}
+            width="52"
+          />
+          <h4>
+            {url ? (
+              <a href={url} rel="external nofollow ugc">
+                {name}
+              </a>
+            ) : (
+              name
+            )}
+          </h4>
+          <a href={`#comment-${comment?.databaseId}`}>
+            <time
+              dateTime={dayjs
+                .utc(date)
+                .tz('America/New_York')
+                .format('YYYY-MM-DDTHH:mm:ssZ[Z]')}
+            >
+              {dayjs
+                .utc(date)
+                .tz('America/New_York')
+                .format('MMMM D, YYYY h:mm a')}
+            </time>
+          </a>
+        </header>
+        {sanitizeComment(content)}
+      </article>
+      {!!comment?.children?.length && (
+        <ol className={cn(depth < 2 && styles.nestedComments)}>
+          {comment.children.map((child, index) => (
+            <SingleComment comment={child} depth={depth + 1} key={index} />
+          ))}
+        </ol>
+      )}
+    </li>
   )
 }
 
@@ -66,13 +104,7 @@ SingleComment.defaultProps = {
 export default function Comments({comments, postId}) {
   const [message, setMessage] = useState('')
   const [postedComment, setPostedComment] = useState(false)
-  const {data: session, status} = useSession()
-  const loading = status === 'loading'
-
-  // Avoid flash if loading.
-  if (loading) {
-    return null
-  }
+  const {data: session} = useSession()
 
   /**
    * Handle post comment submission.
@@ -107,7 +139,7 @@ export default function Comments({comments, postId}) {
     }
 
     if (response.comment) {
-      const authorName = response.comment?.author?.node?.name || 'user'
+      const authorName = response?.comment?.author?.node?.name || 'user'
 
       setPostedComment(response.comment)
       setMessage(`Thank you, ${authorName}! Your comment has been published.`)
@@ -127,30 +159,39 @@ export default function Comments({comments, postId}) {
       }
 
   return (
-    <section className={styles.comments}>
-      <h3>Comments</h3>
-      {
-        // If user has a previously appoved comment, display it immediately.
-        !!postedComment && (
-          <SingleComment comment={postedComment} key="posted-comment" />
-        )
-      }
+    <section id="comments" className={styles.comments}>
+      <h2>Comments</h2>
 
       {
         // If there are comments, loop over and display.
         !!comments?.length && (
-          <ol className={styles.commentList}>
-            {comments.map((comment, index) => (
-              <SingleComment comment={comment.node} key={index} />
+          <ol>
+            {comments?.map((comment, index) => (
+              <SingleComment comment={comment} key={index} />
             ))}
           </ol>
         )
       }
 
       {
-        // If there is a message, display it.
-        !!message && <div>{message}</div>
+        // If user has a previously appoved comment, display it immediately.
+        !!postedComment && (
+          <ol>
+            <SingleComment comment={postedComment} key="posted-comment" />
+          </ol>
+        )
       }
+
+      {
+        // If there is a message, display it.
+        !!message && <div className={styles.message}>{message}</div>
+      }
+
+      <h3>{comments.length < 1 ? `Start a` : `Join the`} discussion!</h3>
+
+      <p>
+        Your email address will not be published. Required fields are marked *
+      </p>
 
       <Formik
         initialValues={initialValues}
@@ -158,9 +199,11 @@ export default function Comments({comments, postId}) {
           // Validate user fields if not logged in.
           ...(!session && {
             author: Yup.string().required('Your name is required.'),
-            authorEmail: Yup.string().required(
-              'Your email address is required.'
-            )
+            authorEmail: Yup.string()
+              .email(
+                'Your email address must be properly formatted: email@example.com'
+              )
+              .required('Your email address is required.')
           }),
           content: Yup.string().required(
             'Please write a comment before submitting.'
@@ -174,17 +217,12 @@ export default function Comments({comments, postId}) {
         }}
       >
         {({isSubmitting, isValid}) => (
-          <Form
-            className={styles.commentForm}
-            id="comment-form"
-            title="Add a comment"
-          >
+          <Form id="comment-form" title="Add a comment">
             {
               // Don't render author fields if user is logged in.
               !session && (
                 <>
                   <Input
-                    className={styles.field}
                     id="author"
                     label="Your Name"
                     name="author"
@@ -193,7 +231,6 @@ export default function Comments({comments, postId}) {
                   />
 
                   <Input
-                    className={styles.field}
                     id="authorEmail"
                     label="Your Email"
                     name="authorEmail"
@@ -203,7 +240,6 @@ export default function Comments({comments, postId}) {
                   />
 
                   <Input
-                    className={styles.field}
                     id="authorUrl"
                     label="Your Website URL"
                     name="authorUrl"
@@ -216,7 +252,6 @@ export default function Comments({comments, postId}) {
 
             <Input
               as="textarea"
-              className={cn(styles.field, styles.textarea)}
               id="content"
               label="Your Comment"
               name="content"
@@ -224,13 +259,11 @@ export default function Comments({comments, postId}) {
               placeholder="Your Comment"
             />
 
-            <p className={styles.description}>
-              Basic HTML tags such as{' '}
-              <span className={styles.code}>&lt;strong&gt;</span>,{' '}
-              <span className={styles.code}>&lt;em&gt;</span>,{' '}
-              <span className={styles.code}>&lt;pre&gt;</span>,{' '}
-              <span className={styles.code}>&lt;code&gt;</span>, are allowed.
-              Press enter twice to create a new paragraph.
+            <p>
+              Basic HTML tags such as <span>&lt;strong&gt;</span>,{' '}
+              <span>&lt;em&gt;</span>, <span>&lt;pre&gt;</span>,{' '}
+              <span>&lt;code&gt;</span>, are allowed. Press enter twice to
+              create a new paragraph.
             </p>
 
             <button type="submit" disabled={isSubmitting || !isValid}>

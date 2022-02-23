@@ -1,3 +1,19 @@
-.comments {
-  @apply mt-10;
+.comment {
+  @apply p-4;
+
+  & .author {
+    @apply flex space-x-2;
+  }
+
+  &.odd {
+    @apply bg-gray-300;
+  }
+}
+
+.message {
+  @apply py-4 font-bold text-red-600;
+}
+
+.nestedComments {
+  @apply ml-8;
 }

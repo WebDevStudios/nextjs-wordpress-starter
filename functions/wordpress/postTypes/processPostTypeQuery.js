@@ -1,4 +1,5 @@
 import formatBlockData from '@/functions/wordpress/blocks/formatBlockData'
+import formatHeirarchialMenu from '@/functions/wordpress/menus/formatHeirarchialMenu'
 import getMenus from '@/functions/wordpress/menus/getMenus'
 import formatDefaultSeoData from '@/functions/wordpress/seo/formatDefaultSeoData'
 import {
@@ -82,6 +83,18 @@ export default async function processPostTypeQuery(
         post = {
           ...post,
           revisions: null
+        }
+      }
+
+      // Format comments into hierarchical array.
+      if (post?.comments?.edges?.length) {
+        const comments = post.comments.edges
+          .map((comment) => comment?.node)
+          .filter(Boolean)
+
+        post = {
+          ...post,
+          comments: formatHeirarchialMenu(comments)
         }
       }
 
