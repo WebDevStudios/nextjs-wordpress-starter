@@ -19,7 +19,6 @@ export default function Profile({post}) {
   const loading = status === 'loading'
   const router = useRouter()
 
-  // @TODO - Possibly create a model for User.
   let user = {
     firstName: '',
     lastName: '',
