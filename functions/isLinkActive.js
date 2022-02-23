@@ -12,22 +12,10 @@ export default function isLinkActive(asPath, path) {
     return false
   }
 
-  // TODO: Add functionality to check if link is in the full URL path.
-  // e.g. /portfolio /portfolio/cambells-soup
-
-  return asPath === stripTrailingSlash(path)
-}
-
-/**
- * Remove the last trailing slash from a URL path.
- *
- * @author WebDevStudios
- * @param  {string} str The string to search and remove trailing slash.
- * @return {string}     The formatted string.
- */
-function stripTrailingSlash(str) {
-  if (str.substr(-1) === '/' && str.length > 1) {
-    return str.substr(0, str.length - 1)
+  if (path.length > 1) {
+    const checkSubStr = new RegExp(path)
+    return checkSubStr.test(asPath)
   }
-  return str
+
+  return path === asPath
 }
