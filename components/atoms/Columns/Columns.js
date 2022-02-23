@@ -13,6 +13,7 @@ import styles from './Columns.module.css'
  * @param  {object}  props.children          React children.
  * @param  {object}  props.style             Custom columns styles.
  * @param  {string}  props.verticalAlignment Vertical alignment of columns.
+ * @param    {boolean}        props.isStackedOnMobile Checks if the columns are stacked.
  * @return {Element}                         The Columns component.
  */
 export default function Columns({
