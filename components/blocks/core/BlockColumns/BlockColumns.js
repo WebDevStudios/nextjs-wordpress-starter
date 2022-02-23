@@ -28,7 +28,8 @@ export default function BlockColumns({
   innerBlocks,
   style,
   textColorHex,
-  verticalAlignment
+  verticalAlignment,
+  isStackedOnMobile
 }) {
   const columnsStyle = getBlockStyles({
     backgroundColorHex,
@@ -46,6 +47,7 @@ export default function BlockColumns({
           columnCount={innerBlocks?.length}
           style={columnsStyle}
           verticalAlignment={verticalAlignment}
+          isStackedOnMobile={isStackedOnMobile}
         >
           {innerBlocks.map(({attributes, innerBlocks}, index) => {
             const columnStyle = getBlockStyles({
@@ -53,7 +55,7 @@ export default function BlockColumns({
               gradientHex: attributes?.gradientHex,
               textColorHex: attributes?.textColorHex,
               style: attributes?.style,
-              width: attributes?.width || '50%'
+              width: attributes?.width
             })
 
             return (

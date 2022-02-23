@@ -21,13 +21,15 @@ export default function Columns({
   columnCount,
   children,
   style,
-  verticalAlignment
+  verticalAlignment,
+  isStackedOnMobile
 }) {
   return (
     <div
       id={id || null}
       className={cn(
         styles.columns,
+        isStackedOnMobile && styles.columnStacked,
         columnCount && styles[`columns-${columnCount}`],
         className,
         verticalAlignment === 'center' ? styles.alignCenter : null,
