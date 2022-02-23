@@ -1,0 +1,19 @@
+.input {
+  & .label {
+    @apply font-semibold;
+  }
+
+  &.required {
+    & label::after {
+      color: red;
+      content: '*';
+      display: inline-block;
+    }
+  }
+
+  & input,
+  & select,
+  & textarea {
+    @apply rounded block relative text-black outline-1 outline-black outline mb-4;
+  }
+}

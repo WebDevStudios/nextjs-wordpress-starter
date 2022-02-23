@@ -21,10 +21,6 @@ function getValidationSchemaByType(fieldData) {
       schemaGetter = new ArraySchemaFactory(fieldData).schema
       break
 
-    case 'email':
-      schemaGetter = new StringSchemaFactory(fieldData).schema
-      break
-
     case 'phone':
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break
@@ -34,10 +30,6 @@ function getValidationSchemaByType(fieldData) {
       break
 
     case 'select':
-      schemaGetter = new StringSchemaFactory(fieldData).schema
-      break
-
-    case 'website':
       schemaGetter = new StringSchemaFactory(fieldData).schema
       break
 

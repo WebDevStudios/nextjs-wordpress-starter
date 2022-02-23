@@ -1,0 +1,69 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs/blocks'
+import Input from './'
+import withFormik from 'storybook-formik'
+
+<Meta
+  title="Components/Atoms/Input"
+  component={Input}
+  decorators={[withFormik]}
+/>
+
+# Input
+
+Use this to display a Formik input with label and error messaging.
+
+<Canvas>
+  <Story name="Input">
+    <Input label="Text Input" name="text" />
+  </Story>
+</Canvas>
+
+# Type
+
+Use the `type` prop to change the input to any HTML input type.
+
+<Canvas>
+  <Story name="Type">
+    <Input label="Text Input" name="text" />
+    <Input label="Email Input" name="email" type="email" />
+    <Input label="URL Input" name="url" type="url" />
+    <Input label="Date Input" name="url" type="date" />
+  </Story>
+</Canvas>
+
+# As
+
+Use the `as` prop to change the HTML element to be rendered (defaults to `input`). See the Formik `<Field />` [docs](https://formik.org/docs/api/field#as) for available options.
+
+<Canvas>
+  <Story name="As">
+    <Input label="Input" name="text" />
+    <Input as="select" label="Select" name="select">
+      <option>-- select --</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Input>
+    <Input as="textarea" label="Textarea" name="textarea" />
+  </Story>
+</Canvas>
+
+## Controls
+
+Play around with `<Input />` props in the [Canvas tab of the Controls story](?path=/story/design-system-atoms-input--controls).
+
+export const Template = (args) => <Input {...args} />
+
+<Canvas>
+  <Story
+    name="Controls"
+    args={{
+      as: 'input',
+      label: 'Text Input',
+      name: 'text',
+      type: 'text'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
