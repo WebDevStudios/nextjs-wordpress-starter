@@ -34,6 +34,8 @@
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
     "postcss": "^8.4.6",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^7.4.1",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.1",
     "tailwindcss": "^3.0.23"
