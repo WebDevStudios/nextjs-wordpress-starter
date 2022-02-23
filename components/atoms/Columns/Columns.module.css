@@ -1,5 +1,9 @@
 .columns {
-  @apply flex flex-row gap-8;
+  @apply flex gap-8;
+
+  &.columnStacked {
+    @apply flex-col md:flex-row;
+  }
 
   &.alignCenter {
     & .column {
@@ -18,7 +22,7 @@
   }
 
   & .column {
-    @apply flex flex-col;
+    @apply flex flex-col w-full;
 
     &.hasBackground {
       @apply p-4;
