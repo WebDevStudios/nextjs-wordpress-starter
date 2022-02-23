@@ -1,10 +1,10 @@
+import ExitPreview from '@/components/atoms/ExitPreview'
 import WordPressProvider from '@/components/common/WordPressProvider'
 import {useWpApollo} from '@/lib/wordpress/connector'
 import '@/styles/demo.css'
 import '@/styles/index.css'
 import {ApolloProvider} from '@apollo/client'
 import {SessionProvider as NextAuthProvider} from 'next-auth/react'
-import Link from 'next/link'
 import PropTypes from 'prop-types'
 import {useState} from 'react'
 import 'tailwindcss/tailwind.css'
@@ -72,15 +72,7 @@ export default function App({Component, pageProps}) {
             <Custom500 errorMessage={errorMessage} post={componentProps.post} />
           ) : (
             <>
-              {!!preview && (
-                // TODO -- abstract this to a component.
-                <p>
-                  This page is a preview.{' '}
-                  <Link href="/api/exit-preview">
-                    <a>Exit preview mode</a>
-                  </Link>
-                </p>
-              )}
+              <ExitPreview preview={preview} />
               <Component {...componentProps} />
             </>
           )}
