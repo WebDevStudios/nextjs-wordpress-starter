@@ -45,6 +45,8 @@ export default async function processPostTypeQuery(
     }
   }
 
+  // console.log('preview', preview)
+
   // Execute query.
   response.post = await apolloClient
     .query({query, variables})

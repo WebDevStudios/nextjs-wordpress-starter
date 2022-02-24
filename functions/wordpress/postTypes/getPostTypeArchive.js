@@ -31,6 +31,8 @@ export default async function getPostTypeArchive(
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
 
+  // console.log('JR POSTTYPEARCHIVE')
+
   // Set up return object.
   const response = {
     apolloClient,
