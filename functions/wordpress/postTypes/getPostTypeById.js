@@ -33,7 +33,6 @@ export default async function getPostTypeById(
     postTypeQuery[postType] = constructCPTQuery(postType)
   }
 
-  // console.log('jr postType query', postTypeQuery)
   // Fix default ID type for hierarchical posts.
   idType = !isHierarchical || 'SLUG' !== idType ? idType : 'URI'
 
