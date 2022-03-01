@@ -34,7 +34,6 @@ export default async function getPostTypeStaticProps(
     }
   }
 
-  // console.log('--------line 37---------------')
   /* -- Handle Frontend-only routes. -- */
   if (Object.keys(frontendPageSeo).includes(postType)) {
     const {apolloClient, ...routeData} = await getFrontendPage(postType)
@@ -62,7 +61,6 @@ export default async function getPostTypeStaticProps(
         }
   }
 
-  // console.log('--------line 68---------------')
   // /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
@@ -78,7 +76,6 @@ export default async function getPostTypeStaticProps(
     })
   }
 
-  // console.log('--------line 81---------------')
   /* -- Handle date-based archives. -- */
   const year =
     Array.isArray(params?.slug) &&
@@ -98,8 +95,6 @@ export default async function getPostTypeStaticProps(
     !isNaN(params?.slug?.[2]) &&
     parseInt(params?.slug?.[2], 10)
   const isDateArchive = postType === 'page' && (year || month || day)
-  // console.log('--------line 101---------------')
-  // console.log('postType', postType)
 
   if (isDateArchive) {
     const {apolloClient, ...archiveData} = await getPostsDateArchive(
@@ -108,9 +103,6 @@ export default async function getPostTypeStaticProps(
       month ?? null,
       day ?? null
     )
-    // console.log('--------line 110---------------')
-    // console.log('archiveData', archiveData)
-    // console.log('sharedProps', sharedProps)
 
     // Merge in query results as Apollo state.
     return addApolloState(apolloClient, {
@@ -125,7 +117,6 @@ export default async function getPostTypeStaticProps(
       revalidate
     })
   }
-  // console.log('--------line 124---------------')
 
   /* -- Handle individual posts. -- */
 
@@ -154,13 +145,11 @@ export default async function getPostTypeStaticProps(
       revalidate
     })
   }
-  // console.log('--------line 151---------------')
 
   /* -- Handle dynamic posts. -- */
 
   // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
-
   // Check if preview mode is active and valid for current post (preview and post IDs or slugs match).
   const isCurrentPostPreview =
     preview &&
@@ -171,7 +160,6 @@ export default async function getPostTypeStaticProps(
 
   // Check if viewing a draft post.
   const isDraft = isCurrentPostPreview && 'draft' === previewData?.post?.status
-  // console.log('--------line 168---------------')
 
   // Set query variables.
   const id = isDraft ? previewData.post.id : slug

@@ -1,6 +1,5 @@
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
 import {wpPreviewSecret} from '@/lib/wordpress/connector'
-import {postTypes} from '@/lib/wordpress/_config/postTypes'
 
 /**
  * Provide post preview functionality.
@@ -41,23 +40,24 @@ export default async function preview(req, res) {
       throw new Error(errorMessage)
     }
 
-    // Set page preview data and enable preview mode.
-    res.setPreviewData({
+    const previewData = {
       post: {
         id: post.databaseId,
         slug: post.slug,
         status: post.status,
-        uri: post.uri
+        uri: post.uri,
+        postType: postType
       }
-    })
+    }
 
-    const baseRoute = postTypes?.[postType]?.route ?? ''
+    // Set page preview data and enable preview mode.
+    res.setPreviewData(previewData)
 
     // Redirect to post dynamic route.
     res.redirect(
       post.slug && post.uri && post.uri.indexOf('?page_id=') === -1
         ? post.uri
-        : `${baseRoute ? `/${baseRoute}` : ''}/${post.databaseId}`
+        : `../../../preview/${post.databaseId}`
     )
   } catch (error) {
     return res.status(error?.status || 401).json({
