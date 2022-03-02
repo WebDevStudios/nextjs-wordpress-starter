@@ -18,8 +18,8 @@
     "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "2.0.0-beta.16",
+    "@docusaurus/preset-classic": "2.0.0-beta.16",
     "@mdx-js/react": "1.6.22",
     "@svgr/webpack": "^6.2.1",
     "clsx": "^1.1.1",
@@ -33,7 +33,7 @@
     "autoprefixer": "^10.4.2",
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
-    "postcss": "^8.4.6",
+    "postcss": "^8.4.7",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.4.1",
     "prettier": "^2.5.1",
