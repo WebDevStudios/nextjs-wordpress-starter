@@ -58,8 +58,6 @@ export default async function getPostsDateArchive(
     day
   }
 
-  // console.log('jr getPostsDateArchive', variables)
-
   // Conditionally add excluded IDs if provided.
   if (exclude?.length) {
     variables.notIn = exclude

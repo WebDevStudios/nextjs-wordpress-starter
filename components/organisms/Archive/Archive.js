@@ -29,7 +29,6 @@ export default function Archive({
   taxonomy,
   term
 }) {
-  // console.log('ARCHIVE')
   // Track all posts, including initial posts and additionally loaded pages.
   const [allPosts, setAllPosts] = useState(posts)
 

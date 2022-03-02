@@ -61,7 +61,7 @@ export default async function getPostTypeStaticProps(
         }
   }
 
-  // /* -- Handle dynamic archive display. -- */
+  /* -- Handle dynamic archive display. -- */
   if (!Object.keys(params).length) {
     const {apolloClient, ...archiveData} = await getPostTypeArchive(postType)
 
