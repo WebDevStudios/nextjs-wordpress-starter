@@ -4,9 +4,9 @@ title: Contributing
 
 There are many ways to contribute to this project:
 
-- Discuss [open issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/issues) to help define the future of the project
-- [Submit bugs](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/issues) and help verify fixes
-- Review and discuss [pull requests](https://github.com/WebDevStudios/nextjs-wordpress-starter/blob/main/pulls)
+- Discuss [open issues](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) to help define the future of the project
+- [Submit bugs](https://github.com/WebDevStudios/nextjs-wordpress-starter/issues) and help verify fixes
+- Review and discuss [pull requests](https://github.com/WebDevStudios/nextjs-wordpress-starter/pulls)
 - Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
 - Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
