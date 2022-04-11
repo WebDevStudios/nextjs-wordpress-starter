@@ -73,7 +73,7 @@ jobs:
         run: npm run build-storybook
 
       - name: Publish to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
           branch: gh-pages
           folder: storybook-static
