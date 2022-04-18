@@ -14,6 +14,7 @@ module.exports = {
   ],
   settings: {
     jsdoc: {
+      mode: 'typescript',
       tagNamePreference: {
         returns: 'return'
       }
@@ -28,7 +29,7 @@ module.exports = {
       'warn',
       'always',
       {
-        tags: ['param', 'return']
+        tags: ['param', 'return', 'type']
       }
     ],
     'jsdoc/require-param': [
