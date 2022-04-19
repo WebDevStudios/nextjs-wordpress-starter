@@ -23,7 +23,7 @@ jobs:
           ssh-private-key: ${{ secrets.GH_PAGES_PRIVATE_KEY }}
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
           cache: 'npm'
@@ -61,7 +61,7 @@ jobs:
           token: ${{ github.token }}
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
           cache: 'npm'
@@ -73,7 +73,7 @@ jobs:
         run: npm run build-storybook
 
       - name: Publish to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: storybook-static
