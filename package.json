@@ -73,7 +73,7 @@
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.3",
+    "@testing-library/react": "^12.1.5",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
