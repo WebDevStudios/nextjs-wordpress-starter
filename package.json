@@ -41,7 +41,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@next/bundle-analyzer": "^12.1.5",
-    "algoliasearch": "^4.12.2",
+    "algoliasearch": "^4.13.1",
     "apollo-link-rest": "^0.8.0",
     "dayjs": "^1.10.8",
     "deepmerge": "^4.2.2",
