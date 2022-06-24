@@ -41,7 +41,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@next/bundle-analyzer": "^12.1.5",
-    "algoliasearch": "^4.12.2",
+    "algoliasearch": "^4.13.1",
     "apollo-link-rest": "^0.8.0",
     "dayjs": "^1.10.8",
     "deepmerge": "^4.2.2",
@@ -51,12 +51,12 @@
     "graphql-anywhere": "^4.2.7",
     "html-react-parser": "^1.4.8",
     "next": "12.1.5",
-    "next-auth": "^4.2.1",
+    "next-auth": "^4.6.1",
     "next-connect": "^0.12.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-instantsearch-dom": "^6.22.0",
-    "react-is": "^17.0.2",
+    "react-is": "^18.2.0",
     "react-syntax-highlighter": "^15.4.5",
     "react-twitter-embed": "^4.0.4",
     "rimraf": "^3.0.2",
@@ -93,9 +93,9 @@
     "postcss-preset-env": "^7.4.3",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.1",
-    "sharp": "^0.30.2",
+    "sharp": "^0.30.6",
     "storybook-css-modules-preset": "^1.1.1",
-    "stylelint": "^14.5.3",
+    "stylelint": "^14.9.1",
     "stylelint-config-standard": "^25.0.0"
   }
 }
