@@ -11,5 +11,6 @@
   // This will get emmet working in JSX.
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
-  }
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false
 }
