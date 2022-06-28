@@ -27,11 +27,9 @@
         }
       }
 
-      @screen lg {
-        &:last-child {
-          & > a {
-            @apply pr-0;
-          }
+      &:last-child {
+        & > a {
+          @apply lg:pr-0;
         }
       }
     }
