@@ -69,7 +69,7 @@
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@testing-library/jest-dom": "^5.16.2",
