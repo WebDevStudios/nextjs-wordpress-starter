@@ -91,7 +91,7 @@
     "postcss": "^8.4.7",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "^7.4.3",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.3",
     "prop-types": "^15.8.1",
     "sharp": "^0.30.6",
     "storybook-css-modules-preset": "^1.1.1",
