@@ -8,7 +8,7 @@ This project is outdated and no longer being maintained. WebDevStudios has devel
 
 While this repository is no longer actively maintained, we're keeping it available for historical reference and for those who might still find the code useful.
 
-For the latest on our projects and developments, please visit [Link to new repository or organization].
+For the latest on our projects and developments, please visit https://webdevstudios.com
 
 Thank you for your support and contributions over the years. We hope you continue to find value in our past work and join us in our new ventures.
 
