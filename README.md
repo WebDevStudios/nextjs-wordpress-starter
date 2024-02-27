@@ -1,3 +1,5 @@
+*** NOTE: This repository is a legacy repo, and is currently not maintained nor updated by WebDevStudios. It is kept here for historical and archival purposes ***
+
 # Next.js WordPress Starter
 
 [![WebDevStudios. Your Success is Our Mission.](https://nextjsdevstart.wpengine.com/wp-content/uploads/2021/09/WDS-GitHub-Banner.webp)](https://webdevstudios.com/contact/)
