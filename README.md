@@ -1,16 +1,22 @@
-*** NOTE: This repository is a legacy repo, and is currently not maintained nor updated by WebDevStudios. It is kept here for historical and archival purposes ***
 
 # Next.js WordPress Starter
 
-[![WebDevStudios. Your Success is Our Mission.](https://nextjsdevstart.wpengine.com/wp-content/uploads/2021/09/WDS-GitHub-Banner.webp)](https://webdevstudios.com/contact/)
+[![WebDevStudios. Your Success is Our Mission.](https://webdevstudios.com/wp-content/uploads/2024/02/wds-banner.png)](https://webdevstudios.com/contact/)
 
-A headless starter for WordPress powered by Next.js
 
-- Next.js Demo: <https://nextjs-wordpress-starter.vercel.app/>
-- Storybook: <https://webdevstudios.github.io/nextjs-wordpress-starter/storybook/>
-- Documentation: <https://webdevstudios.github.io/nextjs-wordpress-starter/>
+As of 02/27/2024, this repository has been archived and is now read-only. 
 
-## Introduction
+This project is outdated and no longer being maintained. WebDevStudios has developed different methods for headless WordPress projects that we may publish to a public repo in the future.  We are grateful for the engagement here, and for all contributions and discussions.
+
+While this repository is no longer actively maintained, we're keeping it available for historical reference and for those who might still find the code useful.
+
+For the latest on our projects and developments, please visit [Link to new repository or organization].
+
+Thank you for your support and contributions over the years. We hope you continue to find value in our past work and join us in our new ventures.
+
+WebDevStudios / WD3, LLC
+
+## Documentation - Historical
 
 Querying a REST-API or GraphQL endpoint and looping over blog posts is where many tutorials about _"headless WordPress"_ stop. You'd be hard pressed to find a deep-dive into advanced functionality because: **headless WordPress is hard**.
 
@@ -25,19 +31,6 @@ There are two environments, the backend (WordPress) and the frontend (Next.js). 
 1. [Backend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/backend)
 2. [Frontend setup docs](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/frontend)
 
-## Documentation
-
-Visit <https://webdevstudios.github.io/nextjs-wordpress-starter/docs> to view all the documentation.
-
-## Contributing
-
-There are many ways to [contribute](/CONTRIBUTING.md) to this project:
-
-- Discuss [open issues](/issues) to help define the future of the project
-- [Submit bugs](/issues) and help verify fixes
-- Review and discuss [pull requests](/pulls)
-- Level up the [documentation](https://webdevstudios.github.io/nextjs-wordpress-starter/docs/other/docusaurus)
-- Monitor and help answer questions in [Github Discussions](https://github.com/WebDevStudios/nextjs-wordpress-starter/discussions)
 
 ## License
 
