@@ -50,7 +50,7 @@
     "graphql": "^16.3.0",
     "graphql-anywhere": "^4.2.7",
     "html-react-parser": "^1.4.8",
-    "next": "12.1.5",
+    "next": "13.5.1",
     "next-auth": "^4.6.1",
     "next-connect": "^0.12.2",
     "react": "^17.0.2",
