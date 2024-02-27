@@ -14,7 +14,7 @@ Thank you for your support and contributions over the years. We hope you continu
 
 WebDevStudios / WD3, LLC
 
-## Docutentation - Historical
+## Documentation - Historical
 
 Querying a REST-API or GraphQL endpoint and looping over blog posts is where many tutorials about _"headless WordPress"_ stop. You'd be hard pressed to find a deep-dive into advanced functionality because: **headless WordPress is hard**.
 
