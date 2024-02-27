@@ -33,7 +33,7 @@
     "autoprefixer": "^10.4.4",
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.31",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.4.3",
     "prettier": "^2.6.2",
