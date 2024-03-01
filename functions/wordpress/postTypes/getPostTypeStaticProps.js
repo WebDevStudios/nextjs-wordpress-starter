@@ -150,7 +150,6 @@ export default async function getPostTypeStaticProps(
 
   // Get post identifier (ID or slug).
   const postId = Number.isInteger(Number(slug)) ? Number(slug) : slug
-
   // Check if preview mode is active and valid for current post (preview and post IDs or slugs match).
   const isCurrentPostPreview =
     preview &&

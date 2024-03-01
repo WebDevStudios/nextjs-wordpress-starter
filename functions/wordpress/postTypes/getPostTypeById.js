@@ -1,6 +1,7 @@
 import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchicalPostType'
 import processPostTypeQuery from '@/functions/wordpress/postTypes/processPostTypeQuery'
 import queryPageById from '@/lib/wordpress/pages/queryPageById'
+import constructCPTQuery from '@/lib/wordpress/posts/queryCPTById'
 import queryPostById from '@/lib/wordpress/posts/queryPostById'
 
 /**
@@ -20,13 +21,17 @@ export default async function getPostTypeById(
   preview = null
 ) {
   // Define single post query based on post type.
-  const postTypeQuery = {
+  let postTypeQuery = {
     page: queryPageById,
     post: queryPostById
   }
 
   // Check if post type is hierarchical.
   const isHierarchical = isHierarchicalPostType(postType)
+
+  if (!isHierarchical) {
+    postTypeQuery[postType] = constructCPTQuery(postType)
+  }
 
   // Fix default ID type for hierarchical posts.
   idType = !isHierarchical || 'SLUG' !== idType ? idType : 'URI'
